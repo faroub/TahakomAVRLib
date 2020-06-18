@@ -47,7 +47,7 @@ set(LIB_DIR "./src/src_mcu/lib_mcu"
 
 include_directories(${LIB_DIR}/io
     ${LIB_DIR}/components)
-#add_subdirectory(${LIB_DIR}/io)
+add_subdirectory(${LIB_DIR}/io)
 #add_subdirectory(${LIB_DIR}/components)
 
 
