@@ -1,10 +1,11 @@
 /**
+ * @file main.cpp
  * @brief Simple application to blink a Led
  * @author Farid Oubbati (https://github.com/faroub)
  * @date March 2020
 */
 
-int main(void) {
+[[noreturn]] int main(void) {
 
   // Init
 
@@ -13,7 +14,7 @@ int main(void) {
 
 
   }
-  return 0;
+
 }
 
 
