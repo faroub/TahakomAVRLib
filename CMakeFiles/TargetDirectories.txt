@@ -1,0 +1,14 @@
+/home/faroub/Documents/development-projects/projects-embedded/avr-mcu/CMakeFiles/rebuild_cache.dir
+/home/faroub/Documents/development-projects/projects-embedded/avr-mcu/CMakeFiles/edit_cache.dir
+/home/faroub/Documents/development-projects/projects-embedded/avr-mcu/src/src_mcu/lib_mcu/io/CMakeFiles/rebuild_cache.dir
+/home/faroub/Documents/development-projects/projects-embedded/avr-mcu/src/src_mcu/lib_mcu/io/CMakeFiles/io.dir
+/home/faroub/Documents/development-projects/projects-embedded/avr-mcu/src/src_mcu/lib_mcu/io/CMakeFiles/edit_cache.dir
+/home/faroub/Documents/development-projects/projects-embedded/avr-mcu/src/src_mcu/lib_mcu/components/CMakeFiles/rebuild_cache.dir
+/home/faroub/Documents/development-projects/projects-embedded/avr-mcu/src/src_mcu/lib_mcu/components/CMakeFiles/components.dir
+/home/faroub/Documents/development-projects/projects-embedded/avr-mcu/src/src_mcu/lib_mcu/components/CMakeFiles/edit_cache.dir
+/home/faroub/Documents/development-projects/projects-embedded/avr-mcu/src/src_mcu/apps_mcu/blink_led_mcu/CMakeFiles/rebuild_cache.dir
+/home/faroub/Documents/development-projects/projects-embedded/avr-mcu/src/src_mcu/apps_mcu/blink_led_mcu/CMakeFiles/edit_cache.dir
+/home/faroub/Documents/development-projects/projects-embedded/avr-mcu/src/src_mcu/apps_mcu/blink_led_mcu/CMakeFiles/BlinkLed_eeprom.dir
+/home/faroub/Documents/development-projects/projects-embedded/avr-mcu/src/src_mcu/apps_mcu/blink_led_mcu/CMakeFiles/BlinkLed_hex.dir
+/home/faroub/Documents/development-projects/projects-embedded/avr-mcu/src/src_mcu/apps_mcu/blink_led_mcu/CMakeFiles/BlinkLed.dir
+/home/faroub/Documents/development-projects/projects-embedded/avr-mcu/src/src_mcu/apps_mcu/blink_led_mcu/CMakeFiles/BlinkLed_strip.dir
