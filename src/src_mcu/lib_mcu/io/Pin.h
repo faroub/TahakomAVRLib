@@ -70,6 +70,12 @@ private:
 
 
 };
+
+Port PortB = { &DDRB, &PORTB, &PINB };
+Port PortC = { &DDRC, &PORTC, &PINC };
+Port PortD = { &DDRD, &PORTD, &PIND };
+
+
 }
 
 
