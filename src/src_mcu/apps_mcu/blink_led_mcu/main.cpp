@@ -5,16 +5,22 @@
  * @date March 2020
 */
 
-[[noreturn]] int main(void) {
+#include "Led.h"
+
+
+int main(void) {
 
   // Init
+
+  component::Led testLed(io::Pin(2,io::PortB));
+
 
   // Mainloop
   while (1) {
 
 
   }
-
+  return 0;
 }
 
 
