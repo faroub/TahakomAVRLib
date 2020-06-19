@@ -6,9 +6,13 @@ project (BlinkLed C CXX ASM)
 set(ENV{MCU_PROJECT_NAME} ${PROJECT_NAME})
 message("MCU_PROJECT_NAME = $ENV{MCU_PROJECT_NAME}")
 
+
+set (INTERN_LINK_LIBS ${INTERN_LINK_LIBS} io components)
+set (EXTERN_LINK_LIBS ${EXTERN_LINK_LIBS})
+
 # target
 add_executable(${PROJECT_NAME} main.cpp)
-#target_link_libraries(${PROJECT_NAME} ${INTERN_LINK_LIBS} ${EXTERN_LINK_LIBS})
+target_link_libraries(${PROJECT_NAME} ${INTERN_LINK_LIBS} ${EXTERN_LINK_LIBS})
 # several executables 1) mcu code 2) Qt gui code
 
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "${PROJECT_NAME}.elf")
