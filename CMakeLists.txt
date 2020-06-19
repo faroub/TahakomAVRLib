@@ -29,7 +29,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CSTANDARD "-std=gnu99")
 set(CDEBUG    "-gstabs -g -ggdb")
 set(CWARN     "-Wall -Wstrict-prototypes -Wl,--gc-sections -Wl,--relax")
-set(CTUNING   "-funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums -ffunction-sections -fdata-sections")
+set(CTUNING   "-funsigned-char -funsigned-bitfields -fshort-enums -ffunction-sections -fdata-sections")
 set(COPT      "-Os -lm -lprintf_flt")
 set(CMCU      "-mmcu=${MCU}")
 set(CDEFS     "-DF_CPU=${F_CPU} -DBAUD=${BAUD}")
@@ -47,6 +47,7 @@ set(LIB_DIR "./src/src_mcu/lib_mcu"
 
 include_directories(${LIB_DIR}/io
     ${LIB_DIR}/components)
+
 add_subdirectory(${LIB_DIR}/io)
 add_subdirectory(${LIB_DIR}/components)
 
