@@ -9,12 +9,10 @@
 #ifndef LED_H
 #define LED_H
 #include <stdint.h>
-namespace io
-{
-class Pin;
-}
+#include "Pin.h"
 
-namespace components
+
+namespace component
 {
 class Led
 {
@@ -22,9 +20,9 @@ class Led
 public:
     /** Constructor. Initalizes the pin object
          *
-         *  @param ar_pin pin object
+         *  @param ar_pin Reference to pin object
          */
-    Led(io::Pin& ar_pin);
+    Led(const io::Pin &ar_pin);
     /** Destructor.
         */
     ~Led();
@@ -47,9 +45,9 @@ public:
 protected:
 
 private:
-    /** Constant reference to a pin object
+    /** Reference to a pin object
          */
-    io::Pin &mr_pin;
+    io::Pin mr_pin;
 
 
 

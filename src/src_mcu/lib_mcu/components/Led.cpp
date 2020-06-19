@@ -1,40 +1,44 @@
 #include "Led.h"
-#include "Pin.h"
 
-components::Led::Led(io::Pin& ar_pin)
+component::Led::Led(const io::Pin &ar_pin)
          : mr_pin(ar_pin)
 {
     mr_pin.toOutput();
 }
 
+component::Led::~Led()
+{
 
-void components::Led::on()
+}
+
+
+void component::Led::on()
 {
     mr_pin.setHigh();
 
 }
 
-void components::Led::off()
+void component::Led::off()
 {
     mr_pin.setLow();
 
 }
 
 
-void components::Led::toggle()
+void component::Led::toggle()
 {
     mr_pin.toggle();
 
 }
 
-uint8_t components::Led::isOn()
+uint8_t component::Led::isOn()
 {
     return mr_pin.isHigh();
 
 }
 
 
-uint8_t components::Led::isOff()
+uint8_t component::Led::isOff()
 {
     return mr_pin.isLow();
 
