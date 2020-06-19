@@ -1,7 +1,18 @@
 #include "Pin.h"
 
+//io::Port PortB = { &DDRB, &PORTB, &PINB };
+//io::Port PortC = { &DDRC, &PORTC, &PINC };
+//io::Port PortD = { &DDRD, &PORTD, &PIND };
+
 io::Pin::Pin(const uint8_t &ar_pinNumber, const Port &mr_portName)
          : mr_portName(mr_portName), mr_pinNumber(ar_pinNumber)
+{
+
+}
+
+
+io::Pin::~Pin()
+
 {
 
 }

@@ -75,7 +75,7 @@ private:
      /** Constant reference to a port object
           */
      const Port &mr_portName;
-     /** Constant reference to a pin number
+     /** the pin number
           */
      const uint8_t &mr_pinNumber;
 
@@ -83,10 +83,9 @@ private:
 
 };
 
-Port PortB = { &DDRB, &PORTB, &PINB };
-Port PortC = { &DDRC, &PORTC, &PINC };
-Port PortD = { &DDRD, &PORTD, &PIND };
-
+static io::Port PortB = { &DDRB, &PORTB, &PINB };
+static io::Port PortC = { &DDRB, &PORTB, &PINB };
+static io::Port PortD = { &DDRB, &PORTB, &PINB };
 
 }
 
