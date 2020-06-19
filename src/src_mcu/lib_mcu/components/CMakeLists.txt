@@ -1,1 +1,1 @@
-add_library(components)
+add_library(components Led.cpp)
