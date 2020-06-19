@@ -2,7 +2,7 @@
  * @file Pin.h
  * @brief Header file of the Pin class
  *
- * Basic IO abstraction of an avr chip Pin and Port
+ * Basic class for IO abstraction of an avr chip Pin and Port
  * @author Farid Oubbati (https://github.com/faroub)
  * @date March 2020
 */
@@ -13,10 +13,19 @@
 namespace io
 {
 
+/** Structure. Contains pointers to the Port's registers
+     *
+     */
 struct Port
 {
+  /** pointer to the data direction register
+       */
   volatile uint8_t* mp_ddrReg;
+  /** pointer to the port register
+       */
   volatile uint8_t* mp_portReg;
+  /** pointer to the pin register
+       */
   volatile uint8_t* mp_pinReg;
 };
 
@@ -29,43 +38,46 @@ public:
          *  @param ar_port IO port of the avr chip
          *  @param ar_pin IO pin of the avr chip
          */
-    Pin(const uint8_t &ar_pin, const Port &ar_port);
-    /** Default destructor.
+    Pin(const uint8_t &ar_pinNumber, const Port &ar_portName);
+    /** Destructor.
         */
     ~Pin();
-    /** configure pin to output.
+    /** Configure pin to output.
          */
     void toOutput();
-    /** configure pin to input.
+    /** Configure pin to input.
          */
     void toInput();
-    /** set pin to logic low.
+    /** Set pin to logic low.
          */
     void setLow();
-    /** set pin to logic high.
+    /** Set pin to logic high.
          */
     void setHigh();
-    /** toggle pin state.
+    /** Toggle pin state.
          */
     void toggle();
-    /** check if pin is logic high.
+    /** Check if pin is logic high.
          */
     uint8_t isHigh() const;
-    /** check if pin is logic low.
+    /** Check if pin is logic low.
          */
     uint8_t isLow() const;
-    /** get pin number.
+    /** Get pin number.
          */
-    uint8_t getPin() const;
+    uint8_t getPinNumber() const;
 
 protected:
 
 
 private:
 
-     const Port &mr_port;
-
-     const uint8_t &mr_pin;
+     /** Constant reference to a port object
+          */
+     const Port &mr_portName;
+     /** Constant reference to a pin number
+          */
+     const uint8_t &mr_pinNumber;
 
 
 

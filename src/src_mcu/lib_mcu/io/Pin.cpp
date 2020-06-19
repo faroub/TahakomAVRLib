@@ -1,57 +1,57 @@
-#include <Pin.h>
+#include "Pin.h"
 
-io::Pin::Pin(const uint8_t &ar_pin, const Port &ar_port)
-         : mr_port(ar_port), mr_pin(ar_pin)
+io::Pin::Pin(const uint8_t &ar_pinNumber, const Port &mr_portName)
+         : mr_portName(mr_portName), mr_pinNumber(ar_pinNumber)
 {
 
 }
 
 void io::Pin::toOutput()
 {
-    *mr_port.mp_ddrReg  |=  (1 << mr_pin);
+    *mr_portName.mp_ddrReg  |=  (1 << mr_pinNumber);
 }
 
 void io::Pin::toInput()
 {
-    *mr_port.mp_portReg &= ~(1 << mr_pin);
-    *mr_port.mp_ddrReg  &= ~(1 << mr_pin);
+    *mr_portName.mp_portReg &= ~(1 << mr_pinNumber);
+    *mr_portName.mp_ddrReg  &= ~(1 << mr_pinNumber);
 }
 
 void io::Pin::setLow()
 {
-    if (*mr_port.mp_ddrReg & (1 << mr_pin))
+    if (*mr_portName.mp_ddrReg & (1 << mr_pinNumber))
     {
-        *mr_port.mp_portReg &= ~(1 << mr_pin);
+        *mr_portName.mp_portReg &= ~(1 << mr_pinNumber);
     }
 }
 
 void io::Pin::setHigh()
 {
-    if (*mr_port.mp_ddrReg & (1 << mr_pin))
+    if (*mr_portName.mp_ddrReg & (1 << mr_pinNumber))
     {
-        *mr_port.mp_portReg |=  (1 << mr_pin);
+        *mr_portName.mp_portReg |=  (1 << mr_pinNumber);
     }
 }
 
 void io::Pin::toggle()
 {
-    if (*mr_port.mp_ddrReg & (1 << mr_pin))
+    if (*mr_portName.mp_ddrReg & (1 << mr_pinNumber))
     {
-        *mr_port.mp_portReg ^=   1 << mr_pin;
+        *mr_portName.mp_portReg ^=   1 << mr_pinNumber;
     }
 }
 
 uint8_t io::Pin::isHigh() const
 {
-    return   *mr_port.mp_pinReg & (1 << mr_pin);
+    return   *mr_portName.mp_pinReg & (1 << mr_pinNumber);
 }
 
 uint8_t io::Pin::isLow() const
 {
-    return   !(*mr_port.mp_pinReg & (1 << mr_pin));
+    return   !(*mr_portName.mp_pinReg & (1 << mr_pinNumber));
 }
 
-uint8_t io::Pin::getPin() const
+uint8_t io::Pin::getPinNumber() const
 {
-    return mr_pin;
+    return mr_pinNumber;
 }
