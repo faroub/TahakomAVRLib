@@ -1,2 +1,2 @@
-add_library(io Pin.cpp)
+add_library(io Pin.cpp USART.cpp)
 
