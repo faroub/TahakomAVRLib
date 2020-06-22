@@ -44,19 +44,19 @@ public:
     ~Pin();
     /** Configure pin to output.
          */
-    void toOutput();
+    void toOutput() const;
     /** Configure pin to input.
          */
-    void toInput();
+    void toInput() const;
     /** Set pin to logic low.
          */
-    void setLow();
+    void setLow() const;
     /** Set pin to logic high.
          */
-    void setHigh();
+    void setHigh() const;
     /** Toggle pin state.
          */
-    void toggle();
+    void toggle() const;
     /** Check if pin is logic high.
          */
     uint8_t isHigh() const;
@@ -72,20 +72,16 @@ protected:
 
 private:
 
-     /** Constant reference to a port object
-          */
-     const Port &mr_portName;
-     /** the pin number
-          */
-     const uint8_t &mr_pinNumber;
+     const Port &mr_portName; /**< Constant reference to a port object */
+     const volatile uint8_t &mr_pinNumber; /**< pin number */
 
 
 
 };
 
-static io::Port PortB = { &DDRB, &PORTB, &PINB };
-static io::Port PortC = { &DDRB, &PORTB, &PINB };
-static io::Port PortD = { &DDRB, &PORTB, &PINB };
+static io::Port PortB = { &DDRB, &PORTB, &PINB }; /**< global static Port B object */
+static io::Port PortC = { &DDRC, &PORTC, &PINC }; /**< global static Port C object */
+static io::Port PortD = { &DDRD, &PORTD, &PIND }; /**< global static Port D object */
 
 }
 
