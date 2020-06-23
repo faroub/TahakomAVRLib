@@ -2,7 +2,7 @@
  * @file Pin.h
  * @brief Header file of the Pin class
  *
- * Basic class for IO abstraction of an avr chip Pin and Port
+ * Basic class for IO abstraction of the Atmega328p Pin and Port
  * @author Farid Oubbati (https://github.com/faroub)
  * @date March 2020
 */
@@ -18,15 +18,11 @@ namespace io
      */
 struct Port
 {
-  /** pointer to the data direction register
-       */
-  volatile uint8_t* mp_ddrReg;
-  /** pointer to the port register
-       */
-  volatile uint8_t* mp_portReg;
-  /** pointer to the pin register
-       */
-  volatile uint8_t* mp_pinReg;
+  volatile uint8_t* mp_ddrReg; /**< pointer to the data direction register */
+
+  volatile uint8_t* mp_portReg; /**< pointer to the port register */
+
+  volatile uint8_t* mp_pinReg; /**< pointer to the pin register */
 };
 
 class Pin
@@ -72,8 +68,8 @@ protected:
 
 private:
 
-     const Port &mr_portName; /**< Constant reference to a port object */
-     const volatile uint8_t &mr_pinNumber; /**< pin number */
+     const Port &mr_portName; /**< constant reference to a port object */
+     const uint8_t &mr_pinNumber; /**< pin number */
 
 
 
