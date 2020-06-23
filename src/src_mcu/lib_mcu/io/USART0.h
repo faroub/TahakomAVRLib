@@ -10,31 +10,36 @@
 */
 #ifndef USART_H
 #define USART_H
-#include <stdint.h>
-#include <avr/io.h>
-#include <util/setbaud.h>
+#include "ha_base.h"
 
 
 namespace io
 {
 
-enum opMode : uint8_t {
+enum transMode : uint8_t {
     Async=0,
     AsyncDouble,
     sync
 };
 
 enum comMode : uint8_t {
-    send=0,
+    duplex=0,
+    send,
     receive,
-    duplex
+
 };
 
-enum frameSize : uint8_t{
-    fiveBits=0,
+enum parityMode : uint8_t {
+    noParity=0,
+    evenParity,
+    oddParity
+};
+
+enum frameSize : uint8_t {
+    eightBits=0,
+    fiveBits,
     sixBits,
     sevenBits,
-    eightBits,
     neineBits
 };
 
@@ -62,10 +67,11 @@ public:
     //  - enabling the Transmitter or/and the Receiver depending on the usage
 
 
-    USART0(const opMode& ar_opMode = opMode::Async,
+    USART0(const transMode& transMode = transMode::Async,
            const comMode& ar_comMode = comMode::duplex,
            const frameSize& ar_frameSize = frameSize::eightBits,
-           const frameSync& ar_frameSync = frameSync::oneStopBit);
+           const frameSync& ar_frameSync = frameSync::oneStopBit,
+           const parityMode& ar_parityMode = parityMode::noParity);
     /** Destructor.
         */
     ~USART0();
@@ -84,21 +90,11 @@ protected:
 
 private:
 
-    volatile uint8_t* mp_baudRateRegH = &UBRR0H; /**< pointer to the USART baud rate register high byte */
-
-    volatile uint8_t* mp_baudRateRegL = &UBRR0L; /**< pointer to the USART baud rate register low byte */
-
-    volatile uint8_t* mp_controlStatusRegA = &UCSR0A; /**< pointer to the USART control and status register A */
-
-    volatile uint8_t* mp_controlStatusRegB = &UCSR0B; /**< pointer to the USART control and status register B */
-
-    volatile uint8_t* mp_controlStatusRegC = &UCSR0C; /**< pointer to the USART control and status register C */
-
-    volatile uint8_t* mp_dataReg = &UDR0; /**< pointer to the USART data register */
-
-    const opMode &mr_opMode; /**< constant reference to operation mode */
+    const transMode &mr_transMode; /**< constant reference to operation mode */
 
     const comMode &mr_comMode; /**< constant reference to communication mode */
+
+    const parityMode &mr_parityMode; /**< constant reference to frame sync bits */
 
     const frameSize &mr_frameSize; /**< constant reference to frame size */
 
