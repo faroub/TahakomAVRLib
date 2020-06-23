@@ -1,6 +1,6 @@
 /**
  * @file ha_base.h
- * @brief Header file for the basic hardware abstraction macros
+ * @brief Base header file for the basic hardware abstraction macros
  *
  * @author Farid Oubbati (https://github.com/faroub)
  * @date March 2020
