@@ -46,7 +46,7 @@ protected:
 
 private:
 
-    const io::Pin &mr_pin; /**< Constant reference to a pin object */
+    const io::Pin &mr_pin; /**< constant reference to a pin object */
 
 
 
