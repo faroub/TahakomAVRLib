@@ -46,7 +46,8 @@ set(LIB_DIR "./src/src_mcu/lib_mcu"
     CACHE PATH "The path to the mcu libraries.")
 
 include_directories(${LIB_DIR}/io
-    ${LIB_DIR}/components)
+                    ${LIB_DIR}/components
+                    ${LIB_DIR}/utils)
 
 add_subdirectory(${LIB_DIR}/io)
 add_subdirectory(${LIB_DIR}/components)
