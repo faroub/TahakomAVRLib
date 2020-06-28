@@ -26,10 +26,10 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Compiler flags
-set(CSTANDARD "-std=gnu99")
+set(CSTANDARD "-std=gnu99 ")
 set(CDEBUG    "-gstabs -g -ggdb")
 set(CWARN     "-Wall -Wstrict-prototypes -Wl,--gc-sections -Wl,--relax")
-set(CTUNING   "-funsigned-char -funsigned-bitfields -fshort-enums -ffunction-sections -fdata-sections")
+set(CTUNING   "-funsigned-char -funsigned-bitfields -fshort-enums -ffunction-sections -fdata-sections -fno-threadsafe-statics")
 set(COPT      "-Os -lm -lprintf_flt")
 set(CMCU      "-mmcu=${MCU}")
 set(CDEFS     "-DF_CPU=${F_CPU} -DBAUD=${BAUD}")
@@ -56,5 +56,5 @@ add_subdirectory(${LIB_DIR}/components)
 set(APPS_DIR "./src/src_mcu/apps_mcu"
     CACHE PATH "The path to the mcu apps.")
 
-add_subdirectory(${APPS_DIR}/blink_led_mcu)
-#add_subdirectory(${APPS_DIR}/toggle_led_mcu)
+#add_subdirectory(${APPS_DIR}/blink_led_mcu)
+add_subdirectory(${APPS_DIR}/usart_mcu)
