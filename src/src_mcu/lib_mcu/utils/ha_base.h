@@ -9,14 +9,20 @@
 #ifndef HABASE_H
 #define HABASE_H
 
+// helper construct to get interrupt numbers from names
+#define STRx(s)  #s
+#define STR(s)   STRx(s)
+
 // any class needs these includes
 #include <stdint.h>
 #include <avr/io.h>
+#include <avr/interrupt.h>
+
 
 /*
  * include hardware abstraction the Atmega328p
  */
-#if   defined(__AVR_ATmega16__)
+#if   defined(__AVR_ATmega328P__)
 
     #include "ha_m328p.h"
 

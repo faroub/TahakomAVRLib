@@ -11,7 +11,6 @@
 #define DELAYTIME 1000 /**< time delay */
 
 
-
 int main(void) {
 
   // Init

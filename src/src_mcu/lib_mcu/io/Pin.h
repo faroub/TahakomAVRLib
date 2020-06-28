@@ -8,8 +8,8 @@
 */
 #ifndef PIN_H
 #define PIN_H
-#include <stdint.h>
-#include <avr/io.h>
+#include "ha_base.h"
+
 namespace io
 {
 

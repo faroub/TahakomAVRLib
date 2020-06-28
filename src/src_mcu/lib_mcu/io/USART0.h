@@ -16,36 +16,36 @@
 namespace io
 {
 
-enum transMode : uint8_t {
-    Async=0,
-    AsyncDouble,
-    sync
+enum transmissionMode : uint8_t {
+    Async=0,    /**< asynchronous mode */
+    Sync,       /**< synchronous mode */
+    MasterSPI   /**< masterSPI mode */
 };
 
-enum comMode : uint8_t {
-    duplex=0,
-    send,
-    receive,
+enum communicationMode : uint8_t {
+    duplex=0,   /**< full duplex mode */
+    transmit,   /**< transmit mode */
+    receive,    /**< receive mode */
 
 };
 
 enum parityMode : uint8_t {
-    noParity=0,
-    evenParity,
-    oddParity
+    noParity=0, /**< no parity check mode */
+    evenParity, /**< even parity check mode */
+    oddParity /**< odd parity check mode */
 };
 
 enum frameSize : uint8_t {
-    eightBits=0,
-    fiveBits,
-    sixBits,
-    sevenBits,
-    neineBits
+    eightBits=0, /**< 8 bits frame size */
+    fiveBits,   /**< 5 bits frame size */
+    sixBits, /**< 6 bits frame size */
+    sevenBits, /**< 7 bits frame size */
+    neineBits /**< 9 bits frame size */
 };
 
-enum frameSync : uint8_t{
-    oneStopBit=0,
-    twoStopBits
+enum stopBit : uint8_t{
+    oneStopBit=0, /**< 1 stop bit */
+    twoStopBits /**< 2 stop bits */
 };
 
 class USART0
@@ -53,33 +53,56 @@ class USART0
 
 public:
 
+    static USART0& getInstance(const transmissionMode& ar_transMode = transmissionMode::Async,
+                               const communicationMode& ar_comMode = communicationMode::duplex,
+                               const frameSize& ar_frameSize = frameSize::eightBits,
+                               const stopBit& ar_stopBit = stopBit::oneStopBit,
+                               const parityMode& ar_parityMode = parityMode::noParity)
+    {
+        static USART0 l_instance(ar_transMode,
+                                 ar_comMode,
+                                 ar_frameSize,
+                                 ar_stopBit,
+                                 ar_parityMode);
+
+        return l_instance;
+    }
 
 
-    /** Constructor. Initalizes the USART serial communication device
-         *
-         *  @param ar_port IO port of the avr chip
-         *  @param ar_pin IO pin of the avr chip
-         */
 
-    // initialize USART:
-    //  - setting the baud rate
-    //  - setting frame format (frame size and stop bits)
-    //  - enabling the Transmitter or/and the Receiver depending on the usage
+    static void setBaudRate();
 
+    static void setTransmissionMode(const transmissionMode& ar_transMode);
 
-    USART0(const transMode& transMode = transMode::Async,
-           const comMode& ar_comMode = comMode::duplex,
-           const frameSize& ar_frameSize = frameSize::eightBits,
-           const frameSync& ar_frameSync = frameSync::oneStopBit,
-           const parityMode& ar_parityMode = parityMode::noParity);
-    /** Destructor.
-        */
-    ~USART0();
+    static void setCommunicationMode(const communicationMode& ar_comMode);
 
-    void sendFrame();
+    static void setParityMode(const parityMode& ar_parityMode);
 
-    void receiveFrame();
+    static void setFrameSize(const frameSize& ar_frameSize);
 
+    static void setStopBit(const stopBit& ar_stopBit);
+
+    static void sendFrame(uint8_t *ap_dataBuffer, const int16_t& a_size);
+
+    static void receiveFrame(uint8_t* ap_dataBuffer, const int16_t& a_size);
+
+    static void enableTransmitterInterrupt(const bool &ar_enable);
+
+    static void enableReceiverInterrupt(const bool &ar_enable);
+
+    static void enableDataRegisterEmptyInterrupt(const bool &ar_enable);
+
+    static bool isFrameError();
+
+    static bool isDataOverrun();
+
+    static bool isParityError();
+
+    static void receiveCompleteServiceRoutine() __asm__(STR(USART0_RECEIVE_COMPLETE_INTERRUPT)) __attribute__((__signal__, __used__, __externally_visible__));
+
+    static void dataRegisterEmptyServiceRoutine() __asm__(STR(USART0_DATA_REGISTER_EMPTY_INTERRUPT)) __attribute__((__signal__,__used__, __externally_visible__));
+
+    static void transmitCompleteServiceRoutine() __asm__(STR(USART0_TRANSMIT_COMPLETE_INTERRUPT)) __attribute__((__signal__, __used__, __externally_visible__));
 
 
 
@@ -89,20 +112,50 @@ protected:
 
 
 private:
+    /** Constructor. Initalizes the USART serial communication device
+         *
+         *  @param ar_port IO port of the avr chip
+         *  @param ar_pin IO pin of the avr chip
+         */
+    USART0(const transmissionMode& ar_transMode = transmissionMode::Async,
+           const communicationMode& ar_comMode = communicationMode::duplex,
+           const frameSize& ar_frameSize = frameSize::eightBits,
+           const stopBit& ar_stopBit = stopBit::oneStopBit,
+           const parityMode& ar_parityMode = parityMode::noParity);
 
-    const transMode &mr_transMode; /**< constant reference to operation mode */
+    /** Destructor.
+        */
+    ~USART0();
 
-    const comMode &mr_comMode; /**< constant reference to communication mode */
+    USART0(const USART0&);
 
-    const parityMode &mr_parityMode; /**< constant reference to frame sync bits */
 
-    const frameSize &mr_frameSize; /**< constant reference to frame size */
+    const USART0& operator=(const USART0&);
 
-    const frameSync &mr_frameSync; /**< constant reference to frame sync bits */
 
+     /**< constant reference to operation mode */
+
+     /**< constant reference to communication mode */
+
+     /**< constant reference to frame sync bits */
+
+     /**< constant reference to frame size */
+
+     /**< constant reference to frame sync bits */
+
+    static uint8_t m_status;
+
+    static uint8_t m_data2Send;
+
+    static uint8_t m_dataReceived;
+
+    static int16_t m_numberBytesSent;
+
+    static int16_t m_numberBytesReceived;
 
 
 };
+
 
 
 }
