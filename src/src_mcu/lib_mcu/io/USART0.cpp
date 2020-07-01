@@ -1,11 +1,17 @@
 #include "USART0.h"
 
 
-uint8_t io::USART0::m_status = 0;
-uint8_t io::USART0::m_data2Send = 0;
-uint8_t io::USART0::m_dataReceived = 0;
-int16_t io::USART0::m_numberBytesSent = 0;
-int16_t io::USART0::m_numberBytesReceived = 0;
+volatile uint8_t io::USART0::m_status = 0;
+volatile const uint8_t* io::USART0::mp_data2Send = nullptr;
+volatile uint8_t* io::USART0::mp_dataReceived = nullptr;
+volatile int16_t io::USART0::m_numberBytesSent = 0;
+volatile int16_t io::USART0::m_numberBytesReceived = 0;
+volatile int16_t* io::USART0::mp_DataSize = nullptr;
+
+
+
+
+
 
 
 io::USART0::USART0(const transmissionMode& ar_transMode,
@@ -23,6 +29,8 @@ io::USART0::USART0(const transmissionMode& ar_transMode,
     setFrameSize(ar_frameSize);
     setStopBit(ar_stopBit);
     sei();
+
+
 }
 
 io::USART0::~USART0()
@@ -70,21 +78,18 @@ void io::USART0::setCommunicationMode(const communicationMode &ar_comMode)
         {
             USART0_ENABLE_TRANSMITTER;
             USART0_ENABLE_RECEIVER;
-            enableReceiverInterrupt(1);
             break;
         }
         case communicationMode::receive:
         {
             USART0_ENABLE_RECEIVER;
-            enableReceiverInterrupt(1);
             USART0_DISABLE_TRANSMITTER;
             break;
         }
         case communicationMode::transmit:
         {
             USART0_ENABLE_TRANSMITTER;
-            USART0_DISABLE_RECEIVER;
-            enableReceiverInterrupt(0);
+            USART0_DISABLE_RECEIVER;            
             break;
         }
     }
@@ -183,17 +188,60 @@ bool io::USART0::isParityError()
 
 }
 
-void io::USART0::sendFrame(uint8_t* ap_dataBuffer, const int16_t& a_size)
+void io::USART0::sendFrame(volatile const uint8_t* ap_dataBuffer, volatile int16_t &ar_size)
 {
-    m_data2Send = *ap_dataBuffer;
+    mp_DataSize = &ar_size;
+    mp_data2Send = ap_dataBuffer;
     enableDataRegisterEmptyInterrupt(1);
 }
 
 
-void io::USART0::receiveFrame(uint8_t* ap_dataBuffer, const int16_t &a_size)
+void io::USART0::receiveFrame(volatile uint8_t *ap_dataBuffer, volatile int16_t &ar_size)
 {
-    *ap_dataBuffer = m_dataReceived;
+    mp_DataSize = &ar_size;
+    mp_dataReceived = ap_dataBuffer;
+    enableReceiverInterrupt(1);
 
+}
+
+void io::USART0::receiveCompleteServiceRoutine()
+{
+    m_status = USART0_CONTROL_STATUS_REGISTER;
+
+    if (mp_dataReceived && (m_numberBytesReceived < *mp_DataSize))
+    {
+        *mp_dataReceived++ = USART0_DATA_REGISTER;
+        m_numberBytesReceived++;
+
+    }
+    else
+    {
+        m_numberBytesReceived = 0;
+        *mp_DataSize = 0;
+        mp_dataReceived = nullptr;
+        enableReceiverInterrupt(0);
+
+    }
+
+
+}
+
+void io::USART0::dataRegisterEmptyServiceRoutine()
+{
+
+    if (mp_data2Send && (m_numberBytesSent < *mp_DataSize))
+    {
+        USART0_DATA_REGISTER = *mp_data2Send++;
+        m_numberBytesSent++;
+
+    }
+    else
+    {
+        m_numberBytesSent = 0;
+        *mp_DataSize = 0;
+        mp_data2Send = nullptr;
+        enableDataRegisterEmptyInterrupt(0);
+    }
 }
 
 
@@ -229,23 +277,18 @@ void io::USART0::enableDataRegisterEmptyInterrupt(const bool &ar_enable)
 
 }
 
-void io::USART0::receiveCompleteServiceRoutine()
-{
-    m_status = USART0_STATUS_REGISTER;
-    m_dataReceived = USART0_DATA_REGISTER;
-
-
-}
-
-void io::USART0::dataRegisterEmptyServiceRoutine()
-{
-    USART0_DATA_REGISTER = m_data2Send;
-    enableDataRegisterEmptyInterrupt(0);
-
-
-}
-
 void io::USART0::transmitCompleteServiceRoutine()
 {
 
+}
+
+bool io::USART0::ready2Send()
+{
+    return mp_data2Send == nullptr;
+
+}
+
+bool io::USART0::ready2Receive()
+{
+    return mp_dataReceived == nullptr;
 }

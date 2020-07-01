@@ -54,7 +54,7 @@ class USART0
 public:
 
     static USART0& getInstance(const transmissionMode& ar_transMode = transmissionMode::Async,
-                               const communicationMode& ar_comMode = communicationMode::duplex,
+                               const communicationMode& ar_comMode = communicationMode::transmit,
                                const frameSize& ar_frameSize = frameSize::eightBits,
                                const stopBit& ar_stopBit = stopBit::oneStopBit,
                                const parityMode& ar_parityMode = parityMode::noParity)
@@ -82,9 +82,9 @@ public:
 
     static void setStopBit(const stopBit& ar_stopBit);
 
-    static void sendFrame(uint8_t *ap_dataBuffer, const int16_t& a_size);
+    static void sendFrame(volatile const uint8_t *ap_dataBuffer, volatile int16_t &ar_size);
 
-    static void receiveFrame(uint8_t* ap_dataBuffer, const int16_t& a_size);
+    static void receiveFrame(volatile uint8_t* ap_dataBuffer,  volatile int16_t &ar_size);
 
     static void enableTransmitterInterrupt(const bool &ar_enable);
 
@@ -103,6 +103,9 @@ public:
     static void dataRegisterEmptyServiceRoutine() __asm__(STR(USART0_DATA_REGISTER_EMPTY_INTERRUPT)) __attribute__((__signal__,__used__, __externally_visible__));
 
     static void transmitCompleteServiceRoutine() __asm__(STR(USART0_TRANSMIT_COMPLETE_INTERRUPT)) __attribute__((__signal__, __used__, __externally_visible__));
+
+    static bool ready2Send();
+    static bool ready2Receive();
 
 
 
@@ -143,15 +146,17 @@ private:
 
      /**< constant reference to frame sync bits */
 
-    static uint8_t m_status;
+    static volatile uint8_t m_status;
 
-    static uint8_t m_data2Send;
+    static volatile const uint8_t *mp_data2Send;
 
-    static uint8_t m_dataReceived;
+    static volatile uint8_t *mp_dataReceived;
 
-    static int16_t m_numberBytesSent;
+    static volatile int16_t *mp_DataSize;
 
-    static int16_t m_numberBytesReceived;
+    static volatile int16_t m_numberBytesSent;
+
+    static volatile int16_t m_numberBytesReceived;
 
 
 };

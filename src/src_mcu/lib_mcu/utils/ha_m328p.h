@@ -40,7 +40,7 @@
 
 
 #define   USART0_SET_ONE_STOP_BIT   UCSR0C &= ~(1 << USBS0)
-#define   USART0_SET_TWO_STOP_BITS   UCSR0C |= (1 << USBS0)
+#define   USART0_SET_TWO_STOP_BITS  UCSR0C |= (1 << USBS0)
 
 
 #define   USART0_SET_9BIT_FRAME_SIZE   \
@@ -82,7 +82,7 @@
 
 
 
-#define   USART0_STATUS_REGISTER         UCSR0A
+#define   USART0_CONTROL_STATUS_REGISTER         UCSR0A
 #define   USART0_DATA_REGISTER           UDR0
 
 
