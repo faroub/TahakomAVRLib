@@ -86,11 +86,11 @@ public:
 
     static void receiveFrame(volatile uint8_t* ap_dataBuffer,  volatile int16_t &ar_size);
 
-    static void enableTransmitterInterrupt(const bool &ar_enable);
+    static void enableTransmitterInterrupt(const uint8_t &ar_enable);
 
-    static void enableReceiverInterrupt(const bool &ar_enable);
+    static void enableReceiverInterrupt(const uint8_t &ar_enable);
 
-    static void enableDataRegisterEmptyInterrupt(const bool &ar_enable);
+    static void enableDataRegisterEmptyInterrupt(const uint8_t &ar_enable);
 
     static bool isFrameError();
 
@@ -152,7 +152,7 @@ private:
 
     static volatile uint8_t *mp_dataReceived;
 
-    static volatile int16_t *mp_DataSize;
+    static volatile int16_t m_DataSize;
 
     static volatile int16_t m_numberBytesSent;
 

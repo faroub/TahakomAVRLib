@@ -12,6 +12,11 @@
     #error "don't use this file directly! Please include only ha_base.h!"
 #endif
 
+#define PUSHBUTTON_DEBOUNCE_TIME_US 1000 // microseconds to wait for next check
+#define PUSHBUTTON_SAMPLING     12           // number of times a push button must be pressed
+
+
+
 #include <util/setbaud.h>
 
 #define   USART0_SET_BAUDRATE_HIGH_REGISTER     UBRR0H = UBRRH_VALUE

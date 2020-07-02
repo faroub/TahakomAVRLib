@@ -40,28 +40,28 @@ public:
     ~Pin();
     /** Configure pin to output.
          */
-    void toOutput() const;
+    void toOutput();
     /** Configure pin to input.
          */
-    void toInput() const;
+    void toInput(const uint8_t &ar_useInternalPullUp);
     /** Set pin to logic low.
          */
-    void setLow() const;
+    void setLow();
     /** Set pin to logic high.
          */
-    void setHigh() const;
+    void setHigh();
     /** Toggle pin state.
          */
-    void toggle() const;
+    void toggle();
     /** Check if pin is logic high.
          */
-    uint8_t isHigh() const;
+    uint8_t isHigh();
     /** Check if pin is logic low.
          */
-    uint8_t isLow() const;
+    uint8_t isLow();
     /** Get pin number.
          */
-    uint8_t getPinNumber() const;
+    uint8_t getPinNumber();
 
 protected:
 
@@ -69,7 +69,7 @@ protected:
 private:
 
      const Port &mr_portName; /**< constant reference to a port object */
-     const uint8_t &mr_pinNumber; /**< pin number */
+     const uint8_t &mr_pinNumber; /**< constant reference to pin number */
 
 
 
