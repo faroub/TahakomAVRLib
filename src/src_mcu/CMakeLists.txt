@@ -42,7 +42,7 @@ set(CMAKE_CXX_FLAGS "${CXXFLAGS}")
 set(CMAKE_ASM_FLAGS   "${CFLAGS}")
 
 
-set(LIB_DIR "./src/src_mcu/lib_mcu"
+set(LIB_DIR "./lib_mcu"
     CACHE PATH "The path to the mcu libraries.")
 
 include_directories(${LIB_DIR}/io
@@ -53,7 +53,7 @@ add_subdirectory(${LIB_DIR}/io)
 add_subdirectory(${LIB_DIR}/components)
 
 
-set(APPS_DIR "./src/src_mcu/apps_mcu"
+set(APPS_DIR "./apps_mcu"
     CACHE PATH "The path to the mcu apps.")
 
 #add_subdirectory(${APPS_DIR}/blink_led_mcu)
