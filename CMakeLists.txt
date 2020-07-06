@@ -6,7 +6,6 @@ set(F_CPU 16000000)
 set(BAUD  9600)
 add_definitions(-DF_CPU=${F_CPU} -DBAUD=${BAUD} -D__AVR_ATmega328P__)
 
-# program names
 set(AVRCPP   avr-g++)
 set(AVRC     avr-gcc)
 set(AVRSTRIP avr-strip)
@@ -20,6 +19,7 @@ set(CMAKE_CXX_COMPILER ${AVRCPP})
 set(CMAKE_C_COMPILER   ${AVRC})
 set(CMAKE_ASM_COMPILER   ${AVRC})
 
+# program name
 project (AVR_MCU C CXX ASM)
 
 set(CMAKE_CXX_STANDARD 11)
