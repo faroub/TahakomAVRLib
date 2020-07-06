@@ -57,4 +57,4 @@ set(APPS_DIR "./apps_mcu"
     CACHE PATH "The path to the mcu apps.")
 
 #add_subdirectory(${APPS_DIR}/blink_led_mcu)
-add_subdirectory(${APPS_DIR}/usart_mcu)
+add_subdirectory(${APPS_DIR}/app_test)
