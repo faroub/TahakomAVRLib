@@ -19,7 +19,7 @@ class Led
 public:
     /** Constructor. Initalizes the led object
          *
-         *  @param ar_pin Reference to pin object
+         *  @param ar_pin constant reference to pin object
          */
     Led(const io::Pin &ar_pin);
     /** Destructor.
@@ -34,10 +34,10 @@ public:
     /** Toggle led state.
          */
     void toggle();
-    /** Is led state.
+    /** Is led On.
          */
     uint8_t isOn();
-    /** Is led off.
+    /** Is led Off.
          */
     uint8_t isOff();
 
@@ -45,7 +45,7 @@ protected:
 
 private:
 
-    io::Pin mr_pin; /**< constant reference to a pin object */
+    io::Pin mr_pin; /**< pin object */
 
 
 

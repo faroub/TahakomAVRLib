@@ -15,9 +15,11 @@ namespace component
 class PushButton
 {    
 public:
-    /** Constructor. Initalizes the pushbutton object
+    /** Constructor. Initializes pushbutton object
          *
-         *  @param ar_pin Reference to pin object
+         *  @param ar_pin pin object
+         *  @param ar_useInternalPullUp indicates if internal pull up resistor used
+
          */
     PushButton(const io::Pin &ar_pin, const uint8_t &ar_useInternalPullUp=1, const uint8_t &ar_isActiveLow=1);
     /** Destructor.
@@ -26,17 +28,21 @@ public:
     /** Is pushbutton pressed.
          */
     uint8_t isPressed();
+    /** Get pushbutton pressed count.
+         */
     uint8_t getPressedCount() const;
+    /** Reset pushbutton pressed count.
+         */
     void resetPressedCount();
 
 
 protected:
 
 private:
-    io::Pin mr_pin; /**< constant reference to a pin object */
-    const uint8_t &mr_isActiveLow; /**< constant reference to active state */
-    const uint8_t &mr_useInternalPullUp; /**< constant reference to usage of internal pullup */
-    uint8_t m_buttonPressed;
+    io::Pin mr_pin; /**< pin object */
+    const uint8_t &mr_isActiveLow; /**< indicates led active state */
+    const uint8_t &mr_useInternalPullUp; /**< indicates if internal pullup resistor used  */
+    uint8_t m_buttonPressed;    /**< pushbutton pressed count */
 
 
 

@@ -4,89 +4,55 @@
  * @author Farid Oubbati (https://github.com/faroub)
  * @date March 2020
 */
-#include "PushButton.h"
-#include "Led.h"
 
-#define LED_PIN_NUMBER 0  /**< pin number to which a Led is connected */
-#define PUSHBUTTON_PIN_NUMBER 2  /**< pin number to which a Led is connected */
 
-#define DELAYTIME 1000 /**< time delay */
+#include "USART0.h"
 
+#define BUFFER_SIZE 1
 
 int main(void) {
 
   // Init
+  char l_receiverBuffer[BUFFER_SIZE];
+  char l_transmitterBuffer[BUFFER_SIZE];
+  uint8_t l_ready2Send = 0;
+  uint8_t l_ready2Receive = 1;
 
-    component::Led Led(io::Pin(0,io::PortB));
-    component::PushButton PushButton(io::Pin(2,io::PortD));
+  // instantiate the USART0 object
+  io::USART0 &myUSART0 = io::USART0::getInstance();
 
 
   // Mainloop
   while (1) {
 
-      if (PushButton.isPressed())
-      {
 
+    if (l_ready2Send)
+    {
 
-              Led.on();
-        }
-        else
-        {
-          Led.off();
-
-
-        }
+        myUSART0.sendFrame(reinterpret_cast<uint8_t*>(l_receiverBuffer),BUFFER_SIZE);
+        l_ready2Send = 0;
     }
 
+    myUSART0.receiveFrame(reinterpret_cast<uint8_t*>(l_receiverBuffer),BUFFER_SIZE,l_ready2Receive);
+
+    if (myUSART0.getNumberBytesReceived() /* number of bytes can be tested  */ )
+    {
+        // extract data received
+        // .....
+        // send back received data
+        l_ready2Send = 1;
+        // reset number of bytes after extracting the received data
+        myUSART0.resetNumberBytesReceived();
+    }
+
+
+
+
+
+
+  }
   return 0;
 }
-
-
-
-
-
-
-
-
-
-//#include "USART0.h"
-
-
-
-//int main(void) {
-
-//  // Init
-//  volatile char l_receiverBuffer[10];
-//  volatile char l_transmitterBuffer[10];
-//  volatile int16_t l_dataSize;
-
-//  // instantiate the USART0 object
-//  io::USART0 &myUSART0 = io::USART0::getInstance();
-
-//  // Mainloop
-//  while (1) {
-
-//    l_dataSize = 1;
-
-//    if (myUSART0.ready2Receive())
-//    {
-//        myUSART0.receiveFrame(reinterpret_cast<volatile uint8_t*>(l_receiverBuffer),l_dataSize);
-//    }
-
-//    l_dataSize = 1;
-
-//    if (myUSART0.ready2Send())
-//    {
-//        myUSART0.sendFrame(reinterpret_cast<volatile uint8_t*>(l_receiverBuffer),l_dataSize);
-//    }
-
-
-
-
-
-//  }
-//  return 0;
-//}
 
 
 

@@ -29,20 +29,22 @@ class Pin
 {
 
 public:
-    /** Constructor. Initalizes the pin number and port name
+    /** Constructor. Initalizes the pin object
          *
-         *  @param ar_port IO port of the avr chip
-         *  @param ar_pin IO pin of the avr chip
+         *  @param ar_portName defines the port name of the avr chip
+         *  @param ar_pinNumber defines the pin number of the avr chip
          */
-    Pin(const uint8_t &ar_pinNumber, const Port &ar_portName);
+    Pin(const uint8_t a_pinNumber, const Port &ar_portName);
     /** Destructor.
         */
     ~Pin();
-    /** Configure pin to output.
+    /** Configures pin to output.
          */
     void toOutput();
-    /** Configure pin to input.
-         */
+    /** Configures pin to input.
+        *
+        * @param ar_useInternalPullUp indicates if internal pull up resistor used
+        */
     void toInput(const uint8_t &ar_useInternalPullUp);
     /** Set pin to logic low.
          */
@@ -69,7 +71,7 @@ protected:
 private:
 
      const Port &mr_portName; /**< constant reference to a port object */
-     const uint8_t &mr_pinNumber; /**< constant reference to pin number */
+     const uint8_t m_pinNumber; /**< pin number */
 
 
 

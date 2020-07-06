@@ -4,9 +4,10 @@
 volatile uint8_t io::USART0::m_status = 0;
 volatile const uint8_t* io::USART0::mp_data2Send = nullptr;
 volatile uint8_t* io::USART0::mp_dataReceived = nullptr;
-volatile int16_t io::USART0::m_numberBytesSent = 0;
-volatile int16_t io::USART0::m_numberBytesReceived = 0;
-volatile int16_t io::USART0::m_DataSize = 0;
+uint8_t io::USART0::m_sizeData2Send = 0;
+uint8_t io::USART0::m_sizeData2Receive = 0;
+uint8_t io::USART0::m_ready2Receive = 0;
+uint8_t io::USART0::m_numberBytesReceived = 0;
 
 
 
@@ -29,8 +30,7 @@ io::USART0::USART0(const transmissionMode& ar_transMode,
     setFrameSize(ar_frameSize);
     setStopBit(ar_stopBit);
     sei();
-
-
+    enableReceiveCompleteInterrupt(1);
 }
 
 io::USART0::~USART0()
@@ -170,103 +170,107 @@ void io::USART0::setStopBit(const stopBit& ar_stopBit)
 }
 
 
-bool io::USART0::isFrameError()
+uint8_t io::USART0::isFrameError()
 {
     return (m_status & (1 << USART0_FRAME_ERROR));
 
 }
 
-bool io::USART0::isDataOverrun()
+uint8_t io::USART0::isDataOverrun()
 {
     return (m_status & (1 << USART0_DATA_OVERRUN));
 
 }
 
-bool io::USART0::isParityError()
+uint8_t io::USART0::isParityError()
 {
     return (m_status & (1 << USART0_PARITY_ERROR));
 
 }
 
-void io::USART0::sendFrame(volatile const uint8_t* ap_dataBuffer, volatile int16_t &ar_size)
+void io::USART0::sendFrame(const uint8_t* ap_dataBuffer, const uint8_t ar_size)
 {
-    m_DataSize = ar_size;
+    m_sizeData2Send = ar_size;
     mp_data2Send = ap_dataBuffer;
     enableDataRegisterEmptyInterrupt(1);
 }
 
 
-void io::USART0::receiveFrame(volatile uint8_t *ap_dataBuffer, volatile int16_t &ar_size)
+void io::USART0::receiveFrame(uint8_t *ap_dataBuffer, const uint8_t a_size, const uint8_t a_ready2Receive)
 {
-    m_DataSize = ar_size;
+    m_sizeData2Receive = a_size;
     mp_dataReceived = ap_dataBuffer;
-    enableReceiverInterrupt(1);
+    // make sure the receiver buffer is initialized
+    m_ready2Receive = a_ready2Receive;
+
 
 }
 
 void io::USART0::receiveCompleteServiceRoutine()
 {
+    static volatile uint8_t *lp_dataReceived = mp_dataReceived;
+    static uint8_t l_dataSize = m_sizeData2Receive;
+
     m_status = USART0_CONTROL_STATUS_REGISTER;
 
-    if (mp_dataReceived && (m_numberBytesReceived < m_DataSize))
+
+    if (m_ready2Receive)
     {
-        *mp_dataReceived++ = USART0_DATA_REGISTER;
-        m_numberBytesReceived++;
+        if (l_dataSize)
+        {
 
+            *lp_dataReceived++ = USART0_DATA_REGISTER;
+            l_dataSize--;
+            m_numberBytesReceived++;
+
+        }
+        else
+        {
+            l_dataSize = m_sizeData2Receive;
+            lp_dataReceived = mp_dataReceived;
+            m_numberBytesReceived = 0;
+        }
     }
-    else
-    {
-        m_numberBytesReceived = 0;
-        m_DataSize = 0;
-        mp_dataReceived = nullptr;
-        enableReceiverInterrupt(0);
-
-    }
-
-
 }
 
 void io::USART0::dataRegisterEmptyServiceRoutine()
 {
 
-    if (mp_data2Send && (m_numberBytesSent < m_DataSize))
+    if (m_sizeData2Send)
     {
         USART0_DATA_REGISTER = *mp_data2Send++;
-        m_numberBytesSent++;
+        m_sizeData2Send--;
 
     }
     else
     {
-        m_numberBytesSent = 0;
-        m_DataSize = 0;
-        mp_data2Send = nullptr;
-        enableDataRegisterEmptyInterrupt(0);
     }
+
 }
 
 
-void io::USART0::enableTransmitterInterrupt(const uint8_t &ar_enable)
+void io::USART0::enableTransmitCompleteInterrupt(const uint8_t ar_enable)
 {
     if (ar_enable) {
-        USART0_ENABLE_TRANSMITTER_INTERRUPT;
+        USART0_ENABLE_TRANSMIT_COMPLETE_INTERRUPT;
     } else {
-        USART0_DISABLE_TRANSMITTER_INTERRUPT;
+        USART0_DISABLE_TRANSMIT_COMPLETE_INTERRUPT;
     }
 
 }
 
-void io::USART0::enableReceiverInterrupt(const uint8_t &ar_enable)
+void io::USART0::enableReceiveCompleteInterrupt(const uint8_t ar_enable)
 {
     if (ar_enable) {
-        USART0_ENABLE_RECEIVER_INTERRUPT;
+        USART0_ENABLE_RECEIVE_COMPLETE_INTERRUPT;
 
     } else {
-        USART0_DISABLE_RECEIVER_INTERRUPT;
+        USART0_DISABLE_RECEIVE_COMPLETE_INTERRUPT;
     }
 
 }
 
-void io::USART0::enableDataRegisterEmptyInterrupt(const uint8_t &ar_enable)
+void io::USART0::enableDataRegisterEmptyInterrupt(const uint8_t ar_enable)
 {
     if (ar_enable) {
         USART0_ENABLE_DATA_REGISTER_EMPTY_INTERRUPT;
@@ -282,13 +286,13 @@ void io::USART0::transmitCompleteServiceRoutine()
 
 }
 
-bool io::USART0::ready2Send()
-{
-    return mp_data2Send == nullptr;
 
+uint8_t io::USART0::getNumberBytesReceived()
+{
+    return m_numberBytesReceived;
 }
 
-bool io::USART0::ready2Receive()
+void io::USART0::resetNumberBytesReceived()
 {
-    return mp_dataReceived == nullptr;
+    m_numberBytesReceived = 0;
 }

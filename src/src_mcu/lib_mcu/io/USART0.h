@@ -53,8 +53,16 @@ class USART0
 
 public:
 
+    /** Create a single instance of the USART0 object
+         *
+         *  @param ar_transMode defines transmission mode
+         *  @param ar_comMode defines communication mode
+         *  @param ar_frameSize defines data frame size
+         *  @param ar_stopBit defines number of stop bits
+         *  @param ar_parityMode defines parity mode
+         */
     static USART0& getInstance(const transmissionMode& ar_transMode = transmissionMode::Async,
-                               const communicationMode& ar_comMode = communicationMode::transmit,
+                               const communicationMode& ar_comMode = communicationMode::duplex,
                                const frameSize& ar_frameSize = frameSize::eightBits,
                                const stopBit& ar_stopBit = stopBit::oneStopBit,
                                const parityMode& ar_parityMode = parityMode::noParity)
@@ -67,47 +75,87 @@ public:
 
         return l_instance;
     }
-
-
-
+    /** Set baud rate
+         *
+         */
     static void setBaudRate();
-
+    /** Set transnmission mode
+         *
+         *  @param ar_transMode defines transmission mode
+         */
     static void setTransmissionMode(const transmissionMode& ar_transMode);
-
+    /** Set communication mode
+         *
+         *  @param ar_comMode defines communication mode
+         */
     static void setCommunicationMode(const communicationMode& ar_comMode);
-
+    /** Set parity mode in data frames
+         *
+         *  @param ar_parityMode defines parity mode
+         */
     static void setParityMode(const parityMode& ar_parityMode);
-
+    /** Set data frame size
+         *
+         *  @param ar_frameSize defines data frame size
+         */
     static void setFrameSize(const frameSize& ar_frameSize);
-
+    /** Set number of stop bits in data frames
+         *
+         *  @param ar_stopBit defines number of stop bits
+         */
     static void setStopBit(const stopBit& ar_stopBit);
-
-    static void sendFrame(volatile const uint8_t *ap_dataBuffer, volatile int16_t &ar_size);
-
-    static void receiveFrame(volatile uint8_t* ap_dataBuffer,  volatile int16_t &ar_size);
-
-    static void enableTransmitterInterrupt(const uint8_t &ar_enable);
-
-    static void enableReceiverInterrupt(const uint8_t &ar_enable);
-
-    static void enableDataRegisterEmptyInterrupt(const uint8_t &ar_enable);
-
-    static bool isFrameError();
-
-    static bool isDataOverrun();
-
-    static bool isParityError();
-
+    /** Transmit data frames.
+         *
+         *  @param ap_dataBuffer defines pointer to transmitter buffer
+         *  @param a_size defines size of transmitter buffer
+         */
+    static void sendFrame(const uint8_t *ap_dataBuffer, const uint8_t ar_size);
+    /** Receive data frames.
+         *
+         *  @param ap_dataBuffer defines pointer to receiver buffer
+         *  @param a_size defines size of receiver buffer
+         *  @param a_ready2Receive indicates if chip ready to receive data
+         */
+    static void receiveFrame(uint8_t *ap_dataBuffer, const uint8_t a_size, const uint8_t a_ready2Receive);
+    /** Enable transmit complete interrupt.
+         *
+         *  @param ar_enable indicates if interrupt is enabled
+         */
+    static void enableTransmitCompleteInterrupt(const uint8_t ar_enable);
+    /** Enable receive complete interrupt.
+         *
+         *  @param ar_enable indicates if interrupt is enabled
+         */
+    static void enableReceiveCompleteInterrupt(const uint8_t ar_enable);
+    /** Enable data register empty interrupt.
+         *
+         *  @param ar_enable indicates if interrupt is enabled
+         */
+    static void enableDataRegisterEmptyInterrupt(const uint8_t ar_enable);
+    /** Is there frame error in received data.
+         */
+    static uint8_t isFrameError();
+    /** Is there data overrun in received data.
+         */
+    static uint8_t isDataOverrun();
+    /** Is there partity error in received data.
+         */
+    static uint8_t isParityError();
+    /** Receive complete ISR.
+         */
     static void receiveCompleteServiceRoutine() __asm__(STR(USART0_RECEIVE_COMPLETE_INTERRUPT)) __attribute__((__signal__, __used__, __externally_visible__));
-
+    /** Data register empty ISR.
+         */
     static void dataRegisterEmptyServiceRoutine() __asm__(STR(USART0_DATA_REGISTER_EMPTY_INTERRUPT)) __attribute__((__signal__,__used__, __externally_visible__));
-
+    /** Transmit complete ISR.
+         */
     static void transmitCompleteServiceRoutine() __asm__(STR(USART0_TRANSMIT_COMPLETE_INTERRUPT)) __attribute__((__signal__, __used__, __externally_visible__));
-
-    static bool ready2Send();
-    static bool ready2Receive();
-
-
+    /** Get number of bytes received.
+         */
+    static uint8_t getNumberBytesReceived();
+    /** Reset number of bytes received.
+         */
+    static void resetNumberBytesReceived();
 
 protected:
 
@@ -115,10 +163,13 @@ protected:
 
 
 private:
-    /** Constructor. Initalizes the USART serial communication device
+    /** Constructor. Initalizes the USART0 object
          *
-         *  @param ar_port IO port of the avr chip
-         *  @param ar_pin IO pin of the avr chip
+         *  @param ar_transMode defines transmission mode
+         *  @param ar_comMode defines communication mode
+         *  @param ar_frameSize defines data frame size
+         *  @param ar_stopBit defines number of stop bits
+         *  @param ar_parityMode defines parity mode
          */
     USART0(const transmissionMode& ar_transMode = transmissionMode::Async,
            const communicationMode& ar_comMode = communicationMode::duplex,
@@ -130,33 +181,27 @@ private:
         */
     ~USART0();
 
+    /** Overried Copy constructor.
+        */
     USART0(const USART0&);
 
-
+    /** Override assign operator.
+        */
     const USART0& operator=(const USART0&);
 
+    static volatile uint8_t m_status;   /**< received data status */
 
-     /**< constant reference to operation mode */
+    static volatile const uint8_t *mp_data2Send; /**< pointer to transmitter buffer */
 
-     /**< constant reference to communication mode */
+    static volatile uint8_t *mp_dataReceived; /**< pointer to receiver buffer */
 
-     /**< constant reference to frame sync bits */
+    static uint8_t m_sizeData2Send;  /**< size of data to be transmitted */
 
-     /**< constant reference to frame size */
+    static uint8_t m_sizeData2Receive;  /**< size of data to be received */
 
-     /**< constant reference to frame sync bits */
+    static uint8_t m_ready2Receive; /**< ready to receive flag */
 
-    static volatile uint8_t m_status;
-
-    static volatile const uint8_t *mp_data2Send;
-
-    static volatile uint8_t *mp_dataReceived;
-
-    static volatile int16_t m_DataSize;
-
-    static volatile int16_t m_numberBytesSent;
-
-    static volatile int16_t m_numberBytesReceived;
+    static uint8_t m_numberBytesReceived;   /**< number of bytes received */
 
 
 };
