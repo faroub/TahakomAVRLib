@@ -1,1 +1,1 @@
-add_library(core)
+add_library(core ADC.cpp)
