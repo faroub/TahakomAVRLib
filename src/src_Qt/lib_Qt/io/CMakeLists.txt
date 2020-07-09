@@ -1,1 +1,1 @@
-add_library(io)
+add_library(io SerialPort.cpp)

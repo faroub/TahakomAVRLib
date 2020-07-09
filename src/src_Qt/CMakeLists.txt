@@ -12,7 +12,7 @@ if(CMAKE_VERSION VERSION_LESS "3.7.0")
     set(CMAKE_INCLUDE_CURRENT_DIR ON)
 endif()
 
-find_package(Qt5 COMPONENTS Widgets REQUIRED)
+find_package(Qt5 COMPONENTS Widgets SerialPort REQUIRED)
 
 # include files
 include_directories(${Qt5Widgets_INCLUDE_DIRS})
@@ -20,9 +20,14 @@ include_directories(${Qt5Widgets_INCLUDE_DIRS})
 set(LIB_DIR "./lib_Qt"
     CACHE PATH "The path to the Qt libraries.")
 
+set(RESOURCES_DIR "../../../resources"
+    CACHE PATH "The path to the resources directory.")
+
 include_directories(${LIB_DIR}/gui
                     ${LIB_DIR}/io
                     ${LIB_DIR}/processing)
+
+
 
 add_subdirectory(${LIB_DIR}/gui)
 add_subdirectory(${LIB_DIR}/io)
