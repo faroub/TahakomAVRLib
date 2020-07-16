@@ -8,10 +8,25 @@ uint8_t io::USART0::m_sizeData2Send = 0;
 uint8_t io::USART0::m_sizeData2Receive = 0;
 uint8_t io::USART0::m_ready2Receive = 0;
 uint8_t io::USART0::m_numberBytesReceived = 0;
+uint8_t io::USART0::m_numberBytesSent = 0;
 
 
 
 
+io::USART0& io::USART0::getInstance(const transmissionMode& ar_transMode,
+                           const communicationMode& ar_comMode,
+                           const frameSize& ar_frameSize,
+                           const stopBit& ar_stopBit,
+                           const parityMode& ar_parityMode)
+{
+    static USART0 l_instance(ar_transMode,
+                             ar_comMode,
+                             ar_frameSize,
+                             ar_stopBit,
+                             ar_parityMode);
+
+    return l_instance;
+}
 
 
 
@@ -49,18 +64,18 @@ void io::USART0::setTransmissionMode(const transmissionMode& ar_transMode)
 {
     switch (ar_transMode)
     {
-        case transmissionMode::Async:
+        case transmissionMode::async:
         {
             USART0_ENABLE_ASYNC_TRANSMISSION_MODE;
             break;
         }
-        case transmissionMode::Sync:
+        case transmissionMode::sync:
         {
             USART0_DISABLE_DOUBLE_SPEED_MODE;
             USART0_ENABLE_SYNC_TRANSMISSION_MODE;
             break;
         }
-    case transmissionMode::MasterSPI:
+    case transmissionMode::masterSPI:
         {
             USART0_ENABLE_MASTER_SPI_MODE;
             break;
@@ -188,9 +203,9 @@ uint8_t io::USART0::isParityError()
 
 }
 
-void io::USART0::sendFrame(const uint8_t* ap_dataBuffer, const uint8_t ar_size)
+void io::USART0::sendFrame(const uint8_t* ap_dataBuffer, const uint8_t a_size)
 {
-    m_sizeData2Send = ar_size;
+    m_sizeData2Send = a_size;
     mp_data2Send = ap_dataBuffer;
     enableDataRegisterEmptyInterrupt(1);
 }
@@ -240,10 +255,14 @@ void io::USART0::dataRegisterEmptyServiceRoutine()
     {
         USART0_DATA_REGISTER = *mp_data2Send++;
         m_sizeData2Send--;
+        m_numberBytesSent++;
 
     }
     else
     {
+        enableDataRegisterEmptyInterrupt(0);
+        m_numberBytesSent = 0;
+
     }
 
 }
@@ -286,6 +305,10 @@ void io::USART0::transmitCompleteServiceRoutine()
 
 }
 
+uint8_t io::USART0::getNumberBytesSent()
+{
+    return m_numberBytesSent;
+}
 
 uint8_t io::USART0::getNumberBytesReceived()
 {

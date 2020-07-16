@@ -4,7 +4,45 @@
  *
  * Basic class for IO abstraction of the Universal
  * Synchronous and Asynchronous serial Receiver and Transmitter
- * serial communication device
+ * serial communication device.
+ *
+ * Usage example:
+ *
+ #include "USART0.h"
+ #define BUFFER_SIZE 1
+
+ int main(void) {
+  // Init
+
+  char l_receiverBuffer[BUFFER_SIZE];
+  char l_transmitterBuffer[BUFFER_SIZE];
+
+  uint8_t l_ready2Send = 0;
+  uint8_t l_ready2Receive = 1;
+  // instantiate the USART0 object
+  io::USART0 &myUSART0 = io::USART0::getInstance();
+  // Mainloop
+  while (1) {
+    if (l_ready2Send && !myUSART0.getNumberBytesSent())
+    {
+        myUSART0.sendFrame(reinterpret_cast<uint8_t*>(l_receiverBuffer),BUFFER_SIZE);
+        l_ready2Send = 0;
+    }
+    myUSART0.receiveFrame(reinterpret_cast<uint8_t*>(l_receiverBuffer),BUFFER_SIZE,l_ready2Receive);
+    if (myUSART0.getNumberBytesReceived())
+    {
+        // extract data received
+        // .....
+        // send back received data
+        l_ready2Send = 1;
+        // reset number of bytes after extracting the received data
+        myUSART0.resetNumberBytesReceived();
+    }
+  }
+  return 0;
+ }
+ *
+ *
  * @author Farid Oubbati (https://github.com/faroub)
  * @date March 2020
 */
@@ -15,27 +53,26 @@
 
 namespace io
 {
-
-enum transmissionMode : uint8_t {
-    Async=0,    /**< asynchronous mode */
-    Sync,       /**< synchronous mode */
-    MasterSPI   /**< masterSPI mode */
+enum class transmissionMode : uint8_t {
+    async=0,    /**< asynchronous mode */
+    sync,       /**< synchronous mode */
+    masterSPI   /**< masterSPI mode */
 };
 
-enum communicationMode : uint8_t {
+enum class communicationMode : uint8_t {
     duplex=0,   /**< full duplex mode */
     transmit,   /**< transmit mode */
     receive,    /**< receive mode */
 
 };
 
-enum parityMode : uint8_t {
+enum class parityMode : uint8_t {
     noParity=0, /**< no parity check mode */
     evenParity, /**< even parity check mode */
     oddParity /**< odd parity check mode */
 };
 
-enum frameSize : uint8_t {
+enum class frameSize : uint8_t {
     eightBits=0, /**< 8 bits frame size */
     fiveBits,   /**< 5 bits frame size */
     sixBits, /**< 6 bits frame size */
@@ -43,15 +80,17 @@ enum frameSize : uint8_t {
     neineBits /**< 9 bits frame size */
 };
 
-enum stopBit : uint8_t{
+enum class stopBit : uint8_t{
     oneStopBit=0, /**< 1 stop bit */
     twoStopBits /**< 2 stop bits */
 };
+
 
 class USART0
 {
 
 public:
+
 
     /** Create a single instance of the USART0 object
          *
@@ -61,20 +100,11 @@ public:
          *  @param ar_stopBit defines number of stop bits
          *  @param ar_parityMode defines parity mode
          */
-    static USART0& getInstance(const transmissionMode& ar_transMode = transmissionMode::Async,
+    static USART0& getInstance(const transmissionMode& ar_transMode = transmissionMode::async,
                                const communicationMode& ar_comMode = communicationMode::duplex,
                                const frameSize& ar_frameSize = frameSize::eightBits,
                                const stopBit& ar_stopBit = stopBit::oneStopBit,
-                               const parityMode& ar_parityMode = parityMode::noParity)
-    {
-        static USART0 l_instance(ar_transMode,
-                                 ar_comMode,
-                                 ar_frameSize,
-                                 ar_stopBit,
-                                 ar_parityMode);
-
-        return l_instance;
-    }
+                               const parityMode& ar_parityMode = parityMode::noParity);
     /** Set baud rate
          *
          */
@@ -109,7 +139,7 @@ public:
          *  @param ap_dataBuffer defines pointer to transmitter buffer
          *  @param a_size defines size of transmitter buffer
          */
-    static void sendFrame(const uint8_t *ap_dataBuffer, const uint8_t ar_size);
+    static void sendFrame(const uint8_t *ap_dataBuffer, const uint8_t a_size);
     /** Receive data frames.
          *
          *  @param ap_dataBuffer defines pointer to receiver buffer
@@ -153,6 +183,9 @@ public:
     /** Get number of bytes received.
          */
     static uint8_t getNumberBytesReceived();
+    /** Get number of bytes sent.
+         */
+    static uint8_t getNumberBytesSent();
     /** Reset number of bytes received.
          */
     static void resetNumberBytesReceived();
@@ -171,11 +204,11 @@ private:
          *  @param ar_stopBit defines number of stop bits
          *  @param ar_parityMode defines parity mode
          */
-    USART0(const transmissionMode& ar_transMode = transmissionMode::Async,
-           const communicationMode& ar_comMode = communicationMode::duplex,
-           const frameSize& ar_frameSize = frameSize::eightBits,
-           const stopBit& ar_stopBit = stopBit::oneStopBit,
-           const parityMode& ar_parityMode = parityMode::noParity);
+    USART0(const transmissionMode& ar_transMode,
+           const communicationMode& ar_comMode,
+           const frameSize& ar_frameSize,
+           const stopBit& ar_stopBit,
+           const parityMode& ar_parityMode);
 
     /** Destructor.
         */
@@ -202,6 +235,8 @@ private:
     static uint8_t m_ready2Receive; /**< ready to receive flag */
 
     static uint8_t m_numberBytesReceived;   /**< number of bytes received */
+
+    static uint8_t m_numberBytesSent;   /**< number of bytes sent */
 
 
 };

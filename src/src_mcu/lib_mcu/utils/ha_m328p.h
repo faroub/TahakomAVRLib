@@ -12,11 +12,12 @@
     #error "don't use this file directly! Please include only ha_base.h!"
 #endif
 
+// PushButton defines
 #define PUSHBUTTON_DEBOUNCE_TIME_US 1000 // microseconds to wait for next check
 #define PUSHBUTTON_SAMPLING     12           // number of times a push button must be pressed
 
 
-
+// USART defines
 #include <util/setbaud.h>
 
 #define   USART0_SET_BAUDRATE_HIGH_REGISTER     UBRR0H = UBRRH_VALUE
@@ -87,7 +88,7 @@
 
 
 
-#define   USART0_CONTROL_STATUS_REGISTER         UCSR0A
+#define   USART0_CONTROL_STATUS_REGISTER UCSR0A
 #define   USART0_DATA_REGISTER           UDR0
 
 
@@ -116,6 +117,40 @@
 #define   USART0_TRANSMIT_COMPLETE_INTERRUPT    USART_TX_vect
 
 #define   USART0_DATA_REGISTER_EMPTY_INTERRUPT  USART_UDRE_vect
+
+
+// ADC defines
+
+#define   ADC_SELECT_REF_VOLTAGE(refVoltage)         ADMUX &= 0x1F; ADMUX |= refVoltage << 6
+
+#define   ADC_ADJUST_RESULT_LEFT            ADMUX |=  1 << ADLAR
+#define   ADC_ADJUST_RESULT_RIGHT           ADMUX &= ~(1 << ADLAR)
+
+#define   ADC_SELECT_ANALOG_INPUT(pinNumber)         ADMUX &= 0xF0; ADMUX |= pinNumber
+#define   ADC_DISABLE_DIGITAL_INPUT_REGISTER(pinNumber)         DIDR0 &= 0xC0; DIDR0 |= pinNumber
+
+
+#define   ADC_ENABLE            ADCSRA |=  1 << ADEN
+#define   ADC_DISABLE           ADCSRA &= ~(1 << ADEN)
+
+#define   ADC_START_CONVERSION            ADCSRA |=  1 << ADSC
+#define   ADC_STOP_CONVERSION           ADCSRA &= ~(1 << ADSC)
+
+#define   ADC_ENABLE_AUTOTRIGGER          ADCSRA |=   1 << ADATE
+#define   ADC_DISABLE_AUTOTRIGGER        ADCSRA &= ~(1 << ADATE)
+
+#define   ADC_ENABLE_CONVERSION_COMPLETE_INTERRUPT   ADCSRA |=   1 << ADIE
+#define   ADC_DISABLE_CONVERSION_COMPLETE_INTERRUPT  ADCSRA &= ~(1 << ADIE)
+
+#define   ADC_SELECT_CLOCK_PRESCALER(clockPrescaler)         ADCSRA &= 0xF8; ADCSRA |= clockPrescaler
+
+
+#define   ADC_SELECT_AUTO_TRIGGER_SOURCE(triggerSource)         ADCSRB &= 0xF8; ADCSRB |= triggerSource
+
+
+#define   ADC_CONVERSION_COMPLETE_INTERRUPT  ADC_vect
+
+
 
 
 #endif
