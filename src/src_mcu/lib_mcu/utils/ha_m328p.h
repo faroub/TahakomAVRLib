@@ -150,7 +150,38 @@
 
 #define   ADC_CONVERSION_COMPLETE_INTERRUPT  ADC_vect
 
+// Externally Triggered Interrupts defines
 
+#define EXT_INT_SET_INT0_SENSE_CONTROL(senseControl) EICRA &= 0xFC; EICRA |= senseControl
+#define EXT_INT_SET_INT1_SENSE_CONTROL(senseControl) EICRA &= 0xF3; EICRA |= senseControl
+
+#define EXT_INT_ENABLE_INT0   EIMSK |= 1 << INT0
+#define EXT_INT_DISABLE_INT0   EIMSK &= ~(1 << INT0)
+
+#define EXT_INT_ENABLE_INT1   EIMSK |= 1 << INT1
+#define EXT_INT_DISABLE_INT1   EIMSK &= ~(1 << INT1)
+
+
+#define EXT_INT_ENABLE_PIN_CHANGE_INTERRUPT(pinChangePort)    PCICR |= 1 << pinChangePort
+#define EXT_INT_DISABLE_PIN_CHANGE_INTERRUPT(pinChangePort)   PCICR &= ~(1 << pinChangePort)
+
+
+#define EXT_INT_ENABLE_PIN_CHANGE_MASK_PORTB(pinChangePin)    PCMSK0 |= 1 << pinChangePin
+#define EXT_INT_DISABLE_PIN_CHANGE_MASK_PORTB(pinChangePin)   PCMSK0 &= ~(1 << pinChangePin)
+
+#define EXT_INT_ENABLE_PIN_CHANGE_MASK_PORTC(pinChangePin)    PCMSK1 |= 1 << pinChangePin
+#define EXT_INT_DISABLE_PIN_CHANGE_MASK_PORTC(pinChangePin)   PCMSK1 &= ~(1 << pinChangePin)
+
+#define EXT_INT_ENABLE_PIN_CHANGE_MASK_PORTD(pinChangePin)    PCMSK2 |= 1 << pinChangePin
+#define EXT_INT_DISABLE_PIN_CHANGE_MASK_PORTD(pinChangePin)   PCMSK2 &= ~(1 << pinChangePin)
+
+
+#define  EXT_INT_INT0_INTERRUPT   INT0_vect
+#define  EXT_INT_INT1_INTERRUPT   INT1_vect
+
+#define  EXT_INT_PIN_CHANGE_PORTB_INTERRUPT   PCINT0_vect
+#define  EXT_INT_PIN_CHANGE_PORTC_INTERRUPT   PCINT1_vect
+#define  EXT_INT_PIN_CHANGE_PORTD_INTERRUPT   PCINT2_vect
 
 
 #endif

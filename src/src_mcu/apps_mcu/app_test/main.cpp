@@ -5,76 +5,77 @@
  * @date March 2020
 */
 
+#include "PushButton.h"
+#include "Led.h"
+#include "ExternInterrupt.h"
 
-#include "ADC.h"
-#include "USART0.h"
+#define PUSHBUTTON_1_NUMBER 2
+#define PUSHBUTTON_2_NUMBER 3
+#define MAIN_LED_NUMBER 0
+#define INTERRUPT_LED_1_NUMBER 1
+#define INTERRUPT_LED_2_NUMBER 2
+#define DELAYTIME 1000
 
-#define TRANSMIT_BUFFER_SIZE 5
-#define ADC_CHANNEL_MUX_SIZE 2
 
+
+// instantiate a Led object
+// declaration of global variables (shut up warning)
+extern component::Led MainLed;
+extern component::Led InterruptLed1;
+extern component::Led InterruptLed2;
+component::Led MainLed(io::Pin(MAIN_LED_NUMBER,io::PortB));
+component::Led InterruptLed1(io::Pin(INTERRUPT_LED_1_NUMBER,io::PortB));
+component::Led InterruptLed2(io::Pin(INTERRUPT_LED_2_NUMBER,io::PortB));
+
+
+// instantiate a Led object
+// declaration of global variable (shut up warning)
+extern component::PushButton PushButton1;
+extern component::PushButton PushButton2;
+component::PushButton PushButton1(io::Pin(PUSHBUTTON_1_NUMBER,io::PortD));
+component::PushButton PushButton2(io::Pin(PUSHBUTTON_2_NUMBER,io::PortB));
 
 int main(void) {
 
   // Init
 
-  // instantiate the USART0 object
-  io::USART0 &myUSART0 = io::USART0::getInstance();
-  // transmit data buffer
-  char l_data2Send[TRANSMIT_BUFFER_SIZE];
-  // ready to send flag
-  uint8_t l_ready2Send = 0;
-
-  // instantiate the ADC object
-  core::ADConverter &myADC = core::ADConverter::getInstance();
-  // use 8 bit resolution
-  myADC.adjustResult(core::resultAdjust::left);
-  // flag to test multiplexing
-  uint8_t channel = 0;
-  // select analog input
-  myADC.selectAnalogInput(io::Pin(channel,io::PortC));
-
-  // variable to hold conversion result
-  uint16_t l_conversionResult = 0;
-  uint16_t l_analogInput[ADC_CHANNEL_MUX_SIZE] = {0,0};
-
-  // enable and start conversion
-  myADC.start();
+  // instantiate the external interrupt manager
+  core::ExternInterrupt &myExternInterrupt = core::ExternInterrupt::getInstance();
+  myExternInterrupt.enablePinChange(core::pinChangePort::PCINTD,1);
+  myExternInterrupt.enablePinChange(core::pinChangePort::PCINTB,1);
+  myExternInterrupt.enablePinChangeMaskPortD(PUSHBUTTON_1_NUMBER,1);
+  myExternInterrupt.enablePinChangeMaskPortB(PUSHBUTTON_2_NUMBER,1);
 
   // Mainloop
   while (1) {
 
-      if (l_ready2Send && !myUSART0.getNumberBytesSent())
-      {
-          myUSART0.sendFrame(reinterpret_cast<uint8_t*>(l_data2Send),TRANSMIT_BUFFER_SIZE);
-          l_ready2Send = 0;
-      }
+      MainLed.toggle();
+      _delay_ms(DELAYTIME);
 
-      myADC.getConversionResult(&l_conversionResult, ADC_CHANNEL_MUX_SIZE);
-
-      if (myADC.conversionComplete())
-      {
-
-          l_analogInput[channel] = l_conversionResult;
-          l_data2Send[0] = '0' + ((l_analogInput[channel] >> 8) / 100);
-          l_data2Send[1] = '0' + (((l_analogInput[channel] >> 8) / 10) % 10);
-          l_data2Send[2] = '0' + ((l_analogInput[channel] >> 8) % 10);
-          l_data2Send[3] = '\n';
-          l_data2Send[4] = '\r';
-          // switch between channel 0 and channel 1
-          channel = 1 - channel;
-          myADC.selectAnalogInput(io::Pin(channel,io::PortC));
-
-          l_ready2Send = 1;
-      }
-
-
-//          uint16_t value = 12345;
-//          char lo = value & 0xFF;
-//          char hi = value >> 8;
   }
   return 0;
 }
 
+void core::ExternInterrupt::pinChangePortDServiceRoutine()
+{
+    if (PushButton1.isPressed())
+    {
+        InterruptLed1.on();
 
+    } else {
+        InterruptLed1.off();
 
+    }
+
+}
+void core::ExternInterrupt::pinChangePortBServiceRoutine()
+{
+    if (PushButton2.isPressed())
+    {
+        InterruptLed2.on();
+    } else {
+        InterruptLed2.off();
+    }
+
+}
 

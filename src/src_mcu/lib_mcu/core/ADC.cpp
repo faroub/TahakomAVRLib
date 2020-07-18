@@ -2,9 +2,6 @@
 
 volatile uint16_t* core::ADConverter::mp_conversionResult = nullptr;
 uint8_t core::ADConverter::m_conversionComplete = 0;
-uint8_t core::ADConverter::m_sizeConversionResult = 0;
-
-
 
 
 core::ADConverter& core::ADConverter::getInstance(const referenceVoltage &ar_refVoltage,
@@ -82,9 +79,9 @@ void core::ADConverter::stop()
 
 }
 
-void core::ADConverter::enableAutoTrigger(const uint8_t ar_enable)
+void core::ADConverter::enableAutoTrigger(const uint8_t a_enable)
 {
-    if (ar_enable) {
+    if (a_enable) {
         ADC_ENABLE_AUTOTRIGGER;
 
     } else {
@@ -93,9 +90,9 @@ void core::ADConverter::enableAutoTrigger(const uint8_t ar_enable)
 
 }
 
-void core::ADConverter::enableConversionCompleteInterrupt(const uint8_t ar_enable)
+void core::ADConverter::enableConversionCompleteInterrupt(const uint8_t a_enable)
 {
-    if (ar_enable) {
+    if (a_enable) {
         ADC_ENABLE_CONVERSION_COMPLETE_INTERRUPT;
 
     } else {
@@ -110,9 +107,8 @@ void core::ADConverter::selectClockPrescaler(const clockPrescaler& ar_clockPresc
 
 }
 
-void core::ADConverter::getConversionResult(uint16_t *ap_dataBuffer, const uint8_t a_size)
+void core::ADConverter::getConversionResult(uint16_t *ap_dataBuffer)
 {
-    m_sizeConversionResult = a_size;
     mp_conversionResult = ap_dataBuffer;
 
 

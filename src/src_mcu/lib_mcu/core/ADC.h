@@ -6,37 +6,45 @@
  *
  * Usage example:
  *
- * #include "ADC.h"
-   #include "USART0.h"
+  #include "ADC.h"
+  #include "USART0.h"
 
-   #define BUFFER_SIZE 5
+  #define TRANSMIT_BUFFER_SIZE 5
 
-   int main(void) {
 
-   // Init
+  int main(void) {
 
-   // instantiate the USART0 object
-   io::USART0 &myUSART0 = io::USART0::getInstance();
-   // data buffer
-   char l_data2Send[BUFFER_SIZE];
-   // ready to send flag
-   uint8_t l_ready2Send = 0;
+  // Init
 
-   // instantiate the ADC object
-   core::ADConverter &myADC = core::ADConverter::getInstance();
-   // use 8 bit resolution
-   myADC.adjustResult(core::resultAdjust::left);
-   // variable to hold conversion result
-   uint16_t l_conversionResult = 0;
-   // enable and start conversion
-   myADC.start();
+  // instantiate the USART0 object
+  io::USART0 &myUSART0 = io::USART0::getInstance();
+  // transmit data buffer
+  char l_data2Send[TRANSMIT_BUFFER_SIZE];
+  // ready to send flag
+  uint8_t l_ready2Send = 0;
 
-   // Mainloop
-   while (1) {
+  // instantiate the ADC object
+  core::ADConverter &myADC = core::ADConverter::getInstance();
+  // use 8 bit resolution
+  myADC.adjustResult(core::resultAdjust::left);
+  // flag to test multiplexing between channel 0 and channel 1
+  uint8_t channel = 0;
+  // select analog input
+  myADC.selectAnalogInput(io::Pin(channel,io::PortC));
+
+  // variable to hold conversion result
+  uint16_t l_conversionResult = 0;
+  uint16_t l_analogInput[ADC_CHANNEL_MUX_SIZE] = {0,0};
+
+  // enable and start conversion
+  myADC.start();
+
+  // Mainloop
+  while (1) {
 
       if (l_ready2Send && !myUSART0.getNumberBytesSent())
       {
-          myUSART0.sendFrame(reinterpret_cast<uint8_t*>(l_data2Send),BUFFER_SIZE);
+          myUSART0.sendFrame(reinterpret_cast<uint8_t*>(l_data2Send),TRANSMIT_BUFFER_SIZE);
           l_ready2Send = 0;
       }
 
@@ -45,11 +53,15 @@
       if (myADC.conversionComplete())
       {
 
-          l_data2Send[0] = '0' + ((l_conversionResult >> 8) / 100);
-          l_data2Send[1] = '0' + (((l_conversionResult >> 8) / 10) % 10);
-          l_data2Send[2] = '0' + ((l_conversionResult >> 8) % 10);
+          l_analogInput[channel] = l_conversionResult;
+          l_data2Send[0] = '0' + ((l_analogInput[channel] >> 8) / 100);
+          l_data2Send[1] = '0' + (((l_analogInput[channel] >> 8) / 10) % 10);
+          l_data2Send[2] = '0' + ((l_analogInput[channel] >> 8) % 10);
           l_data2Send[3] = '\n';
           l_data2Send[4] = '\r';
+          // switch between channel 0 and channel 1
+          channel = 1 - channel;
+          myADC.selectAnalogInput(io::Pin(channel,io::PortC));
 
           l_ready2Send = 1;
       }
@@ -59,8 +71,8 @@
 //          char lo = value & 0xFF;
 //          char hi = value >> 8;
    }
-    return 0;
-   }
+   return 0;
+ }
 
  *
  * @author Farid Oubbati (https://github.com/faroub)
@@ -129,11 +141,11 @@ public:
 
     static void selectClockPrescaler(const clockPrescaler& ar_clockPrescaler);
 
-    static void getConversionResult(uint16_t *ap_dataBuffer, const uint8_t a_size);
+    static void getConversionResult(uint16_t *ap_dataBuffer);
 
-    static void enableConversionCompleteInterrupt(const uint8_t ar_enable);
+    static void enableConversionCompleteInterrupt(const uint8_t a_enable);
 
-    static void enableAutoTrigger(const uint8_t ar_enable);
+    static void enableAutoTrigger(const uint8_t a_enable);
 
     static void conversionCompleteServiceRoutine() __asm__(STR(ADC_CONVERSION_COMPLETE_INTERRUPT)) __attribute__((__signal__, __used__, __externally_visible__));
 
@@ -171,7 +183,6 @@ private:
 
     static uint8_t m_conversionComplete; /**< ready to receive flag */
 
-    static uint8_t m_sizeConversionResult;  /**< size of conversion result data */
 
 
 

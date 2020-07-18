@@ -11,6 +11,10 @@ component::PushButton::PushButton(const io::Pin& ar_pin, const uint8_t &ar_useIn
     m_buttonPressed = 0;
 }
 
+component::PushButton::~PushButton()
+{
+
+}
 
 
 uint8_t component::PushButton::isPressed()
