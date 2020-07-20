@@ -8,10 +8,17 @@
 */
 #ifndef SERIALPORT_H
 #define SERIALPORT_H
-#include <QtSerialPort/QSerialPort>
-#include <QtSerialPort/QSerialPortInfo>
+#include <QObject>
 
+QT_BEGIN_NAMESPACE
+class QSerialPort;
+class QSerialPortInfo;
+QT_END_NAMESPACE
 
+namespace gui
+{
+class MainWindow;
+}
 namespace io
 {
 
@@ -25,10 +32,12 @@ public slots:
 
     void closeSerialPort();
 
+    void enableLocalEcho(const bool a_enable);
+
 
 
 public:
-    SerialPort();
+    SerialPort(gui::MainWindow *ap_mainWindow);
 
     ~SerialPort();
 
@@ -37,14 +46,15 @@ public:
 
     void readFrame();
 
-    void handleError(QSerialPort::SerialPortError l_error);
+    //void handleError(QSerialPort::SerialPortError l_error);
 
 protected:
 private:
 
     QSerialPort *mp_serialPort = nullptr;
 
-    QSerialPortInfo *mp_serialPortInfo = nullptr;
+
+    gui::MainWindow *mp_mainWindow;
 
 
 };
