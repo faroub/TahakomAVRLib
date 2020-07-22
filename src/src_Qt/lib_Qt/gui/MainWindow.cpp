@@ -17,18 +17,18 @@
 
 gui::MainWindow::MainWindow(QWidget *ap_applicationGUI)
                 : mp_settingDialog(new Setting(this)),
-                  mp_serialPort(new io::SerialPort()),
-                  m_statusMessage(new QLabel("Not connected ...",this))
+                  mp_serialPort(new io::SerialPort(this,mp_settingDialog)),
+                  mp_statusMessage(new QLabel("Not connected ...",this))
 
 {
 
 
 
 
-
+    setupActions();
     setupMenuBar();
     setupToolBar();
-    statusBar()->addWidget(m_statusMessage);
+    statusBar()->addWidget(mp_statusMessage);
 
 
 
@@ -53,10 +53,42 @@ gui::MainWindow::~MainWindow()
 
 }
 
+void gui::MainWindow::enableConnectionAction(const bool a_enable)
+{
+    if (a_enable)
+    {
+        mp_connectAction->setEnabled(true);
+
+    } else {
+        mp_connectAction->setEnabled(false);
+    }
+}
+
+void gui::MainWindow::enableSetSettingAction(const bool a_enable)
+{
+    if (a_enable)
+    {
+        mp_setSettingAction->setEnabled(true);
+
+    } else {
+        mp_setSettingAction->setEnabled(false);
+    }
+}
+
+void gui::MainWindow::enableDisconnectionAction(const bool a_enable)
+{
+    if (a_enable)
+    {
+        mp_disconnectAction->setEnabled(true);
+
+    } else {
+        mp_disconnectAction->setEnabled(false);
+    }
+}
 
 void gui::MainWindow::showStatusMessage(const QString &message)
 {
-        m_statusMessage->setText(message);
+    mp_statusMessage->setText(message);
 
 }
 void gui::MainWindow::about()
@@ -74,15 +106,15 @@ void gui::MainWindow::setupMenuBar()
 {
     QMenu *lp_menuIODevice = menuBar()->addMenu(tr("IO&Device"));
 
-    lp_menuIODevice->addAction(*(new QIcon(":/connect.png")),tr("C&onnect"), mp_serialPort, &io::SerialPort::openSerialPort);
-    lp_menuIODevice->addAction(*(new QIcon(":/disconnect.png")),tr( "D&isconnect"), mp_serialPort, &io::SerialPort::closeSerialPort);
+    lp_menuIODevice->addAction(mp_connectAction);
+    lp_menuIODevice->addAction(mp_disconnectAction);
     lp_menuIODevice->addSeparator();
     lp_menuIODevice->addAction(*(new QIcon(":/application-exit.png")),tr("&Quit"),this, &MainWindow::close);
 
     QMenu *lp_menuSetting = menuBar()->addMenu(tr("&Port"));
 
-    lp_menuSetting->addAction(*(new QIcon(":/settings.png")),tr("S&etting"), mp_settingDialog, &Setting::exec);
-    lp_menuSetting->addAction(tr("&Local echo"), mp_settingDialog, &Setting::enableLocalEcho);
+    lp_menuSetting->addAction(mp_setSettingAction);
+    lp_menuSetting->addAction(mp_setLocalEcho);
 
 
     QMenu *lp_menuHelp = menuBar()->addMenu(tr("&Help"));
@@ -92,6 +124,20 @@ void gui::MainWindow::setupMenuBar()
 
 }
 
+void gui::MainWindow::setupActions()
+{
+    mp_connectAction = new QAction(QIcon(":/connect.png"),tr("&Connect"), this);
+    connect(mp_connectAction, SIGNAL(triggered()), mp_serialPort, SLOT(openSerialPort()));
+    mp_disconnectAction = new QAction(QIcon(":/disconnect.png"),tr( "&Disconnect"), this);
+    connect(mp_disconnectAction, SIGNAL(triggered()), mp_serialPort, SLOT(closeSerialPort()));
+    mp_setSettingAction = new QAction(QIcon(":/settings.png"),tr("&Setting"), this);
+    connect(mp_setSettingAction, SIGNAL(triggered()), mp_settingDialog, SLOT(exec()));
+    mp_setLocalEcho = new QAction(tr("Local &echo"), this);
+    mp_setLocalEcho->setCheckable(true);
+    connect(mp_setLocalEcho, SIGNAL(toggled(bool)), mp_serialPort, SLOT(enableLocalEcho(const bool)));
+
+
+}
 
 void gui::MainWindow::setupToolBar()
 {
@@ -100,8 +146,10 @@ void gui::MainWindow::setupToolBar()
 #endif
     QToolBar *lp_fileToolBar = addToolBar(tr("IODevice"));
 
-    lp_fileToolBar->addAction(*(new QIcon(":/connect.png")),tr("C&onnect"), mp_serialPort, &io::SerialPort::openSerialPort);
-    lp_fileToolBar->addAction(*(new QIcon(":/disconnect.png")),tr( "D&isconnect"), mp_serialPort, &io::SerialPort::closeSerialPort);
-    lp_fileToolBar->addAction(*(new QIcon(":/settings.png")),tr("S&etting"), mp_settingDialog, &Setting::exec);
+    lp_fileToolBar->addAction(mp_connectAction);
+    lp_fileToolBar->addAction(mp_disconnectAction);
+    lp_fileToolBar->addAction(mp_setSettingAction);
     addToolBar(lp_fileToolBar);
 }
+
+

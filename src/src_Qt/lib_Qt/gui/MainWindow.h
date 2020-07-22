@@ -41,22 +41,42 @@ public:
     /** Destructor.
         */
     ~MainWindow();
+
+    void enableConnectionAction(const bool a_enable);
+
+    void enableDisconnectionAction(const bool a_enable);
+
+    void enableSetSettingAction(const bool a_enable);
+
+    void showStatusMessage(const QString &message);
+
+
+
 protected:
 
 
 private:
 
+    void setupActions();
+
     void setupMenuBar();
 
     void setupToolBar();
 
-    void showStatusMessage(const QString &message);
 
     Setting *mp_settingDialog = nullptr;
 
     io::SerialPort *mp_serialPort = nullptr;
 
-    QLabel *m_statusMessage = nullptr;
+    QLabel *mp_statusMessage = nullptr;
+
+    QAction *mp_connectAction = nullptr;
+
+    QAction *mp_disconnectAction = nullptr;
+
+    QAction *mp_setSettingAction = nullptr;
+
+    QAction *mp_setLocalEcho = nullptr;
 
 
 
