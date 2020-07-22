@@ -124,9 +124,7 @@ gui::Setting::~Setting()
 
 int gui::Setting::exec()
 {
-    qDebug()<< "exec";
-
-    //updatePortsInfo();
+    updatePortsInfo();
     return QDialog::exec();
 }
 void gui::Setting::refresh()
@@ -259,4 +257,9 @@ void gui::Setting::fillPortParameters()
 
 
 
+}
+
+gui::Setting::portParameters *gui::Setting::getPortParameters()
+{
+    return mp_portParameters;
 }

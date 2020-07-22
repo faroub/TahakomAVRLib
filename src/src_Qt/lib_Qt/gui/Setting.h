@@ -49,10 +49,10 @@ public:
 
     Setting(QWidget *ap_parent = nullptr);
 
-    ~Setting();
+    ~Setting() override;
 
 
-    void enableLocalEcho();
+    portParameters* getPortParameters();
 
 protected:
 

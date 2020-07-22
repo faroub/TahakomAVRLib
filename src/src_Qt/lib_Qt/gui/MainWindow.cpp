@@ -17,7 +17,7 @@
 
 gui::MainWindow::MainWindow(QWidget *ap_applicationGUI)
                 : mp_settingDialog(new Setting(this)),
-                  mp_serialPort(new io::SerialPort(this)),
+                  mp_serialPort(new io::SerialPort(this,mp_settingDialog)),
                   mp_statusMessage(new QLabel("Not connected ...",this))
 
 {
@@ -151,3 +151,5 @@ void gui::MainWindow::setupToolBar()
     lp_fileToolBar->addAction(mp_setSettingAction);
     addToolBar(lp_fileToolBar);
 }
+
+

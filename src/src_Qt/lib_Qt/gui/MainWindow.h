@@ -48,6 +48,7 @@ public:
 
     void enableSetSettingAction(const bool a_enable);
 
+    void showStatusMessage(const QString &message);
 
 
 
@@ -62,7 +63,6 @@ private:
 
     void setupToolBar();
 
-    void showStatusMessage(const QString &message);
 
     Setting *mp_settingDialog = nullptr;
 

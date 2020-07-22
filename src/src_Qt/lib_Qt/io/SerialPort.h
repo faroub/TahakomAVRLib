@@ -18,6 +18,7 @@ QT_END_NAMESPACE
 namespace gui
 {
 class MainWindow;
+class Setting;
 }
 namespace io
 {
@@ -37,7 +38,7 @@ public slots:
 
 
 public:
-    SerialPort(gui::MainWindow *ap_mainWindow);
+    SerialPort(gui::MainWindow *ap_mainWindow, gui::Setting *ap_setting);
 
     ~SerialPort();
 
@@ -55,6 +56,8 @@ private:
 
 
     gui::MainWindow *mp_mainWindow;
+
+    gui::Setting *mp_setting;
 
 
 };
