@@ -23,7 +23,7 @@
   io::USART0 &myUSART0 = io::USART0::getInstance();
   // Mainloop
   while (1) {
-    if (l_ready2Send && !myUSART0.getNumberBytesSent())
+    if (l_ready2Send && myUSART0.ready2Send())
     {
         myUSART0.sendFrame(reinterpret_cast<uint8_t*>(l_receiverBuffer),BUFFER_SIZE);
         l_ready2Send = 0;
@@ -108,55 +108,60 @@ public:
     /** Set baud rate
          *
          */
-    static void setBaudRate();
+    void setBaudRate();
     /** Set transnmission mode
          *
          *  @param ar_transMode defines transmission mode
          */
-    static void setTransmissionMode(const transmissionMode& ar_transMode);
+    void setTransmissionMode(const transmissionMode& ar_transMode);
     /** Set communication mode
          *
          *  @param ar_comMode defines communication mode
          */
-    static void setCommunicationMode(const communicationMode& ar_comMode);
+    void setCommunicationMode(const communicationMode& ar_comMode);
     /** Set parity mode in data frames
          *
          *  @param ar_parityMode defines parity mode
          */
-    static void setParityMode(const parityMode& ar_parityMode);
+    void setParityMode(const parityMode& ar_parityMode);
     /** Set data frame size
          *
          *  @param ar_frameSize defines data frame size
          */
-    static void setFrameSize(const frameSize& ar_frameSize);
+    void setFrameSize(const frameSize& ar_frameSize);
     /** Set number of stop bits in data frames
          *
          *  @param ar_stopBit defines number of stop bits
          */
-    static void setStopBit(const stopBit& ar_stopBit);
+    void setStopBit(const stopBit& ar_stopBit);
     /** Transmit data frames.
          *
          *  @param ap_dataBuffer defines pointer to transmitter buffer
          *  @param a_size defines size of transmitter buffer
          */
-    static void sendFrame(const uint8_t *ap_dataBuffer, const uint8_t a_size);
+    void sendFrame(const uint8_t *ap_dataBuffer, const uint8_t a_size);
+
+    void sendString(const char *ap_string);
+
+    void sendCharacter(uint8_t a_char);
+
     /** Receive data frames.
          *
          *  @param ap_dataBuffer defines pointer to receiver buffer
          *  @param a_size defines size of receiver buffer
          *  @param a_ready2Receive indicates if chip ready to receive data
          */
-    static void receiveFrame(uint8_t *ap_dataBuffer, const uint8_t a_size, const uint8_t a_ready2Receive);
+    void receiveFrame(uint8_t *ap_dataBuffer, const uint8_t a_size);
     /** Enable transmit complete interrupt.
          *
          *  @param ar_enable indicates if interrupt is enabled
          */
-    static void enableTransmitCompleteInterrupt(const uint8_t ar_enable);
+    void enableTransmitCompleteInterrupt(const uint8_t ar_enable);
     /** Enable receive complete interrupt.
          *
          *  @param ar_enable indicates if interrupt is enabled
          */
-    static void enableReceiveCompleteInterrupt(const uint8_t ar_enable);
+    void enableReceiveCompleteInterrupt(const uint8_t ar_enable);
     /** Enable data register empty interrupt.
          *
          *  @param ar_enable indicates if interrupt is enabled
@@ -164,13 +169,29 @@ public:
     static void enableDataRegisterEmptyInterrupt(const uint8_t ar_enable);
     /** Is there frame error in received data.
          */
-    static uint8_t isFrameError();
+    uint8_t isFrameError();
     /** Is there data overrun in received data.
          */
-    static uint8_t isDataOverrun();
+    uint8_t isDataOverrun();
     /** Is there partity error in received data.
          */
-    static uint8_t isParityError();
+    uint8_t isParityError();
+    /** Get number of bytes received.
+         */
+    uint8_t getNumberBytesReceived();
+    /** Get number of bytes sent.
+         */
+    uint8_t getNumberBytesSent();
+
+    uint8_t ready2Send();
+
+
+
+    /** Reset number of bytes received.
+         */
+    void resetNumberBytesReceived();
+
+
     /** Receive complete ISR.
          */
     static void receiveCompleteServiceRoutine() __asm__(STR(USART0_RECEIVE_COMPLETE_INTERRUPT)) __attribute__((__signal__, __used__, __externally_visible__));
@@ -180,15 +201,7 @@ public:
     /** Transmit complete ISR.
          */
     static void transmitCompleteServiceRoutine() __asm__(STR(USART0_TRANSMIT_COMPLETE_INTERRUPT)) __attribute__((__signal__, __used__, __externally_visible__));
-    /** Get number of bytes received.
-         */
-    static uint8_t getNumberBytesReceived();
-    /** Get number of bytes sent.
-         */
-    static uint8_t getNumberBytesSent();
-    /** Reset number of bytes received.
-         */
-    static void resetNumberBytesReceived();
+
 
 protected:
 
@@ -232,11 +245,11 @@ private:
 
     static uint8_t m_sizeData2Receive;  /**< size of data to be received */
 
-    static uint8_t m_ready2Receive; /**< ready to receive flag */
-
     static uint8_t m_numberBytesReceived;   /**< number of bytes received */
 
     static uint8_t m_numberBytesSent;   /**< number of bytes sent */
+
+    static uint8_t m_ready2Send;   /**< number of bytes sent */
 
 
 };

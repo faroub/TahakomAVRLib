@@ -1,14 +1,14 @@
 #include "USART0.h"
-
+#include <string.h>
 
 volatile uint8_t io::USART0::m_status = 0;
 volatile const uint8_t* io::USART0::mp_data2Send = nullptr;
 volatile uint8_t* io::USART0::mp_dataReceived = nullptr;
 uint8_t io::USART0::m_sizeData2Send = 0;
 uint8_t io::USART0::m_sizeData2Receive = 0;
-uint8_t io::USART0::m_ready2Receive = 0;
 uint8_t io::USART0::m_numberBytesReceived = 0;
 uint8_t io::USART0::m_numberBytesSent = 0;
+uint8_t io::USART0::m_ready2Send = 1;
 
 
 
@@ -210,13 +210,28 @@ void io::USART0::sendFrame(const uint8_t* ap_dataBuffer, const uint8_t a_size)
     enableDataRegisterEmptyInterrupt(1);
 }
 
+void io::USART0::sendString(const char *ap_string)
+{
+    m_sizeData2Send = static_cast<uint8_t>(strlen(ap_string));
+    mp_data2Send = reinterpret_cast<const uint8_t*>(ap_string);
+    enableDataRegisterEmptyInterrupt(1);
 
-void io::USART0::receiveFrame(uint8_t *ap_dataBuffer, const uint8_t a_size, const uint8_t a_ready2Receive)
+}
+
+void io::USART0::sendCharacter(uint8_t a_char)
+{
+    m_sizeData2Send = 1;
+    mp_data2Send = &a_char;
+    enableDataRegisterEmptyInterrupt(1);
+
+}
+
+void io::USART0::
+receiveFrame(uint8_t *ap_dataBuffer, const uint8_t a_size)
 {
     m_sizeData2Receive = a_size;
     mp_dataReceived = ap_dataBuffer;
-    // make sure the receiver buffer is initialized
-    m_ready2Receive = a_ready2Receive;
+
 
 
 }
@@ -229,8 +244,7 @@ void io::USART0::receiveCompleteServiceRoutine()
     m_status = USART0_CONTROL_STATUS_REGISTER;
 
 
-    if (m_ready2Receive)
-    {
+
         if (l_dataSize)
         {
 
@@ -243,9 +257,8 @@ void io::USART0::receiveCompleteServiceRoutine()
         {
             l_dataSize = m_sizeData2Receive;
             lp_dataReceived = mp_dataReceived;
-            m_numberBytesReceived = 0;
         }
-    }
+
 }
 
 void io::USART0::dataRegisterEmptyServiceRoutine()
@@ -253,6 +266,7 @@ void io::USART0::dataRegisterEmptyServiceRoutine()
 
     if (m_sizeData2Send)
     {
+        m_ready2Send = 0;
         USART0_DATA_REGISTER = *mp_data2Send++;
         m_sizeData2Send--;
         m_numberBytesSent++;
@@ -262,6 +276,7 @@ void io::USART0::dataRegisterEmptyServiceRoutine()
     {
         enableDataRegisterEmptyInterrupt(0);
         m_numberBytesSent = 0;
+        m_ready2Send = 1;
 
     }
 
@@ -319,3 +334,10 @@ void io::USART0::resetNumberBytesReceived()
 {
     m_numberBytesReceived = 0;
 }
+
+uint8_t io::USART0::ready2Send()
+{
+    return m_ready2Send;
+
+}
+

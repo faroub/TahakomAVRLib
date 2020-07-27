@@ -53,6 +53,7 @@ include_directories(${LIB_DIR}/io
 add_subdirectory(${LIB_DIR}/io)
 add_subdirectory(${LIB_DIR}/components)
 add_subdirectory(${LIB_DIR}/core)
+add_subdirectory(${LIB_DIR}/utils)
 
 
 set(APPS_DIR "./apps_mcu"

@@ -7,7 +7,7 @@ set(ENV{MCU_PROJECT_NAME} APP_TEST)
 message("MCU_PROJECT_NAME = $ENV{MCU_PROJECT_NAME}")
 
 
-set (INTERN_LINK_LIBS ${INTERN_LINK_LIBS} io core components)
+set (INTERN_LINK_LIBS ${INTERN_LINK_LIBS} core components io utils)
 set (EXTERN_LINK_LIBS ${EXTERN_LINK_LIBS})
 
 # target

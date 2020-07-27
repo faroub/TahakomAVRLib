@@ -1,9 +1,9 @@
 #include "Led.h"
 
 component::Led::Led(const io::Pin &ar_pin)
-         : mr_pin(ar_pin)
+         : m_pin(ar_pin)
 {
-    mr_pin.toOutput();
+    m_pin.toOutput();
 }
 
 component::Led::~Led()
@@ -14,33 +14,33 @@ component::Led::~Led()
 
 void component::Led::on()
 {
-    mr_pin.setHigh();
+    m_pin.setHigh();
 
 }
 
 void component::Led::off()
 {
-    mr_pin.setLow();
+    m_pin.setLow();
 
 }
 
 
 void component::Led::toggle()
 {
-    mr_pin.toggle();
+    m_pin.toggle();
 
 }
 
 uint8_t component::Led::isOn()
 {
-    return mr_pin.isHigh();
+    return m_pin.isHigh();
 
 }
 
 
 uint8_t component::Led::isOff()
 {
-    return mr_pin.isLow();
+    return m_pin.isLow();
 
 }
 

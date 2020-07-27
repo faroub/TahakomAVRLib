@@ -115,7 +115,7 @@ public:
 protected:
 
 private:
-    io::Pin mr_pin; /**< pin object */
+    io::Pin m_pin; /**< pin object */
     const uint8_t &mr_isActiveLow; /**< indicates led active state */
     const uint8_t &mr_useInternalPullUp; /**< indicates if internal pullup resistor used  */
     uint8_t m_buttonPressed;    /**< pushbutton pressed count */

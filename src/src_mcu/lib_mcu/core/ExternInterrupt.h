@@ -166,21 +166,21 @@ public:
 
     static ExternInterrupt& getInstance();
 
-    static void setInt0SenseControl(const senseControl& ar_senseControl);
+    void setInt0SenseControl(const senseControl& ar_senseControl);
 
-    static void setInt1SenseControl(const senseControl& ar_senseControl);
+    void setInt1SenseControl(const senseControl& ar_senseControl);
 
-    static void enableInt0(const uint8_t a_enable);
+    void enableInt0(const uint8_t a_enable);
 
-    static void enableInt1(const uint8_t a_enable);
+    void enableInt1(const uint8_t a_enable);
 
-    static void enablePinChange(const pinChangePort& ar_pinChangePort, const uint8_t a_enable);
+    void enablePinChange(const pinChangePort& ar_pinChangePort, const uint8_t a_enable);
 
-    static void enablePinChangeMaskPortB(const uint8_t a_pinNumber, const uint8_t a_enable);
+    void enablePinChangeMaskPortB(const uint8_t a_pinNumber, const uint8_t a_enable);
 
-    static void enablePinChangeMaskPortC(const uint8_t a_pinNumber, const uint8_t a_enable);
+    void enablePinChangeMaskPortC(const uint8_t a_pinNumber, const uint8_t a_enable);
 
-    static void enablePinChangeMaskPortD(const uint8_t a_pinNumber, const uint8_t a_enable);
+    void enablePinChangeMaskPortD(const uint8_t a_pinNumber, const uint8_t a_enable);
 
     static void Int0ServiceRoutine() __asm__(STR(EXT_INT_INT0_INTERRUPT)) __attribute__((__signal__, __used__, __externally_visible__));
 

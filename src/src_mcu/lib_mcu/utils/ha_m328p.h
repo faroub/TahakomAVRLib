@@ -121,7 +121,7 @@
 
 // ADC defines
 
-#define   ADC_SELECT_REF_VOLTAGE(refVoltage)         ADMUX &= 0x1F; ADMUX |= refVoltage << 6
+#define   ADC_SELECT_REF_VOLTAGE(refVoltage)         ADMUX &= 0x3F; ADMUX |= refVoltage << 6
 
 #define   ADC_ADJUST_RESULT_LEFT            ADMUX |=  1 << ADLAR
 #define   ADC_ADJUST_RESULT_RIGHT           ADMUX &= ~(1 << ADLAR)
@@ -183,6 +183,33 @@
 #define  EXT_INT_PIN_CHANGE_PORTC_INTERRUPT   PCINT1_vect
 #define  EXT_INT_PIN_CHANGE_PORTD_INTERRUPT   PCINT2_vect
 
+// Timers/Counters defines
+
+#define TIMER0_STOP TCCR0B &= 0xF8;
+#define TIMER1_STOP TCCR1B &= 0xF8;
+#define TIMER2_STOP TCCR2B &= 0xF8;
+
+#define TIMER0_SELECT_CLOCK_SOURCE(clockSource) TCCR0B &= 0xF8; TCCR0B |= clockSource
+#define TIMER1_SELECT_CLOCK_SOURCE(clockSource) TCCR1B &= 0xF8; TCCR1B |= clockSource
+#define TIMER2_SELECT_CLOCK_SOURCE(clockSource) TCCR2B &= 0xF8; TCCR2B |= clockSource
+
+#define TIMER0_SELECT_OPERATION_MODE(operationMode) TCCR0A &= 0xFC; TCCR0A |= (operationMode & 3); TCCR0B &= 0xF7; TCCR0B |= (operationMode & 12) << 3
+#define TIMER1_SELECT_OPERATION_MODE(operationMode) TCCR1A &= 0xFC; TCCR1A |= (operationMode & 3); TCCR1B &= 0xE7; TCCR1B |= (operationMode & 12) << 3
+#define TIMER2_SELECT_OPERATION_MODE(operationMode) TCCR2A &= 0xFC; TCCR2A |= (operationMode & 3); TCCR2B &= 0xF7; TCCR2B |= (operationMode & 12) << 3
+
+#define TIMER0_SELECT_COM_CHANNEL_A(compareOutputMode) TCCR0A &= 0x3F; TCCR0A |= compareOutputMode << 6
+#define TIMER0_SELECT_COM_CHANNEL_B(compareOutputMode) TCCR0A &= 0xCF; TCCR0A |= compareOutputMode << 4
+
+#define TIMER1_SELECT_COM_CHANNEL_A(compareOutputMode) TCCR1A &= 0x3F; TCCR1A |= compareOutputMode << 6
+#define TIMER1_SELECT_COM_CHANNEL_B(compareOutputMode) TCCR1A &= 0xCF; TCCR1A |= compareOutputMode << 4
+
+#define TIMER2_SELECT_COM_CHANNEL_A(compareOutputMode) TCCR2A &= 0x3F; TCCR2A |= compareOutputMode << 6
+#define TIMER2_SELECT_COM_CHANNEL_B(compareOutputMode) TCCR2A &= 0xCF; TCCR2A |= compareOutputMode << 4
+
+
+#define TIMER0_RESET_COUNTER TCNT0 = 0x00
+#define TIMER1_RESET_COUNTER TCNT1 = 0x00
+#define TIMER2_RESET_COUNTER TCNT2 = 0x00
 
 #endif
 

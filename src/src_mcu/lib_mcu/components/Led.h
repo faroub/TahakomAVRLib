@@ -67,7 +67,7 @@ protected:
 
 private:
 
-    io::Pin mr_pin; /**< pin object */
+    io::Pin m_pin; /**< pin object */
 
 
 

@@ -1,1 +1,1 @@
-add_library(components Led.cpp PushButton.cpp)
+add_library(components Led.cpp PushButton.cpp Buzzer.cpp)

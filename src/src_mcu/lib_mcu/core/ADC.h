@@ -106,7 +106,7 @@ enum class clockPrescaler {
      PS_32,
      PS_64,
      PS_128
-     };
+};
 
 enum class autoTriggerSource : uint8_t {
     FreeRunning,
@@ -129,29 +129,30 @@ public:
                                     const autoTriggerSource& ar_autoTriggerSource = autoTriggerSource::FreeRunning,
                                     const io::Pin &ar_pin = io::Pin(0,io::PortC));
 
-    static void start();
+    void start();
 
-    static void stop();
+    void stop();
 
-    static void selectReferenceVoltage(const referenceVoltage& ar_refVoltage);
+    void selectReferenceVoltage(const referenceVoltage& ar_refVoltage);
 
-    static void adjustResult(const resultAdjust &ar_adjustResult);
+    void adjustResult(const resultAdjust &ar_adjustResult);
 
-    static void selectAnalogInput(io::Pin a_pin);
+    void selectAnalogInput(io::Pin a_pin);
 
-    static void selectClockPrescaler(const clockPrescaler& ar_clockPrescaler);
+    void selectClockPrescaler(const clockPrescaler& ar_clockPrescaler);
 
-    static void getConversionResult(uint16_t *ap_dataBuffer);
+    void getConversionResult(uint16_t *ap_dataBuffer);
 
-    static void enableConversionCompleteInterrupt(const uint8_t a_enable);
+    void enableConversionCompleteInterrupt(const uint8_t a_enable);
 
-    static void enableAutoTrigger(const uint8_t a_enable);
+    void enableAutoTrigger(const uint8_t a_enable);
+
+    void selectAutoTriggerSource(const autoTriggerSource& ar_autoTriggerSource);
+
+    uint8_t conversionComplete();
 
     static void conversionCompleteServiceRoutine() __asm__(STR(ADC_CONVERSION_COMPLETE_INTERRUPT)) __attribute__((__signal__, __used__, __externally_visible__));
 
-    static void selectAutoTriggerSource(const autoTriggerSource& ar_autoTriggerSource);
-
-    static uint8_t conversionComplete();
 
 protected:
 
