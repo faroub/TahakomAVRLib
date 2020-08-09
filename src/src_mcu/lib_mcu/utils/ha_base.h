@@ -26,6 +26,7 @@
 #if   defined(__AVR_ATmega328P__)
 
     #include "ha_m328p.h"
+    #include "Support_m328p.h"
 
 #endif
 

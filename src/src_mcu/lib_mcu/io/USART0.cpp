@@ -218,10 +218,10 @@ void io::USART0::sendString(const char *ap_string)
 
 }
 
-void io::USART0::sendCharacter(uint8_t a_char)
+void io::USART0::sendByte(uint8_t a_byte)
 {
     m_sizeData2Send = 1;
-    mp_data2Send = &a_char;
+    mp_data2Send = &a_byte;
     enableDataRegisterEmptyInterrupt(1);
 
 }

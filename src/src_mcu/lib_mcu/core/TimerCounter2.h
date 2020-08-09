@@ -265,8 +265,9 @@
  * @date March 2020
 */
 
-#ifndef TIMER_COUNTER_H
-#define TIMER_COUNTER_H
+#ifndef TIMER_COUNTER2_H
+#define TIMER_COUNTER2_H
+#include "TimerCounter.h"
 #include "ha_base.h"
 
 
@@ -274,85 +275,55 @@
 namespace core
 {
 
-enum class channel : uint8_t {
-    A=0,    /**<  */
-    B,       /**<  */
-};
 
-
-enum class compareOutputMode : uint8_t {
-    Normal=0,    /**<  */
-    Toggle,       /**<  */
-    Clear,   /**<  */
-    Set,   /**<  */
-};
-
-
-
-enum class operationMode : uint8_t {
-    Normal=0,    /**<  */
-    PWM_PhaseCorrect,       /**<  */
-    PWM_PhaseCorrect_8bit,   /**<  */
-    PWM_PhaseCorrect_9bit,   /**<  */
-    PWM_PhaseCorrect_10bit,   /**<  */
-    PWM_PFC_ICR, /**<  */
-    PWM_PFC_OCR, /**<  */
-    PWM_PC_ICR, /**<  */
-    PWM_PC_OCR, /**<  */
-    Fast_PWM,   /**<  */
-    Fast_PWM_8bit,   /**<  */
-    Fast_PWM_9bit,   /**<  */
-    Fast_PWM_10bit,   /**<  */
-    Fast_PWM_ICR,   /**<  */
-    Fast_PWM_OCR,   /**<  */
-    CTC_OCR,   /**<  */
-    CTC_ICR,   /**<  */
-};
-enum class clockSource {
-     NoClock=0,
-     PS_1,
-     PS_8,
-     PS_64,
-     PS_32,
-     PS_128,
-     PS_256,
-     PS_1024,
-     Extern_Clock_T0_Falling_Edge,
-     Extern_Clock_T0_Rising_Edge,
-};
-
-class TimerCounter
+class TimerCounter2 : public TimerCounter
 {
 
 public:
 
+    static TimerCounter2& getInstance(const operationMode &ar_operationMode = operationMode::Normal,
+                                      const clockSource &ar_clockSource= clockSource::NoClock,
+                                      const compareOutputMode& ar_compareOutputMode = compareOutputMode::Normal);
 
-    virtual void selectOperationMode(const operationMode &ar_operationMode) = 0;
+    void selectOperationMode(const operationMode &ar_operationMode) override;
 
-    virtual void selectClockSource(const clockSource &ar_clockSource) = 0;
+    void selectClockSource(const clockSource &ar_clockSource) override;
 
-    virtual void stopTimer() = 0;
+    void stopTimer() override;
 
-    virtual void selectCOMChannelA(const compareOutputMode &ar_compareOutputMode) = 0;
+    void selectCOMChannelA(const compareOutputMode &ar_compareOutputMode) override;
 
-    virtual void selectCOMChannelB(const compareOutputMode &ar_compareOutputMode) = 0;
+    void selectCOMChannelB(const compareOutputMode &ar_compareOutputMode) override;
 
-    virtual void setCounter(uint16_t *ap_dataBuffer) = 0;
+    void setCounter(uint16_t *ap_dataBuffer) override;
 
-    virtual uint16_t getCounter() const = 0;
+    uint16_t getCounter() const override;
 
-    virtual void setOCRChannelA(uint16_t *ap_dataBuffer) = 0;
+    void setOCRChannelA(uint16_t *ap_dataBuffer) override;
 
-    virtual void setOCRChannelB(uint16_t *ap_dataBuffer) = 0;
+    void setOCRChannelB(uint16_t *ap_dataBuffer) override;
 
-    virtual uint16_t getOCRChannelA() const = 0;
+    uint16_t getOCRChannelA() const override;
 
-    virtual uint16_t getOCRChannelB() const = 0;
+    uint16_t getOCRChannelB() const override;
 
 protected:
 
 private:
 
+    TimerCounter2(const operationMode &ar_operationMode,
+                  const clockSource &ar_clockSource,
+                  const compareOutputMode& ar_compareOutputMode);
+
+    ~TimerCounter2();
+
+    /** Overried Copy constructor.
+        */
+    TimerCounter2(const TimerCounter2&);
+
+    /** Override assign operator.
+        */
+    const TimerCounter2& operator=(const TimerCounter2&);
 
 
 

@@ -105,45 +105,51 @@ public:
                                const frameSize& ar_frameSize = frameSize::eightBits,
                                const stopBit& ar_stopBit = stopBit::oneStopBit,
                                const parityMode& ar_parityMode = parityMode::noParity);
-    /** Set baud rate
+    /** Set baud rate.
          *
          */
     void setBaudRate();
-    /** Set transnmission mode
+    /** Set transnmission mode.
          *
          *  @param ar_transMode defines transmission mode
          */
     void setTransmissionMode(const transmissionMode& ar_transMode);
-    /** Set communication mode
+    /** Set communication mode.
          *
          *  @param ar_comMode defines communication mode
          */
     void setCommunicationMode(const communicationMode& ar_comMode);
-    /** Set parity mode in data frames
+    /** Set parity mode in data frame.
          *
          *  @param ar_parityMode defines parity mode
          */
     void setParityMode(const parityMode& ar_parityMode);
-    /** Set data frame size
+    /** Set data frame size.
          *
          *  @param ar_frameSize defines data frame size
          */
     void setFrameSize(const frameSize& ar_frameSize);
-    /** Set number of stop bits in data frames
+    /** Set number of stop bits in data frame.
          *
          *  @param ar_stopBit defines number of stop bits
          */
     void setStopBit(const stopBit& ar_stopBit);
-    /** Transmit data frames.
+    /** Transmit data frame.
          *
          *  @param ap_dataBuffer defines pointer to transmitter buffer
          *  @param a_size defines size of transmitter buffer
          */
     void sendFrame(const uint8_t *ap_dataBuffer, const uint8_t a_size);
-
+    /** Transmit string.
+         *
+         *  @param ap_string defines pointer to string
+         */
     void sendString(const char *ap_string);
-
-    void sendCharacter(uint8_t a_char);
+    /** Transmit byte.
+         *
+         *  @param a_byte defines byte to be sent
+         */
+    void sendByte(uint8_t a_byte);
 
     /** Receive data frames.
          *
@@ -182,16 +188,12 @@ public:
     /** Get number of bytes sent.
          */
     uint8_t getNumberBytesSent();
-
+    /** Get ready to send status.
+         */
     uint8_t ready2Send();
-
-
-
     /** Reset number of bytes received.
          */
     void resetNumberBytesReceived();
-
-
     /** Receive complete ISR.
          */
     static void receiveCompleteServiceRoutine() __asm__(STR(USART0_RECEIVE_COMPLETE_INTERRUPT)) __attribute__((__signal__, __used__, __externally_visible__));
@@ -249,7 +251,7 @@ private:
 
     static uint8_t m_numberBytesSent;   /**< number of bytes sent */
 
-    static uint8_t m_ready2Send;   /**< number of bytes sent */
+    static uint8_t m_ready2Send;   /**< ready to send flag */
 
 
 };

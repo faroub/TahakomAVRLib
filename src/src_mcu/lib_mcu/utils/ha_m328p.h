@@ -207,9 +207,6 @@
 #define TIMER2_SELECT_COM_CHANNEL_B(compareOutputMode) TCCR2A &= 0xCF; TCCR2A |= compareOutputMode << 4
 
 
-#define TIMER0_RESET_COUNTER TCNT0 = 0x00
-#define TIMER1_RESET_COUNTER TCNT1 = 0x00
-#define TIMER2_RESET_COUNTER TCNT2 = 0x00
 
 #endif
 
