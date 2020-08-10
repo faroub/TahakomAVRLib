@@ -291,10 +291,10 @@ enum class compareOutputMode : uint8_t {
 
 enum class operationMode : uint8_t {
     Normal=0,    /**<  */
-    PWM_PhaseCorrect,       /**<  */
-    PWM_PhaseCorrect_8bit,   /**<  */
-    PWM_PhaseCorrect_9bit,   /**<  */
-    PWM_PhaseCorrect_10bit,   /**<  */
+    PWM_PC,       /**<  */
+    PWM_PC_8bit,   /**<  */
+    PWM_PC_9bit,   /**<  */
+    PWM_PC_10bit,   /**<  */
     PWM_PFC_ICR, /**<  */
     PWM_PFC_OCR, /**<  */
     PWM_PC_ICR, /**<  */
@@ -312,8 +312,8 @@ enum class clockSource {
      NoClock=0,
      PS_1,
      PS_8,
-     PS_64,
      PS_32,
+     PS_64,
      PS_128,
      PS_256,
      PS_1024,
@@ -329,25 +329,21 @@ public:
 
     virtual void selectOperationMode(const operationMode &ar_operationMode) = 0;
 
-    virtual void selectClockSource(const clockSource &ar_clockSource) = 0;
+    virtual void start(const clockSource &ar_clockSource) = 0;
 
-    virtual void stopTimer() = 0;
+    virtual void stop() = 0;
 
-    virtual void selectCOMChannelA(const compareOutputMode &ar_compareOutputMode) = 0;
+    virtual void selectCompareOutputMode(const channel &ar_channel, const compareOutputMode &ar_compareOutputMode) = 0;
 
-    virtual void selectCOMChannelB(const compareOutputMode &ar_compareOutputMode) = 0;
-
-    virtual void setCounter(uint16_t *ap_dataBuffer) = 0;
+    virtual void setCounter(const uint16_t &ar_dataBuffer) = 0;
 
     virtual uint16_t getCounter() const = 0;
 
-    virtual void setOCRChannelA(uint16_t *ap_dataBuffer) = 0;
+    virtual void setOutputCompareRegister(const channel &ar_channel, const uint16_t &ar_dataBuffer) = 0;
 
-    virtual void setOCRChannelB(uint16_t *ap_dataBuffer) = 0;
+    virtual uint16_t getOutputCompareRegister(const channel &ar_channel) const = 0;
 
-    virtual uint16_t getOCRChannelA() const = 0;
 
-    virtual uint16_t getOCRChannelB() const = 0;
 
 protected:
 

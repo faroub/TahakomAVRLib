@@ -8,7 +8,7 @@
 
 #include "Buzzer.h"
 #include "TimerCounter0.h"
-#include "BuzzerPitches.h"
+#include "buzzer_pitches_8bit.h"
 
 
 #define BUZZER 6
@@ -16,33 +16,38 @@
 int main(void) {
 
     // Init
-    // Buzzer object
+    // instantiate the Buzzer object
     component::Buzzer Buzzer(io::Pin(BUZZER,io::PortD));
     // instantiate the TimerCounter0 object
     core::TimerCounter0 &myTimerCounter0 = core::TimerCounter0::getInstance();
+
+
     // notes in the melody:
-    uint16_t melody[] = {
-      NOTE_C4, NOTE_G3, NOTE_G3, NOTE_A3, NOTE_G3, NOTE_G3, NOTE_B3, NOTE_C4
-    };
+    const uint16_t notes[] = { C2, E2, G2, C3};
 
-    // note durations: 4 = quarter note, 8 = eighth note, etc.:
-    uint8_t noteDurations[] = {
-      4, 8, 8, 4, 4, 4, 4, 4
-    };
-    uint16_t noteDuration;
-    uint16_t pauseBetweenNotes;
-    for (uint8_t thisNote = 0; thisNote < 8; thisNote++) {
 
-        // to calculate the note duration, take one second divided by the note type.
-        //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
-        noteDuration = 1000 / noteDurations[thisNote];
-        Buzzer.buzz(myTimerCounter0,melody[thisNote], noteDuration);
+    for (uint8_t i = 0; i < sizeof (notes)/sizeof (uint16_t); i++)
+    {
+        Buzzer.buzz(notes[i],200);
 
-        // to distinguish the notes, set a minimum time between them.
-        // the note's duration + 30% seems to work well:
-        pauseBetweenNotes = noteDuration * 1.3;
-        Buzzer.pause(pauseBetweenNotes);
-        // stop the tone playing:
+        // delay between pitches
+        _delay_ms(200);
+
+        Buzzer.noBuzz();
+    }
+
+    _delay_ms(1000);
+    _delay_ms(1000);
+    _delay_ms(1000);
+
+    for (uint8_t i = 0; i < sizeof (notes)/sizeof (uint16_t); i++)
+    {
+        Buzzer.buzz(myTimerCounter0,notes[i],200);
+
+        // delay between pitches
+        _delay_ms(200);
+
+        Buzzer.noBuzz();
         Buzzer.noBuzz(myTimerCounter0);
     }
 

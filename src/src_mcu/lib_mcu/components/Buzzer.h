@@ -77,54 +77,39 @@ public:
 
     ~Buzzer();
 
-    void buzz(const uint16_t &ar_frequency_hz , const uint16_t &ar_duration_ms);
+    void buzz(const uint16_t &ar_period_us , const uint16_t &ar_duration_ms);
 
     template<typename TC>
     void buzz(TC &ar_timerCounter,
-              const uint16_t &ar_frequency_hz,
-              const uint16_t &ar_duration_ms,
-              const core::channel &ar_channel=core::channel::A)
+              const uint16_t &ar_period_us,
+              uint16_t a_duration_ms,
+              const core::channel &ar_channel=core::channel::A,
+              const core::clockSource &ar_clockSource= core::clockSource::PS_32
+              )
     {
-        uint16_t l_period_ms = 0xFFFF;
-
-        if (ar_frequency_hz)
-        {
-            l_period_ms = 1000/ar_frequency_hz;
-        }
+        ar_timerCounter.setCounter(0);
         ar_timerCounter.selectOperationMode(core::operationMode::CTC_OCR);
-
-        switch (ar_channel)
-        {
-            case core::channel::A:
-            {
-                ar_timerCounter.selectCOMChannelA(core::compareOutputMode::Toggle);
-                ar_timerCounter.setOCRChannelA(&l_period_ms);
-                break;
-            }
-            case core::channel::B:
-            {
-                ar_timerCounter.selectCOMChannelB(core::compareOutputMode::Toggle);
-                ar_timerCounter.setOCRChannelB(&l_period_ms);
-                break;
-            }
-
-        }
+        ar_timerCounter.selectCompareOutputMode(ar_channel, core::compareOutputMode::Toggle);
+        ar_timerCounter.setOutputCompareRegister(ar_channel, ar_period_us);
         // start timer
-        ar_timerCounter.selectClockSource(core::clockSource::PS_1024);
-
-
+        ar_timerCounter.start(ar_clockSource);
+        // wait for the pitch duration
+        while (a_duration_ms) {                                 /* Variable delay */
+          _delay_ms(1);
+          a_duration_ms--;
+        }
     }
 
 
 
-    void pause(uint16_t &ar_duration_ms);
+
 
     void noBuzz();
 
     template<typename TC>
     void noBuzz(TC &ar_timerCounter)
     {
-        ar_timerCounter.stopTimer();
+        ar_timerCounter.stop();
     }
 
 

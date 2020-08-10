@@ -15,22 +15,17 @@ component::Buzzer::~Buzzer()
 
 
 
-void component::Buzzer::buzz(const uint16_t &ar_frequency_hz , const uint16_t &ar_duration_ms)
+void component::Buzzer::buzz(const uint16_t &ar_period_us , const uint16_t &ar_duration_ms)
 {
-    uint16_t l_period_ms = 0xFFFF;
+    uint32_t l_duration_us = ar_duration_ms * 1000;
 
-    if (ar_frequency_hz)
-    {
-
-        l_period_ms = 1000/ar_frequency_hz;
-    }
-
-    for (uint16_t i = 0; i < ar_duration_ms; i += l_period_ms)
+    for (uint32_t i = 0; i < l_duration_us; i += ar_period_us)
     {
         /* For loop with variable delay selects the pitch */
-        for (uint16_t j = 0; j < l_period_ms; j++)
+        // _delay_us() needs a constant defined at compile time
+        for (uint16_t j = 0; j < ar_period_us; j++)
         {
-            _delay_ms(1);
+            _delay_us(1);
         }
         m_pin.toggle();
     }
@@ -44,10 +39,3 @@ void component::Buzzer::noBuzz()
 
 }
 
-void component::Buzzer::pause(uint16_t &ar_duration_ms)
-{
-    do {
-      _delay_ms(1);
-    } while (--ar_duration_ms);
-
-}

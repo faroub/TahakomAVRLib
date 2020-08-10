@@ -281,37 +281,33 @@ class TimerCounter2 : public TimerCounter
 
 public:
 
-    static TimerCounter2& getInstance(const operationMode &ar_operationMode = operationMode::Normal,
+    static TimerCounter2& getInstance(const channel &ar_channel = channel::A,
+                                      const operationMode &ar_operationMode = operationMode::Normal,
                                       const clockSource &ar_clockSource= clockSource::NoClock,
                                       const compareOutputMode& ar_compareOutputMode = compareOutputMode::Normal);
 
     void selectOperationMode(const operationMode &ar_operationMode) override;
 
-    void selectClockSource(const clockSource &ar_clockSource) override;
+    void start(const clockSource &ar_clockSource) override;
 
-    void stopTimer() override;
+    void stop() override;
 
-    void selectCOMChannelA(const compareOutputMode &ar_compareOutputMode) override;
+    void selectCompareOutputMode(const channel &ar_channel, const compareOutputMode &ar_compareOutputMode) override;
 
-    void selectCOMChannelB(const compareOutputMode &ar_compareOutputMode) override;
-
-    void setCounter(uint16_t *ap_dataBuffer) override;
+    void setCounter(const uint16_t &ar_dataBuffer) override;
 
     uint16_t getCounter() const override;
 
-    void setOCRChannelA(uint16_t *ap_dataBuffer) override;
+    void setOutputCompareRegister(const channel &ar_channel, const uint16_t &ar_dataBuffer) override;
 
-    void setOCRChannelB(uint16_t *ap_dataBuffer) override;
-
-    uint16_t getOCRChannelA() const override;
-
-    uint16_t getOCRChannelB() const override;
+    uint16_t getOutputCompareRegister(const channel &ar_channel) const override;
 
 protected:
 
 private:
 
-    TimerCounter2(const operationMode &ar_operationMode,
+    TimerCounter2(const channel &ar_channel,
+                  const operationMode &ar_operationMode,
                   const clockSource &ar_clockSource,
                   const compareOutputMode& ar_compareOutputMode);
 
