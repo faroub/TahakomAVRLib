@@ -185,9 +185,9 @@
 
 // Timers/Counters defines
 
-#define TIMER0_STOP TCCR0B &= 0xF8;
-#define TIMER1_STOP TCCR1B &= 0xF8;
-#define TIMER2_STOP TCCR2B &= 0xF8;
+#define TIMER0_STOP TCCR0B &= 0xF8
+#define TIMER1_STOP TCCR1B &= 0xF8
+#define TIMER2_STOP TCCR2B &= 0xF8
 
 #define TIMER0_SELECT_CLOCK_SOURCE(clockSource) TCCR0B &= 0xF8; TCCR0B |= clockSource
 #define TIMER1_SELECT_CLOCK_SOURCE(clockSource) TCCR1B &= 0xF8; TCCR1B |= clockSource

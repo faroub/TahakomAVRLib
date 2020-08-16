@@ -17,7 +17,7 @@ component::Buzzer::~Buzzer()
 
 void component::Buzzer::buzz(const uint16_t &ar_period_us , const uint16_t &ar_duration_ms)
 {
-    uint32_t l_duration_us = ar_duration_ms * 1000;
+    uint32_t l_duration_us = ar_duration_ms*1000UL;
 
     for (uint32_t i = 0; i < l_duration_us; i += ar_period_us)
     {

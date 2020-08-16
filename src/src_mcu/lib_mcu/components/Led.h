@@ -4,7 +4,7 @@
  *
  * class to control a Led.
  *
- * Usage example:
+ * Usage example (simple on/off example):
  *
  #include "Led.h"
  #include <util/delay.h>
@@ -24,7 +24,46 @@
   }
   return 0;
   }
+ * Usage example (Brute-Force PWM Demo):
+ *
+ #include "Led.h"
+ #define PIN_NUMBER 1
+ #define LED_DELAY 20
 
+ int main(void) {
+
+    // Init
+    uint8_t l_brightness = 0;
+    uint8_t l_index=0;
+    int8_t l_direction = 1;
+
+    /// instantiate a Led object
+    component::Led Led(io::Pin(PIN_NUMBER,io::PortB));
+
+    // ------ Event loop ------ //
+    while (1) {
+        // Brighten and dim
+        if (l_brightness == 0) {
+            l_direction = 1;
+        }
+        if (l_brightness == 255) {
+            l_direction = -1;
+        }
+        l_brightness += l_direction;
+
+        Led.on();
+
+        for (l_index = 0; l_index < 255; l_index++) {
+            if (l_index >= l_brightness) {
+                Led.off();
+            }
+            _delay_us(LED_DELAY);
+        }
+
+
+    }
+    return 0;
+ }
  * @author Farid Oubbati (https://github.com/faroub)
  * @date March 2020
 */

@@ -151,6 +151,11 @@ public:
          */
     void sendByte(uint8_t a_byte);
 
+    /** Receive byte.
+         *
+         *  @param a_byte defines byte to be sent
+         */
+    void receiveByte(uint8_t *ap_dataBuffer);
     /** Receive data frames.
          *
          *  @param ap_dataBuffer defines pointer to receiver buffer

@@ -226,8 +226,7 @@ void io::USART0::sendByte(uint8_t a_byte)
 
 }
 
-void io::USART0::
-receiveFrame(uint8_t *ap_dataBuffer, const uint8_t a_size)
+void io::USART0::receiveFrame(uint8_t *ap_dataBuffer, const uint8_t a_size)
 {
     m_sizeData2Receive = a_size;
     mp_dataReceived = ap_dataBuffer;
@@ -236,6 +235,10 @@ receiveFrame(uint8_t *ap_dataBuffer, const uint8_t a_size)
 
 }
 
+void io::USART0::receiveByte(uint8_t *ap_dataBuffer)
+{
+
+}
 void io::USART0::receiveCompleteServiceRoutine()
 {
     static volatile uint8_t *lp_dataReceived = mp_dataReceived;

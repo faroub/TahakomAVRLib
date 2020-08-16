@@ -81,23 +81,23 @@ public:
 
     template<typename TC>
     void buzz(TC &ar_timerCounter,
-              const uint16_t &ar_period_us,
+              uint16_t ar_period_us,
               uint16_t a_duration_ms,
               const core::channel &ar_channel=core::channel::A,
-              const core::clockSource &ar_clockSource= core::clockSource::PS_32
+              const core::clockSource &ar_clockSource= core::clockSource::PS_1024
               )
     {
-        ar_timerCounter.setCounter(0);
         ar_timerCounter.selectOperationMode(core::operationMode::CTC_OCR);
         ar_timerCounter.selectCompareOutputMode(ar_channel, core::compareOutputMode::Toggle);
+        ar_timerCounter.setCounter(0);
         ar_timerCounter.setOutputCompareRegister(ar_channel, ar_period_us);
         // start timer
         ar_timerCounter.start(ar_clockSource);
         // wait for the pitch duration
-        while (a_duration_ms) {                                 /* Variable delay */
-          _delay_ms(1);
-          a_duration_ms--;
-        }
+        //while (a_duration_ms) {
+          _delay_ms(200);
+          //a_duration_ms--;
+        //}
     }
 
 

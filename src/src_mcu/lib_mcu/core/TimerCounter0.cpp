@@ -157,13 +157,13 @@ uint16_t core::TimerCounter0::getCounter() const
     return TCNT0;
 }
 
-void core::TimerCounter0::setOutputCompareRegister(const channel &ar_channel, const uint16_t &ar_dataBuffer)
+void core::TimerCounter0::setOutputCompareRegister(const channel &ar_channel, uint16_t ar_dataBuffer)
 {
     switch (ar_channel)
     {
         case core::channel::A:
         {
-            OCR0A = static_cast<uint8_t>(ar_dataBuffer);
+            OCR0A = 200;//static_cast<uint8_t>(ar_dataBuffer);
             break;
         }
         case core::channel::B:

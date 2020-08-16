@@ -158,7 +158,7 @@ uint16_t core::TimerCounter2::getCounter() const
     return TCNT2;
 }
 
-void core::TimerCounter2::setOutputCompareRegister(const channel &ar_channel, const uint16_t &ar_dataBuffer)
+void core::TimerCounter2::setOutputCompareRegister(const channel &ar_channel, uint16_t ar_dataBuffer)
 {
     switch (ar_channel)
     {
