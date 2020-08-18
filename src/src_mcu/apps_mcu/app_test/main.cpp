@@ -21,7 +21,6 @@ uint8_t getNumber(const char *ap_receive);
 int main(void) {
 
     // Init
-    uint8_t l_brightness=0;
     // receiver buffer
     char l_receiverBuffer[BUFFER_SIZE];
 
@@ -42,11 +41,6 @@ int main(void) {
     core::TimerCounter2 &myTimerCounter2 = core::TimerCounter2::getInstance();
     myTimerCounter2.selectOperationMode(core::operationMode::Fast_PWM);
     myTimerCounter2.selectCompareOutputMode(core::channel::A,core::compareOutputMode::Clear);
-
-
-
-
-
 
     if (myUSART0.ready2Send())
     {
@@ -90,14 +84,6 @@ int main(void) {
         myTimerCounter1.setOutputCompareRegister(core::channel::B,myTimerCounter1.getOutputCompareRegister(core::channel::A));
         myTimerCounter1.setOutputCompareRegister(core::channel::A,getNumber(l_receiverBuffer));
 
-//            l_brightness++;
-//            //_delay_ms(500);
-
-
-
-//        OCR2A = OCR1B;
-//        OCR1B = OCR1A;
-//        OCR1A = l_brightness;
 
     }                                                  /* End event loop */
     return 0;
