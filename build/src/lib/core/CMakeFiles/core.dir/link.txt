@@ -1,2 +1,0 @@
-/usr/bin/avr-ar qc libcore.a  CMakeFiles/core.dir/ADC.cpp.obj CMakeFiles/core.dir/ExternInterrupt.cpp.obj CMakeFiles/core.dir/TimerCounter0.cpp.obj CMakeFiles/core.dir/TimerCounter1.cpp.obj CMakeFiles/core.dir/TimerCounter2.cpp.obj
-/usr/bin/avr-ranlib libcore.a

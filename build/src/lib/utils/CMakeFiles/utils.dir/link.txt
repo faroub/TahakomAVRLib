@@ -1,2 +1,0 @@
-/usr/bin/avr-ar qc libutils.a  CMakeFiles/utils.dir/Support_m328p.cpp.obj
-/usr/bin/avr-ranlib libutils.a
