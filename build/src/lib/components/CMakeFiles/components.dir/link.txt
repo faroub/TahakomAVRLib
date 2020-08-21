@@ -1,0 +1,2 @@
+/usr/bin/avr-ar qc libcomponents.a  CMakeFiles/components.dir/Led.cpp.obj CMakeFiles/components.dir/PushButton.cpp.obj CMakeFiles/components.dir/Buzzer.cpp.obj CMakeFiles/components.dir/LCD.cpp.obj
+/usr/bin/avr-ranlib libcomponents.a

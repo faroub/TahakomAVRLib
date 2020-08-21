@@ -1,0 +1,4 @@
+# Hashes of file build rules.
+9b723bbcab3f2a252362055d81963770 src/apps/app_test/CMakeFiles/APP_TEST_eeprom
+63d2829e63046d8598236eca393db490 src/apps/app_test/CMakeFiles/APP_TEST_hex
+cef6966043456251f10734389029d733 src/apps/app_test/CMakeFiles/APP_TEST_strip

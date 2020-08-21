@@ -1,0 +1,2 @@
+/usr/bin/avr-ar qc libio.a  CMakeFiles/io.dir/Pin.cpp.obj CMakeFiles/io.dir/USART0.cpp.obj
+/usr/bin/avr-ranlib libio.a
