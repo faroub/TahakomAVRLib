@@ -62,6 +62,20 @@ Led.h
 ha_base.h
 .././src/lib/core/ha_base.h
 
+.././src/lib/core/TimerCounter0.h
+TimerCounter.h
+.././src/lib/core/TimerCounter.h
+USART0.h
+.././src/lib/core/USART0.h
+PushButton.h
+.././src/lib/core/PushButton.h
+Led.h
+.././src/lib/core/Led.h
+TimerCounter.h
+.././src/lib/core/TimerCounter.h
+ha_base.h
+.././src/lib/core/ha_base.h
+
 .././src/lib/core/TimerCounter1.h
 TimerCounter.h
 .././src/lib/core/TimerCounter.h
@@ -125,8 +139,8 @@ util/setbaud.h
 /home/faroub/Documents/development-projects/projects-embedded/avr-mcu/src/apps/app_test/main.cpp
 Buzzer.h
 /home/faroub/Documents/development-projects/projects-embedded/avr-mcu/src/apps/app_test/Buzzer.h
-TimerCounter2.h
-/home/faroub/Documents/development-projects/projects-embedded/avr-mcu/src/apps/app_test/TimerCounter2.h
+TimerCounter0.h
+/home/faroub/Documents/development-projects/projects-embedded/avr-mcu/src/apps/app_test/TimerCounter0.h
 buzzer_pitches_8bit.h
 /home/faroub/Documents/development-projects/projects-embedded/avr-mcu/src/apps/app_test/buzzer_pitches_8bit.h
 

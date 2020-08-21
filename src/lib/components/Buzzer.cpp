@@ -33,9 +33,4 @@ void component::Buzzer::buzz(const uint16_t &ar_period_us , const uint16_t &ar_d
 
 }
 
-void component::Buzzer::noBuzz()
-{
-    m_pin.setLow();
-
-}
 

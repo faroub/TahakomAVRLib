@@ -7,7 +7,7 @@
 
 
 #include "Buzzer.h"
-#include "TimerCounter2.h"
+#include "TimerCounter0.h"
 #include "buzzer_pitches_8bit.h"
 
 
@@ -22,12 +22,10 @@ int main(void) {
 
 
     // instantiate the TimerCounter0 object
-    core::TimerCounter2 &myTimerCounter2 = core::TimerCounter2::getInstance();
+    core::TimerCounter0 &myTimerCounter0 = core::TimerCounter0::getInstance();
 
     // notes in the melody:
-    const uint16_t notes[] = { C2, E2, G2, C3};
-
-
+    const uint16_t notes[] = {C2, E2, G2, C3};
 
 
     for (uint8_t i = 0; i < sizeof (notes)/sizeof (uint16_t); i++)
@@ -43,7 +41,7 @@ int main(void) {
 
     for (uint8_t i = 0; i < sizeof (notes)/sizeof (uint16_t); i++)
     {
-        Buzzer.buzz(myTimerCounter2,notes[i],200);
+        Buzzer.buzz(myTimerCounter0,notes[i],200);
     }
 
 

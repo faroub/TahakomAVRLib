@@ -100,16 +100,7 @@ public:
         }
         ar_timerCounter.selectCompareOutputMode(ar_channel, core::compareOutputMode::Normal);
         ar_timerCounter.stop();
-
-
     }
-
-
-
-
-
-    void noBuzz();
-
 
 
 protected:

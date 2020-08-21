@@ -5,6 +5,7 @@ src/apps/app_test/CMakeFiles/APP_TEST.dir/main.cpp.obj: .././src/lib/components/
 src/apps/app_test/CMakeFiles/APP_TEST.dir/main.cpp.obj: .././src/lib/components/Led.h
 src/apps/app_test/CMakeFiles/APP_TEST.dir/main.cpp.obj: .././src/lib/components/PushButton.h
 src/apps/app_test/CMakeFiles/APP_TEST.dir/main.cpp.obj: .././src/lib/core/TimerCounter.h
+src/apps/app_test/CMakeFiles/APP_TEST.dir/main.cpp.obj: .././src/lib/core/TimerCounter0.h
 src/apps/app_test/CMakeFiles/APP_TEST.dir/main.cpp.obj: .././src/lib/core/TimerCounter1.h
 src/apps/app_test/CMakeFiles/APP_TEST.dir/main.cpp.obj: .././src/lib/core/TimerCounter2.h
 src/apps/app_test/CMakeFiles/APP_TEST.dir/main.cpp.obj: .././src/lib/io/Pin.h

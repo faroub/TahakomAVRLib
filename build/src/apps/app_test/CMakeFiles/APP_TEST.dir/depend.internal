@@ -6,6 +6,7 @@ src/apps/app_test/CMakeFiles/APP_TEST.dir/main.cpp.obj
  .././src/lib/components/Led.h
  .././src/lib/components/PushButton.h
  .././src/lib/core/TimerCounter.h
+ .././src/lib/core/TimerCounter0.h
  .././src/lib/core/TimerCounter1.h
  .././src/lib/core/TimerCounter2.h
  .././src/lib/io/Pin.h
