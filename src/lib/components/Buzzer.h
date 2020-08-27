@@ -2,57 +2,55 @@
  * @file Buzzer.h
  * @brief Header file of the Buzzer class
  *
- * Usage example (melody):
- *
-    #include "Buzzer.h"
-    #include "BuzzerPitches.h"
+ * Usage example (test):
+ #include "Buzzer.h"
+ #include "TimerCounter0.h"
+ #include "buzzer_pitches_8bit.h"
 
 
-    #define BUZZER 1
-
-    int main(void) {
-
-        // Init
-        component::Buzzer Buzzer(io::Pin(BUZZER,io::PortB));
-
-        // notes in the melody:
-        uint16_t melody[] = {
-          NOTE_C4, NOTE_G3, NOTE_G3, NOTE_A3, NOTE_G3, NOTE_G3, NOTE_B3, NOTE_C4
-        };
-
-        // note durations: 4 = quarter note, 8 = eighth note, etc.:
-        uint8_t noteDurations[] = {
-          4, 8, 8, 4, 4, 4, 4, 4
-        };
-        uint16_t noteDuration;
-        uint16_t pauseBetweenNotes;
-
-        for (uint8_t thisNote = 0; thisNote < 8; thisNote++) {
-
-            // to calculate the note duration, take one second divided by the note type.
-            //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
-            noteDuration = 1000 / noteDurations[thisNote];
-            Buzzer.buzz(melody[thisNote], noteDuration);
-
-            // to distinguish the notes, set a minimum time between them.
-            // the note's duration + 30% seems to work well:
-            pauseBetweenNotes = noteDuration * 1.3;
-            Buzzer.pause(pauseBetweenNotes);
-            // stop the tone playing:
-            Buzzer.noBuzz();
-          }
+ #define BUZZER 6
 
 
+ int main(void) {
+
+    // Init
+    // instantiate the Buzzer object
+    component::Buzzer Buzzer(io::Pin(BUZZER,io::PortD));
 
 
-        // ------ Event loop ------ //
-        while (1) {
+    // instantiate the TimerCounter0 object
+    core::TimerCounter0 &myTimerCounter0 = core::TimerCounter0::getInstance();
+
+    // notes in the melody:
+    const uint16_t notes[] = {C2, E2, G2, C3};
 
 
+    for (uint8_t i = 0; i < sizeof (notes)/sizeof (uint16_t); i++)
+    {
 
-        }
-        return 0;
+        Buzzer.buzz(notes[i],200);
+
     }
+
+    _delay_ms(1000);
+    _delay_ms(1000);
+    _delay_ms(1000);
+
+    for (uint8_t i = 0; i < sizeof (notes)/sizeof (uint16_t); i++)
+    {
+        Buzzer.buzz(myTimerCounter0,notes[i],200);
+    }
+
+
+    // ------ Event loop ------ //
+    while (1) {
+
+
+    }
+    return 0;
+ }
+ *
+ *
  * Basic class for IO abstraction of Pin and Port
  * @author Farid Oubbati (https://github.com/faroub)
  * @date March 2020
