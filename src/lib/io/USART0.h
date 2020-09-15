@@ -50,6 +50,7 @@
 #define USART_H
 #include "ha_base.h"
 
+// TODO: add aditional function to send data
 
 namespace io
 {
