@@ -5,50 +5,75 @@
  * @date March 2020
 */
 
+#include "ADC.h"
+#include "USART0.h"
 
-#include "Buzzer.h"
-#include "TimerCounter0.h"
-#include "buzzer_pitches_8bit.h"
+void printWord(uint16_t word);
 
 
-#define BUZZER 6
+#define TRANSMIT_BUFFER_SIZE 7
+
 
 
 int main(void) {
 
-    // Init
-    // instantiate the Buzzer object
-    component::Buzzer Buzzer(io::Pin(BUZZER,io::PortD));
+   // Init
+   // instantiate the USART0 object
+   io::USART0 &myUSART0 = io::USART0::getInstance();
+   // transmit data buffer
+   char l_data2Send[TRANSMIT_BUFFER_SIZE];
+
+   // instantiate the ADC object
+   core::ADConverter &myADC = core::ADConverter::getInstance();
 
 
-    // instantiate the TimerCounter0 object
-    core::TimerCounter0 &myTimerCounter0 = core::TimerCounter0::getInstance();
+   // select analog input
+   myADC.selectAnalogInput(io::Pin(0,io::PortC));
 
-    // notes in the melody:
-    const uint16_t notes[] = {C2, E2, G2, C3};
+   // variable to hold conversion result
+   uint16_t l_conversionResult = 0;
 
+   // enable and start conversion
+   myADC.start();
 
-    for (uint8_t i = 0; i < sizeof (notes)/sizeof (uint16_t); i++)
-    {
-
-        Buzzer.buzz(notes[i],200);
-
-    }
-
-    _delay_ms(1000);
-    _delay_ms(1000);
-    _delay_ms(1000);
-
-    for (uint8_t i = 0; i < sizeof (notes)/sizeof (uint16_t); i++)
-    {
-        Buzzer.buzz(myTimerCounter0,notes[i],200);
-    }
+   // ------ Event loop ------ //
+   while (1) {
 
 
-    // ------ Event loop ------ //
-    while (1) {
-                                                  /* Get Key */
 
-    }                                                  /* End event loop */
-    return 0;
+       myADC.getConversionResult(&l_conversionResult, core::resolution::RES_16bit);
+
+       if (myADC.conversionComplete())
+       {
+           l_data2Send[0] = '0' + (l_conversionResult / 10000);
+           l_data2Send[1] = '0' + ((l_conversionResult / 1000) % 10);
+           l_data2Send[2] = '0' + ((l_conversionResult / 100) % 10);
+           l_data2Send[3] = '0' + ((l_conversionResult / 10) % 10);
+           l_data2Send[4] = '0' + (l_conversionResult % 10);
+           l_data2Send[5] = '\n';
+           l_data2Send[6] = '\r';
+
+           if (myUSART0.ready2Send())
+           {
+               myUSART0.sendFrame(reinterpret_cast<uint8_t*>(l_data2Send),TRANSMIT_BUFFER_SIZE);
+           }
+
+       }
+   }
+   return 0;
 }
+
+
+
+//int main(void) {
+
+//    // Init
+
+
+//    // ------ Event loop ------ //
+//    while (1) {
+
+
+//    }
+//    return 0;
+//}
