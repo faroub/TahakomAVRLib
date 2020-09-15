@@ -298,7 +298,7 @@ public:
 
     uint16_t getCounter() const override;
 
-    void setOutputCompareRegister(const channel &ar_channel, uint16_t ar_dataBuffer) override;
+    void setOutputCompareRegister(const channel &ar_channel, const uint16_t &ar_dataBuffer) override;
 
     uint16_t getOutputCompareRegister(const channel &ar_channel) const override;
 

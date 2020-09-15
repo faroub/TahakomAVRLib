@@ -1,2 +1,2 @@
-add_library(utils Support_m328p.cpp)
+add_library(utils utils_m328p.cpp)
 

@@ -532,7 +532,7 @@ public:
 
     virtual uint16_t getCounter() const = 0;
 
-    virtual void setOutputCompareRegister(const channel &ar_channel, uint16_t ar_dataBuffer) = 0;
+    virtual void setOutputCompareRegister(const channel &ar_channel, const uint16_t &ar_dataBuffer) = 0;
 
     virtual uint16_t getOutputCompareRegister(const channel &ar_channel) const = 0;
 

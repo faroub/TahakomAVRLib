@@ -79,8 +79,8 @@ public:
 
     template<typename TC>
     void buzz(TC &ar_timerCounter,
-              uint16_t ar_period_us,
-              uint16_t a_duration_ms,
+              const uint16_t &ar_period_us,
+              uint16_t &ar_duration_ms,
               const core::channel &ar_channel=core::channel::A,
               const core::clockSource &ar_clockSource= core::clockSource::PS_64
               )
@@ -92,9 +92,9 @@ public:
         // start timer
         ar_timerCounter.start(ar_clockSource);
         // wait for the pitch duration
-        while (a_duration_ms) {
+        while (ar_duration_ms) {
           _delay_ms(1);
-          a_duration_ms--;
+          ar_duration_ms--;
         }
         ar_timerCounter.selectCompareOutputMode(ar_channel, core::compareOutputMode::Normal);
         ar_timerCounter.stop();

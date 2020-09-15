@@ -18,6 +18,8 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
+#include <avr/sleep.h>
+#include <avr/power.h>
 
 
 /*
@@ -26,7 +28,7 @@
 #if   defined(__AVR_ATmega328P__)
 
     #include "ha_m328p.h"
-    #include "Support_m328p.h"
+    #include "utils_m328p.h"
 
 #endif
 

@@ -86,6 +86,9 @@
 #define PUSHBUTTON_H
 #include "Pin.h"
 
+// TODO: check the use PUSHBUTTON_SAMPLING in ha_m328p.h
+
+
 namespace component
 {
 class PushButton

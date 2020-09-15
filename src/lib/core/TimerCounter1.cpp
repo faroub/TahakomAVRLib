@@ -104,12 +104,12 @@ void core::TimerCounter1::selectOperationMode(const operationMode &ar_operationM
         }
         case core::operationMode::Fast_PWM_ICR:
         {
-            TIMER1_SELECT_OPERATION_MODE(13);
+            TIMER1_SELECT_OPERATION_MODE(14);
             break;
         }
         case core::operationMode::Fast_PWM_OCR:
         {
-            TIMER1_SELECT_OPERATION_MODE(14);
+            TIMER1_SELECT_OPERATION_MODE(15);
             break;
         }
 
@@ -202,7 +202,7 @@ uint16_t core::TimerCounter1::getCounter() const
     return TCNT1;
 }
 
-void core::TimerCounter1::setOutputCompareRegister(const channel &ar_channel, uint16_t ar_dataBuffer)
+void core::TimerCounter1::setOutputCompareRegister(const channel &ar_channel, const uint16_t &ar_dataBuffer)
 {
     switch (ar_channel)
     {
@@ -297,3 +297,13 @@ void core::TimerCounter1::enableInputCaptureInterrupt(const uint8_t a_enable)
     }
 }
 
+void core::TimerCounter1::setInputCaptureRegister(const uint16_t &ar_dataBuffer)
+{
+    ICR1 = ar_dataBuffer;
+}
+
+
+uint16_t core::TimerCounter1::getInputCaptureRegister() const
+{
+    return ICR1;
+}
