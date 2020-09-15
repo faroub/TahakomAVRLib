@@ -2,16 +2,15 @@
 
 volatile uint16_t* core::ADConverter::mp_conversionResult = nullptr;
 uint8_t core::ADConverter::m_conversionComplete = 0;
+uint8_t core::ADConverter::m_resolution = 10;
 
 
 core::ADConverter& core::ADConverter::getInstance(const referenceVoltage &ar_refVoltage,
-                                                  const resultAdjust &ar_adjustResult,
                                                   const clockPrescaler& ar_clockPrescaler,
                                                   const autoTriggerSource& ar_autoTriggerSource,
                                                   const io::Pin &ar_pin)
 {
     static ADConverter l_instance(ar_refVoltage,
-                                  ar_adjustResult,
                                   ar_clockPrescaler,
                                   ar_autoTriggerSource,
                                   ar_pin);
@@ -20,14 +19,12 @@ core::ADConverter& core::ADConverter::getInstance(const referenceVoltage &ar_ref
 }
 
 core::ADConverter::ADConverter(const referenceVoltage &ar_refVoltage,
-                               const resultAdjust &ar_adjustResult,
                                const clockPrescaler& ar_clockPrescaler,
                                const autoTriggerSource& ar_autoTriggerSource,
                                const io::Pin &ar_pin)
 {
     selectAnalogInput(ar_pin);
     selectReferenceVoltage(ar_refVoltage);
-    adjustResult(ar_adjustResult);
     selectClockPrescaler(ar_clockPrescaler);
     enableAutoTrigger(1);
     selectAutoTriggerSource(ar_autoTriggerSource);
@@ -42,15 +39,6 @@ core::ADConverter::~ADConverter()
 
 }
 
-void core::ADConverter::adjustResult(const resultAdjust &ar_adjustResult)
-{
-    if (static_cast<uint8_t>(ar_adjustResult)){
-        ADC_ADJUST_RESULT_RIGHT;
-    } else {
-        ADC_ADJUST_RESULT_LEFT;
-
-    }
-}
 
 void core::ADConverter::selectReferenceVoltage(const referenceVoltage& ar_refVoltage)
 {
@@ -107,13 +95,6 @@ void core::ADConverter::selectClockPrescaler(const clockPrescaler& ar_clockPresc
 
 }
 
-void core::ADConverter::getConversionResult(uint16_t *ap_dataBuffer)
-{
-    mp_conversionResult = ap_dataBuffer;
-
-
-
-}
 
 void core::ADConverter::selectAutoTriggerSource(const autoTriggerSource& ar_autoTriggerSource)
 {
@@ -124,9 +105,138 @@ void core::ADConverter::selectAutoTriggerSource(const autoTriggerSource& ar_auto
 
 void core::ADConverter::conversionCompleteServiceRoutine()
 {
-        m_conversionComplete = 0;
-        *mp_conversionResult = ADC;
-        m_conversionComplete = 1;
+
+    static uint32_t l_resultData = 0;
+    static uint16_t l_resultDataIndex = 0;
+
+    m_conversionComplete = 0;
+    switch (m_resolution)
+    {
+        case 8:
+        {
+            *mp_conversionResult = ADC >> 8;
+            m_conversionComplete = 1;
+            break;
+        }
+        case 10:
+        {
+            *mp_conversionResult = ADC;
+            m_conversionComplete = 1;
+            break;
+        }
+        case 11:
+        {
+
+            if (l_resultDataIndex < 4)
+            {
+                l_resultData += ADC;
+                l_resultDataIndex++;
+
+            }
+            else
+            {
+                *mp_conversionResult = l_resultData >> 1;
+                l_resultData = 0;
+                l_resultDataIndex = 0;
+                m_conversionComplete = 1;
+
+            }
+
+            break;
+        }
+        case 12:
+        {
+            if (l_resultDataIndex < 16)
+            {
+                l_resultData += ADC;
+                l_resultDataIndex++;
+
+            }
+            else
+            {
+                *mp_conversionResult = l_resultData >> 2;
+                l_resultData = 0;
+                l_resultDataIndex = 0;
+                m_conversionComplete = 1;
+
+            }
+            break;
+        }
+        case 13:
+        {
+            if (l_resultDataIndex < 64)
+            {
+                l_resultData += ADC;
+                l_resultDataIndex++;
+
+            }
+            else
+            {
+                *mp_conversionResult = l_resultData >> 3;
+                l_resultData = 0;
+                l_resultDataIndex = 0;
+                m_conversionComplete = 1;
+
+            }
+            break;
+        }
+        case 14:
+        {
+            if (l_resultDataIndex < 256)
+            {
+                l_resultData += ADC;
+                l_resultDataIndex++;
+
+            }
+            else
+            {
+                *mp_conversionResult = l_resultData >> 4;
+                l_resultData = 0;
+                l_resultDataIndex = 0;
+                m_conversionComplete = 1;
+
+            }
+            break;
+        }
+        case 15:
+        {
+            if (l_resultDataIndex < 1024)
+            {
+                l_resultData += ADC;
+                l_resultDataIndex++;
+
+            }
+            else
+            {
+                *mp_conversionResult = l_resultData >> 5;
+                l_resultData = 0;
+                l_resultDataIndex = 0;
+                m_conversionComplete = 1;
+
+            }
+            break;
+        }
+        case 16:
+        {
+            if (l_resultDataIndex < 4096)
+            {
+                l_resultData += ADC;
+                l_resultDataIndex++;
+
+            }
+            else
+            {
+                *mp_conversionResult = l_resultData >> 6;
+                l_resultData = 0;
+                l_resultDataIndex = 0;
+                m_conversionComplete = 1;
+
+            }
+            break;
+        }
+
+    }
+
 
 
 
@@ -135,5 +245,60 @@ void core::ADConverter::conversionCompleteServiceRoutine()
 uint8_t core::ADConverter::conversionComplete()
 {
     return m_conversionComplete;
+
+}
+
+
+void core::ADConverter::getConversionResult(uint16_t *ap_resultData, const resolution& ar_resolution)
+{
+    mp_conversionResult = ap_resultData;
+
+    switch (ar_resolution)
+    {
+        case core::resolution::RES_8bit:
+        {
+            ADC_ADJUST_RESULT_LEFT;
+            m_resolution = 8;
+            break;
+        }
+        case core::resolution::RES_10bit:
+        {
+            ADC_ADJUST_RESULT_RIGHT;
+            m_resolution = 10;
+            break;
+        }
+        case core::resolution::RES_11bit:
+        {
+
+            m_resolution = 11;
+            break;
+        }
+        case core::resolution::RES_12bit:
+        {
+            m_resolution = 12;
+            break;
+        }
+        case core::resolution::RES_13bit:
+        {
+            m_resolution = 13;
+            break;
+        }
+        case core::resolution::RES_14bit:
+        {
+            m_resolution = 14;
+            break;
+        }
+        case core::resolution::RES_15bit:
+        {
+            m_resolution = 15;
+            break;
+        }
+        case core::resolution::RES_16bit:
+        {
+            m_resolution = 16;
+            break;
+        }
+    }
+
 
 }

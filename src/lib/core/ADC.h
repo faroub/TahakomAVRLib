@@ -79,10 +79,23 @@
 #ifndef ADC_H
 #define ADC_H
 #include "ha_base.h"
+#include <math.h>
 #include "Pin.h"
 
 namespace core
 {
+
+enum class resolution : uint8_t {
+    RES_8bit=0,
+    RES_10bit,
+    RES_11bit,
+    RES_12bit,
+    RES_13bit,
+    RES_14bit,
+    RES_15bit,
+    RES_16bit
+};
+
 
 enum class referenceVoltage : uint8_t {
     AREF=0,    /**< external AREF pin voltage reference, internal 1.1V voltage reference turned off */
@@ -90,10 +103,6 @@ enum class referenceVoltage : uint8_t {
     internal   /**< internal 1.1V voltage reference with external capacitor at AREF pin */
 };
 
-enum class resultAdjust : uint8_t {
-    left=0,    /**< left adjust the result  */
-    right       /**< right adjust the result */
-};
 
 
 enum class clockPrescaler {
@@ -122,7 +131,6 @@ class ADConverter
 public:
 
     static ADConverter& getInstance(const referenceVoltage& ar_refVoltage = referenceVoltage::AVCC,
-                                    const resultAdjust& ar_adjustResult = resultAdjust::right,
                                     const clockPrescaler& ar_clockPrescaler = clockPrescaler::PS_128,
                                     const autoTriggerSource& ar_autoTriggerSource = autoTriggerSource::FreeRunning,
                                     const io::Pin &ar_pin = io::Pin(0,io::PortC));
@@ -133,13 +141,9 @@ public:
 
     void selectReferenceVoltage(const referenceVoltage& ar_refVoltage);
 
-    void adjustResult(const resultAdjust &ar_adjustResult);
-
     void selectAnalogInput(io::Pin a_pin);
 
     void selectClockPrescaler(const clockPrescaler& ar_clockPrescaler);
-
-    void getConversionResult(uint16_t *ap_dataBuffer);
 
     void enableConversionCompleteInterrupt(const uint8_t a_enable);
 
@@ -148,6 +152,10 @@ public:
     void selectAutoTriggerSource(const autoTriggerSource& ar_autoTriggerSource);
 
     uint8_t conversionComplete();
+
+
+    void getConversionResult(uint16_t *ap_resultData, const resolution& ar_resolution = resolution::RES_10bit);
+
 
     static void conversionCompleteServiceRoutine() __asm__(STR(ADC_CONVERSION_COMPLETE_INTERRUPT)) __attribute__((__signal__, __used__, __externally_visible__));
 
@@ -159,7 +167,6 @@ protected:
 private:
 
     ADConverter(const referenceVoltage& ar_refVoltage,
-                const resultAdjust& ar_adjustResult,
                 const clockPrescaler& ar_clockPrescaler,
                 const autoTriggerSource &ar_autoTriggerSource,
                 const io::Pin &ar_pin);
@@ -179,6 +186,8 @@ private:
 
     static volatile uint16_t *mp_conversionResult; /**< pointer to receiver buffer */
 
+
+    static uint8_t m_resolution; /**< pointer to receiver buffer */
 
     static uint8_t m_conversionComplete; /**< ready to receive flag */
 
