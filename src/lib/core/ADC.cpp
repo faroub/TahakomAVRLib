@@ -31,6 +31,7 @@ core::ADConverter::ADConverter(const referenceVoltage &ar_refVoltage,
     sei();
     enableConversionCompleteInterrupt(1);
 
+
 }
 
 
@@ -115,6 +116,12 @@ void core::ADConverter::conversionCompleteServiceRoutine()
         case 8:
         {
             *mp_conversionResult = ADC >> 8;
+            m_conversionComplete = 1;
+            break;
+        }
+        case 9:
+        {
+            *mp_conversionResult = ADC >> 7;
             m_conversionComplete = 1;
             break;
         }
@@ -220,6 +227,7 @@ void core::ADConverter::conversionCompleteServiceRoutine()
         {
             if (l_resultDataIndex < 4096)
             {
+
                 l_resultData += ADC;
                 l_resultDataIndex++;
 
@@ -259,6 +267,12 @@ void core::ADConverter::getConversionResult(uint16_t *ap_resultData, const resol
         {
             ADC_ADJUST_RESULT_LEFT;
             m_resolution = 8;
+            break;
+        }
+        case core::resolution::RES_9bit:
+        {
+            ADC_ADJUST_RESULT_LEFT;
+            m_resolution = 9;
             break;
         }
         case core::resolution::RES_10bit:

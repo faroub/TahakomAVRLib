@@ -5,16 +5,21 @@
  * Basic class for abstraction of the Analog to Digital Converter.
  *
  * Usage example:
- #include "ADC.h"
- #include "USART0.h"
-
- #define TRANSMIT_BUFFER_SIZE 5
+   #include "ADC.h"
+   #include "USART0.h"
 
 
 
- int main(void) {
+
+   #define TRANSMIT_BUFFER_SIZE 7
+
+
+
+   int main(void) {
 
     // Init
+
+
     // instantiate the USART0 object
     io::USART0 &myUSART0 = io::USART0::getInstance();
     // transmit data buffer
@@ -22,16 +27,13 @@
 
     // instantiate the ADC object
     core::ADConverter &myADC = core::ADConverter::getInstance();
-    // use 8 bit resolution
-    myADC.adjustResult(core::resultAdjust::left);
-    // flag to test multiplexing between channel 0 and channel 1
-    uint8_t channel = 0;
+
+
     // select analog input
-    myADC.selectAnalogInput(io::Pin(channel,io::PortC));
+    myADC.selectAnalogInput(io::Pin(0,io::PortC));
 
     // variable to hold conversion result
     uint16_t l_conversionResult = 0;
-    uint16_t l_analogInput[2] = {0,0};
 
     // enable and start conversion
     myADC.start();
@@ -41,30 +43,27 @@
 
 
 
-        myADC.getConversionResult(&l_conversionResult);
+       myADC.getConversionResult(&l_conversionResult, core::resolution::RES_16bit);
 
-        if (myADC.conversionComplete())
-        {
+       if (myADC.conversionComplete())
+       {
+           l_data2Send[0] = '0' + (l_conversionResult / 10000);
+           l_data2Send[1] = '0' + ((l_conversionResult / 1000) % 10);
+           l_data2Send[2] = '0' + ((l_conversionResult / 100) % 10);
+           l_data2Send[3] = '0' + ((l_conversionResult / 10) % 10);
+           l_data2Send[4] = '0' + (l_conversionResult % 10);
+           l_data2Send[5] = '\n';
+           l_data2Send[6] = '\r';
 
-            l_analogInput[channel] = l_conversionResult;
-            l_data2Send[0] = '0' + ((l_analogInput[channel] >> 8) / 100);
-            l_data2Send[1] = '0' + (((l_analogInput[channel] >> 8) / 10) % 10);
-            l_data2Send[2] = '0' + ((l_analogInput[channel] >> 8) % 10);
-            l_data2Send[3] = '\n';
-            l_data2Send[4] = '\r';
-            // switch between channel 0 and channel 1
-            channel = 1 - channel;
-            myADC.selectAnalogInput(io::Pin(channel,io::PortC));
+           if (myUSART0.ready2Send())
+           {
+               myUSART0.sendFrame(reinterpret_cast<uint8_t*>(l_data2Send),TRANSMIT_BUFFER_SIZE);
+           }
 
-            if (myUSART0.ready2Send())
-            {
-                myUSART0.sendFrame(reinterpret_cast<uint8_t*>(l_data2Send),TRANSMIT_BUFFER_SIZE);
-            }
-
-        }
+       }
     }
     return 0;
- }
+    }
  *
  *
  *
@@ -79,14 +78,15 @@
 #ifndef ADC_H
 #define ADC_H
 #include "ha_base.h"
-#include <math.h>
 #include "Pin.h"
+
 
 namespace core
 {
 
 enum class resolution : uint8_t {
     RES_8bit=0,
+    RES_9bit,
     RES_10bit,
     RES_11bit,
     RES_12bit,
