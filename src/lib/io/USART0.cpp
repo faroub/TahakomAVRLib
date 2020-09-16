@@ -1,13 +1,13 @@
 #include "USART0.h"
 #include <string.h>
 
-volatile uint8_t io::USART0::m_status = 0;
-volatile const uint8_t* io::USART0::mp_data2Send = nullptr;
-volatile uint8_t* io::USART0::mp_dataReceived = nullptr;
-uint8_t io::USART0::m_sizeData2Send = 0;
-uint8_t io::USART0::m_sizeData2Receive = 0;
-uint8_t io::USART0::m_numberBytesReceived = 0;
-uint8_t io::USART0::m_numberBytesSent = 0;
+uint8_t io::USART0::m_status = 0;
+const uint8_t* io::USART0::mp_data2Send = nullptr;
+uint8_t* io::USART0::mp_data2Receive = nullptr;
+uint16_t io::USART0::m_sizeData2Send = 0;
+uint16_t io::USART0::m_sizeData2Receive = 0;
+uint16_t io::USART0::m_numberBytesReceived = 0;
+uint16_t io::USART0::m_numberBytesSent = 0;
 uint8_t io::USART0::m_ready2Send = 1;
 
 
@@ -203,46 +203,73 @@ uint8_t io::USART0::isParityError()
 
 }
 
-void io::USART0::sendFrame(const uint8_t* ap_dataBuffer, const uint8_t a_size)
+void io::USART0::sendFrames(const uint8_t* ap_dataBuffer, const uint8_t a_size)
 {
     m_sizeData2Send = a_size;
     mp_data2Send = ap_dataBuffer;
     enableDataRegisterEmptyInterrupt(1);
 }
 
-void io::USART0::sendString(const char *ap_string)
+
+void io::USART0::sendString(const char* ap_string)
 {
-    m_sizeData2Send = static_cast<uint8_t>(strlen(ap_string));
+    m_sizeData2Send = strlen(ap_string);
     mp_data2Send = reinterpret_cast<const uint8_t*>(ap_string);
     enableDataRegisterEmptyInterrupt(1);
 
 }
 
-void io::USART0::sendByte(uint8_t a_byte)
+
+void io::USART0::sendByte(const uint8_t &ar_byte)
+{
+    while (!ready2Send()){};
+
+    sendChar('0' + (ar_byte / 100));
+
+    while (!ready2Send()){};
+
+    sendChar('0' + ((ar_byte / 10) % 10));
+
+    while (!ready2Send()){};
+
+    sendChar('0' + (ar_byte % 10));
+
+}
+
+void io::USART0::sendChar(const uint8_t &ar_char)
 {
     m_sizeData2Send = 1;
-    mp_data2Send = &a_byte;
+    mp_data2Send = &ar_char;
     enableDataRegisterEmptyInterrupt(1);
 
 }
 
-void io::USART0::receiveFrame(uint8_t *ap_dataBuffer, const uint8_t a_size)
+void io::USART0::receiveChar(uint8_t &ar_char)
+{
+    m_sizeData2Receive = 1;
+    mp_data2Receive = &ar_char;
+}
+
+
+void io::USART0::receiveFrames(uint8_t *ap_dataBuffer, const uint8_t a_size)
 {
     m_sizeData2Receive = a_size;
-    mp_dataReceived = ap_dataBuffer;
+    mp_data2Receive = ap_dataBuffer;
 
 
 
 }
 
-void io::USART0::receiveByte(uint8_t *ap_dataBuffer)
+void io::USART0::receiveString(const char *ap_string)
 {
 
 }
+
+
 void io::USART0::receiveCompleteServiceRoutine()
 {
-    static volatile uint8_t *lp_dataReceived = mp_dataReceived;
-    static uint8_t l_dataSize = m_sizeData2Receive;
+    static volatile uint8_t *lp_dataReceived = mp_data2Receive;
+    static uint16_t l_dataSize = m_sizeData2Receive;
 
     m_status = USART0_CONTROL_STATUS_REGISTER;
 
@@ -259,7 +286,7 @@ void io::USART0::receiveCompleteServiceRoutine()
         else
         {
             l_dataSize = m_sizeData2Receive;
-            lp_dataReceived = mp_dataReceived;
+            lp_dataReceived = mp_data2Receive;
         }
 
 }
@@ -323,12 +350,12 @@ void io::USART0::transmitCompleteServiceRoutine()
 
 }
 
-uint8_t io::USART0::getNumberBytesSent()
+uint16_t io::USART0::getNumberBytesSent()
 {
     return m_numberBytesSent;
 }
 
-uint8_t io::USART0::getNumberBytesReceived()
+uint16_t io::USART0::getNumberBytesReceived()
 {
     return m_numberBytesReceived;
 }

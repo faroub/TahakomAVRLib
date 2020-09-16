@@ -6,43 +6,75 @@
  * Synchronous and Asynchronous serial Receiver and Transmitter
  * serial communication device.
  *
- * Usage example:
+ * Usage example (loopback v1):
  *
  #include "USART0.h"
+
  #define BUFFER_SIZE 1
 
  int main(void) {
-  // Init
 
-  char l_receiverBuffer[BUFFER_SIZE];
-  char l_transmitterBuffer[BUFFER_SIZE];
+    // Init
+    unsigned char l_data[BUFFER_SIZE];
 
-  uint8_t l_ready2Send = 0;
-  uint8_t l_ready2Receive = 1;
-  // instantiate the USART0 object
-  io::USART0 &myUSART0 = io::USART0::getInstance();
-  // Mainloop
-  while (1) {
-    if (l_ready2Send && myUSART0.ready2Send())
+    io::USART0 &myUSART0 = io::USART0::getInstance();
+
+    if (myUSART0.ready2Send())
     {
-        myUSART0.sendFrame(reinterpret_cast<uint8_t*>(l_receiverBuffer),BUFFER_SIZE);
-        l_ready2Send = 0;
+        myUSART0.sendString("Hello World!\r\n");
     }
-    myUSART0.receiveFrame(reinterpret_cast<uint8_t*>(l_receiverBuffer),BUFFER_SIZE,l_ready2Receive);
-    if (myUSART0.getNumberBytesReceived())
-    {
-        // extract data received
-        // .....
-        // send back received data
-        l_ready2Send = 1;
-        // reset number of bytes after extracting the received data
-        myUSART0.resetNumberBytesReceived();
+
+    // ------ Event loop ------ //
+    while (1) {
+
+        myUSART0.receiveFrames(l_data,BUFFER_SIZE);
+        if (myUSART0.getNumberBytesReceived()==BUFFER_SIZE)
+        {
+            if (myUSART0.ready2Send())
+            {
+                myUSART0.sendFrames(l_data,BUFFER_SIZE);
+                myUSART0.resetNumberBytesReceived();
+            }
+        }
+
+
     }
-  }
-  return 0;
+    return 0;
  }
  *
+ * Usage example (loopback v2):
  *
+ #include "USART0.h"
+
+ int main(void) {
+
+    // Init
+    unsigned char l_data;
+
+    io::USART0 &myUSART0 = io::USART0::getInstance();
+
+    if (myUSART0.ready2Send())
+    {
+        myUSART0.sendString("Hello World!\r\n");
+    }
+
+    // ------ Event loop ------ //
+    while (1) {
+
+        myUSART0.receiveChar(l_data);
+        if (myUSART0.getNumberBytesReceived()==1)
+        {
+            if (myUSART0.ready2Send())
+            {
+                myUSART0.sendChar(l_data);
+                myUSART0.resetNumberBytesReceived();
+            }
+        }
+
+
+    }
+    return 0;
+ }
  * @author Farid Oubbati (https://github.com/faroub)
  * @date March 2020
 */
@@ -51,7 +83,7 @@
 #include "ha_base.h"
 
 // TODO: add aditional function to send data
-
+// TODO: add a fuse programmer
 namespace io
 {
 enum class transmissionMode : uint8_t {
@@ -135,35 +167,44 @@ public:
          *  @param ar_stopBit defines number of stop bits
          */
     void setStopBit(const stopBit& ar_stopBit);
-    /** Transmit data frame.
+    /** Transmit data frames.
          *
          *  @param ap_dataBuffer defines pointer to transmitter buffer
          *  @param a_size defines size of transmitter buffer
          */
-    void sendFrame(const uint8_t *ap_dataBuffer, const uint8_t a_size);
+    void sendFrames(const uint8_t *ap_dataBuffer, const uint8_t a_size);
     /** Transmit string.
          *
          *  @param ap_string defines pointer to string
          */
     void sendString(const char *ap_string);
-    /** Transmit byte.
+    /** Transmit string.
          *
-         *  @param a_byte defines byte to be sent
+         *  @param ap_string defines pointer to string
          */
-    void sendByte(uint8_t a_byte);
+    void receiveString(const char *ap_string);
+    /** Transmit character.
+         *
+         *  @param ar_char defines character to be sent
+         */
 
-    /** Receive byte.
+    void sendChar(const uint8_t &ar_char);
+
+    void sendByte(const uint8_t &ar_byte);
+
+    /** Receive character.
          *
-         *  @param a_byte defines byte to be sent
+         *  @param ar_char defines charcter to be received
          */
-    void receiveByte(uint8_t *ap_dataBuffer);
+    void receiveChar(uint8_t &ar_char);
+
     /** Receive data frames.
          *
          *  @param ap_dataBuffer defines pointer to receiver buffer
          *  @param a_size defines size of receiver buffer
          *  @param a_ready2Receive indicates if chip ready to receive data
          */
-    void receiveFrame(uint8_t *ap_dataBuffer, const uint8_t a_size);
+    void receiveFrames(uint8_t *ap_dataBuffer, const uint8_t a_size);
     /** Enable transmit complete interrupt.
          *
          *  @param ar_enable indicates if interrupt is enabled
@@ -190,10 +231,10 @@ public:
     uint8_t isParityError();
     /** Get number of bytes received.
          */
-    uint8_t getNumberBytesReceived();
+    uint16_t getNumberBytesReceived();
     /** Get number of bytes sent.
          */
-    uint8_t getNumberBytesSent();
+    uint16_t getNumberBytesSent();
     /** Get ready to send status.
          */
     uint8_t ready2Send();
@@ -243,19 +284,19 @@ private:
         */
     const USART0& operator=(const USART0&);
 
-    static volatile uint8_t m_status;   /**< received data status */
+    static uint8_t m_status;   /**< received data status */
 
-    static volatile const uint8_t *mp_data2Send; /**< pointer to transmitter buffer */
+    static const uint8_t *mp_data2Send; /**< pointer to transmitter buffer */
 
-    static volatile uint8_t *mp_dataReceived; /**< pointer to receiver buffer */
+    static uint8_t *mp_data2Receive; /**< pointer to receiver buffer */
 
-    static uint8_t m_sizeData2Send;  /**< size of data to be transmitted */
+    static uint16_t m_sizeData2Send;  /**< size of data to be transmitted */
 
-    static uint8_t m_sizeData2Receive;  /**< size of data to be received */
+    static uint16_t m_sizeData2Receive;  /**< size of data to be received */
 
-    static uint8_t m_numberBytesReceived;   /**< number of bytes received */
+    static uint16_t m_numberBytesReceived;   /**< number of bytes received */
 
-    static uint8_t m_numberBytesSent;   /**< number of bytes sent */
+    static uint16_t m_numberBytesSent;   /**< number of bytes sent */
 
     static uint8_t m_ready2Send;   /**< ready to send flag */
 
