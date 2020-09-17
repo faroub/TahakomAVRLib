@@ -1,14 +1,14 @@
 #include "USART0.h"
 #include <string.h>
 
-uint8_t io::USART0::m_status = 0;
+volatile uint8_t io::USART0::m_status = 0;
 const uint8_t* io::USART0::mp_data2Send = nullptr;
 uint8_t* io::USART0::mp_data2Receive = nullptr;
 uint16_t io::USART0::m_sizeData2Send = 0;
 uint16_t io::USART0::m_sizeData2Receive = 0;
-uint16_t io::USART0::m_numberBytesReceived = 0;
-uint16_t io::USART0::m_numberBytesSent = 0;
-uint8_t io::USART0::m_ready2Send = 1;
+volatile uint16_t io::USART0::m_numberBytesReceived = 0;
+volatile uint16_t io::USART0::m_numberBytesSent = 0;
+volatile uint8_t io::USART0::m_ready2Send = 1;
 
 
 
@@ -205,6 +205,7 @@ uint8_t io::USART0::isParityError()
 
 void io::USART0::sendFrames(const uint8_t* ap_dataBuffer, const uint8_t a_size)
 {
+    while (!ready2Send()){};
     m_sizeData2Send = a_size;
     mp_data2Send = ap_dataBuffer;
     enableDataRegisterEmptyInterrupt(1);
@@ -213,6 +214,7 @@ void io::USART0::sendFrames(const uint8_t* ap_dataBuffer, const uint8_t a_size)
 
 void io::USART0::sendString(const char* ap_string)
 {
+    while (!ready2Send()){};
     m_sizeData2Send = strlen(ap_string);
     mp_data2Send = reinterpret_cast<const uint8_t*>(ap_string);
     enableDataRegisterEmptyInterrupt(1);
@@ -222,22 +224,37 @@ void io::USART0::sendString(const char* ap_string)
 
 void io::USART0::sendByte(const uint8_t &ar_byte)
 {
-    while (!ready2Send()){};
-
-    sendChar('0' + (ar_byte / 100));
-
-    while (!ready2Send()){};
-
-    sendChar('0' + ((ar_byte / 10) % 10));
+    static uint8_t l_byte2Send[3];
+    l_byte2Send[0] = '0' + (ar_byte / 100);
+    l_byte2Send[1] = '0' + ((ar_byte / 10) % 10);
+    l_byte2Send[2] = '0' + (ar_byte % 10);
 
     while (!ready2Send()){};
+    m_sizeData2Send = 3;
+    mp_data2Send = l_byte2Send;
+    enableDataRegisterEmptyInterrupt(1);
 
-    sendChar('0' + (ar_byte % 10));
+}
+
+void io::USART0::sendWord(const uint16_t &ar_word)
+{
+    static uint8_t l_word2Send[5];
+    l_word2Send[0] = '0' + (ar_word / 10000);
+    l_word2Send[1] = '0' + ((ar_word / 1000) % 10);
+    l_word2Send[2] = '0' + ((ar_word / 100) % 10);
+    l_word2Send[3] = '0' + ((ar_word / 10) % 10);
+    l_word2Send[4] = '0' + (ar_word % 10);
+
+    while (!ready2Send()){};
+    m_sizeData2Send = 5;
+    mp_data2Send = l_word2Send;
+    enableDataRegisterEmptyInterrupt(1);
 
 }
 
 void io::USART0::sendChar(const uint8_t &ar_char)
 {
+    while (!ready2Send()){};
     m_sizeData2Send = 1;
     mp_data2Send = &ar_char;
     enableDataRegisterEmptyInterrupt(1);

@@ -14,49 +14,42 @@
 
  int main(void) {
 
-    // Init
-    unsigned char l_data[BUFFER_SIZE];
+   // Init
+   uint8_t l_data[BUFFER_SIZE];
 
-    io::USART0 &myUSART0 = io::USART0::getInstance();
+   io::USART0 &myUSART0 = io::USART0::getInstance();
 
-    if (myUSART0.ready2Send())
-    {
-        myUSART0.sendString("Hello World!\r\n");
-    }
+   myUSART0.sendString("Hello World!\r\n");
 
-    // ------ Event loop ------ //
-    while (1) {
+   // ------ Event loop ------ //
+   while (1) {
 
-        myUSART0.receiveFrames(l_data,BUFFER_SIZE);
-        if (myUSART0.getNumberBytesReceived()==BUFFER_SIZE)
-        {
-            if (myUSART0.ready2Send())
-            {
-                myUSART0.sendFrames(l_data,BUFFER_SIZE);
-                myUSART0.resetNumberBytesReceived();
-            }
-        }
+       myUSART0.receiveFrames(l_data,BUFFER_SIZE);
+       if (myUSART0.getNumberBytesReceived()==BUFFER_SIZE)
+       {
+               myUSART0.sendFrames(l_data,BUFFER_SIZE);
+               myUSART0.resetNumberBytesReceived();
+       }
 
 
-    }
-    return 0;
+   }
+   return 0;
  }
  *
  * Usage example (loopback v2):
  *
  #include "USART0.h"
 
+
+
  int main(void) {
 
     // Init
-    unsigned char l_data;
+    uint8_t l_data;
 
     io::USART0 &myUSART0 = io::USART0::getInstance();
 
-    if (myUSART0.ready2Send())
-    {
-        myUSART0.sendString("Hello World!\r\n");
-    }
+    myUSART0.sendString("Hello World!\r\n");
 
     // ------ Event loop ------ //
     while (1) {
@@ -64,11 +57,8 @@
         myUSART0.receiveChar(l_data);
         if (myUSART0.getNumberBytesReceived()==1)
         {
-            if (myUSART0.ready2Send())
-            {
-                myUSART0.sendChar(l_data);
-                myUSART0.resetNumberBytesReceived();
-            }
+            myUSART0.sendChar(l_data);
+            myUSART0.resetNumberBytesReceived();
         }
 
 
@@ -187,10 +177,18 @@ public:
          *
          *  @param ar_char defines character to be sent
          */
-
     void sendChar(const uint8_t &ar_char);
-
+    /** Transmit byte.
+         *
+         *  @param ar_byte defines byte to be sent
+         */
     void sendByte(const uint8_t &ar_byte);
+
+    /** Transmit word.
+         *
+         *  @param ar_word defines word to be sent
+         */
+    void sendWord(const uint16_t &ar_word);
 
     /** Receive character.
          *
@@ -235,7 +233,7 @@ public:
     /** Get number of bytes sent.
          */
     uint16_t getNumberBytesSent();
-    /** Get ready to send status.
+    /** Is ready to send.
          */
     uint8_t ready2Send();
     /** Reset number of bytes received.
@@ -284,7 +282,7 @@ private:
         */
     const USART0& operator=(const USART0&);
 
-    static uint8_t m_status;   /**< received data status */
+    static volatile uint8_t m_status;   /**< received data status */
 
     static const uint8_t *mp_data2Send; /**< pointer to transmitter buffer */
 
@@ -294,11 +292,11 @@ private:
 
     static uint16_t m_sizeData2Receive;  /**< size of data to be received */
 
-    static uint16_t m_numberBytesReceived;   /**< number of bytes received */
+    static volatile uint16_t m_numberBytesReceived;   /**< number of bytes received */
 
-    static uint16_t m_numberBytesSent;   /**< number of bytes sent */
+    static volatile uint16_t m_numberBytesSent;   /**< number of bytes sent */
 
-    static uint8_t m_ready2Send;   /**< ready to send flag */
+    static volatile uint8_t m_ready2Send;   /**< ready to send flag */
 
 
 };
