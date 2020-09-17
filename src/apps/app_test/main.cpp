@@ -5,43 +5,38 @@
  * @date March 2020
 */
 
+
+
+
 #include "USART0.h"
 
-
+#define BUFFER_SIZE 1
 
 int main(void) {
 
-    // Init
-    unsigned char l_data;
+   // Init
+   uint8_t l_data[BUFFER_SIZE];
 
-    io::USART0 &myUSART0 = io::USART0::getInstance();
+   io::USART0 &myUSART0 = io::USART0::getInstance();
 
-    if (myUSART0.ready2Send())
-    {
-        myUSART0.sendString("Hello World!\r\n");
-    }
+   myUSART0.sendString("Hello World!\r\n");
 
-    myUSART0.sendByte(100);
-    // ------ Event loop ------ //
-    while (1) {
+   myUSART0.sendWord(62148);
 
-        myUSART0.receiveChar(l_data);
-        if (myUSART0.getNumberBytesReceived()==1)
-        {
-            if (myUSART0.ready2Send())
-            {
-                myUSART0.sendChar(l_data);
-                myUSART0.resetNumberBytesReceived();
-            }
-        }
+   // ------ Event loop ------ //
+   while (1) {
+
+       myUSART0.receiveFrames(l_data,BUFFER_SIZE);
+       if (myUSART0.getNumberBytesReceived()==BUFFER_SIZE)
+       {
+               myUSART0.sendFrames(l_data,BUFFER_SIZE);
+               myUSART0.resetNumberBytesReceived();
+       }
 
 
-    }
-    return 0;
+   }
+   return 0;
 }
-
-
-
 
 
 
