@@ -189,7 +189,7 @@ private:
 
     static uint8_t m_resolution; /**< pointer to receiver buffer */
 
-    static uint8_t m_conversionComplete; /**< ready to receive flag */
+    static volatile uint8_t m_conversionComplete; /**< ready to receive flag */
 
 
 

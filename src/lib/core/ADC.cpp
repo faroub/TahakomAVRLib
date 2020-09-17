@@ -1,7 +1,7 @@
 #include "ADC.h"
 
 volatile uint16_t* core::ADConverter::mp_conversionResult = nullptr;
-uint8_t core::ADConverter::m_conversionComplete = 0;
+volatile uint8_t core::ADConverter::m_conversionComplete = 0;
 uint8_t core::ADConverter::m_resolution = 10;
 
 
