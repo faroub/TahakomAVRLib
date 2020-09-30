@@ -87,7 +87,7 @@ class MCU
 {
 public:
 
-
+    static void init();
 
 protected:
 

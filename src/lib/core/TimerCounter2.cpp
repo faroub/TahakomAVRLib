@@ -36,7 +36,7 @@ void core::TimerCounter2::selectOperationMode(const operationMode &ar_operationM
 {
     switch (ar_operationMode)
     {
-        case core::operationMode::Normal:
+        case core::operationMode::normal:
         {
             TIMER2_SELECT_OPERATION_MODE(0);
             break;
@@ -51,7 +51,7 @@ void core::TimerCounter2::selectOperationMode(const operationMode &ar_operationM
             TIMER2_SELECT_OPERATION_MODE(2);
             break;
         }
-        case core::operationMode::Fast_PWM:
+        case core::operationMode::fast_PWM:
         {
             TIMER2_SELECT_OPERATION_MODE(3);
             break;
@@ -61,7 +61,7 @@ void core::TimerCounter2::selectOperationMode(const operationMode &ar_operationM
             TIMER2_SELECT_OPERATION_MODE(5);
             break;
         }
-        case core::operationMode::Fast_PWM_OCR:
+        case core::operationMode::fast_PWM_OCR:
         {
             TIMER2_SELECT_OPERATION_MODE(7);
             break;
@@ -76,7 +76,7 @@ void core::TimerCounter2::start(const clockSource &ar_clockSource)
 {
     switch (ar_clockSource)
     {
-        case core::clockSource::NoClock:
+        case core::clockSource::noClock:
         {
             TIMER2_SELECT_CLOCK_SOURCE(0);
             break;

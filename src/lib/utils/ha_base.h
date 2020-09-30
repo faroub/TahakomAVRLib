@@ -20,6 +20,7 @@
 #include <util/delay.h>
 #include <avr/sleep.h>
 #include <avr/power.h>
+#include <avr/wdt.h>
 
 
 /*

@@ -75,8 +75,8 @@ public:
               const core::clockSource &ar_clockSource= core::clockSource::PS_8
               )
     {
-        ar_timerCounter.selectOperationMode(core::operationMode::Fast_PWM_ICR);
-        ar_timerCounter.selectCompareOutputMode(ar_channel, core::compareOutputMode::Clear);
+        ar_timerCounter.selectOperationMode(core::operationMode::fast_PWM_ICR);
+        ar_timerCounter.selectCompareOutputMode(ar_channel, core::compareOutputMode::clear);
         ar_timerCounter.setInputCaptureRegister(39999);
         ar_timerCounter.setOutputCompareRegister(ar_channel, ar_angle_deg);
 
@@ -90,7 +90,7 @@ public:
     template<typename TC>
     void stop(TC &ar_timerCounter,const core::channel &ar_channel=core::channel::A)
     {
-        ar_timerCounter.selectCompareOutputMode(ar_channel, core::compareOutputMode::Normal);
+        ar_timerCounter.selectCompareOutputMode(ar_channel, core::compareOutputMode::normal);
         ar_timerCounter.stop();
 
     }

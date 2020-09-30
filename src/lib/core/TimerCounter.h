@@ -474,16 +474,16 @@ enum class channel : uint8_t {
 
 
 enum class compareOutputMode : uint8_t {
-    Normal=0,    /**<  */
-    Toggle,       /**<  */
-    Clear,   /**<  */
-    Set,   /**<  */
+    normal=0,    /**<  */
+    toggle,       /**<  */
+    clear,   /**<  */
+    set,   /**<  */
 };
 
 
 
 enum class operationMode : uint8_t {
-    Normal=0,    /**<  */
+    normal=0,    /**<  */
     PWM_PC,       /**<  */
     PWM_PC_8bit,   /**<  */
     PWM_PC_9bit,   /**<  */
@@ -492,17 +492,17 @@ enum class operationMode : uint8_t {
     PWM_PFC_OCR, /**<  */
     PWM_PC_ICR, /**<  */
     PWM_PC_OCR, /**<  */
-    Fast_PWM,   /**<  */
-    Fast_PWM_8bit,   /**<  */
-    Fast_PWM_9bit,   /**<  */
-    Fast_PWM_10bit,   /**<  */
-    Fast_PWM_ICR,   /**<  */
-    Fast_PWM_OCR,   /**<  */
+    fast_PWM,   /**<  */
+    fast_PWM_8bit,   /**<  */
+    fast_PWM_9bit,   /**<  */
+    fast_PWM_10bit,   /**<  */
+    fast_PWM_ICR,   /**<  */
+    fast_PWM_OCR,   /**<  */
     CTC_OCR,   /**<  */
     CTC_ICR,   /**<  */
 };
 enum class clockSource {
-     NoClock=0,
+     noClock=0,
      PS_1,
      PS_8,
      PS_32,
@@ -510,8 +510,8 @@ enum class clockSource {
      PS_128,
      PS_256,
      PS_1024,
-     Extern_Clock_T0_Falling_Edge,
-     Extern_Clock_T0_Rising_Edge,
+     extern_Clock_T0_Falling_Edge,
+     extern_Clock_T0_Rising_Edge,
 };
 
 class TimerCounter

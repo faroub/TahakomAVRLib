@@ -249,7 +249,18 @@
 #define   TIMER2_COM_CHANNEL_B_INTERRUPT  TIMER2_COMPB_vect
 #define   TIMER2_OVERFLOW_INTERRUPT  TIMER2_OVF_vect
 
+// Watchdog Timer defines
 
+
+//#define WATCHDOG_SELECT_TIMEOUT(timeOut) WDTCSR |= (1<<WDCE) | (1<<WDE); WDTCSR &= 0x90; WDTCSR |= (timeOut & 7) | ((timeOut & 8) << 2);
+
+#define WATCHDOG_SELECT_TIMEOUT(timeOut) WDTCSR |= (1<<WDCE) | (1<<WDE);  WDTCSR = (0<<WDIE) | (0<<WDE) | timeOut;
+
+
+//#define WATCHDOG_START(operationMode) WDTCSR |= (1<<WDCE) | (1<<WDE); WDTCSR &= 0xB7; WDTCSR |= ((operationMode & 1) << 6) | ((operationMode & 2) << 3);
+#define WATCHDOG_START(operationMode,timeOut) MCUSR &= ~(1<<WDRF); WDTCSR |= (1<<WDCE) | (1<<WDE); WDTCSR = operationMode | timeOut;
+#define WATCHDOG_STOP MCUSR &= ~(1<<WDRF); WDTCSR |= (1<<WDCE) | (1<<WDE); WDTCSR = 0x00;
+#define WATCHDOG_TIMEOUT_INTERRUPT  WDT_vect
 
 
 #endif

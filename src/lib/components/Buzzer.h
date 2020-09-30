@@ -86,7 +86,7 @@ public:
               )
     {
         ar_timerCounter.selectOperationMode(core::operationMode::CTC_OCR);
-        ar_timerCounter.selectCompareOutputMode(ar_channel, core::compareOutputMode::Toggle);
+        ar_timerCounter.selectCompareOutputMode(ar_channel, core::compareOutputMode::toggle);
         ar_timerCounter.setCounter(0);
         ar_timerCounter.setOutputCompareRegister(ar_channel, ar_period_us);
         // start timer
@@ -96,7 +96,7 @@ public:
           _delay_ms(1);
           ar_duration_ms--;
         }
-        ar_timerCounter.selectCompareOutputMode(ar_channel, core::compareOutputMode::Normal);
+        ar_timerCounter.selectCompareOutputMode(ar_channel, core::compareOutputMode::normal);
         ar_timerCounter.stop();
     }
 

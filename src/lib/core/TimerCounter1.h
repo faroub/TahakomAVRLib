@@ -282,9 +282,9 @@ class TimerCounter1 : public TimerCounter
 public:
 
     static TimerCounter1& getInstance(const channel &ar_channel = channel::A,
-                                      const operationMode &ar_operationMode = operationMode::Normal,
-                                      const clockSource &ar_clockSource= clockSource::NoClock,
-                                      const compareOutputMode& ar_compareOutputMode = compareOutputMode::Normal);
+                                      const operationMode &ar_operationMode = operationMode::normal,
+                                      const clockSource &ar_clockSource= clockSource::noClock,
+                                      const compareOutputMode& ar_compareOutputMode = compareOutputMode::normal);
 
     void selectOperationMode(const operationMode &ar_operationMode) override;
 

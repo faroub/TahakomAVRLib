@@ -38,7 +38,7 @@ void core::TimerCounter0::selectOperationMode(const operationMode &ar_operationM
 {
     switch (ar_operationMode)
     {
-        case core::operationMode::Normal:
+        case core::operationMode::normal:
         {
             TIMER0_SELECT_OPERATION_MODE(0);
             break;
@@ -53,7 +53,7 @@ void core::TimerCounter0::selectOperationMode(const operationMode &ar_operationM
             TIMER0_SELECT_OPERATION_MODE(2);
             break;
         }
-        case core::operationMode::Fast_PWM:
+        case core::operationMode::fast_PWM:
         {
             TIMER0_SELECT_OPERATION_MODE(3);
             break;
@@ -63,7 +63,7 @@ void core::TimerCounter0::selectOperationMode(const operationMode &ar_operationM
             TIMER0_SELECT_OPERATION_MODE(5);
             break;
         }
-        case core::operationMode::Fast_PWM_OCR:
+        case core::operationMode::fast_PWM_OCR:
         {
             TIMER0_SELECT_OPERATION_MODE(7);
             break;
@@ -78,7 +78,7 @@ void core::TimerCounter0::start(const clockSource &ar_clockSource)
 {
     switch (ar_clockSource)
     {
-        case core::clockSource::NoClock:
+        case core::clockSource::noClock:
         {
             TIMER0_SELECT_CLOCK_SOURCE(0);
             break;
@@ -108,12 +108,12 @@ void core::TimerCounter0::start(const clockSource &ar_clockSource)
             TIMER0_SELECT_CLOCK_SOURCE(5);
             break;
         }
-        case core::clockSource::Extern_Clock_T0_Falling_Edge:
+        case core::clockSource::extern_Clock_T0_Falling_Edge:
         {
             TIMER0_SELECT_CLOCK_SOURCE(6);
             break;
         }
-        case core::clockSource::Extern_Clock_T0_Rising_Edge:
+        case core::clockSource::extern_Clock_T0_Rising_Edge:
         {
             TIMER0_SELECT_CLOCK_SOURCE(7);
             break;
