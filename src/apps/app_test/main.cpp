@@ -5,40 +5,50 @@
  * @date March 2020
 */
 
+#include "WatchdogTimer.h"
+#include "Led.h"
+// instantiate a Led object
+extern component::Led Led;
+component::Led Led(io::Pin(1,io::PortB));
+extern component::Led LedStart;
+component::Led LedStart(io::Pin(2,io::PortB));
 
-
-
-#include "USART0.h"
-
-#define BUFFER_SIZE 1
 
 int main(void) {
 
    // Init
-   uint8_t l_data[BUFFER_SIZE];
-
-   io::USART0 &myUSART0 = io::USART0::getInstance();
-
-   myUSART0.sendString("Hello World!\r\n");
-
-   myUSART0.sendWord(62148);
-
+   // instantiate a Watchdog object
+   core::WatchdogTimer &myWatchdog = core::WatchdogTimer::getInstance();
+   myWatchdog.selectTimeOut(core::timeOut::to_8s);
+   LedStart.on();
+   _delay_ms(5000);
+   LedStart.off();
+   myWatchdog.start(core::operationMode::reset);
    // ------ Event loop ------ //
    while (1) {
 
-       myUSART0.receiveFrames(l_data,BUFFER_SIZE);
-       if (myUSART0.getNumberBytesReceived()==BUFFER_SIZE)
-       {
-               myUSART0.sendFrames(l_data,BUFFER_SIZE);
-               myUSART0.resetNumberBytesReceived();
-       }
-
+       Led.on();
+       _delay_ms(1000);
+       Led.off();
+       _delay_ms(1000);
 
    }
    return 0;
 }
 
+void core::WatchdogTimer::timeOutServiceRoutine()
+{
+    for (uint8_t i=0;i<10;i++)
+    {
+        Led.on();
+        _delay_ms(100);
+        Led.off();
+        _delay_ms(100);
 
+    }
+
+
+}
 
 
 
