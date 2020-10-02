@@ -1,4 +1,5 @@
 #include "TimerCounter0.h"
+#include "MCU.h"
 
 
 core::TimerCounter0& core::TimerCounter0::getInstance(const channel &ar_channel,
@@ -21,6 +22,7 @@ core::TimerCounter0::TimerCounter0(const channel &ar_channel,
                                    const clockSource &ar_clockSource,
                                    const compareOutputMode& ar_compareOutputMode)
 {
+    core::MCU::enableTimerCounter0(1);
     selectOperationMode(ar_operationMode);
     start(ar_clockSource);
     selectCompareOutputMode(ar_channel,ar_compareOutputMode);

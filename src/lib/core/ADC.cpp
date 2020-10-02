@@ -1,4 +1,5 @@
 #include "ADC.h"
+#include "MCU.h"
 
 volatile uint16_t* core::ADConverter::mp_conversionResult = nullptr;
 volatile uint8_t core::ADConverter::m_conversionComplete = 0;
@@ -10,6 +11,7 @@ core::ADConverter& core::ADConverter::getInstance(const referenceVoltage &ar_ref
                                                   const autoTriggerSource& ar_autoTriggerSource,
                                                   const io::Pin &ar_pin)
 {
+
     static ADConverter l_instance(ar_refVoltage,
                                   ar_clockPrescaler,
                                   ar_autoTriggerSource,
@@ -23,6 +25,7 @@ core::ADConverter::ADConverter(const referenceVoltage &ar_refVoltage,
                                const autoTriggerSource& ar_autoTriggerSource,
                                const io::Pin &ar_pin)
 {
+    core::MCU::enableADC(1);
     selectAnalogInput(ar_pin);
     selectReferenceVoltage(ar_refVoltage);
     selectClockPrescaler(ar_clockPrescaler);

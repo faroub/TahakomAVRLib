@@ -74,7 +74,7 @@
 
 
 
-   // instantiate a Led object
+   // instantiate a Led objects
    // declaration of global variables (shut up warning)
    extern component::Led MainLed;
    extern component::Led InterruptLed1;
@@ -84,7 +84,7 @@
    component::Led InterruptLed2(io::Pin(INTERRUPT_LED_2_NUMBER,io::PortB));
 
 
-   // instantiate a Led object
+   // instantiate a PushButton objects
    // declaration of global variable (shut up warning)
    extern component::PushButton PushButton1;
    extern component::PushButton PushButton2;

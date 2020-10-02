@@ -1,4 +1,5 @@
 #include "USART0.h"
+#include "MCU.h"
 #include <string.h>
 
 volatile uint8_t io::USART0::m_status = 0;
@@ -37,7 +38,7 @@ io::USART0::USART0(const transmissionMode& ar_transMode,
                    const parityMode& ar_parityMode)
 
 {
-
+    core::MCU::enableUSART0(1);
     setBaudRate();
     setTransmissionMode(ar_transMode);
     setCommunicationMode(ar_comMode);
