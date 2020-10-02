@@ -1,16 +1,61 @@
 /**
- * @file TimerCounter.h
- * @brief Header file of the TimerCounter class
+ * @file WatchdogTimer.h
+ * @brief Header file of the WatchdogTimer class
  *
- * Basic class for abstraction of the TimerCounter peripherals.
+ * Basic class abstraction of the WatchdogTimer peripheral
  *
+ * Usage example (test):
+ *
+ #include "WatchdogTimer.h"
+ #include "Led.h"
+ // instantiate a Led object
+ extern component::Led Led;
+ component::Led Led(io::Pin(1,io::PortB));
+ extern component::Led LedStart;
+ component::Led LedStart(io::Pin(2,io::PortB));
+
+
+ int main(void) {
+
+   // Init
+   // instantiate a Watchdog object
+   core::WatchdogTimer &myWatchdog = core::WatchdogTimer::getInstance();
+   myWatchdog.selectTimeOut(core::timeOut::to_8s);
+   LedStart.on();
+   _delay_ms(5000);
+   LedStart.off();
+   myWatchdog.start(core::operationMode::reset);
+   // ------ Event loop ------ //
+   while (1) {
+
+       Led.on();
+       _delay_ms(1000);
+       Led.off();
+       _delay_ms(1000);
+
+   }
+   return 0;
+ }
+
+ void core::WatchdogTimer::timeOutServiceRoutine()
+ {
+    for (uint8_t i=0;i<10;i++)
+    {
+        Led.on();
+        _delay_ms(100);
+        Led.off();
+        _delay_ms(100);
+
+    }
+
+ }
  *
  * @author Farid Oubbati (https://github.com/faroub)
  * @date March 2020
 */
 
-#ifndef TIMER_COUNTER2_H
-#define TIMER_COUNTER2_H
+#ifndef WATCHDOG_TIMER_H
+#define WATCHDOG_TIMER_H
 #include "ha_base.h"
 
 
