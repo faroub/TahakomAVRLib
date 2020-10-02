@@ -1,93 +1,124 @@
 /**
- * @file ADC.h
- * @brief Header file of the ADC class
+ * @file MCU.h
+ * @brief Header file of the MCU class
  *
- * Basic class for abstraction of the Analog to Digital Converter.
+ * Basic class abstraction of the MCU.
  *
- * Usage example:
-   #include "ADC.h"
-   #include "USART0.h"
+ * Usage example (test):
+ *
+ #include "PushButton.h"
+ #include "Led.h"
+ #include "ExternInterrupt.h"
+ #include "MCU.h"
 
+ #define PUSHBUTTON_NUMBER 2
+ #define LED_NUMBER 0
 
-
-
-   #define TRANSMIT_BUFFER_SIZE 7
-
-
-
-   int main(void) {
+ int main(void) {
 
     // Init
+    // initialize MCU
+    core::MCU::init();
+
+    // instantiate a Led object
+    component::Led Led(io::Pin(LED_NUMBER,io::PortB));
+
+    // instantiate a Led object
+    component::PushButton PushButton(io::Pin(PUSHBUTTON_NUMBER,io::PortD));
+
+    // instantiate the external interrupt manager
+    core::ExternInterrupt &myExternInterrupt = core::ExternInterrupt::getInstance();
+    myExternInterrupt.enableInt0(1);
+    myExternInterrupt.setInt0SenseControl(core::senseControl::logicalChange);
+
+    // set sleep mode
+    core::MCU::selectSleepMode(core::sleepMode::powerDown);
 
 
-    // instantiate the USART0 object
-    io::USART0 &myUSART0 = io::USART0::getInstance();
-    // transmit data buffer
-    char l_data2Send[TRANSMIT_BUFFER_SIZE];
-
-    // instantiate the ADC object
-    core::ADConverter &myADC = core::ADConverter::getInstance();
-
-
-    // select analog input
-    myADC.selectAnalogInput(io::Pin(0,io::PortC));
-
-    // variable to hold conversion result
-    uint16_t l_conversionResult = 0;
-
-    // enable and start conversion
-    myADC.start();
-
-    // ------ Event loop ------ //
+    // Mainloop
     while (1) {
 
+        //flash the LED
+        for (uint8_t i=0;i<10;i++)
+        {
+            Led.on();
+            _delay_ms(100);
+            Led.off();
+            _delay_ms(100);
+        }
+        _delay_ms(5000);
+        Led.on();
+        _delay_ms(100);
+        Led.off();
+        core::MCU::goToSleep(core::BODMode::enabled);
 
-
-       myADC.getConversionResult(&l_conversionResult, core::resolution::RES_16bit);
-
-       if (myADC.conversionComplete())
-       {
-           l_data2Send[0] = '0' + (l_conversionResult / 10000);
-           l_data2Send[1] = '0' + ((l_conversionResult / 1000) % 10);
-           l_data2Send[2] = '0' + ((l_conversionResult / 100) % 10);
-           l_data2Send[3] = '0' + ((l_conversionResult / 10) % 10);
-           l_data2Send[4] = '0' + (l_conversionResult % 10);
-           l_data2Send[5] = '\n';
-           l_data2Send[6] = '\r';
-
-           if (myUSART0.ready2Send())
-           {
-               myUSART0.sendFrame(reinterpret_cast<uint8_t*>(l_data2Send),TRANSMIT_BUFFER_SIZE);
-           }
-
-       }
     }
     return 0;
-    }
- *
- *
- *
- *
- //          uint16_t value = 12345;
- //          char lo = value & 0xFF;
- //          char hi = value >> 8;
+ }
+
+ void core::ExternInterrupt::Int0ServiceRoutine()
+ {
+
+
+ }
+
  *
  * @author Farid Oubbati (https://github.com/faroub)
  * @date March 2020
 */
-#ifndef ADC_H
-#define ADC_H
+#ifndef MCU_H
+#define MCU_H
 #include "ha_base.h"
 
 
 namespace core
 {
 
+enum class BODMode : uint8_t {
+    enabled=0,    /**<  */
+    disabled,    /**<  */
+};
+
+enum class sleepMode : uint8_t {
+    Idle=0,    /**<  */
+    ADC_NoiseReduction,    /**<  */
+    powerDown,    /**<  */
+    powerSave,    /**<  */
+    standby=6,    /**<  */
+    extendedStandby,    /**<  */
+};
+
 class MCU
 {
 public:
 
     static void init();
+
+    static void selectSleepMode(const sleepMode &a_sleepMode);
+
+    static void goToSleep(const BODMode &a_BODMode);
+
+    static void sleepEnable(const uint8_t ar_enable);
+
+    static void enableUSART0(const uint8_t a_enable);
+
+    static void enableTimerCounter0(const uint8_t a_enable);
+
+    static void enableTimerCounter1(const uint8_t a_enable);
+
+    static void enableTimerCounter2(const uint8_t a_enable);
+
+    static void enableTWI(const uint8_t a_enable);
+
+    static void enableSPI(const uint8_t a_enable);
+
+    static void enableADC(const uint8_t a_enable);
+
+    static void disableBOD();
+
+
+
+
 
 protected:
 
