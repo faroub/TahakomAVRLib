@@ -251,17 +251,41 @@
 
 // Watchdog Timer defines
 
-
-//#define WATCHDOG_SELECT_TIMEOUT(timeOut) WDTCSR |= (1<<WDCE) | (1<<WDE); WDTCSR &= 0x90; WDTCSR |= (timeOut & 7) | ((timeOut & 8) << 2);
-
 #define WATCHDOG_SELECT_TIMEOUT(timeOut) WDTCSR |= (1<<WDCE) | (1<<WDE);  WDTCSR = (0<<WDIE) | (0<<WDE) | timeOut;
-
-
-//#define WATCHDOG_START(operationMode) WDTCSR |= (1<<WDCE) | (1<<WDE); WDTCSR &= 0xB7; WDTCSR |= ((operationMode & 1) << 6) | ((operationMode & 2) << 3);
 #define WATCHDOG_START(operationMode,timeOut) MCUSR &= ~(1<<WDRF); WDTCSR |= (1<<WDCE) | (1<<WDE); WDTCSR = operationMode | timeOut;
 #define WATCHDOG_STOP MCUSR &= ~(1<<WDRF); WDTCSR |= (1<<WDCE) | (1<<WDE); WDTCSR = 0x00;
 #define WATCHDOG_TIMEOUT_INTERRUPT  WDT_vect
 
+// MCU defines
+
+
+#define MCU_SELECT_SLEEP_MODE(sleepMode) SMCR &= 0xF1; SMCR |= sleepMode << 1
+
+#define MCU_SLEEP_ENABLE SMCR |=  1 << SE
+#define MCU_SLEEP_DISABLE SMCR &= ~(1 << SE)
+
+#define MCU_TWI_ENABLE PRR &= ~(1 << PRTWI)
+#define MCU_TWI_DISABLE PRR |=  1 << PRTWI
+
+#define MCU_TIMER2_ENABLE PRR &= ~(1 << PRTIM2)
+#define MCU_TIMER2_DISABLE PRR |=  1 << PRTIM2
+
+#define MCU_TIMER1_ENABLE PRR &= ~(1 << PRTIM1)
+#define MCU_TIMER1_DISABLE PRR |=  1 << PRTIM1
+
+#define MCU_TIMER0_ENABLE PRR &= ~(1 << PRTIM0)
+#define MCU_TIMER0_DISABLE PRR |=  1 << PRTIM0
+
+#define MCU_SPI_ENABLE PRR &= ~(1 << PRSPI)
+#define MCU_SPI_DISABLE PRR |=  1 << PRSPI
+
+#define MCU_USART0_ENABLE PRR &= ~(1 << PRUSART0)
+#define MCU_USART0_DISABLE PRR |=  1 << PRUSART0
+
+#define MCU_ADC_ENABLE PRR &= ~(1 << PRADC)
+#define MCU_ADC_DISABLE PRR |=  1 << PRADC
+
+#define MCU_BOD_DISABLE MCUCR |= (1<<BODSE) | (1<<BODS); MCUCR &= ~(1<<BODSE);
 
 #endif
 
