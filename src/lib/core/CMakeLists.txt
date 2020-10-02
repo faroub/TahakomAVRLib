@@ -4,4 +4,5 @@ add_library(core ADC.cpp
             TimerCounter1.cpp
             TimerCounter2.cpp
             WatchdogTimer.cpp
+            AnalogComparator.cpp
             MCU.cpp)
