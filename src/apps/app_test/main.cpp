@@ -30,7 +30,6 @@ int main(void) {
     myTimerCounter1.selectOperationMode(core::operationMode::fast_PWM_ICR);
     myTimerCounter1.selectCompareOutputMode(core::channel::A, core::compareOutputMode::clear);
 
-
     // instantiate the Buzzer object
     component::ServoMotor myServoMotor(io::Pin(SERVOMOTOR_NUMBER,io::PortB),
                                        myTimerCounter1.getClockPrescaler(),
@@ -39,11 +38,7 @@ int main(void) {
                                        SERVOMOTOR_PULSE_WIDTH_MID,
                                        SERVOMOTOR_PULSE_WIDTH_MAX);
 
-
-
     myTimerCounter1.setInputCaptureRegister(myServoMotor.getPulseCycleCount());
-
-
     myTimerCounter1.setOutputCompareRegister(core::channel::A, myServoMotor.getRotationAngleCount(0));
     myTimerCounter1.start();
     _delay_ms(2000);
@@ -62,8 +57,6 @@ int main(void) {
     myTimerCounter1.setOutputCompareRegister(core::channel::A, myServoMotor.getRotationAngleCount(0));
     myTimerCounter1.start();
     _delay_ms(2000);
-
-
 
     // Mainloop
     while (1) {
