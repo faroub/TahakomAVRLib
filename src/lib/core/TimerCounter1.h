@@ -288,9 +288,12 @@ public:
 
     void selectOperationMode(const operationMode &ar_operationMode) override;
 
-    void start(const clockSource &ar_clockSource) override;
+    void start() override;
 
     void stop() override;
+
+    void selectClockSource(const clockSource &ar_clockSource) override;
+
 
     void selectCompareOutputMode(const channel &ar_channel, const compareOutputMode &ar_compareOutputMode) override;
 
@@ -311,6 +314,8 @@ public:
     void enableOverflowInterrupt(const uint8_t a_enable) override;
 
     void enableInputCaptureInterrupt(const uint8_t a_enable);
+
+    uint16_t getClockPrescaler() override;
 
     static void outputCompareMatchAServiceRoutine() __asm__(STR(TIMER1_COM_CHANNEL_A_INTERRUPT)) __attribute__((__signal__, __used__, __externally_visible__));
 
@@ -341,7 +346,9 @@ private:
         */
     const TimerCounter1& operator=(const TimerCounter1&);
 
+    uint16_t m_clockPrescaler;
 
+    uint8_t m_clockSource;
 
 };
 

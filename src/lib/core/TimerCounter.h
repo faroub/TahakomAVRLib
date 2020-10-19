@@ -501,7 +501,7 @@ enum class operationMode : uint8_t {
     CTC_OCR,   /**<  */
     CTC_ICR,   /**<  */
 };
-enum class clockSource {
+enum class clockSource : uint16_t {
      noClock=0,
      PS_1,
      PS_8,
@@ -522,9 +522,11 @@ public:
 
     virtual void selectOperationMode(const operationMode &ar_operationMode) = 0;
 
-    virtual void start(const clockSource &ar_clockSource) = 0;
+    virtual void start() = 0;
 
     virtual void stop() = 0;
+
+    virtual void selectClockSource(const clockSource &ar_clockSource) = 0;
 
     virtual void selectCompareOutputMode(const channel &ar_channel, const compareOutputMode &ar_compareOutputMode) = 0;
 
@@ -540,6 +542,7 @@ public:
 
     virtual void enableOverflowInterrupt(const uint8_t a_enable) = 0;
 
+    virtual uint16_t getClockPrescaler() = 0;
 
 protected:
 
