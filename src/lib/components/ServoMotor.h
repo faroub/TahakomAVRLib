@@ -50,7 +50,6 @@
 #define SERVOMOTOR_H
 #include "ha_base.h"
 #include "Pin.h"
-#include "TimerCounter.h"
 
 // TODO: check the use of other timers
 // TODO: implement a function to select angles
@@ -64,43 +63,54 @@ class ServoMotor
 {
 public:
 
-    ServoMotor(const io::Pin &ar_pin);
+    ServoMotor(const io::Pin &ar_pin,
+               const uint16_t &ar_clockPrescaler=0,
+               const uint16_t &ar_pulseCycle=0,
+               const uint16_t &ar_pulseWidthMin=0,
+               const uint16_t &ar_pulseWidthMid=0,
+               const uint16_t &ar_pulseWidthMax=0);
 
     ~ServoMotor();
 
-    template<typename TC>
-    void rotate(TC &ar_timerCounter,
-              const uint16_t &ar_angle_deg,
-              const core::channel &ar_channel=core::channel::A,
-              const core::clockSource &ar_clockSource= core::clockSource::PS_8
-              )
-    {
-        ar_timerCounter.selectOperationMode(core::operationMode::fast_PWM_ICR);
-        ar_timerCounter.selectCompareOutputMode(ar_channel, core::compareOutputMode::clear);
-        ar_timerCounter.setInputCaptureRegister(39999);
-        ar_timerCounter.setOutputCompareRegister(ar_channel, ar_angle_deg);
+    /** Turn servo motor On.
+         */
+    void on();
+    /** Turn servo motor Off.
+         */
+    void off();
+    /** Toggle servo motor state.
+         */
+    void toggle();
 
-        // start timer
-        ar_timerCounter.start(ar_clockSource);
+    void setPulseCycleCount(const uint16_t &ar_pulseCycle, const uint16_t &ar_clockPrescaler);
 
+    void setPulseWidthMinCount(const uint16_t &ar_pulseWidthMin, const uint16_t &ar_clockPrescaler);
 
+    void setPulseWidthMidCount(const uint16_t &ar_pulseWidthMid, const uint16_t &ar_clockPrescaler);
 
-    }
+    void setPulseWidthMaxCount(const uint16_t &ar_pulseWidthMax, const uint16_t &ar_clockPrescaler);
 
-    template<typename TC>
-    void stop(TC &ar_timerCounter,const core::channel &ar_channel=core::channel::A)
-    {
-        ar_timerCounter.selectCompareOutputMode(ar_channel, core::compareOutputMode::normal);
-        ar_timerCounter.stop();
+    uint16_t getRotationAngleCount(const uint8_t &ar_angle_deg);
 
-    }
+    uint16_t getPulseCycleCount();
 
-    uint16_t convertAngleToPulseWidth(const uint8_t &ar_angle_deg);
 
 protected:
 
 private:
     io::Pin m_pin; /**< pin object */
+
+    uint16_t m_pulseCycle; /**< pulse cycle [us] */
+
+    uint16_t m_pulseWidthMin; /**< pulse width min [us] */
+
+    uint16_t m_pulseWidthMid; /**< pulse width mid [us] */
+
+    uint16_t m_pulseWidthMax; /**< pulse width max [us] */
+
+
+
+
 
 
 
