@@ -96,6 +96,7 @@ public:
           _delay_ms(1);
           ar_duration_ms--;
         }
+        // no buzz
         ar_timerCounter.selectCompareOutputMode(ar_channel, core::compareOutputMode::normal);
         ar_timerCounter.stop();
     }
