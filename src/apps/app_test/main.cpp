@@ -20,46 +20,50 @@
 
 int main(void) {
 
-    // Init
-    // initialize MCU
-    core::MCU::init();
+   // Init
+   // initialize MCU
+   core::MCU::init();
 
-    // instantiate the TimerCounter1 object
-    core::TimerCounter1 &myTimerCounter1 = core::TimerCounter1::getInstance();
-    myTimerCounter1.selectClockSource(core::clockSource::PS_8);
+   // instantiate the TimerCounter0 object
+   core::TimerCounter1 &myTimerCounter1 = core::TimerCounter1::getInstance();
+   myTimerCounter1.selectClockSource(core::clockSource::PS_8);
+   myTimerCounter1.selectOperationMode(core::operationMode::fast_PWM_ICR);
+   myTimerCounter1.selectCompareOutputMode(core::channel::A, core::compareOutputMode::clear);
+
+   // instantiate the Buzzer object
+   component::ServoMotor myServoMotor(io::Pin(SERVOMOTOR_NUMBER,io::PortB),
+                                      SERVOMOTOR_PULSE_CYCLE,
+                                      SERVOMOTOR_PULSE_WIDTH_MIN,
+                                      SERVOMOTOR_PULSE_WIDTH_MID,
+                                      SERVOMOTOR_PULSE_WIDTH_MAX);
+
+   myTimerCounter1.setInputCaptureRegister(myServoMotor.computePulseCycleCount(myTimerCounter1.getClockPrescaler()));
+   myTimerCounter1.setOutputCompareRegister(core::channel::A, myServoMotor.computeRotationAngleCount(0,myTimerCounter1.getClockPrescaler()));
+   myTimerCounter1.start();
+   _delay_ms(2000);
+   myTimerCounter1.setOutputCompareRegister(core::channel::A, myServoMotor.computeRotationAngleCount(45,myTimerCounter1.getClockPrescaler()));
+   myTimerCounter1.start();
+   _delay_ms(2000);
+   myTimerCounter1.setOutputCompareRegister(core::channel::A, myServoMotor.computeRotationAngleCount(90,myTimerCounter1.getClockPrescaler()));
+   myTimerCounter1.start();
+   _delay_ms(2000);
+   myTimerCounter1.setOutputCompareRegister(core::channel::A, myServoMotor.computeRotationAngleCount(135,myTimerCounter1.getClockPrescaler()));
+   myTimerCounter1.start();
+   _delay_ms(2000);
+   myTimerCounter1.setOutputCompareRegister(core::channel::A, myServoMotor.computeRotationAngleCount(180,myTimerCounter1.getClockPrescaler()));
+   myTimerCounter1.start();
+   _delay_ms(2000);
+   myTimerCounter1.setOutputCompareRegister(core::channel::A, myServoMotor.computeRotationAngleCount(0,myTimerCounter1.getClockPrescaler()));
+   myTimerCounter1.start();
+   _delay_ms(2000);
+
+   // Mainloop
+   while (1) {
 
 
-    // instantiate the Buzzer object
-    component::ServoMotor myServoMotor(io::Pin(SERVOMOTOR_NUMBER,io::PortB),
-                                       SERVOMOTOR_PULSE_CYCLE,
-                                       SERVOMOTOR_PULSE_WIDTH_MIN,
-                                       SERVOMOTOR_PULSE_WIDTH_MID,
-                                       SERVOMOTOR_PULSE_WIDTH_MAX);
 
-    myServoMotor.connect(myTimerCounter1);
-
-    myServoMotor.rotate(myTimerCounter1,0);
-    _delay_ms(2000);
-    myServoMotor.rotate(myTimerCounter1,45);
-    _delay_ms(2000);
-    myServoMotor.rotate(myTimerCounter1,90);
-    _delay_ms(2000);
-    myServoMotor.rotate(myTimerCounter1,135);
-    _delay_ms(2000);
-    myServoMotor.rotate(myTimerCounter1,180);
-    _delay_ms(2000);
-    myServoMotor.rotate(myTimerCounter1,0);
-    _delay_ms(2000);
-
-    myServoMotor.disconnect(myTimerCounter1);
-
-    // Mainloop
-    while (1) {
-
-
-
-    }
-    return 0;
+   }
+   return 0;
 }
 
 
