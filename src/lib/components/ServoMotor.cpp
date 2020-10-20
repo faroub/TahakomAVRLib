@@ -3,18 +3,18 @@
 
 
 component::ServoMotor::ServoMotor(const io::Pin &ar_pin,
-                                  const uint16_t &ar_clockPrescaler,
                                   const uint16_t &ar_pulseCycle,
                                   const uint16_t &ar_pulseWidthMin,
                                   const uint16_t &ar_pulseWidthMid,
                                   const uint16_t &ar_pulseWidthMax)
-                      : m_pin(ar_pin)
+                      : m_pin(ar_pin),
+                        m_pulseCycle(ar_pulseCycle),
+                        m_pulseWidthMin(ar_pulseWidthMin),
+                        m_pulseWidthMid(ar_pulseWidthMid),
+                        m_pulseWidthMax(ar_pulseWidthMax)
 {
     m_pin.toOutput();
-    setPulseCycleCount(ar_pulseCycle,ar_clockPrescaler);
-    setPulseWidthMinCount(ar_pulseWidthMin, ar_clockPrescaler);
-    setPulseWidthMidCount(ar_pulseWidthMid, ar_clockPrescaler);
-    setPulseWidthMaxCount(ar_pulseWidthMax, ar_clockPrescaler);
+
 }
 
 component::ServoMotor::~ServoMotor()
@@ -41,33 +41,61 @@ void component::ServoMotor::toggle()
 
 }
 
-void component::ServoMotor::setPulseCycleCount(const uint16_t &ar_pulseCycle, const uint16_t &ar_clockPrescaler)
+uint16_t component::ServoMotor::computePulseCycleCount(const uint16_t &ar_clockPrescaler)
 {
-    m_pulseCycle = SERVOMOTOR_TIMER_PULSE_WIDTH_COUNT(ar_pulseCycle,ar_clockPrescaler);
+    return SERVOMOTOR_TIMER_PULSE_WIDTH_COUNT(m_pulseCycle,ar_clockPrescaler);
 }
 
-void component::ServoMotor::setPulseWidthMinCount(const uint16_t &ar_pulseWidthMin, const uint16_t &ar_clockPrescaler)
+uint16_t component::ServoMotor::computePulseWidthMinCount(const uint16_t &ar_clockPrescaler)
 {
-    m_pulseWidthMin = SERVOMOTOR_TIMER_PULSE_WIDTH_COUNT(ar_pulseWidthMin,ar_clockPrescaler);
+    return SERVOMOTOR_TIMER_PULSE_WIDTH_COUNT(m_pulseWidthMin,ar_clockPrescaler);
 }
 
-void component::ServoMotor::setPulseWidthMaxCount(const uint16_t &ar_pulseWidthMax, const uint16_t &ar_clockPrescaler)
+uint16_t component::ServoMotor::computePulseWidthMaxCount(const uint16_t &ar_clockPrescaler)
 {
-    m_pulseWidthMax = SERVOMOTOR_TIMER_PULSE_WIDTH_COUNT(ar_pulseWidthMax,ar_clockPrescaler);
+    return SERVOMOTOR_TIMER_PULSE_WIDTH_COUNT(m_pulseWidthMax,ar_clockPrescaler);
 }
 
-void component::ServoMotor::setPulseWidthMidCount(const uint16_t &ar_pulseWidthMid, const uint16_t &ar_clockPrescaler)
+uint16_t component::ServoMotor::computePulseWidthMidCount(const uint16_t &ar_clockPrescaler)
 {
-    m_pulseWidthMid = SERVOMOTOR_TIMER_PULSE_WIDTH_COUNT(ar_pulseWidthMid,ar_clockPrescaler);
+    return SERVOMOTOR_TIMER_PULSE_WIDTH_COUNT(m_pulseWidthMid,ar_clockPrescaler);
 }
 
-uint16_t component::ServoMotor::getRotationAngleCount(const uint8_t &ar_angle_deg)
+uint16_t component::ServoMotor::computeRotationAngleCount(const uint8_t &ar_angle_deg,const uint16_t &ar_clockPrescaler)
 {
-    return static_cast<uint16_t>(SERVOMOTOR_TIMER_ANGLE_COUNT(ar_angle_deg,static_cast<long>(m_pulseWidthMin),static_cast<long>(m_pulseWidthMid),static_cast<long>(m_pulseWidthMax)));
+    return static_cast<uint16_t>(SERVOMOTOR_TIMER_ANGLE_COUNT(ar_angle_deg,static_cast<long>(computePulseWidthMinCount(ar_clockPrescaler)),static_cast<long>(computePulseWidthMidCount(ar_clockPrescaler)),static_cast<long>(computePulseWidthMaxCount(ar_clockPrescaler))));
 }
 
-uint16_t component::ServoMotor::getPulseCycleCount()
-{
-    return m_pulseCycle;
 
+
+void component::ServoMotor::rotate(core::TimerCounter1 &ar_timerCounter1,
+                                   const uint8_t &ar_angle_deg,
+                                   const core::channel &ar_channel)
+{
+
+    ar_timerCounter1.setOutputCompareRegister(ar_channel, computeRotationAngleCount(ar_angle_deg,ar_timerCounter1.getClockPrescaler()));
+
+    // start timer
+    ar_timerCounter1.start();
+
+
+}
+
+
+void component::ServoMotor::connect(core::TimerCounter1 &ar_timerCounter1,
+             const core::channel &ar_channel)
+{
+
+
+    ar_timerCounter1.setInputCaptureRegister(computePulseCycleCount(ar_timerCounter1.getClockPrescaler()));
+    ar_timerCounter1.selectOperationMode(core::operationMode::fast_PWM_ICR);
+    ar_timerCounter1.selectCompareOutputMode(ar_channel, core::compareOutputMode::clear);
+}
+
+void component::ServoMotor::disconnect(core::TimerCounter1 &ar_timerCounter1,
+                const core::channel &ar_channel)
+{
+    ar_timerCounter1.selectCompareOutputMode(ar_channel, core::compareOutputMode::normal);
+    // stop timer
+    ar_timerCounter1.stop();
 }

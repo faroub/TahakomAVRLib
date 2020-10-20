@@ -2,7 +2,7 @@
  * @file ServoMotor.h
  * @brief Header file of the ServoMotor class
  *
- * Usage example (test):
+ * Usage example (separate):
  #include "MCU.h"
  #include "ServoMotor.h"
  #include "TimerCounter1.h"
@@ -63,7 +63,7 @@
     }
     return 0;
  }
- *
+ ** Usage example (TimerCounter1):
  * class to control a servo motor
  * @author Farid Oubbati (https://github.com/faroub)
  * @date March 2020
@@ -72,6 +72,8 @@
 #define SERVOMOTOR_H
 #include "ha_base.h"
 #include "Pin.h"
+#include "TimerCounter1.h"
+
 
 
 namespace component
@@ -83,7 +85,6 @@ class ServoMotor
 public:
 
     ServoMotor(const io::Pin &ar_pin,
-               const uint16_t &ar_clockPrescaler=0,
                const uint16_t &ar_pulseCycle=0,
                const uint16_t &ar_pulseWidthMin=0,
                const uint16_t &ar_pulseWidthMid=0,
@@ -101,22 +102,32 @@ public:
          */
     void toggle();
 
-    void setPulseCycleCount(const uint16_t &ar_pulseCycle, const uint16_t &ar_clockPrescaler);
+    uint16_t computePulseCycleCount(const uint16_t &ar_clockPrescaler);
 
-    void setPulseWidthMinCount(const uint16_t &ar_pulseWidthMin, const uint16_t &ar_clockPrescaler);
+    uint16_t computePulseWidthMinCount(const uint16_t &ar_clockPrescaler);
 
-    void setPulseWidthMidCount(const uint16_t &ar_pulseWidthMid, const uint16_t &ar_clockPrescaler);
+    uint16_t computePulseWidthMidCount(const uint16_t &ar_clockPrescaler);
 
-    void setPulseWidthMaxCount(const uint16_t &ar_pulseWidthMax, const uint16_t &ar_clockPrescaler);
+    uint16_t computePulseWidthMaxCount(const uint16_t &ar_clockPrescaler);
 
-    uint16_t getRotationAngleCount(const uint8_t &ar_angle_deg);
+    uint16_t computeRotationAngleCount(const uint8_t &ar_angle_deg, const uint16_t &ar_clockPrescaler);
 
-    uint16_t getPulseCycleCount();
+
+    void rotate(core::TimerCounter1 &ar_timerCounter1,
+                const uint8_t &ar_angle_deg,
+                const core::channel &ar_channel=core::channel::A);
+    void connect(core::TimerCounter1 &ar_timerCounter1,
+                 const core::channel &ar_channel=core::channel::A);
+    void disconnect(core::TimerCounter1 &ar_timerCounter1,
+                    const core::channel &ar_channel=core::channel::A);
+
 
 
 protected:
 
 private:
+
+
     io::Pin m_pin; /**< pin object */
 
     uint16_t m_pulseCycle; /**< pulse cycle [us] */
