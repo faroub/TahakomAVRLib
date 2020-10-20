@@ -3,6 +3,8 @@
  * @brief Header file of the ServoMotor class
  *
  * Usage example (separate):
+
+ * Usage example (TimerCounter1):
  #include "MCU.h"
  #include "ServoMotor.h"
  #include "TimerCounter1.h"
@@ -21,39 +23,34 @@
     // initialize MCU
     core::MCU::init();
 
-    // instantiate the TimerCounter0 object
+    // instantiate the TimerCounter1 object
     core::TimerCounter1 &myTimerCounter1 = core::TimerCounter1::getInstance();
     myTimerCounter1.selectClockSource(core::clockSource::PS_8);
-    myTimerCounter1.selectOperationMode(core::operationMode::fast_PWM_ICR);
-    myTimerCounter1.selectCompareOutputMode(core::channel::A, core::compareOutputMode::clear);
+
 
     // instantiate the Buzzer object
     component::ServoMotor myServoMotor(io::Pin(SERVOMOTOR_NUMBER,io::PortB),
-                                       myTimerCounter1.getClockPrescaler(),
                                        SERVOMOTOR_PULSE_CYCLE,
                                        SERVOMOTOR_PULSE_WIDTH_MIN,
                                        SERVOMOTOR_PULSE_WIDTH_MID,
                                        SERVOMOTOR_PULSE_WIDTH_MAX);
 
-    myTimerCounter1.setInputCaptureRegister(myServoMotor.getPulseCycleCount());
-    myTimerCounter1.setOutputCompareRegister(core::channel::A, myServoMotor.getRotationAngleCount(0));
-    myTimerCounter1.start();
+    myServoMotor.connect(myTimerCounter1);
+
+    myServoMotor.rotate(myTimerCounter1,0);
     _delay_ms(2000);
-    myTimerCounter1.setOutputCompareRegister(core::channel::A, myServoMotor.getRotationAngleCount(45));
-    myTimerCounter1.start();
+    myServoMotor.rotate(myTimerCounter1,45);
     _delay_ms(2000);
-    myTimerCounter1.setOutputCompareRegister(core::channel::A, myServoMotor.getRotationAngleCount(90));
-    myTimerCounter1.start();
+    myServoMotor.rotate(myTimerCounter1,90);
     _delay_ms(2000);
-    myTimerCounter1.setOutputCompareRegister(core::channel::A, myServoMotor.getRotationAngleCount(135));
-    myTimerCounter1.start();
+    myServoMotor.rotate(myTimerCounter1,135);
     _delay_ms(2000);
-    myTimerCounter1.setOutputCompareRegister(core::channel::A, myServoMotor.getRotationAngleCount(180));
-    myTimerCounter1.start();
+    myServoMotor.rotate(myTimerCounter1,180);
     _delay_ms(2000);
-    myTimerCounter1.setOutputCompareRegister(core::channel::A, myServoMotor.getRotationAngleCount(0));
-    myTimerCounter1.start();
+    myServoMotor.rotate(myTimerCounter1,0);
     _delay_ms(2000);
+
+    myServoMotor.disconnect(myTimerCounter1);
 
     // Mainloop
     while (1) {
@@ -63,7 +60,7 @@
     }
     return 0;
  }
- ** Usage example (TimerCounter1):
+ *
  * class to control a servo motor
  * @author Farid Oubbati (https://github.com/faroub)
  * @date March 2020
