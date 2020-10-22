@@ -294,6 +294,32 @@
 
 #define SERVOMOTOR_TIMER_ANGLE_COUNT(angle,out_min,out_mid,out_max) (((out_min*(angle - 90L)*(angle - 180L))/16200L + (angle*out_max*(angle - 90L))/16200L - (angle*out_mid*(angle - 180L))/8100L))
 
+// SPI defines
+
+#define   SPI_ENABLE            SPCR |=  1 << SPE
+#define   SPI_DISABLE           SPCR &= ~(1 << SPE)
+#define   SPI_SELECT_MASTER_MODE SPCR |=  1 << MSTR
+#define   SPI_SELECT_SLAVE_MODE SPCR &= ~(1 << MSTR)
+
+
+#define   SPI_SELECT_DATA_MODE(dataMode) SPCR &= 0xF3; SPCR |= dataMode << 2
+#define   SPI_SELECT_CLOCK_PRESCALER(clockPrescaler) SPCR &= 0xFC; SPCR |= (clockPrescaler & 3); SPSR &= 0xFE; SPSR |= (clockPrescaler & 4) >> 2
+#define   SPI_SELECT_DATA_ORDER(dataOrder) SPCR &= 0xDF; SPCR |= dataOrder << 5
+
+#define   SPI_WRITE_COLLISION WCOL
+#define   SPI_TRANSFER_COMPLETE SPIF
+
+#define   SPI_MASTER_MODE MSTR
+#define   SPI_CONTROL_REGISTER SPCR
+#define   SPI_DATA_REGISTER SPDR
+#define   SPI_STATUS_REGISTER SPSR
+
+#define   SPI_ENABLE_TRANSFER_COMPLETE_INTERRUPT SPCR |= 1 << SPIE
+#define   SPI_DISABLE_TRANSFER_COMPLETE_INTERRUPT SPCR &= ~(1 << SPIE)
+
+
+#define   SPI_TRANSFER_COMPLETE_INTERRUPT SPI_STC_vect
+
 
 
 #endif
