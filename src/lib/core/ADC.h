@@ -85,15 +85,15 @@ namespace core
 {
 
 enum class resolution : uint8_t {
-    RES_8bit=0,
-    RES_9bit,
-    RES_10bit,
-    RES_11bit,
-    RES_12bit,
-    RES_13bit,
-    RES_14bit,
-    RES_15bit,
-    RES_16bit
+    res_8bit=0,
+    res_9bit,
+    res_10bit,
+    res_11bit,
+    res_12bit,
+    res_13bit,
+    res_14bit,
+    res_15bit,
+    res_16bit
 };
 
 
@@ -105,7 +105,7 @@ enum class referenceVoltage : uint8_t {
 
 
 
-enum class clockPrescaler {
+enum class clockPrescaler : uint8_t {
      PS_2 = 1,
      PS_4,
      PS_8,
@@ -116,14 +116,14 @@ enum class clockPrescaler {
 };
 
 enum class autoTriggerSource : uint8_t {
-    FreeRunning,
-    AnalogComparator,
-    ExtInterrupt,
-    Timer0Compare,
-    Timer0Overflow,
-    Timer1CompareB,
-    Timer1Overflow,
-    Timer1Capture
+    freeRunning,
+    analogComparator,
+    extInterrupt,
+    timer0Compare,
+    timer0Overflow,
+    timer1CompareB,
+    timer1Overflow,
+    timer1Capture
 };
 
 class ADConverter
@@ -132,7 +132,7 @@ public:
 
     static ADConverter& getInstance(const referenceVoltage& ar_refVoltage = referenceVoltage::AVCC,
                                     const clockPrescaler& ar_clockPrescaler = clockPrescaler::PS_128,
-                                    const autoTriggerSource& ar_autoTriggerSource = autoTriggerSource::FreeRunning,
+                                    const autoTriggerSource& ar_autoTriggerSource = autoTriggerSource::freeRunning,
                                     const io::Pin &ar_pin = io::Pin(0,io::PortC));
 
     void start();
@@ -154,7 +154,7 @@ public:
     uint8_t conversionComplete();
 
 
-    void getConversionResult(uint16_t *ap_resultData, const resolution& ar_resolution = resolution::RES_10bit);
+    void getConversionResult(uint16_t *ap_resultData, const resolution& ar_resolution = resolution::res_10bit);
 
 
     static void conversionCompleteServiceRoutine() __asm__(STR(ADC_CONVERSION_COMPLETE_INTERRUPT)) __attribute__((__signal__, __used__, __externally_visible__));

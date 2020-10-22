@@ -65,10 +65,9 @@ void core::ADConverter::start()
 }
 
 void core::ADConverter::stop()
-{
-    ADC_DISABLE;
+{    
     ADC_STOP_CONVERSION;
-
+    ADC_DISABLE;
 }
 
 void core::ADConverter::enableAutoTrigger(const uint8_t a_enable)
@@ -266,51 +265,51 @@ void core::ADConverter::getConversionResult(uint16_t *ap_resultData, const resol
 
     switch (ar_resolution)
     {
-        case core::resolution::RES_8bit:
+        case core::resolution::res_8bit:
         {
             ADC_ADJUST_RESULT_LEFT;
             m_resolution = 8;
             break;
         }
-        case core::resolution::RES_9bit:
+        case core::resolution::res_9bit:
         {
             ADC_ADJUST_RESULT_LEFT;
             m_resolution = 9;
             break;
         }
-        case core::resolution::RES_10bit:
+        case core::resolution::res_10bit:
         {
             ADC_ADJUST_RESULT_RIGHT;
             m_resolution = 10;
             break;
         }
-        case core::resolution::RES_11bit:
+        case core::resolution::res_11bit:
         {
 
             m_resolution = 11;
             break;
         }
-        case core::resolution::RES_12bit:
+        case core::resolution::res_12bit:
         {
             m_resolution = 12;
             break;
         }
-        case core::resolution::RES_13bit:
+        case core::resolution::res_13bit:
         {
             m_resolution = 13;
             break;
         }
-        case core::resolution::RES_14bit:
+        case core::resolution::res_14bit:
         {
             m_resolution = 14;
             break;
         }
-        case core::resolution::RES_15bit:
+        case core::resolution::res_15bit:
         {
             m_resolution = 15;
             break;
         }
-        case core::resolution::RES_16bit:
+        case core::resolution::res_16bit:
         {
             m_resolution = 16;
             break;
