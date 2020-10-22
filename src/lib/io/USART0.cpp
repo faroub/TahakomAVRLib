@@ -186,19 +186,19 @@ void io::USART0::setStopBit(const stopBit& ar_stopBit)
 }
 
 
-uint8_t io::USART0::isFrameError()
+uint8_t io::USART0::frameError()
 {
     return (m_status & (1 << USART0_FRAME_ERROR));
 
 }
 
-uint8_t io::USART0::isDataOverrun()
+uint8_t io::USART0::dataOverrun()
 {
     return (m_status & (1 << USART0_DATA_OVERRUN));
 
 }
 
-uint8_t io::USART0::isParityError()
+uint8_t io::USART0::parityError()
 {
     return (m_status & (1 << USART0_PARITY_ERROR));
 

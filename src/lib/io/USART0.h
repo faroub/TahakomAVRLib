@@ -220,13 +220,13 @@ public:
     static void enableDataRegisterEmptyInterrupt(const uint8_t ar_enable);
     /** Is there frame error in received data.
          */
-    uint8_t isFrameError();
+    uint8_t frameError();
     /** Is there data overrun in received data.
          */
-    uint8_t isDataOverrun();
+    uint8_t dataOverrun();
     /** Is there partity error in received data.
          */
-    uint8_t isParityError();
+    uint8_t parityError();
     /** Get number of bytes received.
          */
     uint16_t getNumberBytesReceived();
