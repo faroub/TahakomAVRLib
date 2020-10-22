@@ -7,15 +7,12 @@
 
 
 #include "MCU.h"
-#include "ServoMotor.h"
-#include "TimerCounter1.h"
+#include "SPI.h"
 
-#define SERVOMOTOR_NUMBER 1
-#define SERVOMOTOR_PULSE_CYCLE 30000 // pulse cycle [us]
-#define SERVOMOTOR_PULSE_WIDTH_MIN 500// pulse width min [us]
-#define SERVOMOTOR_PULSE_WIDTH_MID 1520 // pulse width mid [us]
-#define SERVOMOTOR_PULSE_WIDTH_MAX 3000 // pulse width max [us]
-
+#define SPI_SCK 5
+#define SPI_MISO 4
+#define SPI_MOSI 3
+#define SPI_SS 2
 
 
 int main(void) {
@@ -23,39 +20,18 @@ int main(void) {
    // Init
    // initialize MCU
    core::MCU::init();
+   // instantiate a SPI object
+   io::SPI &myISP = io::SPI::getInstance(io::Pin(SPI_SCK,io::PortB),
+                                         io::Pin(SPI_MISO,io::PortB),
+                                         io::Pin(SPI_MOSI,io::PortB),
+                                         io::Pin(SPI_SS,io::PortB));
 
-   // instantiate the TimerCounter0 object
-   core::TimerCounter1 &myTimerCounter1 = core::TimerCounter1::getInstance();
-   myTimerCounter1.selectClockSource(core::clockSource::PS_8);
-   myTimerCounter1.selectOperationMode(core::operationMode::fast_PWM_ICR);
-   myTimerCounter1.selectCompareOutputMode(core::channel::A, core::compareOutputMode::clear);
+   myISP.selectClockPrescaler(io::clockPrescaler::PS_128);
+   myISP.selectDataMode(io::dataMode::mode_0);
+   myISP.selectDataOrder(io::dataOrder::first_LSB);
+   myISP.selectOperationMode(io::operationMode::master);
 
-   // instantiate the Buzzer object
-   component::ServoMotor myServoMotor(io::Pin(SERVOMOTOR_NUMBER,io::PortB),
-                                      SERVOMOTOR_PULSE_CYCLE,
-                                      SERVOMOTOR_PULSE_WIDTH_MIN,
-                                      SERVOMOTOR_PULSE_WIDTH_MID,
-                                      SERVOMOTOR_PULSE_WIDTH_MAX);
-
-   myTimerCounter1.setInputCaptureRegister(myServoMotor.computePulseCycleCount(myTimerCounter1.getClockPrescaler()));
-   myTimerCounter1.setOutputCompareRegister(core::channel::A, myServoMotor.computeRotationAngleCount(0,myTimerCounter1.getClockPrescaler()));
-   myTimerCounter1.start();
-   _delay_ms(2000);
-   myTimerCounter1.setOutputCompareRegister(core::channel::A, myServoMotor.computeRotationAngleCount(45,myTimerCounter1.getClockPrescaler()));
-   myTimerCounter1.start();
-   _delay_ms(2000);
-   myTimerCounter1.setOutputCompareRegister(core::channel::A, myServoMotor.computeRotationAngleCount(90,myTimerCounter1.getClockPrescaler()));
-   myTimerCounter1.start();
-   _delay_ms(2000);
-   myTimerCounter1.setOutputCompareRegister(core::channel::A, myServoMotor.computeRotationAngleCount(135,myTimerCounter1.getClockPrescaler()));
-   myTimerCounter1.start();
-   _delay_ms(2000);
-   myTimerCounter1.setOutputCompareRegister(core::channel::A, myServoMotor.computeRotationAngleCount(180,myTimerCounter1.getClockPrescaler()));
-   myTimerCounter1.start();
-   _delay_ms(2000);
-   myTimerCounter1.setOutputCompareRegister(core::channel::A, myServoMotor.computeRotationAngleCount(0,myTimerCounter1.getClockPrescaler()));
-   myTimerCounter1.start();
-   _delay_ms(2000);
+   myISP.masterSendByte(0x03);
 
    // Mainloop
    while (1) {
