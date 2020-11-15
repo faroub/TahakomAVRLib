@@ -30,6 +30,8 @@ io::SPI::SPI(const Pin &ar_pinSCK,
 {
     core::MCU::enableSPI(1);
     sei();
+    enableTransferCompleteInterrupt(1);
+
 }
 
 io::SPI::~SPI()
@@ -128,7 +130,6 @@ void io::SPI::transferCompleteServiceRoutine()
 {
 
         m_data = SPI_DATA_REGISTER;
-        enableTransferCompleteInterrupt(0);
 }
 
 void io::SPI::masterSendByte(const uint8_t &ar_byte)
@@ -152,7 +153,6 @@ void io::SPI::masterReceiveByte(uint8_t &ar_byte)
 
 void io::SPI::slaveReceiveByte(uint8_t &ar_byte)
 {
-    enableTransferCompleteInterrupt(1);
     ar_byte = m_data;
 
 }
