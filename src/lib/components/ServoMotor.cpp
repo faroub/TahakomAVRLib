@@ -90,6 +90,8 @@ void component::ServoMotor::connect(core::TimerCounter1 &ar_timerCounter1,
     ar_timerCounter1.setInputCaptureRegister(computePulseCycleCount(ar_timerCounter1.getClockPrescaler()));
     ar_timerCounter1.selectOperationMode(core::operationMode::fast_PWM_ICR);
     ar_timerCounter1.selectCompareOutputMode(ar_channel, core::compareOutputMode::clear);
+    ar_timerCounter1.setCounter(0);
+
 }
 
 void component::ServoMotor::disconnect(core::TimerCounter1 &ar_timerCounter1,

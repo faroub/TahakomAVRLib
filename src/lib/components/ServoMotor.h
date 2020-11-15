@@ -171,8 +171,10 @@ public:
     void rotate(core::TimerCounter1 &ar_timerCounter1,
                 const uint8_t &ar_angle_deg,
                 const core::channel &ar_channel=core::channel::A);
+
     void connect(core::TimerCounter1 &ar_timerCounter1,
                  const core::channel &ar_channel=core::channel::A);
+
     void disconnect(core::TimerCounter1 &ar_timerCounter1,
                     const core::channel &ar_channel=core::channel::A);
 
