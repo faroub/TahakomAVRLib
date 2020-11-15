@@ -90,7 +90,7 @@ public:
         ar_timerCounter.setCounter(0);
         ar_timerCounter.setOutputCompareRegister(ar_channel, ar_period_us);
         // start timer
-        ar_timerCounter.start(ar_clockSource);
+        ar_timerCounter.start();
         // wait for the pitch duration
         while (ar_duration_ms) {
           _delay_ms(1);
