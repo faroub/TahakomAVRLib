@@ -189,6 +189,11 @@ public:
          *  @param ar_word defines word to be sent
          */
     void sendWord(const uint16_t &ar_word);
+    /** Transmit word.
+         *
+         *  @param ar_word defines word to be sent
+         */
+    void sendLong(const uint32_t &ar_long);
 
     /** Receive character.
          *

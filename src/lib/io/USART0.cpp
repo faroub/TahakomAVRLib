@@ -236,15 +236,34 @@ void io::USART0::sendByte(const uint8_t &ar_byte)
     enableDataRegisterEmptyInterrupt(1);
 
 }
+void io::USART0::sendLong(const uint32_t &ar_long)
+{
+    static uint8_t l_word2Send[10];
+    l_word2Send[0] = '0' + (ar_long / 1000000000);
+    l_word2Send[1] = '0' + ((ar_long / 100000000) % 10);
+    l_word2Send[2] = '0' + ((ar_long /  10000000) % 10);
+    l_word2Send[3] = '0' + ((ar_long /   1000000) % 10);
+    l_word2Send[4] = '0' + ((ar_long /    100000) % 10);
+    l_word2Send[5] = '0' + ((ar_long /     10000) % 10);
+    l_word2Send[6] = '0' + ((ar_long /      1000) % 10);
+    l_word2Send[7] = '0' + ((ar_long /       100) % 10);
+    l_word2Send[8] = '0' + ((ar_long /        10) % 10);
+    l_word2Send[9] = '0' + (ar_long % 10);
 
+    while (!ready2Send()){};
+    m_sizeData2Send = 10;
+    mp_data2Send = l_word2Send;
+    enableDataRegisterEmptyInterrupt(1);
+
+}
 void io::USART0::sendWord(const uint16_t &ar_word)
 {
     static uint8_t l_word2Send[5];
     l_word2Send[0] = '0' + (ar_word / 10000);
     l_word2Send[1] = '0' + ((ar_word / 1000) % 10);
-    l_word2Send[2] = '0' + ((ar_word / 100) % 10);
-    l_word2Send[3] = '0' + ((ar_word / 10) % 10);
-    l_word2Send[4] = '0' + (ar_word % 10);
+    l_word2Send[2] = '0' + ((ar_word /  100) % 10);
+    l_word2Send[3] = '0' + ((ar_word /   10) % 10);
+    l_word2Send[4] = '0' + (ar_word %    10);
 
     while (!ready2Send()){};
     m_sizeData2Send = 5;
