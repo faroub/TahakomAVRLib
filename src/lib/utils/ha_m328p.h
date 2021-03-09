@@ -320,6 +320,11 @@
 
 #define   SPI_TRANSFER_COMPLETE_INTERRUPT SPI_STC_vect
 
+// StepperMotor defines
+
+
+
+
 
 
 #endif
