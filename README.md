@@ -1,4 +1,4 @@
-# Introduction
+## Introduction
 
 TahakomAVRLib is a C++ library to program AVR microcontrollers. 
 Th library is written for easy usage and is, for now, limited 
@@ -29,17 +29,23 @@ sudo apt-get install avrdude
 ### Windows
 
 
+
+
+
 ## Hardware setup  
 
-* MCU chip either barebone on a breadboard or a development board like an Arduino UNO
+* MCU chip either barebone or on a development board like an Arduino UNO
 * A bunch of Leds, resistors, drivers, sensors and actuators
-* An AVR ISPProgrammer (optional)
+* A breadboard
 * Jumper wires
+* An AVR ISPProgrammer (optional)
 
 
 ## Applications
 
 These applications demonstrate the usage of TahakomAVRLib in simple examples:
+
+* [Blink a Led](TahakomAVRLib/applications/BlinkLed)
 
 
 ## Projects
