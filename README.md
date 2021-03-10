@@ -39,7 +39,7 @@ sudo apt-get install avrdude
 
 ## Applications
 
-These applications demonstrate the usage of the library in simple examples:
+These applications demonstrate the usage of TahakomAVRLib in simple examples:
 
 
 ## Projects
@@ -50,8 +50,8 @@ These are relatively complex projects implemented using TahakomAVRLib
 ## Author
 
 * Farid Oubbati
-* Date: 12-May-2017
-* Copyright (c) 2017
+* Date: 12-May-2018
+* Copyright (c) 2018
 
 ## License
 
