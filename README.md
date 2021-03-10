@@ -1,15 +1,34 @@
-# Robot Navigation using the Attractor Dynamics Approach
+# Introduction
 
-This project demonstrates that the dynamic system approach can be used to generate
-collision-free paths toward targets while avoiding moving obstacles even if low-level sensory
-information (proximity sensors in this case) is used instead of representations of the
-environment, see (Althaus et al., 2001) or (Bicho et al., 1998) in [docs](docs/) folder for more information
+TahakomAVRLib is a C++ library to program AVR microcontrollers. 
+Th library is written for easy usage and is, for now, limited 
+to the ATmega48P/88P/168P/328P AVR microcontrollers family. 
 
-## Dynamical Obstacles Avoidance and Targets Acquisition
+# Software setup  
 
-The dynamics generate a heading direction for a mobile robot that is
-moving successively but in a random order toward three predefined  targets
-while avoiding randomly moving obstacles
+ Before using the library and start programming and interfacing hardware peripherals, some 
+ software packages need to be installed in your system: 
+
+* binutils:for getting tools like assembler, linker
+* gcc-avr : a GNU C cross-compiler for specifically for AVR
+* avr-libc: a package for AVR C library
+* avrdude : is a driver program for downloading code and data to Atmel AVR microcontrollers
+
+To install these software packages according to your operating system:
+
+## Linux
+
+```
+sudo apt-get update
+sudo apt-get install gcc build-essential
+sudo apt-get install gcc-avr binutils-avr avr-libc gdb-avr
+$sudo apt-get install avrdude
+```
+
+
+## Windows
+
+
 
 <img src="/pics/simulation-scene.png" alt="alt text" width="570">
 
