@@ -2,10 +2,16 @@
  * @file Pin.h
  * @brief Header file of the Pin class
  *
- * Basic class for IO abstraction of Pin and Port
+ * Basic class for Pin and Port abstraction
  * @author Farid Oubbati (https://github.com/faroub)
  * @date March 2020
+ *
+ * $Name: RELEASE_1_0 $
+ * $Revision: 1.2 $
+ * $RCSfile: sm_driver.c,v $
+ * $Date: 2006/05/08 12:25:58 $
 */
+
 #ifndef PIN_H
 #define PIN_H
 #include "ha_base.h"
