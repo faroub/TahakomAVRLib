@@ -45,7 +45,7 @@ sudo apt-get install avrdude
 
 These applications demonstrate the usage of TahakomAVRLib in simple examples:
 
-* [Blink a Led](TahakomAVRLib/applications/BlinkLed)
+* [Blink a Led](applications/BlinkLed)
 
 
 ## Projects
