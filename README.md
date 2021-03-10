@@ -37,22 +37,22 @@ sudo apt-get install avrdude
 * Jumper wires
 
 
-# Applications
+## Applications
 
 These applications demonstrate the usage of the library in simple examples:
 
 
-# Projects
+## Projects
 
 These are relatively complex projects implemented using TahakomAVRLib
 
 
-# Author
+## Author
 
 * Farid Oubbati
 * Date: 12-May-2017
 * Copyright (c) 2017
 
-# License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.txt) file for more details
