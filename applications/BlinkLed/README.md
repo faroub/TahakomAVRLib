@@ -15,7 +15,7 @@ The pinout of the ATmega48P/88P/168P/328P AVR microcontrollers family is illustr
 * 220 ohm current limiting resistor
 * A breadboard
 
-The Led with the current limiting resistor is connected to pin PB0 (digital pin 8 in Arduino UNO).
+The Led with the current limiting resistor are connected to pin PB0 (digital pin 8 in Arduino UNO).
 
 ## Circuit
 
