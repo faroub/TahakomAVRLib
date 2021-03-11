@@ -6,6 +6,12 @@ set(AVRC     avr-gcc)
 set(AVRSTRIP avr-strip)
 set(OBJCOPY  avr-objcopy)
 
+# The programmer to use, read avrdude manual for list
+set(PROG_TYPE arduino)
+
+# driver program for downloading/uploading code and data from/to Atmel AVR microcontrollers
+set(AVRFLASH_TOOL avrdude)
+
 # Set AVR chip configuration
 set(MCU   atmega328p)
 set(F_CPU 16000000)
@@ -83,9 +89,8 @@ add_custom_target(${MCU_APPLICATION}_hex   ALL     ${OBJCOPY} -R .eeprom -O ihex
 # Add custom target to build target.eeprom by extracting eeprom section
 add_custom_target(${MCU_APPLICATION}_eeprom        ${OBJCOPY} -j .eeprom --change-section-lma .eeprom=0 -O ihex "${MCU_APPLICATION}.elf" "${MCU_APPLICATION}.eeprom" DEPENDS ${MCU_APPLICATION}_strip)
 
-
-
-
+# Flash the firmware with avrdude
+add_custom_target(flash ${AVRFLASH_TOOL} -c ${PROG_TYPE} -p ${MCU} -P /dev/ttyACM0 -U flash:w:${MCU_APPLICATION}.hex DEPENDS ${MCU_APPLICATION}_hex)
 
 
 # Add files for clean process
