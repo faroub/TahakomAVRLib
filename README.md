@@ -8,7 +8,7 @@ Currently, the classes compile on the ATmega48P/88P/168P/328P AVR microcontrolle
 
 ## Library structure 
 
-The library is composed of several classes that abstract the different internal elements of a microcontroller and some external components that when hooked up to the chip can perform some actions. 
+The library is composed of several classes that abstract the internal elements of a microcontroller and some external components that when hooked up to the chip can perform some actions. 
 
 These classes implement the different available functionalities and are classified into: 
 
