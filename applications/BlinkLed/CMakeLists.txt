@@ -9,13 +9,16 @@ set(OBJCOPY  avr-objcopy)
 # The programmer to use, read avrdude manual for list
 set(PROG_TYPE arduino)
 
-# driver program for downloading/uploading code and data from/to Atmel AVR microcontrollers
+# Set flash software tool
 set(AVRFLASH_TOOL avrdude)
+
+# Set flash port, check the port designator in your system
+set(AVRFLASH_PORT /dev/ttyACM0)
 
 # Set AVR chip configuration
 set(MCU   atmega328p)
 set(F_CPU 16000000)
-set(BAUD  9600)
+set(BAUD  115200)
 
 # Pass defines to the compiler
 # __AVR_ATmega328P__ definition is necessary to use QtCreator IDE
@@ -90,7 +93,10 @@ add_custom_target(${MCU_APPLICATION}_hex   ALL     ${OBJCOPY} -R .eeprom -O ihex
 add_custom_target(${MCU_APPLICATION}_eeprom        ${OBJCOPY} -j .eeprom --change-section-lma .eeprom=0 -O ihex "${MCU_APPLICATION}.elf" "${MCU_APPLICATION}.eeprom" DEPENDS ${MCU_APPLICATION}_strip)
 
 # Flash the firmware with avrdude
-add_custom_target(flash ${AVRFLASH_TOOL} -c ${PROG_TYPE} -p ${MCU} -P /dev/ttyACM0 -U flash:w:${MCU_APPLICATION}.hex DEPENDS ${MCU_APPLICATION}_hex)
+add_custom_target(flash ${AVRFLASH_TOOL} -c ${PROG_TYPE} -p ${MCU} -P ${AVRFLASH_PORT} -b ${BAUD} -U flash:w:${MCU_APPLICATION}.hex DEPENDS ${MCU_APPLICATION}_hex)
+
+# Flash the eeprom with avrdude
+add_custom_target(flash_eeprom ${AVRFLASH_TOOL}  -c ${PROG_TYPE} -p ${MCU}  -P ${AVRFLASH_PORT}  -b ${BAUD} -U eeprom:w:${MCU_APPLICATION}.eeprom DEPENDS ${MCU_APPLICATION}_eeprom )
 
 
 # Add files for clean process
