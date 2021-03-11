@@ -8,12 +8,12 @@ Currently, the classes compile on the ATmega48P/88P/168P/328P AVR microcontrolle
 
 ## Library structure 
 
-The library is composed of several classes that abstract the different elements that compose a microcontroller. 
+The library is composed of several classes that abstract the different internal elements of a microcontroller and the external components that when hooked up to the chip can perform some actions. 
 These classes implement the different available functionalities and are classified into: 
 
 * Core
 * Input/Output
-* or Components categories. 
+* or Components
 
 Several [applications](#applications) and [projects](#projects)  are implemented in order to demonstrate the library usage. 
 
@@ -23,7 +23,7 @@ A more detailed description of the code listings can be found in the [library do
 
 ## Software setup  
 
- Before using the library and start programming and interfacing hardware peripherals, some 
+ Before using the library and start programming and interfacing external peripherals, some 
  software packages need to be installed in your system: 
 
 * binutils: for getting tools like assembler, linker, ...
