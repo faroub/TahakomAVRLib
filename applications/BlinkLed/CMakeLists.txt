@@ -21,6 +21,10 @@ set(CMAKE_ASM_COMPILER   ${AVRC})
 # Program Name
 project (BlinkLed C CXX ASM)
 
+# Set a convenient common name for all applications
+set(MCU_APPLICATION APP_TEST)
+
+
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -57,8 +61,6 @@ set (INTERN_LINK_LIBS ${INTERN_LINK_LIBS} components io)
 set (EXTERN_LINK_LIBS ${EXTERN_LINK_LIBS})
 
 # Target
-# Set a convenient common name for all applications
-set(MCU_APPLICATION APP_TEST)
 add_executable(${MCU_APPLICATION} main.cpp)
 
 target_link_libraries(${MCU_APPLICATION} ${INTERN_LINK_LIBS} ${EXTERN_LINK_LIBS})
