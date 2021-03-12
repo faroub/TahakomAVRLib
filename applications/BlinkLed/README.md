@@ -25,6 +25,9 @@ The circuit connection is as follows:
 
 ## Code
 
+
+ 
+
 The code to blink the Led with a delay of 1000 ms:
 
 ```
@@ -53,6 +56,18 @@ int main(void) {
   return 0;
 }
 ```
+To compile and flash the code to the Arduino UNO via serial port:
+
+### Linux
+ 
+```
+../BlinkLed$ mkdir build
+../BlinkLed$ cd build
+../BlinkLed/build$ cmake ..
+../BlinkLed/build$ make flash
+```
+### Windows
+
 ## Author
 
 * Farid Oubbati
