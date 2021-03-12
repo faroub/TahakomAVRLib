@@ -5,8 +5,10 @@ set(AVRCPP   avr-g++)
 set(AVRC     avr-gcc)
 set(AVRSTRIP avr-strip)
 set(OBJCOPY  avr-objcopy)
+set(OBJDUMP avr-objdump)
+set(AVRSIZE avr-size)
 
-# The programmer to use, read avrdude manual for list
+# The programmer to use, ask avrdude ($ avrdude -c ?) for a list
 set(PROG_TYPE arduino)
 
 # Set flash software tool
@@ -17,8 +19,8 @@ set(AVRFLASH_PORT /dev/ttyACM0)
 
 # Set AVR chip configuration
 set(MCU   atmega328p)
-set(F_CPU 16000000)
-set(BAUD  115200)
+set(F_CPU 16000000UL)
+set(BAUD  9600)
 
 # Pass defines to the compiler
 # __AVR_ATmega328P__ definition is necessary to use QtCreator IDE
@@ -34,7 +36,7 @@ set(CMAKE_ASM_COMPILER   ${AVRC})
 project (BlinkLed C CXX ASM)
 
 # Set a convenient common name for all applications
-set(MCU_APPLICATION APP_TEST)
+set(FIRMWARE APP)
 
 # Use C++11
 set(CMAKE_CXX_STANDARD 11)
@@ -75,29 +77,34 @@ set (INTERN_LINK_LIBS ${INTERN_LINK_LIBS} components io)
 set (EXTERN_LINK_LIBS ${EXTERN_LINK_LIBS})
 
 # Add an executable target
-add_executable(${MCU_APPLICATION} main.cpp)
+add_executable(${FIRMWARE} main.cpp)
 
 # Specify the libraries to use when linking the target
-target_link_libraries(${MCU_APPLICATION} ${INTERN_LINK_LIBS} ${EXTERN_LINK_LIBS})
+target_link_libraries(${FIRMWARE} ${INTERN_LINK_LIBS} ${EXTERN_LINK_LIBS})
 
 # Set output name property of the target to target.elf
-set_target_properties(${MCU_APPLICATION} PROPERTIES OUTPUT_NAME "${MCU_APPLICATION}.elf")
+set_target_properties(${FIRMWARE} PROPERTIES OUTPUT_NAME "${FIRMWARE}.elf")
 
 # Add custom target to ALL target to build the actual target.elf by discarding symbols from object file
-add_custom_target(${MCU_APPLICATION}_strip ALL     ${AVRSTRIP} "${MCU_APPLICATION}.elf" DEPENDS ${MCU_APPLICATION})
+add_custom_target(${FIRMWARE}_strip ALL     ${AVRSTRIP} "${FIRMWARE}.elf" DEPENDS ${FIRMWARE})
+
+# Add custom command to list section sizes and total size
+add_custom_command(TARGET ${FIRMWARE}_strip POST_BUILD COMMAND ${AVRSIZE} -C --mcu=${MCU} "${FIRMWARE}.elf")
+
+# Add custom command to display the assembler mnemonics for the machine instructions
+add_custom_command(TARGET ${FIRMWARE}_strip POST_BUILD COMMAND ${OBJDUMP} -S --source  "${FIRMWARE}.elf" > "${FIRMWARE}.lst")
 
 # Add custom target to ALL target to build target.hex by removing eeprom section
-add_custom_target(${MCU_APPLICATION}_hex   ALL     ${OBJCOPY} -R .eeprom -O ihex "${MCU_APPLICATION}.elf" "${MCU_APPLICATION}.hex" DEPENDS ${MCU_APPLICATION}_strip)
+add_custom_target(${FIRMWARE}_hex   ALL     ${OBJCOPY} -j .text -j .data -O ihex "${FIRMWARE}.elf" "${FIRMWARE}.hex" DEPENDS ${FIRMWARE}_strip)
 
 # Add custom target to build target.eeprom by extracting eeprom section
-add_custom_target(${MCU_APPLICATION}_eeprom        ${OBJCOPY} -j .eeprom --change-section-lma .eeprom=0 -O ihex "${MCU_APPLICATION}.elf" "${MCU_APPLICATION}.eeprom" DEPENDS ${MCU_APPLICATION}_strip)
+add_custom_target(${FIRMWARE}_eeprom        ${OBJCOPY} -j .eeprom --change-section-lma .eeprom=0 -O ihex "${FIRMWARE}.elf" "${FIRMWARE}.eeprom" DEPENDS ${FIRMWARE}_strip)
 
 # Flash the firmware with avrdude
-add_custom_target(flash ${AVRFLASH_TOOL} -c ${PROG_TYPE} -p ${MCU} -P ${AVRFLASH_PORT} -b ${BAUD} -U flash:w:${MCU_APPLICATION}.hex DEPENDS ${MCU_APPLICATION}_hex)
+add_custom_target(flash ${AVRFLASH_TOOL} -c ${PROG_TYPE} -p ${MCU} -P ${AVRFLASH_PORT} -U flash:w:${FIRMWARE}.hex DEPENDS ${FIRMWARE}_hex)
 
 # Flash the eeprom with avrdude
-add_custom_target(flash_eeprom ${AVRFLASH_TOOL}  -c ${PROG_TYPE} -p ${MCU}  -P ${AVRFLASH_PORT}  -b ${BAUD} -U eeprom:w:${MCU_APPLICATION}.eeprom DEPENDS ${MCU_APPLICATION}_eeprom )
-
+add_custom_target(flash_eeprom ${AVRFLASH_TOOL}  -c ${PROG_TYPE} -p ${MCU}  -P ${AVRFLASH_PORT} -U eeprom:w:${FIRMWARE}.eeprom DEPENDS ${FIRMWARE}_eeprom )
 
 # Add files for clean process
-set_directory_properties(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES "${MCU_APPLICATION}.elf ${MCU_APPLICATION}.hex;${MCU_APPLICATION}.eeprom;${MCU_APPLICATION}.lst")
+set_directory_properties(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES "${FIRMWARE}.elf ${FIRMWARE}.hex;${FIRMWARE}.eeprom;${FIRMWARE}.lst")
