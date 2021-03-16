@@ -14,7 +14,7 @@ set(PROG_TYPE arduino)
 # Set flash software tool
 set(AVRFLASH_TOOL avrdude)
 
-# Set flash port, check the port designator in your system
+# Set flash port, check the port name in your system
 if (UNIX)
     set(AVRFLASH_PORT /dev/ttyACM0)
 elseif (WIN32)
@@ -68,14 +68,14 @@ set(LIB_DIR "../../lib"
     CACHE PATH "The path to the MCU libraries.")
 
 # Add MCU library to the compiler include directories
-include_directories(${LIB_DIR}/io
-                    ${LIB_DIR}/components
-                    ${LIB_DIR}/core
-                    ${LIB_DIR}/utils)
+include_directories("${LIB_DIR}/io"
+                    "${LIB_DIR}/components"
+                    "${LIB_DIR}/core"
+                    "${LIB_DIR}/utils")
 
 # Add subdirectories to the build
-add_subdirectory(${LIB_DIR}/io ${CMAKE_BINARY_DIR}/io)
-add_subdirectory(${LIB_DIR}/components ${CMAKE_BINARY_DIR}/components)
+add_subdirectory("${LIB_DIR}/io" "${CMAKE_BINARY_DIR}/io")
+add_subdirectory("${LIB_DIR}/components" "${CMAKE_BINARY_DIR}/components")
 
 # Set the internal and external libs
 set (INTERN_LINK_LIBS ${INTERN_LINK_LIBS} components io)
