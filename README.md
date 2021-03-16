@@ -46,16 +46,16 @@ sudo apt-get install avrdude
 
 ### Windows
 
-In Windows, you need to have the same software packages installed:
+In Windows, the software packages can be downloaded and installed as follows:
 
-* AVR toolchain for windows: can be downloaded from the Atmel's website [downloads](https://www.microchip.com/en-us/development-tools-tools-and-software/gcc-compilers-avr-and-arm)
+* AVR toolchain for windows: can be downloaded from the Atmel's website [download](https://www.microchip.com/en-us/development-tools-tools-and-software/gcc-compilers-avr-and-arm)
 * avrdude: can be downloaded from [avrdude](http://download.savannah.gnu.org/releases/avrdude/)
 * make: can be downloaded from [GnuWin32](http://fab.cba.mit.edu/classes/863.16/doc/projects/ftsmin/make-3.81.exe)
 * cmake: binary distribution can be downloaded from [cmake](https://cmake.org/download/)
 
-An alternative, would be to download the precompiled AVR-GCC toolchain from [downloads](https://blog.zakkemble.net/avr-gcc-builds/) that also include avrdude and make utilities but not cmake.
+An alternative, would be to download the precompiled AVR-GCC toolchain from [download](https://blog.zakkemble.net/avr-gcc-builds/) that also include avrdude and make utilities but not cmake.
 
-Before using these software tools, you need to update the PATH environement variable with the file paths to their executables and restart.
+Before using these software tools, you need to update the PATH environement variable with the file paths to their executables and restart the system.
 
 
 ## Hardware setup  
