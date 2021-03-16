@@ -63,8 +63,8 @@ To compile and flash a program code to the AVR chip via USB port, you need to:
 
 * Install the USB driver for the programmer used
 * Adapt the CMakeLists.txt parameters to your system configuration: 
- * AVR chip used 
- * AVR CPU frequency
+    * AVR chip used 
+    * AVR CPU frequency
  * Baude rate for serial communication
  * Programmer type
  * Flash port name
@@ -90,7 +90,7 @@ To compile and flash a program code to the AVR chip via USB port, you need to:
 ```
 ## Hardware setup  
 
-* MCU chip either barebone or on a development board like an Arduino UNO
+* AVR chip either barebone or on a development board like an Arduino UNO
 * A bunch of Leds, resistors, drivers, sensors and actuators
 * A breadboard
 * Jumper wires
