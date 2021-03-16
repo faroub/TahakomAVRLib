@@ -23,7 +23,7 @@ set(F_CPU 16000000UL)
 set(BAUD  9600)
 
 # Pass defines to the compiler
-# __AVR_ATmega328P__ definition is necessary to use QtCreator IDE
+# __AVR_ATmega328P__ definition is only necessary when using an IDE
 add_definitions(-DF_CPU=${F_CPU} -DBAUD=${BAUD} -D__AVR_ATmega328P__)
 
 # Use AVR GCC toolchain
