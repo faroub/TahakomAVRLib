@@ -12,9 +12,9 @@ The library is composed of several classes that abstract the internal elements o
 
 These classes implement the different functionalities and are classified into: 
 
-* Core
-* Input/Output
-* or Components
+* core
+* input/output
+* or components
 
 Several [applications](#applications) and [projects](#projects)  are implemented in order to demonstrate the library usage. 
 
@@ -57,7 +57,37 @@ An alternative, would be to download the precompiled AVR-GCC toolchain from [dow
 
 Before using these software tools, you need to update the PATH environement variable with the file paths to their executables and restart the system.
 
+## Compile and Flash programs
 
+To compile and flash a program code to the AVR chip via USB port, you need to:
+
+* Install the USB driver for the programmer used
+* Adapt the CMakeLists.txt parameters to your system configuration: 
+ * AVR chip used 
+ * AVR CPU frequency
+ * Baude rate for serial communication
+ * Programmer type
+ * Flash port name
+* Change compiler flags if necessary
+ 
+ and execute the following steps (shown): 
+
+### Linux
+ 
+```
+../BlinkLed$ mkdir build
+../BlinkLed$ cd build
+../BlinkLed/build$ cmake ..
+../BlinkLed/build$ make flash
+```
+### Windows
+
+```
+../BlinkLed$ mkdir build
+../BlinkLed$ cd build
+../BlinkLed/build$ cmake .. -G "Unix Makefiles"
+../BlinkLed/build$ make flash
+```
 ## Hardware setup  
 
 * MCU chip either barebone or on a development board like an Arduino UNO
