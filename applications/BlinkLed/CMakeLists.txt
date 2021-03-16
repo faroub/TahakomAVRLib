@@ -82,38 +82,38 @@ set (INTERN_LINK_LIBS ${INTERN_LINK_LIBS} components io)
 set (EXTERN_LINK_LIBS ${EXTERN_LINK_LIBS})
 
 # Add an executable target
-add_executable(${FIRMWARE} main.cpp)
+add_executable("${FIRMWARE}" main.cpp)
 
 # Specify the libraries to use when linking the target
-target_link_libraries(${FIRMWARE} ${INTERN_LINK_LIBS} ${EXTERN_LINK_LIBS})
+target_link_libraries("${FIRMWARE}" ${INTERN_LINK_LIBS} ${EXTERN_LINK_LIBS})
 
 # Set output name property of the target to target.elf
-set_target_properties(${FIRMWARE} PROPERTIES OUTPUT_NAME "${FIRMWARE}.elf")
+set_target_properties("${FIRMWARE}" PROPERTIES OUTPUT_NAME "${FIRMWARE}.elf")
 
 # Add custom target to ALL target to build the actual target.elf by discarding symbols from object file
-add_custom_target(${FIRMWARE}_strip ALL     ${AVRSTRIP} "${FIRMWARE}.elf" DEPENDS ${FIRMWARE})
+add_custom_target("${FIRMWARE}_strip" ALL     ${AVRSTRIP} "${FIRMWARE}.elf" DEPENDS "${FIRMWARE}")
 
 # Add custom command to list section sizes and total size
 if (UNIX)
-    add_custom_command(TARGET ${FIRMWARE}_strip POST_BUILD COMMAND ${AVRSIZE} -C --mcu=${MCU} "${FIRMWARE}.elf")
+    add_custom_command(TARGET "${FIRMWARE}_strip" POST_BUILD COMMAND ${AVRSIZE} -C --mcu=${MCU} "${FIRMWARE}.elf")
 elseif (WIN32)
-    add_custom_command(TARGET ${FIRMWARE}_strip POST_BUILD COMMAND ${AVRSIZE} -B --format=gnu --mcu=${MCU} "${FIRMWARE}.elf")
+    add_custom_command(TARGET "${FIRMWARE}_strip" POST_BUILD COMMAND ${AVRSIZE} -B --format=gnu --mcu=${MCU} "${FIRMWARE}.elf")
 endif ()
 
 # Add custom command to display the assembler mnemonics for the machine instructions
-add_custom_command(TARGET ${FIRMWARE}_strip POST_BUILD COMMAND ${OBJDUMP} -S --source  "${FIRMWARE}.elf" > "${FIRMWARE}.lst")
+add_custom_command(TARGET "${FIRMWARE}_strip" POST_BUILD COMMAND ${OBJDUMP} -S --source  "${FIRMWARE}.elf" > "${FIRMWARE}.lst")
 
 # Add custom target to ALL target to build target.hex by removing eeprom section
-add_custom_target(${FIRMWARE}_hex   ALL     ${OBJCOPY} -j .text -j .data -O ihex "${FIRMWARE}.elf" "${FIRMWARE}.hex" DEPENDS ${FIRMWARE}_strip)
+add_custom_target("${FIRMWARE}_hex"   ALL     ${OBJCOPY} -j .text -j .data -O ihex "${FIRMWARE}.elf" "${FIRMWARE}.hex" DEPENDS "${FIRMWARE}_strip")
 
 # Add custom target to build target.eeprom by extracting eeprom section
-add_custom_target(${FIRMWARE}_eeprom        ${OBJCOPY} -j .eeprom --change-section-lma .eeprom=0 -O ihex "${FIRMWARE}.elf" "${FIRMWARE}.eeprom" DEPENDS ${FIRMWARE}_strip)
+add_custom_target("${FIRMWARE}_eeprom"        ${OBJCOPY} -j .eeprom --change-section-lma .eeprom=0 -O ihex "${FIRMWARE}.elf" "${FIRMWARE}.eeprom" DEPENDS "${FIRMWARE}_strip")
 
 # Flash the firmware with avrdude
-add_custom_target(flash ${AVRFLASH_TOOL} -c ${PROG_TYPE} -p ${MCU} -P ${AVRFLASH_PORT} -U flash:w:"${FIRMWARE}.hex" DEPENDS ${FIRMWARE}_hex)
+add_custom_target(flash ${AVRFLASH_TOOL} -c ${PROG_TYPE} -p ${MCU} -P ${AVRFLASH_PORT} -U flash:w:"${FIRMWARE}.hex" DEPENDS "${FIRMWARE}_hex")
 
 # Flash the eeprom with avrdude
-add_custom_target(flash_eeprom ${AVRFLASH_TOOL}  -c ${PROG_TYPE} -p ${MCU}  -P ${AVRFLASH_PORT} -U eeprom:w:"${FIRMWARE}.eeprom" DEPENDS ${FIRMWARE}_eeprom )
+add_custom_target(flash_eeprom ${AVRFLASH_TOOL}  -c ${PROG_TYPE} -p ${MCU}  -P ${AVRFLASH_PORT} -U eeprom:w:"${FIRMWARE}.eeprom" DEPENDS "${FIRMWARE}_eeprom")
 
 # Add files for clean process
-set_directory_properties(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES "${FIRMWARE}.elf ${FIRMWARE}.hex;${FIRMWARE}.eeprom;${FIRMWARE}.lst")
+set_directory_properties(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES "${FIRMWARE}.elf;${FIRMWARE}.hex;${FIRMWARE}.eeprom;${FIRMWARE}.lst")
