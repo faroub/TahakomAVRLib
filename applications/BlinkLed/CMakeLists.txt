@@ -15,7 +15,12 @@ set(PROG_TYPE arduino)
 set(AVRFLASH_TOOL avrdude)
 
 # Set flash port, check the port designator in your system
-set(AVRFLASH_PORT /dev/ttyACM0)
+if (UNIX)
+    set(AVRFLASH_PORT /dev/ttyACM0)
+elseif (WIN32)
+    set(AVRFLASH_PORT COM3)
+endif ()
+
 
 # Set AVR chip configuration
 set(MCU   atmega328p)
@@ -91,11 +96,9 @@ add_custom_target(${FIRMWARE}_strip ALL     ${AVRSTRIP} "${FIRMWARE}.elf" DEPEND
 # Add custom command to list section sizes and total size
 if (UNIX)
     add_custom_command(TARGET ${FIRMWARE}_strip POST_BUILD COMMAND ${AVRSIZE} -C --mcu=${MCU} "${FIRMWARE}.elf")
-endif (UNIX)
-
-if (WIN32)
+elseif (WIN32)
     add_custom_command(TARGET ${FIRMWARE}_strip POST_BUILD COMMAND ${AVRSIZE} -B --format=gnu --mcu=${MCU} "${FIRMWARE}.elf")
-endif (WIN32)
+endif ()
 
 # Add custom command to display the assembler mnemonics for the machine instructions
 add_custom_command(TARGET ${FIRMWARE}_strip POST_BUILD COMMAND ${OBJDUMP} -S --source  "${FIRMWARE}.elf" > "${FIRMWARE}.lst")
