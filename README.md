@@ -65,12 +65,12 @@ To compile and flash a program code to the AVR chip via USB port, you need to:
 * Adapt the CMakeLists.txt parameters to your system configuration: 
     * AVR chip used 
     * AVR CPU frequency
- * Baude rate for serial communication
- * Programmer type
- * Flash port name
+    * Baude rate for serial communication
+    * Programmer type
+    * Flash port name
 * Change compiler flags if necessary
  
- and execute the following steps (shown): 
+ and execute the following steps (shown for the [Blink a Led](applications/BlinkLed) application: 
 
 ### Linux
  
