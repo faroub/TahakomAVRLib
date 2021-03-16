@@ -10,7 +10,7 @@ Currently, the classes compile on the ATmega48P/88P/168P/328P AVR microcontrolle
 
 The library is composed of several classes that abstract the internal elements of a microcontroller and some external components that when hooked up to the chip can perform some actions. 
 
-These classes implement the different available functionalities and are classified into: 
+These classes implement the different functionalities and are classified into: 
 
 * Core
 * Input/Output
@@ -24,10 +24,9 @@ A more detailed description of the code listings can be found in the [library do
 
 ## Software setup  
 
- Before using the library and start programming and interfacing external peripherals, some 
- software packages need to be installed in your system: 
+ Before using the library and start programming and interfacing external peripherals, some software packages need to be installed in your system: 
 
-* binutils: for getting tools like assembler, linker, ...
+* binutils-avr: for getting tools like assembler, linker, ...
 * gcc-avr : AVR GNU C cross-compiler
 * avr-libc: AVR C library
 * avrdude : driver program for downloading/uploading code and data from/to Atmel AVR microcontrollers
@@ -47,8 +46,16 @@ sudo apt-get install avrdude
 
 ### Windows
 
-In Windows, 
+In Windows, you need to have the same software packages installed:
 
+* AVR toolchain for windows: can be downloaded from the Atmel's website [downloads](https://www.microchip.com/en-us/development-tools-tools-and-software/gcc-compilers-avr-and-arm)
+* avrdude: can be downloaded from [avrdude](http://download.savannah.gnu.org/releases/avrdude/)
+* make: can be downloaded from [GnuWin32](http://fab.cba.mit.edu/classes/863.16/doc/projects/ftsmin/make-3.81.exe)
+* cmake: binary distribution can be downloaded from [cmake](https://cmake.org/download/)
+
+An alternative, would be to download the precompiled AVR-GCC toolchain from [downloads](https://blog.zakkemble.net/avr-gcc-builds/) that also include avrdude and make utilities but not cmake.
+
+Before using these software tools, you need to update the PATH environement variable with the file paths to their executables and restart.
 
 
 ## Hardware setup  
