@@ -110,10 +110,10 @@ add_custom_target(${FIRMWARE}_hex   ALL     ${OBJCOPY} -j .text -j .data -O ihex
 add_custom_target(${FIRMWARE}_eeprom        ${OBJCOPY} -j .eeprom --change-section-lma .eeprom=0 -O ihex "${FIRMWARE}.elf" "${FIRMWARE}.eeprom" DEPENDS ${FIRMWARE}_strip)
 
 # Flash the firmware with avrdude
-add_custom_target(flash ${AVRFLASH_TOOL} -c ${PROG_TYPE} -p ${MCU} -P ${AVRFLASH_PORT} -U flash:w:${FIRMWARE}.hex DEPENDS ${FIRMWARE}_hex)
+add_custom_target(flash ${AVRFLASH_TOOL} -c ${PROG_TYPE} -p ${MCU} -P ${AVRFLASH_PORT} -U flash:w:"${FIRMWARE}.hex" DEPENDS ${FIRMWARE}_hex)
 
 # Flash the eeprom with avrdude
-add_custom_target(flash_eeprom ${AVRFLASH_TOOL}  -c ${PROG_TYPE} -p ${MCU}  -P ${AVRFLASH_PORT} -U eeprom:w:${FIRMWARE}.eeprom DEPENDS ${FIRMWARE}_eeprom )
+add_custom_target(flash_eeprom ${AVRFLASH_TOOL}  -c ${PROG_TYPE} -p ${MCU}  -P ${AVRFLASH_PORT} -U eeprom:w:"${FIRMWARE}.eeprom" DEPENDS ${FIRMWARE}_eeprom )
 
 # Add files for clean process
 set_directory_properties(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES "${FIRMWARE}.elf ${FIRMWARE}.hex;${FIRMWARE}.eeprom;${FIRMWARE}.lst")
