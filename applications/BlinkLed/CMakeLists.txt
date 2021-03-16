@@ -89,7 +89,13 @@ set_target_properties(${FIRMWARE} PROPERTIES OUTPUT_NAME "${FIRMWARE}.elf")
 add_custom_target(${FIRMWARE}_strip ALL     ${AVRSTRIP} "${FIRMWARE}.elf" DEPENDS ${FIRMWARE})
 
 # Add custom command to list section sizes and total size
-add_custom_command(TARGET ${FIRMWARE}_strip POST_BUILD COMMAND ${AVRSIZE} -C --mcu=${MCU} "${FIRMWARE}.elf")
+if (UNIX)
+    add_custom_command(TARGET ${FIRMWARE}_strip POST_BUILD COMMAND ${AVRSIZE} -C --mcu=${MCU} "${FIRMWARE}.elf")
+endif (UNIX)
+
+if (WIN32)
+    add_custom_command(TARGET ${FIRMWARE}_strip POST_BUILD COMMAND ${AVRSIZE} -B --format=gnu --mcu=${MCU} "${FIRMWARE}.elf")
+endif (WIN32)
 
 # Add custom command to display the assembler mnemonics for the machine instructions
 add_custom_command(TARGET ${FIRMWARE}_strip POST_BUILD COMMAND ${OBJDUMP} -S --source  "${FIRMWARE}.elf" > "${FIRMWARE}.lst")
