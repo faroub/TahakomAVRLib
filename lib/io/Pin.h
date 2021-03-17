@@ -3,13 +3,12 @@
  * @brief Header file of the Pin class
  *
  * Basic class for Pin and Port abstraction
- * @author Farid Oubbati (https://github.com/faroub)
- * @date March 2020
  *
- * $Name: RELEASE_1_0 $
- * $Revision: 1.2 $
- * $RCSfile: sm_driver.c,v $
- * $Date: 2006/05/08 12:25:58 $
+ * - Compiler:           gcc-avr
+ * - Supported devices:  The example compiles on the ATmega48P/88P/168P/328P AVR family
+ *
+ * @author Farid Oubbati (https://github.com/faroub)
+ * @date March 2018
 */
 
 #ifndef PIN_H
@@ -49,7 +48,7 @@ public:
     void toOutput();
     /** Configures pin to input.
         *
-        * @param ar_useInternalPullUp indicates if internal pull up resistor used
+        * @param ar_useInternalPullUp indicates if internal pull up resistor is used
         */
     void toInput(const uint8_t &ar_useInternalPullUp);
     /** Set pin to logic low.
@@ -76,7 +75,7 @@ protected:
 
 private:
 
-     const Port &mr_portName; /**< constant reference to a port object */
+     const Port &mr_portName; /**< constant reference to port object */
      const uint8_t m_pinNumber; /**< pin number */
 
 
