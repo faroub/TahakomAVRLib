@@ -49,13 +49,13 @@ sudo apt-get install avrdude
 In Windows, the software packages can be downloaded and installed as follows:
 
 * AVR toolchain for windows: can be downloaded from the Atmel's website [download](https://www.microchip.com/en-us/development-tools-tools-and-software/gcc-compilers-avr-and-arm)
-* avrdude: can be downloaded from [avrdude](http://download.savannah.gnu.org/releases/avrdude/)
-* make: can be downloaded from [GnuWin32](http://fab.cba.mit.edu/classes/863.16/doc/projects/ftsmin/make-3.81.exe)
-* cmake: binary distribution can be downloaded from [cmake](https://cmake.org/download/)
+* avrdude: can be downloaded from [download](http://download.savannah.gnu.org/releases/avrdude/)
+* make: can be downloaded from [download](http://fab.cba.mit.edu/classes/863.16/doc/projects/ftsmin/make-3.81.exe)
+* cmake: binary distribution can be downloaded from [download](https://cmake.org/download/)
 
 An alternative, would be to download the precompiled AVR-GCC toolchain from [download](https://blog.zakkemble.net/avr-gcc-builds/) that also include avrdude and make utilities but not cmake.
 
-Before using these software tools, you need to update the PATH environement variable with the file paths to their executables and restart the system.
+Before using these software tools, you need to update the **PATH** environement variable with the file paths to their executables and restart the system.
 
 ## Compile and Flash programs
 
@@ -63,11 +63,11 @@ To compile and flash a program code to the AVR chip via USB port, you need to:
 
 * Install the USB driver for the programmer used
 * Adapt the CMakeLists.txt parameters to your system configuration: 
-    * AVR chip used 
-    * AVR CPU frequency
-    * Baude rate for serial communication
-    * Programmer type
-    * Flash port name
+    * **MCU**: AVR chip used 
+    * **F_CPU**: AVR CPU frequency
+    * **BAUD**: Baude rate for serial communication
+    * **PROG_TYPE**: Programmer type
+    * **AVRFLASH_PORT**: Flash port name
 * Change compiler flags if necessary
  
  and execute the following steps (shown for the [Blink a Led](applications/BlinkLed) application): 
