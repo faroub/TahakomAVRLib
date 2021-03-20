@@ -5,11 +5,11 @@ It also shows how to use the Pin and Led abstraction objects.
 
 The pinout of the **ATmega48P/88P/168P/328P AVR microcontrollers** family is illustrated bellow:
 
-<img src="pics/pinout.jpeg" alt="pinout.jpeg" width="570" onerror="this.style.display='none'>
+<img src="pics/pinout.jpeg" alt="pinout.jpeg" width="570" onerror="this.style.display='none'">
 
-<img src="pinout.jpeg" alt="pinout.jpeg" width="570" onerror="this.style.display='none'">
+<img src="pinout.jpeg" alt="" width="570" onerror="this.style.display='none'">
 
-
+![Caption text](pics/pinout.jpeg "Image title")
 
 
 ## Hardware
