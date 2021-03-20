@@ -1,0 +1,869 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Namespace Index}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Namespace List}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Hierarchical Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Class Hierarchy}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Class Index}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Class List}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}File Index}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}File List}{7}{section.4.1}%
+\contentsline {chapter}{\numberline {5}Namespace Documentation}{9}{chapter.5}%
+\contentsline {section}{\numberline {5.1}component Namespace Reference}{9}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Enumeration Type Documentation}{9}{subsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.1.1}mode}{9}{subsubsection.5.1.1.1}%
+\contentsline {section}{\numberline {5.2}core Namespace Reference}{10}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Enumeration Type Documentation}{11}{subsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.1.1}autoTriggerSource}{11}{subsubsection.5.2.1.1}%
+\contentsline {subsubsection}{\numberline {5.2.1.2}BODMode}{11}{subsubsection.5.2.1.2}%
+\contentsline {subsubsection}{\numberline {5.2.1.3}channel}{12}{subsubsection.5.2.1.3}%
+\contentsline {subsubsection}{\numberline {5.2.1.4}clockPrescaler}{12}{subsubsection.5.2.1.4}%
+\contentsline {subsubsection}{\numberline {5.2.1.5}clockSource}{12}{subsubsection.5.2.1.5}%
+\contentsline {subsubsection}{\numberline {5.2.1.6}compareOutputMode}{13}{subsubsection.5.2.1.6}%
+\contentsline {subsubsection}{\numberline {5.2.1.7}operationMode\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{13}{subsubsection.5.2.1.7}%
+\contentsline {subsubsection}{\numberline {5.2.1.8}operationMode\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{14}{subsubsection.5.2.1.8}%
+\contentsline {subsubsection}{\numberline {5.2.1.9}pinChangePort}{15}{subsubsection.5.2.1.9}%
+\contentsline {subsubsection}{\numberline {5.2.1.10}referenceVoltage}{15}{subsubsection.5.2.1.10}%
+\contentsline {subsubsection}{\numberline {5.2.1.11}resolution}{16}{subsubsection.5.2.1.11}%
+\contentsline {subsubsection}{\numberline {5.2.1.12}senseControl}{16}{subsubsection.5.2.1.12}%
+\contentsline {subsubsection}{\numberline {5.2.1.13}sleepMode}{17}{subsubsection.5.2.1.13}%
+\contentsline {subsubsection}{\numberline {5.2.1.14}timeOut}{17}{subsubsection.5.2.1.14}%
+\contentsline {section}{\numberline {5.3}io Namespace Reference}{18}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Enumeration Type Documentation}{18}{subsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.1.1}clockPrescaler}{18}{subsubsection.5.3.1.1}%
+\contentsline {subsubsection}{\numberline {5.3.1.2}communicationMode}{19}{subsubsection.5.3.1.2}%
+\contentsline {subsubsection}{\numberline {5.3.1.3}dataMode}{19}{subsubsection.5.3.1.3}%
+\contentsline {subsubsection}{\numberline {5.3.1.4}dataOrder}{20}{subsubsection.5.3.1.4}%
+\contentsline {subsubsection}{\numberline {5.3.1.5}frameSize}{20}{subsubsection.5.3.1.5}%
+\contentsline {subsubsection}{\numberline {5.3.1.6}operationMode}{20}{subsubsection.5.3.1.6}%
+\contentsline {subsubsection}{\numberline {5.3.1.7}parityMode}{21}{subsubsection.5.3.1.7}%
+\contentsline {subsubsection}{\numberline {5.3.1.8}stopBit}{21}{subsubsection.5.3.1.8}%
+\contentsline {subsubsection}{\numberline {5.3.1.9}transmissionMode}{22}{subsubsection.5.3.1.9}%
+\contentsline {subsection}{\numberline {5.3.2}Variable Documentation}{22}{subsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.2.1}PortB}{22}{subsubsection.5.3.2.1}%
+\contentsline {subsubsection}{\numberline {5.3.2.2}PortC}{22}{subsubsection.5.3.2.2}%
+\contentsline {subsubsection}{\numberline {5.3.2.3}PortD}{22}{subsubsection.5.3.2.3}%
+\contentsline {section}{\numberline {5.4}utils Namespace Reference}{23}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Function Documentation}{23}{subsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.1.1}map()}{23}{subsubsection.5.4.1.1}%
+\contentsline {chapter}{\numberline {6}Class Documentation}{25}{chapter.6}%
+\contentsline {section}{\numberline {6.1}core\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::A\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Converter Class Reference}{25}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Detailed Description}{26}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Constructor \& Destructor Documentation}{26}{subsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.2.1}ADConverter()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{26}{subsubsection.6.1.2.1}%
+\contentsline {subsubsection}{\numberline {6.1.2.2}$\sim $ADConverter()}{27}{subsubsection.6.1.2.2}%
+\contentsline {subsubsection}{\numberline {6.1.2.3}ADConverter()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{27}{subsubsection.6.1.2.3}%
+\contentsline {subsection}{\numberline {6.1.3}Member Function Documentation}{27}{subsection.6.1.3}%
+\contentsline {subsubsection}{\numberline {6.1.3.1}conversionComplete()}{27}{subsubsection.6.1.3.1}%
+\contentsline {subsubsection}{\numberline {6.1.3.2}conversionCompleteServiceRoutine()}{27}{subsubsection.6.1.3.2}%
+\contentsline {subsubsection}{\numberline {6.1.3.3}enableAutoTrigger()}{29}{subsubsection.6.1.3.3}%
+\contentsline {subsubsection}{\numberline {6.1.3.4}enableConversionCompleteInterrupt()}{29}{subsubsection.6.1.3.4}%
+\contentsline {subsubsection}{\numberline {6.1.3.5}getConversionResult()}{30}{subsubsection.6.1.3.5}%
+\contentsline {subsubsection}{\numberline {6.1.3.6}getInstance()}{31}{subsubsection.6.1.3.6}%
+\contentsline {subsubsection}{\numberline {6.1.3.7}operator=()}{31}{subsubsection.6.1.3.7}%
+\contentsline {subsubsection}{\numberline {6.1.3.8}selectAnalogInput()}{31}{subsubsection.6.1.3.8}%
+\contentsline {subsubsection}{\numberline {6.1.3.9}selectAutoTriggerSource()}{31}{subsubsection.6.1.3.9}%
+\contentsline {subsubsection}{\numberline {6.1.3.10}selectClockPrescaler()}{32}{subsubsection.6.1.3.10}%
+\contentsline {subsubsection}{\numberline {6.1.3.11}selectReferenceVoltage()}{32}{subsubsection.6.1.3.11}%
+\contentsline {subsubsection}{\numberline {6.1.3.12}start()}{32}{subsubsection.6.1.3.12}%
+\contentsline {subsubsection}{\numberline {6.1.3.13}stop()}{32}{subsubsection.6.1.3.13}%
+\contentsline {subsection}{\numberline {6.1.4}Member Data Documentation}{33}{subsection.6.1.4}%
+\contentsline {subsubsection}{\numberline {6.1.4.1}\_\_externally\_visible\_\_}{33}{subsubsection.6.1.4.1}%
+\contentsline {subsubsection}{\numberline {6.1.4.2}\_\_used\_\_}{33}{subsubsection.6.1.4.2}%
+\contentsline {subsubsection}{\numberline {6.1.4.3}m\_conversionComplete}{33}{subsubsection.6.1.4.3}%
+\contentsline {subsubsection}{\numberline {6.1.4.4}m\_resolution}{33}{subsubsection.6.1.4.4}%
+\contentsline {subsubsection}{\numberline {6.1.4.5}mp\_conversionResult}{33}{subsubsection.6.1.4.5}%
+\contentsline {section}{\numberline {6.2}core\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Analog\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Comparator Class Reference}{34}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Detailed Description}{34}{subsection.6.2.1}%
+\contentsline {section}{\numberline {6.3}component\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Buzzer Class Reference}{34}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Detailed Description}{35}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Constructor \& Destructor Documentation}{35}{subsection.6.3.2}%
+\contentsline {subsubsection}{\numberline {6.3.2.1}Buzzer()}{35}{subsubsection.6.3.2.1}%
+\contentsline {subsubsection}{\numberline {6.3.2.2}$\sim $Buzzer()}{35}{subsubsection.6.3.2.2}%
+\contentsline {subsection}{\numberline {6.3.3}Member Function Documentation}{35}{subsection.6.3.3}%
+\contentsline {subsubsection}{\numberline {6.3.3.1}buzz()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{35}{subsubsection.6.3.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.3.2}buzz()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{36}{subsubsection.6.3.3.2}%
+\contentsline {subsection}{\numberline {6.3.4}Member Data Documentation}{36}{subsection.6.3.4}%
+\contentsline {subsubsection}{\numberline {6.3.4.1}m\_pin}{36}{subsubsection.6.3.4.1}%
+\contentsline {section}{\numberline {6.4}component\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Motor Class Reference}{36}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Detailed Description}{37}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Constructor \& Destructor Documentation}{38}{subsection.6.4.2}%
+\contentsline {subsubsection}{\numberline {6.4.2.1}DCMotor()}{38}{subsubsection.6.4.2.1}%
+\contentsline {subsubsection}{\numberline {6.4.2.2}$\sim $DCMotor()}{38}{subsubsection.6.4.2.2}%
+\contentsline {subsection}{\numberline {6.4.3}Member Function Documentation}{38}{subsection.6.4.3}%
+\contentsline {subsubsection}{\numberline {6.4.3.1}connect()}{38}{subsubsection.6.4.3.1}%
+\contentsline {subsubsection}{\numberline {6.4.3.2}disconnect()}{39}{subsubsection.6.4.3.2}%
+\contentsline {subsubsection}{\numberline {6.4.3.3}off()}{39}{subsubsection.6.4.3.3}%
+\contentsline {subsubsection}{\numberline {6.4.3.4}on()}{39}{subsubsection.6.4.3.4}%
+\contentsline {subsubsection}{\numberline {6.4.3.5}spin()}{39}{subsubsection.6.4.3.5}%
+\contentsline {subsubsection}{\numberline {6.4.3.6}stop()}{40}{subsubsection.6.4.3.6}%
+\contentsline {subsubsection}{\numberline {6.4.3.7}toggle()}{40}{subsubsection.6.4.3.7}%
+\contentsline {subsection}{\numberline {6.4.4}Member Data Documentation}{40}{subsection.6.4.4}%
+\contentsline {subsubsection}{\numberline {6.4.4.1}m\_pin}{40}{subsubsection.6.4.4.1}%
+\contentsline {section}{\numberline {6.5}core\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Extern\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Interrupt Class Reference}{40}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Detailed Description}{41}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}Constructor \& Destructor Documentation}{41}{subsection.6.5.2}%
+\contentsline {subsubsection}{\numberline {6.5.2.1}ExternInterrupt()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{41}{subsubsection.6.5.2.1}%
+\contentsline {subsubsection}{\numberline {6.5.2.2}$\sim $ExternInterrupt()}{42}{subsubsection.6.5.2.2}%
+\contentsline {subsubsection}{\numberline {6.5.2.3}ExternInterrupt()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{42}{subsubsection.6.5.2.3}%
+\contentsline {subsection}{\numberline {6.5.3}Member Function Documentation}{42}{subsection.6.5.3}%
+\contentsline {subsubsection}{\numberline {6.5.3.1}enableInt0()}{42}{subsubsection.6.5.3.1}%
+\contentsline {subsubsection}{\numberline {6.5.3.2}enableInt1()}{42}{subsubsection.6.5.3.2}%
+\contentsline {subsubsection}{\numberline {6.5.3.3}enablePinChange()}{43}{subsubsection.6.5.3.3}%
+\contentsline {subsubsection}{\numberline {6.5.3.4}enablePinChangeMaskPortB()}{43}{subsubsection.6.5.3.4}%
+\contentsline {subsubsection}{\numberline {6.5.3.5}enablePinChangeMaskPortC()}{43}{subsubsection.6.5.3.5}%
+\contentsline {subsubsection}{\numberline {6.5.3.6}enablePinChangeMaskPortD()}{44}{subsubsection.6.5.3.6}%
+\contentsline {subsubsection}{\numberline {6.5.3.7}getInstance()}{44}{subsubsection.6.5.3.7}%
+\contentsline {subsubsection}{\numberline {6.5.3.8}Int0ServiceRoutine()}{44}{subsubsection.6.5.3.8}%
+\contentsline {subsubsection}{\numberline {6.5.3.9}Int1ServiceRoutine()}{44}{subsubsection.6.5.3.9}%
+\contentsline {subsubsection}{\numberline {6.5.3.10}operator=()}{44}{subsubsection.6.5.3.10}%
+\contentsline {subsubsection}{\numberline {6.5.3.11}pinChangePortBServiceRoutine()}{45}{subsubsection.6.5.3.11}%
+\contentsline {subsubsection}{\numberline {6.5.3.12}pinChangePortCServiceRoutine()}{45}{subsubsection.6.5.3.12}%
+\contentsline {subsubsection}{\numberline {6.5.3.13}pinChangePortDServiceRoutine()}{45}{subsubsection.6.5.3.13}%
+\contentsline {subsubsection}{\numberline {6.5.3.14}setInt0SenseControl()}{45}{subsubsection.6.5.3.14}%
+\contentsline {subsubsection}{\numberline {6.5.3.15}setInt1SenseControl()}{45}{subsubsection.6.5.3.15}%
+\contentsline {subsection}{\numberline {6.5.4}Member Data Documentation}{45}{subsection.6.5.4}%
+\contentsline {subsubsection}{\numberline {6.5.4.1}\_\_externally\_visible\_\_}{46}{subsubsection.6.5.4.1}%
+\contentsline {subsubsection}{\numberline {6.5.4.2}\_\_used\_\_}{46}{subsubsection.6.5.4.2}%
+\contentsline {section}{\numberline {6.6}component\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Led Class Reference}{46}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Detailed Description}{47}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}Constructor \& Destructor Documentation}{47}{subsection.6.6.2}%
+\contentsline {subsubsection}{\numberline {6.6.2.1}Led()}{47}{subsubsection.6.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.6.2.2}$\sim $Led()}{47}{subsubsection.6.6.2.2}%
+\contentsline {subsection}{\numberline {6.6.3}Member Function Documentation}{47}{subsection.6.6.3}%
+\contentsline {subsubsection}{\numberline {6.6.3.1}isOff()}{48}{subsubsection.6.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.6.3.2}isOn()}{48}{subsubsection.6.6.3.2}%
+\contentsline {subsubsection}{\numberline {6.6.3.3}off()}{48}{subsubsection.6.6.3.3}%
+\contentsline {subsubsection}{\numberline {6.6.3.4}on()}{48}{subsubsection.6.6.3.4}%
+\contentsline {subsubsection}{\numberline {6.6.3.5}toggle()}{49}{subsubsection.6.6.3.5}%
+\contentsline {subsection}{\numberline {6.6.4}Member Data Documentation}{49}{subsection.6.6.4}%
+\contentsline {subsubsection}{\numberline {6.6.4.1}m\_pin}{49}{subsubsection.6.6.4.1}%
+\contentsline {section}{\numberline {6.7}core\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::M\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}CU Class Reference}{49}{section.6.7}%
+\contentsline {subsection}{\numberline {6.7.1}Detailed Description}{49}{subsection.6.7.1}%
+\contentsline {subsection}{\numberline {6.7.2}Member Function Documentation}{50}{subsection.6.7.2}%
+\contentsline {subsubsection}{\numberline {6.7.2.1}disableBOD()}{50}{subsubsection.6.7.2.1}%
+\contentsline {subsubsection}{\numberline {6.7.2.2}enableADC()}{50}{subsubsection.6.7.2.2}%
+\contentsline {subsubsection}{\numberline {6.7.2.3}enableSPI()}{50}{subsubsection.6.7.2.3}%
+\contentsline {subsubsection}{\numberline {6.7.2.4}enableTimerCounter0()}{51}{subsubsection.6.7.2.4}%
+\contentsline {subsubsection}{\numberline {6.7.2.5}enableTimerCounter1()}{51}{subsubsection.6.7.2.5}%
+\contentsline {subsubsection}{\numberline {6.7.2.6}enableTimerCounter2()}{51}{subsubsection.6.7.2.6}%
+\contentsline {subsubsection}{\numberline {6.7.2.7}enableTWI()}{52}{subsubsection.6.7.2.7}%
+\contentsline {subsubsection}{\numberline {6.7.2.8}enableUSART0()}{52}{subsubsection.6.7.2.8}%
+\contentsline {subsubsection}{\numberline {6.7.2.9}goToSleep()}{52}{subsubsection.6.7.2.9}%
+\contentsline {subsubsection}{\numberline {6.7.2.10}init()}{53}{subsubsection.6.7.2.10}%
+\contentsline {subsubsection}{\numberline {6.7.2.11}selectSleepMode()}{53}{subsubsection.6.7.2.11}%
+\contentsline {subsubsection}{\numberline {6.7.2.12}sleepEnable()}{53}{subsubsection.6.7.2.12}%
+\contentsline {section}{\numberline {6.8}io\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Pin Class Reference}{54}{section.6.8}%
+\contentsline {subsection}{\numberline {6.8.1}Detailed Description}{55}{subsection.6.8.1}%
+\contentsline {subsection}{\numberline {6.8.2}Constructor \& Destructor Documentation}{55}{subsection.6.8.2}%
+\contentsline {subsubsection}{\numberline {6.8.2.1}Pin()}{55}{subsubsection.6.8.2.1}%
+\contentsline {subsubsection}{\numberline {6.8.2.2}$\sim $Pin()}{55}{subsubsection.6.8.2.2}%
+\contentsline {subsection}{\numberline {6.8.3}Member Function Documentation}{55}{subsection.6.8.3}%
+\contentsline {subsubsection}{\numberline {6.8.3.1}getPinNumber()}{55}{subsubsection.6.8.3.1}%
+\contentsline {subsubsection}{\numberline {6.8.3.2}isHigh()}{56}{subsubsection.6.8.3.2}%
+\contentsline {subsubsection}{\numberline {6.8.3.3}isLow()}{56}{subsubsection.6.8.3.3}%
+\contentsline {subsubsection}{\numberline {6.8.3.4}setHigh()}{56}{subsubsection.6.8.3.4}%
+\contentsline {subsubsection}{\numberline {6.8.3.5}setLow()}{56}{subsubsection.6.8.3.5}%
+\contentsline {subsubsection}{\numberline {6.8.3.6}toggle()}{57}{subsubsection.6.8.3.6}%
+\contentsline {subsubsection}{\numberline {6.8.3.7}toInput()}{57}{subsubsection.6.8.3.7}%
+\contentsline {subsubsection}{\numberline {6.8.3.8}toOutput()}{57}{subsubsection.6.8.3.8}%
+\contentsline {subsection}{\numberline {6.8.4}Member Data Documentation}{58}{subsection.6.8.4}%
+\contentsline {subsubsection}{\numberline {6.8.4.1}m\_pinNumber}{58}{subsubsection.6.8.4.1}%
+\contentsline {subsubsection}{\numberline {6.8.4.2}mr\_portName}{58}{subsubsection.6.8.4.2}%
+\contentsline {section}{\numberline {6.9}io\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Port Struct Reference}{58}{section.6.9}%
+\contentsline {subsection}{\numberline {6.9.1}Detailed Description}{58}{subsection.6.9.1}%
+\contentsline {subsection}{\numberline {6.9.2}Member Data Documentation}{59}{subsection.6.9.2}%
+\contentsline {subsubsection}{\numberline {6.9.2.1}mp\_ddrReg}{59}{subsubsection.6.9.2.1}%
+\contentsline {subsubsection}{\numberline {6.9.2.2}mp\_pinReg}{59}{subsubsection.6.9.2.2}%
+\contentsline {subsubsection}{\numberline {6.9.2.3}mp\_portReg}{59}{subsubsection.6.9.2.3}%
+\contentsline {section}{\numberline {6.10}component\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Push\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Button Class Reference}{59}{section.6.10}%
+\contentsline {subsection}{\numberline {6.10.1}Detailed Description}{60}{subsection.6.10.1}%
+\contentsline {subsection}{\numberline {6.10.2}Constructor \& Destructor Documentation}{60}{subsection.6.10.2}%
+\contentsline {subsubsection}{\numberline {6.10.2.1}PushButton()}{60}{subsubsection.6.10.2.1}%
+\contentsline {subsubsection}{\numberline {6.10.2.2}$\sim $PushButton()}{61}{subsubsection.6.10.2.2}%
+\contentsline {subsection}{\numberline {6.10.3}Member Function Documentation}{61}{subsection.6.10.3}%
+\contentsline {subsubsection}{\numberline {6.10.3.1}getPressedCount()}{61}{subsubsection.6.10.3.1}%
+\contentsline {subsubsection}{\numberline {6.10.3.2}isPressed()}{61}{subsubsection.6.10.3.2}%
+\contentsline {subsubsection}{\numberline {6.10.3.3}resetPressedCount()}{62}{subsubsection.6.10.3.3}%
+\contentsline {subsection}{\numberline {6.10.4}Member Data Documentation}{62}{subsection.6.10.4}%
+\contentsline {subsubsection}{\numberline {6.10.4.1}m\_buttonPressed}{62}{subsubsection.6.10.4.1}%
+\contentsline {subsubsection}{\numberline {6.10.4.2}m\_pin}{62}{subsubsection.6.10.4.2}%
+\contentsline {subsubsection}{\numberline {6.10.4.3}mr\_isActiveLow}{62}{subsubsection.6.10.4.3}%
+\contentsline {subsubsection}{\numberline {6.10.4.4}mr\_useInternalPullUp}{63}{subsubsection.6.10.4.4}%
+\contentsline {section}{\numberline {6.11}component\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Servo\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Motor Class Reference}{63}{section.6.11}%
+\contentsline {subsection}{\numberline {6.11.1}Detailed Description}{64}{subsection.6.11.1}%
+\contentsline {subsection}{\numberline {6.11.2}Constructor \& Destructor Documentation}{64}{subsection.6.11.2}%
+\contentsline {subsubsection}{\numberline {6.11.2.1}ServoMotor()}{64}{subsubsection.6.11.2.1}%
+\contentsline {subsubsection}{\numberline {6.11.2.2}$\sim $ServoMotor()}{64}{subsubsection.6.11.2.2}%
+\contentsline {subsection}{\numberline {6.11.3}Member Function Documentation}{65}{subsection.6.11.3}%
+\contentsline {subsubsection}{\numberline {6.11.3.1}computePulseCycleCount()}{65}{subsubsection.6.11.3.1}%
+\contentsline {subsubsection}{\numberline {6.11.3.2}computePulseWidthMaxCount()}{65}{subsubsection.6.11.3.2}%
+\contentsline {subsubsection}{\numberline {6.11.3.3}computePulseWidthMidCount()}{65}{subsubsection.6.11.3.3}%
+\contentsline {subsubsection}{\numberline {6.11.3.4}computePulseWidthMinCount()}{65}{subsubsection.6.11.3.4}%
+\contentsline {subsubsection}{\numberline {6.11.3.5}computeRotationAngleCount()}{66}{subsubsection.6.11.3.5}%
+\contentsline {subsubsection}{\numberline {6.11.3.6}connect()}{66}{subsubsection.6.11.3.6}%
+\contentsline {subsubsection}{\numberline {6.11.3.7}disconnect()}{66}{subsubsection.6.11.3.7}%
+\contentsline {subsubsection}{\numberline {6.11.3.8}off()}{67}{subsubsection.6.11.3.8}%
+\contentsline {subsubsection}{\numberline {6.11.3.9}on()}{67}{subsubsection.6.11.3.9}%
+\contentsline {subsubsection}{\numberline {6.11.3.10}rotate()}{67}{subsubsection.6.11.3.10}%
+\contentsline {subsubsection}{\numberline {6.11.3.11}toggle()}{67}{subsubsection.6.11.3.11}%
+\contentsline {subsection}{\numberline {6.11.4}Member Data Documentation}{68}{subsection.6.11.4}%
+\contentsline {subsubsection}{\numberline {6.11.4.1}m\_pin}{68}{subsubsection.6.11.4.1}%
+\contentsline {subsubsection}{\numberline {6.11.4.2}m\_pulseCycle}{68}{subsubsection.6.11.4.2}%
+\contentsline {subsubsection}{\numberline {6.11.4.3}m\_pulseWidthMax}{68}{subsubsection.6.11.4.3}%
+\contentsline {subsubsection}{\numberline {6.11.4.4}m\_pulseWidthMid}{68}{subsubsection.6.11.4.4}%
+\contentsline {subsubsection}{\numberline {6.11.4.5}m\_pulseWidthMin}{69}{subsubsection.6.11.4.5}%
+\contentsline {section}{\numberline {6.12}io\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::S\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}PI Class Reference}{69}{section.6.12}%
+\contentsline {subsection}{\numberline {6.12.1}Detailed Description}{70}{subsection.6.12.1}%
+\contentsline {subsection}{\numberline {6.12.2}Constructor \& Destructor Documentation}{71}{subsection.6.12.2}%
+\contentsline {subsubsection}{\numberline {6.12.2.1}SPI()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{71}{subsubsection.6.12.2.1}%
+\contentsline {subsubsection}{\numberline {6.12.2.2}$\sim $SPI()}{71}{subsubsection.6.12.2.2}%
+\contentsline {subsubsection}{\numberline {6.12.2.3}SPI()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{71}{subsubsection.6.12.2.3}%
+\contentsline {subsection}{\numberline {6.12.3}Member Function Documentation}{72}{subsection.6.12.3}%
+\contentsline {subsubsection}{\numberline {6.12.3.1}enableTransferCompleteInterrupt()}{72}{subsubsection.6.12.3.1}%
+\contentsline {subsubsection}{\numberline {6.12.3.2}getInstance()}{72}{subsubsection.6.12.3.2}%
+\contentsline {subsubsection}{\numberline {6.12.3.3}masterReceiveByte()}{72}{subsubsection.6.12.3.3}%
+\contentsline {subsubsection}{\numberline {6.12.3.4}masterSendByte()}{73}{subsubsection.6.12.3.4}%
+\contentsline {subsubsection}{\numberline {6.12.3.5}operator=()}{73}{subsubsection.6.12.3.5}%
+\contentsline {subsubsection}{\numberline {6.12.3.6}selectClockPrescaler()}{73}{subsubsection.6.12.3.6}%
+\contentsline {subsubsection}{\numberline {6.12.3.7}selectDataMode()}{73}{subsubsection.6.12.3.7}%
+\contentsline {subsubsection}{\numberline {6.12.3.8}selectDataOrder()}{74}{subsubsection.6.12.3.8}%
+\contentsline {subsubsection}{\numberline {6.12.3.9}selectOperationMode()}{74}{subsubsection.6.12.3.9}%
+\contentsline {subsubsection}{\numberline {6.12.3.10}selectSlave()}{75}{subsubsection.6.12.3.10}%
+\contentsline {subsubsection}{\numberline {6.12.3.11}slaveReceiveByte()}{75}{subsubsection.6.12.3.11}%
+\contentsline {subsubsection}{\numberline {6.12.3.12}transferComplete()}{75}{subsubsection.6.12.3.12}%
+\contentsline {subsubsection}{\numberline {6.12.3.13}transferCompleteServiceRoutine()}{75}{subsubsection.6.12.3.13}%
+\contentsline {subsubsection}{\numberline {6.12.3.14}writeCollision()}{76}{subsubsection.6.12.3.14}%
+\contentsline {subsection}{\numberline {6.12.4}Member Data Documentation}{76}{subsection.6.12.4}%
+\contentsline {subsubsection}{\numberline {6.12.4.1}\_\_externally\_visible\_\_}{76}{subsubsection.6.12.4.1}%
+\contentsline {subsubsection}{\numberline {6.12.4.2}\_\_used\_\_}{76}{subsubsection.6.12.4.2}%
+\contentsline {subsubsection}{\numberline {6.12.4.3}m\_data}{76}{subsubsection.6.12.4.3}%
+\contentsline {subsubsection}{\numberline {6.12.4.4}m\_pinMISO}{76}{subsubsection.6.12.4.4}%
+\contentsline {subsubsection}{\numberline {6.12.4.5}m\_pinMOSI}{77}{subsubsection.6.12.4.5}%
+\contentsline {subsubsection}{\numberline {6.12.4.6}m\_pinSCK}{77}{subsubsection.6.12.4.6}%
+\contentsline {subsubsection}{\numberline {6.12.4.7}m\_pinSS}{77}{subsubsection.6.12.4.7}%
+\contentsline {section}{\numberline {6.13}component\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Stepper\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Motor Class Reference}{77}{section.6.13}%
+\contentsline {subsection}{\numberline {6.13.1}Detailed Description}{78}{subsection.6.13.1}%
+\contentsline {subsection}{\numberline {6.13.2}Constructor \& Destructor Documentation}{78}{subsection.6.13.2}%
+\contentsline {subsubsection}{\numberline {6.13.2.1}StepperMotor()}{79}{subsubsection.6.13.2.1}%
+\contentsline {subsubsection}{\numberline {6.13.2.2}$\sim $StepperMotor()}{79}{subsubsection.6.13.2.2}%
+\contentsline {subsection}{\numberline {6.13.3}Member Function Documentation}{79}{subsection.6.13.3}%
+\contentsline {subsubsection}{\numberline {6.13.3.1}computeStepDelay()}{79}{subsubsection.6.13.3.1}%
+\contentsline {subsubsection}{\numberline {6.13.3.2}currentPos()}{80}{subsubsection.6.13.3.2}%
+\contentsline {subsubsection}{\numberline {6.13.3.3}goalReached()}{81}{subsubsection.6.13.3.3}%
+\contentsline {subsubsection}{\numberline {6.13.3.4}setCurrentPos()}{81}{subsubsection.6.13.3.4}%
+\contentsline {subsubsection}{\numberline {6.13.3.5}step()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{81}{subsubsection.6.13.3.5}%
+\contentsline {subsubsection}{\numberline {6.13.3.6}step()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{82}{subsubsection.6.13.3.6}%
+\contentsline {subsubsection}{\numberline {6.13.3.7}step()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{83}{subsubsection.6.13.3.7}%
+\contentsline {subsubsection}{\numberline {6.13.3.8}stepDelay()}{84}{subsubsection.6.13.3.8}%
+\contentsline {subsubsection}{\numberline {6.13.3.9}stepPulse()}{84}{subsubsection.6.13.3.9}%
+\contentsline {subsection}{\numberline {6.13.4}Member Data Documentation}{85}{subsection.6.13.4}%
+\contentsline {subsubsection}{\numberline {6.13.4.1}m\_accelTime}{85}{subsubsection.6.13.4.1}%
+\contentsline {subsubsection}{\numberline {6.13.4.2}m\_constSpeedTime}{85}{subsubsection.6.13.4.2}%
+\contentsline {subsubsection}{\numberline {6.13.4.3}m\_currentPos}{86}{subsubsection.6.13.4.3}%
+\contentsline {subsubsection}{\numberline {6.13.4.4}m\_decelTime}{86}{subsubsection.6.13.4.4}%
+\contentsline {subsubsection}{\numberline {6.13.4.5}m\_goalReached}{86}{subsubsection.6.13.4.5}%
+\contentsline {subsubsection}{\numberline {6.13.4.6}m\_pinCoil1}{86}{subsubsection.6.13.4.6}%
+\contentsline {subsubsection}{\numberline {6.13.4.7}m\_pinCoil2}{86}{subsubsection.6.13.4.7}%
+\contentsline {subsubsection}{\numberline {6.13.4.8}m\_pinCoil3}{87}{subsubsection.6.13.4.8}%
+\contentsline {subsubsection}{\numberline {6.13.4.9}m\_pinCoil4}{87}{subsubsection.6.13.4.9}%
+\contentsline {subsubsection}{\numberline {6.13.4.10}stepMode}{87}{subsubsection.6.13.4.10}%
+\contentsline {section}{\numberline {6.14}core\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Timer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Counter Class Reference}{87}{section.6.14}%
+\contentsline {subsection}{\numberline {6.14.1}Detailed Description}{88}{subsection.6.14.1}%
+\contentsline {subsection}{\numberline {6.14.2}Member Function Documentation}{88}{subsection.6.14.2}%
+\contentsline {subsubsection}{\numberline {6.14.2.1}enableOutputCompareMatchInterrupt()}{88}{subsubsection.6.14.2.1}%
+\contentsline {subsubsection}{\numberline {6.14.2.2}enableOverflowInterrupt()}{88}{subsubsection.6.14.2.2}%
+\contentsline {subsubsection}{\numberline {6.14.2.3}getClockPrescaler()}{88}{subsubsection.6.14.2.3}%
+\contentsline {subsubsection}{\numberline {6.14.2.4}getCounter()}{89}{subsubsection.6.14.2.4}%
+\contentsline {subsubsection}{\numberline {6.14.2.5}getOutputCompareRegister()}{89}{subsubsection.6.14.2.5}%
+\contentsline {subsubsection}{\numberline {6.14.2.6}selectClockSource()}{89}{subsubsection.6.14.2.6}%
+\contentsline {subsubsection}{\numberline {6.14.2.7}selectCompareOutputMode()}{89}{subsubsection.6.14.2.7}%
+\contentsline {subsubsection}{\numberline {6.14.2.8}selectOperationMode()}{89}{subsubsection.6.14.2.8}%
+\contentsline {subsubsection}{\numberline {6.14.2.9}setCounter()}{89}{subsubsection.6.14.2.9}%
+\contentsline {subsubsection}{\numberline {6.14.2.10}setOutputCompareRegister()}{90}{subsubsection.6.14.2.10}%
+\contentsline {subsubsection}{\numberline {6.14.2.11}start()}{90}{subsubsection.6.14.2.11}%
+\contentsline {subsubsection}{\numberline {6.14.2.12}stop()}{90}{subsubsection.6.14.2.12}%
+\contentsline {section}{\numberline {6.15}core\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Timer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Counter0 Class Reference}{90}{section.6.15}%
+\contentsline {subsection}{\numberline {6.15.1}Detailed Description}{92}{subsection.6.15.1}%
+\contentsline {subsection}{\numberline {6.15.2}Constructor \& Destructor Documentation}{92}{subsection.6.15.2}%
+\contentsline {subsubsection}{\numberline {6.15.2.1}TimerCounter0()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{92}{subsubsection.6.15.2.1}%
+\contentsline {subsubsection}{\numberline {6.15.2.2}$\sim $TimerCounter0()}{92}{subsubsection.6.15.2.2}%
+\contentsline {subsubsection}{\numberline {6.15.2.3}TimerCounter0()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{93}{subsubsection.6.15.2.3}%
+\contentsline {subsection}{\numberline {6.15.3}Member Function Documentation}{93}{subsection.6.15.3}%
+\contentsline {subsubsection}{\numberline {6.15.3.1}enableOutputCompareMatchInterrupt()}{93}{subsubsection.6.15.3.1}%
+\contentsline {subsubsection}{\numberline {6.15.3.2}enableOverflowInterrupt()}{94}{subsubsection.6.15.3.2}%
+\contentsline {subsubsection}{\numberline {6.15.3.3}getClockPrescaler()}{94}{subsubsection.6.15.3.3}%
+\contentsline {subsubsection}{\numberline {6.15.3.4}getCounter()}{94}{subsubsection.6.15.3.4}%
+\contentsline {subsubsection}{\numberline {6.15.3.5}getInstance()}{95}{subsubsection.6.15.3.5}%
+\contentsline {subsubsection}{\numberline {6.15.3.6}getOutputCompareRegister()}{95}{subsubsection.6.15.3.6}%
+\contentsline {subsubsection}{\numberline {6.15.3.7}operator=()}{95}{subsubsection.6.15.3.7}%
+\contentsline {subsubsection}{\numberline {6.15.3.8}outputCompareMatchAServiceRoutine()}{95}{subsubsection.6.15.3.8}%
+\contentsline {subsubsection}{\numberline {6.15.3.9}outputCompareMatchBServiceRoutine()}{96}{subsubsection.6.15.3.9}%
+\contentsline {subsubsection}{\numberline {6.15.3.10}overflowServiceRoutine()}{96}{subsubsection.6.15.3.10}%
+\contentsline {subsubsection}{\numberline {6.15.3.11}selectClockSource()}{96}{subsubsection.6.15.3.11}%
+\contentsline {subsubsection}{\numberline {6.15.3.12}selectCompareOutputMode()}{97}{subsubsection.6.15.3.12}%
+\contentsline {subsubsection}{\numberline {6.15.3.13}selectOperationMode()}{97}{subsubsection.6.15.3.13}%
+\contentsline {subsubsection}{\numberline {6.15.3.14}setCounter()}{98}{subsubsection.6.15.3.14}%
+\contentsline {subsubsection}{\numberline {6.15.3.15}setOutputCompareRegister()}{98}{subsubsection.6.15.3.15}%
+\contentsline {subsubsection}{\numberline {6.15.3.16}start()}{99}{subsubsection.6.15.3.16}%
+\contentsline {subsubsection}{\numberline {6.15.3.17}stop()}{99}{subsubsection.6.15.3.17}%
+\contentsline {subsection}{\numberline {6.15.4}Member Data Documentation}{99}{subsection.6.15.4}%
+\contentsline {subsubsection}{\numberline {6.15.4.1}\_\_externally\_visible\_\_}{99}{subsubsection.6.15.4.1}%
+\contentsline {subsubsection}{\numberline {6.15.4.2}\_\_used\_\_}{99}{subsubsection.6.15.4.2}%
+\contentsline {subsubsection}{\numberline {6.15.4.3}m\_clockPrescaler}{100}{subsubsection.6.15.4.3}%
+\contentsline {subsubsection}{\numberline {6.15.4.4}m\_clockSource}{100}{subsubsection.6.15.4.4}%
+\contentsline {section}{\numberline {6.16}core\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Timer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Counter1 Class Reference}{100}{section.6.16}%
+\contentsline {subsection}{\numberline {6.16.1}Detailed Description}{102}{subsection.6.16.1}%
+\contentsline {subsection}{\numberline {6.16.2}Constructor \& Destructor Documentation}{102}{subsection.6.16.2}%
+\contentsline {subsubsection}{\numberline {6.16.2.1}TimerCounter1()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{102}{subsubsection.6.16.2.1}%
+\contentsline {subsubsection}{\numberline {6.16.2.2}$\sim $TimerCounter1()}{102}{subsubsection.6.16.2.2}%
+\contentsline {subsubsection}{\numberline {6.16.2.3}TimerCounter1()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{102}{subsubsection.6.16.2.3}%
+\contentsline {subsection}{\numberline {6.16.3}Member Function Documentation}{102}{subsection.6.16.3}%
+\contentsline {subsubsection}{\numberline {6.16.3.1}enableInputCaptureInterrupt()}{103}{subsubsection.6.16.3.1}%
+\contentsline {subsubsection}{\numberline {6.16.3.2}enableOutputCompareMatchInterrupt()}{103}{subsubsection.6.16.3.2}%
+\contentsline {subsubsection}{\numberline {6.16.3.3}enableOverflowInterrupt()}{104}{subsubsection.6.16.3.3}%
+\contentsline {subsubsection}{\numberline {6.16.3.4}getClockPrescaler()}{104}{subsubsection.6.16.3.4}%
+\contentsline {subsubsection}{\numberline {6.16.3.5}getCounter()}{104}{subsubsection.6.16.3.5}%
+\contentsline {subsubsection}{\numberline {6.16.3.6}getInputCaptureRegister()}{104}{subsubsection.6.16.3.6}%
+\contentsline {subsubsection}{\numberline {6.16.3.7}getInstance()}{105}{subsubsection.6.16.3.7}%
+\contentsline {subsubsection}{\numberline {6.16.3.8}getOutputCompareRegister()}{105}{subsubsection.6.16.3.8}%
+\contentsline {subsubsection}{\numberline {6.16.3.9}inputCaptureServiceRoutine()}{105}{subsubsection.6.16.3.9}%
+\contentsline {subsubsection}{\numberline {6.16.3.10}operator=()}{105}{subsubsection.6.16.3.10}%
+\contentsline {subsubsection}{\numberline {6.16.3.11}outputCompareMatchAServiceRoutine()}{106}{subsubsection.6.16.3.11}%
+\contentsline {subsubsection}{\numberline {6.16.3.12}outputCompareMatchBServiceRoutine()}{106}{subsubsection.6.16.3.12}%
+\contentsline {subsubsection}{\numberline {6.16.3.13}overflowServiceRoutine()}{106}{subsubsection.6.16.3.13}%
+\contentsline {subsubsection}{\numberline {6.16.3.14}selectClockSource()}{106}{subsubsection.6.16.3.14}%
+\contentsline {subsubsection}{\numberline {6.16.3.15}selectCompareOutputMode()}{107}{subsubsection.6.16.3.15}%
+\contentsline {subsubsection}{\numberline {6.16.3.16}selectOperationMode()}{107}{subsubsection.6.16.3.16}%
+\contentsline {subsubsection}{\numberline {6.16.3.17}setCounter()}{109}{subsubsection.6.16.3.17}%
+\contentsline {subsubsection}{\numberline {6.16.3.18}setInputCaptureRegister()}{109}{subsubsection.6.16.3.18}%
+\contentsline {subsubsection}{\numberline {6.16.3.19}setOutputCompareRegister()}{109}{subsubsection.6.16.3.19}%
+\contentsline {subsubsection}{\numberline {6.16.3.20}start()}{110}{subsubsection.6.16.3.20}%
+\contentsline {subsubsection}{\numberline {6.16.3.21}stop()}{110}{subsubsection.6.16.3.21}%
+\contentsline {subsection}{\numberline {6.16.4}Member Data Documentation}{110}{subsection.6.16.4}%
+\contentsline {subsubsection}{\numberline {6.16.4.1}\_\_externally\_visible\_\_}{110}{subsubsection.6.16.4.1}%
+\contentsline {subsubsection}{\numberline {6.16.4.2}\_\_used\_\_}{110}{subsubsection.6.16.4.2}%
+\contentsline {subsubsection}{\numberline {6.16.4.3}m\_clockPrescaler}{111}{subsubsection.6.16.4.3}%
+\contentsline {subsubsection}{\numberline {6.16.4.4}m\_clockSource}{111}{subsubsection.6.16.4.4}%
+\contentsline {section}{\numberline {6.17}core\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Timer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Counter2 Class Reference}{111}{section.6.17}%
+\contentsline {subsection}{\numberline {6.17.1}Detailed Description}{113}{subsection.6.17.1}%
+\contentsline {subsection}{\numberline {6.17.2}Constructor \& Destructor Documentation}{113}{subsection.6.17.2}%
+\contentsline {subsubsection}{\numberline {6.17.2.1}TimerCounter2()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{113}{subsubsection.6.17.2.1}%
+\contentsline {subsubsection}{\numberline {6.17.2.2}$\sim $TimerCounter2()}{113}{subsubsection.6.17.2.2}%
+\contentsline {subsubsection}{\numberline {6.17.2.3}TimerCounter2()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{113}{subsubsection.6.17.2.3}%
+\contentsline {subsection}{\numberline {6.17.3}Member Function Documentation}{113}{subsection.6.17.3}%
+\contentsline {subsubsection}{\numberline {6.17.3.1}enableOutputCompareMatchInterrupt()}{114}{subsubsection.6.17.3.1}%
+\contentsline {subsubsection}{\numberline {6.17.3.2}enableOverflowInterrupt()}{114}{subsubsection.6.17.3.2}%
+\contentsline {subsubsection}{\numberline {6.17.3.3}getClockPrescaler()}{115}{subsubsection.6.17.3.3}%
+\contentsline {subsubsection}{\numberline {6.17.3.4}getCounter()}{115}{subsubsection.6.17.3.4}%
+\contentsline {subsubsection}{\numberline {6.17.3.5}getInstance()}{115}{subsubsection.6.17.3.5}%
+\contentsline {subsubsection}{\numberline {6.17.3.6}getOutputCompareRegister()}{116}{subsubsection.6.17.3.6}%
+\contentsline {subsubsection}{\numberline {6.17.3.7}operator=()}{116}{subsubsection.6.17.3.7}%
+\contentsline {subsubsection}{\numberline {6.17.3.8}outputCompareMatchAServiceRoutine()}{116}{subsubsection.6.17.3.8}%
+\contentsline {subsubsection}{\numberline {6.17.3.9}outputCompareMatchBServiceRoutine()}{116}{subsubsection.6.17.3.9}%
+\contentsline {subsubsection}{\numberline {6.17.3.10}overflowServiceRoutine()}{116}{subsubsection.6.17.3.10}%
+\contentsline {subsubsection}{\numberline {6.17.3.11}selectClockSource()}{117}{subsubsection.6.17.3.11}%
+\contentsline {subsubsection}{\numberline {6.17.3.12}selectCompareOutputMode()}{117}{subsubsection.6.17.3.12}%
+\contentsline {subsubsection}{\numberline {6.17.3.13}selectOperationMode()}{118}{subsubsection.6.17.3.13}%
+\contentsline {subsubsection}{\numberline {6.17.3.14}setCounter()}{119}{subsubsection.6.17.3.14}%
+\contentsline {subsubsection}{\numberline {6.17.3.15}setOutputCompareRegister()}{119}{subsubsection.6.17.3.15}%
+\contentsline {subsubsection}{\numberline {6.17.3.16}start()}{119}{subsubsection.6.17.3.16}%
+\contentsline {subsubsection}{\numberline {6.17.3.17}stop()}{120}{subsubsection.6.17.3.17}%
+\contentsline {subsection}{\numberline {6.17.4}Member Data Documentation}{120}{subsection.6.17.4}%
+\contentsline {subsubsection}{\numberline {6.17.4.1}\_\_externally\_visible\_\_}{120}{subsubsection.6.17.4.1}%
+\contentsline {subsubsection}{\numberline {6.17.4.2}\_\_used\_\_}{120}{subsubsection.6.17.4.2}%
+\contentsline {subsubsection}{\numberline {6.17.4.3}m\_clockPrescaler}{120}{subsubsection.6.17.4.3}%
+\contentsline {subsubsection}{\numberline {6.17.4.4}m\_clockSource}{120}{subsubsection.6.17.4.4}%
+\contentsline {section}{\numberline {6.18}io\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::U\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}S\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}A\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}R\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}T0 Class Reference}{121}{section.6.18}%
+\contentsline {subsection}{\numberline {6.18.1}Detailed Description}{123}{subsection.6.18.1}%
+\contentsline {subsection}{\numberline {6.18.2}Constructor \& Destructor Documentation}{123}{subsection.6.18.2}%
+\contentsline {subsubsection}{\numberline {6.18.2.1}USART0()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{123}{subsubsection.6.18.2.1}%
+\contentsline {subsubsection}{\numberline {6.18.2.2}$\sim $USART0()}{123}{subsubsection.6.18.2.2}%
+\contentsline {subsubsection}{\numberline {6.18.2.3}USART0()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{124}{subsubsection.6.18.2.3}%
+\contentsline {subsection}{\numberline {6.18.3}Member Function Documentation}{124}{subsection.6.18.3}%
+\contentsline {subsubsection}{\numberline {6.18.3.1}dataOverrun()}{124}{subsubsection.6.18.3.1}%
+\contentsline {subsubsection}{\numberline {6.18.3.2}dataRegisterEmptyServiceRoutine()}{124}{subsubsection.6.18.3.2}%
+\contentsline {subsubsection}{\numberline {6.18.3.3}enableDataRegisterEmptyInterrupt()}{125}{subsubsection.6.18.3.3}%
+\contentsline {subsubsection}{\numberline {6.18.3.4}enableReceiveCompleteInterrupt()}{125}{subsubsection.6.18.3.4}%
+\contentsline {subsubsection}{\numberline {6.18.3.5}enableTransmitCompleteInterrupt()}{125}{subsubsection.6.18.3.5}%
+\contentsline {subsubsection}{\numberline {6.18.3.6}frameError()}{126}{subsubsection.6.18.3.6}%
+\contentsline {subsubsection}{\numberline {6.18.3.7}getInstance()}{126}{subsubsection.6.18.3.7}%
+\contentsline {subsubsection}{\numberline {6.18.3.8}getNumberBytesReceived()}{126}{subsubsection.6.18.3.8}%
+\contentsline {subsubsection}{\numberline {6.18.3.9}getNumberBytesSent()}{127}{subsubsection.6.18.3.9}%
+\contentsline {subsubsection}{\numberline {6.18.3.10}operator=()}{127}{subsubsection.6.18.3.10}%
+\contentsline {subsubsection}{\numberline {6.18.3.11}parityError()}{127}{subsubsection.6.18.3.11}%
+\contentsline {subsubsection}{\numberline {6.18.3.12}ready2Send()}{127}{subsubsection.6.18.3.12}%
+\contentsline {subsubsection}{\numberline {6.18.3.13}receiveChar()}{128}{subsubsection.6.18.3.13}%
+\contentsline {subsubsection}{\numberline {6.18.3.14}receiveCompleteServiceRoutine()}{128}{subsubsection.6.18.3.14}%
+\contentsline {subsubsection}{\numberline {6.18.3.15}receiveFrames()}{128}{subsubsection.6.18.3.15}%
+\contentsline {subsubsection}{\numberline {6.18.3.16}receiveString()}{129}{subsubsection.6.18.3.16}%
+\contentsline {subsubsection}{\numberline {6.18.3.17}resetNumberBytesReceived()}{129}{subsubsection.6.18.3.17}%
+\contentsline {subsubsection}{\numberline {6.18.3.18}sendByte()}{129}{subsubsection.6.18.3.18}%
+\contentsline {subsubsection}{\numberline {6.18.3.19}sendChar()}{130}{subsubsection.6.18.3.19}%
+\contentsline {subsubsection}{\numberline {6.18.3.20}sendFrames()}{130}{subsubsection.6.18.3.20}%
+\contentsline {subsubsection}{\numberline {6.18.3.21}sendLong()}{130}{subsubsection.6.18.3.21}%
+\contentsline {subsubsection}{\numberline {6.18.3.22}sendString()}{131}{subsubsection.6.18.3.22}%
+\contentsline {subsubsection}{\numberline {6.18.3.23}sendWord()}{131}{subsubsection.6.18.3.23}%
+\contentsline {subsubsection}{\numberline {6.18.3.24}setBaudRate()}{131}{subsubsection.6.18.3.24}%
+\contentsline {subsubsection}{\numberline {6.18.3.25}setCommunicationMode()}{132}{subsubsection.6.18.3.25}%
+\contentsline {subsubsection}{\numberline {6.18.3.26}setFrameSize()}{132}{subsubsection.6.18.3.26}%
+\contentsline {subsubsection}{\numberline {6.18.3.27}setParityMode()}{133}{subsubsection.6.18.3.27}%
+\contentsline {subsubsection}{\numberline {6.18.3.28}setStopBit()}{134}{subsubsection.6.18.3.28}%
+\contentsline {subsubsection}{\numberline {6.18.3.29}setTransmissionMode()}{134}{subsubsection.6.18.3.29}%
+\contentsline {subsubsection}{\numberline {6.18.3.30}transmitCompleteServiceRoutine()}{135}{subsubsection.6.18.3.30}%
+\contentsline {subsection}{\numberline {6.18.4}Member Data Documentation}{135}{subsection.6.18.4}%
+\contentsline {subsubsection}{\numberline {6.18.4.1}\_\_externally\_visible\_\_}{135}{subsubsection.6.18.4.1}%
+\contentsline {subsubsection}{\numberline {6.18.4.2}\_\_used\_\_}{135}{subsubsection.6.18.4.2}%
+\contentsline {subsubsection}{\numberline {6.18.4.3}m\_numberBytesReceived}{135}{subsubsection.6.18.4.3}%
+\contentsline {subsubsection}{\numberline {6.18.4.4}m\_numberBytesSent}{135}{subsubsection.6.18.4.4}%
+\contentsline {subsubsection}{\numberline {6.18.4.5}m\_ready2Send}{136}{subsubsection.6.18.4.5}%
+\contentsline {subsubsection}{\numberline {6.18.4.6}m\_sizeData2Receive}{136}{subsubsection.6.18.4.6}%
+\contentsline {subsubsection}{\numberline {6.18.4.7}m\_sizeData2Send}{136}{subsubsection.6.18.4.7}%
+\contentsline {subsubsection}{\numberline {6.18.4.8}m\_status}{136}{subsubsection.6.18.4.8}%
+\contentsline {subsubsection}{\numberline {6.18.4.9}mp\_data2Receive}{136}{subsubsection.6.18.4.9}%
+\contentsline {subsubsection}{\numberline {6.18.4.10}mp\_data2Send}{137}{subsubsection.6.18.4.10}%
+\contentsline {section}{\numberline {6.19}core\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Watchdog\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Timer Class Reference}{137}{section.6.19}%
+\contentsline {subsection}{\numberline {6.19.1}Detailed Description}{138}{subsection.6.19.1}%
+\contentsline {subsection}{\numberline {6.19.2}Constructor \& Destructor Documentation}{138}{subsection.6.19.2}%
+\contentsline {subsubsection}{\numberline {6.19.2.1}WatchdogTimer()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{138}{subsubsection.6.19.2.1}%
+\contentsline {subsubsection}{\numberline {6.19.2.2}$\sim $WatchdogTimer()}{138}{subsubsection.6.19.2.2}%
+\contentsline {subsubsection}{\numberline {6.19.2.3}WatchdogTimer()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{138}{subsubsection.6.19.2.3}%
+\contentsline {subsection}{\numberline {6.19.3}Member Function Documentation}{138}{subsection.6.19.3}%
+\contentsline {subsubsection}{\numberline {6.19.3.1}getInstance()}{138}{subsubsection.6.19.3.1}%
+\contentsline {subsubsection}{\numberline {6.19.3.2}operator=()}{139}{subsubsection.6.19.3.2}%
+\contentsline {subsubsection}{\numberline {6.19.3.3}reset()}{139}{subsubsection.6.19.3.3}%
+\contentsline {subsubsection}{\numberline {6.19.3.4}selectTimeOut()}{139}{subsubsection.6.19.3.4}%
+\contentsline {subsubsection}{\numberline {6.19.3.5}start()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{139}{subsubsection.6.19.3.5}%
+\contentsline {subsubsection}{\numberline {6.19.3.6}start()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{140}{subsubsection.6.19.3.6}%
+\contentsline {subsubsection}{\numberline {6.19.3.7}stop()}{140}{subsubsection.6.19.3.7}%
+\contentsline {subsubsection}{\numberline {6.19.3.8}timeOutServiceRoutine()}{140}{subsubsection.6.19.3.8}%
+\contentsline {subsection}{\numberline {6.19.4}Member Data Documentation}{140}{subsection.6.19.4}%
+\contentsline {subsubsection}{\numberline {6.19.4.1}\_\_externally\_visible\_\_}{140}{subsubsection.6.19.4.1}%
+\contentsline {subsubsection}{\numberline {6.19.4.2}\_\_used\_\_}{141}{subsubsection.6.19.4.2}%
+\contentsline {subsubsection}{\numberline {6.19.4.3}m\_operationMode}{141}{subsubsection.6.19.4.3}%
+\contentsline {subsubsection}{\numberline {6.19.4.4}m\_timeOut}{141}{subsubsection.6.19.4.4}%
+\contentsline {chapter}{\numberline {7}File Documentation}{143}{chapter.7}%
+\contentsline {section}{\numberline {7.1}A\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{143}{section.7.1}%
+\contentsline {section}{\numberline {7.2}A\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{143}{section.7.2}%
+\contentsline {section}{\numberline {7.3}A\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{147}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Detailed Description}{148}{subsection.7.3.1}%
+\contentsline {section}{\numberline {7.4}A\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{150}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Analog\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Comparator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{151}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Analog\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Comparator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{151}{section.7.6}%
+\contentsline {section}{\numberline {7.7}Analog\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Comparator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{151}{section.7.7}%
+\contentsline {subsection}{\numberline {7.7.1}Macro Definition Documentation}{152}{subsection.7.7.1}%
+\contentsline {subsubsection}{\numberline {7.7.1.1}ANALOG\_COMARATOR\_H}{152}{subsubsection.7.7.1.1}%
+\contentsline {section}{\numberline {7.8}Analog\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Comparator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{153}{section.7.8}%
+\contentsline {section}{\numberline {7.9}Buzzer.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{153}{section.7.9}%
+\contentsline {section}{\numberline {7.10}Buzzer.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{153}{section.7.10}%
+\contentsline {section}{\numberline {7.11}Buzzer.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{154}{section.7.11}%
+\contentsline {subsection}{\numberline {7.11.1}Detailed Description}{155}{subsection.7.11.1}%
+\contentsline {section}{\numberline {7.12}Buzzer.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{156}{section.7.12}%
+\contentsline {section}{\numberline {7.13}buzzer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}pitches\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}16bit.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{157}{section.7.13}%
+\contentsline {subsection}{\numberline {7.13.1}Macro Definition Documentation}{158}{subsection.7.13.1}%
+\contentsline {subsubsection}{\numberline {7.13.1.1}A0}{159}{subsubsection.7.13.1.1}%
+\contentsline {subsubsection}{\numberline {7.13.1.2}A1}{159}{subsubsection.7.13.1.2}%
+\contentsline {subsubsection}{\numberline {7.13.1.3}A2}{159}{subsubsection.7.13.1.3}%
+\contentsline {subsubsection}{\numberline {7.13.1.4}A3}{159}{subsubsection.7.13.1.4}%
+\contentsline {subsubsection}{\numberline {7.13.1.5}A4}{159}{subsubsection.7.13.1.5}%
+\contentsline {subsubsection}{\numberline {7.13.1.6}A5}{159}{subsubsection.7.13.1.6}%
+\contentsline {subsubsection}{\numberline {7.13.1.7}A6}{160}{subsubsection.7.13.1.7}%
+\contentsline {subsubsection}{\numberline {7.13.1.8}A7}{160}{subsubsection.7.13.1.8}%
+\contentsline {subsubsection}{\numberline {7.13.1.9}Ax0}{160}{subsubsection.7.13.1.9}%
+\contentsline {subsubsection}{\numberline {7.13.1.10}Ax1}{160}{subsubsection.7.13.1.10}%
+\contentsline {subsubsection}{\numberline {7.13.1.11}Ax2}{160}{subsubsection.7.13.1.11}%
+\contentsline {subsubsection}{\numberline {7.13.1.12}Ax3}{160}{subsubsection.7.13.1.12}%
+\contentsline {subsubsection}{\numberline {7.13.1.13}Ax4}{161}{subsubsection.7.13.1.13}%
+\contentsline {subsubsection}{\numberline {7.13.1.14}Ax5}{161}{subsubsection.7.13.1.14}%
+\contentsline {subsubsection}{\numberline {7.13.1.15}Ax6}{161}{subsubsection.7.13.1.15}%
+\contentsline {subsubsection}{\numberline {7.13.1.16}Ax7}{161}{subsubsection.7.13.1.16}%
+\contentsline {subsubsection}{\numberline {7.13.1.17}B0}{161}{subsubsection.7.13.1.17}%
+\contentsline {subsubsection}{\numberline {7.13.1.18}B1}{161}{subsubsection.7.13.1.18}%
+\contentsline {subsubsection}{\numberline {7.13.1.19}B2}{162}{subsubsection.7.13.1.19}%
+\contentsline {subsubsection}{\numberline {7.13.1.20}B3}{162}{subsubsection.7.13.1.20}%
+\contentsline {subsubsection}{\numberline {7.13.1.21}B4}{162}{subsubsection.7.13.1.21}%
+\contentsline {subsubsection}{\numberline {7.13.1.22}B5}{162}{subsubsection.7.13.1.22}%
+\contentsline {subsubsection}{\numberline {7.13.1.23}B6}{162}{subsubsection.7.13.1.23}%
+\contentsline {subsubsection}{\numberline {7.13.1.24}B7}{162}{subsubsection.7.13.1.24}%
+\contentsline {subsubsection}{\numberline {7.13.1.25}C0}{163}{subsubsection.7.13.1.25}%
+\contentsline {subsubsection}{\numberline {7.13.1.26}C1}{163}{subsubsection.7.13.1.26}%
+\contentsline {subsubsection}{\numberline {7.13.1.27}C2}{163}{subsubsection.7.13.1.27}%
+\contentsline {subsubsection}{\numberline {7.13.1.28}C3}{163}{subsubsection.7.13.1.28}%
+\contentsline {subsubsection}{\numberline {7.13.1.29}C4}{163}{subsubsection.7.13.1.29}%
+\contentsline {subsubsection}{\numberline {7.13.1.30}C5}{163}{subsubsection.7.13.1.30}%
+\contentsline {subsubsection}{\numberline {7.13.1.31}C6}{164}{subsubsection.7.13.1.31}%
+\contentsline {subsubsection}{\numberline {7.13.1.32}C7}{164}{subsubsection.7.13.1.32}%
+\contentsline {subsubsection}{\numberline {7.13.1.33}Cx0}{164}{subsubsection.7.13.1.33}%
+\contentsline {subsubsection}{\numberline {7.13.1.34}Cx1}{164}{subsubsection.7.13.1.34}%
+\contentsline {subsubsection}{\numberline {7.13.1.35}Cx2}{164}{subsubsection.7.13.1.35}%
+\contentsline {subsubsection}{\numberline {7.13.1.36}Cx3}{164}{subsubsection.7.13.1.36}%
+\contentsline {subsubsection}{\numberline {7.13.1.37}Cx4}{165}{subsubsection.7.13.1.37}%
+\contentsline {subsubsection}{\numberline {7.13.1.38}Cx5}{165}{subsubsection.7.13.1.38}%
+\contentsline {subsubsection}{\numberline {7.13.1.39}Cx6}{165}{subsubsection.7.13.1.39}%
+\contentsline {subsubsection}{\numberline {7.13.1.40}Cx7}{165}{subsubsection.7.13.1.40}%
+\contentsline {subsubsection}{\numberline {7.13.1.41}D0}{165}{subsubsection.7.13.1.41}%
+\contentsline {subsubsection}{\numberline {7.13.1.42}D1}{165}{subsubsection.7.13.1.42}%
+\contentsline {subsubsection}{\numberline {7.13.1.43}D2}{166}{subsubsection.7.13.1.43}%
+\contentsline {subsubsection}{\numberline {7.13.1.44}D3}{166}{subsubsection.7.13.1.44}%
+\contentsline {subsubsection}{\numberline {7.13.1.45}D4}{166}{subsubsection.7.13.1.45}%
+\contentsline {subsubsection}{\numberline {7.13.1.46}D5}{166}{subsubsection.7.13.1.46}%
+\contentsline {subsubsection}{\numberline {7.13.1.47}D6}{166}{subsubsection.7.13.1.47}%
+\contentsline {subsubsection}{\numberline {7.13.1.48}D7}{166}{subsubsection.7.13.1.48}%
+\contentsline {subsubsection}{\numberline {7.13.1.49}Dx0}{167}{subsubsection.7.13.1.49}%
+\contentsline {subsubsection}{\numberline {7.13.1.50}Dx1}{167}{subsubsection.7.13.1.50}%
+\contentsline {subsubsection}{\numberline {7.13.1.51}Dx2}{167}{subsubsection.7.13.1.51}%
+\contentsline {subsubsection}{\numberline {7.13.1.52}Dx3}{167}{subsubsection.7.13.1.52}%
+\contentsline {subsubsection}{\numberline {7.13.1.53}Dx4}{167}{subsubsection.7.13.1.53}%
+\contentsline {subsubsection}{\numberline {7.13.1.54}Dx5}{167}{subsubsection.7.13.1.54}%
+\contentsline {subsubsection}{\numberline {7.13.1.55}Dx6}{168}{subsubsection.7.13.1.55}%
+\contentsline {subsubsection}{\numberline {7.13.1.56}Dx7}{168}{subsubsection.7.13.1.56}%
+\contentsline {subsubsection}{\numberline {7.13.1.57}E0}{168}{subsubsection.7.13.1.57}%
+\contentsline {subsubsection}{\numberline {7.13.1.58}E1}{168}{subsubsection.7.13.1.58}%
+\contentsline {subsubsection}{\numberline {7.13.1.59}E2}{168}{subsubsection.7.13.1.59}%
+\contentsline {subsubsection}{\numberline {7.13.1.60}E3}{168}{subsubsection.7.13.1.60}%
+\contentsline {subsubsection}{\numberline {7.13.1.61}E4}{169}{subsubsection.7.13.1.61}%
+\contentsline {subsubsection}{\numberline {7.13.1.62}E5}{169}{subsubsection.7.13.1.62}%
+\contentsline {subsubsection}{\numberline {7.13.1.63}E6}{169}{subsubsection.7.13.1.63}%
+\contentsline {subsubsection}{\numberline {7.13.1.64}E7}{169}{subsubsection.7.13.1.64}%
+\contentsline {subsubsection}{\numberline {7.13.1.65}F0}{169}{subsubsection.7.13.1.65}%
+\contentsline {subsubsection}{\numberline {7.13.1.66}F1}{169}{subsubsection.7.13.1.66}%
+\contentsline {subsubsection}{\numberline {7.13.1.67}F2}{170}{subsubsection.7.13.1.67}%
+\contentsline {subsubsection}{\numberline {7.13.1.68}F3}{170}{subsubsection.7.13.1.68}%
+\contentsline {subsubsection}{\numberline {7.13.1.69}F4}{170}{subsubsection.7.13.1.69}%
+\contentsline {subsubsection}{\numberline {7.13.1.70}F5}{170}{subsubsection.7.13.1.70}%
+\contentsline {subsubsection}{\numberline {7.13.1.71}F6}{170}{subsubsection.7.13.1.71}%
+\contentsline {subsubsection}{\numberline {7.13.1.72}F7}{170}{subsubsection.7.13.1.72}%
+\contentsline {subsubsection}{\numberline {7.13.1.73}Fx0}{171}{subsubsection.7.13.1.73}%
+\contentsline {subsubsection}{\numberline {7.13.1.74}Fx1}{171}{subsubsection.7.13.1.74}%
+\contentsline {subsubsection}{\numberline {7.13.1.75}Fx2}{171}{subsubsection.7.13.1.75}%
+\contentsline {subsubsection}{\numberline {7.13.1.76}Fx3}{171}{subsubsection.7.13.1.76}%
+\contentsline {subsubsection}{\numberline {7.13.1.77}Fx4}{171}{subsubsection.7.13.1.77}%
+\contentsline {subsubsection}{\numberline {7.13.1.78}Fx5}{171}{subsubsection.7.13.1.78}%
+\contentsline {subsubsection}{\numberline {7.13.1.79}Fx6}{172}{subsubsection.7.13.1.79}%
+\contentsline {subsubsection}{\numberline {7.13.1.80}Fx7}{172}{subsubsection.7.13.1.80}%
+\contentsline {subsubsection}{\numberline {7.13.1.81}G0}{172}{subsubsection.7.13.1.81}%
+\contentsline {subsubsection}{\numberline {7.13.1.82}G1}{172}{subsubsection.7.13.1.82}%
+\contentsline {subsubsection}{\numberline {7.13.1.83}G2}{172}{subsubsection.7.13.1.83}%
+\contentsline {subsubsection}{\numberline {7.13.1.84}G3}{172}{subsubsection.7.13.1.84}%
+\contentsline {subsubsection}{\numberline {7.13.1.85}G4}{173}{subsubsection.7.13.1.85}%
+\contentsline {subsubsection}{\numberline {7.13.1.86}G5}{173}{subsubsection.7.13.1.86}%
+\contentsline {subsubsection}{\numberline {7.13.1.87}G6}{173}{subsubsection.7.13.1.87}%
+\contentsline {subsubsection}{\numberline {7.13.1.88}G7}{173}{subsubsection.7.13.1.88}%
+\contentsline {subsubsection}{\numberline {7.13.1.89}Gx0}{173}{subsubsection.7.13.1.89}%
+\contentsline {subsubsection}{\numberline {7.13.1.90}Gx1}{173}{subsubsection.7.13.1.90}%
+\contentsline {subsubsection}{\numberline {7.13.1.91}Gx2}{174}{subsubsection.7.13.1.91}%
+\contentsline {subsubsection}{\numberline {7.13.1.92}Gx3}{174}{subsubsection.7.13.1.92}%
+\contentsline {subsubsection}{\numberline {7.13.1.93}Gx4}{174}{subsubsection.7.13.1.93}%
+\contentsline {subsubsection}{\numberline {7.13.1.94}Gx5}{174}{subsubsection.7.13.1.94}%
+\contentsline {subsubsection}{\numberline {7.13.1.95}Gx6}{174}{subsubsection.7.13.1.95}%
+\contentsline {subsubsection}{\numberline {7.13.1.96}Gx7}{174}{subsubsection.7.13.1.96}%
+\contentsline {section}{\numberline {7.14}buzzer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}pitches\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}16bit.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{175}{section.7.14}%
+\contentsline {section}{\numberline {7.15}buzzer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}pitches\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}8bit.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{176}{section.7.15}%
+\contentsline {subsection}{\numberline {7.15.1}Macro Definition Documentation}{177}{subsection.7.15.1}%
+\contentsline {subsubsection}{\numberline {7.15.1.1}A0}{177}{subsubsection.7.15.1.1}%
+\contentsline {subsubsection}{\numberline {7.15.1.2}A1}{177}{subsubsection.7.15.1.2}%
+\contentsline {subsubsection}{\numberline {7.15.1.3}A2}{177}{subsubsection.7.15.1.3}%
+\contentsline {subsubsection}{\numberline {7.15.1.4}Ax0}{177}{subsubsection.7.15.1.4}%
+\contentsline {subsubsection}{\numberline {7.15.1.5}Ax1}{177}{subsubsection.7.15.1.5}%
+\contentsline {subsubsection}{\numberline {7.15.1.6}Ax2}{178}{subsubsection.7.15.1.6}%
+\contentsline {subsubsection}{\numberline {7.15.1.7}B0}{178}{subsubsection.7.15.1.7}%
+\contentsline {subsubsection}{\numberline {7.15.1.8}B1}{178}{subsubsection.7.15.1.8}%
+\contentsline {subsubsection}{\numberline {7.15.1.9}B2}{178}{subsubsection.7.15.1.9}%
+\contentsline {subsubsection}{\numberline {7.15.1.10}C1}{178}{subsubsection.7.15.1.10}%
+\contentsline {subsubsection}{\numberline {7.15.1.11}C2}{178}{subsubsection.7.15.1.11}%
+\contentsline {subsubsection}{\numberline {7.15.1.12}C3}{179}{subsubsection.7.15.1.12}%
+\contentsline {subsubsection}{\numberline {7.15.1.13}Cx0}{179}{subsubsection.7.15.1.13}%
+\contentsline {subsubsection}{\numberline {7.15.1.14}Cx2}{179}{subsubsection.7.15.1.14}%
+\contentsline {subsubsection}{\numberline {7.15.1.15}Cx3}{179}{subsubsection.7.15.1.15}%
+\contentsline {subsubsection}{\numberline {7.15.1.16}D1}{179}{subsubsection.7.15.1.16}%
+\contentsline {subsubsection}{\numberline {7.15.1.17}D2}{179}{subsubsection.7.15.1.17}%
+\contentsline {subsubsection}{\numberline {7.15.1.18}D3}{180}{subsubsection.7.15.1.18}%
+\contentsline {subsubsection}{\numberline {7.15.1.19}Dx0}{180}{subsubsection.7.15.1.19}%
+\contentsline {subsubsection}{\numberline {7.15.1.20}Dx2}{180}{subsubsection.7.15.1.20}%
+\contentsline {subsubsection}{\numberline {7.15.1.21}Dx3}{180}{subsubsection.7.15.1.21}%
+\contentsline {subsubsection}{\numberline {7.15.1.22}E1}{180}{subsubsection.7.15.1.22}%
+\contentsline {subsubsection}{\numberline {7.15.1.23}E2}{180}{subsubsection.7.15.1.23}%
+\contentsline {subsubsection}{\numberline {7.15.1.24}E3}{181}{subsubsection.7.15.1.24}%
+\contentsline {subsubsection}{\numberline {7.15.1.25}F1}{181}{subsubsection.7.15.1.25}%
+\contentsline {subsubsection}{\numberline {7.15.1.26}F2}{181}{subsubsection.7.15.1.26}%
+\contentsline {subsubsection}{\numberline {7.15.1.27}F3}{181}{subsubsection.7.15.1.27}%
+\contentsline {subsubsection}{\numberline {7.15.1.28}Fx1}{181}{subsubsection.7.15.1.28}%
+\contentsline {subsubsection}{\numberline {7.15.1.29}Fx2}{181}{subsubsection.7.15.1.29}%
+\contentsline {subsubsection}{\numberline {7.15.1.30}Fx3}{182}{subsubsection.7.15.1.30}%
+\contentsline {subsubsection}{\numberline {7.15.1.31}G1}{182}{subsubsection.7.15.1.31}%
+\contentsline {subsubsection}{\numberline {7.15.1.32}G2}{182}{subsubsection.7.15.1.32}%
+\contentsline {subsubsection}{\numberline {7.15.1.33}G3}{182}{subsubsection.7.15.1.33}%
+\contentsline {subsubsection}{\numberline {7.15.1.34}Gx0}{182}{subsubsection.7.15.1.34}%
+\contentsline {subsubsection}{\numberline {7.15.1.35}Gx1}{182}{subsubsection.7.15.1.35}%
+\contentsline {subsubsection}{\numberline {7.15.1.36}Gx2}{183}{subsubsection.7.15.1.36}%
+\contentsline {section}{\numberline {7.16}buzzer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}pitches\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}8bit.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{183}{section.7.16}%
+\contentsline {section}{\numberline {7.17}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Make\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}X\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}X\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Compiler\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Id.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{183}{section.7.17}%
+\contentsline {subsection}{\numberline {7.17.1}Macro Definition Documentation}{184}{subsection.7.17.1}%
+\contentsline {subsubsection}{\numberline {7.17.1.1}ARCHITECTURE\_ID}{184}{subsubsection.7.17.1.1}%
+\contentsline {subsubsection}{\numberline {7.17.1.2}COMPILER\_ID}{184}{subsubsection.7.17.1.2}%
+\contentsline {subsubsection}{\numberline {7.17.1.3}CXX\_STD}{184}{subsubsection.7.17.1.3}%
+\contentsline {subsubsection}{\numberline {7.17.1.4}DEC}{184}{subsubsection.7.17.1.4}%
+\contentsline {subsubsection}{\numberline {7.17.1.5}HEX}{185}{subsubsection.7.17.1.5}%
+\contentsline {subsubsection}{\numberline {7.17.1.6}PLATFORM\_ID}{185}{subsubsection.7.17.1.6}%
+\contentsline {subsubsection}{\numberline {7.17.1.7}STRINGIFY}{185}{subsubsection.7.17.1.7}%
+\contentsline {subsubsection}{\numberline {7.17.1.8}STRINGIFY\_HELPER}{185}{subsubsection.7.17.1.8}%
+\contentsline {subsection}{\numberline {7.17.2}Function Documentation}{185}{subsection.7.17.2}%
+\contentsline {subsubsection}{\numberline {7.17.2.1}main()}{186}{subsubsection.7.17.2.1}%
+\contentsline {subsection}{\numberline {7.17.3}Variable Documentation}{186}{subsection.7.17.3}%
+\contentsline {subsubsection}{\numberline {7.17.3.1}info\_arch}{186}{subsubsection.7.17.3.1}%
+\contentsline {subsubsection}{\numberline {7.17.3.2}info\_compiler}{186}{subsubsection.7.17.3.2}%
+\contentsline {subsubsection}{\numberline {7.17.3.3}info\_language\_dialect\_default}{187}{subsubsection.7.17.3.3}%
+\contentsline {subsubsection}{\numberline {7.17.3.4}info\_platform}{187}{subsubsection.7.17.3.4}%
+\contentsline {section}{\numberline {7.18}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Make\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}X\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}X\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Compiler\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Id.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{187}{section.7.18}%
+\contentsline {section}{\numberline {7.19}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Motor.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{194}{section.7.19}%
+\contentsline {section}{\numberline {7.20}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Motor.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{195}{section.7.20}%
+\contentsline {section}{\numberline {7.21}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Motor.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{195}{section.7.21}%
+\contentsline {subsection}{\numberline {7.21.1}Detailed Description}{196}{subsection.7.21.1}%
+\contentsline {section}{\numberline {7.22}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Motor.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{198}{section.7.22}%
+\contentsline {section}{\numberline {7.23}Extern\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Interrupt.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{198}{section.7.23}%
+\contentsline {section}{\numberline {7.24}Extern\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Interrupt.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{199}{section.7.24}%
+\contentsline {section}{\numberline {7.25}Extern\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Interrupt.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{200}{section.7.25}%
+\contentsline {subsection}{\numberline {7.25.1}Detailed Description}{201}{subsection.7.25.1}%
+\contentsline {section}{\numberline {7.26}Extern\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Interrupt.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{203}{section.7.26}%
+\contentsline {section}{\numberline {7.27}ha\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}base.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{204}{section.7.27}%
+\contentsline {subsection}{\numberline {7.27.1}Detailed Description}{204}{subsection.7.27.1}%
+\contentsline {subsection}{\numberline {7.27.2}Macro Definition Documentation}{205}{subsection.7.27.2}%
+\contentsline {subsubsection}{\numberline {7.27.2.1}STR}{205}{subsubsection.7.27.2.1}%
+\contentsline {subsubsection}{\numberline {7.27.2.2}STRx}{205}{subsubsection.7.27.2.2}%
+\contentsline {section}{\numberline {7.28}ha\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}base.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{205}{section.7.28}%
+\contentsline {section}{\numberline {7.29}ha\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}m328p.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{206}{section.7.29}%
+\contentsline {subsection}{\numberline {7.29.1}Detailed Description}{209}{subsection.7.29.1}%
+\contentsline {subsection}{\numberline {7.29.2}Macro Definition Documentation}{210}{subsection.7.29.2}%
+\contentsline {subsubsection}{\numberline {7.29.2.1}ADC\_ADJUST\_RESULT\_LEFT}{210}{subsubsection.7.29.2.1}%
+\contentsline {subsubsection}{\numberline {7.29.2.2}ADC\_ADJUST\_RESULT\_RIGHT}{210}{subsubsection.7.29.2.2}%
+\contentsline {subsubsection}{\numberline {7.29.2.3}ADC\_CONVERSION\_COMPLETE\_INTERRUPT}{210}{subsubsection.7.29.2.3}%
+\contentsline {subsubsection}{\numberline {7.29.2.4}ADC\_DISABLE}{210}{subsubsection.7.29.2.4}%
+\contentsline {subsubsection}{\numberline {7.29.2.5}ADC\_DISABLE\_AUTOTRIGGER}{211}{subsubsection.7.29.2.5}%
+\contentsline {subsubsection}{\numberline {7.29.2.6}ADC\_DISABLE\_CONVERSION\_COMPLETE\_INTERRUPT}{211}{subsubsection.7.29.2.6}%
+\contentsline {subsubsection}{\numberline {7.29.2.7}ADC\_DISABLE\_DIGITAL\_INPUT\_REGISTER}{211}{subsubsection.7.29.2.7}%
+\contentsline {subsubsection}{\numberline {7.29.2.8}ADC\_ENABLE}{211}{subsubsection.7.29.2.8}%
+\contentsline {subsubsection}{\numberline {7.29.2.9}ADC\_ENABLE\_AUTOTRIGGER}{211}{subsubsection.7.29.2.9}%
+\contentsline {subsubsection}{\numberline {7.29.2.10}ADC\_ENABLE\_CONVERSION\_COMPLETE\_INTERRUPT}{211}{subsubsection.7.29.2.10}%
+\contentsline {subsubsection}{\numberline {7.29.2.11}ADC\_SELECT\_ANALOG\_INPUT}{212}{subsubsection.7.29.2.11}%
+\contentsline {subsubsection}{\numberline {7.29.2.12}ADC\_SELECT\_AUTO\_TRIGGER\_SOURCE}{212}{subsubsection.7.29.2.12}%
+\contentsline {subsubsection}{\numberline {7.29.2.13}ADC\_SELECT\_CLOCK\_PRESCALER}{212}{subsubsection.7.29.2.13}%
+\contentsline {subsubsection}{\numberline {7.29.2.14}ADC\_SELECT\_REF\_VOLTAGE}{212}{subsubsection.7.29.2.14}%
+\contentsline {subsubsection}{\numberline {7.29.2.15}ADC\_START\_CONVERSION}{212}{subsubsection.7.29.2.15}%
+\contentsline {subsubsection}{\numberline {7.29.2.16}ADC\_STOP\_CONVERSION}{212}{subsubsection.7.29.2.16}%
+\contentsline {subsubsection}{\numberline {7.29.2.17}EXT\_INT\_DISABLE\_INT0}{213}{subsubsection.7.29.2.17}%
+\contentsline {subsubsection}{\numberline {7.29.2.18}EXT\_INT\_DISABLE\_INT1}{213}{subsubsection.7.29.2.18}%
+\contentsline {subsubsection}{\numberline {7.29.2.19}EXT\_INT\_DISABLE\_PIN\_CHANGE\_INTERRUPT}{213}{subsubsection.7.29.2.19}%
+\contentsline {subsubsection}{\numberline {7.29.2.20}EXT\_INT\_DISABLE\_PIN\_CHANGE\_MASK\_PORTB}{213}{subsubsection.7.29.2.20}%
+\contentsline {subsubsection}{\numberline {7.29.2.21}EXT\_INT\_DISABLE\_PIN\_CHANGE\_MASK\_PORTC}{213}{subsubsection.7.29.2.21}%
+\contentsline {subsubsection}{\numberline {7.29.2.22}EXT\_INT\_DISABLE\_PIN\_CHANGE\_MASK\_PORTD}{213}{subsubsection.7.29.2.22}%
+\contentsline {subsubsection}{\numberline {7.29.2.23}EXT\_INT\_ENABLE\_INT0}{214}{subsubsection.7.29.2.23}%
+\contentsline {subsubsection}{\numberline {7.29.2.24}EXT\_INT\_ENABLE\_INT1}{214}{subsubsection.7.29.2.24}%
+\contentsline {subsubsection}{\numberline {7.29.2.25}EXT\_INT\_ENABLE\_PIN\_CHANGE\_INTERRUPT}{214}{subsubsection.7.29.2.25}%
+\contentsline {subsubsection}{\numberline {7.29.2.26}EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTB}{214}{subsubsection.7.29.2.26}%
+\contentsline {subsubsection}{\numberline {7.29.2.27}EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTC}{214}{subsubsection.7.29.2.27}%
+\contentsline {subsubsection}{\numberline {7.29.2.28}EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTD}{214}{subsubsection.7.29.2.28}%
+\contentsline {subsubsection}{\numberline {7.29.2.29}EXT\_INT\_INT0\_INTERRUPT}{215}{subsubsection.7.29.2.29}%
+\contentsline {subsubsection}{\numberline {7.29.2.30}EXT\_INT\_INT1\_INTERRUPT}{215}{subsubsection.7.29.2.30}%
+\contentsline {subsubsection}{\numberline {7.29.2.31}EXT\_INT\_PIN\_CHANGE\_PORTB\_INTERRUPT}{215}{subsubsection.7.29.2.31}%
+\contentsline {subsubsection}{\numberline {7.29.2.32}EXT\_INT\_PIN\_CHANGE\_PORTC\_INTERRUPT}{215}{subsubsection.7.29.2.32}%
+\contentsline {subsubsection}{\numberline {7.29.2.33}EXT\_INT\_PIN\_CHANGE\_PORTD\_INTERRUPT}{215}{subsubsection.7.29.2.33}%
+\contentsline {subsubsection}{\numberline {7.29.2.34}EXT\_INT\_SET\_INT0\_SENSE\_CONTROL}{215}{subsubsection.7.29.2.34}%
+\contentsline {subsubsection}{\numberline {7.29.2.35}EXT\_INT\_SET\_INT1\_SENSE\_CONTROL}{216}{subsubsection.7.29.2.35}%
+\contentsline {subsubsection}{\numberline {7.29.2.36}MCU\_ADC\_DISABLE}{216}{subsubsection.7.29.2.36}%
+\contentsline {subsubsection}{\numberline {7.29.2.37}MCU\_ADC\_ENABLE}{216}{subsubsection.7.29.2.37}%
+\contentsline {subsubsection}{\numberline {7.29.2.38}MCU\_BOD\_DISABLE}{216}{subsubsection.7.29.2.38}%
+\contentsline {subsubsection}{\numberline {7.29.2.39}MCU\_SELECT\_SLEEP\_MODE}{216}{subsubsection.7.29.2.39}%
+\contentsline {subsubsection}{\numberline {7.29.2.40}MCU\_SLEEP\_DISABLE}{216}{subsubsection.7.29.2.40}%
+\contentsline {subsubsection}{\numberline {7.29.2.41}MCU\_SLEEP\_ENABLE}{217}{subsubsection.7.29.2.41}%
+\contentsline {subsubsection}{\numberline {7.29.2.42}MCU\_SPI\_DISABLE}{217}{subsubsection.7.29.2.42}%
+\contentsline {subsubsection}{\numberline {7.29.2.43}MCU\_SPI\_ENABLE}{217}{subsubsection.7.29.2.43}%
+\contentsline {subsubsection}{\numberline {7.29.2.44}MCU\_TIMER0\_DISABLE}{217}{subsubsection.7.29.2.44}%
+\contentsline {subsubsection}{\numberline {7.29.2.45}MCU\_TIMER0\_ENABLE}{217}{subsubsection.7.29.2.45}%
+\contentsline {subsubsection}{\numberline {7.29.2.46}MCU\_TIMER1\_DISABLE}{217}{subsubsection.7.29.2.46}%
+\contentsline {subsubsection}{\numberline {7.29.2.47}MCU\_TIMER1\_ENABLE}{218}{subsubsection.7.29.2.47}%
+\contentsline {subsubsection}{\numberline {7.29.2.48}MCU\_TIMER2\_DISABLE}{218}{subsubsection.7.29.2.48}%
+\contentsline {subsubsection}{\numberline {7.29.2.49}MCU\_TIMER2\_ENABLE}{218}{subsubsection.7.29.2.49}%
+\contentsline {subsubsection}{\numberline {7.29.2.50}MCU\_TWI\_DISABLE}{218}{subsubsection.7.29.2.50}%
+\contentsline {subsubsection}{\numberline {7.29.2.51}MCU\_TWI\_ENABLE}{218}{subsubsection.7.29.2.51}%
+\contentsline {subsubsection}{\numberline {7.29.2.52}MCU\_USART0\_DISABLE}{218}{subsubsection.7.29.2.52}%
+\contentsline {subsubsection}{\numberline {7.29.2.53}MCU\_USART0\_ENABLE}{219}{subsubsection.7.29.2.53}%
+\contentsline {subsubsection}{\numberline {7.29.2.54}PUSHBUTTON\_DEBOUNCE\_TIME\_US}{219}{subsubsection.7.29.2.54}%
+\contentsline {subsubsection}{\numberline {7.29.2.55}PUSHBUTTON\_SAMPLING}{219}{subsubsection.7.29.2.55}%
+\contentsline {subsubsection}{\numberline {7.29.2.56}SERVOMOTOR\_TIMER\_ANGLE\_COUNT}{219}{subsubsection.7.29.2.56}%
+\contentsline {subsubsection}{\numberline {7.29.2.57}SERVOMOTOR\_TIMER\_PULSE\_WIDTH\_COUNT}{219}{subsubsection.7.29.2.57}%
+\contentsline {subsubsection}{\numberline {7.29.2.58}SPI\_CONTROL\_REGISTER}{220}{subsubsection.7.29.2.58}%
+\contentsline {subsubsection}{\numberline {7.29.2.59}SPI\_DATA\_REGISTER}{220}{subsubsection.7.29.2.59}%
+\contentsline {subsubsection}{\numberline {7.29.2.60}SPI\_DISABLE}{220}{subsubsection.7.29.2.60}%
+\contentsline {subsubsection}{\numberline {7.29.2.61}SPI\_DISABLE\_TRANSFER\_COMPLETE\_INTERRUPT}{220}{subsubsection.7.29.2.61}%
+\contentsline {subsubsection}{\numberline {7.29.2.62}SPI\_ENABLE}{220}{subsubsection.7.29.2.62}%
+\contentsline {subsubsection}{\numberline {7.29.2.63}SPI\_ENABLE\_TRANSFER\_COMPLETE\_INTERRUPT}{220}{subsubsection.7.29.2.63}%
+\contentsline {subsubsection}{\numberline {7.29.2.64}SPI\_MASTER\_MODE}{221}{subsubsection.7.29.2.64}%
+\contentsline {subsubsection}{\numberline {7.29.2.65}SPI\_SELECT\_CLOCK\_PRESCALER}{221}{subsubsection.7.29.2.65}%
+\contentsline {subsubsection}{\numberline {7.29.2.66}SPI\_SELECT\_DATA\_MODE}{221}{subsubsection.7.29.2.66}%
+\contentsline {subsubsection}{\numberline {7.29.2.67}SPI\_SELECT\_DATA\_ORDER}{221}{subsubsection.7.29.2.67}%
+\contentsline {subsubsection}{\numberline {7.29.2.68}SPI\_SELECT\_MASTER\_MODE}{221}{subsubsection.7.29.2.68}%
+\contentsline {subsubsection}{\numberline {7.29.2.69}SPI\_SELECT\_SLAVE\_MODE}{221}{subsubsection.7.29.2.69}%
+\contentsline {subsubsection}{\numberline {7.29.2.70}SPI\_STATUS\_REGISTER}{222}{subsubsection.7.29.2.70}%
+\contentsline {subsubsection}{\numberline {7.29.2.71}SPI\_TRANSFER\_COMPLETE}{222}{subsubsection.7.29.2.71}%
+\contentsline {subsubsection}{\numberline {7.29.2.72}SPI\_TRANSFER\_COMPLETE\_INTERRUPT}{222}{subsubsection.7.29.2.72}%
+\contentsline {subsubsection}{\numberline {7.29.2.73}SPI\_WRITE\_COLLISION}{222}{subsubsection.7.29.2.73}%
+\contentsline {subsubsection}{\numberline {7.29.2.74}TIMER0\_COM\_CHANNEL\_A\_INTERRUPT}{222}{subsubsection.7.29.2.74}%
+\contentsline {subsubsection}{\numberline {7.29.2.75}TIMER0\_COM\_CHANNEL\_B\_INTERRUPT}{222}{subsubsection.7.29.2.75}%
+\contentsline {subsubsection}{\numberline {7.29.2.76}TIMER0\_DISABLE\_COM\_CHANNEL\_A\_INTERRUPT}{223}{subsubsection.7.29.2.76}%
+\contentsline {subsubsection}{\numberline {7.29.2.77}TIMER0\_DISABLE\_COM\_CHANNEL\_B\_INTERRUPT}{223}{subsubsection.7.29.2.77}%
+\contentsline {subsubsection}{\numberline {7.29.2.78}TIMER0\_DISABLE\_OVERFLOW\_INTERRUPT}{223}{subsubsection.7.29.2.78}%
+\contentsline {subsubsection}{\numberline {7.29.2.79}TIMER0\_ENABLE\_COM\_CHANNEL\_A\_INTERRUPT}{223}{subsubsection.7.29.2.79}%
+\contentsline {subsubsection}{\numberline {7.29.2.80}TIMER0\_ENABLE\_COM\_CHANNEL\_B\_INTERRUPT}{223}{subsubsection.7.29.2.80}%
+\contentsline {subsubsection}{\numberline {7.29.2.81}TIMER0\_ENABLE\_OVERFLOW\_INTERRUPT}{223}{subsubsection.7.29.2.81}%
+\contentsline {subsubsection}{\numberline {7.29.2.82}TIMER0\_OVERFLOW\_INTERRUPT}{224}{subsubsection.7.29.2.82}%
+\contentsline {subsubsection}{\numberline {7.29.2.83}TIMER0\_SELECT\_CLOCK\_SOURCE}{224}{subsubsection.7.29.2.83}%
+\contentsline {subsubsection}{\numberline {7.29.2.84}TIMER0\_SELECT\_COM\_CHANNEL\_A}{224}{subsubsection.7.29.2.84}%
+\contentsline {subsubsection}{\numberline {7.29.2.85}TIMER0\_SELECT\_COM\_CHANNEL\_B}{224}{subsubsection.7.29.2.85}%
+\contentsline {subsubsection}{\numberline {7.29.2.86}TIMER0\_SELECT\_OPERATION\_MODE}{224}{subsubsection.7.29.2.86}%
+\contentsline {subsubsection}{\numberline {7.29.2.87}TIMER0\_STOP}{224}{subsubsection.7.29.2.87}%
+\contentsline {subsubsection}{\numberline {7.29.2.88}TIMER1\_COM\_CHANNEL\_A\_INTERRUPT}{225}{subsubsection.7.29.2.88}%
+\contentsline {subsubsection}{\numberline {7.29.2.89}TIMER1\_COM\_CHANNEL\_B\_INTERRUPT}{225}{subsubsection.7.29.2.89}%
+\contentsline {subsubsection}{\numberline {7.29.2.90}TIMER1\_DISABLE\_COM\_CHANNEL\_A\_INTERRUPT}{225}{subsubsection.7.29.2.90}%
+\contentsline {subsubsection}{\numberline {7.29.2.91}TIMER1\_DISABLE\_COM\_CHANNEL\_B\_INTERRUPT}{225}{subsubsection.7.29.2.91}%
+\contentsline {subsubsection}{\numberline {7.29.2.92}TIMER1\_DISABLE\_INPUT\_CAPTURE\_INTERRUPT}{225}{subsubsection.7.29.2.92}%
+\contentsline {subsubsection}{\numberline {7.29.2.93}TIMER1\_DISABLE\_OVERFLOW\_INTERRUPT}{225}{subsubsection.7.29.2.93}%
+\contentsline {subsubsection}{\numberline {7.29.2.94}TIMER1\_ENABLE\_COM\_CHANNEL\_A\_INTERRUPT}{226}{subsubsection.7.29.2.94}%
+\contentsline {subsubsection}{\numberline {7.29.2.95}TIMER1\_ENABLE\_COM\_CHANNEL\_B\_INTERRUPT}{226}{subsubsection.7.29.2.95}%
+\contentsline {subsubsection}{\numberline {7.29.2.96}TIMER1\_ENABLE\_INPUT\_CAPTURE\_INTERRUPT}{226}{subsubsection.7.29.2.96}%
+\contentsline {subsubsection}{\numberline {7.29.2.97}TIMER1\_ENABLE\_OVERFLOW\_INTERRUPT}{226}{subsubsection.7.29.2.97}%
+\contentsline {subsubsection}{\numberline {7.29.2.98}TIMER1\_INPUT\_CAPTURE\_INTERRUPT}{226}{subsubsection.7.29.2.98}%
+\contentsline {subsubsection}{\numberline {7.29.2.99}TIMER1\_OVERFLOW\_INTERRUPT}{226}{subsubsection.7.29.2.99}%
+\contentsline {subsubsection}{\numberline {7.29.2.100}TIMER1\_SELECT\_CLOCK\_SOURCE}{227}{subsubsection.7.29.2.100}%
+\contentsline {subsubsection}{\numberline {7.29.2.101}TIMER1\_SELECT\_COM\_CHANNEL\_A}{227}{subsubsection.7.29.2.101}%
+\contentsline {subsubsection}{\numberline {7.29.2.102}TIMER1\_SELECT\_COM\_CHANNEL\_B}{227}{subsubsection.7.29.2.102}%
+\contentsline {subsubsection}{\numberline {7.29.2.103}TIMER1\_SELECT\_OPERATION\_MODE}{227}{subsubsection.7.29.2.103}%
+\contentsline {subsubsection}{\numberline {7.29.2.104}TIMER1\_STOP}{227}{subsubsection.7.29.2.104}%
+\contentsline {subsubsection}{\numberline {7.29.2.105}TIMER2\_COM\_CHANNEL\_A\_INTERRUPT}{227}{subsubsection.7.29.2.105}%
+\contentsline {subsubsection}{\numberline {7.29.2.106}TIMER2\_COM\_CHANNEL\_B\_INTERRUPT}{228}{subsubsection.7.29.2.106}%
+\contentsline {subsubsection}{\numberline {7.29.2.107}TIMER2\_DISABLE\_COM\_CHANNEL\_A\_INTERRUPT}{228}{subsubsection.7.29.2.107}%
+\contentsline {subsubsection}{\numberline {7.29.2.108}TIMER2\_DISABLE\_COM\_CHANNEL\_B\_INTERRUPT}{228}{subsubsection.7.29.2.108}%
+\contentsline {subsubsection}{\numberline {7.29.2.109}TIMER2\_DISABLE\_OVERFLOW\_INTERRUPT}{228}{subsubsection.7.29.2.109}%
+\contentsline {subsubsection}{\numberline {7.29.2.110}TIMER2\_ENABLE\_COM\_CHANNEL\_A\_INTERRUPT}{228}{subsubsection.7.29.2.110}%
+\contentsline {subsubsection}{\numberline {7.29.2.111}TIMER2\_ENABLE\_COM\_CHANNEL\_B\_INTERRUPT}{228}{subsubsection.7.29.2.111}%
+\contentsline {subsubsection}{\numberline {7.29.2.112}TIMER2\_ENABLE\_OVERFLOW\_INTERRUPT}{229}{subsubsection.7.29.2.112}%
+\contentsline {subsubsection}{\numberline {7.29.2.113}TIMER2\_OVERFLOW\_INTERRUPT}{229}{subsubsection.7.29.2.113}%
+\contentsline {subsubsection}{\numberline {7.29.2.114}TIMER2\_SELECT\_CLOCK\_SOURCE}{229}{subsubsection.7.29.2.114}%
+\contentsline {subsubsection}{\numberline {7.29.2.115}TIMER2\_SELECT\_COM\_CHANNEL\_A}{229}{subsubsection.7.29.2.115}%
+\contentsline {subsubsection}{\numberline {7.29.2.116}TIMER2\_SELECT\_COM\_CHANNEL\_B}{229}{subsubsection.7.29.2.116}%
+\contentsline {subsubsection}{\numberline {7.29.2.117}TIMER2\_SELECT\_OPERATION\_MODE}{229}{subsubsection.7.29.2.117}%
+\contentsline {subsubsection}{\numberline {7.29.2.118}TIMER2\_STOP}{230}{subsubsection.7.29.2.118}%
+\contentsline {subsubsection}{\numberline {7.29.2.119}USART0\_CONTROL\_STATUS\_REGISTER}{230}{subsubsection.7.29.2.119}%
+\contentsline {subsubsection}{\numberline {7.29.2.120}USART0\_DATA\_OVERRUN}{230}{subsubsection.7.29.2.120}%
+\contentsline {subsubsection}{\numberline {7.29.2.121}USART0\_DATA\_REGISTER}{230}{subsubsection.7.29.2.121}%
+\contentsline {subsubsection}{\numberline {7.29.2.122}USART0\_DATA\_REGISTER\_EMPTY\_INTERRUPT}{230}{subsubsection.7.29.2.122}%
+\contentsline {subsubsection}{\numberline {7.29.2.123}USART0\_DISABLE\_DATA\_REGISTER\_EMPTY\_INTERRUPT}{230}{subsubsection.7.29.2.123}%
+\contentsline {subsubsection}{\numberline {7.29.2.124}USART0\_DISABLE\_DOUBLE\_SPEED\_MODE\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{231}{subsubsection.7.29.2.124}%
+\contentsline {subsubsection}{\numberline {7.29.2.125}USART0\_DISABLE\_DOUBLE\_SPEED\_MODE\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{231}{subsubsection.7.29.2.125}%
+\contentsline {subsubsection}{\numberline {7.29.2.126}USART0\_DISABLE\_PARITY\_MODE}{231}{subsubsection.7.29.2.126}%
+\contentsline {subsubsection}{\numberline {7.29.2.127}USART0\_DISABLE\_RECEIVE\_COMPLETE\_INTERRUPT}{231}{subsubsection.7.29.2.127}%
+\contentsline {subsubsection}{\numberline {7.29.2.128}USART0\_DISABLE\_RECEIVER}{231}{subsubsection.7.29.2.128}%
+\contentsline {subsubsection}{\numberline {7.29.2.129}USART0\_DISABLE\_TRANSMIT\_COMPLETE\_INTERRUPT}{231}{subsubsection.7.29.2.129}%
+\contentsline {subsubsection}{\numberline {7.29.2.130}USART0\_DISABLE\_TRANSMITTER}{232}{subsubsection.7.29.2.130}%
+\contentsline {subsubsection}{\numberline {7.29.2.131}USART0\_ENABLE\_ASYNC\_TRANSMISSION\_MODE}{232}{subsubsection.7.29.2.131}%
+\contentsline {subsubsection}{\numberline {7.29.2.132}USART0\_ENABLE\_DATA\_REGISTER\_EMPTY\_INTERRUPT}{232}{subsubsection.7.29.2.132}%
+\contentsline {subsubsection}{\numberline {7.29.2.133}USART0\_ENABLE\_DOUBLE\_SPEED\_MODE}{232}{subsubsection.7.29.2.133}%
+\contentsline {subsubsection}{\numberline {7.29.2.134}USART0\_ENABLE\_EVEN\_PARITY\_MODE}{232}{subsubsection.7.29.2.134}%
+\contentsline {subsubsection}{\numberline {7.29.2.135}USART0\_ENABLE\_MASTER\_SPI\_MODE}{232}{subsubsection.7.29.2.135}%
+\contentsline {subsubsection}{\numberline {7.29.2.136}USART0\_ENABLE\_ODD\_PARITY\_MODE}{233}{subsubsection.7.29.2.136}%
+\contentsline {subsubsection}{\numberline {7.29.2.137}USART0\_ENABLE\_RECEIVE\_COMPLETE\_INTERRUPT}{233}{subsubsection.7.29.2.137}%
+\contentsline {subsubsection}{\numberline {7.29.2.138}USART0\_ENABLE\_RECEIVER}{233}{subsubsection.7.29.2.138}%
+\contentsline {subsubsection}{\numberline {7.29.2.139}USART0\_ENABLE\_SYNC\_TRANSMISSION\_MODE}{233}{subsubsection.7.29.2.139}%
+\contentsline {subsubsection}{\numberline {7.29.2.140}USART0\_ENABLE\_TRANSMIT\_COMPLETE\_INTERRUPT}{233}{subsubsection.7.29.2.140}%
+\contentsline {subsubsection}{\numberline {7.29.2.141}USART0\_ENABLE\_TRANSMITTER}{233}{subsubsection.7.29.2.141}%
+\contentsline {subsubsection}{\numberline {7.29.2.142}USART0\_FRAME\_ERROR}{234}{subsubsection.7.29.2.142}%
+\contentsline {subsubsection}{\numberline {7.29.2.143}USART0\_PARITY\_ERROR}{234}{subsubsection.7.29.2.143}%
+\contentsline {subsubsection}{\numberline {7.29.2.144}USART0\_RECEIVE\_COMPLETE\_INTERRUPT}{234}{subsubsection.7.29.2.144}%
+\contentsline {subsubsection}{\numberline {7.29.2.145}USART0\_SET\_5BIT\_FRAME\_SIZE}{234}{subsubsection.7.29.2.145}%
+\contentsline {subsubsection}{\numberline {7.29.2.146}USART0\_SET\_6BIT\_FRAME\_SIZE}{234}{subsubsection.7.29.2.146}%
+\contentsline {subsubsection}{\numberline {7.29.2.147}USART0\_SET\_7BIT\_FRAME\_SIZE}{235}{subsubsection.7.29.2.147}%
+\contentsline {subsubsection}{\numberline {7.29.2.148}USART0\_SET\_8BIT\_FRAME\_SIZE}{235}{subsubsection.7.29.2.148}%
+\contentsline {subsubsection}{\numberline {7.29.2.149}USART0\_SET\_9BIT\_FRAME\_SIZE}{235}{subsubsection.7.29.2.149}%
+\contentsline {subsubsection}{\numberline {7.29.2.150}USART0\_SET\_BAUDRATE\_HIGH\_REGISTER}{235}{subsubsection.7.29.2.150}%
+\contentsline {subsubsection}{\numberline {7.29.2.151}USART0\_SET\_BAUDRATE\_LOW\_REGISTER}{235}{subsubsection.7.29.2.151}%
+\contentsline {subsubsection}{\numberline {7.29.2.152}USART0\_SET\_ONE\_STOP\_BIT}{236}{subsubsection.7.29.2.152}%
+\contentsline {subsubsection}{\numberline {7.29.2.153}USART0\_SET\_TWO\_STOP\_BITS}{236}{subsubsection.7.29.2.153}%
+\contentsline {subsubsection}{\numberline {7.29.2.154}USART0\_TRANSMIT\_COMPLETE\_INTERRUPT}{236}{subsubsection.7.29.2.154}%
+\contentsline {subsubsection}{\numberline {7.29.2.155}WATCHDOG\_SELECT\_TIMEOUT}{236}{subsubsection.7.29.2.155}%
+\contentsline {subsubsection}{\numberline {7.29.2.156}WATCHDOG\_START}{236}{subsubsection.7.29.2.156}%
+\contentsline {subsubsection}{\numberline {7.29.2.157}WATCHDOG\_STOP}{236}{subsubsection.7.29.2.157}%
+\contentsline {subsubsection}{\numberline {7.29.2.158}WATCHDOG\_TIMEOUT\_INTERRUPT}{237}{subsubsection.7.29.2.158}%
+\contentsline {section}{\numberline {7.30}ha\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}m328p.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{237}{section.7.30}%
+\contentsline {section}{\numberline {7.31}L\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}D.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{241}{section.7.31}%
+\contentsline {section}{\numberline {7.32}L\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}D.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{241}{section.7.32}%
+\contentsline {section}{\numberline {7.33}L\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}D.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{241}{section.7.33}%
+\contentsline {section}{\numberline {7.34}L\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}D.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{241}{section.7.34}%
+\contentsline {section}{\numberline {7.35}Led.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{241}{section.7.35}%
+\contentsline {section}{\numberline {7.36}Led.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{241}{section.7.36}%
+\contentsline {section}{\numberline {7.37}Led.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{242}{section.7.37}%
+\contentsline {subsection}{\numberline {7.37.1}Detailed Description}{243}{subsection.7.37.1}%
+\contentsline {section}{\numberline {7.38}Led.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{243}{section.7.38}%
+\contentsline {section}{\numberline {7.39}main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{244}{section.7.39}%
+\contentsline {subsection}{\numberline {7.39.1}Detailed Description}{244}{subsection.7.39.1}%
+\contentsline {subsection}{\numberline {7.39.2}Macro Definition Documentation}{245}{subsection.7.39.2}%
+\contentsline {subsubsection}{\numberline {7.39.2.1}PIN\_NUMBER}{245}{subsubsection.7.39.2.1}%
+\contentsline {subsubsection}{\numberline {7.39.2.2}TIMEDELAY}{245}{subsubsection.7.39.2.2}%
+\contentsline {subsection}{\numberline {7.39.3}Function Documentation}{245}{subsection.7.39.3}%
+\contentsline {subsubsection}{\numberline {7.39.3.1}main()}{245}{subsubsection.7.39.3.1}%
+\contentsline {section}{\numberline {7.40}main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{246}{section.7.40}%
+\contentsline {section}{\numberline {7.41}M\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}U.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{246}{section.7.41}%
+\contentsline {section}{\numberline {7.42}M\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}U.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{246}{section.7.42}%
+\contentsline {section}{\numberline {7.43}M\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}U.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{248}{section.7.43}%
+\contentsline {subsection}{\numberline {7.43.1}Detailed Description}{249}{subsection.7.43.1}%
+\contentsline {section}{\numberline {7.44}M\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}U.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{250}{section.7.44}%
+\contentsline {section}{\numberline {7.45}Pin.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{250}{section.7.45}%
+\contentsline {section}{\numberline {7.46}Pin.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{251}{section.7.46}%
+\contentsline {section}{\numberline {7.47}Pin.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{252}{section.7.47}%
+\contentsline {section}{\numberline {7.48}Pin.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{253}{section.7.48}%
+\contentsline {section}{\numberline {7.49}Push\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Button.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{253}{section.7.49}%
+\contentsline {section}{\numberline {7.50}Push\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Button.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{254}{section.7.50}%
+\contentsline {section}{\numberline {7.51}Push\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Button.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{255}{section.7.51}%
+\contentsline {subsection}{\numberline {7.51.1}Detailed Description}{256}{subsection.7.51.1}%
+\contentsline {section}{\numberline {7.52}Push\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Button.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{257}{section.7.52}%
+\contentsline {section}{\numberline {7.53}Servo\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Motor.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{257}{section.7.53}%
+\contentsline {section}{\numberline {7.54}Servo\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Motor.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{257}{section.7.54}%
+\contentsline {section}{\numberline {7.55}Servo\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Motor.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{259}{section.7.55}%
+\contentsline {subsection}{\numberline {7.55.1}Detailed Description}{260}{subsection.7.55.1}%
+\contentsline {section}{\numberline {7.56}Servo\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Motor.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{262}{section.7.56}%
+\contentsline {section}{\numberline {7.57}S\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}P\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}I.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{263}{section.7.57}%
+\contentsline {section}{\numberline {7.58}S\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}P\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}I.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{263}{section.7.58}%
+\contentsline {section}{\numberline {7.59}S\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}P\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}I.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{265}{section.7.59}%
+\contentsline {subsection}{\numberline {7.59.1}Detailed Description}{266}{subsection.7.59.1}%
+\contentsline {section}{\numberline {7.60}S\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}P\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}I.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{267}{section.7.60}%
+\contentsline {section}{\numberline {7.61}Stepper\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Motor.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{268}{section.7.61}%
+\contentsline {section}{\numberline {7.62}Stepper\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Motor.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{268}{section.7.62}%
+\contentsline {section}{\numberline {7.63}Stepper\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Motor.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{273}{section.7.63}%
+\contentsline {section}{\numberline {7.64}Stepper\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Motor.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{274}{section.7.64}%
+\contentsline {section}{\numberline {7.65}Timer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Counter.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{275}{section.7.65}%
+\contentsline {subsection}{\numberline {7.65.1}Detailed Description}{276}{subsection.7.65.1}%
+\contentsline {section}{\numberline {7.66}Timer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Counter.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{285}{section.7.66}%
+\contentsline {section}{\numberline {7.67}Timer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Counter0.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{287}{section.7.67}%
+\contentsline {section}{\numberline {7.68}Timer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Counter0.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{287}{section.7.68}%
+\contentsline {section}{\numberline {7.69}Timer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Counter0.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{290}{section.7.69}%
+\contentsline {section}{\numberline {7.70}Timer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Counter0.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{291}{section.7.70}%
+\contentsline {section}{\numberline {7.71}Timer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Counter1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{292}{section.7.71}%
+\contentsline {section}{\numberline {7.72}Timer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Counter1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{293}{section.7.72}%
+\contentsline {section}{\numberline {7.73}Timer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Counter1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{297}{section.7.73}%
+\contentsline {section}{\numberline {7.74}Timer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Counter1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{298}{section.7.74}%
+\contentsline {section}{\numberline {7.75}Timer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Counter2.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{299}{section.7.75}%
+\contentsline {section}{\numberline {7.76}Timer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Counter2.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{299}{section.7.76}%
+\contentsline {section}{\numberline {7.77}Timer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Counter2.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{302}{section.7.77}%
+\contentsline {section}{\numberline {7.78}Timer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Counter2.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{303}{section.7.78}%
+\contentsline {section}{\numberline {7.79}U\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}S\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}A\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}R\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}T0.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{304}{section.7.79}%
+\contentsline {section}{\numberline {7.80}U\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}S\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}A\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}R\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}T0.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{305}{section.7.80}%
+\contentsline {section}{\numberline {7.81}U\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}S\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}A\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}R\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}T0.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{310}{section.7.81}%
+\contentsline {subsection}{\numberline {7.81.1}Detailed Description}{311}{subsection.7.81.1}%
+\contentsline {section}{\numberline {7.82}U\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}S\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}A\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}R\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}T0.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{312}{section.7.82}%
+\contentsline {section}{\numberline {7.83}utils\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}m328p.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{313}{section.7.83}%
+\contentsline {section}{\numberline {7.84}utils\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}m328p.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{314}{section.7.84}%
+\contentsline {section}{\numberline {7.85}utils\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}m328p.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{314}{section.7.85}%
+\contentsline {section}{\numberline {7.86}utils\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}m328p.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{315}{section.7.86}%
+\contentsline {section}{\numberline {7.87}Watchdog\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Timer.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{315}{section.7.87}%
+\contentsline {section}{\numberline {7.88}Watchdog\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Timer.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{315}{section.7.88}%
+\contentsline {section}{\numberline {7.89}Watchdog\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Timer.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{316}{section.7.89}%
+\contentsline {subsection}{\numberline {7.89.1}Detailed Description}{317}{subsection.7.89.1}%
+\contentsline {section}{\numberline {7.90}Watchdog\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Timer.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{318}{section.7.90}%
+\contentsline {chapter}{Index}{321}{section*.198}%

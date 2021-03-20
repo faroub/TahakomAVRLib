@@ -1,0 +1,618 @@
+\hypertarget{TimerCounter_8h}{}\doxysection{Timer\+Counter.\+h File Reference}
+\label{TimerCounter_8h}\index{TimerCounter.h@{TimerCounter.h}}
+
+
+Header file of the Timer\+Counter class.  
+
+
+{\ttfamily \#include \char`\"{}ha\+\_\+base.\+h\char`\"{}}\newline
+Include dependency graph for Timer\+Counter.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{TimerCounter_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{TimerCounter_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcore_1_1TimerCounter}{core\+::\+Timer\+Counter}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacecore}{core}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{core\+::channel}} \+: uint8\+\_\+t \{ \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}{core\+::channel\+::A}} =0, 
+\mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a9d5ed678fe57bcca610140957afab571}{core\+::channel\+::B}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950}{core\+::compare\+Output\+Mode}} \+: uint8\+\_\+t \{ \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950afea087517c26fadd409bd4b9dc642555}{core\+::compare\+Output\+Mode\+::normal}} =0, 
+\mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950a41f984bb082af806e510740db289125d}{core\+::compare\+Output\+Mode\+::toggle}}, 
+\mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950a01bc6f8efa4202821e95f4fdf6298b30}{core\+::compare\+Output\+Mode\+::clear}}, 
+\mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950acdaeeeba9b4a4c5ebf042c0215a7bb0e}{core\+::compare\+Output\+Mode\+::set}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4}{core\+::operation\+Mode}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4afea087517c26fadd409bd4b9dc642555}{core\+::operation\+Mode\+::normal}} =0, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a49196b0d24edb1a822132784eeffd5f3}{core\+::operation\+Mode\+::\+P\+W\+M\+\_\+\+PC}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4adc060b12f2a8c2ed0449043878c8dee9}{core\+::operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+C\+\_\+8bit}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a4092d7289a007c7c583325a9d0277d16}{core\+::operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+C\+\_\+9bit}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a7ec819df84b0dca3945c08b65a98fe41}{core\+::operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+C\+\_\+10bit}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a3ce160e6a1ac5bb1a58b465499a234f4}{core\+::operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+F\+C\+\_\+\+I\+CR}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a596199601954f751d5b9b35c7b06e7a0}{core\+::operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+F\+C\+\_\+\+O\+CR}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a8ef607651fb404e5e7bbf24fde8be544}{core\+::operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+C\+\_\+\+I\+CR}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4aaf87e8ea80940150346ebe17612ee70e}{core\+::operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+C\+\_\+\+O\+CR}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a9bb3db07673e063e5eaadd3547848399}{core\+::operation\+Mode\+::fast\+\_\+\+P\+WM}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4ae8ba4e6d60ad9c0ab7f2c9b1c1942a41}{core\+::operation\+Mode\+::fast\+\_\+\+P\+W\+M\+\_\+8bit}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a95ac8af4ebc841d7ebb3bbf25d5713ef}{core\+::operation\+Mode\+::fast\+\_\+\+P\+W\+M\+\_\+9bit}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a1df38a580f76d74bd1e84c27764fdc41}{core\+::operation\+Mode\+::fast\+\_\+\+P\+W\+M\+\_\+10bit}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4afc3f15b740f731d2d2ef7d32fac6d071}{core\+::operation\+Mode\+::fast\+\_\+\+P\+W\+M\+\_\+\+I\+CR}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4ada00392d2f289eb77f4575d0371d9e90}{core\+::operation\+Mode\+::fast\+\_\+\+P\+W\+M\+\_\+\+O\+CR}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a9a9708b23d4611d606d2cab182ad99e5}{core\+::operation\+Mode\+::\+C\+T\+C\+\_\+\+O\+CR}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a04690e34407e7b99353ce910f8c1a4a0}{core\+::operation\+Mode\+::\+C\+T\+C\+\_\+\+I\+CR}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a2414c252176310b2c04547257948c7b7}{core\+::operation\+Mode\+::interrupt}} =1, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a86266ee937d97f812a8e57d22b62ee29}{core\+::operation\+Mode\+::reset}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a81ac0c5a7b37b4e3166d6e3067c70b9c}{core\+::operation\+Mode\+::interrupt\+\_\+reset}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1}{core\+::clock\+Source}} \+: uint16\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a8142d11a166d596eb441b277c1f41a13}{core\+::clock\+Source\+::no\+Clock}} =0, 
+\mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1aaf2c699cdfcc3d8a67c38889aea60156}{core\+::clock\+Source\+::\+P\+S\+\_\+1}}, 
+\mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1ae31444bf5c3424161080f9d328fd7955}{core\+::clock\+Source\+::\+P\+S\+\_\+8}}, 
+\mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1ae4540d7f3a807bc544222beb154275f3}{core\+::clock\+Source\+::\+P\+S\+\_\+32}}, 
+\newline
+\mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a97fb148ab1accd5462d69022d83b0ced}{core\+::clock\+Source\+::\+P\+S\+\_\+64}}, 
+\mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a5a748dfea8b6fda9f52e24f961378197}{core\+::clock\+Source\+::\+P\+S\+\_\+128}}, 
+\mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1adc97a6c0356fdc030a8256db81ea738d}{core\+::clock\+Source\+::\+P\+S\+\_\+256}}, 
+\mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a7fd03524c99e729c687d1057c771f11d}{core\+::clock\+Source\+::\+P\+S\+\_\+1024}}, 
+\newline
+\mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1ae10b1d2d5e76776ac271c7ef3dcba483}{core\+::clock\+Source\+::extern\+\_\+\+Clock\+\_\+\+T0\+\_\+\+Falling\+\_\+\+Edge}}, 
+\mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a85eda940954f04d0e630e77d7e16b421}{core\+::clock\+Source\+::extern\+\_\+\+Clock\+\_\+\+T0\+\_\+\+Rising\+\_\+\+Edge}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file of the Timer\+Counter class. 
+
+Basic class for abstraction of the Timer\+Counter peripherals.
+
+\begin{DoxyAuthor}{Author}
+Farid Oubbati (\href{https://github.com/faroub}{\texttt{ https\+://github.\+com/faroub}}) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+March 2020
+\end{DoxyDate}
+Basic class for abstraction of the Timer\+Counter peripherals.
+
+Usage example (Reaction Timer)\+: \#include \char`\"{}\+Timer\+Counter.\+h\char`\"{} \#include \char`\"{}\+U\+S\+A\+R\+T0.\+h\char`\"{} \#include \char`\"{}\+Push\+Button.\+h\char`\"{} \#include \char`\"{}\+Led.\+h\char`\"{}
+
+void random\+Delay(void); void print\+Word(uint16\+\_\+t word);
+
+instantiate the Counter object extern \mbox{\hyperlink{classcore_1_1TimerCounter}{core\+::\+Timer\+Counter}}  \mbox{\hyperlink{classcore_1_1TimerCounter}{core\+::\+Timer\+Counter}} \&my\+Counter = core\+::\+Timer\+Counter\+::get\+Instance\+Timer\+Counter0();
+
+instantiate the U\+S\+A\+R\+T0 object extern \mbox{\hyperlink{classio_1_1USART0}{io\+::\+U\+S\+A\+R\+T0}}  \mbox{\hyperlink{classio_1_1USART0}{io\+::\+U\+S\+A\+R\+T0}} \&my\+U\+S\+A\+R\+T0 = \mbox{\hyperlink{classio_1_1USART0_ac3f9fa641ed5ea5628fd8fa65848ae0e}{io\+::\+U\+S\+A\+R\+T0\+::get\+Instance()}};
+
+\#define B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE 1 \#define L\+E\+D\+\_\+\+N\+U\+M\+B\+ER 0 \#define P\+U\+S\+H\+B\+U\+T\+T\+O\+N\+\_\+\+N\+U\+M\+B\+ER 2
+
+int \mbox{\hyperlink{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}{main(void)}} \{
+
+Init uint16\+\_\+t timer\+Value;
+
+char l\+\_\+receiver\+Buffer\mbox{[}B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE\mbox{]};
+
+\begin{DoxyVerb}myCounter.selectClockSource(core::timerCounter::timerCounter1, core::clockSource::PS_1024);
+\end{DoxyVerb}
+
+
+/ instantiate a Led object \mbox{\hyperlink{classcomponent_1_1Led}{component\+::\+Led}} Led(io\+::\+Pin(\+L\+E\+D\+\_\+\+N\+U\+M\+B\+E\+R,io\+::\+Port\+B));
+
+instantiate a Led object \mbox{\hyperlink{classcomponent_1_1PushButton}{component\+::\+Push\+Button}} Push\+Button(io\+::\+Pin(\+P\+U\+S\+H\+B\+U\+T\+T\+O\+N\+\_\+\+N\+U\+M\+B\+E\+R,io\+::\+Port\+D));
+
+ready to send flag uint8\+\_\+t l\+\_\+ready2\+Send = 1;
+
+if (my\+U\+S\+A\+R\+T0.\+ready2\+Send()) \{ my\+U\+S\+A\+R\+T0.\+send\+String(\char`\"{}\+Reaction Timer\+:\textbackslash{}r\textbackslash{}n\char`\"{}); \}
+
+wait to send next string while (!my\+U\+S\+A\+R\+T0.ready2\+Send())\{\};
+
+if (my\+U\+S\+A\+R\+T0.\+ready2\+Send()) \{ my\+U\+S\+A\+R\+T0.\+send\+String(\char`\"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\textbackslash{}r\textbackslash{}n\char`\"{}); \}
+
+wait to send next string while (!my\+U\+S\+A\+R\+T0.ready2\+Send())\{\};
+
+if (my\+U\+S\+A\+R\+T0.\+ready2\+Send()) \{ my\+U\+S\+A\+R\+T0.\+send\+String(\char`\"{}\+Press any key to start.\textbackslash{}r\textbackslash{}n\char`\"{}); \}
+
+Mainloop while (1) \{
+
+my\+U\+S\+A\+R\+T0.\+receive\+Frame(reinterpret\+\_\+cast$<$uint8\+\_\+t$\ast$$>$(l\+\_\+receiver\+Buffer),\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E);
+
+wait for a key press while (!my\+U\+S\+A\+R\+T0.get\+Number\+Bytes\+Received()) \{
+
+\}
+
+reset number of bytes after extracting the received data my\+U\+S\+A\+R\+T0.\+reset\+Number\+Bytes\+Received();
+
+wait to send next string while (!my\+U\+S\+A\+R\+T0.ready2\+Send())\{\};
+
+if (my\+U\+S\+A\+R\+T0.\+ready2\+Send()) \{ my\+U\+S\+A\+R\+T0.\+send\+String(\char`\"{}\textbackslash{}r\textbackslash{}n\+Get ready...\char`\"{}); \}
+
+random\+Delay();
+
+wait to send next string while (!my\+U\+S\+A\+R\+T0.ready2\+Send())\{\};
+
+if (my\+U\+S\+A\+R\+T0.\+ready2\+Send()) \{ my\+U\+S\+A\+R\+T0.\+send\+String(\char`\"{}\textbackslash{}r\textbackslash{}n\+Go!\textbackslash{}r\textbackslash{}n\char`\"{}); \}
+
+Led.\+on();
+
+my\+Counter.\+set\+Counter(core\+::timer\+Counter\+::timer\+Counter1,0);
+
+if (Push\+Button.\+is\+Pressed()) \{ wait to send next string while (!my\+U\+S\+A\+R\+T0.ready2\+Send())\{\};
+
+if (my\+U\+S\+A\+R\+T0.\+ready2\+Send()) \{ my\+U\+S\+A\+R\+T0.\+send\+String(\char`\"{}\+You\textquotesingle{}re only cheating yourself.\textbackslash{}r\textbackslash{}n\char`\"{}); \}
+
+\} else \{
+
+wait for a button press while (!\+Push\+Button.is\+Pressed()) \{
+
+\} get counter value my\+Counter.\+get\+Counter(core\+::timer\+Counter\+::timer\+Counter1, \&timer\+Value); bit shift divide by 16 = 2$^\wedge$4 to convert from micro to millseconds timer\+Value = timer\+Value $>$$>$ 4; print response time print\+Word(timer\+Value); \}
+
+Led.\+off();
+
+while (!my\+U\+S\+A\+R\+T0.ready2\+Send())\{\};
+
+if (my\+U\+S\+A\+R\+T0.\+ready2\+Send()) \{ my\+U\+S\+A\+R\+T0.\+send\+String(\char`\"{}\textbackslash{}r\textbackslash{}n\+Press any key to try again.\textbackslash{}r\textbackslash{}n\char`\"{}); \}
+
+\} return 0; \}
+
+void random\+Delay(void) \{
+
+Waits for a \char`\"{}random\char`\"{} delay from 1 -\/ 3.\+5 sec Requires timer 1 initialized and running It\textquotesingle{}s not really random, but very hard to control --like coin-\/flipping. \begin{DoxyVerb}uint16_t counter;
+_delay_ms(1000);
+
+myCounter.getCounter(core::timerCounter::timerCounter1, &counter);
+uint8_t randomTime = static_cast<uint8_t>(counter);
+\end{DoxyVerb}
+ type-\/casting the 16-\/bit T\+C\+N\+T1 as an 8-\/bit number keeps only the 8 least-\/significant (fastest-\/changing) bits \begin{DoxyVerb}while (--randomTime) {
+_delay_ms(10);
+}
+}
+
+void printWord(uint16_t word) {
+
+while (!myUSART0.ready2Send()){};
+
+if (myUSART0.ready2Send())
+{
+    myUSART0.sendByte('0' + (word / 10000));
+
+}
+
+while (!myUSART0.ready2Send()){};
+
+
+if (myUSART0.ready2Send())
+{
+    myUSART0.sendByte('0' + ((word / 1000) % 10));
+}
+
+while (!myUSART0.ready2Send()){};
+
+
+if (myUSART0.ready2Send())
+{
+    myUSART0.sendByte('0' + ((word / 100) % 10));
+}
+
+
+while (!myUSART0.ready2Send()){};
+
+if (myUSART0.ready2Send())
+{
+    myUSART0.sendByte('0' + ((word / 10) % 10));
+}
+
+
+
+while (!myUSART0.ready2Send()){};
+
+if (myUSART0.ready2Send())
+{
+    myUSART0.sendByte('0' + (word % 10));
+}
+
+}
+void printWord(uint16_t word) {
+
+char timerValue = '0' + (word / 10000);
+
+while (!myUSART0.ready2Send()){};
+
+if (myUSART0.ready2Send())
+{
+   myUSART0.sendFrame(reinterpret_cast<uint8_t*>(&timerValue),BUFFER_SIZE);
+
+}
+
+timerValue = '0' + ((word / 1000) % 10);
+
+while (!myUSART0.ready2Send()){};
+
+
+if (myUSART0.ready2Send())
+{
+   myUSART0.sendFrame(reinterpret_cast<uint8_t*>(&timerValue),BUFFER_SIZE);
+
+}
+
+timerValue = '0' + ((word / 100) % 10);
+
+while (!myUSART0.ready2Send()){};
+
+
+if (myUSART0.ready2Send())
+{
+   myUSART0.sendFrame(reinterpret_cast<uint8_t*>(&timerValue),BUFFER_SIZE);
+
+}
+timerValue = '0' + ((word / 10) % 10);
+
+while (!myUSART0.ready2Send()){};
+
+if (myUSART0.ready2Send())
+{
+   myUSART0.sendFrame(reinterpret_cast<uint8_t*>(&timerValue),BUFFER_SIZE);
+
+}
+
+timerValue = '0' + (word % 10);
+
+while (!myUSART0.ready2Send()){};
+
+if (myUSART0.ready2Send())
+{
+   myUSART0.sendFrame(reinterpret_cast<uint8_t*>(&timerValue),BUFFER_SIZE);
+
+}
+
+}
+\end{DoxyVerb}
+
+
+Usage example (P\+WM)\+:
+
+\#include \char`\"{}\+Led.\+h\char`\"{} \#include \char`\"{}\+U\+S\+A\+R\+T0.\+h\char`\"{} \#include \char`\"{}\+Timer\+Counter1.\+h\char`\"{} \#include \char`\"{}\+Timer\+Counter2.\+h\char`\"{}
+
+uint8\+\_\+t get\+Number(const char $\ast$ap\+\_\+receive);
+
+\#define L\+E\+D\+\_\+1 1 \#define L\+E\+D\+\_\+2 2 \#define L\+E\+D\+\_\+3 3 \#define B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE 4
+
+int \mbox{\hyperlink{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}{main(void)}} \{
+
+Init receiver buffer char l\+\_\+receiver\+Buffer\mbox{[}B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE\mbox{]};
+
+instantiate Led objects \mbox{\hyperlink{classcomponent_1_1Led}{component\+::\+Led}} Led1(io\+::\+Pin(\+L\+E\+D\+\_\+1,io\+::\+Port\+B)); \mbox{\hyperlink{classcomponent_1_1Led}{component\+::\+Led}} Led2(io\+::\+Pin(\+L\+E\+D\+\_\+2,io\+::\+Port\+B)); \mbox{\hyperlink{classcomponent_1_1Led}{component\+::\+Led}} Led3(io\+::\+Pin(\+L\+E\+D\+\_\+3,io\+::\+Port\+B));
+
+instantiate U\+S\+A\+R\+T0 object \mbox{\hyperlink{classio_1_1USART0}{io\+::\+U\+S\+A\+R\+T0}} \&my\+U\+S\+A\+R\+T0 = \mbox{\hyperlink{classio_1_1USART0_ac3f9fa641ed5ea5628fd8fa65848ae0e}{io\+::\+U\+S\+A\+R\+T0\+::get\+Instance()}};
+
+instantiate Timer1 object \mbox{\hyperlink{classcore_1_1TimerCounter1}{core\+::\+Timer\+Counter1}} \&my\+Timer\+Counter1 = \mbox{\hyperlink{classcore_1_1TimerCounter1_ae23c48d6837365686e205a6feea0e0f1}{core\+::\+Timer\+Counter1\+::get\+Instance()}}; my\+Timer\+Counter1.\+select\+Operation\+Mode(core\+::operation\+Mode\+::\+Fast\+\_\+\+P\+W\+M\+\_\+8bit); my\+Timer\+Counter1.\+select\+Compare\+Output\+Mode(core\+::channel\+::\+A,core\+::compare\+Output\+Mode\+::\+Clear); my\+Timer\+Counter1.\+select\+Compare\+Output\+Mode(core\+::channel\+::\+B,core\+::compare\+Output\+Mode\+::\+Clear); instantiate Timer2 object \mbox{\hyperlink{classcore_1_1TimerCounter2}{core\+::\+Timer\+Counter2}} \&my\+Timer\+Counter2 = \mbox{\hyperlink{classcore_1_1TimerCounter2_a9f8c4d2107d34b5ca30c6bcace69c1df}{core\+::\+Timer\+Counter2\+::get\+Instance()}}; my\+Timer\+Counter2.\+select\+Operation\+Mode(core\+::operation\+Mode\+::\+Fast\+\_\+\+P\+W\+M); my\+Timer\+Counter2.\+select\+Compare\+Output\+Mode(core\+::channel\+::\+A,core\+::compare\+Output\+Mode\+::\+Clear);
+
+if (my\+U\+S\+A\+R\+T0.\+ready2\+Send()) \{ my\+U\+S\+A\+R\+T0.\+send\+String(\char`\"{}-\/-\/ L\+E\+D P\+W\+M Demo -\/-\/\textbackslash{}r\textbackslash{}n\char`\"{}); \} wait to send next string while (!my\+U\+S\+A\+R\+T0.ready2\+Send())\{\}
+
+my\+Timer\+Counter1.\+start(core\+::clock\+Source\+::\+P\+S\+\_\+64); my\+Timer\+Counter2.\+start(core\+::clock\+Source\+::\+P\+S\+\_\+64);
+
+-\/-\/-\/--- Event loop -\/-\/-\/--- // while (1) \{ \begin{DoxyVerb}if (myUSART0.ready2Send())
+{
+    myUSART0.sendString("\r\nEnter (0-255) for PWM duty cycle: ");
+}
+
+myUSART0.receiveFrame(reinterpret_cast<uint8_t*>(l_receiverBuffer),BUFFER_SIZE);
+\end{DoxyVerb}
+
+
+wait for a key press while (my\+U\+S\+A\+R\+T0.\+get\+Number\+Bytes\+Received()$<$4)\{\}
+
+reset number of bytes after extracting the received data my\+U\+S\+A\+R\+T0.\+reset\+Number\+Bytes\+Received();
+
+send back the received character if (my\+U\+S\+A\+R\+T0.\+ready2\+Send()) \{ my\+U\+S\+A\+R\+T0.\+send\+Frame(reinterpret\+\_\+cast$<$uint8\+\_\+t$\ast$$>$(l\+\_\+receiver\+Buffer),\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E); \}
+
+while (!my\+U\+S\+A\+R\+T0.ready2\+Send())\{\} my\+Timer\+Counter2.\+set\+Output\+Compare\+Register(\mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}{core\+::channel\+::A}},my\+Timer\+Counter1.\+get\+Output\+Compare\+Register(core\+::channel\+::\+B)); my\+Timer\+Counter1.\+set\+Output\+Compare\+Register(\mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a9d5ed678fe57bcca610140957afab571}{core\+::channel\+::B}},my\+Timer\+Counter1.\+get\+Output\+Compare\+Register(core\+::channel\+::\+A)); my\+Timer\+Counter1.\+set\+Output\+Compare\+Register(core\+::channel\+::\+A,get\+Number(l\+\_\+receiver\+Buffer));
+
+\begin{DoxyVerb}}
+return 0;
+\end{DoxyVerb}
+ \}
+
+uint8\+\_\+t get\+Number(const char $\ast$ap\+\_\+receive) \{ Gets a numerical 0-\/255 from the serial port. Converts from string to number. char hundreds = \textquotesingle{}0\textquotesingle{}; char tens = \textquotesingle{}0\textquotesingle{}; char ones = \textquotesingle{}0\textquotesingle{}; char this\+Char = \textquotesingle{}0\textquotesingle{}; do \{ hundreds = tens; tens = ones; ones = this\+Char; this\+Char = $\ast$ap\+\_\+receive; ap\+\_\+receive++;
+
+\} while ($\ast$ap\+\_\+receive != \textquotesingle{}\textbackslash{}r\textquotesingle{}); return (100 $\ast$ (hundreds -\/ \textquotesingle{}0\textquotesingle{}) + 10 $\ast$ (tens -\/ \textquotesingle{}0\textquotesingle{}) + ones -\/ \textquotesingle{}0\textquotesingle{}); \}
+
+Usage example (P\+WM on Any Pin)\+:
+
+\#include \char`\"{}\+Timer\+Counter0.\+h\char`\"{} \#include \char`\"{}\+Led.\+h\char`\"{}
+
+\#define L\+E\+D\+\_\+0 0 \#define L\+E\+D\+\_\+1 1 \#define L\+E\+D\+\_\+2 2 \#define L\+E\+D\+\_\+3 3
+
+instantiate Timer0 object extern \mbox{\hyperlink{classcore_1_1TimerCounter0}{core\+::\+Timer\+Counter0}}  \mbox{\hyperlink{classcore_1_1TimerCounter0}{core\+::\+Timer\+Counter0}} \&my\+Timer\+Counter0 = \mbox{\hyperlink{classcore_1_1TimerCounter0_a38849b2debf04224214f0fe3a4e77124}{core\+::\+Timer\+Counter0\+::get\+Instance()}};
+
+instantiate Led objects extern \mbox{\hyperlink{classcomponent_1_1Led}{component\+::\+Led}} Led0; \mbox{\hyperlink{classcomponent_1_1Led}{component\+::\+Led}} Led0(io\+::\+Pin(\+L\+E\+D\+\_\+0,io\+::\+Port\+B)); extern \mbox{\hyperlink{classcomponent_1_1Led}{component\+::\+Led}} Led1; \mbox{\hyperlink{classcomponent_1_1Led}{component\+::\+Led}} Led1(io\+::\+Pin(\+L\+E\+D\+\_\+1,io\+::\+Port\+B)); extern \mbox{\hyperlink{classcomponent_1_1Led}{component\+::\+Led}} Led2; \mbox{\hyperlink{classcomponent_1_1Led}{component\+::\+Led}} Led2(io\+::\+Pin(\+L\+E\+D\+\_\+2,io\+::\+Port\+B)); extern \mbox{\hyperlink{classcomponent_1_1Led}{component\+::\+Led}} Led3; \mbox{\hyperlink{classcomponent_1_1Led}{component\+::\+Led}} Led3(io\+::\+Pin(\+L\+E\+D\+\_\+3,io\+::\+Port\+B));
+
+\#define D\+E\+L\+A\+Y\+T\+I\+ME 3
+
+volatile uint8\+\_\+t l\+\_\+brightnessA; volatile uint8\+\_\+t l\+\_\+brightnessB;
+
+int \mbox{\hyperlink{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}{main(void)}} \{
+
+Init uint8\+\_\+t i;
+
+sei();
+
+my\+Timer\+Counter0.\+enable\+Output\+Compare\+Match\+Interrupt(core\+::channel\+::\+A,1); my\+Timer\+Counter0.\+enable\+Output\+Compare\+Match\+Interrupt(core\+::channel\+::\+B,1); my\+Timer\+Counter0.\+enable\+Overflow\+Interrupt(1); my\+Timer\+Counter0.\+start(core\+::clock\+Source\+::\+P\+S\+\_\+1024);
+
+-\/-\/-\/--- Event loop -\/-\/-\/--- // while (1) \{ \begin{DoxyVerb}for (i = 0; i < 255; i++) {
+    _delay_ms(DELAYTIME);
+    l_brightnessA = i;
+    l_brightnessB = 255 - i;
+}
+for (i = 254; i > 0; i--) {
+    _delay_ms(DELAYTIME);
+    l_brightnessA = i;
+    l_brightnessB = 255 - i;
+}
+\end{DoxyVerb}
+
+
+\} return 0; \}
+
+\begin{DoxyVerb}void core::TimerCounter0::overflowServiceRoutine()
+{
+    Led0.on();
+    Led1.on();
+    Led2.on();
+    Led3.on();
+    myTimerCounter0.setOutputCompareRegister(core::channel::A,l_brightnessA);
+    myTimerCounter0.setOutputCompareRegister(core::channel::B,l_brightnessB);
+}
+
+void core::TimerCounter0::outputCompareMatchAServiceRoutine()
+{
+    Led0.off();
+    Led1.off();
+    Led2.on();
+    Led3.on();
+}
+void core::TimerCounter0::outputCompareMatchBServiceRoutine()
+{
+    Led0.on();
+    Led1.on();
+    Led2.off();
+    Led3.off();
+}
+\end{DoxyVerb}
+
+
+\begin{DoxyAuthor}{Author}
+Farid Oubbati (\href{https://github.com/faroub}{\texttt{ https\+://github.\+com/faroub}}) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+March 2020
+\end{DoxyDate}
+Basic class for abstraction of the Timer\+Counter peripherals.
+
+Usage example (Reaction Timer)\+: \#include \char`\"{}\+Timer\+Counter.\+h\char`\"{} \#include \char`\"{}\+U\+S\+A\+R\+T0.\+h\char`\"{} \#include \char`\"{}\+Push\+Button.\+h\char`\"{} \#include \char`\"{}\+Led.\+h\char`\"{}
+
+void random\+Delay(void); void print\+Word(uint16\+\_\+t word);
+
+instantiate the Counter object extern \mbox{\hyperlink{classcore_1_1TimerCounter}{core\+::\+Timer\+Counter}}  \mbox{\hyperlink{classcore_1_1TimerCounter}{core\+::\+Timer\+Counter}} \&my\+Counter = core\+::\+Timer\+Counter\+::get\+Instance\+Timer\+Counter0();
+
+instantiate the U\+S\+A\+R\+T0 object extern \mbox{\hyperlink{classio_1_1USART0}{io\+::\+U\+S\+A\+R\+T0}}  \mbox{\hyperlink{classio_1_1USART0}{io\+::\+U\+S\+A\+R\+T0}} \&my\+U\+S\+A\+R\+T0 = \mbox{\hyperlink{classio_1_1USART0_ac3f9fa641ed5ea5628fd8fa65848ae0e}{io\+::\+U\+S\+A\+R\+T0\+::get\+Instance()}};
+
+\#define B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE 1 \#define L\+E\+D\+\_\+\+N\+U\+M\+B\+ER 0 \#define P\+U\+S\+H\+B\+U\+T\+T\+O\+N\+\_\+\+N\+U\+M\+B\+ER 2
+
+int \mbox{\hyperlink{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}{main(void)}} \{
+
+Init uint16\+\_\+t timer\+Value;
+
+char l\+\_\+receiver\+Buffer\mbox{[}B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE\mbox{]};
+
+\begin{DoxyVerb}myCounter.selectClockSource(core::timerCounter::timerCounter1, core::clockSource::PS_1024);
+\end{DoxyVerb}
+
+
+/ instantiate a Led object \mbox{\hyperlink{classcomponent_1_1Led}{component\+::\+Led}} Led(io\+::\+Pin(\+L\+E\+D\+\_\+\+N\+U\+M\+B\+E\+R,io\+::\+Port\+B));
+
+instantiate a Led object \mbox{\hyperlink{classcomponent_1_1PushButton}{component\+::\+Push\+Button}} Push\+Button(io\+::\+Pin(\+P\+U\+S\+H\+B\+U\+T\+T\+O\+N\+\_\+\+N\+U\+M\+B\+E\+R,io\+::\+Port\+D));
+
+ready to send flag uint8\+\_\+t l\+\_\+ready2\+Send = 1;
+
+if (my\+U\+S\+A\+R\+T0.\+ready2\+Send()) \{ my\+U\+S\+A\+R\+T0.\+send\+String(\char`\"{}\+Reaction Timer\+:\textbackslash{}r\textbackslash{}n\char`\"{}); \}
+
+wait to send next string while (!my\+U\+S\+A\+R\+T0.ready2\+Send())\{\};
+
+if (my\+U\+S\+A\+R\+T0.\+ready2\+Send()) \{ my\+U\+S\+A\+R\+T0.\+send\+String(\char`\"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\textbackslash{}r\textbackslash{}n\char`\"{}); \}
+
+wait to send next string while (!my\+U\+S\+A\+R\+T0.ready2\+Send())\{\};
+
+if (my\+U\+S\+A\+R\+T0.\+ready2\+Send()) \{ my\+U\+S\+A\+R\+T0.\+send\+String(\char`\"{}\+Press any key to start.\textbackslash{}r\textbackslash{}n\char`\"{}); \}
+
+Mainloop while (1) \{
+
+my\+U\+S\+A\+R\+T0.\+receive\+Frame(reinterpret\+\_\+cast$<$uint8\+\_\+t$\ast$$>$(l\+\_\+receiver\+Buffer),\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E);
+
+wait for a key press while (!my\+U\+S\+A\+R\+T0.get\+Number\+Bytes\+Received()) \{
+
+\}
+
+reset number of bytes after extracting the received data my\+U\+S\+A\+R\+T0.\+reset\+Number\+Bytes\+Received();
+
+wait to send next string while (!my\+U\+S\+A\+R\+T0.ready2\+Send())\{\};
+
+if (my\+U\+S\+A\+R\+T0.\+ready2\+Send()) \{ my\+U\+S\+A\+R\+T0.\+send\+String(\char`\"{}\textbackslash{}r\textbackslash{}n\+Get ready...\char`\"{}); \}
+
+random\+Delay();
+
+wait to send next string while (!my\+U\+S\+A\+R\+T0.ready2\+Send())\{\};
+
+if (my\+U\+S\+A\+R\+T0.\+ready2\+Send()) \{ my\+U\+S\+A\+R\+T0.\+send\+String(\char`\"{}\textbackslash{}r\textbackslash{}n\+Go!\textbackslash{}r\textbackslash{}n\char`\"{}); \}
+
+Led.\+on();
+
+my\+Counter.\+set\+Counter(core\+::timer\+Counter\+::timer\+Counter1,0);
+
+if (Push\+Button.\+is\+Pressed()) \{ wait to send next string while (!my\+U\+S\+A\+R\+T0.ready2\+Send())\{\};
+
+if (my\+U\+S\+A\+R\+T0.\+ready2\+Send()) \{ my\+U\+S\+A\+R\+T0.\+send\+String(\char`\"{}\+You\textquotesingle{}re only cheating yourself.\textbackslash{}r\textbackslash{}n\char`\"{}); \}
+
+\} else \{
+
+wait for a button press while (!\+Push\+Button.is\+Pressed()) \{
+
+\} get counter value my\+Counter.\+get\+Counter(core\+::timer\+Counter\+::timer\+Counter1, \&timer\+Value); bit shift divide by 16 = 2$^\wedge$4 to convert from micro to millseconds timer\+Value = timer\+Value $>$$>$ 4; print response time print\+Word(timer\+Value); \}
+
+Led.\+off();
+
+while (!my\+U\+S\+A\+R\+T0.ready2\+Send())\{\};
+
+if (my\+U\+S\+A\+R\+T0.\+ready2\+Send()) \{ my\+U\+S\+A\+R\+T0.\+send\+String(\char`\"{}\textbackslash{}r\textbackslash{}n\+Press any key to try again.\textbackslash{}r\textbackslash{}n\char`\"{}); \}
+
+\} return 0; \}
+
+void random\+Delay(void) \{
+
+Waits for a \char`\"{}random\char`\"{} delay from 1 -\/ 3.\+5 sec Requires timer 1 initialized and running It\textquotesingle{}s not really random, but very hard to control --like coin-\/flipping. \begin{DoxyVerb}uint16_t counter;
+_delay_ms(1000);
+
+myCounter.getCounter(core::timerCounter::timerCounter1, &counter);
+uint8_t randomTime = static_cast<uint8_t>(counter);
+\end{DoxyVerb}
+ type-\/casting the 16-\/bit T\+C\+N\+T1 as an 8-\/bit number keeps only the 8 least-\/significant (fastest-\/changing) bits \begin{DoxyVerb}while (--randomTime) {
+_delay_ms(10);
+}
+}
+
+void printWord(uint16_t word) {
+
+while (!myUSART0.ready2Send()){};
+
+if (myUSART0.ready2Send())
+{
+    myUSART0.sendByte('0' + (word / 10000));
+
+}
+
+while (!myUSART0.ready2Send()){};
+
+
+if (myUSART0.ready2Send())
+{
+    myUSART0.sendByte('0' + ((word / 1000) % 10));
+}
+
+while (!myUSART0.ready2Send()){};
+
+
+if (myUSART0.ready2Send())
+{
+    myUSART0.sendByte('0' + ((word / 100) % 10));
+}
+
+
+while (!myUSART0.ready2Send()){};
+
+if (myUSART0.ready2Send())
+{
+    myUSART0.sendByte('0' + ((word / 10) % 10));
+}
+
+
+
+while (!myUSART0.ready2Send()){};
+
+if (myUSART0.ready2Send())
+{
+    myUSART0.sendByte('0' + (word % 10));
+}
+
+}
+void printWord(uint16_t word) {
+
+char timerValue = '0' + (word / 10000);
+
+while (!myUSART0.ready2Send()){};
+
+if (myUSART0.ready2Send())
+{
+   myUSART0.sendFrame(reinterpret_cast<uint8_t*>(&timerValue),BUFFER_SIZE);
+
+}
+
+timerValue = '0' + ((word / 1000) % 10);
+
+while (!myUSART0.ready2Send()){};
+
+
+if (myUSART0.ready2Send())
+{
+   myUSART0.sendFrame(reinterpret_cast<uint8_t*>(&timerValue),BUFFER_SIZE);
+
+}
+
+timerValue = '0' + ((word / 100) % 10);
+
+while (!myUSART0.ready2Send()){};
+
+
+if (myUSART0.ready2Send())
+{
+   myUSART0.sendFrame(reinterpret_cast<uint8_t*>(&timerValue),BUFFER_SIZE);
+
+}
+timerValue = '0' + ((word / 10) % 10);
+
+while (!myUSART0.ready2Send()){};
+
+if (myUSART0.ready2Send())
+{
+   myUSART0.sendFrame(reinterpret_cast<uint8_t*>(&timerValue),BUFFER_SIZE);
+
+}
+
+timerValue = '0' + (word % 10);
+
+while (!myUSART0.ready2Send()){};
+
+if (myUSART0.ready2Send())
+{
+   myUSART0.sendFrame(reinterpret_cast<uint8_t*>(&timerValue),BUFFER_SIZE);
+
+}
+
+}
+\end{DoxyVerb}
+
+
+Usage example (Reaction Timer)\+:
+
+\begin{DoxyAuthor}{Author}
+Farid Oubbati (\href{https://github.com/faroub}{\texttt{ https\+://github.\+com/faroub}}) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+March 2020 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{TimerCounter_8h_source}{Timer\+Counter.\+h}}.
+

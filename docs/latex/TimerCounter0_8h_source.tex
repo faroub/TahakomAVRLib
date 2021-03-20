@@ -1,0 +1,88 @@
+\hypertarget{TimerCounter0_8h_source}{}\doxysection{Timer\+Counter0.\+h}
+\label{TimerCounter0_8h_source}\index{TimerCounter0.h@{TimerCounter0.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 }
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{00268 \textcolor{preprocessor}{\#ifndef TIMER\_COUNTER0\_H}}
+\DoxyCodeLine{00269 \textcolor{preprocessor}{\#define TIMER\_COUNTER0\_H}}
+\DoxyCodeLine{00270 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{TimerCounter_8h}{TimerCounter.h}}"}}
+\DoxyCodeLine{00271 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{ha__base_8h}{ha\_base.h}}"}}
+\DoxyCodeLine{00272 }
+\DoxyCodeLine{00273 }
+\DoxyCodeLine{00274 }
+\DoxyCodeLine{00275 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacecore}{core}}}
+\DoxyCodeLine{00276 \{}
+\DoxyCodeLine{00277 }
+\DoxyCodeLine{00278 }
+\DoxyCodeLine{\Hypertarget{TimerCounter0_8h_source_l00279}\mbox{\hyperlink{classcore_1_1TimerCounter0}{00279}} \textcolor{keyword}{class }\mbox{\hyperlink{classcore_1_1TimerCounter0}{TimerCounter0}} : \textcolor{keyword}{public} \mbox{\hyperlink{classcore_1_1TimerCounter}{TimerCounter}}}
+\DoxyCodeLine{00280 \{}
+\DoxyCodeLine{00281 }
+\DoxyCodeLine{00282 \textcolor{keyword}{public}:}
+\DoxyCodeLine{00283 }
+\DoxyCodeLine{00284     \textcolor{keyword}{static} \mbox{\hyperlink{classcore_1_1TimerCounter0}{TimerCounter0}}\& \mbox{\hyperlink{classcore_1_1TimerCounter0_a38849b2debf04224214f0fe3a4e77124}{getInstance}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{channel}} \&ar\_channel = \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}{channel::A}},}
+\DoxyCodeLine{00285                                       \textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4}{operationMode}} \&ar\_operationMode = \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4afea087517c26fadd409bd4b9dc642555}{operationMode::normal}},}
+\DoxyCodeLine{00286                                       \textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1}{clockSource}} \&ar\_clockSource= \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a8142d11a166d596eb441b277c1f41a13}{clockSource::noClock}},}
+\DoxyCodeLine{00287                                       \textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950}{compareOutputMode}}\& ar\_compareOutputMode = \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950afea087517c26fadd409bd4b9dc642555}{compareOutputMode::normal}});}
+\DoxyCodeLine{00288 }
+\DoxyCodeLine{00289     \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1TimerCounter0_a1c37a4faf329a0c539aec53e473874d9}{selectOperationMode}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4}{operationMode}} \&ar\_operationMode) \textcolor{keyword}{override};}
+\DoxyCodeLine{00290 }
+\DoxyCodeLine{00291     \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1TimerCounter0_a77b4cbefb55b3bfb0d46890c2226459b}{start}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{00292 }
+\DoxyCodeLine{00293     \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1TimerCounter0_a74e413b10377189fd7bfc5be1065ad44}{stop}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{00294 }
+\DoxyCodeLine{00295     \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1TimerCounter0_aae3da9a882de37cd0d609e8dc0e15f00}{selectClockSource}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1}{clockSource}} \&ar\_clockSource) \textcolor{keyword}{override};}
+\DoxyCodeLine{00296 }
+\DoxyCodeLine{00297     \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1TimerCounter0_ace42b71582a993e758c00200082a4f39}{selectCompareOutputMode}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{channel}} \&ar\_channel, \textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950}{compareOutputMode}} \&ar\_compareOutputMode) \textcolor{keyword}{override};}
+\DoxyCodeLine{00298 }
+\DoxyCodeLine{00299     \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1TimerCounter0_acd4669d53301a6cf2ecd9a143d8c0e4b}{setCounter}}(\textcolor{keyword}{const} uint16\_t \&ar\_dataBuffer) \textcolor{keyword}{override};}
+\DoxyCodeLine{00300 }
+\DoxyCodeLine{00301     uint16\_t \mbox{\hyperlink{classcore_1_1TimerCounter0_adb14b27fbeddae3b6756a43049759aa5}{getCounter}}() \textcolor{keyword}{const override};}
+\DoxyCodeLine{00302 }
+\DoxyCodeLine{00303     \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1TimerCounter0_afcb226ada6e0f0619d28351188fe38b7}{setOutputCompareRegister}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{channel}} \&ar\_channel, \textcolor{keyword}{const} uint16\_t \&ar\_dataBuffer) \textcolor{keyword}{override};}
+\DoxyCodeLine{00304 }
+\DoxyCodeLine{00305     uint16\_t \mbox{\hyperlink{classcore_1_1TimerCounter0_a22c61d7a8438cb6ab31af473819877e9}{getOutputCompareRegister}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{channel}} \&ar\_channel) \textcolor{keyword}{const override};}
+\DoxyCodeLine{00306 }
+\DoxyCodeLine{00307     \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1TimerCounter0_a0125c01ed465998cca2d20aceb23405e}{enableOutputCompareMatchInterrupt}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{channel}} \&ar\_channel, \textcolor{keyword}{const} uint8\_t a\_enable) \textcolor{keyword}{override};}
+\DoxyCodeLine{00308 }
+\DoxyCodeLine{00309     \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1TimerCounter0_a5319170ee618915a61e6f93b6af8afc7}{enableOverflowInterrupt}}(\textcolor{keyword}{const} uint8\_t a\_enable) \textcolor{keyword}{override};}
+\DoxyCodeLine{00310 }
+\DoxyCodeLine{00311     uint16\_t \mbox{\hyperlink{classcore_1_1TimerCounter0_a6aa7463fb54d3712667971baffe33549}{getClockPrescaler}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{00312 }
+\DoxyCodeLine{\Hypertarget{TimerCounter0_8h_source_l00313}\mbox{\hyperlink{classcore_1_1TimerCounter0_a6637b7230478ba3adcdafeb5c5b72f40}{00313}}     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1TimerCounter0_a4fc43c2aef24039854b7ba2a1e67cd7e}{outputCompareMatchAServiceRoutine}}() \_\_asm\_\_(\mbox{\hyperlink{ha__base_8h_a6388870e639eee9c0a69446876f1f8cc}{STR}}(\mbox{\hyperlink{ha__m328p_8h_a2ee800929c88137a2c459e78d2431d25}{TIMER0\_COM\_CHANNEL\_A\_INTERRUPT}})) \_\_attribute\_\_((\_\_signal\_\_, \mbox{\hyperlink{classcore_1_1TimerCounter0_a6637b7230478ba3adcdafeb5c5b72f40}{\_\_used\_\_}}, \mbox{\hyperlink{classcore_1_1TimerCounter0_aeba75f2aabdff33c84e3f3ea1ae63a5c}{\_\_externally\_visible\_\_}}));}
+\DoxyCodeLine{00314 }
+\DoxyCodeLine{00315     static \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1TimerCounter0_a5785c2c04ffdbc23fe420b9f33d5caa4}{outputCompareMatchBServiceRoutine}}() \_\_asm\_\_(\mbox{\hyperlink{ha__base_8h_a6388870e639eee9c0a69446876f1f8cc}{STR}}(\mbox{\hyperlink{ha__m328p_8h_adf7f3a5df3d805ef260fbf0eff5553e4}{TIMER0\_COM\_CHANNEL\_B\_INTERRUPT}})) \_\_attribute\_\_((\_\_signal\_\_, \mbox{\hyperlink{classcore_1_1TimerCounter0_a6637b7230478ba3adcdafeb5c5b72f40}{\_\_used\_\_}}, \mbox{\hyperlink{classcore_1_1TimerCounter0_aeba75f2aabdff33c84e3f3ea1ae63a5c}{\_\_externally\_visible\_\_}}));}
+\DoxyCodeLine{00316 }
+\DoxyCodeLine{00317     static \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1TimerCounter0_a37d946fc7367a4e3712133e070aed535}{overflowServiceRoutine}}() \_\_asm\_\_(\mbox{\hyperlink{ha__base_8h_a6388870e639eee9c0a69446876f1f8cc}{STR}}(\mbox{\hyperlink{ha__m328p_8h_a84ea73f8d4f68d19a0b126337a5c0d94}{TIMER0\_OVERFLOW\_INTERRUPT}})) \_\_attribute\_\_((\_\_signal\_\_, \mbox{\hyperlink{classcore_1_1TimerCounter0_a6637b7230478ba3adcdafeb5c5b72f40}{\_\_used\_\_}}, \mbox{\hyperlink{classcore_1_1TimerCounter0_aeba75f2aabdff33c84e3f3ea1ae63a5c}{\_\_externally\_visible\_\_}}));}
+\DoxyCodeLine{00318 }
+\DoxyCodeLine{00319 }
+\DoxyCodeLine{00320 }
+\DoxyCodeLine{00321 protected:}
+\DoxyCodeLine{00322 }
+\DoxyCodeLine{00323 private:}
+\DoxyCodeLine{00324 }
+\DoxyCodeLine{00325     \mbox{\hyperlink{classcore_1_1TimerCounter0}{TimerCounter0}}(const \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{channel}} \&ar\_channel,}
+\DoxyCodeLine{00326                   const \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4}{operationMode}} \&ar\_operationMode,}
+\DoxyCodeLine{00327                   const \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1}{clockSource}} \&ar\_clockSource,}
+\DoxyCodeLine{00328                   const \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950}{compareOutputMode}}\& ar\_compareOutputMode);}
+\DoxyCodeLine{00329 }
+\DoxyCodeLine{00330     \string~\mbox{\hyperlink{classcore_1_1TimerCounter0}{TimerCounter0}}();}
+\DoxyCodeLine{00331 }
+\DoxyCodeLine{00334     \mbox{\hyperlink{classcore_1_1TimerCounter0}{TimerCounter0}}(const \mbox{\hyperlink{classcore_1_1TimerCounter0}{TimerCounter0}}\&);}
+\DoxyCodeLine{00335 }
+\DoxyCodeLine{00338     const \mbox{\hyperlink{classcore_1_1TimerCounter0}{TimerCounter0}}\& operator=(const \mbox{\hyperlink{classcore_1_1TimerCounter0}{TimerCounter0}}\&);}
+\DoxyCodeLine{00339 }
+\DoxyCodeLine{\Hypertarget{TimerCounter0_8h_source_l00340}\mbox{\hyperlink{classcore_1_1TimerCounter0_a9c6aafe9f14e25c53ad4b44101cd0c8a}{00340}}     uint16\_t \mbox{\hyperlink{classcore_1_1TimerCounter0_a9c6aafe9f14e25c53ad4b44101cd0c8a}{m\_clockPrescaler}};}
+\DoxyCodeLine{00341 }
+\DoxyCodeLine{\Hypertarget{TimerCounter0_8h_source_l00342}\mbox{\hyperlink{classcore_1_1TimerCounter0_ae0eaa8992557ff3ae0afbed238d64409}{00342}}     uint8\_t \mbox{\hyperlink{classcore_1_1TimerCounter0_ae0eaa8992557ff3ae0afbed238d64409}{m\_clockSource}};}
+\DoxyCodeLine{00343 }
+\DoxyCodeLine{00344 }
+\DoxyCodeLine{00345 }
+\DoxyCodeLine{00346 \};}
+\DoxyCodeLine{00347 }
+\DoxyCodeLine{00348 \}}
+\DoxyCodeLine{00349 }
+\DoxyCodeLine{00350 }
+\DoxyCodeLine{00351 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

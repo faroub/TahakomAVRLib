@@ -1,0 +1,676 @@
+\hypertarget{classcore_1_1ADConverter}{}\doxysection{core\+::A\+D\+Converter Class Reference}
+\label{classcore_1_1ADConverter}\index{core::ADConverter@{core::ADConverter}}
+
+
+{\ttfamily \#include $<$A\+D\+C.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcore_1_1ADConverter_a1c34fb433c5d245a9d1c991ba05f864b}{start}} ()
+\item 
+void \mbox{\hyperlink{classcore_1_1ADConverter_a5cfa7990b8495f8f52c8e1b279260a75}{stop}} ()
+\item 
+void \mbox{\hyperlink{classcore_1_1ADConverter_ac7e95d33e200289107adec35fe838b92}{select\+Reference\+Voltage}} (const \mbox{\hyperlink{namespacecore_a9bc91028526103cb0e5a3288177e1765}{reference\+Voltage}} \&ar\+\_\+ref\+Voltage)
+\item 
+void \mbox{\hyperlink{classcore_1_1ADConverter_a9dfdebc4b053eb3bc755dd9587672749}{select\+Analog\+Input}} (\mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}} a\+\_\+pin)
+\item 
+void \mbox{\hyperlink{classcore_1_1ADConverter_a75515d59eed5270ad25750bfa0433500}{select\+Clock\+Prescaler}} (const \mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13}{clock\+Prescaler}} \&ar\+\_\+clock\+Prescaler)
+\item 
+void \mbox{\hyperlink{classcore_1_1ADConverter_adaaf64d4778c92c8295d8cb5d4621f6e}{enable\+Conversion\+Complete\+Interrupt}} (const uint8\+\_\+t a\+\_\+enable)
+\item 
+void \mbox{\hyperlink{classcore_1_1ADConverter_a6cbfbe6a61aea3dbc2bcb16504b110fa}{enable\+Auto\+Trigger}} (const uint8\+\_\+t a\+\_\+enable)
+\item 
+void \mbox{\hyperlink{classcore_1_1ADConverter_abf29fcc6c59bb4104d6f2f7c3a44248b}{select\+Auto\+Trigger\+Source}} (const \mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764b}{auto\+Trigger\+Source}} \&ar\+\_\+auto\+Trigger\+Source)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classcore_1_1ADConverter_a24cf8a2eb2982ea92f4e9f61400f40a9}{conversion\+Complete}} ()
+\item 
+void \mbox{\hyperlink{classcore_1_1ADConverter_a642b9300355c74a7b1aa99793e6127fa}{get\+Conversion\+Result}} (uint16\+\_\+t $\ast$ap\+\_\+result\+Data, const \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570}{resolution}} \&ar\+\_\+resolution=\mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a2dfcad6aa6be091d9ae2d89cba912d73}{resolution\+::res\+\_\+10bit}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classcore_1_1ADConverter}{A\+D\+Converter}} \& \mbox{\hyperlink{classcore_1_1ADConverter_ab694a44ac256358e0301839daa51056e}{get\+Instance}} (const \mbox{\hyperlink{namespacecore_a9bc91028526103cb0e5a3288177e1765}{reference\+Voltage}} \&ar\+\_\+ref\+Voltage=\mbox{\hyperlink{namespacecore_a9bc91028526103cb0e5a3288177e1765a7553837f2d19afc93f5bbc9d84e097f3}{reference\+Voltage\+::\+A\+V\+CC}}, const \mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13}{clock\+Prescaler}} \&ar\+\_\+clock\+Prescaler=\mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13a5a748dfea8b6fda9f52e24f961378197}{clock\+Prescaler\+::\+P\+S\+\_\+128}}, const \mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764b}{auto\+Trigger\+Source}} \&ar\+\_\+auto\+Trigger\+Source=\mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764ba4f6e582ea390561732302e2cf48b2303}{auto\+Trigger\+Source\+::free\+Running}}, const \mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}} \&ar\+\_\+pin=\mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}}(0, \mbox{\hyperlink{namespaceio_ad2054cd0a9fee592c5cfb2bac3d52f7a}{io\+::\+PortC}}))
+\item 
+static void \mbox{\hyperlink{classcore_1_1ADConverter_ada8289d514b68378b1db9f3db4dfcdeb}{conversion\+Complete\+Service\+Routine}} () \+\_\+\+\_\+asm\+\_\+\+\_\+(\mbox{\hyperlink{ha__base_8h_a6388870e639eee9c0a69446876f1f8cc}{S\+TR}}(\mbox{\hyperlink{ha__m328p_8h_ae5248e7950c59ba60a467656054fcaa1}{A\+D\+C\+\_\+\+C\+O\+N\+V\+E\+R\+S\+I\+O\+N\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}})) \+\_\+\+\_\+attribute\+\_\+\+\_\+((\+\_\+\+\_\+signal\+\_\+\+\_\+
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classcore_1_1ADConverter_ade4fef5343a353c5cffc1df6a0f97520}{\+\_\+\+\_\+used\+\_\+\+\_\+}}
+\item 
+static void \mbox{\hyperlink{classcore_1_1ADConverter_a00392077bf78b69eea00ab1e4c5deb68}{\+\_\+\+\_\+externally\+\_\+visible\+\_\+\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcore_1_1ADConverter_a790ad79179a23f1994a2c663f78a1428}{A\+D\+Converter}} (const \mbox{\hyperlink{namespacecore_a9bc91028526103cb0e5a3288177e1765}{reference\+Voltage}} \&ar\+\_\+ref\+Voltage, const \mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13}{clock\+Prescaler}} \&ar\+\_\+clock\+Prescaler, const \mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764b}{auto\+Trigger\+Source}} \&ar\+\_\+auto\+Trigger\+Source, const \mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}} \&ar\+\_\+pin)
+\item 
+\mbox{\hyperlink{classcore_1_1ADConverter_ab36ffbc325ccc8fa258304453a5914e4}{$\sim$\+A\+D\+Converter}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcore_1_1ADConverter_a7ad71c8b5f4f0d7e2b711ab778f61fb5}{A\+D\+Converter}} (const \mbox{\hyperlink{classcore_1_1ADConverter}{A\+D\+Converter}} \&)
+\begin{DoxyCompactList}\small\item\em Overried Copy constructor. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classcore_1_1ADConverter}{A\+D\+Converter}} \& \mbox{\hyperlink{classcore_1_1ADConverter_a9beb1b2ccab9751d873bfd07e82b60c8}{operator=}} (const \mbox{\hyperlink{classcore_1_1ADConverter}{A\+D\+Converter}} \&)
+\begin{DoxyCompactList}\small\item\em Override assign operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static volatile uint16\+\_\+t $\ast$ \mbox{\hyperlink{classcore_1_1ADConverter_a7ddf0d6ae2c33bfb7ba36c4c50cbcf7c}{mp\+\_\+conversion\+Result}} = nullptr
+\begin{DoxyCompactList}\small\item\em pointer to receiver buffer \end{DoxyCompactList}\item 
+static uint8\+\_\+t \mbox{\hyperlink{classcore_1_1ADConverter_ad3e7f6a72d5e5947d8bf80180840271b}{m\+\_\+resolution}} = 10
+\begin{DoxyCompactList}\small\item\em pointer to receiver buffer \end{DoxyCompactList}\item 
+static volatile uint8\+\_\+t \mbox{\hyperlink{classcore_1_1ADConverter_af2fb401d865f4b863a9e4f8ba06c347f}{m\+\_\+conversion\+Complete}} = 0
+\begin{DoxyCompactList}\small\item\em ready to receive flag \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{ADC_8h_source_l00129}{129}} of file \mbox{\hyperlink{ADC_8h_source}{A\+D\+C.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcore_1_1ADConverter_a790ad79179a23f1994a2c663f78a1428}\label{classcore_1_1ADConverter_a790ad79179a23f1994a2c663f78a1428}} 
+\index{core::ADConverter@{core::ADConverter}!ADConverter@{ADConverter}}
+\index{ADConverter@{ADConverter}!core::ADConverter@{core::ADConverter}}
+\doxysubsubsection{\texorpdfstring{ADConverter()}{ADConverter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily core\+::\+A\+D\+Converter\+::\+A\+D\+Converter (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacecore_a9bc91028526103cb0e5a3288177e1765}{reference\+Voltage}} \&}]{ar\+\_\+ref\+Voltage,  }\item[{const \mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13}{clock\+Prescaler}} \&}]{ar\+\_\+clock\+Prescaler,  }\item[{const \mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764b}{auto\+Trigger\+Source}} \&}]{ar\+\_\+auto\+Trigger\+Source,  }\item[{const \mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}} \&}]{ar\+\_\+pin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{ADC_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{ADC_8cpp_source}{A\+D\+C.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027 \{}
+\DoxyCodeLine{00028     \mbox{\hyperlink{classcore_1_1MCU_abfe0f13a2c2f2cda37ea83393fedf050}{core::MCU::enableADC}}(1);}
+\DoxyCodeLine{00029     \mbox{\hyperlink{classcore_1_1ADConverter_a9dfdebc4b053eb3bc755dd9587672749}{selectAnalogInput}}(ar\_pin);}
+\DoxyCodeLine{00030     \mbox{\hyperlink{classcore_1_1ADConverter_ac7e95d33e200289107adec35fe838b92}{selectReferenceVoltage}}(ar\_refVoltage);}
+\DoxyCodeLine{00031     \mbox{\hyperlink{classcore_1_1ADConverter_a75515d59eed5270ad25750bfa0433500}{selectClockPrescaler}}(ar\_clockPrescaler);}
+\DoxyCodeLine{00032     \mbox{\hyperlink{classcore_1_1ADConverter_a6cbfbe6a61aea3dbc2bcb16504b110fa}{enableAutoTrigger}}(1);}
+\DoxyCodeLine{00033     \mbox{\hyperlink{classcore_1_1ADConverter_abf29fcc6c59bb4104d6f2f7c3a44248b}{selectAutoTriggerSource}}(ar\_autoTriggerSource);}
+\DoxyCodeLine{00034     sei();}
+\DoxyCodeLine{00035     \mbox{\hyperlink{classcore_1_1ADConverter_adaaf64d4778c92c8295d8cb5d4621f6e}{enableConversionCompleteInterrupt}}(1);}
+\DoxyCodeLine{00036 }
+\DoxyCodeLine{00037 }
+\DoxyCodeLine{00038 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{MCU_8cpp_source_l00117}{core\+::\+M\+C\+U\+::enable\+A\+D\+C()}}.
+
+\mbox{\Hypertarget{classcore_1_1ADConverter_ab36ffbc325ccc8fa258304453a5914e4}\label{classcore_1_1ADConverter_ab36ffbc325ccc8fa258304453a5914e4}} 
+\index{core::ADConverter@{core::ADConverter}!````~ADConverter@{$\sim$ADConverter}}
+\index{````~ADConverter@{$\sim$ADConverter}!core::ADConverter@{core::ADConverter}}
+\doxysubsubsection{\texorpdfstring{$\sim$ADConverter()}{~ADConverter()}}
+{\footnotesize\ttfamily core\+::\+A\+D\+Converter\+::$\sim$\+A\+D\+Converter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Destructor. 
+
+
+
+Definition at line \mbox{\hyperlink{ADC_8cpp_source_l00041}{41}} of file \mbox{\hyperlink{ADC_8cpp_source}{A\+D\+C.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042 \{}
+\DoxyCodeLine{00043 }
+\DoxyCodeLine{00044 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcore_1_1ADConverter_a7ad71c8b5f4f0d7e2b711ab778f61fb5}\label{classcore_1_1ADConverter_a7ad71c8b5f4f0d7e2b711ab778f61fb5}} 
+\index{core::ADConverter@{core::ADConverter}!ADConverter@{ADConverter}}
+\index{ADConverter@{ADConverter}!core::ADConverter@{core::ADConverter}}
+\doxysubsubsection{\texorpdfstring{ADConverter()}{ADConverter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily core\+::\+A\+D\+Converter\+::\+A\+D\+Converter (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcore_1_1ADConverter}{A\+D\+Converter}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Overried Copy constructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcore_1_1ADConverter_a24cf8a2eb2982ea92f4e9f61400f40a9}\label{classcore_1_1ADConverter_a24cf8a2eb2982ea92f4e9f61400f40a9}} 
+\index{core::ADConverter@{core::ADConverter}!conversionComplete@{conversionComplete}}
+\index{conversionComplete@{conversionComplete}!core::ADConverter@{core::ADConverter}}
+\doxysubsubsection{\texorpdfstring{conversionComplete()}{conversionComplete()}}
+{\footnotesize\ttfamily uint8\+\_\+t core\+::\+A\+D\+Converter\+::conversion\+Complete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ADC_8cpp_source_l00255}{255}} of file \mbox{\hyperlink{ADC_8cpp_source}{A\+D\+C.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00256 \{}
+\DoxyCodeLine{00257     \textcolor{keywordflow}{return} \mbox{\hyperlink{classcore_1_1ADConverter_af2fb401d865f4b863a9e4f8ba06c347f}{m\_conversionComplete}};}
+\DoxyCodeLine{00258 }
+\DoxyCodeLine{00259 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcore_1_1ADConverter_ada8289d514b68378b1db9f3db4dfcdeb}\label{classcore_1_1ADConverter_ada8289d514b68378b1db9f3db4dfcdeb}} 
+\index{core::ADConverter@{core::ADConverter}!conversionCompleteServiceRoutine@{conversionCompleteServiceRoutine}}
+\index{conversionCompleteServiceRoutine@{conversionCompleteServiceRoutine}!core::ADConverter@{core::ADConverter}}
+\doxysubsubsection{\texorpdfstring{conversionCompleteServiceRoutine()}{conversionCompleteServiceRoutine()}}
+{\footnotesize\ttfamily void core\+::\+A\+D\+Converter\+::conversion\+Complete\+Service\+Routine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{ADC_8cpp_source_l00109}{109}} of file \mbox{\hyperlink{ADC_8cpp_source}{A\+D\+C.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00110 \{}
+\DoxyCodeLine{00111 }
+\DoxyCodeLine{00112     \textcolor{keyword}{static} uint32\_t l\_resultData = 0;}
+\DoxyCodeLine{00113     \textcolor{keyword}{static} uint16\_t l\_resultDataIndex = 0;}
+\DoxyCodeLine{00114 }
+\DoxyCodeLine{00115     \mbox{\hyperlink{classcore_1_1ADConverter_af2fb401d865f4b863a9e4f8ba06c347f}{m\_conversionComplete}} = 0;}
+\DoxyCodeLine{00116     \textcolor{keywordflow}{switch} (\mbox{\hyperlink{classcore_1_1ADConverter_ad3e7f6a72d5e5947d8bf80180840271b}{m\_resolution}})}
+\DoxyCodeLine{00117     \{}
+\DoxyCodeLine{00118         \textcolor{keywordflow}{case} 8:}
+\DoxyCodeLine{00119         \{}
+\DoxyCodeLine{00120             *\mbox{\hyperlink{classcore_1_1ADConverter_a7ddf0d6ae2c33bfb7ba36c4c50cbcf7c}{mp\_conversionResult}} = ADC >> 8;}
+\DoxyCodeLine{00121             \mbox{\hyperlink{classcore_1_1ADConverter_af2fb401d865f4b863a9e4f8ba06c347f}{m\_conversionComplete}} = 1;}
+\DoxyCodeLine{00122             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00123         \}}
+\DoxyCodeLine{00124         \textcolor{keywordflow}{case} 9:}
+\DoxyCodeLine{00125         \{}
+\DoxyCodeLine{00126             *\mbox{\hyperlink{classcore_1_1ADConverter_a7ddf0d6ae2c33bfb7ba36c4c50cbcf7c}{mp\_conversionResult}} = ADC >> 7;}
+\DoxyCodeLine{00127             \mbox{\hyperlink{classcore_1_1ADConverter_af2fb401d865f4b863a9e4f8ba06c347f}{m\_conversionComplete}} = 1;}
+\DoxyCodeLine{00128             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00129         \}}
+\DoxyCodeLine{00130         \textcolor{keywordflow}{case} 10:}
+\DoxyCodeLine{00131         \{}
+\DoxyCodeLine{00132             *\mbox{\hyperlink{classcore_1_1ADConverter_a7ddf0d6ae2c33bfb7ba36c4c50cbcf7c}{mp\_conversionResult}} = ADC;}
+\DoxyCodeLine{00133             \mbox{\hyperlink{classcore_1_1ADConverter_af2fb401d865f4b863a9e4f8ba06c347f}{m\_conversionComplete}} = 1;}
+\DoxyCodeLine{00134             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00135         \}}
+\DoxyCodeLine{00136         \textcolor{keywordflow}{case} 11:}
+\DoxyCodeLine{00137         \{}
+\DoxyCodeLine{00138 }
+\DoxyCodeLine{00139             \textcolor{keywordflow}{if} (l\_resultDataIndex < 4)}
+\DoxyCodeLine{00140             \{}
+\DoxyCodeLine{00141                 l\_resultData += ADC;}
+\DoxyCodeLine{00142                 l\_resultDataIndex++;}
+\DoxyCodeLine{00143 }
+\DoxyCodeLine{00144             \}}
+\DoxyCodeLine{00145             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00146             \{}
+\DoxyCodeLine{00147                 *\mbox{\hyperlink{classcore_1_1ADConverter_a7ddf0d6ae2c33bfb7ba36c4c50cbcf7c}{mp\_conversionResult}} = l\_resultData >> 1;}
+\DoxyCodeLine{00148                 l\_resultData = 0;}
+\DoxyCodeLine{00149                 l\_resultDataIndex = 0;}
+\DoxyCodeLine{00150                 \mbox{\hyperlink{classcore_1_1ADConverter_af2fb401d865f4b863a9e4f8ba06c347f}{m\_conversionComplete}} = 1;}
+\DoxyCodeLine{00151 }
+\DoxyCodeLine{00152             \}}
+\DoxyCodeLine{00153 }
+\DoxyCodeLine{00154             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00155         \}}
+\DoxyCodeLine{00156         \textcolor{keywordflow}{case} 12:}
+\DoxyCodeLine{00157         \{}
+\DoxyCodeLine{00158             \textcolor{keywordflow}{if} (l\_resultDataIndex < 16)}
+\DoxyCodeLine{00159             \{}
+\DoxyCodeLine{00160                 l\_resultData += ADC;}
+\DoxyCodeLine{00161                 l\_resultDataIndex++;}
+\DoxyCodeLine{00162 }
+\DoxyCodeLine{00163             \}}
+\DoxyCodeLine{00164             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00165             \{}
+\DoxyCodeLine{00166                 *\mbox{\hyperlink{classcore_1_1ADConverter_a7ddf0d6ae2c33bfb7ba36c4c50cbcf7c}{mp\_conversionResult}} = l\_resultData >> 2;}
+\DoxyCodeLine{00167                 l\_resultData = 0;}
+\DoxyCodeLine{00168                 l\_resultDataIndex = 0;}
+\DoxyCodeLine{00169                 \mbox{\hyperlink{classcore_1_1ADConverter_af2fb401d865f4b863a9e4f8ba06c347f}{m\_conversionComplete}} = 1;}
+\DoxyCodeLine{00170 }
+\DoxyCodeLine{00171             \}}
+\DoxyCodeLine{00172             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00173         \}}
+\DoxyCodeLine{00174         \textcolor{keywordflow}{case} 13:}
+\DoxyCodeLine{00175         \{}
+\DoxyCodeLine{00176             \textcolor{keywordflow}{if} (l\_resultDataIndex < 64)}
+\DoxyCodeLine{00177             \{}
+\DoxyCodeLine{00178                 l\_resultData += ADC;}
+\DoxyCodeLine{00179                 l\_resultDataIndex++;}
+\DoxyCodeLine{00180 }
+\DoxyCodeLine{00181             \}}
+\DoxyCodeLine{00182             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00183             \{}
+\DoxyCodeLine{00184                 *\mbox{\hyperlink{classcore_1_1ADConverter_a7ddf0d6ae2c33bfb7ba36c4c50cbcf7c}{mp\_conversionResult}} = l\_resultData >> 3;}
+\DoxyCodeLine{00185                 l\_resultData = 0;}
+\DoxyCodeLine{00186                 l\_resultDataIndex = 0;}
+\DoxyCodeLine{00187                 \mbox{\hyperlink{classcore_1_1ADConverter_af2fb401d865f4b863a9e4f8ba06c347f}{m\_conversionComplete}} = 1;}
+\DoxyCodeLine{00188 }
+\DoxyCodeLine{00189             \}}
+\DoxyCodeLine{00190             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00191         \}}
+\DoxyCodeLine{00192         \textcolor{keywordflow}{case} 14:}
+\DoxyCodeLine{00193         \{}
+\DoxyCodeLine{00194             \textcolor{keywordflow}{if} (l\_resultDataIndex < 256)}
+\DoxyCodeLine{00195             \{}
+\DoxyCodeLine{00196                 l\_resultData += ADC;}
+\DoxyCodeLine{00197                 l\_resultDataIndex++;}
+\DoxyCodeLine{00198 }
+\DoxyCodeLine{00199             \}}
+\DoxyCodeLine{00200             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00201             \{}
+\DoxyCodeLine{00202                 *\mbox{\hyperlink{classcore_1_1ADConverter_a7ddf0d6ae2c33bfb7ba36c4c50cbcf7c}{mp\_conversionResult}} = l\_resultData >> 4;}
+\DoxyCodeLine{00203                 l\_resultData = 0;}
+\DoxyCodeLine{00204                 l\_resultDataIndex = 0;}
+\DoxyCodeLine{00205                 \mbox{\hyperlink{classcore_1_1ADConverter_af2fb401d865f4b863a9e4f8ba06c347f}{m\_conversionComplete}} = 1;}
+\DoxyCodeLine{00206 }
+\DoxyCodeLine{00207             \}}
+\DoxyCodeLine{00208             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00209         \}}
+\DoxyCodeLine{00210         \textcolor{keywordflow}{case} 15:}
+\DoxyCodeLine{00211         \{}
+\DoxyCodeLine{00212             \textcolor{keywordflow}{if} (l\_resultDataIndex < 1024)}
+\DoxyCodeLine{00213             \{}
+\DoxyCodeLine{00214                 l\_resultData += ADC;}
+\DoxyCodeLine{00215                 l\_resultDataIndex++;}
+\DoxyCodeLine{00216 }
+\DoxyCodeLine{00217             \}}
+\DoxyCodeLine{00218             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00219             \{}
+\DoxyCodeLine{00220                 *\mbox{\hyperlink{classcore_1_1ADConverter_a7ddf0d6ae2c33bfb7ba36c4c50cbcf7c}{mp\_conversionResult}} = l\_resultData >> 5;}
+\DoxyCodeLine{00221                 l\_resultData = 0;}
+\DoxyCodeLine{00222                 l\_resultDataIndex = 0;}
+\DoxyCodeLine{00223                 \mbox{\hyperlink{classcore_1_1ADConverter_af2fb401d865f4b863a9e4f8ba06c347f}{m\_conversionComplete}} = 1;}
+\DoxyCodeLine{00224 }
+\DoxyCodeLine{00225             \}}
+\DoxyCodeLine{00226             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00227         \}}
+\DoxyCodeLine{00228         \textcolor{keywordflow}{case} 16:}
+\DoxyCodeLine{00229         \{}
+\DoxyCodeLine{00230             \textcolor{keywordflow}{if} (l\_resultDataIndex < 4096)}
+\DoxyCodeLine{00231             \{}
+\DoxyCodeLine{00232 }
+\DoxyCodeLine{00233                 l\_resultData += ADC;}
+\DoxyCodeLine{00234                 l\_resultDataIndex++;}
+\DoxyCodeLine{00235 }
+\DoxyCodeLine{00236             \}}
+\DoxyCodeLine{00237             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00238             \{}
+\DoxyCodeLine{00239                 *\mbox{\hyperlink{classcore_1_1ADConverter_a7ddf0d6ae2c33bfb7ba36c4c50cbcf7c}{mp\_conversionResult}} = l\_resultData >> 6;}
+\DoxyCodeLine{00240                 l\_resultData = 0;}
+\DoxyCodeLine{00241                 l\_resultDataIndex = 0;}
+\DoxyCodeLine{00242                 \mbox{\hyperlink{classcore_1_1ADConverter_af2fb401d865f4b863a9e4f8ba06c347f}{m\_conversionComplete}} = 1;}
+\DoxyCodeLine{00243 }
+\DoxyCodeLine{00244             \}}
+\DoxyCodeLine{00245             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00246         \}}
+\DoxyCodeLine{00247 }
+\DoxyCodeLine{00248     \}}
+\DoxyCodeLine{00249 }
+\DoxyCodeLine{00250 }
+\DoxyCodeLine{00251 }
+\DoxyCodeLine{00252 }
+\DoxyCodeLine{00253 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcore_1_1ADConverter_a6cbfbe6a61aea3dbc2bcb16504b110fa}\label{classcore_1_1ADConverter_a6cbfbe6a61aea3dbc2bcb16504b110fa}} 
+\index{core::ADConverter@{core::ADConverter}!enableAutoTrigger@{enableAutoTrigger}}
+\index{enableAutoTrigger@{enableAutoTrigger}!core::ADConverter@{core::ADConverter}}
+\doxysubsubsection{\texorpdfstring{enableAutoTrigger()}{enableAutoTrigger()}}
+{\footnotesize\ttfamily void core\+::\+A\+D\+Converter\+::enable\+Auto\+Trigger (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{a\+\_\+enable }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ADC_8cpp_source_l00073}{73}} of file \mbox{\hyperlink{ADC_8cpp_source}{A\+D\+C.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00074 \{}
+\DoxyCodeLine{00075     \textcolor{keywordflow}{if} (a\_enable) \{}
+\DoxyCodeLine{00076         \mbox{\hyperlink{ha__m328p_8h_a4a149ed9a1db4c8bd7ea7293bbe81e27}{ADC\_ENABLE\_AUTOTRIGGER}};}
+\DoxyCodeLine{00077 }
+\DoxyCodeLine{00078     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00079         \mbox{\hyperlink{ha__m328p_8h_ac155e7462eee927ad1fb4da07b08cad1}{ADC\_DISABLE\_AUTOTRIGGER}};}
+\DoxyCodeLine{00080     \}}
+\DoxyCodeLine{00081 }
+\DoxyCodeLine{00082 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{ha__m328p_8h_source_l00140}{A\+D\+C\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+A\+U\+T\+O\+T\+R\+I\+G\+G\+ER}}, and \mbox{\hyperlink{ha__m328p_8h_source_l00139}{A\+D\+C\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+A\+U\+T\+O\+T\+R\+I\+G\+G\+ER}}.
+
+\mbox{\Hypertarget{classcore_1_1ADConverter_adaaf64d4778c92c8295d8cb5d4621f6e}\label{classcore_1_1ADConverter_adaaf64d4778c92c8295d8cb5d4621f6e}} 
+\index{core::ADConverter@{core::ADConverter}!enableConversionCompleteInterrupt@{enableConversionCompleteInterrupt}}
+\index{enableConversionCompleteInterrupt@{enableConversionCompleteInterrupt}!core::ADConverter@{core::ADConverter}}
+\doxysubsubsection{\texorpdfstring{enableConversionCompleteInterrupt()}{enableConversionCompleteInterrupt()}}
+{\footnotesize\ttfamily void core\+::\+A\+D\+Converter\+::enable\+Conversion\+Complete\+Interrupt (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{a\+\_\+enable }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ADC_8cpp_source_l00084}{84}} of file \mbox{\hyperlink{ADC_8cpp_source}{A\+D\+C.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00085 \{}
+\DoxyCodeLine{00086     \textcolor{keywordflow}{if} (a\_enable) \{}
+\DoxyCodeLine{00087         \mbox{\hyperlink{ha__m328p_8h_ae94c52062467c57ead131f1f753b540e}{ADC\_ENABLE\_CONVERSION\_COMPLETE\_INTERRUPT}};}
+\DoxyCodeLine{00088 }
+\DoxyCodeLine{00089     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00090         \mbox{\hyperlink{ha__m328p_8h_a02838061f4c9a9ff5cf03e765e94b034}{ADC\_DISABLE\_CONVERSION\_COMPLETE\_INTERRUPT}};}
+\DoxyCodeLine{00091     \}}
+\DoxyCodeLine{00092 }
+\DoxyCodeLine{00093 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{ha__m328p_8h_source_l00143}{A\+D\+C\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+C\+O\+N\+V\+E\+R\+S\+I\+O\+N\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}, and \mbox{\hyperlink{ha__m328p_8h_source_l00142}{A\+D\+C\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+O\+N\+V\+E\+R\+S\+I\+O\+N\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}.
+
+\mbox{\Hypertarget{classcore_1_1ADConverter_a642b9300355c74a7b1aa99793e6127fa}\label{classcore_1_1ADConverter_a642b9300355c74a7b1aa99793e6127fa}} 
+\index{core::ADConverter@{core::ADConverter}!getConversionResult@{getConversionResult}}
+\index{getConversionResult@{getConversionResult}!core::ADConverter@{core::ADConverter}}
+\doxysubsubsection{\texorpdfstring{getConversionResult()}{getConversionResult()}}
+{\footnotesize\ttfamily void core\+::\+A\+D\+Converter\+::get\+Conversion\+Result (\begin{DoxyParamCaption}\item[{uint16\+\_\+t $\ast$}]{ap\+\_\+result\+Data,  }\item[{const \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570}{resolution}} \&}]{ar\+\_\+resolution = {\ttfamily \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a2dfcad6aa6be091d9ae2d89cba912d73}{resolution\+::res\+\_\+10bit}}} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ADC_8cpp_source_l00262}{262}} of file \mbox{\hyperlink{ADC_8cpp_source}{A\+D\+C.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00263 \{}
+\DoxyCodeLine{00264     \mbox{\hyperlink{classcore_1_1ADConverter_a7ddf0d6ae2c33bfb7ba36c4c50cbcf7c}{mp\_conversionResult}} = ap\_resultData;}
+\DoxyCodeLine{00265 }
+\DoxyCodeLine{00266     \textcolor{keywordflow}{switch} (ar\_resolution)}
+\DoxyCodeLine{00267     \{}
+\DoxyCodeLine{00268         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a7ea4d6dd280caccea297d0fa2f7e06f1}{core::resolution::res\_8bit}}:}
+\DoxyCodeLine{00269         \{}
+\DoxyCodeLine{00270             \mbox{\hyperlink{ha__m328p_8h_a27b8335df899470b54132ecd39c2f806}{ADC\_ADJUST\_RESULT\_LEFT}};}
+\DoxyCodeLine{00271             \mbox{\hyperlink{classcore_1_1ADConverter_ad3e7f6a72d5e5947d8bf80180840271b}{m\_resolution}} = 8;}
+\DoxyCodeLine{00272             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00273         \}}
+\DoxyCodeLine{00274         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570acacc43ba446d9f5470d707377a9ab57d}{core::resolution::res\_9bit}}:}
+\DoxyCodeLine{00275         \{}
+\DoxyCodeLine{00276             \mbox{\hyperlink{ha__m328p_8h_a27b8335df899470b54132ecd39c2f806}{ADC\_ADJUST\_RESULT\_LEFT}};}
+\DoxyCodeLine{00277             \mbox{\hyperlink{classcore_1_1ADConverter_ad3e7f6a72d5e5947d8bf80180840271b}{m\_resolution}} = 9;}
+\DoxyCodeLine{00278             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00279         \}}
+\DoxyCodeLine{00280         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a2dfcad6aa6be091d9ae2d89cba912d73}{core::resolution::res\_10bit}}:}
+\DoxyCodeLine{00281         \{}
+\DoxyCodeLine{00282             \mbox{\hyperlink{ha__m328p_8h_a81077135c911a7703335747fcb387f08}{ADC\_ADJUST\_RESULT\_RIGHT}};}
+\DoxyCodeLine{00283             \mbox{\hyperlink{classcore_1_1ADConverter_ad3e7f6a72d5e5947d8bf80180840271b}{m\_resolution}} = 10;}
+\DoxyCodeLine{00284             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00285         \}}
+\DoxyCodeLine{00286         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570ad5b2972aa04da9ded704d67af3160f73}{core::resolution::res\_11bit}}:}
+\DoxyCodeLine{00287         \{}
+\DoxyCodeLine{00288 }
+\DoxyCodeLine{00289             \mbox{\hyperlink{classcore_1_1ADConverter_ad3e7f6a72d5e5947d8bf80180840271b}{m\_resolution}} = 11;}
+\DoxyCodeLine{00290             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00291         \}}
+\DoxyCodeLine{00292         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a2c112f82e3b38ea0e86502b21795f0ed}{core::resolution::res\_12bit}}:}
+\DoxyCodeLine{00293         \{}
+\DoxyCodeLine{00294             \mbox{\hyperlink{classcore_1_1ADConverter_ad3e7f6a72d5e5947d8bf80180840271b}{m\_resolution}} = 12;}
+\DoxyCodeLine{00295             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00296         \}}
+\DoxyCodeLine{00297         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570aa4739f6369eb7a55eac3e4061811e9b2}{core::resolution::res\_13bit}}:}
+\DoxyCodeLine{00298         \{}
+\DoxyCodeLine{00299             \mbox{\hyperlink{classcore_1_1ADConverter_ad3e7f6a72d5e5947d8bf80180840271b}{m\_resolution}} = 13;}
+\DoxyCodeLine{00300             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00301         \}}
+\DoxyCodeLine{00302         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a1d891da42f0b35691e041a787f279e2a}{core::resolution::res\_14bit}}:}
+\DoxyCodeLine{00303         \{}
+\DoxyCodeLine{00304             \mbox{\hyperlink{classcore_1_1ADConverter_ad3e7f6a72d5e5947d8bf80180840271b}{m\_resolution}} = 14;}
+\DoxyCodeLine{00305             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00306         \}}
+\DoxyCodeLine{00307         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a308f1161ab8115148688b26457b94477}{core::resolution::res\_15bit}}:}
+\DoxyCodeLine{00308         \{}
+\DoxyCodeLine{00309             \mbox{\hyperlink{classcore_1_1ADConverter_ad3e7f6a72d5e5947d8bf80180840271b}{m\_resolution}} = 15;}
+\DoxyCodeLine{00310             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00311         \}}
+\DoxyCodeLine{00312         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570ae03d417bc0a8193a26018367d4899d83}{core::resolution::res\_16bit}}:}
+\DoxyCodeLine{00313         \{}
+\DoxyCodeLine{00314             \mbox{\hyperlink{classcore_1_1ADConverter_ad3e7f6a72d5e5947d8bf80180840271b}{m\_resolution}} = 16;}
+\DoxyCodeLine{00315             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00316         \}}
+\DoxyCodeLine{00317     \}}
+\DoxyCodeLine{00318 }
+\DoxyCodeLine{00319 }
+\DoxyCodeLine{00320 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{ha__m328p_8h_source_l00126}{A\+D\+C\+\_\+\+A\+D\+J\+U\+S\+T\+\_\+\+R\+E\+S\+U\+L\+T\+\_\+\+L\+E\+FT}}, \mbox{\hyperlink{ha__m328p_8h_source_l00127}{A\+D\+C\+\_\+\+A\+D\+J\+U\+S\+T\+\_\+\+R\+E\+S\+U\+L\+T\+\_\+\+R\+I\+G\+HT}}, \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a2dfcad6aa6be091d9ae2d89cba912d73}{core\+::res\+\_\+10bit}}, \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570ad5b2972aa04da9ded704d67af3160f73}{core\+::res\+\_\+11bit}}, \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a2c112f82e3b38ea0e86502b21795f0ed}{core\+::res\+\_\+12bit}}, \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570aa4739f6369eb7a55eac3e4061811e9b2}{core\+::res\+\_\+13bit}}, \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a1d891da42f0b35691e041a787f279e2a}{core\+::res\+\_\+14bit}}, \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a308f1161ab8115148688b26457b94477}{core\+::res\+\_\+15bit}}, \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570ae03d417bc0a8193a26018367d4899d83}{core\+::res\+\_\+16bit}}, \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a7ea4d6dd280caccea297d0fa2f7e06f1}{core\+::res\+\_\+8bit}}, and \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570acacc43ba446d9f5470d707377a9ab57d}{core\+::res\+\_\+9bit}}.
+
+\mbox{\Hypertarget{classcore_1_1ADConverter_ab694a44ac256358e0301839daa51056e}\label{classcore_1_1ADConverter_ab694a44ac256358e0301839daa51056e}} 
+\index{core::ADConverter@{core::ADConverter}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!core::ADConverter@{core::ADConverter}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcore_1_1ADConverter}{core\+::\+A\+D\+Converter}} \& core\+::\+A\+D\+Converter\+::get\+Instance (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacecore_a9bc91028526103cb0e5a3288177e1765}{reference\+Voltage}} \&}]{ar\+\_\+ref\+Voltage = {\ttfamily \mbox{\hyperlink{namespacecore_a9bc91028526103cb0e5a3288177e1765a7553837f2d19afc93f5bbc9d84e097f3}{reference\+Voltage\+::\+A\+V\+CC}}},  }\item[{const \mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13}{clock\+Prescaler}} \&}]{ar\+\_\+clock\+Prescaler = {\ttfamily \mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13a5a748dfea8b6fda9f52e24f961378197}{clock\+Prescaler\+::\+P\+S\+\_\+128}}},  }\item[{const \mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764b}{auto\+Trigger\+Source}} \&}]{ar\+\_\+auto\+Trigger\+Source = {\ttfamily \mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764ba4f6e582ea390561732302e2cf48b2303}{auto\+Trigger\+Source\+::free\+Running}}},  }\item[{const \mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}} \&}]{ar\+\_\+pin = {\ttfamily \mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}}(0,\mbox{\hyperlink{namespaceio_ad2054cd0a9fee592c5cfb2bac3d52f7a}{io\+::\+PortC}})} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{ADC_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{ADC_8cpp_source}{A\+D\+C.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013 \{}
+\DoxyCodeLine{00014 }
+\DoxyCodeLine{00015     \textcolor{keyword}{static} \mbox{\hyperlink{classcore_1_1ADConverter_a790ad79179a23f1994a2c663f78a1428}{ADConverter}} l\_instance(ar\_refVoltage,}
+\DoxyCodeLine{00016                                   ar\_clockPrescaler,}
+\DoxyCodeLine{00017                                   ar\_autoTriggerSource,}
+\DoxyCodeLine{00018                                   ar\_pin);}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{00020     \textcolor{keywordflow}{return} l\_instance;}
+\DoxyCodeLine{00021 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcore_1_1ADConverter_a9beb1b2ccab9751d873bfd07e82b60c8}\label{classcore_1_1ADConverter_a9beb1b2ccab9751d873bfd07e82b60c8}} 
+\index{core::ADConverter@{core::ADConverter}!operator=@{operator=}}
+\index{operator=@{operator=}!core::ADConverter@{core::ADConverter}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classcore_1_1ADConverter}{A\+D\+Converter}}\& core\+::\+A\+D\+Converter\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcore_1_1ADConverter}{A\+D\+Converter}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Override assign operator. 
+
+\mbox{\Hypertarget{classcore_1_1ADConverter_a9dfdebc4b053eb3bc755dd9587672749}\label{classcore_1_1ADConverter_a9dfdebc4b053eb3bc755dd9587672749}} 
+\index{core::ADConverter@{core::ADConverter}!selectAnalogInput@{selectAnalogInput}}
+\index{selectAnalogInput@{selectAnalogInput}!core::ADConverter@{core::ADConverter}}
+\doxysubsubsection{\texorpdfstring{selectAnalogInput()}{selectAnalogInput()}}
+{\footnotesize\ttfamily void core\+::\+A\+D\+Converter\+::select\+Analog\+Input (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}}}]{a\+\_\+pin }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ADC_8cpp_source_l00053}{53}} of file \mbox{\hyperlink{ADC_8cpp_source}{A\+D\+C.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054 \{}
+\DoxyCodeLine{00055     a\_pin.\mbox{\hyperlink{classio_1_1Pin_ab59ec50b7a87b0a440a95befdf47d014}{toInput}}(0);}
+\DoxyCodeLine{00056     \mbox{\hyperlink{ha__m328p_8h_a35d2ecb6e9d1cb239851dd35fda1e467}{ADC\_SELECT\_ANALOG\_INPUT}}(a\_pin.\mbox{\hyperlink{classio_1_1Pin_ae5bf05244692da8b6090c3ed54ae3a18}{getPinNumber}}());}
+\DoxyCodeLine{00057     \mbox{\hyperlink{ha__m328p_8h_a46581152acdc8a011cb7d60c2ef3d60e}{ADC\_DISABLE\_DIGITAL\_INPUT\_REGISTER}}(a\_pin.\mbox{\hyperlink{classio_1_1Pin_ae5bf05244692da8b6090c3ed54ae3a18}{getPinNumber}}());}
+\DoxyCodeLine{00058 }
+\DoxyCodeLine{00059 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{ha__m328p_8h_source_l00130}{A\+D\+C\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+D\+I\+G\+I\+T\+A\+L\+\_\+\+I\+N\+P\+U\+T\+\_\+\+R\+E\+G\+I\+S\+T\+ER}}, \mbox{\hyperlink{ha__m328p_8h_source_l00129}{A\+D\+C\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+A\+N\+A\+L\+O\+G\+\_\+\+I\+N\+P\+UT}}, \mbox{\hyperlink{Pin_8cpp_source_l00073}{io\+::\+Pin\+::get\+Pin\+Number()}}, and \mbox{\hyperlink{Pin_8cpp_source_l00022}{io\+::\+Pin\+::to\+Input()}}.
+
+\mbox{\Hypertarget{classcore_1_1ADConverter_abf29fcc6c59bb4104d6f2f7c3a44248b}\label{classcore_1_1ADConverter_abf29fcc6c59bb4104d6f2f7c3a44248b}} 
+\index{core::ADConverter@{core::ADConverter}!selectAutoTriggerSource@{selectAutoTriggerSource}}
+\index{selectAutoTriggerSource@{selectAutoTriggerSource}!core::ADConverter@{core::ADConverter}}
+\doxysubsubsection{\texorpdfstring{selectAutoTriggerSource()}{selectAutoTriggerSource()}}
+{\footnotesize\ttfamily void core\+::\+A\+D\+Converter\+::select\+Auto\+Trigger\+Source (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764b}{auto\+Trigger\+Source}} \&}]{ar\+\_\+auto\+Trigger\+Source }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ADC_8cpp_source_l00102}{102}} of file \mbox{\hyperlink{ADC_8cpp_source}{A\+D\+C.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00103 \{}
+\DoxyCodeLine{00104     \mbox{\hyperlink{ha__m328p_8h_a4f4457e8f0f2e91dcee24b3521068d2d}{ADC\_SELECT\_AUTO\_TRIGGER\_SOURCE}}(\textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(ar\_autoTriggerSource));}
+\DoxyCodeLine{00105 }
+\DoxyCodeLine{00106 }
+\DoxyCodeLine{00107 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{ha__m328p_8h_source_l00148}{A\+D\+C\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+A\+U\+T\+O\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+S\+O\+U\+R\+CE}}.
+
+\mbox{\Hypertarget{classcore_1_1ADConverter_a75515d59eed5270ad25750bfa0433500}\label{classcore_1_1ADConverter_a75515d59eed5270ad25750bfa0433500}} 
+\index{core::ADConverter@{core::ADConverter}!selectClockPrescaler@{selectClockPrescaler}}
+\index{selectClockPrescaler@{selectClockPrescaler}!core::ADConverter@{core::ADConverter}}
+\doxysubsubsection{\texorpdfstring{selectClockPrescaler()}{selectClockPrescaler()}}
+{\footnotesize\ttfamily void core\+::\+A\+D\+Converter\+::select\+Clock\+Prescaler (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13}{clock\+Prescaler}} \&}]{ar\+\_\+clock\+Prescaler }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ADC_8cpp_source_l00095}{95}} of file \mbox{\hyperlink{ADC_8cpp_source}{A\+D\+C.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00096 \{}
+\DoxyCodeLine{00097     \mbox{\hyperlink{ha__m328p_8h_adb2317b8f58b226895abf3701d101a89}{ADC\_SELECT\_CLOCK\_PRESCALER}}(\textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(ar\_clockPrescaler));}
+\DoxyCodeLine{00098 }
+\DoxyCodeLine{00099 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{ha__m328p_8h_source_l00145}{A\+D\+C\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+L\+O\+C\+K\+\_\+\+P\+R\+E\+S\+C\+A\+L\+ER}}.
+
+\mbox{\Hypertarget{classcore_1_1ADConverter_ac7e95d33e200289107adec35fe838b92}\label{classcore_1_1ADConverter_ac7e95d33e200289107adec35fe838b92}} 
+\index{core::ADConverter@{core::ADConverter}!selectReferenceVoltage@{selectReferenceVoltage}}
+\index{selectReferenceVoltage@{selectReferenceVoltage}!core::ADConverter@{core::ADConverter}}
+\doxysubsubsection{\texorpdfstring{selectReferenceVoltage()}{selectReferenceVoltage()}}
+{\footnotesize\ttfamily void core\+::\+A\+D\+Converter\+::select\+Reference\+Voltage (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacecore_a9bc91028526103cb0e5a3288177e1765}{reference\+Voltage}} \&}]{ar\+\_\+ref\+Voltage }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ADC_8cpp_source_l00047}{47}} of file \mbox{\hyperlink{ADC_8cpp_source}{A\+D\+C.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048 \{}
+\DoxyCodeLine{00049     \mbox{\hyperlink{ha__m328p_8h_a4f752ec2e3e16bdd6e2de376a479a27d}{ADC\_SELECT\_REF\_VOLTAGE}}(\textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(ar\_refVoltage));}
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{00051 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{ha__m328p_8h_source_l00124}{A\+D\+C\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+R\+E\+F\+\_\+\+V\+O\+L\+T\+A\+GE}}.
+
+\mbox{\Hypertarget{classcore_1_1ADConverter_a1c34fb433c5d245a9d1c991ba05f864b}\label{classcore_1_1ADConverter_a1c34fb433c5d245a9d1c991ba05f864b}} 
+\index{core::ADConverter@{core::ADConverter}!start@{start}}
+\index{start@{start}!core::ADConverter@{core::ADConverter}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void core\+::\+A\+D\+Converter\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ADC_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{ADC_8cpp_source}{A\+D\+C.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062 \{}
+\DoxyCodeLine{00063     \mbox{\hyperlink{ha__m328p_8h_af0f7ac4025d1623cda58f7656fcffade}{ADC\_ENABLE}};}
+\DoxyCodeLine{00064     \mbox{\hyperlink{ha__m328p_8h_a0b1602e1735dd932d052125db2b6fc12}{ADC\_START\_CONVERSION}};}
+\DoxyCodeLine{00065 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{ha__m328p_8h_source_l00133}{A\+D\+C\+\_\+\+E\+N\+A\+B\+LE}}, and \mbox{\hyperlink{ha__m328p_8h_source_l00136}{A\+D\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+C\+O\+N\+V\+E\+R\+S\+I\+ON}}.
+
+\mbox{\Hypertarget{classcore_1_1ADConverter_a5cfa7990b8495f8f52c8e1b279260a75}\label{classcore_1_1ADConverter_a5cfa7990b8495f8f52c8e1b279260a75}} 
+\index{core::ADConverter@{core::ADConverter}!stop@{stop}}
+\index{stop@{stop}!core::ADConverter@{core::ADConverter}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily void core\+::\+A\+D\+Converter\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ADC_8cpp_source_l00067}{67}} of file \mbox{\hyperlink{ADC_8cpp_source}{A\+D\+C.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068 \{    }
+\DoxyCodeLine{00069     \mbox{\hyperlink{ha__m328p_8h_af9e0e953c89ab7376c44824ca2d5016c}{ADC\_STOP\_CONVERSION}};}
+\DoxyCodeLine{00070     \mbox{\hyperlink{ha__m328p_8h_adc5911f4f1e4a81fb3381359bf74e4c2}{ADC\_DISABLE}};}
+\DoxyCodeLine{00071 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{ha__m328p_8h_source_l00134}{A\+D\+C\+\_\+\+D\+I\+S\+A\+B\+LE}}, and \mbox{\hyperlink{ha__m328p_8h_source_l00137}{A\+D\+C\+\_\+\+S\+T\+O\+P\+\_\+\+C\+O\+N\+V\+E\+R\+S\+I\+ON}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcore_1_1ADConverter_a00392077bf78b69eea00ab1e4c5deb68}\label{classcore_1_1ADConverter_a00392077bf78b69eea00ab1e4c5deb68}} 
+\index{core::ADConverter@{core::ADConverter}!\_\_externally\_visible\_\_@{\_\_externally\_visible\_\_}}
+\index{\_\_externally\_visible\_\_@{\_\_externally\_visible\_\_}!core::ADConverter@{core::ADConverter}}
+\doxysubsubsection{\texorpdfstring{\_\_externally\_visible\_\_}{\_\_externally\_visible\_\_}}
+{\footnotesize\ttfamily void core\+::\+A\+D\+Converter\+::\+\_\+\+\_\+externally\+\_\+visible\+\_\+\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{ADC_8h_source_l00160}{160}} of file \mbox{\hyperlink{ADC_8h_source}{A\+D\+C.\+h}}.
+
+\mbox{\Hypertarget{classcore_1_1ADConverter_ade4fef5343a353c5cffc1df6a0f97520}\label{classcore_1_1ADConverter_ade4fef5343a353c5cffc1df6a0f97520}} 
+\index{core::ADConverter@{core::ADConverter}!\_\_used\_\_@{\_\_used\_\_}}
+\index{\_\_used\_\_@{\_\_used\_\_}!core::ADConverter@{core::ADConverter}}
+\doxysubsubsection{\texorpdfstring{\_\_used\_\_}{\_\_used\_\_}}
+{\footnotesize\ttfamily void core\+::\+A\+D\+Converter\+::\+\_\+\+\_\+used\+\_\+\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{ADC_8h_source_l00160}{160}} of file \mbox{\hyperlink{ADC_8h_source}{A\+D\+C.\+h}}.
+
+\mbox{\Hypertarget{classcore_1_1ADConverter_af2fb401d865f4b863a9e4f8ba06c347f}\label{classcore_1_1ADConverter_af2fb401d865f4b863a9e4f8ba06c347f}} 
+\index{core::ADConverter@{core::ADConverter}!m\_conversionComplete@{m\_conversionComplete}}
+\index{m\_conversionComplete@{m\_conversionComplete}!core::ADConverter@{core::ADConverter}}
+\doxysubsubsection{\texorpdfstring{m\_conversionComplete}{m\_conversionComplete}}
+{\footnotesize\ttfamily volatile uint8\+\_\+t core\+::\+A\+D\+Converter\+::m\+\_\+conversion\+Complete = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+ready to receive flag 
+
+
+
+Definition at line \mbox{\hyperlink{ADC_8h_source_l00192}{192}} of file \mbox{\hyperlink{ADC_8h_source}{A\+D\+C.\+h}}.
+
+\mbox{\Hypertarget{classcore_1_1ADConverter_ad3e7f6a72d5e5947d8bf80180840271b}\label{classcore_1_1ADConverter_ad3e7f6a72d5e5947d8bf80180840271b}} 
+\index{core::ADConverter@{core::ADConverter}!m\_resolution@{m\_resolution}}
+\index{m\_resolution@{m\_resolution}!core::ADConverter@{core::ADConverter}}
+\doxysubsubsection{\texorpdfstring{m\_resolution}{m\_resolution}}
+{\footnotesize\ttfamily uint8\+\_\+t core\+::\+A\+D\+Converter\+::m\+\_\+resolution = 10\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+pointer to receiver buffer 
+
+
+
+Definition at line \mbox{\hyperlink{ADC_8h_source_l00190}{190}} of file \mbox{\hyperlink{ADC_8h_source}{A\+D\+C.\+h}}.
+
+\mbox{\Hypertarget{classcore_1_1ADConverter_a7ddf0d6ae2c33bfb7ba36c4c50cbcf7c}\label{classcore_1_1ADConverter_a7ddf0d6ae2c33bfb7ba36c4c50cbcf7c}} 
+\index{core::ADConverter@{core::ADConverter}!mp\_conversionResult@{mp\_conversionResult}}
+\index{mp\_conversionResult@{mp\_conversionResult}!core::ADConverter@{core::ADConverter}}
+\doxysubsubsection{\texorpdfstring{mp\_conversionResult}{mp\_conversionResult}}
+{\footnotesize\ttfamily volatile uint16\+\_\+t $\ast$ core\+::\+A\+D\+Converter\+::mp\+\_\+conversion\+Result = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+pointer to receiver buffer 
+
+
+
+Definition at line \mbox{\hyperlink{ADC_8h_source_l00187}{187}} of file \mbox{\hyperlink{ADC_8h_source}{A\+D\+C.\+h}}.
+

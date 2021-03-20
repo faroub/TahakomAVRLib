@@ -1,0 +1,164 @@
+\hypertarget{SPI_8cpp_source}{}\doxysection{S\+P\+I.\+cpp}
+\label{SPI_8cpp_source}\index{SPI.cpp@{SPI.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{SPI_8h}{SPI.h}}"}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{MCU_8h}{MCU.h}}"}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{keyword}{volatile} uint8\_t \mbox{\hyperlink{classio_1_1SPI_ad8414fbb0f1fda580616b0c4d5e3bd70}{io::SPI::m\_data}} = 0;}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00006 }
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{\Hypertarget{SPI_8cpp_source_l00008}\mbox{\hyperlink{classio_1_1SPI_abf4d67a5a737a0f69df6dcea76a2933f}{00008}} \mbox{\hyperlink{classio_1_1SPI}{io::SPI}}\& \mbox{\hyperlink{classio_1_1SPI_abf4d67a5a737a0f69df6dcea76a2933f}{io::SPI::getInstance}}(\textcolor{keyword}{const} \mbox{\hyperlink{classio_1_1Pin}{Pin}} \&ar\_pinSCK,}
+\DoxyCodeLine{00009                               \textcolor{keyword}{const} \mbox{\hyperlink{classio_1_1Pin}{Pin}} \&ar\_pinMISO,}
+\DoxyCodeLine{00010                               \textcolor{keyword}{const} \mbox{\hyperlink{classio_1_1Pin}{Pin}} \&ar\_pinMOSI,}
+\DoxyCodeLine{00011                               \textcolor{keyword}{const} \mbox{\hyperlink{classio_1_1Pin}{Pin}} \&ar\_pinSS)}
+\DoxyCodeLine{00012 \{}
+\DoxyCodeLine{00013     \textcolor{keyword}{static} \mbox{\hyperlink{classio_1_1SPI}{SPI}} l\_instance(ar\_pinSCK,}
+\DoxyCodeLine{00014                           ar\_pinMISO,}
+\DoxyCodeLine{00015                           ar\_pinMOSI,}
+\DoxyCodeLine{00016                           ar\_pinSS);}
+\DoxyCodeLine{00017 }
+\DoxyCodeLine{00018     \textcolor{keywordflow}{return} l\_instance;}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{00020 \}}
+\DoxyCodeLine{00021 }
+\DoxyCodeLine{\Hypertarget{SPI_8cpp_source_l00022}\mbox{\hyperlink{classio_1_1SPI_a64b0bb743ac749159ebc5aa6a0f68eab}{00022}} \mbox{\hyperlink{classio_1_1SPI_a64b0bb743ac749159ebc5aa6a0f68eab}{io::SPI::SPI}}(\textcolor{keyword}{const} \mbox{\hyperlink{classio_1_1Pin}{Pin}} \&ar\_pinSCK,}
+\DoxyCodeLine{00023              \textcolor{keyword}{const} \mbox{\hyperlink{classio_1_1Pin}{Pin}} \&ar\_pinMISO,}
+\DoxyCodeLine{00024              \textcolor{keyword}{const} \mbox{\hyperlink{classio_1_1Pin}{Pin}} \&ar\_pinMOSI,}
+\DoxyCodeLine{00025              \textcolor{keyword}{const} \mbox{\hyperlink{classio_1_1Pin}{Pin}} \&ar\_pinSS)}
+\DoxyCodeLine{00026         : m\_pinSCK(ar\_pinSCK),}
+\DoxyCodeLine{00027           m\_pinMISO(ar\_pinMISO),}
+\DoxyCodeLine{00028           m\_pinMOSI(ar\_pinMOSI),}
+\DoxyCodeLine{00029           m\_pinSS(ar\_pinSS)}
+\DoxyCodeLine{00030 \{}
+\DoxyCodeLine{00031     \mbox{\hyperlink{classcore_1_1MCU_a6b1da08cca1b5f1d0d2d1c916f2b8922}{core::MCU::enableSPI}}(1);}
+\DoxyCodeLine{00032     sei();}
+\DoxyCodeLine{00033     \mbox{\hyperlink{classio_1_1SPI_a29933e816f9fa4b04f74eafff24faef8}{enableTransferCompleteInterrupt}}(1);}
+\DoxyCodeLine{00034 }
+\DoxyCodeLine{00035 \}}
+\DoxyCodeLine{00036 }
+\DoxyCodeLine{\Hypertarget{SPI_8cpp_source_l00037}\mbox{\hyperlink{classio_1_1SPI_a0bc7efd435fea02727fafbb99386d261}{00037}} \mbox{\hyperlink{classio_1_1SPI_a0bc7efd435fea02727fafbb99386d261}{io::SPI::\string~SPI}}()}
+\DoxyCodeLine{00038 \{}
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{00040 \}}
+\DoxyCodeLine{00041 }
+\DoxyCodeLine{\Hypertarget{SPI_8cpp_source_l00042}\mbox{\hyperlink{classio_1_1SPI_a8325abdc67f44fe5a88700f3d608f32b}{00042}} uint8\_t \mbox{\hyperlink{classio_1_1SPI_a8325abdc67f44fe5a88700f3d608f32b}{io::SPI::writeCollision}}()}
+\DoxyCodeLine{00043 \{}
+\DoxyCodeLine{00044     \textcolor{keywordflow}{return} (\mbox{\hyperlink{ha__m328p_8h_a067a8bba4649b1f9ff77c3167a06fd10}{SPI\_STATUS\_REGISTER}} \& (1 << \mbox{\hyperlink{ha__m328p_8h_a9001baca59487add854bcdee1df4b4b0}{SPI\_WRITE\_COLLISION}}));}
+\DoxyCodeLine{00045 \}}
+\DoxyCodeLine{00046 }
+\DoxyCodeLine{00047 }
+\DoxyCodeLine{\Hypertarget{SPI_8cpp_source_l00048}\mbox{\hyperlink{classio_1_1SPI_a1ce7faff7e9baceadb966268b7c9e946}{00048}} uint8\_t \mbox{\hyperlink{classio_1_1SPI_a1ce7faff7e9baceadb966268b7c9e946}{io::SPI::transferComplete}}()}
+\DoxyCodeLine{00049 \{}
+\DoxyCodeLine{00050     \textcolor{keywordflow}{return} (\mbox{\hyperlink{ha__m328p_8h_a067a8bba4649b1f9ff77c3167a06fd10}{SPI\_STATUS\_REGISTER}} \& (1 << \mbox{\hyperlink{ha__m328p_8h_a885ef6c3501b46889642fddf58acb3f0}{SPI\_TRANSFER\_COMPLETE}}));}
+\DoxyCodeLine{00051 \}}
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{\Hypertarget{SPI_8cpp_source_l00053}\mbox{\hyperlink{classio_1_1SPI_a5327e09779fa47cc79a9cac8c663ff4f}{00053}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1SPI_a5327e09779fa47cc79a9cac8c663ff4f}{io::SPI::selectClockPrescaler}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespaceio_a6bb01fa22d954e14af37b18832eb3de0}{clockPrescaler}}\& ar\_clockPrescaler)}
+\DoxyCodeLine{00054 \{}
+\DoxyCodeLine{00055     \mbox{\hyperlink{ha__m328p_8h_aaefccf34ec6a079b84ae6e0efa9353ab}{SPI\_SELECT\_CLOCK\_PRESCALER}}(\textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(ar\_clockPrescaler));}
+\DoxyCodeLine{00056 }
+\DoxyCodeLine{00057 \}}
+\DoxyCodeLine{00058 }
+\DoxyCodeLine{\Hypertarget{SPI_8cpp_source_l00059}\mbox{\hyperlink{classio_1_1SPI_a03445673246c118455f1dae536b13fe6}{00059}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1SPI_a03445673246c118455f1dae536b13fe6}{io::SPI::selectOperationMode}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespaceio_a6250896181d67e5c143f15781f518a9c}{operationMode}}\& ar\_operationMode)}
+\DoxyCodeLine{00060 \{}
+\DoxyCodeLine{00061     \textcolor{keywordflow}{switch} (ar\_operationMode)}
+\DoxyCodeLine{00062     \{}
+\DoxyCodeLine{00063         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespaceio_a6250896181d67e5c143f15781f518a9caeb0a191797624dd3a48fa681d3061212}{operationMode::master}}:}
+\DoxyCodeLine{00064         \{}
+\DoxyCodeLine{00065             m\_pinMOSI.toOutput();}
+\DoxyCodeLine{00066             m\_pinSCK.toOutput();}
+\DoxyCodeLine{00067             m\_pinMISO.toInput(1);}
+\DoxyCodeLine{00068             m\_pinSS.toOutput();}
+\DoxyCodeLine{00069             m\_pinSS.setHigh();}
+\DoxyCodeLine{00070             \mbox{\hyperlink{ha__m328p_8h_a2825dde8549bb908c1da677d405ead8a}{SPI\_SELECT\_MASTER\_MODE}};}
+\DoxyCodeLine{00071             \mbox{\hyperlink{ha__m328p_8h_a27537db92d0837cc77baa0d99b8cac48}{SPI\_ENABLE}};}
+\DoxyCodeLine{00072             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00073         \}}
+\DoxyCodeLine{00074         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespaceio_a6250896181d67e5c143f15781f518a9ca03158cf39c6f316f9ce98a4e034cdc28}{operationMode::slave}}:}
+\DoxyCodeLine{00075         \{}
+\DoxyCodeLine{00076             m\_pinMISO.toOutput();}
+\DoxyCodeLine{00077             \mbox{\hyperlink{ha__m328p_8h_a0f7bd9f496bd41eb7e56d11582b3f66f}{SPI\_SELECT\_SLAVE\_MODE}};}
+\DoxyCodeLine{00078             \mbox{\hyperlink{ha__m328p_8h_a27537db92d0837cc77baa0d99b8cac48}{SPI\_ENABLE}};}
+\DoxyCodeLine{00079             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00080         \}}
+\DoxyCodeLine{00081         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespaceio_a6250896181d67e5c143f15781f518a9caf1df61b2a69dd4d7a1b7f3cbd37ecc1e}{operationMode::submaster}}:}
+\DoxyCodeLine{00082         \{}
+\DoxyCodeLine{00083             m\_pinMOSI.toOutput();}
+\DoxyCodeLine{00084             m\_pinSCK.toOutput();}
+\DoxyCodeLine{00085             m\_pinMISO.toInput(1);}
+\DoxyCodeLine{00086             m\_pinSS.toInput(1);}
+\DoxyCodeLine{00087             \mbox{\hyperlink{ha__m328p_8h_a2825dde8549bb908c1da677d405ead8a}{SPI\_SELECT\_MASTER\_MODE}};}
+\DoxyCodeLine{00088             \mbox{\hyperlink{ha__m328p_8h_a27537db92d0837cc77baa0d99b8cac48}{SPI\_ENABLE}};}
+\DoxyCodeLine{00089             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00090         \}}
+\DoxyCodeLine{00091         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespaceio_a6250896181d67e5c143f15781f518a9ca0aaa87422396fdd678498793b6d5250e}{operationMode::disable}}:}
+\DoxyCodeLine{00092         \{}
+\DoxyCodeLine{00093             \mbox{\hyperlink{ha__m328p_8h_a00174198073dadbaaad7f9475360b228}{SPI\_DISABLE}};}
+\DoxyCodeLine{00094             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00095         \}}
+\DoxyCodeLine{00096     \}}
+\DoxyCodeLine{00097 \}}
+\DoxyCodeLine{00098 }
+\DoxyCodeLine{\Hypertarget{SPI_8cpp_source_l00099}\mbox{\hyperlink{classio_1_1SPI_a2a9926d31620abd652efb72ce2cfdc7c}{00099}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1SPI_a2a9926d31620abd652efb72ce2cfdc7c}{io::SPI::selectDataMode}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespaceio_a242f01d06c4916736d5e6471c20e0831}{dataMode}}\& ar\_dataMode)}
+\DoxyCodeLine{00100 \{}
+\DoxyCodeLine{00101     \mbox{\hyperlink{ha__m328p_8h_a3b4e206fd5c5956f301415b7bca8fce0}{SPI\_SELECT\_DATA\_MODE}}(\textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(ar\_dataMode));}
+\DoxyCodeLine{00102 \}}
+\DoxyCodeLine{00103 }
+\DoxyCodeLine{\Hypertarget{SPI_8cpp_source_l00104}\mbox{\hyperlink{classio_1_1SPI_afd604e1c27b9ef4141569e87a471f511}{00104}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1SPI_afd604e1c27b9ef4141569e87a471f511}{io::SPI::selectDataOrder}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespaceio_af494ac258c21063118157796a4c2c38a}{dataOrder}}\& ar\_dataOrder)}
+\DoxyCodeLine{00105 \{}
+\DoxyCodeLine{00106     \mbox{\hyperlink{ha__m328p_8h_a7e36bb343c2d15b61aeec1acebeb2dea}{SPI\_SELECT\_DATA\_ORDER}}(\textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(ar\_dataOrder));}
+\DoxyCodeLine{00107 }
+\DoxyCodeLine{00108 \}}
+\DoxyCodeLine{00109 }
+\DoxyCodeLine{\Hypertarget{SPI_8cpp_source_l00110}\mbox{\hyperlink{classio_1_1SPI_a29933e816f9fa4b04f74eafff24faef8}{00110}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1SPI_a29933e816f9fa4b04f74eafff24faef8}{io::SPI::enableTransferCompleteInterrupt}}(\textcolor{keyword}{const} uint8\_t a\_enable)}
+\DoxyCodeLine{00111 \{}
+\DoxyCodeLine{00112     \textcolor{keywordflow}{if} (a\_enable) \{}
+\DoxyCodeLine{00113         \mbox{\hyperlink{ha__m328p_8h_ad4e9e52218cc4591c50476d4eede023f}{SPI\_ENABLE\_TRANSFER\_COMPLETE\_INTERRUPT}};}
+\DoxyCodeLine{00114     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00115         \mbox{\hyperlink{ha__m328p_8h_ac1324d63fa393aff9ae3f9a75454f29b}{SPI\_DISABLE\_TRANSFER\_COMPLETE\_INTERRUPT}};}
+\DoxyCodeLine{00116     \}}
+\DoxyCodeLine{00117 \}}
+\DoxyCodeLine{00118 }
+\DoxyCodeLine{\Hypertarget{SPI_8cpp_source_l00119}\mbox{\hyperlink{classio_1_1SPI_a3ae645cca4de787c1b1811523c1a0edf}{00119}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1SPI_a3ae645cca4de787c1b1811523c1a0edf}{io::SPI::selectSlave}}(\textcolor{keyword}{const} uint8\_t a\_select)}
+\DoxyCodeLine{00120 \{}
+\DoxyCodeLine{00121     \textcolor{keywordflow}{if} (a\_select) \{}
+\DoxyCodeLine{00122         m\_pinSS.setLow();}
+\DoxyCodeLine{00123 }
+\DoxyCodeLine{00124     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00125         m\_pinSS.setHigh();}
+\DoxyCodeLine{00126     \}}
+\DoxyCodeLine{00127 }
+\DoxyCodeLine{00128 \}}
+\DoxyCodeLine{\Hypertarget{SPI_8cpp_source_l00129}\mbox{\hyperlink{classio_1_1SPI_aaa71e7a3586645dbeb918d144a2ac7c0}{00129}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1SPI_aaa71e7a3586645dbeb918d144a2ac7c0}{io::SPI::transferCompleteServiceRoutine}}()}
+\DoxyCodeLine{00130 \{}
+\DoxyCodeLine{00131 }
+\DoxyCodeLine{00132         m\_data = \mbox{\hyperlink{ha__m328p_8h_abbbfe9dac3695fd744030c475e5f2b69}{SPI\_DATA\_REGISTER}};}
+\DoxyCodeLine{00133 \}}
+\DoxyCodeLine{00134 }
+\DoxyCodeLine{\Hypertarget{SPI_8cpp_source_l00135}\mbox{\hyperlink{classio_1_1SPI_a6bfa762bd7ac8d81d626ffe4058d8ca4}{00135}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1SPI_a6bfa762bd7ac8d81d626ffe4058d8ca4}{io::SPI::masterSendByte}}(\textcolor{keyword}{const} uint8\_t \&ar\_byte)}
+\DoxyCodeLine{00136 \{}
+\DoxyCodeLine{00137 }
+\DoxyCodeLine{00138     \mbox{\hyperlink{ha__m328p_8h_abbbfe9dac3695fd744030c475e5f2b69}{SPI\_DATA\_REGISTER}} = ar\_byte;}
+\DoxyCodeLine{00139     selectSlave(1);}
+\DoxyCodeLine{00140     \textcolor{keywordflow}{while}(!transferComplete())\{\};}
+\DoxyCodeLine{00141     selectSlave(0);}
+\DoxyCodeLine{00142 }
+\DoxyCodeLine{00143 }
+\DoxyCodeLine{00144 }
+\DoxyCodeLine{00145 \}}
+\DoxyCodeLine{00146 }
+\DoxyCodeLine{\Hypertarget{SPI_8cpp_source_l00147}\mbox{\hyperlink{classio_1_1SPI_a3df58c4142b2e55642a4b887a4772fe0}{00147}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1SPI_a3df58c4142b2e55642a4b887a4772fe0}{io::SPI::masterReceiveByte}}(uint8\_t \&ar\_byte)}
+\DoxyCodeLine{00148 \{}
+\DoxyCodeLine{00149     masterSendByte(0);}
+\DoxyCodeLine{00150     ar\_byte = m\_data;}
+\DoxyCodeLine{00151 }
+\DoxyCodeLine{00152 \}}
+\DoxyCodeLine{00153 }
+\DoxyCodeLine{\Hypertarget{SPI_8cpp_source_l00154}\mbox{\hyperlink{classio_1_1SPI_aa46982669bc16063839ea475466ae95d}{00154}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1SPI_aa46982669bc16063839ea475466ae95d}{io::SPI::slaveReceiveByte}}(uint8\_t \&ar\_byte)}
+\DoxyCodeLine{00155 \{}
+\DoxyCodeLine{00156     ar\_byte = m\_data;}
+\DoxyCodeLine{00157 }
+\DoxyCodeLine{00158 \}}
+
+\end{DoxyCode}

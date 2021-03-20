@@ -1,0 +1,29 @@
+\hypertarget{main_8cpp_source}{}\doxysection{main.\+cpp}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 }
+\DoxyCodeLine{00016 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{Led_8h}{Led.h}}"}}
+\DoxyCodeLine{00017 \textcolor{preprocessor}{\#include <util/delay.h>}}
+\DoxyCodeLine{00018 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00019}\mbox{\hyperlink{main_8cpp_a0e7e1e2ae248395f1b903f2793d82b9b}{00019}} \textcolor{preprocessor}{\#define PIN\_NUMBER 0  }}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00020}\mbox{\hyperlink{main_8cpp_ab30d10ac6ab812060d87ba711e1b426e}{00020}} \textcolor{preprocessor}{\#define TIMEDELAY 500 }}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00022}\mbox{\hyperlink{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}{00022}} \textcolor{preprocessor}{int main(void) \{}}
+\DoxyCodeLine{00023 }
+\DoxyCodeLine{00024   \textcolor{comment}{// Init}}
+\DoxyCodeLine{00025 }
+\DoxyCodeLine{00026   \textcolor{comment}{// Instantiate a Led object}}
+\DoxyCodeLine{00027   \mbox{\hyperlink{classcomponent_1_1Led}{component::Led}} Led(\mbox{\hyperlink{classio_1_1Pin}{io::Pin}}(\mbox{\hyperlink{main_8cpp_a0e7e1e2ae248395f1b903f2793d82b9b}{PIN\_NUMBER}},\mbox{\hyperlink{namespaceio_a07c910da5aa03810dc62a34fd23da20a}{io::PortB}}));}
+\DoxyCodeLine{00028 }
+\DoxyCodeLine{00029   \textcolor{comment}{// Mainloop}}
+\DoxyCodeLine{00030   \textcolor{keywordflow}{while} (1) \{}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{00032       Led.on();}
+\DoxyCodeLine{00033       \_delay\_ms(\mbox{\hyperlink{main_8cpp_ab30d10ac6ab812060d87ba711e1b426e}{TIMEDELAY}});}
+\DoxyCodeLine{00034 }
+\DoxyCodeLine{00035       Led.off();}
+\DoxyCodeLine{00036       \_delay\_ms(\mbox{\hyperlink{main_8cpp_ab30d10ac6ab812060d87ba711e1b426e}{TIMEDELAY}});}
+\DoxyCodeLine{00037   \}}
+\DoxyCodeLine{00038   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00039 \}}
+
+\end{DoxyCode}

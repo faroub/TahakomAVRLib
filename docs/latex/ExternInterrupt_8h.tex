@@ -1,0 +1,119 @@
+\hypertarget{ExternInterrupt_8h}{}\doxysection{Extern\+Interrupt.\+h File Reference}
+\label{ExternInterrupt_8h}\index{ExternInterrupt.h@{ExternInterrupt.h}}
+
+
+Header file of the Extern\+Interrupt class.  
+
+
+{\ttfamily \#include \char`\"{}ha\+\_\+base.\+h\char`\"{}}\newline
+Include dependency graph for Extern\+Interrupt.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ExternInterrupt_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{ExternInterrupt_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcore_1_1ExternInterrupt}{core\+::\+Extern\+Interrupt}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacecore}{core}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacecore_a91994a2fb37f8b4df0567468e9d0e325}{core\+::sense\+Control}} \+: uint8\+\_\+t \{ \mbox{\hyperlink{namespacecore_a91994a2fb37f8b4df0567468e9d0e325a3239c07183a9b9a88045a5930139d353}{core\+::sense\+Control\+::low\+Level}} =0, 
+\mbox{\hyperlink{namespacecore_a91994a2fb37f8b4df0567468e9d0e325aa8e8974344f00f6a16f4aa4ca52834a3}{core\+::sense\+Control\+::logical\+Change}}, 
+\mbox{\hyperlink{namespacecore_a91994a2fb37f8b4df0567468e9d0e325af2e03b32ee1a55694d5d848178d41bb8}{core\+::sense\+Control\+::falling\+Edge}}, 
+\mbox{\hyperlink{namespacecore_a91994a2fb37f8b4df0567468e9d0e325a635b84b50f3e41bd784adf168b8cb49f}{core\+::sense\+Control\+::rising\+Edge}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespacecore_a53090c2070741c037b6c3606081a34dd}{core\+::pin\+Change\+Port}} \+: uint8\+\_\+t \{ \mbox{\hyperlink{namespacecore_a53090c2070741c037b6c3606081a34dda79ac6619c9a7c733ac96232e557fa156}{core\+::pin\+Change\+Port\+::\+P\+C\+I\+N\+TB}} =0, 
+\mbox{\hyperlink{namespacecore_a53090c2070741c037b6c3606081a34dda0d12bf50fa5634dc60479c1a7e575ea2}{core\+::pin\+Change\+Port\+::\+P\+C\+I\+N\+TC}}, 
+\mbox{\hyperlink{namespacecore_a53090c2070741c037b6c3606081a34dda6179ac5884ca1d03a6c79008a9d816ee}{core\+::pin\+Change\+Port\+::\+P\+C\+I\+N\+TD}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file of the Extern\+Interrupt class. 
+
+class to handle externally triggered interrupts.
+
+Usage example (external interrupt)\+:
+
+\#include \char`\"{}\+Push\+Button.\+h\char`\"{} \#include \char`\"{}\+Led.\+h\char`\"{} \#include \char`\"{}\+Extern\+Interrupt.\+h\char`\"{}
+
+\#define P\+U\+S\+H\+B\+U\+T\+T\+O\+N\+\_\+\+N\+U\+M\+B\+ER 2 \#define M\+A\+I\+N\+\_\+\+L\+E\+D\+\_\+\+N\+U\+M\+B\+ER 0 \#define I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+L\+E\+D\+\_\+\+N\+U\+M\+B\+ER 1 \#define D\+E\+L\+A\+Y\+T\+I\+ME 1000
+
+instantiate a Led object declaration of global variables (shut up warning) extern \mbox{\hyperlink{classcomponent_1_1Led}{component\+::\+Led}} Main\+Led; extern \mbox{\hyperlink{classcomponent_1_1Led}{component\+::\+Led}} Interrupt\+Led; \mbox{\hyperlink{classcomponent_1_1Led}{component\+::\+Led}} Main\+Led(io\+::\+Pin(\+M\+A\+I\+N\+\_\+\+L\+E\+D\+\_\+\+N\+U\+M\+B\+E\+R,io\+::\+Port\+B)); \mbox{\hyperlink{classcomponent_1_1Led}{component\+::\+Led}} Interrupt\+Led(io\+::\+Pin(\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+L\+E\+D\+\_\+\+N\+U\+M\+B\+E\+R,io\+::\+Port\+B));
+
+instantiate a Led object declaration of global variable (shut up warning) extern \mbox{\hyperlink{classcomponent_1_1PushButton}{component\+::\+Push\+Button}} Push\+Button; \mbox{\hyperlink{classcomponent_1_1PushButton}{component\+::\+Push\+Button}} Push\+Button(io\+::\+Pin(\+P\+U\+S\+H\+B\+U\+T\+T\+O\+N\+\_\+\+N\+U\+M\+B\+E\+R,io\+::\+Port\+D));
+
+int \mbox{\hyperlink{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}{main(void)}} \{
+
+Init
+
+instantiate the external interrupt manager \mbox{\hyperlink{classcore_1_1ExternInterrupt}{core\+::\+Extern\+Interrupt}} \&my\+Extern\+Interrupt = \mbox{\hyperlink{classcore_1_1ExternInterrupt_adda31b2ddeb86687186f0c80f3011e39}{core\+::\+Extern\+Interrupt\+::get\+Instance()}}; my\+Extern\+Interrupt.\+enable\+Int0(1); my\+Extern\+Interrupt.\+set\+Int0\+Sense\+Control(core\+::sense\+Control\+::logical\+Change);
+
+Mainloop while (1) \{
+
+Main\+Led.\+toggle(); \+\_\+delay\+\_\+ms(\+D\+E\+L\+A\+Y\+T\+I\+M\+E);
+
+\} return 0; \}
+
+void \mbox{\hyperlink{classcore_1_1ExternInterrupt_a3343c45963bd07f208d80bafcd35ffa9}{core\+::\+Extern\+Interrupt\+::\+Int0\+Service\+Routine()}} \{ if (Push\+Button.\+is\+Pressed()) \{ Interrupt\+Led.\+on(); \} else \{ Interrupt\+Led.\+off(); \}
+
+\}
+
+Usage example (pin change interrupt)\+:
+
+\#include \char`\"{}\+Push\+Button.\+h\char`\"{} \#include \char`\"{}\+Led.\+h\char`\"{} \#include \char`\"{}\+Extern\+Interrupt.\+h\char`\"{}
+
+\#define P\+U\+S\+H\+B\+U\+T\+T\+O\+N\+\_\+1\+\_\+\+N\+U\+M\+B\+ER 2 \#define P\+U\+S\+H\+B\+U\+T\+T\+O\+N\+\_\+2\+\_\+\+N\+U\+M\+B\+ER 3 \#define M\+A\+I\+N\+\_\+\+L\+E\+D\+\_\+\+N\+U\+M\+B\+ER 0 \#define I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+L\+E\+D\+\_\+1\+\_\+\+N\+U\+M\+B\+ER 1 \#define I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+L\+E\+D\+\_\+2\+\_\+\+N\+U\+M\+B\+ER 2 \#define D\+E\+L\+A\+Y\+T\+I\+ME 1000
+
+instantiate a Led objects declaration of global variables (shut up warning) extern \mbox{\hyperlink{classcomponent_1_1Led}{component\+::\+Led}} Main\+Led; extern \mbox{\hyperlink{classcomponent_1_1Led}{component\+::\+Led}} Interrupt\+Led1; extern \mbox{\hyperlink{classcomponent_1_1Led}{component\+::\+Led}} Interrupt\+Led2; \mbox{\hyperlink{classcomponent_1_1Led}{component\+::\+Led}} Main\+Led(io\+::\+Pin(\+M\+A\+I\+N\+\_\+\+L\+E\+D\+\_\+\+N\+U\+M\+B\+E\+R,io\+::\+Port\+B)); \mbox{\hyperlink{classcomponent_1_1Led}{component\+::\+Led}} Interrupt\+Led1(io\+::\+Pin(\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+L\+E\+D\+\_\+1\+\_\+\+N\+U\+M\+B\+E\+R,io\+::\+Port\+B)); \mbox{\hyperlink{classcomponent_1_1Led}{component\+::\+Led}} Interrupt\+Led2(io\+::\+Pin(\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+L\+E\+D\+\_\+2\+\_\+\+N\+U\+M\+B\+E\+R,io\+::\+Port\+B));
+
+instantiate a Push\+Button objects declaration of global variable (shut up warning) extern \mbox{\hyperlink{classcomponent_1_1PushButton}{component\+::\+Push\+Button}} Push\+Button1; extern \mbox{\hyperlink{classcomponent_1_1PushButton}{component\+::\+Push\+Button}} Push\+Button2; \mbox{\hyperlink{classcomponent_1_1PushButton}{component\+::\+Push\+Button}} Push\+Button1(io\+::\+Pin(\+P\+U\+S\+H\+B\+U\+T\+T\+O\+N\+\_\+1\+\_\+\+N\+U\+M\+B\+E\+R,io\+::\+Port\+D)); \mbox{\hyperlink{classcomponent_1_1PushButton}{component\+::\+Push\+Button}} Push\+Button2(io\+::\+Pin(\+P\+U\+S\+H\+B\+U\+T\+T\+O\+N\+\_\+2\+\_\+\+N\+U\+M\+B\+E\+R,io\+::\+Port\+B));
+
+int \mbox{\hyperlink{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}{main(void)}} \{
+
+Init
+
+instantiate the external interrupt manager \mbox{\hyperlink{classcore_1_1ExternInterrupt}{core\+::\+Extern\+Interrupt}} \&my\+Extern\+Interrupt = \mbox{\hyperlink{classcore_1_1ExternInterrupt_adda31b2ddeb86687186f0c80f3011e39}{core\+::\+Extern\+Interrupt\+::get\+Instance()}}; my\+Extern\+Interrupt.\+enable\+Pin\+Change(core\+::pin\+Change\+Port\+::\+P\+C\+I\+N\+T\+D,1); my\+Extern\+Interrupt.\+enable\+Pin\+Change(core\+::pin\+Change\+Port\+::\+P\+C\+I\+N\+T\+B,1); my\+Extern\+Interrupt.\+enable\+Pin\+Change\+Mask\+Port\+D(\+P\+U\+S\+H\+B\+U\+T\+T\+O\+N\+\_\+1\+\_\+\+N\+U\+M\+B\+E\+R,1); my\+Extern\+Interrupt.\+enable\+Pin\+Change\+Mask\+Port\+B(\+P\+U\+S\+H\+B\+U\+T\+T\+O\+N\+\_\+2\+\_\+\+N\+U\+M\+B\+E\+R,1);
+
+Mainloop while (1) \{
+
+Main\+Led.\+toggle(); \+\_\+delay\+\_\+ms(\+D\+E\+L\+A\+Y\+T\+I\+M\+E);
+
+\} return 0; \}
+
+void \mbox{\hyperlink{classcore_1_1ExternInterrupt_ac844e00a6c63c32b54fe9e1b2bdc3bd5}{core\+::\+Extern\+Interrupt\+::pin\+Change\+Port\+D\+Service\+Routine()}} \{ if (Push\+Button1.\+is\+Pressed()) \{ Interrupt\+Led1.\+on();
+
+\} else \{ Interrupt\+Led1.\+off();
+
+\} \} void \mbox{\hyperlink{classcore_1_1ExternInterrupt_a9ea842727c38d69a3b59c1ac7e654452}{core\+::\+Extern\+Interrupt\+::pin\+Change\+Port\+B\+Service\+Routine()}} \{ if (Push\+Button2.\+is\+Pressed()) \{ Interrupt\+Led2.\+on(); \} else \{ Interrupt\+Led2.\+off(); \}
+
+\}
+
+\begin{DoxyAuthor}{Author}
+Farid Oubbati (\href{https://github.com/faroub}{\texttt{ https\+://github.\+com/faroub}}) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+March 2020 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{ExternInterrupt_8h_source}{Extern\+Interrupt.\+h}}.
+

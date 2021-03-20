@@ -1,0 +1,115 @@
+\hypertarget{WatchdogTimer_8h}{}\doxysection{Watchdog\+Timer.\+h File Reference}
+\label{WatchdogTimer_8h}\index{WatchdogTimer.h@{WatchdogTimer.h}}
+
+
+Header file of the Watchdog\+Timer class.  
+
+
+{\ttfamily \#include \char`\"{}ha\+\_\+base.\+h\char`\"{}}\newline
+Include dependency graph for Watchdog\+Timer.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{WatchdogTimer_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{WatchdogTimer_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcore_1_1WatchdogTimer}{core\+::\+Watchdog\+Timer}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacecore}{core}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144f}{core\+::time\+Out}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144fa7c78a2a19a715c4a7d2d6f1d6c8bd147}{core\+::time\+Out\+::to\+\_\+16ms}} =0, 
+\mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144fab98adeb6a091135b0200fac029cefe0f}{core\+::time\+Out\+::to\+\_\+32ms}}, 
+\mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144faf2ffa2921d64275b11b7463fc4d0d667}{core\+::time\+Out\+::to\+\_\+64ms}}, 
+\mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144fa69fcfbae6d8818272c395a23bff6bc0e}{core\+::time\+Out\+::to\+\_\+125ms}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144face7247a5c6052baae4ffe41f15e396db}{core\+::time\+Out\+::to\+\_\+250ms}}, 
+\mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144faababdddd7a7fdf8d2677b0bbfc563bd9}{core\+::time\+Out\+::to\+\_\+500ms}}, 
+\mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144fa39c30c1f7842ea56d2ab64b8c488924b}{core\+::time\+Out\+::to\+\_\+1s}}, 
+\mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144fa09fef63677fc1a9ae51231a4205c9c6b}{core\+::time\+Out\+::to\+\_\+2s}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144faf8d332b84ba19f14a1f63062dd6800a1}{core\+::time\+Out\+::to\+\_\+4s}}, 
+\mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144fa254b0b70ad7fbdd04a61a0d5f9b45e78}{core\+::time\+Out\+::to\+\_\+8s}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4}{core\+::operation\+Mode}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4afea087517c26fadd409bd4b9dc642555}{core\+::operation\+Mode\+::normal}} =0, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a49196b0d24edb1a822132784eeffd5f3}{core\+::operation\+Mode\+::\+P\+W\+M\+\_\+\+PC}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4adc060b12f2a8c2ed0449043878c8dee9}{core\+::operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+C\+\_\+8bit}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a4092d7289a007c7c583325a9d0277d16}{core\+::operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+C\+\_\+9bit}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a7ec819df84b0dca3945c08b65a98fe41}{core\+::operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+C\+\_\+10bit}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a3ce160e6a1ac5bb1a58b465499a234f4}{core\+::operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+F\+C\+\_\+\+I\+CR}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a596199601954f751d5b9b35c7b06e7a0}{core\+::operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+F\+C\+\_\+\+O\+CR}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a8ef607651fb404e5e7bbf24fde8be544}{core\+::operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+C\+\_\+\+I\+CR}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4aaf87e8ea80940150346ebe17612ee70e}{core\+::operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+C\+\_\+\+O\+CR}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a9bb3db07673e063e5eaadd3547848399}{core\+::operation\+Mode\+::fast\+\_\+\+P\+WM}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4ae8ba4e6d60ad9c0ab7f2c9b1c1942a41}{core\+::operation\+Mode\+::fast\+\_\+\+P\+W\+M\+\_\+8bit}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a95ac8af4ebc841d7ebb3bbf25d5713ef}{core\+::operation\+Mode\+::fast\+\_\+\+P\+W\+M\+\_\+9bit}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a1df38a580f76d74bd1e84c27764fdc41}{core\+::operation\+Mode\+::fast\+\_\+\+P\+W\+M\+\_\+10bit}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4afc3f15b740f731d2d2ef7d32fac6d071}{core\+::operation\+Mode\+::fast\+\_\+\+P\+W\+M\+\_\+\+I\+CR}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4ada00392d2f289eb77f4575d0371d9e90}{core\+::operation\+Mode\+::fast\+\_\+\+P\+W\+M\+\_\+\+O\+CR}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a9a9708b23d4611d606d2cab182ad99e5}{core\+::operation\+Mode\+::\+C\+T\+C\+\_\+\+O\+CR}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a04690e34407e7b99353ce910f8c1a4a0}{core\+::operation\+Mode\+::\+C\+T\+C\+\_\+\+I\+CR}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a2414c252176310b2c04547257948c7b7}{core\+::operation\+Mode\+::interrupt}} =1, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a86266ee937d97f812a8e57d22b62ee29}{core\+::operation\+Mode\+::reset}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a81ac0c5a7b37b4e3166d6e3067c70b9c}{core\+::operation\+Mode\+::interrupt\+\_\+reset}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file of the Watchdog\+Timer class. 
+
+Basic class abstraction of the Watchdog\+Timer peripheral
+
+Usage example (test)\+:
+
+\#include \char`\"{}\+Watchdog\+Timer.\+h\char`\"{} \#include \char`\"{}\+Led.\+h\char`\"{} instantiate a Led object extern \mbox{\hyperlink{classcomponent_1_1Led}{component\+::\+Led}} Led; \mbox{\hyperlink{classcomponent_1_1Led}{component\+::\+Led}} Led(io\+::\+Pin(1,io\+::\+Port\+B)); extern \mbox{\hyperlink{classcomponent_1_1Led}{component\+::\+Led}} Led\+Start; \mbox{\hyperlink{classcomponent_1_1Led}{component\+::\+Led}} Led\+Start(io\+::\+Pin(2,io\+::\+Port\+B));
+
+int \mbox{\hyperlink{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}{main(void)}} \{
+
+Init instantiate a Watchdog object \mbox{\hyperlink{classcore_1_1WatchdogTimer}{core\+::\+Watchdog\+Timer}} \&my\+Watchdog = \mbox{\hyperlink{classcore_1_1WatchdogTimer_a70a7f14997f008638566a318e7a28bd2}{core\+::\+Watchdog\+Timer\+::get\+Instance()}}; my\+Watchdog.\+select\+Time\+Out(core\+::time\+Out\+::to\+\_\+8s); Led\+Start.\+on(); \+\_\+delay\+\_\+ms(5000); Led\+Start.\+off(); my\+Watchdog.\+start(core\+::operation\+Mode\+::reset); -\/-\/-\/--- Event loop -\/-\/-\/--- // while (1) \{ \begin{DoxyVerb}Led.on();
+_delay_ms(1000);
+Led.off();
+_delay_ms(1000);
+\end{DoxyVerb}
+
+
+\} return 0; \}
+
+void \mbox{\hyperlink{classcore_1_1WatchdogTimer_a96da8ee96918d34e82738ab612a73ded}{core\+::\+Watchdog\+Timer\+::time\+Out\+Service\+Routine()}} \{ for (uint8\+\_\+t i=0;i$<$10;i++) \{ Led.\+on(); \+\_\+delay\+\_\+ms(100); Led.\+off(); \+\_\+delay\+\_\+ms(100);
+
+\}
+
+\}
+
+\begin{DoxyAuthor}{Author}
+Farid Oubbati (\href{https://github.com/faroub}{\texttt{ https\+://github.\+com/faroub}}) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+March 2020 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{WatchdogTimer_8h_source}{Watchdog\+Timer.\+h}}.
+

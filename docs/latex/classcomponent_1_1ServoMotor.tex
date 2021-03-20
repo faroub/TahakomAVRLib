@@ -1,0 +1,437 @@
+\hypertarget{classcomponent_1_1ServoMotor}{}\doxysection{component\+::Servo\+Motor Class Reference}
+\label{classcomponent_1_1ServoMotor}\index{component::ServoMotor@{component::ServoMotor}}
+
+
+{\ttfamily \#include $<$Servo\+Motor.\+h$>$}
+
+
+
+Collaboration diagram for component\+::Servo\+Motor\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{classcomponent_1_1ServoMotor__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcomponent_1_1ServoMotor_ab895cb74efe648cc1ea71bc6b97b5311}{Servo\+Motor}} (const \mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}} \&ar\+\_\+pin, const uint16\+\_\+t \&ar\+\_\+pulse\+Cycle=0, const uint16\+\_\+t \&ar\+\_\+pulse\+Width\+Min=0, const uint16\+\_\+t \&ar\+\_\+pulse\+Width\+Mid=0, const uint16\+\_\+t \&ar\+\_\+pulse\+Width\+Max=0)
+\item 
+\mbox{\hyperlink{classcomponent_1_1ServoMotor_af7a59467a84914222a20952493ee3f82}{$\sim$\+Servo\+Motor}} ()
+\item 
+void \mbox{\hyperlink{classcomponent_1_1ServoMotor_a80764da2073f145027acb0e5c8a2a522}{on}} ()
+\begin{DoxyCompactList}\small\item\em Turn servo motor On. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcomponent_1_1ServoMotor_aed98821dc8a130ac42e29b09dbd9948b}{off}} ()
+\begin{DoxyCompactList}\small\item\em Turn servo motor Off. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcomponent_1_1ServoMotor_a45d22d89695730f6377b6532fc291428}{toggle}} ()
+\begin{DoxyCompactList}\small\item\em Toggle servo motor state. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{classcomponent_1_1ServoMotor_a1abbbd945b76c3cee6e01f2ea3cf91dd}{compute\+Pulse\+Cycle\+Count}} (const uint16\+\_\+t \&ar\+\_\+clock\+Prescaler)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{classcomponent_1_1ServoMotor_a42cecd2df4dad95fa5065a38fa97ca56}{compute\+Pulse\+Width\+Min\+Count}} (const uint16\+\_\+t \&ar\+\_\+clock\+Prescaler)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{classcomponent_1_1ServoMotor_aedc67b647bd299afbe52205d82d0c69e}{compute\+Pulse\+Width\+Mid\+Count}} (const uint16\+\_\+t \&ar\+\_\+clock\+Prescaler)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{classcomponent_1_1ServoMotor_aaf0e4b971867acb8678abf79f69ddfbd}{compute\+Pulse\+Width\+Max\+Count}} (const uint16\+\_\+t \&ar\+\_\+clock\+Prescaler)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{classcomponent_1_1ServoMotor_a76437de03912f97801b0f067a290608f}{compute\+Rotation\+Angle\+Count}} (const uint8\+\_\+t \&ar\+\_\+angle\+\_\+deg, const uint16\+\_\+t \&ar\+\_\+clock\+Prescaler)
+\item 
+void \mbox{\hyperlink{classcomponent_1_1ServoMotor_af851f56f5e4ae7cd70818e87e334047d}{rotate}} (\mbox{\hyperlink{classcore_1_1TimerCounter1}{core\+::\+Timer\+Counter1}} \&ar\+\_\+timer\+Counter1, const uint8\+\_\+t \&ar\+\_\+angle\+\_\+deg, const \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{core\+::channel}} \&ar\+\_\+channel=\mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}{core\+::channel\+::A}})
+\item 
+void \mbox{\hyperlink{classcomponent_1_1ServoMotor_ac6fc14796b51b3bcd02b4e08cd5dad86}{connect}} (\mbox{\hyperlink{classcore_1_1TimerCounter1}{core\+::\+Timer\+Counter1}} \&ar\+\_\+timer\+Counter1, const \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{core\+::channel}} \&ar\+\_\+channel=\mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}{core\+::channel\+::A}})
+\item 
+void \mbox{\hyperlink{classcomponent_1_1ServoMotor_afac8050d859c484ad104fbf9ecf9cbac}{disconnect}} (\mbox{\hyperlink{classcore_1_1TimerCounter1}{core\+::\+Timer\+Counter1}} \&ar\+\_\+timer\+Counter1, const \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{core\+::channel}} \&ar\+\_\+channel=\mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}{core\+::channel\+::A}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}} \mbox{\hyperlink{classcomponent_1_1ServoMotor_a6bcab716acd4f99ad73b2c3fe1fa7b26}{m\+\_\+pin}}
+\begin{DoxyCompactList}\small\item\em pin object \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{classcomponent_1_1ServoMotor_ad74329865e89cf65e0ba2fd54e6f11bc}{m\+\_\+pulse\+Cycle}}
+\begin{DoxyCompactList}\small\item\em pulse cycle \mbox{[}us\mbox{]} \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{classcomponent_1_1ServoMotor_a4b63cc2c93127269c57e004bfecf0e13}{m\+\_\+pulse\+Width\+Min}}
+\begin{DoxyCompactList}\small\item\em pulse width min \mbox{[}us\mbox{]} \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{classcomponent_1_1ServoMotor_a96016a5cef9f1f476cbc4c9987bc27fc}{m\+\_\+pulse\+Width\+Mid}}
+\begin{DoxyCompactList}\small\item\em pulse width mid \mbox{[}us\mbox{]} \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{classcomponent_1_1ServoMotor_a0c24b40a45b29dbff93bd6458a3400ff}{m\+\_\+pulse\+Width\+Max}}
+\begin{DoxyCompactList}\small\item\em pulse width max \mbox{[}us\mbox{]} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{ServoMotor_8h_source_l00138}{138}} of file \mbox{\hyperlink{ServoMotor_8h_source}{Servo\+Motor.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcomponent_1_1ServoMotor_ab895cb74efe648cc1ea71bc6b97b5311}\label{classcomponent_1_1ServoMotor_ab895cb74efe648cc1ea71bc6b97b5311}} 
+\index{component::ServoMotor@{component::ServoMotor}!ServoMotor@{ServoMotor}}
+\index{ServoMotor@{ServoMotor}!component::ServoMotor@{component::ServoMotor}}
+\doxysubsubsection{\texorpdfstring{ServoMotor()}{ServoMotor()}}
+{\footnotesize\ttfamily component\+::\+Servo\+Motor\+::\+Servo\+Motor (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}} \&}]{ar\+\_\+pin,  }\item[{const uint16\+\_\+t \&}]{ar\+\_\+pulse\+Cycle = {\ttfamily 0},  }\item[{const uint16\+\_\+t \&}]{ar\+\_\+pulse\+Width\+Min = {\ttfamily 0},  }\item[{const uint16\+\_\+t \&}]{ar\+\_\+pulse\+Width\+Mid = {\ttfamily 0},  }\item[{const uint16\+\_\+t \&}]{ar\+\_\+pulse\+Width\+Max = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ServoMotor_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{ServoMotor_8cpp_source}{Servo\+Motor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00010                       : \mbox{\hyperlink{classcomponent_1_1ServoMotor_a6bcab716acd4f99ad73b2c3fe1fa7b26}{m\_pin}}(ar\_pin),}
+\DoxyCodeLine{00011                         \mbox{\hyperlink{classcomponent_1_1ServoMotor_ad74329865e89cf65e0ba2fd54e6f11bc}{m\_pulseCycle}}(ar\_pulseCycle),}
+\DoxyCodeLine{00012                         \mbox{\hyperlink{classcomponent_1_1ServoMotor_a4b63cc2c93127269c57e004bfecf0e13}{m\_pulseWidthMin}}(ar\_pulseWidthMin),}
+\DoxyCodeLine{00013                         \mbox{\hyperlink{classcomponent_1_1ServoMotor_a96016a5cef9f1f476cbc4c9987bc27fc}{m\_pulseWidthMid}}(ar\_pulseWidthMid),}
+\DoxyCodeLine{00014                         \mbox{\hyperlink{classcomponent_1_1ServoMotor_a0c24b40a45b29dbff93bd6458a3400ff}{m\_pulseWidthMax}}(ar\_pulseWidthMax)}
+\DoxyCodeLine{00015 \{}
+\DoxyCodeLine{00016     \mbox{\hyperlink{classcomponent_1_1ServoMotor_a6bcab716acd4f99ad73b2c3fe1fa7b26}{m\_pin}}.\mbox{\hyperlink{classio_1_1Pin_a2d1e7ed9625d0c4bb8d81dadbadacc41}{toOutput}}();}
+\DoxyCodeLine{00017 }
+\DoxyCodeLine{00018 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{ServoMotor_8h_source_l00188}{m\+\_\+pin}}, and \mbox{\hyperlink{Pin_8cpp_source_l00017}{io\+::\+Pin\+::to\+Output()}}.
+
+\mbox{\Hypertarget{classcomponent_1_1ServoMotor_af7a59467a84914222a20952493ee3f82}\label{classcomponent_1_1ServoMotor_af7a59467a84914222a20952493ee3f82}} 
+\index{component::ServoMotor@{component::ServoMotor}!````~ServoMotor@{$\sim$ServoMotor}}
+\index{````~ServoMotor@{$\sim$ServoMotor}!component::ServoMotor@{component::ServoMotor}}
+\doxysubsubsection{\texorpdfstring{$\sim$ServoMotor()}{~ServoMotor()}}
+{\footnotesize\ttfamily component\+::\+Servo\+Motor\+::$\sim$\+Servo\+Motor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ServoMotor_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{ServoMotor_8cpp_source}{Servo\+Motor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021 \{}
+\DoxyCodeLine{00022 }
+\DoxyCodeLine{00023 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcomponent_1_1ServoMotor_a1abbbd945b76c3cee6e01f2ea3cf91dd}\label{classcomponent_1_1ServoMotor_a1abbbd945b76c3cee6e01f2ea3cf91dd}} 
+\index{component::ServoMotor@{component::ServoMotor}!computePulseCycleCount@{computePulseCycleCount}}
+\index{computePulseCycleCount@{computePulseCycleCount}!component::ServoMotor@{component::ServoMotor}}
+\doxysubsubsection{\texorpdfstring{computePulseCycleCount()}{computePulseCycleCount()}}
+{\footnotesize\ttfamily uint16\+\_\+t component\+::\+Servo\+Motor\+::compute\+Pulse\+Cycle\+Count (\begin{DoxyParamCaption}\item[{const uint16\+\_\+t \&}]{ar\+\_\+clock\+Prescaler }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ServoMotor_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{ServoMotor_8cpp_source}{Servo\+Motor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045 \{}
+\DoxyCodeLine{00046     \textcolor{keywordflow}{return} \mbox{\hyperlink{ha__m328p_8h_ac06ca117a692a02dcd520cf0f44338d8}{SERVOMOTOR\_TIMER\_PULSE\_WIDTH\_COUNT}}(\mbox{\hyperlink{classcomponent_1_1ServoMotor_ad74329865e89cf65e0ba2fd54e6f11bc}{m\_pulseCycle}},ar\_clockPrescaler);}
+\DoxyCodeLine{00047 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{ha__m328p_8h_source_l00293}{S\+E\+R\+V\+O\+M\+O\+T\+O\+R\+\_\+\+T\+I\+M\+E\+R\+\_\+\+P\+U\+L\+S\+E\+\_\+\+W\+I\+D\+T\+H\+\_\+\+C\+O\+U\+NT}}.
+
+\mbox{\Hypertarget{classcomponent_1_1ServoMotor_aaf0e4b971867acb8678abf79f69ddfbd}\label{classcomponent_1_1ServoMotor_aaf0e4b971867acb8678abf79f69ddfbd}} 
+\index{component::ServoMotor@{component::ServoMotor}!computePulseWidthMaxCount@{computePulseWidthMaxCount}}
+\index{computePulseWidthMaxCount@{computePulseWidthMaxCount}!component::ServoMotor@{component::ServoMotor}}
+\doxysubsubsection{\texorpdfstring{computePulseWidthMaxCount()}{computePulseWidthMaxCount()}}
+{\footnotesize\ttfamily uint16\+\_\+t component\+::\+Servo\+Motor\+::compute\+Pulse\+Width\+Max\+Count (\begin{DoxyParamCaption}\item[{const uint16\+\_\+t \&}]{ar\+\_\+clock\+Prescaler }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ServoMotor_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{ServoMotor_8cpp_source}{Servo\+Motor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055 \{}
+\DoxyCodeLine{00056     \textcolor{keywordflow}{return} \mbox{\hyperlink{ha__m328p_8h_ac06ca117a692a02dcd520cf0f44338d8}{SERVOMOTOR\_TIMER\_PULSE\_WIDTH\_COUNT}}(\mbox{\hyperlink{classcomponent_1_1ServoMotor_a0c24b40a45b29dbff93bd6458a3400ff}{m\_pulseWidthMax}},ar\_clockPrescaler);}
+\DoxyCodeLine{00057 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{ha__m328p_8h_source_l00293}{S\+E\+R\+V\+O\+M\+O\+T\+O\+R\+\_\+\+T\+I\+M\+E\+R\+\_\+\+P\+U\+L\+S\+E\+\_\+\+W\+I\+D\+T\+H\+\_\+\+C\+O\+U\+NT}}.
+
+\mbox{\Hypertarget{classcomponent_1_1ServoMotor_aedc67b647bd299afbe52205d82d0c69e}\label{classcomponent_1_1ServoMotor_aedc67b647bd299afbe52205d82d0c69e}} 
+\index{component::ServoMotor@{component::ServoMotor}!computePulseWidthMidCount@{computePulseWidthMidCount}}
+\index{computePulseWidthMidCount@{computePulseWidthMidCount}!component::ServoMotor@{component::ServoMotor}}
+\doxysubsubsection{\texorpdfstring{computePulseWidthMidCount()}{computePulseWidthMidCount()}}
+{\footnotesize\ttfamily uint16\+\_\+t component\+::\+Servo\+Motor\+::compute\+Pulse\+Width\+Mid\+Count (\begin{DoxyParamCaption}\item[{const uint16\+\_\+t \&}]{ar\+\_\+clock\+Prescaler }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ServoMotor_8cpp_source_l00059}{59}} of file \mbox{\hyperlink{ServoMotor_8cpp_source}{Servo\+Motor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060 \{}
+\DoxyCodeLine{00061     \textcolor{keywordflow}{return} \mbox{\hyperlink{ha__m328p_8h_ac06ca117a692a02dcd520cf0f44338d8}{SERVOMOTOR\_TIMER\_PULSE\_WIDTH\_COUNT}}(\mbox{\hyperlink{classcomponent_1_1ServoMotor_a96016a5cef9f1f476cbc4c9987bc27fc}{m\_pulseWidthMid}},ar\_clockPrescaler);}
+\DoxyCodeLine{00062 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{ha__m328p_8h_source_l00293}{S\+E\+R\+V\+O\+M\+O\+T\+O\+R\+\_\+\+T\+I\+M\+E\+R\+\_\+\+P\+U\+L\+S\+E\+\_\+\+W\+I\+D\+T\+H\+\_\+\+C\+O\+U\+NT}}.
+
+\mbox{\Hypertarget{classcomponent_1_1ServoMotor_a42cecd2df4dad95fa5065a38fa97ca56}\label{classcomponent_1_1ServoMotor_a42cecd2df4dad95fa5065a38fa97ca56}} 
+\index{component::ServoMotor@{component::ServoMotor}!computePulseWidthMinCount@{computePulseWidthMinCount}}
+\index{computePulseWidthMinCount@{computePulseWidthMinCount}!component::ServoMotor@{component::ServoMotor}}
+\doxysubsubsection{\texorpdfstring{computePulseWidthMinCount()}{computePulseWidthMinCount()}}
+{\footnotesize\ttfamily uint16\+\_\+t component\+::\+Servo\+Motor\+::compute\+Pulse\+Width\+Min\+Count (\begin{DoxyParamCaption}\item[{const uint16\+\_\+t \&}]{ar\+\_\+clock\+Prescaler }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ServoMotor_8cpp_source_l00049}{49}} of file \mbox{\hyperlink{ServoMotor_8cpp_source}{Servo\+Motor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050 \{}
+\DoxyCodeLine{00051     \textcolor{keywordflow}{return} \mbox{\hyperlink{ha__m328p_8h_ac06ca117a692a02dcd520cf0f44338d8}{SERVOMOTOR\_TIMER\_PULSE\_WIDTH\_COUNT}}(\mbox{\hyperlink{classcomponent_1_1ServoMotor_a4b63cc2c93127269c57e004bfecf0e13}{m\_pulseWidthMin}},ar\_clockPrescaler);}
+\DoxyCodeLine{00052 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{ha__m328p_8h_source_l00293}{S\+E\+R\+V\+O\+M\+O\+T\+O\+R\+\_\+\+T\+I\+M\+E\+R\+\_\+\+P\+U\+L\+S\+E\+\_\+\+W\+I\+D\+T\+H\+\_\+\+C\+O\+U\+NT}}.
+
+\mbox{\Hypertarget{classcomponent_1_1ServoMotor_a76437de03912f97801b0f067a290608f}\label{classcomponent_1_1ServoMotor_a76437de03912f97801b0f067a290608f}} 
+\index{component::ServoMotor@{component::ServoMotor}!computeRotationAngleCount@{computeRotationAngleCount}}
+\index{computeRotationAngleCount@{computeRotationAngleCount}!component::ServoMotor@{component::ServoMotor}}
+\doxysubsubsection{\texorpdfstring{computeRotationAngleCount()}{computeRotationAngleCount()}}
+{\footnotesize\ttfamily uint16\+\_\+t component\+::\+Servo\+Motor\+::compute\+Rotation\+Angle\+Count (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \&}]{ar\+\_\+angle\+\_\+deg,  }\item[{const uint16\+\_\+t \&}]{ar\+\_\+clock\+Prescaler }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ServoMotor_8cpp_source_l00064}{64}} of file \mbox{\hyperlink{ServoMotor_8cpp_source}{Servo\+Motor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065 \{}
+\DoxyCodeLine{00066     \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}uint16\_t\textcolor{keyword}{>}(\mbox{\hyperlink{ha__m328p_8h_ac9712b0006fe45b09f1dfefaa8ed9b78}{SERVOMOTOR\_TIMER\_ANGLE\_COUNT}}(ar\_angle\_deg,\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{long}\textcolor{keyword}{>}(\mbox{\hyperlink{classcomponent_1_1ServoMotor_a42cecd2df4dad95fa5065a38fa97ca56}{computePulseWidthMinCount}}(ar\_clockPrescaler)),\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{long}\textcolor{keyword}{>}(\mbox{\hyperlink{classcomponent_1_1ServoMotor_aedc67b647bd299afbe52205d82d0c69e}{computePulseWidthMidCount}}(ar\_clockPrescaler)),\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{long}\textcolor{keyword}{>}(\mbox{\hyperlink{classcomponent_1_1ServoMotor_aaf0e4b971867acb8678abf79f69ddfbd}{computePulseWidthMaxCount}}(ar\_clockPrescaler))));}
+\DoxyCodeLine{00067 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{ha__m328p_8h_source_l00295}{S\+E\+R\+V\+O\+M\+O\+T\+O\+R\+\_\+\+T\+I\+M\+E\+R\+\_\+\+A\+N\+G\+L\+E\+\_\+\+C\+O\+U\+NT}}.
+
+\mbox{\Hypertarget{classcomponent_1_1ServoMotor_ac6fc14796b51b3bcd02b4e08cd5dad86}\label{classcomponent_1_1ServoMotor_ac6fc14796b51b3bcd02b4e08cd5dad86}} 
+\index{component::ServoMotor@{component::ServoMotor}!connect@{connect}}
+\index{connect@{connect}!component::ServoMotor@{component::ServoMotor}}
+\doxysubsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily void component\+::\+Servo\+Motor\+::connect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcore_1_1TimerCounter1}{core\+::\+Timer\+Counter1}} \&}]{ar\+\_\+timer\+Counter1,  }\item[{const \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{core\+::channel}} \&}]{ar\+\_\+channel = {\ttfamily \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}{core\+::channel\+::A}}} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ServoMotor_8cpp_source_l00085}{85}} of file \mbox{\hyperlink{ServoMotor_8cpp_source}{Servo\+Motor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087 \{}
+\DoxyCodeLine{00088 }
+\DoxyCodeLine{00089 }
+\DoxyCodeLine{00090     ar\_timerCounter1.\mbox{\hyperlink{classcore_1_1TimerCounter1_aa3688ece97a8ffce5d65132f5a885bea}{setInputCaptureRegister}}(\mbox{\hyperlink{classcomponent_1_1ServoMotor_a1abbbd945b76c3cee6e01f2ea3cf91dd}{computePulseCycleCount}}(ar\_timerCounter1.\mbox{\hyperlink{classcore_1_1TimerCounter1_a4acdbf18d86748032abf6f07e7a6d9b1}{getClockPrescaler}}()));}
+\DoxyCodeLine{00091     ar\_timerCounter1.\mbox{\hyperlink{classcore_1_1TimerCounter1_a09071abf6d7f6a99216bf3735a94df0e}{selectOperationMode}}(\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4afc3f15b740f731d2d2ef7d32fac6d071}{core::operationMode::fast\_PWM\_ICR}});}
+\DoxyCodeLine{00092     ar\_timerCounter1.\mbox{\hyperlink{classcore_1_1TimerCounter1_a663221dc1a1b1d04c2aa06dec2a6bb72}{selectCompareOutputMode}}(ar\_channel, \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950a01bc6f8efa4202821e95f4fdf6298b30}{core::compareOutputMode::clear}});}
+\DoxyCodeLine{00093     ar\_timerCounter1.\mbox{\hyperlink{classcore_1_1TimerCounter1_a80b34086ae7fc68a693e26ea9400a892}{setCounter}}(0);}
+\DoxyCodeLine{00094 }
+\DoxyCodeLine{00095 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950a01bc6f8efa4202821e95f4fdf6298b30}{core\+::clear}}, \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4afc3f15b740f731d2d2ef7d32fac6d071}{core\+::fast\+\_\+\+P\+W\+M\+\_\+\+I\+CR}}, \mbox{\hyperlink{TimerCounter1_8cpp_source_l00186}{core\+::\+Timer\+Counter1\+::get\+Clock\+Prescaler()}}, \mbox{\hyperlink{TimerCounter1_8cpp_source_l00197}{core\+::\+Timer\+Counter1\+::select\+Compare\+Output\+Mode()}}, \mbox{\hyperlink{TimerCounter1_8cpp_source_l00095}{core\+::\+Timer\+Counter1\+::select\+Operation\+Mode()}}, \mbox{\hyperlink{TimerCounter1_8cpp_source_l00216}{core\+::\+Timer\+Counter1\+::set\+Counter()}}, and \mbox{\hyperlink{TimerCounter1_8cpp_source_l00321}{core\+::\+Timer\+Counter1\+::set\+Input\+Capture\+Register()}}.
+
+\mbox{\Hypertarget{classcomponent_1_1ServoMotor_afac8050d859c484ad104fbf9ecf9cbac}\label{classcomponent_1_1ServoMotor_afac8050d859c484ad104fbf9ecf9cbac}} 
+\index{component::ServoMotor@{component::ServoMotor}!disconnect@{disconnect}}
+\index{disconnect@{disconnect}!component::ServoMotor@{component::ServoMotor}}
+\doxysubsubsection{\texorpdfstring{disconnect()}{disconnect()}}
+{\footnotesize\ttfamily void component\+::\+Servo\+Motor\+::disconnect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcore_1_1TimerCounter1}{core\+::\+Timer\+Counter1}} \&}]{ar\+\_\+timer\+Counter1,  }\item[{const \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{core\+::channel}} \&}]{ar\+\_\+channel = {\ttfamily \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}{core\+::channel\+::A}}} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ServoMotor_8cpp_source_l00097}{97}} of file \mbox{\hyperlink{ServoMotor_8cpp_source}{Servo\+Motor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00099 \{}
+\DoxyCodeLine{00100     ar\_timerCounter1.\mbox{\hyperlink{classcore_1_1TimerCounter1_a663221dc1a1b1d04c2aa06dec2a6bb72}{selectCompareOutputMode}}(ar\_channel, \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950afea087517c26fadd409bd4b9dc642555}{core::compareOutputMode::normal}});}
+\DoxyCodeLine{00101     \textcolor{comment}{// stop timer}}
+\DoxyCodeLine{00102     ar\_timerCounter1.\mbox{\hyperlink{classcore_1_1TimerCounter1_a2604e3b9ee815ce34876da9c09db840d}{stop}}();}
+\DoxyCodeLine{00103 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950afea087517c26fadd409bd4b9dc642555}{core\+::normal}}, \mbox{\hyperlink{TimerCounter1_8cpp_source_l00197}{core\+::\+Timer\+Counter1\+::select\+Compare\+Output\+Mode()}}, and \mbox{\hyperlink{TimerCounter1_8cpp_source_l00191}{core\+::\+Timer\+Counter1\+::stop()}}.
+
+\mbox{\Hypertarget{classcomponent_1_1ServoMotor_aed98821dc8a130ac42e29b09dbd9948b}\label{classcomponent_1_1ServoMotor_aed98821dc8a130ac42e29b09dbd9948b}} 
+\index{component::ServoMotor@{component::ServoMotor}!off@{off}}
+\index{off@{off}!component::ServoMotor@{component::ServoMotor}}
+\doxysubsubsection{\texorpdfstring{off()}{off()}}
+{\footnotesize\ttfamily void component\+::\+Servo\+Motor\+::off (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Turn servo motor Off. 
+
+
+
+Definition at line \mbox{\hyperlink{ServoMotor_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{ServoMotor_8cpp_source}{Servo\+Motor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034 \{}
+\DoxyCodeLine{00035     \mbox{\hyperlink{classcomponent_1_1ServoMotor_a6bcab716acd4f99ad73b2c3fe1fa7b26}{m\_pin}}.\mbox{\hyperlink{classio_1_1Pin_ad0895fa20099e97f9acbe85f7c92e57c}{setLow}}();}
+\DoxyCodeLine{00036 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcomponent_1_1ServoMotor_a80764da2073f145027acb0e5c8a2a522}\label{classcomponent_1_1ServoMotor_a80764da2073f145027acb0e5c8a2a522}} 
+\index{component::ServoMotor@{component::ServoMotor}!on@{on}}
+\index{on@{on}!component::ServoMotor@{component::ServoMotor}}
+\doxysubsubsection{\texorpdfstring{on()}{on()}}
+{\footnotesize\ttfamily void component\+::\+Servo\+Motor\+::on (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Turn servo motor On. 
+
+
+
+Definition at line \mbox{\hyperlink{ServoMotor_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{ServoMotor_8cpp_source}{Servo\+Motor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029 \{}
+\DoxyCodeLine{00030     \mbox{\hyperlink{classcomponent_1_1ServoMotor_a6bcab716acd4f99ad73b2c3fe1fa7b26}{m\_pin}}.\mbox{\hyperlink{classio_1_1Pin_a3ae65cd376608cc50329951e9da156d0}{setHigh}}();}
+\DoxyCodeLine{00031 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcomponent_1_1ServoMotor_af851f56f5e4ae7cd70818e87e334047d}\label{classcomponent_1_1ServoMotor_af851f56f5e4ae7cd70818e87e334047d}} 
+\index{component::ServoMotor@{component::ServoMotor}!rotate@{rotate}}
+\index{rotate@{rotate}!component::ServoMotor@{component::ServoMotor}}
+\doxysubsubsection{\texorpdfstring{rotate()}{rotate()}}
+{\footnotesize\ttfamily void component\+::\+Servo\+Motor\+::rotate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcore_1_1TimerCounter1}{core\+::\+Timer\+Counter1}} \&}]{ar\+\_\+timer\+Counter1,  }\item[{const uint8\+\_\+t \&}]{ar\+\_\+angle\+\_\+deg,  }\item[{const \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{core\+::channel}} \&}]{ar\+\_\+channel = {\ttfamily \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}{core\+::channel\+::A}}} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ServoMotor_8cpp_source_l00071}{71}} of file \mbox{\hyperlink{ServoMotor_8cpp_source}{Servo\+Motor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00074 \{}
+\DoxyCodeLine{00075 }
+\DoxyCodeLine{00076     ar\_timerCounter1.\mbox{\hyperlink{classcore_1_1TimerCounter1_a80fd69004f5e154dd7f20741863306e2}{setOutputCompareRegister}}(ar\_channel, \mbox{\hyperlink{classcomponent_1_1ServoMotor_a76437de03912f97801b0f067a290608f}{computeRotationAngleCount}}(ar\_angle\_deg,ar\_timerCounter1.\mbox{\hyperlink{classcore_1_1TimerCounter1_a4acdbf18d86748032abf6f07e7a6d9b1}{getClockPrescaler}}()));}
+\DoxyCodeLine{00077 }
+\DoxyCodeLine{00078     \textcolor{comment}{// start timer}}
+\DoxyCodeLine{00079     ar\_timerCounter1.\mbox{\hyperlink{classcore_1_1TimerCounter1_ad6322d60b67dce323aa7952fd9923040}{start}}();}
+\DoxyCodeLine{00080 }
+\DoxyCodeLine{00081 }
+\DoxyCodeLine{00082 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{TimerCounter1_8cpp_source_l00186}{core\+::\+Timer\+Counter1\+::get\+Clock\+Prescaler()}}, \mbox{\hyperlink{TimerCounter1_8cpp_source_l00226}{core\+::\+Timer\+Counter1\+::set\+Output\+Compare\+Register()}}, and \mbox{\hyperlink{TimerCounter1_8cpp_source_l00181}{core\+::\+Timer\+Counter1\+::start()}}.
+
+\mbox{\Hypertarget{classcomponent_1_1ServoMotor_a45d22d89695730f6377b6532fc291428}\label{classcomponent_1_1ServoMotor_a45d22d89695730f6377b6532fc291428}} 
+\index{component::ServoMotor@{component::ServoMotor}!toggle@{toggle}}
+\index{toggle@{toggle}!component::ServoMotor@{component::ServoMotor}}
+\doxysubsubsection{\texorpdfstring{toggle()}{toggle()}}
+{\footnotesize\ttfamily void component\+::\+Servo\+Motor\+::toggle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Toggle servo motor state. 
+
+
+
+Definition at line \mbox{\hyperlink{ServoMotor_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{ServoMotor_8cpp_source}{Servo\+Motor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039 \{}
+\DoxyCodeLine{00040     \mbox{\hyperlink{classcomponent_1_1ServoMotor_a6bcab716acd4f99ad73b2c3fe1fa7b26}{m\_pin}}.\mbox{\hyperlink{classio_1_1Pin_a4054302debf4a0bc99bdb93881f43765}{toggle}}();}
+\DoxyCodeLine{00041 }
+\DoxyCodeLine{00042 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcomponent_1_1ServoMotor_a6bcab716acd4f99ad73b2c3fe1fa7b26}\label{classcomponent_1_1ServoMotor_a6bcab716acd4f99ad73b2c3fe1fa7b26}} 
+\index{component::ServoMotor@{component::ServoMotor}!m\_pin@{m\_pin}}
+\index{m\_pin@{m\_pin}!component::ServoMotor@{component::ServoMotor}}
+\doxysubsubsection{\texorpdfstring{m\_pin}{m\_pin}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}} component\+::\+Servo\+Motor\+::m\+\_\+pin\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+pin object 
+
+
+
+Definition at line \mbox{\hyperlink{ServoMotor_8h_source_l00188}{188}} of file \mbox{\hyperlink{ServoMotor_8h_source}{Servo\+Motor.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{ServoMotor_8cpp_source_l00005}{Servo\+Motor()}}.
+
+\mbox{\Hypertarget{classcomponent_1_1ServoMotor_ad74329865e89cf65e0ba2fd54e6f11bc}\label{classcomponent_1_1ServoMotor_ad74329865e89cf65e0ba2fd54e6f11bc}} 
+\index{component::ServoMotor@{component::ServoMotor}!m\_pulseCycle@{m\_pulseCycle}}
+\index{m\_pulseCycle@{m\_pulseCycle}!component::ServoMotor@{component::ServoMotor}}
+\doxysubsubsection{\texorpdfstring{m\_pulseCycle}{m\_pulseCycle}}
+{\footnotesize\ttfamily uint16\+\_\+t component\+::\+Servo\+Motor\+::m\+\_\+pulse\+Cycle\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+pulse cycle \mbox{[}us\mbox{]} 
+
+
+
+Definition at line \mbox{\hyperlink{ServoMotor_8h_source_l00190}{190}} of file \mbox{\hyperlink{ServoMotor_8h_source}{Servo\+Motor.\+h}}.
+
+\mbox{\Hypertarget{classcomponent_1_1ServoMotor_a0c24b40a45b29dbff93bd6458a3400ff}\label{classcomponent_1_1ServoMotor_a0c24b40a45b29dbff93bd6458a3400ff}} 
+\index{component::ServoMotor@{component::ServoMotor}!m\_pulseWidthMax@{m\_pulseWidthMax}}
+\index{m\_pulseWidthMax@{m\_pulseWidthMax}!component::ServoMotor@{component::ServoMotor}}
+\doxysubsubsection{\texorpdfstring{m\_pulseWidthMax}{m\_pulseWidthMax}}
+{\footnotesize\ttfamily uint16\+\_\+t component\+::\+Servo\+Motor\+::m\+\_\+pulse\+Width\+Max\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+pulse width max \mbox{[}us\mbox{]} 
+
+
+
+Definition at line \mbox{\hyperlink{ServoMotor_8h_source_l00196}{196}} of file \mbox{\hyperlink{ServoMotor_8h_source}{Servo\+Motor.\+h}}.
+
+\mbox{\Hypertarget{classcomponent_1_1ServoMotor_a96016a5cef9f1f476cbc4c9987bc27fc}\label{classcomponent_1_1ServoMotor_a96016a5cef9f1f476cbc4c9987bc27fc}} 
+\index{component::ServoMotor@{component::ServoMotor}!m\_pulseWidthMid@{m\_pulseWidthMid}}
+\index{m\_pulseWidthMid@{m\_pulseWidthMid}!component::ServoMotor@{component::ServoMotor}}
+\doxysubsubsection{\texorpdfstring{m\_pulseWidthMid}{m\_pulseWidthMid}}
+{\footnotesize\ttfamily uint16\+\_\+t component\+::\+Servo\+Motor\+::m\+\_\+pulse\+Width\+Mid\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+pulse width mid \mbox{[}us\mbox{]} 
+
+
+
+Definition at line \mbox{\hyperlink{ServoMotor_8h_source_l00194}{194}} of file \mbox{\hyperlink{ServoMotor_8h_source}{Servo\+Motor.\+h}}.
+
+\mbox{\Hypertarget{classcomponent_1_1ServoMotor_a4b63cc2c93127269c57e004bfecf0e13}\label{classcomponent_1_1ServoMotor_a4b63cc2c93127269c57e004bfecf0e13}} 
+\index{component::ServoMotor@{component::ServoMotor}!m\_pulseWidthMin@{m\_pulseWidthMin}}
+\index{m\_pulseWidthMin@{m\_pulseWidthMin}!component::ServoMotor@{component::ServoMotor}}
+\doxysubsubsection{\texorpdfstring{m\_pulseWidthMin}{m\_pulseWidthMin}}
+{\footnotesize\ttfamily uint16\+\_\+t component\+::\+Servo\+Motor\+::m\+\_\+pulse\+Width\+Min\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+pulse width min \mbox{[}us\mbox{]} 
+
+
+
+Definition at line \mbox{\hyperlink{ServoMotor_8h_source_l00192}{192}} of file \mbox{\hyperlink{ServoMotor_8h_source}{Servo\+Motor.\+h}}.
+

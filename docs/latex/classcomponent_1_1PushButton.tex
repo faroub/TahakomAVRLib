@@ -1,0 +1,271 @@
+\hypertarget{classcomponent_1_1PushButton}{}\doxysection{component\+::Push\+Button Class Reference}
+\label{classcomponent_1_1PushButton}\index{component::PushButton@{component::PushButton}}
+
+
+{\ttfamily \#include $<$Push\+Button.\+h$>$}
+
+
+
+Collaboration diagram for component\+::Push\+Button\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{classcomponent_1_1PushButton__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcomponent_1_1PushButton_a1236e8c2cc3eef4293090e50052d9232}{Push\+Button}} (const \mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}} \&ar\+\_\+pin, const uint8\+\_\+t \&ar\+\_\+use\+Internal\+Pull\+Up=1, const uint8\+\_\+t \&ar\+\_\+is\+Active\+Low=1)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcomponent_1_1PushButton_a453a3da2a6b325ca07adb919bc1de769}{$\sim$\+Push\+Button}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classcomponent_1_1PushButton_a2650e944d563b356979f48c73457ff5d}{is\+Pressed}} ()
+\begin{DoxyCompactList}\small\item\em Is pushbutton pressed. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classcomponent_1_1PushButton_af3c6b526a80472af246aea5a4519fe74}{get\+Pressed\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Get pushbutton pressed count. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcomponent_1_1PushButton_a607f03a638f34c826290ffe9a88796cd}{reset\+Pressed\+Count}} ()
+\begin{DoxyCompactList}\small\item\em Reset pushbutton pressed count. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}} \mbox{\hyperlink{classcomponent_1_1PushButton_ac53b738ae8051cf9e628efecd65aabd7}{m\+\_\+pin}}
+\begin{DoxyCompactList}\small\item\em pin object \end{DoxyCompactList}\item 
+const uint8\+\_\+t \& \mbox{\hyperlink{classcomponent_1_1PushButton_af24f2ddc7394c2800e5aae25602f95aa}{mr\+\_\+is\+Active\+Low}}
+\begin{DoxyCompactList}\small\item\em indicates led active state \end{DoxyCompactList}\item 
+const uint8\+\_\+t \& \mbox{\hyperlink{classcomponent_1_1PushButton_a734e3e88e0b2922a2fa8094572ac9e5a}{mr\+\_\+use\+Internal\+Pull\+Up}}
+\begin{DoxyCompactList}\small\item\em indicates if internal pullup resistor used ~\newline
+ \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classcomponent_1_1PushButton_a9d833721f101b23d3d2937850a43fd81}{m\+\_\+button\+Pressed}}
+\begin{DoxyCompactList}\small\item\em pushbutton pressed count \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{PushButton_8h_source_l00095}{95}} of file \mbox{\hyperlink{PushButton_8h_source}{Push\+Button.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcomponent_1_1PushButton_a1236e8c2cc3eef4293090e50052d9232}\label{classcomponent_1_1PushButton_a1236e8c2cc3eef4293090e50052d9232}} 
+\index{component::PushButton@{component::PushButton}!PushButton@{PushButton}}
+\index{PushButton@{PushButton}!component::PushButton@{component::PushButton}}
+\doxysubsubsection{\texorpdfstring{PushButton()}{PushButton()}}
+{\footnotesize\ttfamily component\+::\+Push\+Button\+::\+Push\+Button (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}} \&}]{ar\+\_\+pin,  }\item[{const uint8\+\_\+t \&}]{ar\+\_\+use\+Internal\+Pull\+Up = {\ttfamily 1},  }\item[{const uint8\+\_\+t \&}]{ar\+\_\+is\+Active\+Low = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Initializes pushbutton object \begin{DoxyVerb}@param ar_pin pin object
+@param ar_useInternalPullUp indicates if internal pull up resistor used
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{PushButton_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{PushButton_8cpp_source}{Push\+Button.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00004                                   : \mbox{\hyperlink{classcomponent_1_1PushButton_ac53b738ae8051cf9e628efecd65aabd7}{m\_pin}}(ar\_pin),}
+\DoxyCodeLine{00005                                     \mbox{\hyperlink{classcomponent_1_1PushButton_af24f2ddc7394c2800e5aae25602f95aa}{mr\_isActiveLow}}(ar\_isActiveLow),}
+\DoxyCodeLine{00006                                     \mbox{\hyperlink{classcomponent_1_1PushButton_a734e3e88e0b2922a2fa8094572ac9e5a}{mr\_useInternalPullUp}}(ar\_useInternalPullUp)}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00008 }
+\DoxyCodeLine{00009 \{}
+\DoxyCodeLine{00010     \mbox{\hyperlink{classcomponent_1_1PushButton_ac53b738ae8051cf9e628efecd65aabd7}{m\_pin}}.\mbox{\hyperlink{classio_1_1Pin_ab59ec50b7a87b0a440a95befdf47d014}{toInput}}(\mbox{\hyperlink{classcomponent_1_1PushButton_a734e3e88e0b2922a2fa8094572ac9e5a}{mr\_useInternalPullUp}});}
+\DoxyCodeLine{00011     \mbox{\hyperlink{classcomponent_1_1PushButton_a9d833721f101b23d3d2937850a43fd81}{m\_buttonPressed}} = 0;}
+\DoxyCodeLine{00012 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{PushButton_8h_source_l00125}{m\+\_\+button\+Pressed}}, \mbox{\hyperlink{PushButton_8h_source_l00122}{m\+\_\+pin}}, \mbox{\hyperlink{PushButton_8h_source_l00124}{mr\+\_\+use\+Internal\+Pull\+Up}}, and \mbox{\hyperlink{Pin_8cpp_source_l00022}{io\+::\+Pin\+::to\+Input()}}.
+
+\mbox{\Hypertarget{classcomponent_1_1PushButton_a453a3da2a6b325ca07adb919bc1de769}\label{classcomponent_1_1PushButton_a453a3da2a6b325ca07adb919bc1de769}} 
+\index{component::PushButton@{component::PushButton}!````~PushButton@{$\sim$PushButton}}
+\index{````~PushButton@{$\sim$PushButton}!component::PushButton@{component::PushButton}}
+\doxysubsubsection{\texorpdfstring{$\sim$PushButton()}{~PushButton()}}
+{\footnotesize\ttfamily component\+::\+Push\+Button\+::$\sim$\+Push\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+
+Definition at line \mbox{\hyperlink{PushButton_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{PushButton_8cpp_source}{Push\+Button.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015 \{}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{00017 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcomponent_1_1PushButton_af3c6b526a80472af246aea5a4519fe74}\label{classcomponent_1_1PushButton_af3c6b526a80472af246aea5a4519fe74}} 
+\index{component::PushButton@{component::PushButton}!getPressedCount@{getPressedCount}}
+\index{getPressedCount@{getPressedCount}!component::PushButton@{component::PushButton}}
+\doxysubsubsection{\texorpdfstring{getPressedCount()}{getPressedCount()}}
+{\footnotesize\ttfamily uint8\+\_\+t component\+::\+Push\+Button\+::get\+Pressed\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get pushbutton pressed count. 
+
+
+
+Definition at line \mbox{\hyperlink{PushButton_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{PushButton_8cpp_source}{Push\+Button.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047 \{}
+\DoxyCodeLine{00048 }
+\DoxyCodeLine{00049     \textcolor{keywordflow}{return} \mbox{\hyperlink{classcomponent_1_1PushButton_a9d833721f101b23d3d2937850a43fd81}{m\_buttonPressed}};}
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{00051 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcomponent_1_1PushButton_a2650e944d563b356979f48c73457ff5d}\label{classcomponent_1_1PushButton_a2650e944d563b356979f48c73457ff5d}} 
+\index{component::PushButton@{component::PushButton}!isPressed@{isPressed}}
+\index{isPressed@{isPressed}!component::PushButton@{component::PushButton}}
+\doxysubsubsection{\texorpdfstring{isPressed()}{isPressed()}}
+{\footnotesize\ttfamily uint8\+\_\+t component\+::\+Push\+Button\+::is\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Is pushbutton pressed. 
+
+
+
+Definition at line \mbox{\hyperlink{PushButton_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{PushButton_8cpp_source}{Push\+Button.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021 \{}
+\DoxyCodeLine{00022     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classcomponent_1_1PushButton_af24f2ddc7394c2800e5aae25602f95aa}{mr\_isActiveLow}} || \mbox{\hyperlink{classcomponent_1_1PushButton_a734e3e88e0b2922a2fa8094572ac9e5a}{mr\_useInternalPullUp}}) \{}
+\DoxyCodeLine{00023         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classcomponent_1_1PushButton_ac53b738ae8051cf9e628efecd65aabd7}{m\_pin}}.\mbox{\hyperlink{classio_1_1Pin_a53c77492c03a66457b711624b5a41e7e}{isLow}}()) \{}
+\DoxyCodeLine{00024             \_delay\_us(\mbox{\hyperlink{ha__m328p_8h_a3359959b78905acc2647e0367f6949f7}{PUSHBUTTON\_DEBOUNCE\_TIME\_US}});}
+\DoxyCodeLine{00025             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classcomponent_1_1PushButton_ac53b738ae8051cf9e628efecd65aabd7}{m\_pin}}.\mbox{\hyperlink{classio_1_1Pin_a53c77492c03a66457b711624b5a41e7e}{isLow}}()) \{}
+\DoxyCodeLine{00026                 ++\mbox{\hyperlink{classcomponent_1_1PushButton_a9d833721f101b23d3d2937850a43fd81}{m\_buttonPressed}};}
+\DoxyCodeLine{00027                 \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00028             \}}
+\DoxyCodeLine{00029         \}}
+\DoxyCodeLine{00030     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{00032         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classcomponent_1_1PushButton_ac53b738ae8051cf9e628efecd65aabd7}{m\_pin}}.\mbox{\hyperlink{classio_1_1Pin_a2da2a7ac73fe4c77203d38822f0d64fd}{isHigh}}()) \{}
+\DoxyCodeLine{00033             \_delay\_us(\mbox{\hyperlink{ha__m328p_8h_a3359959b78905acc2647e0367f6949f7}{PUSHBUTTON\_DEBOUNCE\_TIME\_US}});}
+\DoxyCodeLine{00034             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classcomponent_1_1PushButton_ac53b738ae8051cf9e628efecd65aabd7}{m\_pin}}.\mbox{\hyperlink{classio_1_1Pin_a2da2a7ac73fe4c77203d38822f0d64fd}{isHigh}}()) \{}
+\DoxyCodeLine{00035                 ++\mbox{\hyperlink{classcomponent_1_1PushButton_a9d833721f101b23d3d2937850a43fd81}{m\_buttonPressed}};}
+\DoxyCodeLine{00036                 \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00037             \}}
+\DoxyCodeLine{00038         \}}
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{00040     \}}
+\DoxyCodeLine{00041     \mbox{\hyperlink{classcomponent_1_1PushButton_a9d833721f101b23d3d2937850a43fd81}{m\_buttonPressed}} = 0;}
+\DoxyCodeLine{00042     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00043 }
+\DoxyCodeLine{00044 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{ha__m328p_8h_source_l00016}{P\+U\+S\+H\+B\+U\+T\+T\+O\+N\+\_\+\+D\+E\+B\+O\+U\+N\+C\+E\+\_\+\+T\+I\+M\+E\+\_\+\+US}}.
+
+\mbox{\Hypertarget{classcomponent_1_1PushButton_a607f03a638f34c826290ffe9a88796cd}\label{classcomponent_1_1PushButton_a607f03a638f34c826290ffe9a88796cd}} 
+\index{component::PushButton@{component::PushButton}!resetPressedCount@{resetPressedCount}}
+\index{resetPressedCount@{resetPressedCount}!component::PushButton@{component::PushButton}}
+\doxysubsubsection{\texorpdfstring{resetPressedCount()}{resetPressedCount()}}
+{\footnotesize\ttfamily void component\+::\+Push\+Button\+::reset\+Pressed\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reset pushbutton pressed count. 
+
+
+
+Definition at line \mbox{\hyperlink{PushButton_8cpp_source_l00053}{53}} of file \mbox{\hyperlink{PushButton_8cpp_source}{Push\+Button.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054 \{}
+\DoxyCodeLine{00055     \mbox{\hyperlink{classcomponent_1_1PushButton_a9d833721f101b23d3d2937850a43fd81}{m\_buttonPressed}} = 0;}
+\DoxyCodeLine{00056 }
+\DoxyCodeLine{00057 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcomponent_1_1PushButton_a9d833721f101b23d3d2937850a43fd81}\label{classcomponent_1_1PushButton_a9d833721f101b23d3d2937850a43fd81}} 
+\index{component::PushButton@{component::PushButton}!m\_buttonPressed@{m\_buttonPressed}}
+\index{m\_buttonPressed@{m\_buttonPressed}!component::PushButton@{component::PushButton}}
+\doxysubsubsection{\texorpdfstring{m\_buttonPressed}{m\_buttonPressed}}
+{\footnotesize\ttfamily uint8\+\_\+t component\+::\+Push\+Button\+::m\+\_\+button\+Pressed\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+pushbutton pressed count 
+
+
+
+Definition at line \mbox{\hyperlink{PushButton_8h_source_l00125}{125}} of file \mbox{\hyperlink{PushButton_8h_source}{Push\+Button.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{PushButton_8cpp_source_l00003}{Push\+Button()}}.
+
+\mbox{\Hypertarget{classcomponent_1_1PushButton_ac53b738ae8051cf9e628efecd65aabd7}\label{classcomponent_1_1PushButton_ac53b738ae8051cf9e628efecd65aabd7}} 
+\index{component::PushButton@{component::PushButton}!m\_pin@{m\_pin}}
+\index{m\_pin@{m\_pin}!component::PushButton@{component::PushButton}}
+\doxysubsubsection{\texorpdfstring{m\_pin}{m\_pin}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}} component\+::\+Push\+Button\+::m\+\_\+pin\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+pin object 
+
+
+
+Definition at line \mbox{\hyperlink{PushButton_8h_source_l00122}{122}} of file \mbox{\hyperlink{PushButton_8h_source}{Push\+Button.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{PushButton_8cpp_source_l00003}{Push\+Button()}}.
+
+\mbox{\Hypertarget{classcomponent_1_1PushButton_af24f2ddc7394c2800e5aae25602f95aa}\label{classcomponent_1_1PushButton_af24f2ddc7394c2800e5aae25602f95aa}} 
+\index{component::PushButton@{component::PushButton}!mr\_isActiveLow@{mr\_isActiveLow}}
+\index{mr\_isActiveLow@{mr\_isActiveLow}!component::PushButton@{component::PushButton}}
+\doxysubsubsection{\texorpdfstring{mr\_isActiveLow}{mr\_isActiveLow}}
+{\footnotesize\ttfamily const uint8\+\_\+t\& component\+::\+Push\+Button\+::mr\+\_\+is\+Active\+Low\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+indicates led active state 
+
+
+
+Definition at line \mbox{\hyperlink{PushButton_8h_source_l00123}{123}} of file \mbox{\hyperlink{PushButton_8h_source}{Push\+Button.\+h}}.
+
+\mbox{\Hypertarget{classcomponent_1_1PushButton_a734e3e88e0b2922a2fa8094572ac9e5a}\label{classcomponent_1_1PushButton_a734e3e88e0b2922a2fa8094572ac9e5a}} 
+\index{component::PushButton@{component::PushButton}!mr\_useInternalPullUp@{mr\_useInternalPullUp}}
+\index{mr\_useInternalPullUp@{mr\_useInternalPullUp}!component::PushButton@{component::PushButton}}
+\doxysubsubsection{\texorpdfstring{mr\_useInternalPullUp}{mr\_useInternalPullUp}}
+{\footnotesize\ttfamily const uint8\+\_\+t\& component\+::\+Push\+Button\+::mr\+\_\+use\+Internal\+Pull\+Up\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+indicates if internal pullup resistor used ~\newline
+ 
+
+
+
+Definition at line \mbox{\hyperlink{PushButton_8h_source_l00124}{124}} of file \mbox{\hyperlink{PushButton_8h_source}{Push\+Button.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{PushButton_8cpp_source_l00003}{Push\+Button()}}.
+

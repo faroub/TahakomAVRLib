@@ -1,0 +1,141 @@
+\hypertarget{ADC_8h}{}\doxysection{A\+D\+C.\+h File Reference}
+\label{ADC_8h}\index{ADC.h@{ADC.h}}
+
+
+Header file of the A\+DC class.  
+
+
+{\ttfamily \#include \char`\"{}ha\+\_\+base.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Pin.\+h\char`\"{}}\newline
+Include dependency graph for A\+D\+C.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ADC_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=137pt]{ADC_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcore_1_1ADConverter}{core\+::\+A\+D\+Converter}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacecore}{core}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570}{core\+::resolution}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a7ea4d6dd280caccea297d0fa2f7e06f1}{core\+::resolution\+::res\+\_\+8bit}} =0, 
+\mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570acacc43ba446d9f5470d707377a9ab57d}{core\+::resolution\+::res\+\_\+9bit}}, 
+\mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a2dfcad6aa6be091d9ae2d89cba912d73}{core\+::resolution\+::res\+\_\+10bit}}, 
+\mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570ad5b2972aa04da9ded704d67af3160f73}{core\+::resolution\+::res\+\_\+11bit}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a2c112f82e3b38ea0e86502b21795f0ed}{core\+::resolution\+::res\+\_\+12bit}}, 
+\mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570aa4739f6369eb7a55eac3e4061811e9b2}{core\+::resolution\+::res\+\_\+13bit}}, 
+\mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a1d891da42f0b35691e041a787f279e2a}{core\+::resolution\+::res\+\_\+14bit}}, 
+\mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a308f1161ab8115148688b26457b94477}{core\+::resolution\+::res\+\_\+15bit}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570ae03d417bc0a8193a26018367d4899d83}{core\+::resolution\+::res\+\_\+16bit}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespacecore_a9bc91028526103cb0e5a3288177e1765}{core\+::reference\+Voltage}} \+: uint8\+\_\+t \{ \mbox{\hyperlink{namespacecore_a9bc91028526103cb0e5a3288177e1765a73baa1f279879a52ff4215d3c9031d1f}{core\+::reference\+Voltage\+::\+A\+R\+EF}} =0, 
+\mbox{\hyperlink{namespacecore_a9bc91028526103cb0e5a3288177e1765a7553837f2d19afc93f5bbc9d84e097f3}{core\+::reference\+Voltage\+::\+A\+V\+CC}}, 
+\mbox{\hyperlink{namespacecore_a9bc91028526103cb0e5a3288177e1765ad1efad72dc5b17dc66a46767c32fff40}{core\+::reference\+Voltage\+::internal}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13}{core\+::clock\+Prescaler}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13aca2ddd08703377bdfd1764242d8ff82e}{core\+::clock\+Prescaler\+::\+P\+S\+\_\+2}} = 1, 
+\mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13ad01a2fba340e44606cb932b086f27a75}{core\+::clock\+Prescaler\+::\+P\+S\+\_\+4}}, 
+\mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13ae31444bf5c3424161080f9d328fd7955}{core\+::clock\+Prescaler\+::\+P\+S\+\_\+8}}, 
+\mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13ab9652296e385e314ac2aa67878eacfe5}{core\+::clock\+Prescaler\+::\+P\+S\+\_\+16}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13ae4540d7f3a807bc544222beb154275f3}{core\+::clock\+Prescaler\+::\+P\+S\+\_\+32}}, 
+\mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13a97fb148ab1accd5462d69022d83b0ced}{core\+::clock\+Prescaler\+::\+P\+S\+\_\+64}}, 
+\mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13a5a748dfea8b6fda9f52e24f961378197}{core\+::clock\+Prescaler\+::\+P\+S\+\_\+128}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764b}{core\+::auto\+Trigger\+Source}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764ba4f6e582ea390561732302e2cf48b2303}{core\+::auto\+Trigger\+Source\+::free\+Running}}, 
+\mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764ba8841f18c722785f21089224aca7fb5f0}{core\+::auto\+Trigger\+Source\+::analog\+Comparator}}, 
+\mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764babb87f5c1c1528b642a5b6da4962b1414}{core\+::auto\+Trigger\+Source\+::ext\+Interrupt}}, 
+\mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764ba1bdd866305a68d21beb4822bf364460e}{core\+::auto\+Trigger\+Source\+::timer0\+Compare}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764bae5afbf1133d813deccded16f7658514e}{core\+::auto\+Trigger\+Source\+::timer0\+Overflow}}, 
+\mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764ba62e138fc90e5430da45b3978bf1870f8}{core\+::auto\+Trigger\+Source\+::timer1\+CompareB}}, 
+\mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764ba8bfdafa1426be90c0221490f9c08a2ed}{core\+::auto\+Trigger\+Source\+::timer1\+Overflow}}, 
+\mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764ba0314dfe333af62b3fc0f4b30cd846e4b}{core\+::auto\+Trigger\+Source\+::timer1\+Capture}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file of the A\+DC class. 
+
+Basic class for abstraction of the Analog to Digital Converter.
+
+Usage example\+: \#include \char`\"{}\+A\+D\+C.\+h\char`\"{} \#include \char`\"{}\+U\+S\+A\+R\+T0.\+h\char`\"{}
+
+\#define T\+R\+A\+N\+S\+M\+I\+T\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE 7
+
+int \mbox{\hyperlink{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}{main(void)}} \{
+
+Init
+
+instantiate the U\+S\+A\+R\+T0 object \mbox{\hyperlink{classio_1_1USART0}{io\+::\+U\+S\+A\+R\+T0}} \&my\+U\+S\+A\+R\+T0 = \mbox{\hyperlink{classio_1_1USART0_ac3f9fa641ed5ea5628fd8fa65848ae0e}{io\+::\+U\+S\+A\+R\+T0\+::get\+Instance()}}; transmit data buffer char l\+\_\+data2\+Send\mbox{[}T\+R\+A\+N\+S\+M\+I\+T\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE\mbox{]};
+
+instantiate the A\+DC object \mbox{\hyperlink{classcore_1_1ADConverter}{core\+::\+A\+D\+Converter}} \&my\+A\+DC = \mbox{\hyperlink{classcore_1_1ADConverter_ab694a44ac256358e0301839daa51056e}{core\+::\+A\+D\+Converter\+::get\+Instance()}};
+
+select analog input my\+A\+D\+C.\+select\+Analog\+Input(io\+::\+Pin(0,io\+::\+Port\+C));
+
+variable to hold conversion result uint16\+\_\+t l\+\_\+conversion\+Result = 0;
+
+enable and start conversion my\+A\+D\+C.\+start();
+
+-\/-\/-\/--- Event loop -\/-\/-\/--- // while (1) \{
+
+\begin{DoxyVerb}   myADC.getConversionResult(&l_conversionResult, core::resolution::RES_16bit);
+
+   if (myADC.conversionComplete())
+   {
+       l_data2Send[0] = '0' + (l_conversionResult / 10000);
+       l_data2Send[1] = '0' + ((l_conversionResult / 1000) % 10);
+       l_data2Send[2] = '0' + ((l_conversionResult / 100) % 10);
+       l_data2Send[3] = '0' + ((l_conversionResult / 10) % 10);
+       l_data2Send[4] = '0' + (l_conversionResult % 10);
+       l_data2Send[5] = '\n';
+       l_data2Send[6] = '\r';
+
+       if (myUSART0.ready2Send())
+       {
+           myUSART0.sendFrame(reinterpret_cast<uint8_t*>(l_data2Send),TRANSMIT_BUFFER_SIZE);
+       }
+
+   }
+}
+return 0;
+}
+\end{DoxyVerb}
+
+
+uint16\+\_\+t value = 12345; char lo = value \& 0x\+FF; char hi = value $>$$>$ 8;
+
+\begin{DoxyAuthor}{Author}
+Farid Oubbati (\href{https://github.com/faroub}{\texttt{ https\+://github.\+com/faroub}}) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+March 2020 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{ADC_8h_source}{A\+D\+C.\+h}}.
+

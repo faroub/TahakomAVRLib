@@ -1,0 +1,406 @@
+\hypertarget{classcore_1_1ExternInterrupt}{}\doxysection{core\+::Extern\+Interrupt Class Reference}
+\label{classcore_1_1ExternInterrupt}\index{core::ExternInterrupt@{core::ExternInterrupt}}
+
+
+{\ttfamily \#include $<$Extern\+Interrupt.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcore_1_1ExternInterrupt_ae9d598f4dc123ff2778780cda366ab80}{set\+Int0\+Sense\+Control}} (const \mbox{\hyperlink{namespacecore_a91994a2fb37f8b4df0567468e9d0e325}{sense\+Control}} \&ar\+\_\+sense\+Control)
+\item 
+void \mbox{\hyperlink{classcore_1_1ExternInterrupt_af2a73ca47a5798c4392392181f27e9ff}{set\+Int1\+Sense\+Control}} (const \mbox{\hyperlink{namespacecore_a91994a2fb37f8b4df0567468e9d0e325}{sense\+Control}} \&ar\+\_\+sense\+Control)
+\item 
+void \mbox{\hyperlink{classcore_1_1ExternInterrupt_aac90ee869dfceac3278aaca48aa06d49}{enable\+Int0}} (const uint8\+\_\+t a\+\_\+enable)
+\item 
+void \mbox{\hyperlink{classcore_1_1ExternInterrupt_ad559641ac3bb2837d5fc37630f64a2e5}{enable\+Int1}} (const uint8\+\_\+t a\+\_\+enable)
+\item 
+void \mbox{\hyperlink{classcore_1_1ExternInterrupt_ac922b96106a0b95ee2e15762206fd1b8}{enable\+Pin\+Change}} (const \mbox{\hyperlink{namespacecore_a53090c2070741c037b6c3606081a34dd}{pin\+Change\+Port}} \&ar\+\_\+pin\+Change\+Port, const uint8\+\_\+t a\+\_\+enable)
+\item 
+void \mbox{\hyperlink{classcore_1_1ExternInterrupt_a22d2674945395aaab8bd7d170c91f965}{enable\+Pin\+Change\+Mask\+PortB}} (const uint8\+\_\+t a\+\_\+pin\+Number, const uint8\+\_\+t a\+\_\+enable)
+\item 
+void \mbox{\hyperlink{classcore_1_1ExternInterrupt_a508a88a1855be2431df1c94e38a6e1d4}{enable\+Pin\+Change\+Mask\+PortC}} (const uint8\+\_\+t a\+\_\+pin\+Number, const uint8\+\_\+t a\+\_\+enable)
+\item 
+void \mbox{\hyperlink{classcore_1_1ExternInterrupt_aac838a477dac733e76e7a1d7feea760f}{enable\+Pin\+Change\+Mask\+PortD}} (const uint8\+\_\+t a\+\_\+pin\+Number, const uint8\+\_\+t a\+\_\+enable)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classcore_1_1ExternInterrupt}{Extern\+Interrupt}} \& \mbox{\hyperlink{classcore_1_1ExternInterrupt_adda31b2ddeb86687186f0c80f3011e39}{get\+Instance}} ()
+\item 
+static void \mbox{\hyperlink{classcore_1_1ExternInterrupt_a3343c45963bd07f208d80bafcd35ffa9}{Int0\+Service\+Routine}} () \+\_\+\+\_\+asm\+\_\+\+\_\+(\mbox{\hyperlink{ha__base_8h_a6388870e639eee9c0a69446876f1f8cc}{S\+TR}}(\mbox{\hyperlink{ha__m328p_8h_a3c2c8ae3e28422e4d41a23cd4dd6488b}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+I\+N\+T0\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}})) \+\_\+\+\_\+attribute\+\_\+\+\_\+((\+\_\+\+\_\+signal\+\_\+\+\_\+
+\item 
+static void \mbox{\hyperlink{classcore_1_1ExternInterrupt_ad3a648f29bd2f3eeff17e2662d96e3c5}{Int1\+Service\+Routine}} () \+\_\+\+\_\+asm\+\_\+\+\_\+(\mbox{\hyperlink{ha__base_8h_a6388870e639eee9c0a69446876f1f8cc}{S\+TR}}(\mbox{\hyperlink{ha__m328p_8h_ad6ef64b224fcfa933b21fe670afe1271}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+I\+N\+T1\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}})) \+\_\+\+\_\+attribute\+\_\+\+\_\+((\+\_\+\+\_\+signal\+\_\+\+\_\+
+\item 
+static void \mbox{\hyperlink{classcore_1_1ExternInterrupt_a9ea842727c38d69a3b59c1ac7e654452}{pin\+Change\+Port\+B\+Service\+Routine}} () \+\_\+\+\_\+asm\+\_\+\+\_\+(\mbox{\hyperlink{ha__base_8h_a6388870e639eee9c0a69446876f1f8cc}{S\+TR}}(\mbox{\hyperlink{ha__m328p_8h_a9dc1c259d6b1df0aba9a527ac6f9aa7e}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+P\+O\+R\+T\+B\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}})) \+\_\+\+\_\+attribute\+\_\+\+\_\+((\+\_\+\+\_\+signal\+\_\+\+\_\+
+\item 
+static void \mbox{\hyperlink{classcore_1_1ExternInterrupt_a802a004ab52a1fb69d6d6c7e6c71613b}{pin\+Change\+Port\+C\+Service\+Routine}} () \+\_\+\+\_\+asm\+\_\+\+\_\+(\mbox{\hyperlink{ha__base_8h_a6388870e639eee9c0a69446876f1f8cc}{S\+TR}}(\mbox{\hyperlink{ha__m328p_8h_ae36b704cc62d53089e66b683f51e6d99}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+P\+O\+R\+T\+C\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}})) \+\_\+\+\_\+attribute\+\_\+\+\_\+((\+\_\+\+\_\+signal\+\_\+\+\_\+
+\item 
+static void \mbox{\hyperlink{classcore_1_1ExternInterrupt_ac844e00a6c63c32b54fe9e1b2bdc3bd5}{pin\+Change\+Port\+D\+Service\+Routine}} () \+\_\+\+\_\+asm\+\_\+\+\_\+(\mbox{\hyperlink{ha__base_8h_a6388870e639eee9c0a69446876f1f8cc}{S\+TR}}(\mbox{\hyperlink{ha__m328p_8h_a205d46a19607c93aa6a807b80fabcc71}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+P\+O\+R\+T\+D\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}})) \+\_\+\+\_\+attribute\+\_\+\+\_\+((\+\_\+\+\_\+signal\+\_\+\+\_\+
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classcore_1_1ExternInterrupt_ad20bfc7a172fda41d6238cf94e1cefb8}{\+\_\+\+\_\+used\+\_\+\+\_\+}}
+\item 
+static void \mbox{\hyperlink{classcore_1_1ExternInterrupt_ab248930904ffe93bed36bdedcefd9e0e}{\+\_\+\+\_\+externally\+\_\+visible\+\_\+\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcore_1_1ExternInterrupt_a62ca6e122db30dd295888e9c6095f41b}{Extern\+Interrupt}} ()
+\item 
+\mbox{\hyperlink{classcore_1_1ExternInterrupt_af6c713d5dba0d81da72518adbe4c4b02}{$\sim$\+Extern\+Interrupt}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcore_1_1ExternInterrupt_a4f09e262ee1db1d79bae56732bbb5129}{Extern\+Interrupt}} (const \mbox{\hyperlink{classcore_1_1ExternInterrupt}{Extern\+Interrupt}} \&)
+\begin{DoxyCompactList}\small\item\em Overried Copy constructor. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classcore_1_1ExternInterrupt}{Extern\+Interrupt}} \& \mbox{\hyperlink{classcore_1_1ExternInterrupt_ad0259382bb3b3e5ef5c4f4a97e9fb9f5}{operator=}} (const \mbox{\hyperlink{classcore_1_1ExternInterrupt}{Extern\+Interrupt}} \&)
+\begin{DoxyCompactList}\small\item\em Override assign operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{ExternInterrupt_8h_source_l00162}{162}} of file \mbox{\hyperlink{ExternInterrupt_8h_source}{Extern\+Interrupt.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcore_1_1ExternInterrupt_a62ca6e122db30dd295888e9c6095f41b}\label{classcore_1_1ExternInterrupt_a62ca6e122db30dd295888e9c6095f41b}} 
+\index{core::ExternInterrupt@{core::ExternInterrupt}!ExternInterrupt@{ExternInterrupt}}
+\index{ExternInterrupt@{ExternInterrupt}!core::ExternInterrupt@{core::ExternInterrupt}}
+\doxysubsubsection{\texorpdfstring{ExternInterrupt()}{ExternInterrupt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily core\+::\+Extern\+Interrupt\+::\+Extern\+Interrupt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{ExternInterrupt_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{ExternInterrupt_8cpp_source}{Extern\+Interrupt.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012 \{}
+\DoxyCodeLine{00013     sei();}
+\DoxyCodeLine{00014 }
+\DoxyCodeLine{00015 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcore_1_1ExternInterrupt_af6c713d5dba0d81da72518adbe4c4b02}\label{classcore_1_1ExternInterrupt_af6c713d5dba0d81da72518adbe4c4b02}} 
+\index{core::ExternInterrupt@{core::ExternInterrupt}!````~ExternInterrupt@{$\sim$ExternInterrupt}}
+\index{````~ExternInterrupt@{$\sim$ExternInterrupt}!core::ExternInterrupt@{core::ExternInterrupt}}
+\doxysubsubsection{\texorpdfstring{$\sim$ExternInterrupt()}{~ExternInterrupt()}}
+{\footnotesize\ttfamily core\+::\+Extern\+Interrupt\+::$\sim$\+Extern\+Interrupt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Destructor. 
+
+
+
+Definition at line \mbox{\hyperlink{ExternInterrupt_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{ExternInterrupt_8cpp_source}{Extern\+Interrupt.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018 \{}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{00020 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcore_1_1ExternInterrupt_a4f09e262ee1db1d79bae56732bbb5129}\label{classcore_1_1ExternInterrupt_a4f09e262ee1db1d79bae56732bbb5129}} 
+\index{core::ExternInterrupt@{core::ExternInterrupt}!ExternInterrupt@{ExternInterrupt}}
+\index{ExternInterrupt@{ExternInterrupt}!core::ExternInterrupt@{core::ExternInterrupt}}
+\doxysubsubsection{\texorpdfstring{ExternInterrupt()}{ExternInterrupt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily core\+::\+Extern\+Interrupt\+::\+Extern\+Interrupt (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcore_1_1ExternInterrupt}{Extern\+Interrupt}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Overried Copy constructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcore_1_1ExternInterrupt_aac90ee869dfceac3278aaca48aa06d49}\label{classcore_1_1ExternInterrupt_aac90ee869dfceac3278aaca48aa06d49}} 
+\index{core::ExternInterrupt@{core::ExternInterrupt}!enableInt0@{enableInt0}}
+\index{enableInt0@{enableInt0}!core::ExternInterrupt@{core::ExternInterrupt}}
+\doxysubsubsection{\texorpdfstring{enableInt0()}{enableInt0()}}
+{\footnotesize\ttfamily void core\+::\+Extern\+Interrupt\+::enable\+Int0 (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{a\+\_\+enable }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ExternInterrupt_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{ExternInterrupt_8cpp_source}{Extern\+Interrupt.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035 \{}
+\DoxyCodeLine{00036     \textcolor{keywordflow}{if} (a\_enable) \{}
+\DoxyCodeLine{00037         \mbox{\hyperlink{ha__m328p_8h_aa904947319098d79c01ecab3886e54a3}{EXT\_INT\_ENABLE\_INT0}};}
+\DoxyCodeLine{00038 }
+\DoxyCodeLine{00039     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00040         \mbox{\hyperlink{ha__m328p_8h_a2e84e4ba842d7af17e5c37f75fe19007}{EXT\_INT\_DISABLE\_INT0}};}
+\DoxyCodeLine{00041     \}}
+\DoxyCodeLine{00042 }
+\DoxyCodeLine{00043 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{ha__m328p_8h_source_l00159}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+I\+N\+T0}}, and \mbox{\hyperlink{ha__m328p_8h_source_l00158}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+I\+N\+T0}}.
+
+\mbox{\Hypertarget{classcore_1_1ExternInterrupt_ad559641ac3bb2837d5fc37630f64a2e5}\label{classcore_1_1ExternInterrupt_ad559641ac3bb2837d5fc37630f64a2e5}} 
+\index{core::ExternInterrupt@{core::ExternInterrupt}!enableInt1@{enableInt1}}
+\index{enableInt1@{enableInt1}!core::ExternInterrupt@{core::ExternInterrupt}}
+\doxysubsubsection{\texorpdfstring{enableInt1()}{enableInt1()}}
+{\footnotesize\ttfamily void core\+::\+Extern\+Interrupt\+::enable\+Int1 (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{a\+\_\+enable }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ExternInterrupt_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{ExternInterrupt_8cpp_source}{Extern\+Interrupt.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00046 \{}
+\DoxyCodeLine{00047     \textcolor{keywordflow}{if} (a\_enable) \{}
+\DoxyCodeLine{00048         \mbox{\hyperlink{ha__m328p_8h_aff9dc8b6a68427e1c2fb27df66b9ba28}{EXT\_INT\_ENABLE\_INT1}};}
+\DoxyCodeLine{00049 }
+\DoxyCodeLine{00050     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00051         \mbox{\hyperlink{ha__m328p_8h_a4fbbc483403ee2faedfc6462a4a7bdbf}{EXT\_INT\_DISABLE\_INT1}};}
+\DoxyCodeLine{00052     \}}
+\DoxyCodeLine{00053 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{ha__m328p_8h_source_l00162}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+I\+N\+T1}}, and \mbox{\hyperlink{ha__m328p_8h_source_l00161}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+I\+N\+T1}}.
+
+\mbox{\Hypertarget{classcore_1_1ExternInterrupt_ac922b96106a0b95ee2e15762206fd1b8}\label{classcore_1_1ExternInterrupt_ac922b96106a0b95ee2e15762206fd1b8}} 
+\index{core::ExternInterrupt@{core::ExternInterrupt}!enablePinChange@{enablePinChange}}
+\index{enablePinChange@{enablePinChange}!core::ExternInterrupt@{core::ExternInterrupt}}
+\doxysubsubsection{\texorpdfstring{enablePinChange()}{enablePinChange()}}
+{\footnotesize\ttfamily void core\+::\+Extern\+Interrupt\+::enable\+Pin\+Change (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacecore_a53090c2070741c037b6c3606081a34dd}{pin\+Change\+Port}} \&}]{ar\+\_\+pin\+Change\+Port,  }\item[{const uint8\+\_\+t}]{a\+\_\+enable }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ExternInterrupt_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{ExternInterrupt_8cpp_source}{Extern\+Interrupt.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057 \{}
+\DoxyCodeLine{00058     \textcolor{keywordflow}{if} (a\_enable) \{}
+\DoxyCodeLine{00059         \mbox{\hyperlink{ha__m328p_8h_aaf8929d2d1e493b7f5388ff8627af3b0}{EXT\_INT\_ENABLE\_PIN\_CHANGE\_INTERRUPT}}(\textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(ar\_pinChangePort));}
+\DoxyCodeLine{00060 }
+\DoxyCodeLine{00061     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00062         \mbox{\hyperlink{ha__m328p_8h_a5098ef144f9be388d07a8ece51e95c43}{EXT\_INT\_DISABLE\_PIN\_CHANGE\_INTERRUPT}}(\textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(ar\_pinChangePort));}
+\DoxyCodeLine{00063     \}}
+\DoxyCodeLine{00064 }
+\DoxyCodeLine{00065 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{ha__m328p_8h_source_l00166}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}, and \mbox{\hyperlink{ha__m328p_8h_source_l00165}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}.
+
+\mbox{\Hypertarget{classcore_1_1ExternInterrupt_a22d2674945395aaab8bd7d170c91f965}\label{classcore_1_1ExternInterrupt_a22d2674945395aaab8bd7d170c91f965}} 
+\index{core::ExternInterrupt@{core::ExternInterrupt}!enablePinChangeMaskPortB@{enablePinChangeMaskPortB}}
+\index{enablePinChangeMaskPortB@{enablePinChangeMaskPortB}!core::ExternInterrupt@{core::ExternInterrupt}}
+\doxysubsubsection{\texorpdfstring{enablePinChangeMaskPortB()}{enablePinChangeMaskPortB()}}
+{\footnotesize\ttfamily void core\+::\+Extern\+Interrupt\+::enable\+Pin\+Change\+Mask\+PortB (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{a\+\_\+pin\+Number,  }\item[{const uint8\+\_\+t}]{a\+\_\+enable }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ExternInterrupt_8cpp_source_l00067}{67}} of file \mbox{\hyperlink{ExternInterrupt_8cpp_source}{Extern\+Interrupt.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068 \{}
+\DoxyCodeLine{00069     \textcolor{keywordflow}{if} (a\_enable) \{}
+\DoxyCodeLine{00070         \mbox{\hyperlink{ha__m328p_8h_a522af5e2a4fe5e71c9283db34a8f8429}{EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTB}}(a\_pinNumber);}
+\DoxyCodeLine{00071 }
+\DoxyCodeLine{00072     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00073         \mbox{\hyperlink{ha__m328p_8h_a522af5e2a4fe5e71c9283db34a8f8429}{EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTB}}(a\_pinNumber);}
+\DoxyCodeLine{00074     \}}
+\DoxyCodeLine{00075 }
+\DoxyCodeLine{00076 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{ha__m328p_8h_source_l00169}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+M\+A\+S\+K\+\_\+\+P\+O\+R\+TB}}.
+
+\mbox{\Hypertarget{classcore_1_1ExternInterrupt_a508a88a1855be2431df1c94e38a6e1d4}\label{classcore_1_1ExternInterrupt_a508a88a1855be2431df1c94e38a6e1d4}} 
+\index{core::ExternInterrupt@{core::ExternInterrupt}!enablePinChangeMaskPortC@{enablePinChangeMaskPortC}}
+\index{enablePinChangeMaskPortC@{enablePinChangeMaskPortC}!core::ExternInterrupt@{core::ExternInterrupt}}
+\doxysubsubsection{\texorpdfstring{enablePinChangeMaskPortC()}{enablePinChangeMaskPortC()}}
+{\footnotesize\ttfamily void core\+::\+Extern\+Interrupt\+::enable\+Pin\+Change\+Mask\+PortC (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{a\+\_\+pin\+Number,  }\item[{const uint8\+\_\+t}]{a\+\_\+enable }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ExternInterrupt_8cpp_source_l00079}{79}} of file \mbox{\hyperlink{ExternInterrupt_8cpp_source}{Extern\+Interrupt.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00080 \{}
+\DoxyCodeLine{00081     \textcolor{keywordflow}{if} (a\_enable) \{}
+\DoxyCodeLine{00082         \mbox{\hyperlink{ha__m328p_8h_ae12249a6b78c9f574fb8d6e1eb55d146}{EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTC}}(a\_pinNumber);}
+\DoxyCodeLine{00083 }
+\DoxyCodeLine{00084     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00085         \mbox{\hyperlink{ha__m328p_8h_ae12249a6b78c9f574fb8d6e1eb55d146}{EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTC}}(a\_pinNumber);}
+\DoxyCodeLine{00086     \}}
+\DoxyCodeLine{00087 }
+\DoxyCodeLine{00088 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{ha__m328p_8h_source_l00172}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+M\+A\+S\+K\+\_\+\+P\+O\+R\+TC}}.
+
+\mbox{\Hypertarget{classcore_1_1ExternInterrupt_aac838a477dac733e76e7a1d7feea760f}\label{classcore_1_1ExternInterrupt_aac838a477dac733e76e7a1d7feea760f}} 
+\index{core::ExternInterrupt@{core::ExternInterrupt}!enablePinChangeMaskPortD@{enablePinChangeMaskPortD}}
+\index{enablePinChangeMaskPortD@{enablePinChangeMaskPortD}!core::ExternInterrupt@{core::ExternInterrupt}}
+\doxysubsubsection{\texorpdfstring{enablePinChangeMaskPortD()}{enablePinChangeMaskPortD()}}
+{\footnotesize\ttfamily void core\+::\+Extern\+Interrupt\+::enable\+Pin\+Change\+Mask\+PortD (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{a\+\_\+pin\+Number,  }\item[{const uint8\+\_\+t}]{a\+\_\+enable }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ExternInterrupt_8cpp_source_l00090}{90}} of file \mbox{\hyperlink{ExternInterrupt_8cpp_source}{Extern\+Interrupt.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00091 \{}
+\DoxyCodeLine{00092     \textcolor{keywordflow}{if} (a\_enable) \{}
+\DoxyCodeLine{00093         \mbox{\hyperlink{ha__m328p_8h_a7ba26c1decfa5763d2f5042f8debeac0}{EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTD}}(a\_pinNumber);}
+\DoxyCodeLine{00094 }
+\DoxyCodeLine{00095     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00096         \mbox{\hyperlink{ha__m328p_8h_a7ba26c1decfa5763d2f5042f8debeac0}{EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTD}}(a\_pinNumber);}
+\DoxyCodeLine{00097     \}}
+\DoxyCodeLine{00098 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{ha__m328p_8h_source_l00175}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+M\+A\+S\+K\+\_\+\+P\+O\+R\+TD}}.
+
+\mbox{\Hypertarget{classcore_1_1ExternInterrupt_adda31b2ddeb86687186f0c80f3011e39}\label{classcore_1_1ExternInterrupt_adda31b2ddeb86687186f0c80f3011e39}} 
+\index{core::ExternInterrupt@{core::ExternInterrupt}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!core::ExternInterrupt@{core::ExternInterrupt}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcore_1_1ExternInterrupt}{core\+::\+Extern\+Interrupt}} \& core\+::\+Extern\+Interrupt\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{ExternInterrupt_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{ExternInterrupt_8cpp_source}{Extern\+Interrupt.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00004 \{}
+\DoxyCodeLine{00005     \textcolor{keyword}{static} \mbox{\hyperlink{classcore_1_1ExternInterrupt_a62ca6e122db30dd295888e9c6095f41b}{ExternInterrupt}} l\_instance;}
+\DoxyCodeLine{00006     \textcolor{keywordflow}{return} l\_instance;}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00008 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcore_1_1ExternInterrupt_a3343c45963bd07f208d80bafcd35ffa9}\label{classcore_1_1ExternInterrupt_a3343c45963bd07f208d80bafcd35ffa9}} 
+\index{core::ExternInterrupt@{core::ExternInterrupt}!Int0ServiceRoutine@{Int0ServiceRoutine}}
+\index{Int0ServiceRoutine@{Int0ServiceRoutine}!core::ExternInterrupt@{core::ExternInterrupt}}
+\doxysubsubsection{\texorpdfstring{Int0ServiceRoutine()}{Int0ServiceRoutine()}}
+{\footnotesize\ttfamily static void core\+::\+Extern\+Interrupt\+::\+Int0\+Service\+Routine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classcore_1_1ExternInterrupt_ad3a648f29bd2f3eeff17e2662d96e3c5}\label{classcore_1_1ExternInterrupt_ad3a648f29bd2f3eeff17e2662d96e3c5}} 
+\index{core::ExternInterrupt@{core::ExternInterrupt}!Int1ServiceRoutine@{Int1ServiceRoutine}}
+\index{Int1ServiceRoutine@{Int1ServiceRoutine}!core::ExternInterrupt@{core::ExternInterrupt}}
+\doxysubsubsection{\texorpdfstring{Int1ServiceRoutine()}{Int1ServiceRoutine()}}
+{\footnotesize\ttfamily static void core\+::\+Extern\+Interrupt\+::\+Int1\+Service\+Routine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classcore_1_1ExternInterrupt_ad0259382bb3b3e5ef5c4f4a97e9fb9f5}\label{classcore_1_1ExternInterrupt_ad0259382bb3b3e5ef5c4f4a97e9fb9f5}} 
+\index{core::ExternInterrupt@{core::ExternInterrupt}!operator=@{operator=}}
+\index{operator=@{operator=}!core::ExternInterrupt@{core::ExternInterrupt}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classcore_1_1ExternInterrupt}{Extern\+Interrupt}}\& core\+::\+Extern\+Interrupt\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcore_1_1ExternInterrupt}{Extern\+Interrupt}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Override assign operator. 
+
+\mbox{\Hypertarget{classcore_1_1ExternInterrupt_a9ea842727c38d69a3b59c1ac7e654452}\label{classcore_1_1ExternInterrupt_a9ea842727c38d69a3b59c1ac7e654452}} 
+\index{core::ExternInterrupt@{core::ExternInterrupt}!pinChangePortBServiceRoutine@{pinChangePortBServiceRoutine}}
+\index{pinChangePortBServiceRoutine@{pinChangePortBServiceRoutine}!core::ExternInterrupt@{core::ExternInterrupt}}
+\doxysubsubsection{\texorpdfstring{pinChangePortBServiceRoutine()}{pinChangePortBServiceRoutine()}}
+{\footnotesize\ttfamily static void core\+::\+Extern\+Interrupt\+::pin\+Change\+Port\+B\+Service\+Routine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classcore_1_1ExternInterrupt_a802a004ab52a1fb69d6d6c7e6c71613b}\label{classcore_1_1ExternInterrupt_a802a004ab52a1fb69d6d6c7e6c71613b}} 
+\index{core::ExternInterrupt@{core::ExternInterrupt}!pinChangePortCServiceRoutine@{pinChangePortCServiceRoutine}}
+\index{pinChangePortCServiceRoutine@{pinChangePortCServiceRoutine}!core::ExternInterrupt@{core::ExternInterrupt}}
+\doxysubsubsection{\texorpdfstring{pinChangePortCServiceRoutine()}{pinChangePortCServiceRoutine()}}
+{\footnotesize\ttfamily static void core\+::\+Extern\+Interrupt\+::pin\+Change\+Port\+C\+Service\+Routine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classcore_1_1ExternInterrupt_ac844e00a6c63c32b54fe9e1b2bdc3bd5}\label{classcore_1_1ExternInterrupt_ac844e00a6c63c32b54fe9e1b2bdc3bd5}} 
+\index{core::ExternInterrupt@{core::ExternInterrupt}!pinChangePortDServiceRoutine@{pinChangePortDServiceRoutine}}
+\index{pinChangePortDServiceRoutine@{pinChangePortDServiceRoutine}!core::ExternInterrupt@{core::ExternInterrupt}}
+\doxysubsubsection{\texorpdfstring{pinChangePortDServiceRoutine()}{pinChangePortDServiceRoutine()}}
+{\footnotesize\ttfamily static void core\+::\+Extern\+Interrupt\+::pin\+Change\+Port\+D\+Service\+Routine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classcore_1_1ExternInterrupt_ae9d598f4dc123ff2778780cda366ab80}\label{classcore_1_1ExternInterrupt_ae9d598f4dc123ff2778780cda366ab80}} 
+\index{core::ExternInterrupt@{core::ExternInterrupt}!setInt0SenseControl@{setInt0SenseControl}}
+\index{setInt0SenseControl@{setInt0SenseControl}!core::ExternInterrupt@{core::ExternInterrupt}}
+\doxysubsubsection{\texorpdfstring{setInt0SenseControl()}{setInt0SenseControl()}}
+{\footnotesize\ttfamily void core\+::\+Extern\+Interrupt\+::set\+Int0\+Sense\+Control (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacecore_a91994a2fb37f8b4df0567468e9d0e325}{sense\+Control}} \&}]{ar\+\_\+sense\+Control }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ExternInterrupt_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{ExternInterrupt_8cpp_source}{Extern\+Interrupt.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023 \{}
+\DoxyCodeLine{00024     \mbox{\hyperlink{ha__m328p_8h_a293ef234d030ae22ecbaacfadbedd8b6}{EXT\_INT\_SET\_INT0\_SENSE\_CONTROL}}(\textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(ar\_senseControl));}
+\DoxyCodeLine{00025 }
+\DoxyCodeLine{00026 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{ha__m328p_8h_source_l00155}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+S\+E\+T\+\_\+\+I\+N\+T0\+\_\+\+S\+E\+N\+S\+E\+\_\+\+C\+O\+N\+T\+R\+OL}}.
+
+\mbox{\Hypertarget{classcore_1_1ExternInterrupt_af2a73ca47a5798c4392392181f27e9ff}\label{classcore_1_1ExternInterrupt_af2a73ca47a5798c4392392181f27e9ff}} 
+\index{core::ExternInterrupt@{core::ExternInterrupt}!setInt1SenseControl@{setInt1SenseControl}}
+\index{setInt1SenseControl@{setInt1SenseControl}!core::ExternInterrupt@{core::ExternInterrupt}}
+\doxysubsubsection{\texorpdfstring{setInt1SenseControl()}{setInt1SenseControl()}}
+{\footnotesize\ttfamily void core\+::\+Extern\+Interrupt\+::set\+Int1\+Sense\+Control (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacecore_a91994a2fb37f8b4df0567468e9d0e325}{sense\+Control}} \&}]{ar\+\_\+sense\+Control }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ExternInterrupt_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{ExternInterrupt_8cpp_source}{Extern\+Interrupt.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029 \{}
+\DoxyCodeLine{00030     \mbox{\hyperlink{ha__m328p_8h_af7cbf6405655d1b9d3c782d0886b00c5}{EXT\_INT\_SET\_INT1\_SENSE\_CONTROL}}(\textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(ar\_senseControl));}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{00032 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{ha__m328p_8h_source_l00156}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+S\+E\+T\+\_\+\+I\+N\+T1\+\_\+\+S\+E\+N\+S\+E\+\_\+\+C\+O\+N\+T\+R\+OL}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcore_1_1ExternInterrupt_ab248930904ffe93bed36bdedcefd9e0e}\label{classcore_1_1ExternInterrupt_ab248930904ffe93bed36bdedcefd9e0e}} 
+\index{core::ExternInterrupt@{core::ExternInterrupt}!\_\_externally\_visible\_\_@{\_\_externally\_visible\_\_}}
+\index{\_\_externally\_visible\_\_@{\_\_externally\_visible\_\_}!core::ExternInterrupt@{core::ExternInterrupt}}
+\doxysubsubsection{\texorpdfstring{\_\_externally\_visible\_\_}{\_\_externally\_visible\_\_}}
+{\footnotesize\ttfamily static void core\+::\+Extern\+Interrupt\+::\+\_\+\+\_\+externally\+\_\+visible\+\_\+\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{ExternInterrupt_8h_source_l00185}{185}} of file \mbox{\hyperlink{ExternInterrupt_8h_source}{Extern\+Interrupt.\+h}}.
+
+\mbox{\Hypertarget{classcore_1_1ExternInterrupt_ad20bfc7a172fda41d6238cf94e1cefb8}\label{classcore_1_1ExternInterrupt_ad20bfc7a172fda41d6238cf94e1cefb8}} 
+\index{core::ExternInterrupt@{core::ExternInterrupt}!\_\_used\_\_@{\_\_used\_\_}}
+\index{\_\_used\_\_@{\_\_used\_\_}!core::ExternInterrupt@{core::ExternInterrupt}}
+\doxysubsubsection{\texorpdfstring{\_\_used\_\_}{\_\_used\_\_}}
+{\footnotesize\ttfamily static void core\+::\+Extern\+Interrupt\+::\+\_\+\+\_\+used\+\_\+\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{ExternInterrupt_8h_source_l00185}{185}} of file \mbox{\hyperlink{ExternInterrupt_8h_source}{Extern\+Interrupt.\+h}}.
+

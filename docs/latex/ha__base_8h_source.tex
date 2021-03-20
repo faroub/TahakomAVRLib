@@ -1,0 +1,40 @@
+\hypertarget{ha__base_8h_source}{}\doxysection{ha\+\_\+base.\+h}
+\label{ha__base_8h_source}\index{ha\_base.h@{ha\_base.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 }
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\#ifndef HABASE\_H}}
+\DoxyCodeLine{00010 \textcolor{preprocessor}{\#define HABASE\_H}}
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{00012 \textcolor{comment}{/*}}
+\DoxyCodeLine{00013 \textcolor{comment}{ *  Helper construct to get interrupt numbers from names}}
+\DoxyCodeLine{00014 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{ha__base_8h_source_l00015}\mbox{\hyperlink{ha__base_8h_aa62099ce3e0cfb38c98d42ea8b61fe00}{00015}} \textcolor{preprocessor}{\#define STRx(s)  \#s}}
+\DoxyCodeLine{\Hypertarget{ha__base_8h_source_l00016}\mbox{\hyperlink{ha__base_8h_a6388870e639eee9c0a69446876f1f8cc}{00016}} \textcolor{preprocessor}{\#define STR(s)   STRx(s)}}
+\DoxyCodeLine{00017 }
+\DoxyCodeLine{00018 \textcolor{comment}{/*}}
+\DoxyCodeLine{00019 \textcolor{comment}{ *  Any class needs these includes from avr-\/libc}}
+\DoxyCodeLine{00020 \textcolor{comment}{ */}}
+\DoxyCodeLine{00021 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{00022 \textcolor{preprocessor}{\#include <avr/io.h>}}
+\DoxyCodeLine{00023 \textcolor{preprocessor}{\#include <avr/interrupt.h>}}
+\DoxyCodeLine{00024 \textcolor{preprocessor}{\#include <util/delay.h>}}
+\DoxyCodeLine{00025 \textcolor{preprocessor}{\#include <avr/sleep.h>}}
+\DoxyCodeLine{00026 \textcolor{preprocessor}{\#include <avr/power.h>}}
+\DoxyCodeLine{00027 \textcolor{preprocessor}{\#include <avr/wdt.h>}}
+\DoxyCodeLine{00028 }
+\DoxyCodeLine{00029 }
+\DoxyCodeLine{00030 \textcolor{comment}{/*}}
+\DoxyCodeLine{00031 \textcolor{comment}{ * include hardware abstraction the Atmega328p}}
+\DoxyCodeLine{00032 \textcolor{comment}{ */}}
+\DoxyCodeLine{00033 \textcolor{preprocessor}{\#if   defined(\_\_AVR\_ATmega328P\_\_)}}
+\DoxyCodeLine{00034 }
+\DoxyCodeLine{00035 \textcolor{preprocessor}{    \#include "\mbox{\hyperlink{ha__m328p_8h}{ha\_m328p.h}}"}}
+\DoxyCodeLine{00036 \textcolor{preprocessor}{    \#include "\mbox{\hyperlink{utils__m328p_8h}{utils\_m328p.h}}"}}
+\DoxyCodeLine{00037 }
+\DoxyCodeLine{00038 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{00040 }
+\DoxyCodeLine{00041 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

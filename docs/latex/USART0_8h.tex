@@ -1,0 +1,126 @@
+\hypertarget{USART0_8h}{}\doxysection{U\+S\+A\+R\+T0.\+h File Reference}
+\label{USART0_8h}\index{USART0.h@{USART0.h}}
+
+
+Header file of the U\+S\+A\+R\+T0 class.  
+
+
+{\ttfamily \#include \char`\"{}ha\+\_\+base.\+h\char`\"{}}\newline
+Include dependency graph for U\+S\+A\+R\+T0.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{USART0_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=155pt]{USART0_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classio_1_1USART0}{io\+::\+U\+S\+A\+R\+T0}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceio}{io}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespaceio_a45e1fcaa207053a34d25f14ece044cc8}{io\+::transmission\+Mode}} \+: uint8\+\_\+t \{ \mbox{\hyperlink{namespaceio_a45e1fcaa207053a34d25f14ece044cc8a0df93e34273b367bb63bad28c94c78d5}{io\+::transmission\+Mode\+::async}} =0, 
+\mbox{\hyperlink{namespaceio_a45e1fcaa207053a34d25f14ece044cc8a63ad9d34f3503826e5f649ae6b7ac92c}{io\+::transmission\+Mode\+::sync}}, 
+\mbox{\hyperlink{namespaceio_a45e1fcaa207053a34d25f14ece044cc8acf840bd202dedd899ac911ae2f8a499f}{io\+::transmission\+Mode\+::master\+S\+PI}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespaceio_a42a6fa0fa3ae883e7bbd56940fe826d7}{io\+::communication\+Mode}} \+: uint8\+\_\+t \{ \mbox{\hyperlink{namespaceio_a42a6fa0fa3ae883e7bbd56940fe826d7a1151f638136f16f4e05c3c44b5ca0ce6}{io\+::communication\+Mode\+::duplex}} =0, 
+\mbox{\hyperlink{namespaceio_a42a6fa0fa3ae883e7bbd56940fe826d7af477de506a932b4c64020556d2d4b40b}{io\+::communication\+Mode\+::transmit}}, 
+\mbox{\hyperlink{namespaceio_a42a6fa0fa3ae883e7bbd56940fe826d7acbd71f0d3114139d38a8d080d610e5fd}{io\+::communication\+Mode\+::receive}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespaceio_aff83b31c2107877eab6896af2f26473d}{io\+::parity\+Mode}} \+: uint8\+\_\+t \{ \mbox{\hyperlink{namespaceio_aff83b31c2107877eab6896af2f26473da44d98c594e2582acdda78154827f9fb6}{io\+::parity\+Mode\+::no\+Parity}} =0, 
+\mbox{\hyperlink{namespaceio_aff83b31c2107877eab6896af2f26473dadceb499126d39f02b90fc0568511348c}{io\+::parity\+Mode\+::even\+Parity}}, 
+\mbox{\hyperlink{namespaceio_aff83b31c2107877eab6896af2f26473dad6f5540a1b621e24c76f97f61511e685}{io\+::parity\+Mode\+::odd\+Parity}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespaceio_af048673c97e2851e9f698ade3eac3d94}{io\+::frame\+Size}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespaceio_af048673c97e2851e9f698ade3eac3d94ab42f784b79e512bbfe55fba2293918f6}{io\+::frame\+Size\+::eight\+Bits}} =0, 
+\mbox{\hyperlink{namespaceio_af048673c97e2851e9f698ade3eac3d94ad2172140683f3cabe78ede6317040eea}{io\+::frame\+Size\+::five\+Bits}}, 
+\mbox{\hyperlink{namespaceio_af048673c97e2851e9f698ade3eac3d94a664b25345df80b2e675d08c9d79b647d}{io\+::frame\+Size\+::six\+Bits}}, 
+\mbox{\hyperlink{namespaceio_af048673c97e2851e9f698ade3eac3d94a79c698b6ec536efa5deaf48fd29f3320}{io\+::frame\+Size\+::seven\+Bits}}, 
+\newline
+\mbox{\hyperlink{namespaceio_af048673c97e2851e9f698ade3eac3d94a7b23fd26ca366edb65fecd1daea875fa}{io\+::frame\+Size\+::neine\+Bits}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespaceio_a289d74a06bc85c2902bef57a51b59047}{io\+::stop\+Bit}} \+: uint8\+\_\+t \{ \mbox{\hyperlink{namespaceio_a289d74a06bc85c2902bef57a51b59047ae89f045718a988ab25f333614a2413c4}{io\+::stop\+Bit\+::one\+Stop\+Bit}} =0, 
+\mbox{\hyperlink{namespaceio_a289d74a06bc85c2902bef57a51b59047a82320fbce0bc5d05a8a9b3a979bd8a1f}{io\+::stop\+Bit\+::two\+Stop\+Bits}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file of the U\+S\+A\+R\+T0 class. 
+
+Basic class for IO abstraction of the Universal Synchronous and Asynchronous serial Receiver and Transmitter serial communication device.
+
+Usage example (loopback v1)\+:
+
+\#include \char`\"{}\+U\+S\+A\+R\+T0.\+h\char`\"{}
+
+\#define B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE 1
+
+int \mbox{\hyperlink{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}{main(void)}} \{
+
+Init uint8\+\_\+t l\+\_\+data\mbox{[}B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE\mbox{]};
+
+\mbox{\hyperlink{classio_1_1USART0}{io\+::\+U\+S\+A\+R\+T0}} \&my\+U\+S\+A\+R\+T0 = \mbox{\hyperlink{classio_1_1USART0_ac3f9fa641ed5ea5628fd8fa65848ae0e}{io\+::\+U\+S\+A\+R\+T0\+::get\+Instance()}};
+
+my\+U\+S\+A\+R\+T0.\+send\+String(\char`\"{}\+Hello World!\textbackslash{}r\textbackslash{}n\char`\"{});
+
+-\/-\/-\/--- Event loop -\/-\/-\/--- // while (1) \{ \begin{DoxyVerb}myUSART0.receiveFrames(l_data,BUFFER_SIZE);
+if (myUSART0.getNumberBytesReceived()==BUFFER_SIZE)
+{
+        myUSART0.sendFrames(l_data,BUFFER_SIZE);
+        myUSART0.resetNumberBytesReceived();
+}
+\end{DoxyVerb}
+
+
+\} return 0; \}
+
+Usage example (loopback v2)\+:
+
+\#include \char`\"{}\+U\+S\+A\+R\+T0.\+h\char`\"{}
+
+int \mbox{\hyperlink{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}{main(void)}} \{
+
+Init uint8\+\_\+t l\+\_\+data;
+
+\mbox{\hyperlink{classio_1_1USART0}{io\+::\+U\+S\+A\+R\+T0}} \&my\+U\+S\+A\+R\+T0 = \mbox{\hyperlink{classio_1_1USART0_ac3f9fa641ed5ea5628fd8fa65848ae0e}{io\+::\+U\+S\+A\+R\+T0\+::get\+Instance()}};
+
+my\+U\+S\+A\+R\+T0.\+send\+String(\char`\"{}\+Hello World!\textbackslash{}r\textbackslash{}n\char`\"{});
+
+-\/-\/-\/--- Event loop -\/-\/-\/--- // while (1) \{ \begin{DoxyVerb}myUSART0.receiveChar(l_data);
+if (myUSART0.getNumberBytesReceived()==1)
+{
+    myUSART0.sendChar(l_data);
+    myUSART0.resetNumberBytesReceived();
+}
+\end{DoxyVerb}
+
+
+\} return 0; \} \begin{DoxyAuthor}{Author}
+Farid Oubbati (\href{https://github.com/faroub}{\texttt{ https\+://github.\+com/faroub}}) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+March 2020 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{USART0_8h_source}{U\+S\+A\+R\+T0.\+h}}.
+

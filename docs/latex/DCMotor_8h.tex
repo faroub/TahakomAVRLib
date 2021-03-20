@@ -1,0 +1,107 @@
+\hypertarget{DCMotor_8h}{}\doxysection{D\+C\+Motor.\+h File Reference}
+\label{DCMotor_8h}\index{DCMotor.h@{DCMotor.h}}
+
+
+Header file of the D\+C\+Motor class.  
+
+
+{\ttfamily \#include \char`\"{}ha\+\_\+base.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Pin.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Timer\+Counter.\+h\char`\"{}}\newline
+Include dependency graph for D\+C\+Motor.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{DCMotor_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=154pt]{DCMotor_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcomponent_1_1DCMotor}{component\+::\+D\+C\+Motor}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacecomponent}{component}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file of the D\+C\+Motor class. 
+
+Usage example (test)\+: \#include \char`\"{}\+M\+C\+U.\+h\char`\"{} \#include \char`\"{}\+Timer\+Counter0.\+h\char`\"{} \#include \char`\"{}\+D\+C\+Motor.\+h\char`\"{}
+
+\#define D\+C\+M\+O\+T\+O\+R\+\_\+\+N\+U\+M\+B\+ER 6
+
+int \mbox{\hyperlink{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}{main(void)}} \{
+
+Init initialize M\+CU \mbox{\hyperlink{classcore_1_1MCU_aa6fd8e982755601a06ce54147b83d162}{core\+::\+M\+C\+U\+::init()}};
+
+instantiate the Timer\+Counter0 object \mbox{\hyperlink{classcore_1_1TimerCounter0}{core\+::\+Timer\+Counter0}} \&my\+Timer\+Counter0 = \mbox{\hyperlink{classcore_1_1TimerCounter0_a38849b2debf04224214f0fe3a4e77124}{core\+::\+Timer\+Counter0\+::get\+Instance()}}; my\+Timer\+Counter0.\+select\+Clock\+Source(core\+::clock\+Source\+::\+P\+S\+\_\+1024);
+
+instantiate a D\+C\+Motor object \mbox{\hyperlink{classcomponent_1_1DCMotor}{component\+::\+D\+C\+Motor}} my\+D\+C\+Motor(io\+::\+Pin(\+D\+C\+M\+O\+T\+O\+R\+\_\+\+N\+U\+M\+B\+E\+R,io\+::\+Port\+D));
+
+my\+D\+C\+Motor.\+connect(my\+Timer\+Counter0);
+
+my\+D\+C\+Motor.\+spin(my\+Timer\+Counter0,0); \+\_\+delay\+\_\+ms(5000);
+
+my\+D\+C\+Motor.\+spin(my\+Timer\+Counter0,75); \+\_\+delay\+\_\+ms(5000);
+
+my\+D\+C\+Motor.\+spin(my\+Timer\+Counter0,190); \+\_\+delay\+\_\+ms(5000);
+
+my\+D\+C\+Motor.\+spin(my\+Timer\+Counter0,200); \+\_\+delay\+\_\+ms(5000);
+
+my\+D\+C\+Motor.\+disconnect(my\+Timer\+Counter0);
+
+Mainloop while (1) \{
+
+\} return 0; \} Usage example (H Bridge)\+:
+
+\#include \char`\"{}\+M\+C\+U.\+h\char`\"{} \#include \char`\"{}\+Timer\+Counter0.\+h\char`\"{} \#include \char`\"{}\+D\+C\+Motor.\+h\char`\"{}
+
+\#define D\+C\+M\+O\+T\+O\+R\+\_\+\+N\+U\+M\+B\+ER 6 \#define D\+C\+M\+O\+T\+O\+R\+\_\+\+B\+A\+C\+K\+W\+A\+RD 0 \#define D\+C\+M\+O\+T\+O\+R\+\_\+\+F\+O\+R\+W\+A\+RD 1
+
+int \mbox{\hyperlink{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}{main(void)}} \{
+
+Init initialize M\+CU \mbox{\hyperlink{classcore_1_1MCU_aa6fd8e982755601a06ce54147b83d162}{core\+::\+M\+C\+U\+::init()}};
+
+instantiate the Timer\+Counter0 object \mbox{\hyperlink{classcore_1_1TimerCounter0}{core\+::\+Timer\+Counter0}} \&my\+Timer\+Counter0 = \mbox{\hyperlink{classcore_1_1TimerCounter0_a38849b2debf04224214f0fe3a4e77124}{core\+::\+Timer\+Counter0\+::get\+Instance()}}; my\+Timer\+Counter0.\+select\+Clock\+Source(core\+::clock\+Source\+::\+P\+S\+\_\+256);
+
+instantiate a D\+C\+Motor object \mbox{\hyperlink{classcomponent_1_1DCMotor}{component\+::\+D\+C\+Motor}} my\+D\+C\+Motor(io\+::\+Pin(\+D\+C\+M\+O\+T\+O\+R\+\_\+\+N\+U\+M\+B\+E\+R,io\+::\+Port\+D));
+
+instantiate direction pins objects
+
+\mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}} my\+Pin\+Forward = \mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin(\+D\+C\+M\+O\+T\+O\+R\+\_\+\+F\+O\+R\+W\+A\+R\+D,io\+::\+Port\+B)}}; my\+Pin\+Forward.\+to\+Output();
+
+\mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}} my\+Pin\+Backward = \mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin(\+D\+C\+M\+O\+T\+O\+R\+\_\+\+B\+A\+C\+K\+W\+A\+R\+D,io\+::\+Port\+B)}}; my\+Pin\+Backward.\+to\+Output();
+
+my\+D\+C\+Motor.\+connect(my\+Timer\+Counter0);
+
+my\+Pin\+Forward.\+set\+High(); my\+Pin\+Backward.\+set\+Low(); my\+D\+C\+Motor.\+spin(my\+Timer\+Counter0,30); \+\_\+delay\+\_\+ms(5000);
+
+my\+Pin\+Forward.\+set\+Low(); my\+Pin\+Backward.\+set\+High(); my\+D\+C\+Motor.\+spin(my\+Timer\+Counter0,30); \+\_\+delay\+\_\+ms(5000);
+
+my\+D\+C\+Motor.\+disconnect(my\+Timer\+Counter0);
+
+Mainloop while (1) \{
+
+\} return 0; \}
+
+Basic class for IO abstraction of Pin and Port \begin{DoxyAuthor}{Author}
+Farid Oubbati (\href{https://github.com/faroub}{\texttt{ https\+://github.\+com/faroub}}) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+March 2020 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{DCMotor_8h_source}{D\+C\+Motor.\+h}}.
+

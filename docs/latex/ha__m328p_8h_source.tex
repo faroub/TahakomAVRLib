@@ -1,0 +1,331 @@
+\hypertarget{ha__m328p_8h_source}{}\doxysection{ha\+\_\+m328p.\+h}
+\label{ha__m328p_8h_source}\index{ha\_m328p.h@{ha\_m328p.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 }
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#ifndef HAM329P\_H}}
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\#define HAM329P\_H}}
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{00011 \textcolor{preprocessor}{\#ifndef HABASE\_H}}
+\DoxyCodeLine{00012 \textcolor{preprocessor}{    \#error "don't use this file directly! Please include only ha\_base.h!"}}
+\DoxyCodeLine{00013 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00014 }
+\DoxyCodeLine{00015 \textcolor{comment}{// PushButton defines}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00016}\mbox{\hyperlink{ha__m328p_8h_a3359959b78905acc2647e0367f6949f7}{00016}} \textcolor{preprocessor}{\#define PUSHBUTTON\_DEBOUNCE\_TIME\_US 1000 // microseconds to wait for next check}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00017}\mbox{\hyperlink{ha__m328p_8h_a11cd26b8a5fb523d3f6abed3da984d45}{00017}} \textcolor{preprocessor}{\#define PUSHBUTTON\_SAMPLING     12           // number of times a push button must be pressed}}
+\DoxyCodeLine{00018 }
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{00020 \textcolor{comment}{// USART defines}}
+\DoxyCodeLine{00021 \textcolor{preprocessor}{\#include <util/setbaud.h>}}
+\DoxyCodeLine{00022 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00023}\mbox{\hyperlink{ha__m328p_8h_a9f75e3254c6d84eb468a30f5a9b3431e}{00023}} \textcolor{preprocessor}{\#define   USART0\_SET\_BAUDRATE\_HIGH\_REGISTER     UBRR0H = UBRRH\_VALUE}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00024}\mbox{\hyperlink{ha__m328p_8h_ad2d97daf2d69124280edd646ba409793}{00024}} \textcolor{preprocessor}{\#define   USART0\_SET\_BAUDRATE\_LOW\_REGISTER      UBRR0L = UBRRL\_VALUE}}
+\DoxyCodeLine{00025 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00026}\mbox{\hyperlink{ha__m328p_8h_ab061740cebeb64e894809d3fd7721a14}{00026}} \textcolor{preprocessor}{\#define   USART0\_ENABLE\_ASYNC\_TRANSMISSION\_MODE     UCSR0C \&= \string~((1 << UMSEL01) | (1 << UMSEL00))}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00027}\mbox{\hyperlink{ha__m328p_8h_a6212b08eb58f6785bb42c0bd4aba4c06}{00027}} \textcolor{preprocessor}{\#define   USART0\_ENABLE\_SYNC\_TRANSMISSION\_MODE      UCSR0C = (UCSR0C \& \string~(1 << UMSEL01)) | (1 << UMSEL00)}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00028}\mbox{\hyperlink{ha__m328p_8h_a699e9bbe70496f1b89161babd02352d5}{00028}} \textcolor{preprocessor}{\#define   USART0\_ENABLE\_MASTER\_SPI\_MODE             UCSR0C |= (1 << UMSEL01) | (1 << UMSEL00)}}
+\DoxyCodeLine{00029 }
+\DoxyCodeLine{00030 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00031}\mbox{\hyperlink{ha__m328p_8h_ab21a3211694bb84a2f70de2792d609aa}{00031}} \textcolor{preprocessor}{\#define   USART0\_ENABLE\_DOUBLE\_SPEED\_MODE}}
+\DoxyCodeLine{00032 \textcolor{preprocessor}{\#define   USART0\_DISABLE\_DOUBLE\_SPEED\_MODE}}
+\DoxyCodeLine{00033 }
+\DoxyCodeLine{00034 \textcolor{preprocessor}{\#if USE\_2X}}
+\DoxyCodeLine{00035 \textcolor{preprocessor}{    \#undef  USART0\_ENABLE\_DOUBLE\_SPEED\_MODE}}
+\DoxyCodeLine{00036 \textcolor{preprocessor}{    \#define USART0\_ENABLE\_DOUBLE\_SPEED\_MODE UCSR0A |= (1 << U2X0)}}
+\DoxyCodeLine{00037 \textcolor{preprocessor}{    \#warning "double speed operation activated"}}
+\DoxyCodeLine{00038 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00039 \textcolor{preprocessor}{    \#undef  USART0\_DISABLE\_DOUBLE\_SPEED\_MODE}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00040}\mbox{\hyperlink{ha__m328p_8h_a0f1134791392fafed3bb3f3cbc59a3e6}{00040}} \textcolor{preprocessor}{    \#define USART0\_DISABLE\_DOUBLE\_SPEED\_MODE UCSR0A \&= \string~(1 << U2X0)}}
+\DoxyCodeLine{00041 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00042 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00043}\mbox{\hyperlink{ha__m328p_8h_a40d3b61f90cc579ed696e3aa06042645}{00043}} \textcolor{preprocessor}{\#define   USART0\_ENABLE\_EVEN\_PARITY\_MODE    UCSR0C = (1 << UPM01) | (UCSR0C \& \string~(1 << UPM00))}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00044}\mbox{\hyperlink{ha__m328p_8h_aa60d7f6a4d46ba98102e3ae6e9f6d5c6}{00044}} \textcolor{preprocessor}{\#define   USART0\_ENABLE\_ODD\_PARITY\_MODE     UCSR0C |=   ((1 << UPM01) | (1 << UPM00))}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00045}\mbox{\hyperlink{ha__m328p_8h_aa25afe8b4e8e08f889fe634c4860fb8c}{00045}} \textcolor{preprocessor}{\#define   USART0\_DISABLE\_PARITY\_MODE        UCSR0C \&= \string~((1 << UPM01) | (1 << UPM00))}}
+\DoxyCodeLine{00046 }
+\DoxyCodeLine{00047 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00048}\mbox{\hyperlink{ha__m328p_8h_aceab97978186cfda4860b72f4d16d4d1}{00048}} \textcolor{preprocessor}{\#define   USART0\_SET\_ONE\_STOP\_BIT   UCSR0C \&= \string~(1 << USBS0)}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00049}\mbox{\hyperlink{ha__m328p_8h_a1610015cf2bbaee1d6de238a443c5a86}{00049}} \textcolor{preprocessor}{\#define   USART0\_SET\_TWO\_STOP\_BITS  UCSR0C |= (1 << USBS0)}}
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{00051 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00052}\mbox{\hyperlink{ha__m328p_8h_a91a0e3917badd3d83dfe9c9bcbaa20d6}{00052}} \textcolor{preprocessor}{\#define   USART0\_SET\_9BIT\_FRAME\_SIZE   \(\backslash\)}}
+\DoxyCodeLine{00053 \textcolor{preprocessor}{    do \{ \(\backslash\)}}
+\DoxyCodeLine{00054 \textcolor{preprocessor}{        UCSR0C |= ((1 << UCSZ01) | (1 << UCSZ00)); \(\backslash\)}}
+\DoxyCodeLine{00055 \textcolor{preprocessor}{        UCSR0B |= (1 << UCSZ02); \(\backslash\)}}
+\DoxyCodeLine{00056 \textcolor{preprocessor}{    \} while (0)}}
+\DoxyCodeLine{00057 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00058}\mbox{\hyperlink{ha__m328p_8h_a6371432d26ff4ae3b8d0e68952c8c92f}{00058}} \textcolor{preprocessor}{\#define   USART0\_SET\_8BIT\_FRAME\_SIZE   \(\backslash\)}}
+\DoxyCodeLine{00059 \textcolor{preprocessor}{    do \{ \(\backslash\)}}
+\DoxyCodeLine{00060 \textcolor{preprocessor}{        UCSR0C |= ((1 << UCSZ01) | (1 << UCSZ00)); \(\backslash\)}}
+\DoxyCodeLine{00061 \textcolor{preprocessor}{        UCSR0B \&= \string~(1 << UCSZ02); \(\backslash\)}}
+\DoxyCodeLine{00062 \textcolor{preprocessor}{    \} while (0)}}
+\DoxyCodeLine{00063 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00064}\mbox{\hyperlink{ha__m328p_8h_afccb2bb77275288c61e816b69e48d802}{00064}} \textcolor{preprocessor}{\#define   USART0\_SET\_7BIT\_FRAME\_SIZE  \(\backslash\)}}
+\DoxyCodeLine{00065 \textcolor{preprocessor}{    do \{ \(\backslash\)}}
+\DoxyCodeLine{00066 \textcolor{preprocessor}{        UCSR0C = (1 << UCSZ01) | (UCSR0C \& \string~(1 << UCSZ00)); \(\backslash\)}}
+\DoxyCodeLine{00067 \textcolor{preprocessor}{        UCSR0B \&= \string~(1 << UCSZ02); \(\backslash\)}}
+\DoxyCodeLine{00068 \textcolor{preprocessor}{    \} while (0)}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00069}\mbox{\hyperlink{ha__m328p_8h_a182b29e0b4ac11bab8ccd6241402e476}{00069}} \textcolor{preprocessor}{\#define   USART0\_SET\_6BIT\_FRAME\_SIZE \(\backslash\)}}
+\DoxyCodeLine{00070 \textcolor{preprocessor}{    do \{ \(\backslash\)}}
+\DoxyCodeLine{00071 \textcolor{preprocessor}{        UCSR0C = (UCSR0C \& \string~(1 << UCSZ01)) | (1 << UCSZ00); \(\backslash\)}}
+\DoxyCodeLine{00072 \textcolor{preprocessor}{        UCSR0B \&= \string~(1 << UCSZ02); \(\backslash\)}}
+\DoxyCodeLine{00073 \textcolor{preprocessor}{    \} while (0)}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00074}\mbox{\hyperlink{ha__m328p_8h_afe48275c2852f8e14e4cd01a7a909ae7}{00074}} \textcolor{preprocessor}{\#define   USART0\_SET\_5BIT\_FRAME\_SIZE \(\backslash\)}}
+\DoxyCodeLine{00075 \textcolor{preprocessor}{    do \{ \(\backslash\)}}
+\DoxyCodeLine{00076 \textcolor{preprocessor}{        UCSR0C \&= \string~((1 << UCSZ01) | (1 << UCSZ00)); \(\backslash\)}}
+\DoxyCodeLine{00077 \textcolor{preprocessor}{        UCSR0B \&= \string~(1 << UCSZ02); \(\backslash\)}}
+\DoxyCodeLine{00078 \textcolor{preprocessor}{    \} while (0)}}
+\DoxyCodeLine{00079 }
+\DoxyCodeLine{00080 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00081}\mbox{\hyperlink{ha__m328p_8h_a5e075de2723ff01c00e1f11a15d7a5a7}{00081}} \textcolor{preprocessor}{\#define   USART0\_ENABLE\_TRANSMITTER      UCSR0B |=   1 << TXEN0}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00082}\mbox{\hyperlink{ha__m328p_8h_a2f08394b86a3171d29fd04dcb01d99ad}{00082}} \textcolor{preprocessor}{\#define   USART0\_DISABLE\_TRANSMITTER     UCSR0B \&= \string~(1 << TXEN0)}}
+\DoxyCodeLine{00083 }
+\DoxyCodeLine{00084 }
+\DoxyCodeLine{00085 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00086}\mbox{\hyperlink{ha__m328p_8h_a46adba4a2177845ac7f078c0cdf8fb85}{00086}} \textcolor{preprocessor}{\#define   USART0\_ENABLE\_RECEIVER         UCSR0B |=   1 << RXEN0}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00087}\mbox{\hyperlink{ha__m328p_8h_a982ecd4479c68967c512ce377f77bd68}{00087}} \textcolor{preprocessor}{\#define   USART0\_DISABLE\_RECEIVER        UCSR0B \&= \string~(1 << RXEN0)}}
+\DoxyCodeLine{00088 }
+\DoxyCodeLine{00089 }
+\DoxyCodeLine{00090 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00091}\mbox{\hyperlink{ha__m328p_8h_aed6b4777897350e7993e5b1c49d05bfc}{00091}} \textcolor{preprocessor}{\#define   USART0\_CONTROL\_STATUS\_REGISTER UCSR0A}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00092}\mbox{\hyperlink{ha__m328p_8h_ab7f4af91c7a7445e2b7868b18e4bd7f1}{00092}} \textcolor{preprocessor}{\#define   USART0\_DATA\_REGISTER           UDR0}}
+\DoxyCodeLine{00093 }
+\DoxyCodeLine{00094 }
+\DoxyCodeLine{00095 }
+\DoxyCodeLine{00096 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00097}\mbox{\hyperlink{ha__m328p_8h_a8892e410fc1301f761ac930c7e8eab7b}{00097}} \textcolor{preprocessor}{\#define   USART0\_FRAME\_ERROR             FE0}}
+\DoxyCodeLine{00098 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00099}\mbox{\hyperlink{ha__m328p_8h_a0d79b84765d7970b0517138435ece61c}{00099}} \textcolor{preprocessor}{\#define   USART0\_DATA\_OVERRUN            DOR0}}
+\DoxyCodeLine{00100 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00101}\mbox{\hyperlink{ha__m328p_8h_ac38aefd2824611d15bf076b79833e344}{00101}} \textcolor{preprocessor}{\#define   USART0\_PARITY\_ERROR            UPE0}}
+\DoxyCodeLine{00102 }
+\DoxyCodeLine{00103 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00104}\mbox{\hyperlink{ha__m328p_8h_a3b266cb5a1688cbbb198d7f023f1411a}{00104}} \textcolor{preprocessor}{\#define   USART0\_ENABLE\_DATA\_REGISTER\_EMPTY\_INTERRUPT   UCSR0B |=   1 << UDRIE0}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00105}\mbox{\hyperlink{ha__m328p_8h_a827fb09c74eff8444e84a8b73e85525b}{00105}} \textcolor{preprocessor}{\#define   USART0\_DISABLE\_DATA\_REGISTER\_EMPTY\_INTERRUPT  UCSR0B \&= \string~(1 << UDRIE0)}}
+\DoxyCodeLine{00106 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00107}\mbox{\hyperlink{ha__m328p_8h_a9a80d975c8c94bd31160c79f884727ad}{00107}} \textcolor{preprocessor}{\#define   USART0\_ENABLE\_RECEIVE\_COMPLETE\_INTERRUPT   UCSR0B |=   1 << RXCIE0}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00108}\mbox{\hyperlink{ha__m328p_8h_a4307da1bc4fb9d77aa9e88b218f8a3ea}{00108}} \textcolor{preprocessor}{\#define   USART0\_DISABLE\_RECEIVE\_COMPLETE\_INTERRUPT  UCSR0B \&= \string~(1 << RXCIE0)}}
+\DoxyCodeLine{00109 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00110}\mbox{\hyperlink{ha__m328p_8h_ad92cc1e2b96d041857ca750c0e5fc3ff}{00110}} \textcolor{preprocessor}{\#define   USART0\_ENABLE\_TRANSMIT\_COMPLETE\_INTERRUPT   UCSR0B |=   1 << TXCIE0}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00111}\mbox{\hyperlink{ha__m328p_8h_a79bcc04303d8c9d147b72b94b05c0750}{00111}} \textcolor{preprocessor}{\#define   USART0\_DISABLE\_TRANSMIT\_COMPLETE\_INTERRUPT  UCSR0B \&= \string~(1 << TXCIE0)}}
+\DoxyCodeLine{00112 }
+\DoxyCodeLine{00113 }
+\DoxyCodeLine{00114 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00115}\mbox{\hyperlink{ha__m328p_8h_a9943d27cc50b04d087ab9663947c62b4}{00115}} \textcolor{preprocessor}{\#define   USART0\_RECEIVE\_COMPLETE\_INTERRUPT     USART\_RX\_vect}}
+\DoxyCodeLine{00116 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00117}\mbox{\hyperlink{ha__m328p_8h_a0ad3840cfccb712fdbd678533032bde7}{00117}} \textcolor{preprocessor}{\#define   USART0\_TRANSMIT\_COMPLETE\_INTERRUPT    USART\_TX\_vect}}
+\DoxyCodeLine{00118 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00119}\mbox{\hyperlink{ha__m328p_8h_a4a3f17a1e26e0f1ca39f335be1b15c0b}{00119}} \textcolor{preprocessor}{\#define   USART0\_DATA\_REGISTER\_EMPTY\_INTERRUPT  USART\_UDRE\_vect}}
+\DoxyCodeLine{00120 }
+\DoxyCodeLine{00121 }
+\DoxyCodeLine{00122 \textcolor{comment}{// ADC defines}}
+\DoxyCodeLine{00123 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00124}\mbox{\hyperlink{ha__m328p_8h_a4f752ec2e3e16bdd6e2de376a479a27d}{00124}} \textcolor{preprocessor}{\#define   ADC\_SELECT\_REF\_VOLTAGE(refVoltage)         ADMUX \&= 0x3F; ADMUX |= refVoltage << 6}}
+\DoxyCodeLine{00125 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00126}\mbox{\hyperlink{ha__m328p_8h_a27b8335df899470b54132ecd39c2f806}{00126}} \textcolor{preprocessor}{\#define   ADC\_ADJUST\_RESULT\_LEFT            ADMUX |=  1 << ADLAR}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00127}\mbox{\hyperlink{ha__m328p_8h_a81077135c911a7703335747fcb387f08}{00127}} \textcolor{preprocessor}{\#define   ADC\_ADJUST\_RESULT\_RIGHT           ADMUX \&= \string~(1 << ADLAR)}}
+\DoxyCodeLine{00128 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00129}\mbox{\hyperlink{ha__m328p_8h_a35d2ecb6e9d1cb239851dd35fda1e467}{00129}} \textcolor{preprocessor}{\#define   ADC\_SELECT\_ANALOG\_INPUT(pinNumber)         ADMUX \&= 0xF0; ADMUX |= pinNumber}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00130}\mbox{\hyperlink{ha__m328p_8h_a46581152acdc8a011cb7d60c2ef3d60e}{00130}} \textcolor{preprocessor}{\#define   ADC\_DISABLE\_DIGITAL\_INPUT\_REGISTER(pinNumber)         DIDR0 \&= 0xC0; DIDR0 |= pinNumber}}
+\DoxyCodeLine{00131 }
+\DoxyCodeLine{00132 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00133}\mbox{\hyperlink{ha__m328p_8h_af0f7ac4025d1623cda58f7656fcffade}{00133}} \textcolor{preprocessor}{\#define   ADC\_ENABLE            ADCSRA |=  1 << ADEN}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00134}\mbox{\hyperlink{ha__m328p_8h_adc5911f4f1e4a81fb3381359bf74e4c2}{00134}} \textcolor{preprocessor}{\#define   ADC\_DISABLE           ADCSRA \&= \string~(1 << ADEN)}}
+\DoxyCodeLine{00135 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00136}\mbox{\hyperlink{ha__m328p_8h_a0b1602e1735dd932d052125db2b6fc12}{00136}} \textcolor{preprocessor}{\#define   ADC\_START\_CONVERSION            ADCSRA |=  1 << ADSC}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00137}\mbox{\hyperlink{ha__m328p_8h_af9e0e953c89ab7376c44824ca2d5016c}{00137}} \textcolor{preprocessor}{\#define   ADC\_STOP\_CONVERSION           ADCSRA \&= \string~(1 << ADSC)}}
+\DoxyCodeLine{00138 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00139}\mbox{\hyperlink{ha__m328p_8h_a4a149ed9a1db4c8bd7ea7293bbe81e27}{00139}} \textcolor{preprocessor}{\#define   ADC\_ENABLE\_AUTOTRIGGER          ADCSRA |=   1 << ADATE}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00140}\mbox{\hyperlink{ha__m328p_8h_ac155e7462eee927ad1fb4da07b08cad1}{00140}} \textcolor{preprocessor}{\#define   ADC\_DISABLE\_AUTOTRIGGER        ADCSRA \&= \string~(1 << ADATE)}}
+\DoxyCodeLine{00141 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00142}\mbox{\hyperlink{ha__m328p_8h_ae94c52062467c57ead131f1f753b540e}{00142}} \textcolor{preprocessor}{\#define   ADC\_ENABLE\_CONVERSION\_COMPLETE\_INTERRUPT   ADCSRA |=   1 << ADIE}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00143}\mbox{\hyperlink{ha__m328p_8h_a02838061f4c9a9ff5cf03e765e94b034}{00143}} \textcolor{preprocessor}{\#define   ADC\_DISABLE\_CONVERSION\_COMPLETE\_INTERRUPT  ADCSRA \&= \string~(1 << ADIE)}}
+\DoxyCodeLine{00144 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00145}\mbox{\hyperlink{ha__m328p_8h_adb2317b8f58b226895abf3701d101a89}{00145}} \textcolor{preprocessor}{\#define   ADC\_SELECT\_CLOCK\_PRESCALER(clockPrescaler)         ADCSRA \&= 0xF8; ADCSRA |= clockPrescaler}}
+\DoxyCodeLine{00146 }
+\DoxyCodeLine{00147 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00148}\mbox{\hyperlink{ha__m328p_8h_a4f4457e8f0f2e91dcee24b3521068d2d}{00148}} \textcolor{preprocessor}{\#define   ADC\_SELECT\_AUTO\_TRIGGER\_SOURCE(triggerSource)         ADCSRB \&= 0xF8; ADCSRB |= triggerSource}}
+\DoxyCodeLine{00149 }
+\DoxyCodeLine{00150 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00151}\mbox{\hyperlink{ha__m328p_8h_ae5248e7950c59ba60a467656054fcaa1}{00151}} \textcolor{preprocessor}{\#define   ADC\_CONVERSION\_COMPLETE\_INTERRUPT  ADC\_vect}}
+\DoxyCodeLine{00152 }
+\DoxyCodeLine{00153 \textcolor{comment}{// Externally Triggered Interrupts defines}}
+\DoxyCodeLine{00154 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00155}\mbox{\hyperlink{ha__m328p_8h_a293ef234d030ae22ecbaacfadbedd8b6}{00155}} \textcolor{preprocessor}{\#define EXT\_INT\_SET\_INT0\_SENSE\_CONTROL(senseControl) EICRA \&= 0xFC; EICRA |= senseControl}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00156}\mbox{\hyperlink{ha__m328p_8h_af7cbf6405655d1b9d3c782d0886b00c5}{00156}} \textcolor{preprocessor}{\#define EXT\_INT\_SET\_INT1\_SENSE\_CONTROL(senseControl) EICRA \&= 0xF3; EICRA |= senseControl}}
+\DoxyCodeLine{00157 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00158}\mbox{\hyperlink{ha__m328p_8h_aa904947319098d79c01ecab3886e54a3}{00158}} \textcolor{preprocessor}{\#define EXT\_INT\_ENABLE\_INT0   EIMSK |= 1 << INT0}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00159}\mbox{\hyperlink{ha__m328p_8h_a2e84e4ba842d7af17e5c37f75fe19007}{00159}} \textcolor{preprocessor}{\#define EXT\_INT\_DISABLE\_INT0   EIMSK \&= \string~(1 << INT0)}}
+\DoxyCodeLine{00160 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00161}\mbox{\hyperlink{ha__m328p_8h_aff9dc8b6a68427e1c2fb27df66b9ba28}{00161}} \textcolor{preprocessor}{\#define EXT\_INT\_ENABLE\_INT1   EIMSK |= 1 << INT1}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00162}\mbox{\hyperlink{ha__m328p_8h_a4fbbc483403ee2faedfc6462a4a7bdbf}{00162}} \textcolor{preprocessor}{\#define EXT\_INT\_DISABLE\_INT1   EIMSK \&= \string~(1 << INT1)}}
+\DoxyCodeLine{00163 }
+\DoxyCodeLine{00164 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00165}\mbox{\hyperlink{ha__m328p_8h_aaf8929d2d1e493b7f5388ff8627af3b0}{00165}} \textcolor{preprocessor}{\#define EXT\_INT\_ENABLE\_PIN\_CHANGE\_INTERRUPT(pinChangePort)    PCICR |= 1 << pinChangePort}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00166}\mbox{\hyperlink{ha__m328p_8h_a5098ef144f9be388d07a8ece51e95c43}{00166}} \textcolor{preprocessor}{\#define EXT\_INT\_DISABLE\_PIN\_CHANGE\_INTERRUPT(pinChangePort)   PCICR \&= \string~(1 << pinChangePort)}}
+\DoxyCodeLine{00167 }
+\DoxyCodeLine{00168 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00169}\mbox{\hyperlink{ha__m328p_8h_a522af5e2a4fe5e71c9283db34a8f8429}{00169}} \textcolor{preprocessor}{\#define EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTB(pinChangePin)    PCMSK0 |= 1 << pinChangePin}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00170}\mbox{\hyperlink{ha__m328p_8h_ad1a6d48f282eda7a5581bbcf9ffdaa26}{00170}} \textcolor{preprocessor}{\#define EXT\_INT\_DISABLE\_PIN\_CHANGE\_MASK\_PORTB(pinChangePin)   PCMSK0 \&= \string~(1 << pinChangePin)}}
+\DoxyCodeLine{00171 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00172}\mbox{\hyperlink{ha__m328p_8h_ae12249a6b78c9f574fb8d6e1eb55d146}{00172}} \textcolor{preprocessor}{\#define EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTC(pinChangePin)    PCMSK1 |= 1 << pinChangePin}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00173}\mbox{\hyperlink{ha__m328p_8h_a3803f79800026cdba64c4d3c8853085e}{00173}} \textcolor{preprocessor}{\#define EXT\_INT\_DISABLE\_PIN\_CHANGE\_MASK\_PORTC(pinChangePin)   PCMSK1 \&= \string~(1 << pinChangePin)}}
+\DoxyCodeLine{00174 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00175}\mbox{\hyperlink{ha__m328p_8h_a7ba26c1decfa5763d2f5042f8debeac0}{00175}} \textcolor{preprocessor}{\#define EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTD(pinChangePin)    PCMSK2 |= 1 << pinChangePin}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00176}\mbox{\hyperlink{ha__m328p_8h_a6be1a55c0d424dabb6daf271361772cb}{00176}} \textcolor{preprocessor}{\#define EXT\_INT\_DISABLE\_PIN\_CHANGE\_MASK\_PORTD(pinChangePin)   PCMSK2 \&= \string~(1 << pinChangePin)}}
+\DoxyCodeLine{00177 }
+\DoxyCodeLine{00178 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00179}\mbox{\hyperlink{ha__m328p_8h_a3c2c8ae3e28422e4d41a23cd4dd6488b}{00179}} \textcolor{preprocessor}{\#define  EXT\_INT\_INT0\_INTERRUPT   INT0\_vect}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00180}\mbox{\hyperlink{ha__m328p_8h_ad6ef64b224fcfa933b21fe670afe1271}{00180}} \textcolor{preprocessor}{\#define  EXT\_INT\_INT1\_INTERRUPT   INT1\_vect}}
+\DoxyCodeLine{00181 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00182}\mbox{\hyperlink{ha__m328p_8h_a9dc1c259d6b1df0aba9a527ac6f9aa7e}{00182}} \textcolor{preprocessor}{\#define  EXT\_INT\_PIN\_CHANGE\_PORTB\_INTERRUPT   PCINT0\_vect}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00183}\mbox{\hyperlink{ha__m328p_8h_ae36b704cc62d53089e66b683f51e6d99}{00183}} \textcolor{preprocessor}{\#define  EXT\_INT\_PIN\_CHANGE\_PORTC\_INTERRUPT   PCINT1\_vect}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00184}\mbox{\hyperlink{ha__m328p_8h_a205d46a19607c93aa6a807b80fabcc71}{00184}} \textcolor{preprocessor}{\#define  EXT\_INT\_PIN\_CHANGE\_PORTD\_INTERRUPT   PCINT2\_vect}}
+\DoxyCodeLine{00185 }
+\DoxyCodeLine{00186 \textcolor{comment}{// Timers/Counters defines}}
+\DoxyCodeLine{00187 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00188}\mbox{\hyperlink{ha__m328p_8h_a61d78875d88653be2b341c155f84c801}{00188}} \textcolor{preprocessor}{\#define TIMER0\_STOP TCCR0B \&= 0xF8}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00189}\mbox{\hyperlink{ha__m328p_8h_adb8423354f8164b55e4604a9353a3bda}{00189}} \textcolor{preprocessor}{\#define TIMER1\_STOP TCCR1B \&= 0xF8}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00190}\mbox{\hyperlink{ha__m328p_8h_af5d70ff1d14c996dabaa2469a8cb19c6}{00190}} \textcolor{preprocessor}{\#define TIMER2\_STOP TCCR2B \&= 0xF8}}
+\DoxyCodeLine{00191 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00192}\mbox{\hyperlink{ha__m328p_8h_acbb5d2007fab14340dee5e63506eaddd}{00192}} \textcolor{preprocessor}{\#define TIMER0\_SELECT\_CLOCK\_SOURCE(clockSource) TCCR0B \&= 0xF8; TCCR0B |= clockSource}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00193}\mbox{\hyperlink{ha__m328p_8h_aba1494467305b44f1a632121a05930b8}{00193}} \textcolor{preprocessor}{\#define TIMER1\_SELECT\_CLOCK\_SOURCE(clockSource) TCCR1B \&= 0xF8; TCCR1B |= clockSource}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00194}\mbox{\hyperlink{ha__m328p_8h_a4c23789dfe90f4cda983cd7a934037f2}{00194}} \textcolor{preprocessor}{\#define TIMER2\_SELECT\_CLOCK\_SOURCE(clockSource) TCCR2B \&= 0xF8; TCCR2B |= clockSource}}
+\DoxyCodeLine{00195 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00196}\mbox{\hyperlink{ha__m328p_8h_a8509885b7c83def201bba50e26b0a9be}{00196}} \textcolor{preprocessor}{\#define TIMER0\_SELECT\_OPERATION\_MODE(operationMode) TCCR0A \&= 0xFC; TCCR0A |= (operationMode \& 3); TCCR0B \&= 0xF7; TCCR0B |= (operationMode \& 12) << 1}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00197}\mbox{\hyperlink{ha__m328p_8h_a253cb491631dd15d79b29c87847f1468}{00197}} \textcolor{preprocessor}{\#define TIMER1\_SELECT\_OPERATION\_MODE(operationMode) TCCR1A \&= 0xFC; TCCR1A |= (operationMode \& 3); TCCR1B \&= 0xE7; TCCR1B |= (operationMode \& 12) << 1}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00198}\mbox{\hyperlink{ha__m328p_8h_a9c565dc6c762804ed50f0326151e87bd}{00198}} \textcolor{preprocessor}{\#define TIMER2\_SELECT\_OPERATION\_MODE(operationMode) TCCR2A \&= 0xFC; TCCR2A |= (operationMode \& 3); TCCR2B \&= 0xF7; TCCR2B |= (operationMode \& 12) << 1}}
+\DoxyCodeLine{00199 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00200}\mbox{\hyperlink{ha__m328p_8h_a699ba62171281602b953e44a7db8c06a}{00200}} \textcolor{preprocessor}{\#define TIMER0\_SELECT\_COM\_CHANNEL\_A(compareOutputMode) TCCR0A \&= 0x3F; TCCR0A |= compareOutputMode << 6}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00201}\mbox{\hyperlink{ha__m328p_8h_ae948a76f8e1e36b9c41e5cb1b3208cda}{00201}} \textcolor{preprocessor}{\#define TIMER0\_SELECT\_COM\_CHANNEL\_B(compareOutputMode) TCCR0A \&= 0xCF; TCCR0A |= compareOutputMode << 4}}
+\DoxyCodeLine{00202 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00203}\mbox{\hyperlink{ha__m328p_8h_ae7723d4c5424f57e92a84ee6dd964def}{00203}} \textcolor{preprocessor}{\#define TIMER1\_SELECT\_COM\_CHANNEL\_A(compareOutputMode) TCCR1A \&= 0x3F; TCCR1A |= compareOutputMode << 6}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00204}\mbox{\hyperlink{ha__m328p_8h_a4fb65adc589348a65e6923ae810c72f0}{00204}} \textcolor{preprocessor}{\#define TIMER1\_SELECT\_COM\_CHANNEL\_B(compareOutputMode) TCCR1A \&= 0xCF; TCCR1A |= compareOutputMode << 4}}
+\DoxyCodeLine{00205 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00206}\mbox{\hyperlink{ha__m328p_8h_a8ff17dc8b5a917399ebe8aa4fda83433}{00206}} \textcolor{preprocessor}{\#define TIMER2\_SELECT\_COM\_CHANNEL\_A(compareOutputMode) TCCR2A \&= 0x3F; TCCR2A |= compareOutputMode << 6}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00207}\mbox{\hyperlink{ha__m328p_8h_aeb6f12e7e7f132e9fb49856f00deae27}{00207}} \textcolor{preprocessor}{\#define TIMER2\_SELECT\_COM\_CHANNEL\_B(compareOutputMode) TCCR2A \&= 0xCF; TCCR2A |= compareOutputMode << 4}}
+\DoxyCodeLine{00208 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00209}\mbox{\hyperlink{ha__m328p_8h_a8b2962adba0b332fa15157fa0a70b698}{00209}} \textcolor{preprocessor}{\#define TIMER0\_ENABLE\_COM\_CHANNEL\_A\_INTERRUPT TIMSK0 |=  1 << OCIE0A}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00210}\mbox{\hyperlink{ha__m328p_8h_ab5c460464add71a8105c1268c06bba33}{00210}} \textcolor{preprocessor}{\#define TIMER0\_DISABLE\_COM\_CHANNEL\_A\_INTERRUPT TIMSK0 \&= \string~(1 << OCIE0A)}}
+\DoxyCodeLine{00211 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00212}\mbox{\hyperlink{ha__m328p_8h_a1d664566d43e78cd4b9292ce29a275d8}{00212}} \textcolor{preprocessor}{\#define TIMER0\_ENABLE\_COM\_CHANNEL\_B\_INTERRUPT TIMSK0 |=  1 << OCIE0B}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00213}\mbox{\hyperlink{ha__m328p_8h_abe492505e68ebc59e66e8f96c8851f64}{00213}} \textcolor{preprocessor}{\#define TIMER0\_DISABLE\_COM\_CHANNEL\_B\_INTERRUPT TIMSK0 \&= \string~(1 << OCIE0B)}}
+\DoxyCodeLine{00214 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00215}\mbox{\hyperlink{ha__m328p_8h_ae00558126f8d46ec9f97fc38f1a22699}{00215}} \textcolor{preprocessor}{\#define TIMER0\_ENABLE\_OVERFLOW\_INTERRUPT TIMSK0 |=  1 << TOIE0}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00216}\mbox{\hyperlink{ha__m328p_8h_a1b22addfb3894baef12aebd10e0eea62}{00216}} \textcolor{preprocessor}{\#define TIMER0\_DISABLE\_OVERFLOW\_INTERRUPT TIMSK0 \&= \string~(1 << TOIE0)}}
+\DoxyCodeLine{00217 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00218}\mbox{\hyperlink{ha__m328p_8h_ab376fd307ffebc381e1f2f1316913fe1}{00218}} \textcolor{preprocessor}{\#define TIMER1\_ENABLE\_COM\_CHANNEL\_A\_INTERRUPT TIMSK1 |=  1 << OCIE1A}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00219}\mbox{\hyperlink{ha__m328p_8h_ad38a1b7cbb2769657eec9a9cbbcae4d1}{00219}} \textcolor{preprocessor}{\#define TIMER1\_DISABLE\_COM\_CHANNEL\_A\_INTERRUPT TIMSK1 \&= \string~(1 << OCIE1A)}}
+\DoxyCodeLine{00220 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00221}\mbox{\hyperlink{ha__m328p_8h_af89ac9e0e69841187cd7cf794be6770e}{00221}} \textcolor{preprocessor}{\#define TIMER1\_ENABLE\_COM\_CHANNEL\_B\_INTERRUPT TIMSK1 |=  1 << OCIE1B}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00222}\mbox{\hyperlink{ha__m328p_8h_a2b17161b4c48648ba86312de36309607}{00222}} \textcolor{preprocessor}{\#define TIMER1\_DISABLE\_COM\_CHANNEL\_B\_INTERRUPT TIMSK1 \&= \string~(1 << OCIE1B)}}
+\DoxyCodeLine{00223 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00224}\mbox{\hyperlink{ha__m328p_8h_ac6de15692a62db9168308a624ff3d76e}{00224}} \textcolor{preprocessor}{\#define TIMER1\_ENABLE\_OVERFLOW\_INTERRUPT TIMSK1 |=  1 << TOIE1}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00225}\mbox{\hyperlink{ha__m328p_8h_a9567d4eb612895726bb683b436870aac}{00225}} \textcolor{preprocessor}{\#define TIMER1\_DISABLE\_OVERFLOW\_INTERRUPT TIMSK1 \&= \string~(1 << TOIE1)}}
+\DoxyCodeLine{00226 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00227}\mbox{\hyperlink{ha__m328p_8h_a4c3debdaefcee597bf2e8bbc0d07db46}{00227}} \textcolor{preprocessor}{\#define TIMER1\_ENABLE\_INPUT\_CAPTURE\_INTERRUPT TIMSK1 |=  1 << ICIE1}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00228}\mbox{\hyperlink{ha__m328p_8h_a7ebcec15236d84ef591ff241ecfc3a7b}{00228}} \textcolor{preprocessor}{\#define TIMER1\_DISABLE\_INPUT\_CAPTURE\_INTERRUPT TIMSK1 \&= \string~(1 << ICIE1)}}
+\DoxyCodeLine{00229 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00230}\mbox{\hyperlink{ha__m328p_8h_a3f47776fa54c4f47d81cebce11e12041}{00230}} \textcolor{preprocessor}{\#define TIMER2\_ENABLE\_COM\_CHANNEL\_A\_INTERRUPT TIMSK2 |=  1 << OCIE2A}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00231}\mbox{\hyperlink{ha__m328p_8h_a2cc36f1fc9fbb654c059fd2ff58b6f10}{00231}} \textcolor{preprocessor}{\#define TIMER2\_DISABLE\_COM\_CHANNEL\_A\_INTERRUPT TIMSK2 \&= \string~(1 << OCIE2A)}}
+\DoxyCodeLine{00232 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00233}\mbox{\hyperlink{ha__m328p_8h_ac0304490eea11d5d34a19ee9d46281ad}{00233}} \textcolor{preprocessor}{\#define TIMER2\_ENABLE\_COM\_CHANNEL\_B\_INTERRUPT TIMSK2 |=  1 << OCIE2B}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00234}\mbox{\hyperlink{ha__m328p_8h_a8ad2d4806b9cf07c0df894e29c35b492}{00234}} \textcolor{preprocessor}{\#define TIMER2\_DISABLE\_COM\_CHANNEL\_B\_INTERRUPT TIMSK2 \&= \string~(1 << OCIE2B)}}
+\DoxyCodeLine{00235 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00236}\mbox{\hyperlink{ha__m328p_8h_af4ab09d406cf0989a95c67d6a6134829}{00236}} \textcolor{preprocessor}{\#define TIMER2\_ENABLE\_OVERFLOW\_INTERRUPT TIMSK2 |=  1 << TOIE2}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00237}\mbox{\hyperlink{ha__m328p_8h_aa8b792e1d53b1fcd905da5738c185f47}{00237}} \textcolor{preprocessor}{\#define TIMER2\_DISABLE\_OVERFLOW\_INTERRUPT TIMSK2 \&= \string~(1 << TOIE2)}}
+\DoxyCodeLine{00238 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00239}\mbox{\hyperlink{ha__m328p_8h_a2ee800929c88137a2c459e78d2431d25}{00239}} \textcolor{preprocessor}{\#define   TIMER0\_COM\_CHANNEL\_A\_INTERRUPT  TIMER0\_COMPA\_vect}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00240}\mbox{\hyperlink{ha__m328p_8h_adf7f3a5df3d805ef260fbf0eff5553e4}{00240}} \textcolor{preprocessor}{\#define   TIMER0\_COM\_CHANNEL\_B\_INTERRUPT  TIMER0\_COMPB\_vect}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00241}\mbox{\hyperlink{ha__m328p_8h_a84ea73f8d4f68d19a0b126337a5c0d94}{00241}} \textcolor{preprocessor}{\#define   TIMER0\_OVERFLOW\_INTERRUPT  TIMER0\_OVF\_vect}}
+\DoxyCodeLine{00242 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00243}\mbox{\hyperlink{ha__m328p_8h_a856ba98941fa113b02f79fe74a377f70}{00243}} \textcolor{preprocessor}{\#define   TIMER1\_COM\_CHANNEL\_A\_INTERRUPT  TIMER1\_COMPA\_vect}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00244}\mbox{\hyperlink{ha__m328p_8h_ac154296cef80471ff783f4b807cc46fd}{00244}} \textcolor{preprocessor}{\#define   TIMER1\_COM\_CHANNEL\_B\_INTERRUPT  TIMER1\_COMPB\_vect}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00245}\mbox{\hyperlink{ha__m328p_8h_a331ad5505d95001c6c82e4297cb75275}{00245}} \textcolor{preprocessor}{\#define   TIMER1\_OVERFLOW\_INTERRUPT  TIMER1\_OVF\_vect}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00246}\mbox{\hyperlink{ha__m328p_8h_a614a58a8f0241c4e3e81f43b6ac16071}{00246}} \textcolor{preprocessor}{\#define   TIMER1\_INPUT\_CAPTURE\_INTERRUPT  TIMER1\_CAPT\_vect}}
+\DoxyCodeLine{00247 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00248}\mbox{\hyperlink{ha__m328p_8h_aa4f2a658e552d85ed82d6de3d1ebad71}{00248}} \textcolor{preprocessor}{\#define   TIMER2\_COM\_CHANNEL\_A\_INTERRUPT  TIMER2\_COMPA\_vect}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00249}\mbox{\hyperlink{ha__m328p_8h_ac187eca1eb867fc1e90a035afa9fb3a8}{00249}} \textcolor{preprocessor}{\#define   TIMER2\_COM\_CHANNEL\_B\_INTERRUPT  TIMER2\_COMPB\_vect}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00250}\mbox{\hyperlink{ha__m328p_8h_aacfa1d5e58197c3686d626618591a2d0}{00250}} \textcolor{preprocessor}{\#define   TIMER2\_OVERFLOW\_INTERRUPT  TIMER2\_OVF\_vect}}
+\DoxyCodeLine{00251 }
+\DoxyCodeLine{00252 \textcolor{comment}{// Watchdog Timer defines}}
+\DoxyCodeLine{00253 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00254}\mbox{\hyperlink{ha__m328p_8h_aba75578775b2daee8a601f9f8b9eae42}{00254}} \textcolor{preprocessor}{\#define WATCHDOG\_SELECT\_TIMEOUT(timeOut) WDTCSR |= (1<<WDCE) | (1<<WDE);  WDTCSR = (0<<WDIE) | (0<<WDE) | timeOut;}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00255}\mbox{\hyperlink{ha__m328p_8h_a7b5c6f1b3a3ace19ff65c9403a8b36c7}{00255}} \textcolor{preprocessor}{\#define WATCHDOG\_START(operationMode,timeOut) MCUSR \&= \string~(1<<WDRF); WDTCSR |= (1<<WDCE) | (1<<WDE); WDTCSR = operationMode | timeOut;}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00256}\mbox{\hyperlink{ha__m328p_8h_aced6defdc7bc72ed639e3e05d57890c8}{00256}} \textcolor{preprocessor}{\#define WATCHDOG\_STOP MCUSR \&= \string~(1<<WDRF); WDTCSR |= (1<<WDCE) | (1<<WDE); WDTCSR = 0x00;}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00257}\mbox{\hyperlink{ha__m328p_8h_acdf32bb220ee0f1c7ca5fed49dd4acba}{00257}} \textcolor{preprocessor}{\#define WATCHDOG\_TIMEOUT\_INTERRUPT  WDT\_vect}}
+\DoxyCodeLine{00258 }
+\DoxyCodeLine{00259 \textcolor{comment}{// MCU defines}}
+\DoxyCodeLine{00260 }
+\DoxyCodeLine{00261 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00262}\mbox{\hyperlink{ha__m328p_8h_a6a42022f022c03b9a82eaeb794fb87ef}{00262}} \textcolor{preprocessor}{\#define MCU\_SELECT\_SLEEP\_MODE(sleepMode) SMCR \&= 0xF1; SMCR |= sleepMode << 1}}
+\DoxyCodeLine{00263 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00264}\mbox{\hyperlink{ha__m328p_8h_a6787a75a5ec5301098f4a6a8cf930ffd}{00264}} \textcolor{preprocessor}{\#define MCU\_SLEEP\_ENABLE SMCR |=  1 << SE}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00265}\mbox{\hyperlink{ha__m328p_8h_a50ed0f1b4160eeef2b3457452c1ba7dd}{00265}} \textcolor{preprocessor}{\#define MCU\_SLEEP\_DISABLE SMCR \&= \string~(1 << SE)}}
+\DoxyCodeLine{00266 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00267}\mbox{\hyperlink{ha__m328p_8h_af60aaa71682b22069da9ea48c7d1b625}{00267}} \textcolor{preprocessor}{\#define MCU\_TWI\_ENABLE PRR \&= \string~(1 << PRTWI)}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00268}\mbox{\hyperlink{ha__m328p_8h_a49a0215c9b0c5ba3623618fb324e4f48}{00268}} \textcolor{preprocessor}{\#define MCU\_TWI\_DISABLE PRR |=  1 << PRTWI}}
+\DoxyCodeLine{00269 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00270}\mbox{\hyperlink{ha__m328p_8h_a3793e6513884ba6a4593846a9a5d08cb}{00270}} \textcolor{preprocessor}{\#define MCU\_TIMER2\_ENABLE PRR \&= \string~(1 << PRTIM2)}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00271}\mbox{\hyperlink{ha__m328p_8h_afc5eb0b697d8d0c5aa41f398d42a80ab}{00271}} \textcolor{preprocessor}{\#define MCU\_TIMER2\_DISABLE PRR |=  1 << PRTIM2}}
+\DoxyCodeLine{00272 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00273}\mbox{\hyperlink{ha__m328p_8h_a16b5ef4f67d6b4319785f8607680c48f}{00273}} \textcolor{preprocessor}{\#define MCU\_TIMER1\_ENABLE PRR \&= \string~(1 << PRTIM1)}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00274}\mbox{\hyperlink{ha__m328p_8h_a95c9201d518e1efe700212293686a4ec}{00274}} \textcolor{preprocessor}{\#define MCU\_TIMER1\_DISABLE PRR |=  1 << PRTIM1}}
+\DoxyCodeLine{00275 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00276}\mbox{\hyperlink{ha__m328p_8h_a656b6d3fa879a3851d9ee75a2a672008}{00276}} \textcolor{preprocessor}{\#define MCU\_TIMER0\_ENABLE PRR \&= \string~(1 << PRTIM0)}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00277}\mbox{\hyperlink{ha__m328p_8h_a8c6793b752c27b0f5a5fced7a99528c2}{00277}} \textcolor{preprocessor}{\#define MCU\_TIMER0\_DISABLE PRR |=  1 << PRTIM0}}
+\DoxyCodeLine{00278 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00279}\mbox{\hyperlink{ha__m328p_8h_a3c54bae3f972718bda180ce6cfc9105f}{00279}} \textcolor{preprocessor}{\#define MCU\_SPI\_ENABLE PRR \&= \string~(1 << PRSPI)}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00280}\mbox{\hyperlink{ha__m328p_8h_aed93e109e4d42a6e729fc86f7cb8f55d}{00280}} \textcolor{preprocessor}{\#define MCU\_SPI\_DISABLE PRR |=  1 << PRSPI}}
+\DoxyCodeLine{00281 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00282}\mbox{\hyperlink{ha__m328p_8h_ae196061044843a734d31aaf21afe24ef}{00282}} \textcolor{preprocessor}{\#define MCU\_USART0\_ENABLE PRR \&= \string~(1 << PRUSART0)}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00283}\mbox{\hyperlink{ha__m328p_8h_afca4fa6c1bfdb606900685f537637716}{00283}} \textcolor{preprocessor}{\#define MCU\_USART0\_DISABLE PRR |=  1 << PRUSART0}}
+\DoxyCodeLine{00284 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00285}\mbox{\hyperlink{ha__m328p_8h_a81fb3b799dacad5cb50116f6cae3dad9}{00285}} \textcolor{preprocessor}{\#define MCU\_ADC\_ENABLE PRR \&= \string~(1 << PRADC)}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00286}\mbox{\hyperlink{ha__m328p_8h_a28d68d000aca5c6c3096df826554a7a6}{00286}} \textcolor{preprocessor}{\#define MCU\_ADC\_DISABLE PRR |=  1 << PRADC}}
+\DoxyCodeLine{00287 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00288}\mbox{\hyperlink{ha__m328p_8h_ae0684a8ccbc099a87cd632f35547e395}{00288}} \textcolor{preprocessor}{\#define MCU\_BOD\_DISABLE MCUCR |= (1<<BODSE) | (1<<BODS); MCUCR \&= \string~(1<<BODSE);}}
+\DoxyCodeLine{00289 }
+\DoxyCodeLine{00290 }
+\DoxyCodeLine{00291 \textcolor{comment}{// ServoMotor defines}}
+\DoxyCodeLine{00292 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00293}\mbox{\hyperlink{ha__m328p_8h_ac06ca117a692a02dcd520cf0f44338d8}{00293}} \textcolor{preprocessor}{\#define SERVOMOTOR\_TIMER\_PULSE\_WIDTH\_COUNT(pulseWidth,clockPrescaler) ((F\_CPU/1000000UL) * (pulseWidth/ clockPrescaler))}}
+\DoxyCodeLine{00294 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00295}\mbox{\hyperlink{ha__m328p_8h_ac9712b0006fe45b09f1dfefaa8ed9b78}{00295}} \textcolor{preprocessor}{\#define SERVOMOTOR\_TIMER\_ANGLE\_COUNT(angle,out\_min,out\_mid,out\_max) (((out\_min*(angle -\/ 90L)*(angle -\/ 180L))/16200L + (angle*out\_max*(angle -\/ 90L))/16200L -\/ (angle*out\_mid*(angle -\/ 180L))/8100L))}}
+\DoxyCodeLine{00296 }
+\DoxyCodeLine{00297 \textcolor{comment}{// SPI defines}}
+\DoxyCodeLine{00298 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00299}\mbox{\hyperlink{ha__m328p_8h_a27537db92d0837cc77baa0d99b8cac48}{00299}} \textcolor{preprocessor}{\#define   SPI\_ENABLE            SPCR |=  1 << SPE}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00300}\mbox{\hyperlink{ha__m328p_8h_a00174198073dadbaaad7f9475360b228}{00300}} \textcolor{preprocessor}{\#define   SPI\_DISABLE           SPCR \&= \string~(1 << SPE)}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00301}\mbox{\hyperlink{ha__m328p_8h_a2825dde8549bb908c1da677d405ead8a}{00301}} \textcolor{preprocessor}{\#define   SPI\_SELECT\_MASTER\_MODE SPCR |=  1 << MSTR}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00302}\mbox{\hyperlink{ha__m328p_8h_a0f7bd9f496bd41eb7e56d11582b3f66f}{00302}} \textcolor{preprocessor}{\#define   SPI\_SELECT\_SLAVE\_MODE SPCR \&= \string~(1 << MSTR)}}
+\DoxyCodeLine{00303 }
+\DoxyCodeLine{00304 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00305}\mbox{\hyperlink{ha__m328p_8h_a3b4e206fd5c5956f301415b7bca8fce0}{00305}} \textcolor{preprocessor}{\#define   SPI\_SELECT\_DATA\_MODE(dataMode) SPCR \&= 0xF3; SPCR |= dataMode << 2}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00306}\mbox{\hyperlink{ha__m328p_8h_aaefccf34ec6a079b84ae6e0efa9353ab}{00306}} \textcolor{preprocessor}{\#define   SPI\_SELECT\_CLOCK\_PRESCALER(clockPrescaler) SPCR \&= 0xFC; SPCR |= (clockPrescaler \& 3); SPSR \&= 0xFE; SPSR |= (clockPrescaler \& 4) >> 2}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00307}\mbox{\hyperlink{ha__m328p_8h_a7e36bb343c2d15b61aeec1acebeb2dea}{00307}} \textcolor{preprocessor}{\#define   SPI\_SELECT\_DATA\_ORDER(dataOrder) SPCR \&= 0xDF; SPCR |= dataOrder << 5}}
+\DoxyCodeLine{00308 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00309}\mbox{\hyperlink{ha__m328p_8h_a9001baca59487add854bcdee1df4b4b0}{00309}} \textcolor{preprocessor}{\#define   SPI\_WRITE\_COLLISION WCOL}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00310}\mbox{\hyperlink{ha__m328p_8h_a885ef6c3501b46889642fddf58acb3f0}{00310}} \textcolor{preprocessor}{\#define   SPI\_TRANSFER\_COMPLETE SPIF}}
+\DoxyCodeLine{00311 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00312}\mbox{\hyperlink{ha__m328p_8h_acaf98f1876f8d084f0136bf7e8c2f8d4}{00312}} \textcolor{preprocessor}{\#define   SPI\_MASTER\_MODE MSTR}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00313}\mbox{\hyperlink{ha__m328p_8h_a6d0d74da663be825a2ebd3e51f7d99e3}{00313}} \textcolor{preprocessor}{\#define   SPI\_CONTROL\_REGISTER SPCR}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00314}\mbox{\hyperlink{ha__m328p_8h_abbbfe9dac3695fd744030c475e5f2b69}{00314}} \textcolor{preprocessor}{\#define   SPI\_DATA\_REGISTER SPDR}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00315}\mbox{\hyperlink{ha__m328p_8h_a067a8bba4649b1f9ff77c3167a06fd10}{00315}} \textcolor{preprocessor}{\#define   SPI\_STATUS\_REGISTER SPSR}}
+\DoxyCodeLine{00316 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00317}\mbox{\hyperlink{ha__m328p_8h_ad4e9e52218cc4591c50476d4eede023f}{00317}} \textcolor{preprocessor}{\#define   SPI\_ENABLE\_TRANSFER\_COMPLETE\_INTERRUPT SPCR |= 1 << SPIE}}
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00318}\mbox{\hyperlink{ha__m328p_8h_ac1324d63fa393aff9ae3f9a75454f29b}{00318}} \textcolor{preprocessor}{\#define   SPI\_DISABLE\_TRANSFER\_COMPLETE\_INTERRUPT SPCR \&= \string~(1 << SPIE)}}
+\DoxyCodeLine{00319 }
+\DoxyCodeLine{00320 }
+\DoxyCodeLine{\Hypertarget{ha__m328p_8h_source_l00321}\mbox{\hyperlink{ha__m328p_8h_a7c5bd5b0990e276b3bd7bfdd42f08aa4}{00321}} \textcolor{preprocessor}{\#define   SPI\_TRANSFER\_COMPLETE\_INTERRUPT SPI\_STC\_vect}}
+\DoxyCodeLine{00322 }
+\DoxyCodeLine{00323 \textcolor{comment}{// StepperMotor defines}}
+\DoxyCodeLine{00324 }
+\DoxyCodeLine{00325 }
+\DoxyCodeLine{00326 }
+\DoxyCodeLine{00327 }
+\DoxyCodeLine{00328 }
+\DoxyCodeLine{00329 }
+\DoxyCodeLine{00330 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00331 }
+
+\end{DoxyCode}

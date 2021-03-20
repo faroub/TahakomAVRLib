@@ -1,0 +1,170 @@
+\hypertarget{classcomponent_1_1Buzzer}{}\doxysection{component\+::Buzzer Class Reference}
+\label{classcomponent_1_1Buzzer}\index{component::Buzzer@{component::Buzzer}}
+
+
+{\ttfamily \#include $<$Buzzer.\+h$>$}
+
+
+
+Collaboration diagram for component\+::Buzzer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{classcomponent_1_1Buzzer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcomponent_1_1Buzzer_a8dcc17d0e52de5d55f90fc03b11ed85a}{Buzzer}} (const \mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}} \&ar\+\_\+pin)
+\item 
+\mbox{\hyperlink{classcomponent_1_1Buzzer_a898695987569dc22a364056b6411fe15}{$\sim$\+Buzzer}} ()
+\item 
+void \mbox{\hyperlink{classcomponent_1_1Buzzer_a8d4a35e2876cea66888cdc2233871b53}{buzz}} (const uint16\+\_\+t \&ar\+\_\+period\+\_\+us, const uint16\+\_\+t \&ar\+\_\+duration\+\_\+ms)
+\item 
+{\footnotesize template$<$typename TC $>$ }\\void \mbox{\hyperlink{classcomponent_1_1Buzzer_a2880beed1afc6b93c0a9931210f25535}{buzz}} (TC \&ar\+\_\+timer\+Counter, const uint16\+\_\+t \&ar\+\_\+period\+\_\+us, uint16\+\_\+t \&ar\+\_\+duration\+\_\+ms, const \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{core\+::channel}} \&ar\+\_\+channel=\mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}{core\+::channel\+::A}}, const \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1}{core\+::clock\+Source}} \&ar\+\_\+clock\+Source=\mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a97fb148ab1accd5462d69022d83b0ced}{core\+::clock\+Source\+::\+P\+S\+\_\+64}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}} \mbox{\hyperlink{classcomponent_1_1Buzzer_aa5d256147974a597dd669bac84b31903}{m\+\_\+pin}}
+\begin{DoxyCompactList}\small\item\em pin object \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{Buzzer_8h_source_l00069}{69}} of file \mbox{\hyperlink{Buzzer_8h_source}{Buzzer.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcomponent_1_1Buzzer_a8dcc17d0e52de5d55f90fc03b11ed85a}\label{classcomponent_1_1Buzzer_a8dcc17d0e52de5d55f90fc03b11ed85a}} 
+\index{component::Buzzer@{component::Buzzer}!Buzzer@{Buzzer}}
+\index{Buzzer@{Buzzer}!component::Buzzer@{component::Buzzer}}
+\doxysubsubsection{\texorpdfstring{Buzzer()}{Buzzer()}}
+{\footnotesize\ttfamily component\+::\+Buzzer\+::\+Buzzer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}} \&}]{ar\+\_\+pin }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{Buzzer_8cpp_source_l00004}{4}} of file \mbox{\hyperlink{Buzzer_8cpp_source}{Buzzer.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005                  : \mbox{\hyperlink{classcomponent_1_1Buzzer_aa5d256147974a597dd669bac84b31903}{m\_pin}}(ar\_pin)}
+\DoxyCodeLine{00006 \{}
+\DoxyCodeLine{00007     \mbox{\hyperlink{classcomponent_1_1Buzzer_aa5d256147974a597dd669bac84b31903}{m\_pin}}.\mbox{\hyperlink{classio_1_1Pin_a2d1e7ed9625d0c4bb8d81dadbadacc41}{toOutput}}();}
+\DoxyCodeLine{00008 }
+\DoxyCodeLine{00009 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{Buzzer_8h_source_l00109}{m\+\_\+pin}}, and \mbox{\hyperlink{Pin_8cpp_source_l00017}{io\+::\+Pin\+::to\+Output()}}.
+
+\mbox{\Hypertarget{classcomponent_1_1Buzzer_a898695987569dc22a364056b6411fe15}\label{classcomponent_1_1Buzzer_a898695987569dc22a364056b6411fe15}} 
+\index{component::Buzzer@{component::Buzzer}!````~Buzzer@{$\sim$Buzzer}}
+\index{````~Buzzer@{$\sim$Buzzer}!component::Buzzer@{component::Buzzer}}
+\doxysubsubsection{\texorpdfstring{$\sim$Buzzer()}{~Buzzer()}}
+{\footnotesize\ttfamily component\+::\+Buzzer\+::$\sim$\+Buzzer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{Buzzer_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{Buzzer_8cpp_source}{Buzzer.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012 \{}
+\DoxyCodeLine{00013 }
+\DoxyCodeLine{00014 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcomponent_1_1Buzzer_a8d4a35e2876cea66888cdc2233871b53}\label{classcomponent_1_1Buzzer_a8d4a35e2876cea66888cdc2233871b53}} 
+\index{component::Buzzer@{component::Buzzer}!buzz@{buzz}}
+\index{buzz@{buzz}!component::Buzzer@{component::Buzzer}}
+\doxysubsubsection{\texorpdfstring{buzz()}{buzz()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void component\+::\+Buzzer\+::buzz (\begin{DoxyParamCaption}\item[{const uint16\+\_\+t \&}]{ar\+\_\+period\+\_\+us,  }\item[{const uint16\+\_\+t \&}]{ar\+\_\+duration\+\_\+ms }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{Buzzer_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{Buzzer_8cpp_source}{Buzzer.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019 \{}
+\DoxyCodeLine{00020     uint32\_t l\_duration\_us = ar\_duration\_ms*1000UL;}
+\DoxyCodeLine{00021 }
+\DoxyCodeLine{00022     \textcolor{keywordflow}{for} (uint32\_t i = 0; i < l\_duration\_us; i += ar\_period\_us)}
+\DoxyCodeLine{00023     \{}
+\DoxyCodeLine{00024         \textcolor{comment}{/* For loop with variable delay selects the pitch */}}
+\DoxyCodeLine{00025         \textcolor{comment}{// \_delay\_us() needs a constant defined at compile time}}
+\DoxyCodeLine{00026         \textcolor{keywordflow}{for} (uint16\_t j = 0; j < ar\_period\_us; j++)}
+\DoxyCodeLine{00027         \{}
+\DoxyCodeLine{00028             \_delay\_us(1);}
+\DoxyCodeLine{00029         \}}
+\DoxyCodeLine{00030         \mbox{\hyperlink{classcomponent_1_1Buzzer_aa5d256147974a597dd669bac84b31903}{m\_pin}}.\mbox{\hyperlink{classio_1_1Pin_a4054302debf4a0bc99bdb93881f43765}{toggle}}();}
+\DoxyCodeLine{00031     \}}
+\DoxyCodeLine{00032     \mbox{\hyperlink{classcomponent_1_1Buzzer_aa5d256147974a597dd669bac84b31903}{m\_pin}}.\mbox{\hyperlink{classio_1_1Pin_ad0895fa20099e97f9acbe85f7c92e57c}{setLow}}();}
+\DoxyCodeLine{00033 }
+\DoxyCodeLine{00034 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcomponent_1_1Buzzer_a2880beed1afc6b93c0a9931210f25535}\label{classcomponent_1_1Buzzer_a2880beed1afc6b93c0a9931210f25535}} 
+\index{component::Buzzer@{component::Buzzer}!buzz@{buzz}}
+\index{buzz@{buzz}!component::Buzzer@{component::Buzzer}}
+\doxysubsubsection{\texorpdfstring{buzz()}{buzz()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename TC $>$ \\
+void component\+::\+Buzzer\+::buzz (\begin{DoxyParamCaption}\item[{TC \&}]{ar\+\_\+timer\+Counter,  }\item[{const uint16\+\_\+t \&}]{ar\+\_\+period\+\_\+us,  }\item[{uint16\+\_\+t \&}]{ar\+\_\+duration\+\_\+ms,  }\item[{const \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{core\+::channel}} \&}]{ar\+\_\+channel = {\ttfamily \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}{core\+::channel\+::A}}},  }\item[{const \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1}{core\+::clock\+Source}} \&}]{ar\+\_\+clock\+Source = {\ttfamily \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a97fb148ab1accd5462d69022d83b0ced}{core\+::clock\+Source\+::\+P\+S\+\_\+64}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{Buzzer_8h_source_l00081}{81}} of file \mbox{\hyperlink{Buzzer_8h_source}{Buzzer.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087     \{}
+\DoxyCodeLine{00088         ar\_timerCounter.selectOperationMode(\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a9a9708b23d4611d606d2cab182ad99e5}{core::operationMode::CTC\_OCR}});}
+\DoxyCodeLine{00089         ar\_timerCounter.selectCompareOutputMode(ar\_channel, \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950a41f984bb082af806e510740db289125d}{core::compareOutputMode::toggle}});}
+\DoxyCodeLine{00090         ar\_timerCounter.setCounter(0);}
+\DoxyCodeLine{00091         ar\_timerCounter.setOutputCompareRegister(ar\_channel, ar\_period\_us);}
+\DoxyCodeLine{00092         \textcolor{comment}{// start timer}}
+\DoxyCodeLine{00093         ar\_timerCounter.start();}
+\DoxyCodeLine{00094         \textcolor{comment}{// wait for the pitch duration}}
+\DoxyCodeLine{00095         \textcolor{keywordflow}{while} (ar\_duration\_ms) \{}
+\DoxyCodeLine{00096           \_delay\_ms(1);}
+\DoxyCodeLine{00097           ar\_duration\_ms-\/-\/;}
+\DoxyCodeLine{00098         \}}
+\DoxyCodeLine{00099         \textcolor{comment}{// no buzz}}
+\DoxyCodeLine{00100         ar\_timerCounter.selectCompareOutputMode(ar\_channel, \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950afea087517c26fadd409bd4b9dc642555}{core::compareOutputMode::normal}});}
+\DoxyCodeLine{00101         ar\_timerCounter.stop();}
+\DoxyCodeLine{00102     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a9a9708b23d4611d606d2cab182ad99e5}{core\+::\+C\+T\+C\+\_\+\+O\+CR}}, \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950afea087517c26fadd409bd4b9dc642555}{core\+::normal}}, and \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950a41f984bb082af806e510740db289125d}{core\+::toggle}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcomponent_1_1Buzzer_aa5d256147974a597dd669bac84b31903}\label{classcomponent_1_1Buzzer_aa5d256147974a597dd669bac84b31903}} 
+\index{component::Buzzer@{component::Buzzer}!m\_pin@{m\_pin}}
+\index{m\_pin@{m\_pin}!component::Buzzer@{component::Buzzer}}
+\doxysubsubsection{\texorpdfstring{m\_pin}{m\_pin}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}} component\+::\+Buzzer\+::m\+\_\+pin\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+pin object 
+
+
+
+Definition at line \mbox{\hyperlink{Buzzer_8h_source_l00109}{109}} of file \mbox{\hyperlink{Buzzer_8h_source}{Buzzer.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{Buzzer_8cpp_source_l00004}{Buzzer()}}.
+

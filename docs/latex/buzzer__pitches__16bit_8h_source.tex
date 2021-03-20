@@ -1,0 +1,113 @@
+\hypertarget{buzzer__pitches__16bit_8h_source}{}\doxysection{buzzer\+\_\+pitches\+\_\+16bit.\+h}
+\label{buzzer__pitches__16bit_8h_source}\index{buzzer\_pitches\_16bit.h@{buzzer\_pitches\_16bit.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{comment}{/* Scale in the key of 1/25000 */}}
+\DoxyCodeLine{00002 \textcolor{comment}{/*}}
+\DoxyCodeLine{00003 \textcolor{comment}{   These are 1/2 periods (us) -\/-\/ if you delay this long,}}
+\DoxyCodeLine{00004 \textcolor{comment}{   then toggle the speaker pin, you'll get approximate}}
+\DoxyCodeLine{00005 \textcolor{comment}{   pitches.}}
+\DoxyCodeLine{00006 \textcolor{comment}{}}
+\DoxyCodeLine{00007 \textcolor{comment}{   This is the 16-\/bit version.  The pitches get less accurate}}
+\DoxyCodeLine{00008 \textcolor{comment}{   as they get higher.}}
+\DoxyCodeLine{00009 \textcolor{comment}{}}
+\DoxyCodeLine{00010 \textcolor{comment}{*/}}
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00012}\mbox{\hyperlink{buzzer__pitches__16bit_8h_ac539c7fe47611738d5320760d4453602}{00012}} \textcolor{preprocessor}{\#define  C0    25000 // freq = 1000000/ (2*25000) = 20hz}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00013}\mbox{\hyperlink{buzzer__pitches__16bit_8h_ac506ae7b70389b0eec432672af759ed3}{00013}} \textcolor{preprocessor}{\#define  Cx0   23597}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00014}\mbox{\hyperlink{buzzer__pitches__16bit_8h_ae0b2360d4b8e961bf2709b0663fd9f2a}{00014}} \textcolor{preprocessor}{\#define  D0    22272}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00015}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a09724a4f3f2811bcdfe42476d4d87457}{00015}} \textcolor{preprocessor}{\#define  Dx0   21022}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00016}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a73f0647950b85591fbe61fff44d45c2e}{00016}} \textcolor{preprocessor}{\#define  E0    19843}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00017}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a2ab300cbf3906ff6fcc7b07681dac361}{00017}} \textcolor{preprocessor}{\#define  F0    18729}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00018}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a48193c562442078e1642cdfaddb88df7}{00018}} \textcolor{preprocessor}{\#define  Fx0   17678}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00019}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a6440afc9207bc5eba00d9161ff744e16}{00019}} \textcolor{preprocessor}{\#define  G0    16685}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00020}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a580908b1cd1e58ce16d8bbcfccb9aa48}{00020}} \textcolor{preprocessor}{\#define  Gx0   15749}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00021}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a0d158f1e3af2ab523eb8423db3e5bd6e}{00021}} \textcolor{preprocessor}{\#define  A0    14865}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00022}\mbox{\hyperlink{buzzer__pitches__16bit_8h_af682df90bb1e2b7e26fdc872c5873864}{00022}} \textcolor{preprocessor}{\#define  Ax0   14031}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00023}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a8a03ef52aa4926d1d75cb647ac768622}{00023}} \textcolor{preprocessor}{\#define  B0    13243}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00024}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a44779f18d87e71c78fc9fbf9dc88537d}{00024}} \textcolor{preprocessor}{\#define  C1    12500}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00025}\mbox{\hyperlink{buzzer__pitches__16bit_8h_aabf1feb5032d75fb3f5ab122fdeff50f}{00025}} \textcolor{preprocessor}{\#define  Cx1   11798}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00026}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a52deba56234661c77d4b9573d5175ae2}{00026}} \textcolor{preprocessor}{\#define  D1    11136}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00027}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a783cd9a7b5ee2ce25b871d0688c3152e}{00027}} \textcolor{preprocessor}{\#define  Dx1   10511}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00028}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a9c73f041ffe2562e07a3a9f6e62de5e2}{00028}} \textcolor{preprocessor}{\#define  E1     9921}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00029}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a54af470c198f3dbe32eede2c32f3d746}{00029}} \textcolor{preprocessor}{\#define  F1     9364}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00030}\mbox{\hyperlink{buzzer__pitches__16bit_8h_ae6dc9c64f6ade1e04a212629af3eed25}{00030}} \textcolor{preprocessor}{\#define  Fx1    8839}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00031}\mbox{\hyperlink{buzzer__pitches__16bit_8h_aa8fd4816db72561194059582cf0efb09}{00031}} \textcolor{preprocessor}{\#define  G1     8343}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00032}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a80e7cfd0d2e3f5a28071c57b651e3fb4}{00032}} \textcolor{preprocessor}{\#define  Gx1    7875}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00033}\mbox{\hyperlink{buzzer__pitches__16bit_8h_acd92b430059d886880c53f13ae038e3f}{00033}} \textcolor{preprocessor}{\#define  A1     7433}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00034}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a2ae07e3f870973335573ac6d29a2ef64}{00034}} \textcolor{preprocessor}{\#define  Ax1    7015}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00035}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a7b21d6a6a4573b4997b1f04b01cd4efb}{00035}} \textcolor{preprocessor}{\#define  B1     6622}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00036}\mbox{\hyperlink{buzzer__pitches__16bit_8h_ad6fc13322a4f1c314332ff34aa8b3fa0}{00036}} \textcolor{preprocessor}{\#define  C2     6250}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00037}\mbox{\hyperlink{buzzer__pitches__16bit_8h_abc8824139324167dab277ed91e4a369a}{00037}} \textcolor{preprocessor}{\#define  Cx2    5899}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00038}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a7537ecd0f0af6ccc5b85d5df80f4aee7}{00038}} \textcolor{preprocessor}{\#define  D2     5568}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00039}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a1b04a56d18fa58f85993ed0122af1ef6}{00039}} \textcolor{preprocessor}{\#define  Dx2    5256}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00040}\mbox{\hyperlink{buzzer__pitches__16bit_8h_afe784fb045791fe0c97c8e848627cbe0}{00040}} \textcolor{preprocessor}{\#define  E2     4961}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00041}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a5368759862ac5fb38772b91eace1205c}{00041}} \textcolor{preprocessor}{\#define  F2     4682}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00042}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a395032130120bacf8b5778fb192278dc}{00042}} \textcolor{preprocessor}{\#define  Fx2    4419}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00043}\mbox{\hyperlink{buzzer__pitches__16bit_8h_ae62138575e5117b9426bd8bb1830e036}{00043}} \textcolor{preprocessor}{\#define  G2     4171}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00044}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a929658476aeaf3e60df07092683a53e8}{00044}} \textcolor{preprocessor}{\#define  Gx2    3937}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00045}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a2946bc30423c2a996eeafa49e995c30e}{00045}} \textcolor{preprocessor}{\#define  A2     3716}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00046}\mbox{\hyperlink{buzzer__pitches__16bit_8h_ad7bbbeb4d7988c88a4a525c59577dac4}{00046}} \textcolor{preprocessor}{\#define  Ax2    3508}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00047}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a6945d50f798e1fde624d70c74457090e}{00047}} \textcolor{preprocessor}{\#define  B2     3311}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00048}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a58aba30d6a33889c81827a54620dd5d9}{00048}} \textcolor{preprocessor}{\#define  C3     3125}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00049}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a96b8723a299ffc29400a807649dcc78b}{00049}} \textcolor{preprocessor}{\#define  Cx3    2950}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00050}\mbox{\hyperlink{buzzer__pitches__16bit_8h_afea037e4c6e9187610b538bd6a34b8ff}{00050}} \textcolor{preprocessor}{\#define  D3     2784}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00051}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a3c6c7381d6e436696c37e3a2398326b4}{00051}} \textcolor{preprocessor}{\#define  Dx3    2628}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00052}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a31cbade3f8edb728b06a18b804010544}{00052}} \textcolor{preprocessor}{\#define  E3     2480}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00053}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a79fc770a19406e6876ff9ffd6ce66f3d}{00053}} \textcolor{preprocessor}{\#define  F3     2341}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00054}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a2708d4a29434ff38483d0a47c2b7745d}{00054}} \textcolor{preprocessor}{\#define  Fx3    2210}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00055}\mbox{\hyperlink{buzzer__pitches__16bit_8h_aa18956b1e077aaf1b24bcb4b7eb841f5}{00055}} \textcolor{preprocessor}{\#define  G3     2086}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00056}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a4042a627d020946edf801dbe27c69052}{00056}} \textcolor{preprocessor}{\#define  Gx3    1969}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00057}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a48cdc6c9a75eb611d0a703c94bdac6b8}{00057}} \textcolor{preprocessor}{\#define  A3     1858}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00058}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a716daf19a3d3d2311a0a2c1ced10e22b}{00058}} \textcolor{preprocessor}{\#define  Ax3    1754}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00059}\mbox{\hyperlink{buzzer__pitches__16bit_8h_ae6ac0edb1e2c9c7672ab9488d8b65be9}{00059}} \textcolor{preprocessor}{\#define  B3     1655}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00060}\mbox{\hyperlink{buzzer__pitches__16bit_8h_acc39015f57b2efb8810b603f188bdf15}{00060}} \textcolor{preprocessor}{\#define  C4     1562}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00061}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a5b0e40546969972ea3833d74c25fed08}{00061}} \textcolor{preprocessor}{\#define  Cx4    1474}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00062}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a3d9bb178282c3cb69740c94ba1e48fed}{00062}} \textcolor{preprocessor}{\#define  D4     1392}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00063}\mbox{\hyperlink{buzzer__pitches__16bit_8h_aef86b79c4c7d4f9e276395a36a095ede}{00063}} \textcolor{preprocessor}{\#define  Dx4    1313}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00064}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a4c819074c856b4e67fad4875a92cb2e9}{00064}} \textcolor{preprocessor}{\#define  E4     1240}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00065}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a7fd7918aa90b0ce1dc7ca9fe7a00e9fb}{00065}} \textcolor{preprocessor}{\#define  F4     1170}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00066}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a8d5fdd38fd44d427ef7d48515ffb2972}{00066}} \textcolor{preprocessor}{\#define  Fx4    1105}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00067}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a6f984a8b01aafc34122cc8bc0d9d5691}{00067}} \textcolor{preprocessor}{\#define  G4     1043}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00068}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a4ef1fd1a33a2a9295ae57c6fb51adf45}{00068}} \textcolor{preprocessor}{\#define  Gx4     984}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00069}\mbox{\hyperlink{buzzer__pitches__16bit_8h_aa0a03ad95ca0cb887a11e321fa1c9519}{00069}} \textcolor{preprocessor}{\#define  A4      929}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00070}\mbox{\hyperlink{buzzer__pitches__16bit_8h_afcf5e9cb8e8fea5c4d200985d39f4ba5}{00070}} \textcolor{preprocessor}{\#define  Ax4     877}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00071}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a0bf59f84e29fb57d27314583365a88d6}{00071}} \textcolor{preprocessor}{\#define  B4      827}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00072}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a3b69b61d9deb37b13911faf2cf5cf1d5}{00072}} \textcolor{preprocessor}{\#define  C5      781}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00073}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a05b393a1416f4d883216a91099101ad3}{00073}} \textcolor{preprocessor}{\#define  Cx5     737}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00074}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a2ddd4183d444d6d128cbdbd6269e4e0c}{00074}} \textcolor{preprocessor}{\#define  D5      696}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00075}\mbox{\hyperlink{buzzer__pitches__16bit_8h_ab0f7d9bbb559d720662db2c78c196935}{00075}} \textcolor{preprocessor}{\#define  Dx5     657}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00076}\mbox{\hyperlink{buzzer__pitches__16bit_8h_ab7fbe94783ad3846d0dfb3524eaeccda}{00076}} \textcolor{preprocessor}{\#define  E5      620}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00077}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a33a001184d6e389fd20132f7c21cf8ca}{00077}} \textcolor{preprocessor}{\#define  F5      585}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00078}\mbox{\hyperlink{buzzer__pitches__16bit_8h_ab578ce0bf63b89cfa86a8b9bb11330e6}{00078}} \textcolor{preprocessor}{\#define  Fx5     552}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00079}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a206f8f478aee56b55771546844d68a5f}{00079}} \textcolor{preprocessor}{\#define  G5      521}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00080}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a03994386e2a7cad15bb66826c5c589ed}{00080}} \textcolor{preprocessor}{\#define  Gx5     492}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00081}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a635a5115ac94c220c2de74fa24fd05b6}{00081}} \textcolor{preprocessor}{\#define  A5      464}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00082}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a8d059ddbd39a1ac08498926a4a001c16}{00082}} \textcolor{preprocessor}{\#define  Ax5     438}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00083}\mbox{\hyperlink{buzzer__pitches__16bit_8h_abaa73bfe02579d51cebce4434d15c5e1}{00083}} \textcolor{preprocessor}{\#define  B5      414}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00084}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a3cc680a71aa57979316e647352cb4e35}{00084}} \textcolor{preprocessor}{\#define  C6      390}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00085}\mbox{\hyperlink{buzzer__pitches__16bit_8h_aea51fb5026e6a8b8e27029b5879c6231}{00085}} \textcolor{preprocessor}{\#define  Cx6     368}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00086}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a79a18a7f5ccf7a7ca31f302bd62527a6}{00086}} \textcolor{preprocessor}{\#define  D6      347}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00087}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a8459d279d4f2955f101a81b1f2be2c06}{00087}} \textcolor{preprocessor}{\#define  Dx6     328}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00088}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a9d4e193153b195e3a2cbbbd05f120a13}{00088}} \textcolor{preprocessor}{\#define  E6      310}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00089}\mbox{\hyperlink{buzzer__pitches__16bit_8h_adcc6c65566433e67172e375586cdb0f7}{00089}} \textcolor{preprocessor}{\#define  F6      292}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00090}\mbox{\hyperlink{buzzer__pitches__16bit_8h_af4f9f1d905cc742b7c65889116382013}{00090}} \textcolor{preprocessor}{\#define  Fx6     276}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00091}\mbox{\hyperlink{buzzer__pitches__16bit_8h_acacab09484f962bcb59e7d1dcc68e8c0}{00091}} \textcolor{preprocessor}{\#define  G6      260}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00092}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a9690395971ef4c4ab40a9688323ab81f}{00092}} \textcolor{preprocessor}{\#define  Gx6     246}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00093}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a98b118c8a6727dbb618e0b262d24c939}{00093}} \textcolor{preprocessor}{\#define  A6      232}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00094}\mbox{\hyperlink{buzzer__pitches__16bit_8h_af942fcf3d1ee4dd77ecf6f0f45db3bca}{00094}} \textcolor{preprocessor}{\#define  Ax6     219}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00095}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a7cefe311831c7cc8c8a974860be1ac52}{00095}} \textcolor{preprocessor}{\#define  B6      207}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00096}\mbox{\hyperlink{buzzer__pitches__16bit_8h_af3ac175d83deeabef85aef40a30a21ee}{00096}} \textcolor{preprocessor}{\#define  C7      195}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00097}\mbox{\hyperlink{buzzer__pitches__16bit_8h_af1c462a20a9dc96622d8697282fee122}{00097}} \textcolor{preprocessor}{\#define  Cx7     184}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00098}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a2ba78f059a7ebebc95e7beef690e88d6}{00098}} \textcolor{preprocessor}{\#define  D7      174}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00099}\mbox{\hyperlink{buzzer__pitches__16bit_8h_ae226477c7907ead99ab9965114cd4101}{00099}} \textcolor{preprocessor}{\#define  Dx7     164}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00100}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a6d089ab60bbb82dca8c7904d0b6b749e}{00100}} \textcolor{preprocessor}{\#define  E7      155}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00101}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a7c9b5c379fad716fab5e7d1d6e627d6b}{00101}} \textcolor{preprocessor}{\#define  F7      146}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00102}\mbox{\hyperlink{buzzer__pitches__16bit_8h_adc8d7a1c8e79d733b4cf9c4a6c94e9f8}{00102}} \textcolor{preprocessor}{\#define  Fx7     138}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00103}\mbox{\hyperlink{buzzer__pitches__16bit_8h_ac8e9950f46638247d6a0986bb488ad54}{00103}} \textcolor{preprocessor}{\#define  G7      130}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00104}\mbox{\hyperlink{buzzer__pitches__16bit_8h_af8e726e9409b741cc0d5391e1bdaa658}{00104}} \textcolor{preprocessor}{\#define  Gx7     123}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00105}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a41beae8289ccef5c74ce6b247637dcbf}{00105}} \textcolor{preprocessor}{\#define  A7      116}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00106}\mbox{\hyperlink{buzzer__pitches__16bit_8h_ab98d9b4314b75ed0f2823f661e59b21f}{00106}} \textcolor{preprocessor}{\#define  Ax7     109}}
+\DoxyCodeLine{\Hypertarget{buzzer__pitches__16bit_8h_source_l00107}\mbox{\hyperlink{buzzer__pitches__16bit_8h_a7a0a6f630c4e4a8a254cb637651492ca}{00107}} \textcolor{preprocessor}{\#define  B7      103 // freq = 1000000/ (2*103) = 4.85 khz}}
+
+\end{DoxyCode}

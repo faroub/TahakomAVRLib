@@ -1,0 +1,1972 @@
+\hypertarget{ha__m328p_8h}{}\doxysection{ha\+\_\+m328p.\+h File Reference}
+\label{ha__m328p_8h}\index{ha\_m328p.h@{ha\_m328p.h}}
+
+
+Header file for the hardware abstraction macros of the Atmega328p.  
+
+
+{\ttfamily \#include $<$util/setbaud.\+h$>$}\newline
+Include dependency graph for ha\+\_\+m328p.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=155pt]{ha__m328p_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a3359959b78905acc2647e0367f6949f7}{P\+U\+S\+H\+B\+U\+T\+T\+O\+N\+\_\+\+D\+E\+B\+O\+U\+N\+C\+E\+\_\+\+T\+I\+M\+E\+\_\+\+US}}~1000
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a11cd26b8a5fb523d3f6abed3da984d45}{P\+U\+S\+H\+B\+U\+T\+T\+O\+N\+\_\+\+S\+A\+M\+P\+L\+I\+NG}}~12
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a9f75e3254c6d84eb468a30f5a9b3431e}{U\+S\+A\+R\+T0\+\_\+\+S\+E\+T\+\_\+\+B\+A\+U\+D\+R\+A\+T\+E\+\_\+\+H\+I\+G\+H\+\_\+\+R\+E\+G\+I\+S\+T\+ER}}~U\+B\+R\+R0H = U\+B\+R\+R\+H\+\_\+\+V\+A\+L\+UE
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ad2d97daf2d69124280edd646ba409793}{U\+S\+A\+R\+T0\+\_\+\+S\+E\+T\+\_\+\+B\+A\+U\+D\+R\+A\+T\+E\+\_\+\+L\+O\+W\+\_\+\+R\+E\+G\+I\+S\+T\+ER}}~U\+B\+R\+R0L = U\+B\+R\+R\+L\+\_\+\+V\+A\+L\+UE
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ab061740cebeb64e894809d3fd7721a14}{U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+T\+R\+A\+N\+S\+M\+I\+S\+S\+I\+O\+N\+\_\+\+M\+O\+DE}}~U\+C\+S\+R0C \&= $\sim$((1 $<$$<$ U\+M\+S\+E\+L01) $\vert$ (1 $<$$<$ U\+M\+S\+E\+L00))
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a6212b08eb58f6785bb42c0bd4aba4c06}{U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+S\+Y\+N\+C\+\_\+\+T\+R\+A\+N\+S\+M\+I\+S\+S\+I\+O\+N\+\_\+\+M\+O\+DE}}~U\+C\+S\+R0C = (U\+C\+S\+R0C \& $\sim$(1 $<$$<$ U\+M\+S\+E\+L01)) $\vert$ (1 $<$$<$ U\+M\+S\+E\+L00)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a699e9bbe70496f1b89161babd02352d5}{U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+S\+P\+I\+\_\+\+M\+O\+DE}}~U\+C\+S\+R0C $\vert$= (1 $<$$<$ U\+M\+S\+E\+L01) $\vert$ (1 $<$$<$ U\+M\+S\+E\+L00)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ab21a3211694bb84a2f70de2792d609aa}{U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+D\+O\+U\+B\+L\+E\+\_\+\+S\+P\+E\+E\+D\+\_\+\+M\+O\+DE}}
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a0f1134791392fafed3bb3f3cbc59a3e6}{U\+S\+A\+R\+T0\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+D\+O\+U\+B\+L\+E\+\_\+\+S\+P\+E\+E\+D\+\_\+\+M\+O\+DE}}
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a0f1134791392fafed3bb3f3cbc59a3e6}{U\+S\+A\+R\+T0\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+D\+O\+U\+B\+L\+E\+\_\+\+S\+P\+E\+E\+D\+\_\+\+M\+O\+DE}}~U\+C\+S\+R0A \&= $\sim$(1 $<$$<$ U2\+X0)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a40d3b61f90cc579ed696e3aa06042645}{U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+E\+V\+E\+N\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+M\+O\+DE}}~U\+C\+S\+R0C = (1 $<$$<$ U\+P\+M01) $\vert$ (U\+C\+S\+R0C \& $\sim$(1 $<$$<$ U\+P\+M00))
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_aa60d7f6a4d46ba98102e3ae6e9f6d5c6}{U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+O\+D\+D\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+M\+O\+DE}}~U\+C\+S\+R0C $\vert$=   ((1 $<$$<$ U\+P\+M01) $\vert$ (1 $<$$<$ U\+P\+M00))
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_aa25afe8b4e8e08f889fe634c4860fb8c}{U\+S\+A\+R\+T0\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+M\+O\+DE}}~U\+C\+S\+R0C \&= $\sim$((1 $<$$<$ U\+P\+M01) $\vert$ (1 $<$$<$ U\+P\+M00))
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_aceab97978186cfda4860b72f4d16d4d1}{U\+S\+A\+R\+T0\+\_\+\+S\+E\+T\+\_\+\+O\+N\+E\+\_\+\+S\+T\+O\+P\+\_\+\+B\+IT}}~U\+C\+S\+R0C \&= $\sim$(1 $<$$<$ U\+S\+B\+S0)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a1610015cf2bbaee1d6de238a443c5a86}{U\+S\+A\+R\+T0\+\_\+\+S\+E\+T\+\_\+\+T\+W\+O\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+TS}}~U\+C\+S\+R0C $\vert$= (1 $<$$<$ U\+S\+B\+S0)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a91a0e3917badd3d83dfe9c9bcbaa20d6}{U\+S\+A\+R\+T0\+\_\+\+S\+E\+T\+\_\+9\+B\+I\+T\+\_\+\+F\+R\+A\+M\+E\+\_\+\+S\+I\+ZE}}
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a6371432d26ff4ae3b8d0e68952c8c92f}{U\+S\+A\+R\+T0\+\_\+\+S\+E\+T\+\_\+8\+B\+I\+T\+\_\+\+F\+R\+A\+M\+E\+\_\+\+S\+I\+ZE}}
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_afccb2bb77275288c61e816b69e48d802}{U\+S\+A\+R\+T0\+\_\+\+S\+E\+T\+\_\+7\+B\+I\+T\+\_\+\+F\+R\+A\+M\+E\+\_\+\+S\+I\+ZE}}
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a182b29e0b4ac11bab8ccd6241402e476}{U\+S\+A\+R\+T0\+\_\+\+S\+E\+T\+\_\+6\+B\+I\+T\+\_\+\+F\+R\+A\+M\+E\+\_\+\+S\+I\+ZE}}
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_afe48275c2852f8e14e4cd01a7a909ae7}{U\+S\+A\+R\+T0\+\_\+\+S\+E\+T\+\_\+5\+B\+I\+T\+\_\+\+F\+R\+A\+M\+E\+\_\+\+S\+I\+ZE}}
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a5e075de2723ff01c00e1f11a15d7a5a7}{U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+R\+A\+N\+S\+M\+I\+T\+T\+ER}}~U\+C\+S\+R0B $\vert$=   1 $<$$<$ T\+X\+E\+N0
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a2f08394b86a3171d29fd04dcb01d99ad}{U\+S\+A\+R\+T0\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+T\+R\+A\+N\+S\+M\+I\+T\+T\+ER}}~U\+C\+S\+R0B \&= $\sim$(1 $<$$<$ T\+X\+E\+N0)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a46adba4a2177845ac7f078c0cdf8fb85}{U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+R\+E\+C\+E\+I\+V\+ER}}~U\+C\+S\+R0B $\vert$=   1 $<$$<$ R\+X\+E\+N0
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a982ecd4479c68967c512ce377f77bd68}{U\+S\+A\+R\+T0\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+R\+E\+C\+E\+I\+V\+ER}}~U\+C\+S\+R0B \&= $\sim$(1 $<$$<$ R\+X\+E\+N0)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_aed6b4777897350e7993e5b1c49d05bfc}{U\+S\+A\+R\+T0\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+E\+G\+I\+S\+T\+ER}}~U\+C\+S\+R0A
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ab7f4af91c7a7445e2b7868b18e4bd7f1}{U\+S\+A\+R\+T0\+\_\+\+D\+A\+T\+A\+\_\+\+R\+E\+G\+I\+S\+T\+ER}}~U\+D\+R0
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a8892e410fc1301f761ac930c7e8eab7b}{U\+S\+A\+R\+T0\+\_\+\+F\+R\+A\+M\+E\+\_\+\+E\+R\+R\+OR}}~F\+E0
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a0d79b84765d7970b0517138435ece61c}{U\+S\+A\+R\+T0\+\_\+\+D\+A\+T\+A\+\_\+\+O\+V\+E\+R\+R\+UN}}~D\+O\+R0
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ac38aefd2824611d15bf076b79833e344}{U\+S\+A\+R\+T0\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+E\+R\+R\+OR}}~U\+P\+E0
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a3b266cb5a1688cbbb198d7f023f1411a}{U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+D\+A\+T\+A\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+\+E\+M\+P\+T\+Y\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~U\+C\+S\+R0B $\vert$=   1 $<$$<$ U\+D\+R\+I\+E0
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a827fb09c74eff8444e84a8b73e85525b}{U\+S\+A\+R\+T0\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+D\+A\+T\+A\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+\+E\+M\+P\+T\+Y\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~U\+C\+S\+R0B \&= $\sim$(1 $<$$<$ U\+D\+R\+I\+E0)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a9a80d975c8c94bd31160c79f884727ad}{U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~U\+C\+S\+R0B $\vert$=   1 $<$$<$ R\+X\+C\+I\+E0
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a4307da1bc4fb9d77aa9e88b218f8a3ea}{U\+S\+A\+R\+T0\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~U\+C\+S\+R0B \&= $\sim$(1 $<$$<$ R\+X\+C\+I\+E0)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ad92cc1e2b96d041857ca750c0e5fc3ff}{U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+R\+A\+N\+S\+M\+I\+T\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~U\+C\+S\+R0B $\vert$=   1 $<$$<$ T\+X\+C\+I\+E0
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a79bcc04303d8c9d147b72b94b05c0750}{U\+S\+A\+R\+T0\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+T\+R\+A\+N\+S\+M\+I\+T\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~U\+C\+S\+R0B \&= $\sim$(1 $<$$<$ T\+X\+C\+I\+E0)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a9943d27cc50b04d087ab9663947c62b4}{U\+S\+A\+R\+T0\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~U\+S\+A\+R\+T\+\_\+\+R\+X\+\_\+vect
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a0ad3840cfccb712fdbd678533032bde7}{U\+S\+A\+R\+T0\+\_\+\+T\+R\+A\+N\+S\+M\+I\+T\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~U\+S\+A\+R\+T\+\_\+\+T\+X\+\_\+vect
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a4a3f17a1e26e0f1ca39f335be1b15c0b}{U\+S\+A\+R\+T0\+\_\+\+D\+A\+T\+A\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+\+E\+M\+P\+T\+Y\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~U\+S\+A\+R\+T\+\_\+\+U\+D\+R\+E\+\_\+vect
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a4f752ec2e3e16bdd6e2de376a479a27d}{A\+D\+C\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+R\+E\+F\+\_\+\+V\+O\+L\+T\+A\+GE}}(ref\+Voltage)~A\+D\+M\+UX \&= 0x3F; A\+D\+M\+UX $\vert$= ref\+Voltage $<$$<$ 6
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a27b8335df899470b54132ecd39c2f806}{A\+D\+C\+\_\+\+A\+D\+J\+U\+S\+T\+\_\+\+R\+E\+S\+U\+L\+T\+\_\+\+L\+E\+FT}}~A\+D\+M\+UX $\vert$=  1 $<$$<$ A\+D\+L\+AR
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a81077135c911a7703335747fcb387f08}{A\+D\+C\+\_\+\+A\+D\+J\+U\+S\+T\+\_\+\+R\+E\+S\+U\+L\+T\+\_\+\+R\+I\+G\+HT}}~A\+D\+M\+UX \&= $\sim$(1 $<$$<$ A\+D\+L\+AR)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a35d2ecb6e9d1cb239851dd35fda1e467}{A\+D\+C\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+A\+N\+A\+L\+O\+G\+\_\+\+I\+N\+P\+UT}}(pin\+Number)~A\+D\+M\+UX \&= 0x\+F0; A\+D\+M\+UX $\vert$= pin\+Number
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a46581152acdc8a011cb7d60c2ef3d60e}{A\+D\+C\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+D\+I\+G\+I\+T\+A\+L\+\_\+\+I\+N\+P\+U\+T\+\_\+\+R\+E\+G\+I\+S\+T\+ER}}(pin\+Number)~D\+I\+D\+R0 \&= 0x\+C0; D\+I\+D\+R0 $\vert$= pin\+Number
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_af0f7ac4025d1623cda58f7656fcffade}{A\+D\+C\+\_\+\+E\+N\+A\+B\+LE}}~A\+D\+C\+S\+RA $\vert$=  1 $<$$<$ A\+D\+EN
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_adc5911f4f1e4a81fb3381359bf74e4c2}{A\+D\+C\+\_\+\+D\+I\+S\+A\+B\+LE}}~A\+D\+C\+S\+RA \&= $\sim$(1 $<$$<$ A\+D\+EN)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a0b1602e1735dd932d052125db2b6fc12}{A\+D\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+C\+O\+N\+V\+E\+R\+S\+I\+ON}}~A\+D\+C\+S\+RA $\vert$=  1 $<$$<$ A\+D\+SC
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_af9e0e953c89ab7376c44824ca2d5016c}{A\+D\+C\+\_\+\+S\+T\+O\+P\+\_\+\+C\+O\+N\+V\+E\+R\+S\+I\+ON}}~A\+D\+C\+S\+RA \&= $\sim$(1 $<$$<$ A\+D\+SC)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a4a149ed9a1db4c8bd7ea7293bbe81e27}{A\+D\+C\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+A\+U\+T\+O\+T\+R\+I\+G\+G\+ER}}~A\+D\+C\+S\+RA $\vert$=   1 $<$$<$ A\+D\+A\+TE
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ac155e7462eee927ad1fb4da07b08cad1}{A\+D\+C\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+A\+U\+T\+O\+T\+R\+I\+G\+G\+ER}}~A\+D\+C\+S\+RA \&= $\sim$(1 $<$$<$ A\+D\+A\+TE)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ae94c52062467c57ead131f1f753b540e}{A\+D\+C\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+O\+N\+V\+E\+R\+S\+I\+O\+N\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~A\+D\+C\+S\+RA $\vert$=   1 $<$$<$ A\+D\+IE
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a02838061f4c9a9ff5cf03e765e94b034}{A\+D\+C\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+C\+O\+N\+V\+E\+R\+S\+I\+O\+N\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~A\+D\+C\+S\+RA \&= $\sim$(1 $<$$<$ A\+D\+IE)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_adb2317b8f58b226895abf3701d101a89}{A\+D\+C\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+L\+O\+C\+K\+\_\+\+P\+R\+E\+S\+C\+A\+L\+ER}}(clock\+Prescaler)~A\+D\+C\+S\+RA \&= 0x\+F8; A\+D\+C\+S\+RA $\vert$= clock\+Prescaler
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a4f4457e8f0f2e91dcee24b3521068d2d}{A\+D\+C\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+A\+U\+T\+O\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+S\+O\+U\+R\+CE}}(trigger\+Source)~A\+D\+C\+S\+RB \&= 0x\+F8; A\+D\+C\+S\+RB $\vert$= trigger\+Source
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ae5248e7950c59ba60a467656054fcaa1}{A\+D\+C\+\_\+\+C\+O\+N\+V\+E\+R\+S\+I\+O\+N\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~A\+D\+C\+\_\+vect
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a293ef234d030ae22ecbaacfadbedd8b6}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+S\+E\+T\+\_\+\+I\+N\+T0\+\_\+\+S\+E\+N\+S\+E\+\_\+\+C\+O\+N\+T\+R\+OL}}(sense\+Control)~E\+I\+C\+RA \&= 0x\+FC; E\+I\+C\+RA $\vert$= sense\+Control
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_af7cbf6405655d1b9d3c782d0886b00c5}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+S\+E\+T\+\_\+\+I\+N\+T1\+\_\+\+S\+E\+N\+S\+E\+\_\+\+C\+O\+N\+T\+R\+OL}}(sense\+Control)~E\+I\+C\+RA \&= 0x\+F3; E\+I\+C\+RA $\vert$= sense\+Control
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_aa904947319098d79c01ecab3886e54a3}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+I\+N\+T0}}~E\+I\+M\+SK $\vert$= 1 $<$$<$ I\+N\+T0
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a2e84e4ba842d7af17e5c37f75fe19007}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+I\+N\+T0}}~E\+I\+M\+SK \&= $\sim$(1 $<$$<$ I\+N\+T0)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_aff9dc8b6a68427e1c2fb27df66b9ba28}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+I\+N\+T1}}~E\+I\+M\+SK $\vert$= 1 $<$$<$ I\+N\+T1
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a4fbbc483403ee2faedfc6462a4a7bdbf}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+I\+N\+T1}}~E\+I\+M\+SK \&= $\sim$(1 $<$$<$ I\+N\+T1)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_aaf8929d2d1e493b7f5388ff8627af3b0}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}(pin\+Change\+Port)~P\+C\+I\+CR $\vert$= 1 $<$$<$ pin\+Change\+Port
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a5098ef144f9be388d07a8ece51e95c43}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}(pin\+Change\+Port)~P\+C\+I\+CR \&= $\sim$(1 $<$$<$ pin\+Change\+Port)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a522af5e2a4fe5e71c9283db34a8f8429}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+M\+A\+S\+K\+\_\+\+P\+O\+R\+TB}}(pin\+Change\+Pin)~P\+C\+M\+S\+K0 $\vert$= 1 $<$$<$ pin\+Change\+Pin
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ad1a6d48f282eda7a5581bbcf9ffdaa26}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+M\+A\+S\+K\+\_\+\+P\+O\+R\+TB}}(pin\+Change\+Pin)~P\+C\+M\+S\+K0 \&= $\sim$(1 $<$$<$ pin\+Change\+Pin)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ae12249a6b78c9f574fb8d6e1eb55d146}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+M\+A\+S\+K\+\_\+\+P\+O\+R\+TC}}(pin\+Change\+Pin)~P\+C\+M\+S\+K1 $\vert$= 1 $<$$<$ pin\+Change\+Pin
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a3803f79800026cdba64c4d3c8853085e}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+M\+A\+S\+K\+\_\+\+P\+O\+R\+TC}}(pin\+Change\+Pin)~P\+C\+M\+S\+K1 \&= $\sim$(1 $<$$<$ pin\+Change\+Pin)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a7ba26c1decfa5763d2f5042f8debeac0}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+M\+A\+S\+K\+\_\+\+P\+O\+R\+TD}}(pin\+Change\+Pin)~P\+C\+M\+S\+K2 $\vert$= 1 $<$$<$ pin\+Change\+Pin
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a6be1a55c0d424dabb6daf271361772cb}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+M\+A\+S\+K\+\_\+\+P\+O\+R\+TD}}(pin\+Change\+Pin)~P\+C\+M\+S\+K2 \&= $\sim$(1 $<$$<$ pin\+Change\+Pin)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a3c2c8ae3e28422e4d41a23cd4dd6488b}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+I\+N\+T0\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~I\+N\+T0\+\_\+vect
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ad6ef64b224fcfa933b21fe670afe1271}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+I\+N\+T1\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~I\+N\+T1\+\_\+vect
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a9dc1c259d6b1df0aba9a527ac6f9aa7e}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+P\+O\+R\+T\+B\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~P\+C\+I\+N\+T0\+\_\+vect
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ae36b704cc62d53089e66b683f51e6d99}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+P\+O\+R\+T\+C\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~P\+C\+I\+N\+T1\+\_\+vect
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a205d46a19607c93aa6a807b80fabcc71}{E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+P\+O\+R\+T\+D\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~P\+C\+I\+N\+T2\+\_\+vect
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a61d78875d88653be2b341c155f84c801}{T\+I\+M\+E\+R0\+\_\+\+S\+T\+OP}}~T\+C\+C\+R0B \&= 0x\+F8
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_adb8423354f8164b55e4604a9353a3bda}{T\+I\+M\+E\+R1\+\_\+\+S\+T\+OP}}~T\+C\+C\+R1B \&= 0x\+F8
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_af5d70ff1d14c996dabaa2469a8cb19c6}{T\+I\+M\+E\+R2\+\_\+\+S\+T\+OP}}~T\+C\+C\+R2B \&= 0x\+F8
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_acbb5d2007fab14340dee5e63506eaddd}{T\+I\+M\+E\+R0\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+CE}}(clock\+Source)~T\+C\+C\+R0B \&= 0x\+F8; T\+C\+C\+R0B $\vert$= clock\+Source
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_aba1494467305b44f1a632121a05930b8}{T\+I\+M\+E\+R1\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+CE}}(clock\+Source)~T\+C\+C\+R1B \&= 0x\+F8; T\+C\+C\+R1B $\vert$= clock\+Source
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a4c23789dfe90f4cda983cd7a934037f2}{T\+I\+M\+E\+R2\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+CE}}(clock\+Source)~T\+C\+C\+R2B \&= 0x\+F8; T\+C\+C\+R2B $\vert$= clock\+Source
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a8509885b7c83def201bba50e26b0a9be}{T\+I\+M\+E\+R0\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+\_\+\+M\+O\+DE}}(operation\+Mode)~T\+C\+C\+R0A \&= 0x\+FC; T\+C\+C\+R0A $\vert$= (operation\+Mode \& 3); T\+C\+C\+R0B \&= 0x\+F7; T\+C\+C\+R0B $\vert$= (operation\+Mode \& 12) $<$$<$ 1
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a253cb491631dd15d79b29c87847f1468}{T\+I\+M\+E\+R1\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+\_\+\+M\+O\+DE}}(operation\+Mode)~T\+C\+C\+R1A \&= 0x\+FC; T\+C\+C\+R1A $\vert$= (operation\+Mode \& 3); T\+C\+C\+R1B \&= 0x\+E7; T\+C\+C\+R1B $\vert$= (operation\+Mode \& 12) $<$$<$ 1
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a9c565dc6c762804ed50f0326151e87bd}{T\+I\+M\+E\+R2\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+\_\+\+M\+O\+DE}}(operation\+Mode)~T\+C\+C\+R2A \&= 0x\+FC; T\+C\+C\+R2A $\vert$= (operation\+Mode \& 3); T\+C\+C\+R2B \&= 0x\+F7; T\+C\+C\+R2B $\vert$= (operation\+Mode \& 12) $<$$<$ 1
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a699ba62171281602b953e44a7db8c06a}{T\+I\+M\+E\+R0\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+A}}(compare\+Output\+Mode)~T\+C\+C\+R0A \&= 0x3F; T\+C\+C\+R0A $\vert$= compare\+Output\+Mode $<$$<$ 6
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ae948a76f8e1e36b9c41e5cb1b3208cda}{T\+I\+M\+E\+R0\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+B}}(compare\+Output\+Mode)~T\+C\+C\+R0A \&= 0x\+CF; T\+C\+C\+R0A $\vert$= compare\+Output\+Mode $<$$<$ 4
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ae7723d4c5424f57e92a84ee6dd964def}{T\+I\+M\+E\+R1\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+A}}(compare\+Output\+Mode)~T\+C\+C\+R1A \&= 0x3F; T\+C\+C\+R1A $\vert$= compare\+Output\+Mode $<$$<$ 6
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a4fb65adc589348a65e6923ae810c72f0}{T\+I\+M\+E\+R1\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+B}}(compare\+Output\+Mode)~T\+C\+C\+R1A \&= 0x\+CF; T\+C\+C\+R1A $\vert$= compare\+Output\+Mode $<$$<$ 4
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a8ff17dc8b5a917399ebe8aa4fda83433}{T\+I\+M\+E\+R2\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+A}}(compare\+Output\+Mode)~T\+C\+C\+R2A \&= 0x3F; T\+C\+C\+R2A $\vert$= compare\+Output\+Mode $<$$<$ 6
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_aeb6f12e7e7f132e9fb49856f00deae27}{T\+I\+M\+E\+R2\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+B}}(compare\+Output\+Mode)~T\+C\+C\+R2A \&= 0x\+CF; T\+C\+C\+R2A $\vert$= compare\+Output\+Mode $<$$<$ 4
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a8b2962adba0b332fa15157fa0a70b698}{T\+I\+M\+E\+R0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+S\+K0 $\vert$=  1 $<$$<$ O\+C\+I\+E0A
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ab5c460464add71a8105c1268c06bba33}{T\+I\+M\+E\+R0\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+S\+K0 \&= $\sim$(1 $<$$<$ O\+C\+I\+E0A)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a1d664566d43e78cd4b9292ce29a275d8}{T\+I\+M\+E\+R0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+B\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+S\+K0 $\vert$=  1 $<$$<$ O\+C\+I\+E0B
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_abe492505e68ebc59e66e8f96c8851f64}{T\+I\+M\+E\+R0\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+B\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+S\+K0 \&= $\sim$(1 $<$$<$ O\+C\+I\+E0B)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ae00558126f8d46ec9f97fc38f1a22699}{T\+I\+M\+E\+R0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+S\+K0 $\vert$=  1 $<$$<$ T\+O\+I\+E0
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a1b22addfb3894baef12aebd10e0eea62}{T\+I\+M\+E\+R0\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+S\+K0 \&= $\sim$(1 $<$$<$ T\+O\+I\+E0)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ab376fd307ffebc381e1f2f1316913fe1}{T\+I\+M\+E\+R1\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+S\+K1 $\vert$=  1 $<$$<$ O\+C\+I\+E1A
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ad38a1b7cbb2769657eec9a9cbbcae4d1}{T\+I\+M\+E\+R1\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+S\+K1 \&= $\sim$(1 $<$$<$ O\+C\+I\+E1A)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_af89ac9e0e69841187cd7cf794be6770e}{T\+I\+M\+E\+R1\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+B\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+S\+K1 $\vert$=  1 $<$$<$ O\+C\+I\+E1B
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a2b17161b4c48648ba86312de36309607}{T\+I\+M\+E\+R1\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+B\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+S\+K1 \&= $\sim$(1 $<$$<$ O\+C\+I\+E1B)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ac6de15692a62db9168308a624ff3d76e}{T\+I\+M\+E\+R1\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+S\+K1 $\vert$=  1 $<$$<$ T\+O\+I\+E1
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a9567d4eb612895726bb683b436870aac}{T\+I\+M\+E\+R1\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+S\+K1 \&= $\sim$(1 $<$$<$ T\+O\+I\+E1)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a4c3debdaefcee597bf2e8bbc0d07db46}{T\+I\+M\+E\+R1\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+I\+N\+P\+U\+T\+\_\+\+C\+A\+P\+T\+U\+R\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+S\+K1 $\vert$=  1 $<$$<$ I\+C\+I\+E1
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a7ebcec15236d84ef591ff241ecfc3a7b}{T\+I\+M\+E\+R1\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+I\+N\+P\+U\+T\+\_\+\+C\+A\+P\+T\+U\+R\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+S\+K1 \&= $\sim$(1 $<$$<$ I\+C\+I\+E1)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a3f47776fa54c4f47d81cebce11e12041}{T\+I\+M\+E\+R2\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+S\+K2 $\vert$=  1 $<$$<$ O\+C\+I\+E2A
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a2cc36f1fc9fbb654c059fd2ff58b6f10}{T\+I\+M\+E\+R2\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+S\+K2 \&= $\sim$(1 $<$$<$ O\+C\+I\+E2A)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ac0304490eea11d5d34a19ee9d46281ad}{T\+I\+M\+E\+R2\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+B\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+S\+K2 $\vert$=  1 $<$$<$ O\+C\+I\+E2B
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a8ad2d4806b9cf07c0df894e29c35b492}{T\+I\+M\+E\+R2\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+B\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+S\+K2 \&= $\sim$(1 $<$$<$ O\+C\+I\+E2B)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_af4ab09d406cf0989a95c67d6a6134829}{T\+I\+M\+E\+R2\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+S\+K2 $\vert$=  1 $<$$<$ T\+O\+I\+E2
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_aa8b792e1d53b1fcd905da5738c185f47}{T\+I\+M\+E\+R2\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+S\+K2 \&= $\sim$(1 $<$$<$ T\+O\+I\+E2)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a2ee800929c88137a2c459e78d2431d25}{T\+I\+M\+E\+R0\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+E\+R0\+\_\+\+C\+O\+M\+P\+A\+\_\+vect
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_adf7f3a5df3d805ef260fbf0eff5553e4}{T\+I\+M\+E\+R0\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+B\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+E\+R0\+\_\+\+C\+O\+M\+P\+B\+\_\+vect
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a84ea73f8d4f68d19a0b126337a5c0d94}{T\+I\+M\+E\+R0\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+E\+R0\+\_\+\+O\+V\+F\+\_\+vect
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a856ba98941fa113b02f79fe74a377f70}{T\+I\+M\+E\+R1\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+E\+R1\+\_\+\+C\+O\+M\+P\+A\+\_\+vect
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ac154296cef80471ff783f4b807cc46fd}{T\+I\+M\+E\+R1\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+B\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+E\+R1\+\_\+\+C\+O\+M\+P\+B\+\_\+vect
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a331ad5505d95001c6c82e4297cb75275}{T\+I\+M\+E\+R1\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+E\+R1\+\_\+\+O\+V\+F\+\_\+vect
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a614a58a8f0241c4e3e81f43b6ac16071}{T\+I\+M\+E\+R1\+\_\+\+I\+N\+P\+U\+T\+\_\+\+C\+A\+P\+T\+U\+R\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+E\+R1\+\_\+\+C\+A\+P\+T\+\_\+vect
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_aa4f2a658e552d85ed82d6de3d1ebad71}{T\+I\+M\+E\+R2\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+E\+R2\+\_\+\+C\+O\+M\+P\+A\+\_\+vect
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ac187eca1eb867fc1e90a035afa9fb3a8}{T\+I\+M\+E\+R2\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+B\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+E\+R2\+\_\+\+C\+O\+M\+P\+B\+\_\+vect
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_aacfa1d5e58197c3686d626618591a2d0}{T\+I\+M\+E\+R2\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~T\+I\+M\+E\+R2\+\_\+\+O\+V\+F\+\_\+vect
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_aba75578775b2daee8a601f9f8b9eae42}{W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+T\+I\+M\+E\+O\+UT}}(time\+Out)~W\+D\+T\+C\+SR $\vert$= (1$<$$<$W\+D\+CE) $\vert$ (1$<$$<$W\+DE);  W\+D\+T\+C\+SR = (0$<$$<$W\+D\+IE) $\vert$ (0$<$$<$W\+DE) $\vert$ time\+Out;
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a7b5c6f1b3a3ace19ff65c9403a8b36c7}{W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+S\+T\+A\+RT}}(operation\+Mode,  time\+Out)~M\+C\+U\+SR \&= $\sim$(1$<$$<$W\+D\+RF); W\+D\+T\+C\+SR $\vert$= (1$<$$<$W\+D\+CE) $\vert$ (1$<$$<$W\+DE); W\+D\+T\+C\+SR = operation\+Mode $\vert$ time\+Out;
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_aced6defdc7bc72ed639e3e05d57890c8}{W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+S\+T\+OP}}~M\+C\+U\+SR \&= $\sim$(1$<$$<$W\+D\+RF); W\+D\+T\+C\+SR $\vert$= (1$<$$<$W\+D\+CE) $\vert$ (1$<$$<$W\+DE); W\+D\+T\+C\+SR = 0x00;
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_acdf32bb220ee0f1c7ca5fed49dd4acba}{W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+T\+I\+M\+E\+O\+U\+T\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~W\+D\+T\+\_\+vect
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a6a42022f022c03b9a82eaeb794fb87ef}{M\+C\+U\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+S\+L\+E\+E\+P\+\_\+\+M\+O\+DE}}(sleep\+Mode)~S\+M\+CR \&= 0x\+F1; S\+M\+CR $\vert$= sleep\+Mode $<$$<$ 1
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a6787a75a5ec5301098f4a6a8cf930ffd}{M\+C\+U\+\_\+\+S\+L\+E\+E\+P\+\_\+\+E\+N\+A\+B\+LE}}~S\+M\+CR $\vert$=  1 $<$$<$ SE
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a50ed0f1b4160eeef2b3457452c1ba7dd}{M\+C\+U\+\_\+\+S\+L\+E\+E\+P\+\_\+\+D\+I\+S\+A\+B\+LE}}~S\+M\+CR \&= $\sim$(1 $<$$<$ SE)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_af60aaa71682b22069da9ea48c7d1b625}{M\+C\+U\+\_\+\+T\+W\+I\+\_\+\+E\+N\+A\+B\+LE}}~P\+RR \&= $\sim$(1 $<$$<$ P\+R\+T\+WI)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a49a0215c9b0c5ba3623618fb324e4f48}{M\+C\+U\+\_\+\+T\+W\+I\+\_\+\+D\+I\+S\+A\+B\+LE}}~P\+RR $\vert$=  1 $<$$<$ P\+R\+T\+WI
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a3793e6513884ba6a4593846a9a5d08cb}{M\+C\+U\+\_\+\+T\+I\+M\+E\+R2\+\_\+\+E\+N\+A\+B\+LE}}~P\+RR \&= $\sim$(1 $<$$<$ P\+R\+T\+I\+M2)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_afc5eb0b697d8d0c5aa41f398d42a80ab}{M\+C\+U\+\_\+\+T\+I\+M\+E\+R2\+\_\+\+D\+I\+S\+A\+B\+LE}}~P\+RR $\vert$=  1 $<$$<$ P\+R\+T\+I\+M2
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a16b5ef4f67d6b4319785f8607680c48f}{M\+C\+U\+\_\+\+T\+I\+M\+E\+R1\+\_\+\+E\+N\+A\+B\+LE}}~P\+RR \&= $\sim$(1 $<$$<$ P\+R\+T\+I\+M1)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a95c9201d518e1efe700212293686a4ec}{M\+C\+U\+\_\+\+T\+I\+M\+E\+R1\+\_\+\+D\+I\+S\+A\+B\+LE}}~P\+RR $\vert$=  1 $<$$<$ P\+R\+T\+I\+M1
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a656b6d3fa879a3851d9ee75a2a672008}{M\+C\+U\+\_\+\+T\+I\+M\+E\+R0\+\_\+\+E\+N\+A\+B\+LE}}~P\+RR \&= $\sim$(1 $<$$<$ P\+R\+T\+I\+M0)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a8c6793b752c27b0f5a5fced7a99528c2}{M\+C\+U\+\_\+\+T\+I\+M\+E\+R0\+\_\+\+D\+I\+S\+A\+B\+LE}}~P\+RR $\vert$=  1 $<$$<$ P\+R\+T\+I\+M0
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a3c54bae3f972718bda180ce6cfc9105f}{M\+C\+U\+\_\+\+S\+P\+I\+\_\+\+E\+N\+A\+B\+LE}}~P\+RR \&= $\sim$(1 $<$$<$ P\+R\+S\+PI)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_aed93e109e4d42a6e729fc86f7cb8f55d}{M\+C\+U\+\_\+\+S\+P\+I\+\_\+\+D\+I\+S\+A\+B\+LE}}~P\+RR $\vert$=  1 $<$$<$ P\+R\+S\+PI
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ae196061044843a734d31aaf21afe24ef}{M\+C\+U\+\_\+\+U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+LE}}~P\+RR \&= $\sim$(1 $<$$<$ P\+R\+U\+S\+A\+R\+T0)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_afca4fa6c1bfdb606900685f537637716}{M\+C\+U\+\_\+\+U\+S\+A\+R\+T0\+\_\+\+D\+I\+S\+A\+B\+LE}}~P\+RR $\vert$=  1 $<$$<$ P\+R\+U\+S\+A\+R\+T0
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a81fb3b799dacad5cb50116f6cae3dad9}{M\+C\+U\+\_\+\+A\+D\+C\+\_\+\+E\+N\+A\+B\+LE}}~P\+RR \&= $\sim$(1 $<$$<$ P\+R\+A\+DC)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a28d68d000aca5c6c3096df826554a7a6}{M\+C\+U\+\_\+\+A\+D\+C\+\_\+\+D\+I\+S\+A\+B\+LE}}~P\+RR $\vert$=  1 $<$$<$ P\+R\+A\+DC
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ae0684a8ccbc099a87cd632f35547e395}{M\+C\+U\+\_\+\+B\+O\+D\+\_\+\+D\+I\+S\+A\+B\+LE}}~M\+C\+U\+CR $\vert$= (1$<$$<$B\+O\+D\+SE) $\vert$ (1$<$$<$B\+O\+DS); M\+C\+U\+CR \&= $\sim$(1$<$$<$B\+O\+D\+SE);
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ac06ca117a692a02dcd520cf0f44338d8}{S\+E\+R\+V\+O\+M\+O\+T\+O\+R\+\_\+\+T\+I\+M\+E\+R\+\_\+\+P\+U\+L\+S\+E\+\_\+\+W\+I\+D\+T\+H\+\_\+\+C\+O\+U\+NT}}(pulse\+Width,  clock\+Prescaler)~((F\+\_\+\+C\+PU/1000000\+UL) $\ast$ (pulse\+Width/ clock\+Prescaler))
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ac9712b0006fe45b09f1dfefaa8ed9b78}{S\+E\+R\+V\+O\+M\+O\+T\+O\+R\+\_\+\+T\+I\+M\+E\+R\+\_\+\+A\+N\+G\+L\+E\+\_\+\+C\+O\+U\+NT}}(angle,  out\+\_\+min,  out\+\_\+mid,  out\+\_\+max)~(((out\+\_\+min$\ast$(angle -\/ 90L)$\ast$(angle -\/ 180L))/16200L + (angle$\ast$out\+\_\+max$\ast$(angle -\/ 90L))/16200L -\/ (angle$\ast$out\+\_\+mid$\ast$(angle -\/ 180L))/8100L))
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a27537db92d0837cc77baa0d99b8cac48}{S\+P\+I\+\_\+\+E\+N\+A\+B\+LE}}~S\+P\+CR $\vert$=  1 $<$$<$ S\+PE
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a00174198073dadbaaad7f9475360b228}{S\+P\+I\+\_\+\+D\+I\+S\+A\+B\+LE}}~S\+P\+CR \&= $\sim$(1 $<$$<$ S\+PE)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a2825dde8549bb908c1da677d405ead8a}{S\+P\+I\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+M\+O\+DE}}~S\+P\+CR $\vert$=  1 $<$$<$ M\+S\+TR
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a0f7bd9f496bd41eb7e56d11582b3f66f}{S\+P\+I\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+S\+L\+A\+V\+E\+\_\+\+M\+O\+DE}}~S\+P\+CR \&= $\sim$(1 $<$$<$ M\+S\+TR)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a3b4e206fd5c5956f301415b7bca8fce0}{S\+P\+I\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+D\+A\+T\+A\+\_\+\+M\+O\+DE}}(data\+Mode)~S\+P\+CR \&= 0x\+F3; S\+P\+CR $\vert$= data\+Mode $<$$<$ 2
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_aaefccf34ec6a079b84ae6e0efa9353ab}{S\+P\+I\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+L\+O\+C\+K\+\_\+\+P\+R\+E\+S\+C\+A\+L\+ER}}(clock\+Prescaler)~S\+P\+CR \&= 0x\+FC; S\+P\+CR $\vert$= (clock\+Prescaler \& 3); S\+P\+SR \&= 0x\+FE; S\+P\+SR $\vert$= (clock\+Prescaler \& 4) $>$$>$ 2
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a7e36bb343c2d15b61aeec1acebeb2dea}{S\+P\+I\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+D\+A\+T\+A\+\_\+\+O\+R\+D\+ER}}(data\+Order)~S\+P\+CR \&= 0x\+DF; S\+P\+CR $\vert$= data\+Order $<$$<$ 5
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a9001baca59487add854bcdee1df4b4b0}{S\+P\+I\+\_\+\+W\+R\+I\+T\+E\+\_\+\+C\+O\+L\+L\+I\+S\+I\+ON}}~W\+C\+OL
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a885ef6c3501b46889642fddf58acb3f0}{S\+P\+I\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+C\+O\+M\+P\+L\+E\+TE}}~S\+P\+IF
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_acaf98f1876f8d084f0136bf7e8c2f8d4}{S\+P\+I\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+M\+O\+DE}}~M\+S\+TR
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a6d0d74da663be825a2ebd3e51f7d99e3}{S\+P\+I\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+R\+E\+G\+I\+S\+T\+ER}}~S\+P\+CR
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_abbbfe9dac3695fd744030c475e5f2b69}{S\+P\+I\+\_\+\+D\+A\+T\+A\+\_\+\+R\+E\+G\+I\+S\+T\+ER}}~S\+P\+DR
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a067a8bba4649b1f9ff77c3167a06fd10}{S\+P\+I\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+E\+G\+I\+S\+T\+ER}}~S\+P\+SR
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ad4e9e52218cc4591c50476d4eede023f}{S\+P\+I\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~S\+P\+CR $\vert$= 1 $<$$<$ S\+P\+IE
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_ac1324d63fa393aff9ae3f9a75454f29b}{S\+P\+I\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~S\+P\+CR \&= $\sim$(1 $<$$<$ S\+P\+IE)
+\item 
+\#define \mbox{\hyperlink{ha__m328p_8h_a7c5bd5b0990e276b3bd7bfdd42f08aa4}{S\+P\+I\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}~S\+P\+I\+\_\+\+S\+T\+C\+\_\+vect
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the hardware abstraction macros of the Atmega328p. 
+
+\begin{DoxyAuthor}{Author}
+Farid Oubbati (\href{https://github.com/faroub}{\texttt{ https\+://github.\+com/faroub}}) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+March 2020 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ha__m328p_8h_a27b8335df899470b54132ecd39c2f806}\label{ha__m328p_8h_a27b8335df899470b54132ecd39c2f806}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!ADC\_ADJUST\_RESULT\_LEFT@{ADC\_ADJUST\_RESULT\_LEFT}}
+\index{ADC\_ADJUST\_RESULT\_LEFT@{ADC\_ADJUST\_RESULT\_LEFT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_ADJUST\_RESULT\_LEFT}{ADC\_ADJUST\_RESULT\_LEFT}}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+A\+D\+J\+U\+S\+T\+\_\+\+R\+E\+S\+U\+L\+T\+\_\+\+L\+E\+FT~A\+D\+M\+UX $\vert$=  1 $<$$<$ A\+D\+L\+AR}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00126}{126}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a81077135c911a7703335747fcb387f08}\label{ha__m328p_8h_a81077135c911a7703335747fcb387f08}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!ADC\_ADJUST\_RESULT\_RIGHT@{ADC\_ADJUST\_RESULT\_RIGHT}}
+\index{ADC\_ADJUST\_RESULT\_RIGHT@{ADC\_ADJUST\_RESULT\_RIGHT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_ADJUST\_RESULT\_RIGHT}{ADC\_ADJUST\_RESULT\_RIGHT}}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+A\+D\+J\+U\+S\+T\+\_\+\+R\+E\+S\+U\+L\+T\+\_\+\+R\+I\+G\+HT~A\+D\+M\+UX \&= $\sim$(1 $<$$<$ A\+D\+L\+AR)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00127}{127}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ae5248e7950c59ba60a467656054fcaa1}\label{ha__m328p_8h_ae5248e7950c59ba60a467656054fcaa1}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!ADC\_CONVERSION\_COMPLETE\_INTERRUPT@{ADC\_CONVERSION\_COMPLETE\_INTERRUPT}}
+\index{ADC\_CONVERSION\_COMPLETE\_INTERRUPT@{ADC\_CONVERSION\_COMPLETE\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_CONVERSION\_COMPLETE\_INTERRUPT}{ADC\_CONVERSION\_COMPLETE\_INTERRUPT}}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+C\+O\+N\+V\+E\+R\+S\+I\+O\+N\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~A\+D\+C\+\_\+vect}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00151}{151}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_adc5911f4f1e4a81fb3381359bf74e4c2}\label{ha__m328p_8h_adc5911f4f1e4a81fb3381359bf74e4c2}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!ADC\_DISABLE@{ADC\_DISABLE}}
+\index{ADC\_DISABLE@{ADC\_DISABLE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_DISABLE}{ADC\_DISABLE}}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+D\+I\+S\+A\+B\+LE~A\+D\+C\+S\+RA \&= $\sim$(1 $<$$<$ A\+D\+EN)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00134}{134}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ac155e7462eee927ad1fb4da07b08cad1}\label{ha__m328p_8h_ac155e7462eee927ad1fb4da07b08cad1}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!ADC\_DISABLE\_AUTOTRIGGER@{ADC\_DISABLE\_AUTOTRIGGER}}
+\index{ADC\_DISABLE\_AUTOTRIGGER@{ADC\_DISABLE\_AUTOTRIGGER}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_DISABLE\_AUTOTRIGGER}{ADC\_DISABLE\_AUTOTRIGGER}}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+A\+U\+T\+O\+T\+R\+I\+G\+G\+ER~A\+D\+C\+S\+RA \&= $\sim$(1 $<$$<$ A\+D\+A\+TE)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00140}{140}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a02838061f4c9a9ff5cf03e765e94b034}\label{ha__m328p_8h_a02838061f4c9a9ff5cf03e765e94b034}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!ADC\_DISABLE\_CONVERSION\_COMPLETE\_INTERRUPT@{ADC\_DISABLE\_CONVERSION\_COMPLETE\_INTERRUPT}}
+\index{ADC\_DISABLE\_CONVERSION\_COMPLETE\_INTERRUPT@{ADC\_DISABLE\_CONVERSION\_COMPLETE\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_DISABLE\_CONVERSION\_COMPLETE\_INTERRUPT}{ADC\_DISABLE\_CONVERSION\_COMPLETE\_INTERRUPT}}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+C\+O\+N\+V\+E\+R\+S\+I\+O\+N\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~A\+D\+C\+S\+RA \&= $\sim$(1 $<$$<$ A\+D\+IE)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00143}{143}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a46581152acdc8a011cb7d60c2ef3d60e}\label{ha__m328p_8h_a46581152acdc8a011cb7d60c2ef3d60e}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!ADC\_DISABLE\_DIGITAL\_INPUT\_REGISTER@{ADC\_DISABLE\_DIGITAL\_INPUT\_REGISTER}}
+\index{ADC\_DISABLE\_DIGITAL\_INPUT\_REGISTER@{ADC\_DISABLE\_DIGITAL\_INPUT\_REGISTER}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_DISABLE\_DIGITAL\_INPUT\_REGISTER}{ADC\_DISABLE\_DIGITAL\_INPUT\_REGISTER}}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+D\+I\+G\+I\+T\+A\+L\+\_\+\+I\+N\+P\+U\+T\+\_\+\+R\+E\+G\+I\+S\+T\+ER(\begin{DoxyParamCaption}\item[{}]{pin\+Number }\end{DoxyParamCaption})~D\+I\+D\+R0 \&= 0x\+C0; D\+I\+D\+R0 $\vert$= pin\+Number}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00130}{130}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_af0f7ac4025d1623cda58f7656fcffade}\label{ha__m328p_8h_af0f7ac4025d1623cda58f7656fcffade}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!ADC\_ENABLE@{ADC\_ENABLE}}
+\index{ADC\_ENABLE@{ADC\_ENABLE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_ENABLE}{ADC\_ENABLE}}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+E\+N\+A\+B\+LE~A\+D\+C\+S\+RA $\vert$=  1 $<$$<$ A\+D\+EN}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00133}{133}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a4a149ed9a1db4c8bd7ea7293bbe81e27}\label{ha__m328p_8h_a4a149ed9a1db4c8bd7ea7293bbe81e27}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!ADC\_ENABLE\_AUTOTRIGGER@{ADC\_ENABLE\_AUTOTRIGGER}}
+\index{ADC\_ENABLE\_AUTOTRIGGER@{ADC\_ENABLE\_AUTOTRIGGER}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_ENABLE\_AUTOTRIGGER}{ADC\_ENABLE\_AUTOTRIGGER}}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+A\+U\+T\+O\+T\+R\+I\+G\+G\+ER~A\+D\+C\+S\+RA $\vert$=   1 $<$$<$ A\+D\+A\+TE}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00139}{139}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ae94c52062467c57ead131f1f753b540e}\label{ha__m328p_8h_ae94c52062467c57ead131f1f753b540e}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!ADC\_ENABLE\_CONVERSION\_COMPLETE\_INTERRUPT@{ADC\_ENABLE\_CONVERSION\_COMPLETE\_INTERRUPT}}
+\index{ADC\_ENABLE\_CONVERSION\_COMPLETE\_INTERRUPT@{ADC\_ENABLE\_CONVERSION\_COMPLETE\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_ENABLE\_CONVERSION\_COMPLETE\_INTERRUPT}{ADC\_ENABLE\_CONVERSION\_COMPLETE\_INTERRUPT}}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+O\+N\+V\+E\+R\+S\+I\+O\+N\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~A\+D\+C\+S\+RA $\vert$=   1 $<$$<$ A\+D\+IE}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00142}{142}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a35d2ecb6e9d1cb239851dd35fda1e467}\label{ha__m328p_8h_a35d2ecb6e9d1cb239851dd35fda1e467}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!ADC\_SELECT\_ANALOG\_INPUT@{ADC\_SELECT\_ANALOG\_INPUT}}
+\index{ADC\_SELECT\_ANALOG\_INPUT@{ADC\_SELECT\_ANALOG\_INPUT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_SELECT\_ANALOG\_INPUT}{ADC\_SELECT\_ANALOG\_INPUT}}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+A\+N\+A\+L\+O\+G\+\_\+\+I\+N\+P\+UT(\begin{DoxyParamCaption}\item[{}]{pin\+Number }\end{DoxyParamCaption})~A\+D\+M\+UX \&= 0x\+F0; A\+D\+M\+UX $\vert$= pin\+Number}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00129}{129}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a4f4457e8f0f2e91dcee24b3521068d2d}\label{ha__m328p_8h_a4f4457e8f0f2e91dcee24b3521068d2d}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!ADC\_SELECT\_AUTO\_TRIGGER\_SOURCE@{ADC\_SELECT\_AUTO\_TRIGGER\_SOURCE}}
+\index{ADC\_SELECT\_AUTO\_TRIGGER\_SOURCE@{ADC\_SELECT\_AUTO\_TRIGGER\_SOURCE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_SELECT\_AUTO\_TRIGGER\_SOURCE}{ADC\_SELECT\_AUTO\_TRIGGER\_SOURCE}}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+A\+U\+T\+O\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+S\+O\+U\+R\+CE(\begin{DoxyParamCaption}\item[{}]{trigger\+Source }\end{DoxyParamCaption})~A\+D\+C\+S\+RB \&= 0x\+F8; A\+D\+C\+S\+RB $\vert$= trigger\+Source}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00148}{148}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_adb2317b8f58b226895abf3701d101a89}\label{ha__m328p_8h_adb2317b8f58b226895abf3701d101a89}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!ADC\_SELECT\_CLOCK\_PRESCALER@{ADC\_SELECT\_CLOCK\_PRESCALER}}
+\index{ADC\_SELECT\_CLOCK\_PRESCALER@{ADC\_SELECT\_CLOCK\_PRESCALER}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_SELECT\_CLOCK\_PRESCALER}{ADC\_SELECT\_CLOCK\_PRESCALER}}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+L\+O\+C\+K\+\_\+\+P\+R\+E\+S\+C\+A\+L\+ER(\begin{DoxyParamCaption}\item[{}]{clock\+Prescaler }\end{DoxyParamCaption})~A\+D\+C\+S\+RA \&= 0x\+F8; A\+D\+C\+S\+RA $\vert$= clock\+Prescaler}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00145}{145}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a4f752ec2e3e16bdd6e2de376a479a27d}\label{ha__m328p_8h_a4f752ec2e3e16bdd6e2de376a479a27d}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!ADC\_SELECT\_REF\_VOLTAGE@{ADC\_SELECT\_REF\_VOLTAGE}}
+\index{ADC\_SELECT\_REF\_VOLTAGE@{ADC\_SELECT\_REF\_VOLTAGE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_SELECT\_REF\_VOLTAGE}{ADC\_SELECT\_REF\_VOLTAGE}}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+R\+E\+F\+\_\+\+V\+O\+L\+T\+A\+GE(\begin{DoxyParamCaption}\item[{}]{ref\+Voltage }\end{DoxyParamCaption})~A\+D\+M\+UX \&= 0x3F; A\+D\+M\+UX $\vert$= ref\+Voltage $<$$<$ 6}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00124}{124}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a0b1602e1735dd932d052125db2b6fc12}\label{ha__m328p_8h_a0b1602e1735dd932d052125db2b6fc12}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!ADC\_START\_CONVERSION@{ADC\_START\_CONVERSION}}
+\index{ADC\_START\_CONVERSION@{ADC\_START\_CONVERSION}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_START\_CONVERSION}{ADC\_START\_CONVERSION}}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+C\+O\+N\+V\+E\+R\+S\+I\+ON~A\+D\+C\+S\+RA $\vert$=  1 $<$$<$ A\+D\+SC}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00136}{136}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_af9e0e953c89ab7376c44824ca2d5016c}\label{ha__m328p_8h_af9e0e953c89ab7376c44824ca2d5016c}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!ADC\_STOP\_CONVERSION@{ADC\_STOP\_CONVERSION}}
+\index{ADC\_STOP\_CONVERSION@{ADC\_STOP\_CONVERSION}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_STOP\_CONVERSION}{ADC\_STOP\_CONVERSION}}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+S\+T\+O\+P\+\_\+\+C\+O\+N\+V\+E\+R\+S\+I\+ON~A\+D\+C\+S\+RA \&= $\sim$(1 $<$$<$ A\+D\+SC)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00137}{137}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a2e84e4ba842d7af17e5c37f75fe19007}\label{ha__m328p_8h_a2e84e4ba842d7af17e5c37f75fe19007}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!EXT\_INT\_DISABLE\_INT0@{EXT\_INT\_DISABLE\_INT0}}
+\index{EXT\_INT\_DISABLE\_INT0@{EXT\_INT\_DISABLE\_INT0}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{EXT\_INT\_DISABLE\_INT0}{EXT\_INT\_DISABLE\_INT0}}
+{\footnotesize\ttfamily \#define E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+I\+N\+T0~E\+I\+M\+SK \&= $\sim$(1 $<$$<$ I\+N\+T0)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00159}{159}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a4fbbc483403ee2faedfc6462a4a7bdbf}\label{ha__m328p_8h_a4fbbc483403ee2faedfc6462a4a7bdbf}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!EXT\_INT\_DISABLE\_INT1@{EXT\_INT\_DISABLE\_INT1}}
+\index{EXT\_INT\_DISABLE\_INT1@{EXT\_INT\_DISABLE\_INT1}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{EXT\_INT\_DISABLE\_INT1}{EXT\_INT\_DISABLE\_INT1}}
+{\footnotesize\ttfamily \#define E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+I\+N\+T1~E\+I\+M\+SK \&= $\sim$(1 $<$$<$ I\+N\+T1)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00162}{162}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a5098ef144f9be388d07a8ece51e95c43}\label{ha__m328p_8h_a5098ef144f9be388d07a8ece51e95c43}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!EXT\_INT\_DISABLE\_PIN\_CHANGE\_INTERRUPT@{EXT\_INT\_DISABLE\_PIN\_CHANGE\_INTERRUPT}}
+\index{EXT\_INT\_DISABLE\_PIN\_CHANGE\_INTERRUPT@{EXT\_INT\_DISABLE\_PIN\_CHANGE\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{EXT\_INT\_DISABLE\_PIN\_CHANGE\_INTERRUPT}{EXT\_INT\_DISABLE\_PIN\_CHANGE\_INTERRUPT}}
+{\footnotesize\ttfamily \#define E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT(\begin{DoxyParamCaption}\item[{}]{pin\+Change\+Port }\end{DoxyParamCaption})~P\+C\+I\+CR \&= $\sim$(1 $<$$<$ pin\+Change\+Port)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00166}{166}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ad1a6d48f282eda7a5581bbcf9ffdaa26}\label{ha__m328p_8h_ad1a6d48f282eda7a5581bbcf9ffdaa26}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!EXT\_INT\_DISABLE\_PIN\_CHANGE\_MASK\_PORTB@{EXT\_INT\_DISABLE\_PIN\_CHANGE\_MASK\_PORTB}}
+\index{EXT\_INT\_DISABLE\_PIN\_CHANGE\_MASK\_PORTB@{EXT\_INT\_DISABLE\_PIN\_CHANGE\_MASK\_PORTB}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{EXT\_INT\_DISABLE\_PIN\_CHANGE\_MASK\_PORTB}{EXT\_INT\_DISABLE\_PIN\_CHANGE\_MASK\_PORTB}}
+{\footnotesize\ttfamily \#define E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+M\+A\+S\+K\+\_\+\+P\+O\+R\+TB(\begin{DoxyParamCaption}\item[{}]{pin\+Change\+Pin }\end{DoxyParamCaption})~P\+C\+M\+S\+K0 \&= $\sim$(1 $<$$<$ pin\+Change\+Pin)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00170}{170}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a3803f79800026cdba64c4d3c8853085e}\label{ha__m328p_8h_a3803f79800026cdba64c4d3c8853085e}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!EXT\_INT\_DISABLE\_PIN\_CHANGE\_MASK\_PORTC@{EXT\_INT\_DISABLE\_PIN\_CHANGE\_MASK\_PORTC}}
+\index{EXT\_INT\_DISABLE\_PIN\_CHANGE\_MASK\_PORTC@{EXT\_INT\_DISABLE\_PIN\_CHANGE\_MASK\_PORTC}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{EXT\_INT\_DISABLE\_PIN\_CHANGE\_MASK\_PORTC}{EXT\_INT\_DISABLE\_PIN\_CHANGE\_MASK\_PORTC}}
+{\footnotesize\ttfamily \#define E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+M\+A\+S\+K\+\_\+\+P\+O\+R\+TC(\begin{DoxyParamCaption}\item[{}]{pin\+Change\+Pin }\end{DoxyParamCaption})~P\+C\+M\+S\+K1 \&= $\sim$(1 $<$$<$ pin\+Change\+Pin)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00173}{173}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a6be1a55c0d424dabb6daf271361772cb}\label{ha__m328p_8h_a6be1a55c0d424dabb6daf271361772cb}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!EXT\_INT\_DISABLE\_PIN\_CHANGE\_MASK\_PORTD@{EXT\_INT\_DISABLE\_PIN\_CHANGE\_MASK\_PORTD}}
+\index{EXT\_INT\_DISABLE\_PIN\_CHANGE\_MASK\_PORTD@{EXT\_INT\_DISABLE\_PIN\_CHANGE\_MASK\_PORTD}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{EXT\_INT\_DISABLE\_PIN\_CHANGE\_MASK\_PORTD}{EXT\_INT\_DISABLE\_PIN\_CHANGE\_MASK\_PORTD}}
+{\footnotesize\ttfamily \#define E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+M\+A\+S\+K\+\_\+\+P\+O\+R\+TD(\begin{DoxyParamCaption}\item[{}]{pin\+Change\+Pin }\end{DoxyParamCaption})~P\+C\+M\+S\+K2 \&= $\sim$(1 $<$$<$ pin\+Change\+Pin)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00176}{176}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_aa904947319098d79c01ecab3886e54a3}\label{ha__m328p_8h_aa904947319098d79c01ecab3886e54a3}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!EXT\_INT\_ENABLE\_INT0@{EXT\_INT\_ENABLE\_INT0}}
+\index{EXT\_INT\_ENABLE\_INT0@{EXT\_INT\_ENABLE\_INT0}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{EXT\_INT\_ENABLE\_INT0}{EXT\_INT\_ENABLE\_INT0}}
+{\footnotesize\ttfamily \#define E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+I\+N\+T0~E\+I\+M\+SK $\vert$= 1 $<$$<$ I\+N\+T0}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00158}{158}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_aff9dc8b6a68427e1c2fb27df66b9ba28}\label{ha__m328p_8h_aff9dc8b6a68427e1c2fb27df66b9ba28}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!EXT\_INT\_ENABLE\_INT1@{EXT\_INT\_ENABLE\_INT1}}
+\index{EXT\_INT\_ENABLE\_INT1@{EXT\_INT\_ENABLE\_INT1}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{EXT\_INT\_ENABLE\_INT1}{EXT\_INT\_ENABLE\_INT1}}
+{\footnotesize\ttfamily \#define E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+I\+N\+T1~E\+I\+M\+SK $\vert$= 1 $<$$<$ I\+N\+T1}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00161}{161}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_aaf8929d2d1e493b7f5388ff8627af3b0}\label{ha__m328p_8h_aaf8929d2d1e493b7f5388ff8627af3b0}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!EXT\_INT\_ENABLE\_PIN\_CHANGE\_INTERRUPT@{EXT\_INT\_ENABLE\_PIN\_CHANGE\_INTERRUPT}}
+\index{EXT\_INT\_ENABLE\_PIN\_CHANGE\_INTERRUPT@{EXT\_INT\_ENABLE\_PIN\_CHANGE\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{EXT\_INT\_ENABLE\_PIN\_CHANGE\_INTERRUPT}{EXT\_INT\_ENABLE\_PIN\_CHANGE\_INTERRUPT}}
+{\footnotesize\ttfamily \#define E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT(\begin{DoxyParamCaption}\item[{}]{pin\+Change\+Port }\end{DoxyParamCaption})~P\+C\+I\+CR $\vert$= 1 $<$$<$ pin\+Change\+Port}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00165}{165}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a522af5e2a4fe5e71c9283db34a8f8429}\label{ha__m328p_8h_a522af5e2a4fe5e71c9283db34a8f8429}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTB@{EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTB}}
+\index{EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTB@{EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTB}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTB}{EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTB}}
+{\footnotesize\ttfamily \#define E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+M\+A\+S\+K\+\_\+\+P\+O\+R\+TB(\begin{DoxyParamCaption}\item[{}]{pin\+Change\+Pin }\end{DoxyParamCaption})~P\+C\+M\+S\+K0 $\vert$= 1 $<$$<$ pin\+Change\+Pin}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00169}{169}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ae12249a6b78c9f574fb8d6e1eb55d146}\label{ha__m328p_8h_ae12249a6b78c9f574fb8d6e1eb55d146}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTC@{EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTC}}
+\index{EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTC@{EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTC}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTC}{EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTC}}
+{\footnotesize\ttfamily \#define E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+M\+A\+S\+K\+\_\+\+P\+O\+R\+TC(\begin{DoxyParamCaption}\item[{}]{pin\+Change\+Pin }\end{DoxyParamCaption})~P\+C\+M\+S\+K1 $\vert$= 1 $<$$<$ pin\+Change\+Pin}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00172}{172}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a7ba26c1decfa5763d2f5042f8debeac0}\label{ha__m328p_8h_a7ba26c1decfa5763d2f5042f8debeac0}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTD@{EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTD}}
+\index{EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTD@{EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTD}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTD}{EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTD}}
+{\footnotesize\ttfamily \#define E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+M\+A\+S\+K\+\_\+\+P\+O\+R\+TD(\begin{DoxyParamCaption}\item[{}]{pin\+Change\+Pin }\end{DoxyParamCaption})~P\+C\+M\+S\+K2 $\vert$= 1 $<$$<$ pin\+Change\+Pin}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00175}{175}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a3c2c8ae3e28422e4d41a23cd4dd6488b}\label{ha__m328p_8h_a3c2c8ae3e28422e4d41a23cd4dd6488b}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!EXT\_INT\_INT0\_INTERRUPT@{EXT\_INT\_INT0\_INTERRUPT}}
+\index{EXT\_INT\_INT0\_INTERRUPT@{EXT\_INT\_INT0\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{EXT\_INT\_INT0\_INTERRUPT}{EXT\_INT\_INT0\_INTERRUPT}}
+{\footnotesize\ttfamily \#define E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+I\+N\+T0\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~I\+N\+T0\+\_\+vect}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00179}{179}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ad6ef64b224fcfa933b21fe670afe1271}\label{ha__m328p_8h_ad6ef64b224fcfa933b21fe670afe1271}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!EXT\_INT\_INT1\_INTERRUPT@{EXT\_INT\_INT1\_INTERRUPT}}
+\index{EXT\_INT\_INT1\_INTERRUPT@{EXT\_INT\_INT1\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{EXT\_INT\_INT1\_INTERRUPT}{EXT\_INT\_INT1\_INTERRUPT}}
+{\footnotesize\ttfamily \#define E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+I\+N\+T1\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~I\+N\+T1\+\_\+vect}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00180}{180}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a9dc1c259d6b1df0aba9a527ac6f9aa7e}\label{ha__m328p_8h_a9dc1c259d6b1df0aba9a527ac6f9aa7e}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!EXT\_INT\_PIN\_CHANGE\_PORTB\_INTERRUPT@{EXT\_INT\_PIN\_CHANGE\_PORTB\_INTERRUPT}}
+\index{EXT\_INT\_PIN\_CHANGE\_PORTB\_INTERRUPT@{EXT\_INT\_PIN\_CHANGE\_PORTB\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{EXT\_INT\_PIN\_CHANGE\_PORTB\_INTERRUPT}{EXT\_INT\_PIN\_CHANGE\_PORTB\_INTERRUPT}}
+{\footnotesize\ttfamily \#define E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+P\+O\+R\+T\+B\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~P\+C\+I\+N\+T0\+\_\+vect}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00182}{182}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ae36b704cc62d53089e66b683f51e6d99}\label{ha__m328p_8h_ae36b704cc62d53089e66b683f51e6d99}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!EXT\_INT\_PIN\_CHANGE\_PORTC\_INTERRUPT@{EXT\_INT\_PIN\_CHANGE\_PORTC\_INTERRUPT}}
+\index{EXT\_INT\_PIN\_CHANGE\_PORTC\_INTERRUPT@{EXT\_INT\_PIN\_CHANGE\_PORTC\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{EXT\_INT\_PIN\_CHANGE\_PORTC\_INTERRUPT}{EXT\_INT\_PIN\_CHANGE\_PORTC\_INTERRUPT}}
+{\footnotesize\ttfamily \#define E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+P\+O\+R\+T\+C\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~P\+C\+I\+N\+T1\+\_\+vect}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00183}{183}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a205d46a19607c93aa6a807b80fabcc71}\label{ha__m328p_8h_a205d46a19607c93aa6a807b80fabcc71}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!EXT\_INT\_PIN\_CHANGE\_PORTD\_INTERRUPT@{EXT\_INT\_PIN\_CHANGE\_PORTD\_INTERRUPT}}
+\index{EXT\_INT\_PIN\_CHANGE\_PORTD\_INTERRUPT@{EXT\_INT\_PIN\_CHANGE\_PORTD\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{EXT\_INT\_PIN\_CHANGE\_PORTD\_INTERRUPT}{EXT\_INT\_PIN\_CHANGE\_PORTD\_INTERRUPT}}
+{\footnotesize\ttfamily \#define E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+P\+I\+N\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+P\+O\+R\+T\+D\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~P\+C\+I\+N\+T2\+\_\+vect}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00184}{184}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a293ef234d030ae22ecbaacfadbedd8b6}\label{ha__m328p_8h_a293ef234d030ae22ecbaacfadbedd8b6}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!EXT\_INT\_SET\_INT0\_SENSE\_CONTROL@{EXT\_INT\_SET\_INT0\_SENSE\_CONTROL}}
+\index{EXT\_INT\_SET\_INT0\_SENSE\_CONTROL@{EXT\_INT\_SET\_INT0\_SENSE\_CONTROL}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{EXT\_INT\_SET\_INT0\_SENSE\_CONTROL}{EXT\_INT\_SET\_INT0\_SENSE\_CONTROL}}
+{\footnotesize\ttfamily \#define E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+S\+E\+T\+\_\+\+I\+N\+T0\+\_\+\+S\+E\+N\+S\+E\+\_\+\+C\+O\+N\+T\+R\+OL(\begin{DoxyParamCaption}\item[{}]{sense\+Control }\end{DoxyParamCaption})~E\+I\+C\+RA \&= 0x\+FC; E\+I\+C\+RA $\vert$= sense\+Control}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00155}{155}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_af7cbf6405655d1b9d3c782d0886b00c5}\label{ha__m328p_8h_af7cbf6405655d1b9d3c782d0886b00c5}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!EXT\_INT\_SET\_INT1\_SENSE\_CONTROL@{EXT\_INT\_SET\_INT1\_SENSE\_CONTROL}}
+\index{EXT\_INT\_SET\_INT1\_SENSE\_CONTROL@{EXT\_INT\_SET\_INT1\_SENSE\_CONTROL}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{EXT\_INT\_SET\_INT1\_SENSE\_CONTROL}{EXT\_INT\_SET\_INT1\_SENSE\_CONTROL}}
+{\footnotesize\ttfamily \#define E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+S\+E\+T\+\_\+\+I\+N\+T1\+\_\+\+S\+E\+N\+S\+E\+\_\+\+C\+O\+N\+T\+R\+OL(\begin{DoxyParamCaption}\item[{}]{sense\+Control }\end{DoxyParamCaption})~E\+I\+C\+RA \&= 0x\+F3; E\+I\+C\+RA $\vert$= sense\+Control}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00156}{156}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a28d68d000aca5c6c3096df826554a7a6}\label{ha__m328p_8h_a28d68d000aca5c6c3096df826554a7a6}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!MCU\_ADC\_DISABLE@{MCU\_ADC\_DISABLE}}
+\index{MCU\_ADC\_DISABLE@{MCU\_ADC\_DISABLE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{MCU\_ADC\_DISABLE}{MCU\_ADC\_DISABLE}}
+{\footnotesize\ttfamily \#define M\+C\+U\+\_\+\+A\+D\+C\+\_\+\+D\+I\+S\+A\+B\+LE~P\+RR $\vert$=  1 $<$$<$ P\+R\+A\+DC}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00286}{286}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a81fb3b799dacad5cb50116f6cae3dad9}\label{ha__m328p_8h_a81fb3b799dacad5cb50116f6cae3dad9}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!MCU\_ADC\_ENABLE@{MCU\_ADC\_ENABLE}}
+\index{MCU\_ADC\_ENABLE@{MCU\_ADC\_ENABLE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{MCU\_ADC\_ENABLE}{MCU\_ADC\_ENABLE}}
+{\footnotesize\ttfamily \#define M\+C\+U\+\_\+\+A\+D\+C\+\_\+\+E\+N\+A\+B\+LE~P\+RR \&= $\sim$(1 $<$$<$ P\+R\+A\+DC)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00285}{285}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ae0684a8ccbc099a87cd632f35547e395}\label{ha__m328p_8h_ae0684a8ccbc099a87cd632f35547e395}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!MCU\_BOD\_DISABLE@{MCU\_BOD\_DISABLE}}
+\index{MCU\_BOD\_DISABLE@{MCU\_BOD\_DISABLE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{MCU\_BOD\_DISABLE}{MCU\_BOD\_DISABLE}}
+{\footnotesize\ttfamily \#define M\+C\+U\+\_\+\+B\+O\+D\+\_\+\+D\+I\+S\+A\+B\+LE~M\+C\+U\+CR $\vert$= (1$<$$<$B\+O\+D\+SE) $\vert$ (1$<$$<$B\+O\+DS); M\+C\+U\+CR \&= $\sim$(1$<$$<$B\+O\+D\+SE);}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00288}{288}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a6a42022f022c03b9a82eaeb794fb87ef}\label{ha__m328p_8h_a6a42022f022c03b9a82eaeb794fb87ef}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!MCU\_SELECT\_SLEEP\_MODE@{MCU\_SELECT\_SLEEP\_MODE}}
+\index{MCU\_SELECT\_SLEEP\_MODE@{MCU\_SELECT\_SLEEP\_MODE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{MCU\_SELECT\_SLEEP\_MODE}{MCU\_SELECT\_SLEEP\_MODE}}
+{\footnotesize\ttfamily \#define M\+C\+U\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+S\+L\+E\+E\+P\+\_\+\+M\+O\+DE(\begin{DoxyParamCaption}\item[{}]{sleep\+Mode }\end{DoxyParamCaption})~S\+M\+CR \&= 0x\+F1; S\+M\+CR $\vert$= sleep\+Mode $<$$<$ 1}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00262}{262}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a50ed0f1b4160eeef2b3457452c1ba7dd}\label{ha__m328p_8h_a50ed0f1b4160eeef2b3457452c1ba7dd}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!MCU\_SLEEP\_DISABLE@{MCU\_SLEEP\_DISABLE}}
+\index{MCU\_SLEEP\_DISABLE@{MCU\_SLEEP\_DISABLE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{MCU\_SLEEP\_DISABLE}{MCU\_SLEEP\_DISABLE}}
+{\footnotesize\ttfamily \#define M\+C\+U\+\_\+\+S\+L\+E\+E\+P\+\_\+\+D\+I\+S\+A\+B\+LE~S\+M\+CR \&= $\sim$(1 $<$$<$ SE)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00265}{265}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a6787a75a5ec5301098f4a6a8cf930ffd}\label{ha__m328p_8h_a6787a75a5ec5301098f4a6a8cf930ffd}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!MCU\_SLEEP\_ENABLE@{MCU\_SLEEP\_ENABLE}}
+\index{MCU\_SLEEP\_ENABLE@{MCU\_SLEEP\_ENABLE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{MCU\_SLEEP\_ENABLE}{MCU\_SLEEP\_ENABLE}}
+{\footnotesize\ttfamily \#define M\+C\+U\+\_\+\+S\+L\+E\+E\+P\+\_\+\+E\+N\+A\+B\+LE~S\+M\+CR $\vert$=  1 $<$$<$ SE}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00264}{264}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_aed93e109e4d42a6e729fc86f7cb8f55d}\label{ha__m328p_8h_aed93e109e4d42a6e729fc86f7cb8f55d}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!MCU\_SPI\_DISABLE@{MCU\_SPI\_DISABLE}}
+\index{MCU\_SPI\_DISABLE@{MCU\_SPI\_DISABLE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{MCU\_SPI\_DISABLE}{MCU\_SPI\_DISABLE}}
+{\footnotesize\ttfamily \#define M\+C\+U\+\_\+\+S\+P\+I\+\_\+\+D\+I\+S\+A\+B\+LE~P\+RR $\vert$=  1 $<$$<$ P\+R\+S\+PI}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00280}{280}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a3c54bae3f972718bda180ce6cfc9105f}\label{ha__m328p_8h_a3c54bae3f972718bda180ce6cfc9105f}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!MCU\_SPI\_ENABLE@{MCU\_SPI\_ENABLE}}
+\index{MCU\_SPI\_ENABLE@{MCU\_SPI\_ENABLE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{MCU\_SPI\_ENABLE}{MCU\_SPI\_ENABLE}}
+{\footnotesize\ttfamily \#define M\+C\+U\+\_\+\+S\+P\+I\+\_\+\+E\+N\+A\+B\+LE~P\+RR \&= $\sim$(1 $<$$<$ P\+R\+S\+PI)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00279}{279}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a8c6793b752c27b0f5a5fced7a99528c2}\label{ha__m328p_8h_a8c6793b752c27b0f5a5fced7a99528c2}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!MCU\_TIMER0\_DISABLE@{MCU\_TIMER0\_DISABLE}}
+\index{MCU\_TIMER0\_DISABLE@{MCU\_TIMER0\_DISABLE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{MCU\_TIMER0\_DISABLE}{MCU\_TIMER0\_DISABLE}}
+{\footnotesize\ttfamily \#define M\+C\+U\+\_\+\+T\+I\+M\+E\+R0\+\_\+\+D\+I\+S\+A\+B\+LE~P\+RR $\vert$=  1 $<$$<$ P\+R\+T\+I\+M0}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00277}{277}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a656b6d3fa879a3851d9ee75a2a672008}\label{ha__m328p_8h_a656b6d3fa879a3851d9ee75a2a672008}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!MCU\_TIMER0\_ENABLE@{MCU\_TIMER0\_ENABLE}}
+\index{MCU\_TIMER0\_ENABLE@{MCU\_TIMER0\_ENABLE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{MCU\_TIMER0\_ENABLE}{MCU\_TIMER0\_ENABLE}}
+{\footnotesize\ttfamily \#define M\+C\+U\+\_\+\+T\+I\+M\+E\+R0\+\_\+\+E\+N\+A\+B\+LE~P\+RR \&= $\sim$(1 $<$$<$ P\+R\+T\+I\+M0)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00276}{276}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a95c9201d518e1efe700212293686a4ec}\label{ha__m328p_8h_a95c9201d518e1efe700212293686a4ec}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!MCU\_TIMER1\_DISABLE@{MCU\_TIMER1\_DISABLE}}
+\index{MCU\_TIMER1\_DISABLE@{MCU\_TIMER1\_DISABLE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{MCU\_TIMER1\_DISABLE}{MCU\_TIMER1\_DISABLE}}
+{\footnotesize\ttfamily \#define M\+C\+U\+\_\+\+T\+I\+M\+E\+R1\+\_\+\+D\+I\+S\+A\+B\+LE~P\+RR $\vert$=  1 $<$$<$ P\+R\+T\+I\+M1}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00274}{274}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a16b5ef4f67d6b4319785f8607680c48f}\label{ha__m328p_8h_a16b5ef4f67d6b4319785f8607680c48f}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!MCU\_TIMER1\_ENABLE@{MCU\_TIMER1\_ENABLE}}
+\index{MCU\_TIMER1\_ENABLE@{MCU\_TIMER1\_ENABLE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{MCU\_TIMER1\_ENABLE}{MCU\_TIMER1\_ENABLE}}
+{\footnotesize\ttfamily \#define M\+C\+U\+\_\+\+T\+I\+M\+E\+R1\+\_\+\+E\+N\+A\+B\+LE~P\+RR \&= $\sim$(1 $<$$<$ P\+R\+T\+I\+M1)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00273}{273}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_afc5eb0b697d8d0c5aa41f398d42a80ab}\label{ha__m328p_8h_afc5eb0b697d8d0c5aa41f398d42a80ab}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!MCU\_TIMER2\_DISABLE@{MCU\_TIMER2\_DISABLE}}
+\index{MCU\_TIMER2\_DISABLE@{MCU\_TIMER2\_DISABLE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{MCU\_TIMER2\_DISABLE}{MCU\_TIMER2\_DISABLE}}
+{\footnotesize\ttfamily \#define M\+C\+U\+\_\+\+T\+I\+M\+E\+R2\+\_\+\+D\+I\+S\+A\+B\+LE~P\+RR $\vert$=  1 $<$$<$ P\+R\+T\+I\+M2}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00271}{271}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a3793e6513884ba6a4593846a9a5d08cb}\label{ha__m328p_8h_a3793e6513884ba6a4593846a9a5d08cb}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!MCU\_TIMER2\_ENABLE@{MCU\_TIMER2\_ENABLE}}
+\index{MCU\_TIMER2\_ENABLE@{MCU\_TIMER2\_ENABLE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{MCU\_TIMER2\_ENABLE}{MCU\_TIMER2\_ENABLE}}
+{\footnotesize\ttfamily \#define M\+C\+U\+\_\+\+T\+I\+M\+E\+R2\+\_\+\+E\+N\+A\+B\+LE~P\+RR \&= $\sim$(1 $<$$<$ P\+R\+T\+I\+M2)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00270}{270}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a49a0215c9b0c5ba3623618fb324e4f48}\label{ha__m328p_8h_a49a0215c9b0c5ba3623618fb324e4f48}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!MCU\_TWI\_DISABLE@{MCU\_TWI\_DISABLE}}
+\index{MCU\_TWI\_DISABLE@{MCU\_TWI\_DISABLE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{MCU\_TWI\_DISABLE}{MCU\_TWI\_DISABLE}}
+{\footnotesize\ttfamily \#define M\+C\+U\+\_\+\+T\+W\+I\+\_\+\+D\+I\+S\+A\+B\+LE~P\+RR $\vert$=  1 $<$$<$ P\+R\+T\+WI}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00268}{268}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_af60aaa71682b22069da9ea48c7d1b625}\label{ha__m328p_8h_af60aaa71682b22069da9ea48c7d1b625}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!MCU\_TWI\_ENABLE@{MCU\_TWI\_ENABLE}}
+\index{MCU\_TWI\_ENABLE@{MCU\_TWI\_ENABLE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{MCU\_TWI\_ENABLE}{MCU\_TWI\_ENABLE}}
+{\footnotesize\ttfamily \#define M\+C\+U\+\_\+\+T\+W\+I\+\_\+\+E\+N\+A\+B\+LE~P\+RR \&= $\sim$(1 $<$$<$ P\+R\+T\+WI)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00267}{267}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_afca4fa6c1bfdb606900685f537637716}\label{ha__m328p_8h_afca4fa6c1bfdb606900685f537637716}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!MCU\_USART0\_DISABLE@{MCU\_USART0\_DISABLE}}
+\index{MCU\_USART0\_DISABLE@{MCU\_USART0\_DISABLE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{MCU\_USART0\_DISABLE}{MCU\_USART0\_DISABLE}}
+{\footnotesize\ttfamily \#define M\+C\+U\+\_\+\+U\+S\+A\+R\+T0\+\_\+\+D\+I\+S\+A\+B\+LE~P\+RR $\vert$=  1 $<$$<$ P\+R\+U\+S\+A\+R\+T0}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00283}{283}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ae196061044843a734d31aaf21afe24ef}\label{ha__m328p_8h_ae196061044843a734d31aaf21afe24ef}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!MCU\_USART0\_ENABLE@{MCU\_USART0\_ENABLE}}
+\index{MCU\_USART0\_ENABLE@{MCU\_USART0\_ENABLE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{MCU\_USART0\_ENABLE}{MCU\_USART0\_ENABLE}}
+{\footnotesize\ttfamily \#define M\+C\+U\+\_\+\+U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+LE~P\+RR \&= $\sim$(1 $<$$<$ P\+R\+U\+S\+A\+R\+T0)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00282}{282}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a3359959b78905acc2647e0367f6949f7}\label{ha__m328p_8h_a3359959b78905acc2647e0367f6949f7}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!PUSHBUTTON\_DEBOUNCE\_TIME\_US@{PUSHBUTTON\_DEBOUNCE\_TIME\_US}}
+\index{PUSHBUTTON\_DEBOUNCE\_TIME\_US@{PUSHBUTTON\_DEBOUNCE\_TIME\_US}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{PUSHBUTTON\_DEBOUNCE\_TIME\_US}{PUSHBUTTON\_DEBOUNCE\_TIME\_US}}
+{\footnotesize\ttfamily \#define P\+U\+S\+H\+B\+U\+T\+T\+O\+N\+\_\+\+D\+E\+B\+O\+U\+N\+C\+E\+\_\+\+T\+I\+M\+E\+\_\+\+US~1000}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00016}{16}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a11cd26b8a5fb523d3f6abed3da984d45}\label{ha__m328p_8h_a11cd26b8a5fb523d3f6abed3da984d45}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!PUSHBUTTON\_SAMPLING@{PUSHBUTTON\_SAMPLING}}
+\index{PUSHBUTTON\_SAMPLING@{PUSHBUTTON\_SAMPLING}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{PUSHBUTTON\_SAMPLING}{PUSHBUTTON\_SAMPLING}}
+{\footnotesize\ttfamily \#define P\+U\+S\+H\+B\+U\+T\+T\+O\+N\+\_\+\+S\+A\+M\+P\+L\+I\+NG~12}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00017}{17}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ac9712b0006fe45b09f1dfefaa8ed9b78}\label{ha__m328p_8h_ac9712b0006fe45b09f1dfefaa8ed9b78}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!SERVOMOTOR\_TIMER\_ANGLE\_COUNT@{SERVOMOTOR\_TIMER\_ANGLE\_COUNT}}
+\index{SERVOMOTOR\_TIMER\_ANGLE\_COUNT@{SERVOMOTOR\_TIMER\_ANGLE\_COUNT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{SERVOMOTOR\_TIMER\_ANGLE\_COUNT}{SERVOMOTOR\_TIMER\_ANGLE\_COUNT}}
+{\footnotesize\ttfamily \#define S\+E\+R\+V\+O\+M\+O\+T\+O\+R\+\_\+\+T\+I\+M\+E\+R\+\_\+\+A\+N\+G\+L\+E\+\_\+\+C\+O\+U\+NT(\begin{DoxyParamCaption}\item[{}]{angle,  }\item[{}]{out\+\_\+min,  }\item[{}]{out\+\_\+mid,  }\item[{}]{out\+\_\+max }\end{DoxyParamCaption})~(((out\+\_\+min$\ast$(angle -\/ 90L)$\ast$(angle -\/ 180L))/16200L + (angle$\ast$out\+\_\+max$\ast$(angle -\/ 90L))/16200L -\/ (angle$\ast$out\+\_\+mid$\ast$(angle -\/ 180L))/8100L))}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00295}{295}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ac06ca117a692a02dcd520cf0f44338d8}\label{ha__m328p_8h_ac06ca117a692a02dcd520cf0f44338d8}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!SERVOMOTOR\_TIMER\_PULSE\_WIDTH\_COUNT@{SERVOMOTOR\_TIMER\_PULSE\_WIDTH\_COUNT}}
+\index{SERVOMOTOR\_TIMER\_PULSE\_WIDTH\_COUNT@{SERVOMOTOR\_TIMER\_PULSE\_WIDTH\_COUNT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{SERVOMOTOR\_TIMER\_PULSE\_WIDTH\_COUNT}{SERVOMOTOR\_TIMER\_PULSE\_WIDTH\_COUNT}}
+{\footnotesize\ttfamily \#define S\+E\+R\+V\+O\+M\+O\+T\+O\+R\+\_\+\+T\+I\+M\+E\+R\+\_\+\+P\+U\+L\+S\+E\+\_\+\+W\+I\+D\+T\+H\+\_\+\+C\+O\+U\+NT(\begin{DoxyParamCaption}\item[{}]{pulse\+Width,  }\item[{}]{clock\+Prescaler }\end{DoxyParamCaption})~((F\+\_\+\+C\+PU/1000000\+UL) $\ast$ (pulse\+Width/ clock\+Prescaler))}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00293}{293}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a6d0d74da663be825a2ebd3e51f7d99e3}\label{ha__m328p_8h_a6d0d74da663be825a2ebd3e51f7d99e3}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!SPI\_CONTROL\_REGISTER@{SPI\_CONTROL\_REGISTER}}
+\index{SPI\_CONTROL\_REGISTER@{SPI\_CONTROL\_REGISTER}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_CONTROL\_REGISTER}{SPI\_CONTROL\_REGISTER}}
+{\footnotesize\ttfamily \#define S\+P\+I\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+R\+E\+G\+I\+S\+T\+ER~S\+P\+CR}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00313}{313}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_abbbfe9dac3695fd744030c475e5f2b69}\label{ha__m328p_8h_abbbfe9dac3695fd744030c475e5f2b69}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!SPI\_DATA\_REGISTER@{SPI\_DATA\_REGISTER}}
+\index{SPI\_DATA\_REGISTER@{SPI\_DATA\_REGISTER}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_DATA\_REGISTER}{SPI\_DATA\_REGISTER}}
+{\footnotesize\ttfamily \#define S\+P\+I\+\_\+\+D\+A\+T\+A\+\_\+\+R\+E\+G\+I\+S\+T\+ER~S\+P\+DR}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00314}{314}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a00174198073dadbaaad7f9475360b228}\label{ha__m328p_8h_a00174198073dadbaaad7f9475360b228}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!SPI\_DISABLE@{SPI\_DISABLE}}
+\index{SPI\_DISABLE@{SPI\_DISABLE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_DISABLE}{SPI\_DISABLE}}
+{\footnotesize\ttfamily \#define S\+P\+I\+\_\+\+D\+I\+S\+A\+B\+LE~S\+P\+CR \&= $\sim$(1 $<$$<$ S\+PE)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00300}{300}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ac1324d63fa393aff9ae3f9a75454f29b}\label{ha__m328p_8h_ac1324d63fa393aff9ae3f9a75454f29b}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!SPI\_DISABLE\_TRANSFER\_COMPLETE\_INTERRUPT@{SPI\_DISABLE\_TRANSFER\_COMPLETE\_INTERRUPT}}
+\index{SPI\_DISABLE\_TRANSFER\_COMPLETE\_INTERRUPT@{SPI\_DISABLE\_TRANSFER\_COMPLETE\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_DISABLE\_TRANSFER\_COMPLETE\_INTERRUPT}{SPI\_DISABLE\_TRANSFER\_COMPLETE\_INTERRUPT}}
+{\footnotesize\ttfamily \#define S\+P\+I\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~S\+P\+CR \&= $\sim$(1 $<$$<$ S\+P\+IE)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00318}{318}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a27537db92d0837cc77baa0d99b8cac48}\label{ha__m328p_8h_a27537db92d0837cc77baa0d99b8cac48}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!SPI\_ENABLE@{SPI\_ENABLE}}
+\index{SPI\_ENABLE@{SPI\_ENABLE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_ENABLE}{SPI\_ENABLE}}
+{\footnotesize\ttfamily \#define S\+P\+I\+\_\+\+E\+N\+A\+B\+LE~S\+P\+CR $\vert$=  1 $<$$<$ S\+PE}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00299}{299}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ad4e9e52218cc4591c50476d4eede023f}\label{ha__m328p_8h_ad4e9e52218cc4591c50476d4eede023f}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!SPI\_ENABLE\_TRANSFER\_COMPLETE\_INTERRUPT@{SPI\_ENABLE\_TRANSFER\_COMPLETE\_INTERRUPT}}
+\index{SPI\_ENABLE\_TRANSFER\_COMPLETE\_INTERRUPT@{SPI\_ENABLE\_TRANSFER\_COMPLETE\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_ENABLE\_TRANSFER\_COMPLETE\_INTERRUPT}{SPI\_ENABLE\_TRANSFER\_COMPLETE\_INTERRUPT}}
+{\footnotesize\ttfamily \#define S\+P\+I\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~S\+P\+CR $\vert$= 1 $<$$<$ S\+P\+IE}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00317}{317}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_acaf98f1876f8d084f0136bf7e8c2f8d4}\label{ha__m328p_8h_acaf98f1876f8d084f0136bf7e8c2f8d4}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!SPI\_MASTER\_MODE@{SPI\_MASTER\_MODE}}
+\index{SPI\_MASTER\_MODE@{SPI\_MASTER\_MODE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_MASTER\_MODE}{SPI\_MASTER\_MODE}}
+{\footnotesize\ttfamily \#define S\+P\+I\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+M\+O\+DE~M\+S\+TR}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00312}{312}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_aaefccf34ec6a079b84ae6e0efa9353ab}\label{ha__m328p_8h_aaefccf34ec6a079b84ae6e0efa9353ab}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!SPI\_SELECT\_CLOCK\_PRESCALER@{SPI\_SELECT\_CLOCK\_PRESCALER}}
+\index{SPI\_SELECT\_CLOCK\_PRESCALER@{SPI\_SELECT\_CLOCK\_PRESCALER}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_SELECT\_CLOCK\_PRESCALER}{SPI\_SELECT\_CLOCK\_PRESCALER}}
+{\footnotesize\ttfamily \#define S\+P\+I\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+L\+O\+C\+K\+\_\+\+P\+R\+E\+S\+C\+A\+L\+ER(\begin{DoxyParamCaption}\item[{}]{clock\+Prescaler }\end{DoxyParamCaption})~S\+P\+CR \&= 0x\+FC; S\+P\+CR $\vert$= (clock\+Prescaler \& 3); S\+P\+SR \&= 0x\+FE; S\+P\+SR $\vert$= (clock\+Prescaler \& 4) $>$$>$ 2}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00306}{306}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a3b4e206fd5c5956f301415b7bca8fce0}\label{ha__m328p_8h_a3b4e206fd5c5956f301415b7bca8fce0}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!SPI\_SELECT\_DATA\_MODE@{SPI\_SELECT\_DATA\_MODE}}
+\index{SPI\_SELECT\_DATA\_MODE@{SPI\_SELECT\_DATA\_MODE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_SELECT\_DATA\_MODE}{SPI\_SELECT\_DATA\_MODE}}
+{\footnotesize\ttfamily \#define S\+P\+I\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+D\+A\+T\+A\+\_\+\+M\+O\+DE(\begin{DoxyParamCaption}\item[{}]{data\+Mode }\end{DoxyParamCaption})~S\+P\+CR \&= 0x\+F3; S\+P\+CR $\vert$= data\+Mode $<$$<$ 2}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00305}{305}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a7e36bb343c2d15b61aeec1acebeb2dea}\label{ha__m328p_8h_a7e36bb343c2d15b61aeec1acebeb2dea}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!SPI\_SELECT\_DATA\_ORDER@{SPI\_SELECT\_DATA\_ORDER}}
+\index{SPI\_SELECT\_DATA\_ORDER@{SPI\_SELECT\_DATA\_ORDER}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_SELECT\_DATA\_ORDER}{SPI\_SELECT\_DATA\_ORDER}}
+{\footnotesize\ttfamily \#define S\+P\+I\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+D\+A\+T\+A\+\_\+\+O\+R\+D\+ER(\begin{DoxyParamCaption}\item[{}]{data\+Order }\end{DoxyParamCaption})~S\+P\+CR \&= 0x\+DF; S\+P\+CR $\vert$= data\+Order $<$$<$ 5}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00307}{307}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a2825dde8549bb908c1da677d405ead8a}\label{ha__m328p_8h_a2825dde8549bb908c1da677d405ead8a}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!SPI\_SELECT\_MASTER\_MODE@{SPI\_SELECT\_MASTER\_MODE}}
+\index{SPI\_SELECT\_MASTER\_MODE@{SPI\_SELECT\_MASTER\_MODE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_SELECT\_MASTER\_MODE}{SPI\_SELECT\_MASTER\_MODE}}
+{\footnotesize\ttfamily \#define S\+P\+I\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+M\+O\+DE~S\+P\+CR $\vert$=  1 $<$$<$ M\+S\+TR}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00301}{301}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a0f7bd9f496bd41eb7e56d11582b3f66f}\label{ha__m328p_8h_a0f7bd9f496bd41eb7e56d11582b3f66f}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!SPI\_SELECT\_SLAVE\_MODE@{SPI\_SELECT\_SLAVE\_MODE}}
+\index{SPI\_SELECT\_SLAVE\_MODE@{SPI\_SELECT\_SLAVE\_MODE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_SELECT\_SLAVE\_MODE}{SPI\_SELECT\_SLAVE\_MODE}}
+{\footnotesize\ttfamily \#define S\+P\+I\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+S\+L\+A\+V\+E\+\_\+\+M\+O\+DE~S\+P\+CR \&= $\sim$(1 $<$$<$ M\+S\+TR)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00302}{302}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a067a8bba4649b1f9ff77c3167a06fd10}\label{ha__m328p_8h_a067a8bba4649b1f9ff77c3167a06fd10}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!SPI\_STATUS\_REGISTER@{SPI\_STATUS\_REGISTER}}
+\index{SPI\_STATUS\_REGISTER@{SPI\_STATUS\_REGISTER}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_STATUS\_REGISTER}{SPI\_STATUS\_REGISTER}}
+{\footnotesize\ttfamily \#define S\+P\+I\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+E\+G\+I\+S\+T\+ER~S\+P\+SR}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00315}{315}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a885ef6c3501b46889642fddf58acb3f0}\label{ha__m328p_8h_a885ef6c3501b46889642fddf58acb3f0}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!SPI\_TRANSFER\_COMPLETE@{SPI\_TRANSFER\_COMPLETE}}
+\index{SPI\_TRANSFER\_COMPLETE@{SPI\_TRANSFER\_COMPLETE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_TRANSFER\_COMPLETE}{SPI\_TRANSFER\_COMPLETE}}
+{\footnotesize\ttfamily \#define S\+P\+I\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+C\+O\+M\+P\+L\+E\+TE~S\+P\+IF}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00310}{310}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a7c5bd5b0990e276b3bd7bfdd42f08aa4}\label{ha__m328p_8h_a7c5bd5b0990e276b3bd7bfdd42f08aa4}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!SPI\_TRANSFER\_COMPLETE\_INTERRUPT@{SPI\_TRANSFER\_COMPLETE\_INTERRUPT}}
+\index{SPI\_TRANSFER\_COMPLETE\_INTERRUPT@{SPI\_TRANSFER\_COMPLETE\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_TRANSFER\_COMPLETE\_INTERRUPT}{SPI\_TRANSFER\_COMPLETE\_INTERRUPT}}
+{\footnotesize\ttfamily \#define S\+P\+I\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~S\+P\+I\+\_\+\+S\+T\+C\+\_\+vect}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00321}{321}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a9001baca59487add854bcdee1df4b4b0}\label{ha__m328p_8h_a9001baca59487add854bcdee1df4b4b0}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!SPI\_WRITE\_COLLISION@{SPI\_WRITE\_COLLISION}}
+\index{SPI\_WRITE\_COLLISION@{SPI\_WRITE\_COLLISION}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_WRITE\_COLLISION}{SPI\_WRITE\_COLLISION}}
+{\footnotesize\ttfamily \#define S\+P\+I\+\_\+\+W\+R\+I\+T\+E\+\_\+\+C\+O\+L\+L\+I\+S\+I\+ON~W\+C\+OL}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00309}{309}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a2ee800929c88137a2c459e78d2431d25}\label{ha__m328p_8h_a2ee800929c88137a2c459e78d2431d25}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER0\_COM\_CHANNEL\_A\_INTERRUPT@{TIMER0\_COM\_CHANNEL\_A\_INTERRUPT}}
+\index{TIMER0\_COM\_CHANNEL\_A\_INTERRUPT@{TIMER0\_COM\_CHANNEL\_A\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER0\_COM\_CHANNEL\_A\_INTERRUPT}{TIMER0\_COM\_CHANNEL\_A\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R0\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+E\+R0\+\_\+\+C\+O\+M\+P\+A\+\_\+vect}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00239}{239}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_adf7f3a5df3d805ef260fbf0eff5553e4}\label{ha__m328p_8h_adf7f3a5df3d805ef260fbf0eff5553e4}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER0\_COM\_CHANNEL\_B\_INTERRUPT@{TIMER0\_COM\_CHANNEL\_B\_INTERRUPT}}
+\index{TIMER0\_COM\_CHANNEL\_B\_INTERRUPT@{TIMER0\_COM\_CHANNEL\_B\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER0\_COM\_CHANNEL\_B\_INTERRUPT}{TIMER0\_COM\_CHANNEL\_B\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R0\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+B\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+E\+R0\+\_\+\+C\+O\+M\+P\+B\+\_\+vect}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00240}{240}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ab5c460464add71a8105c1268c06bba33}\label{ha__m328p_8h_ab5c460464add71a8105c1268c06bba33}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER0\_DISABLE\_COM\_CHANNEL\_A\_INTERRUPT@{TIMER0\_DISABLE\_COM\_CHANNEL\_A\_INTERRUPT}}
+\index{TIMER0\_DISABLE\_COM\_CHANNEL\_A\_INTERRUPT@{TIMER0\_DISABLE\_COM\_CHANNEL\_A\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER0\_DISABLE\_COM\_CHANNEL\_A\_INTERRUPT}{TIMER0\_DISABLE\_COM\_CHANNEL\_A\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R0\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+S\+K0 \&= $\sim$(1 $<$$<$ O\+C\+I\+E0A)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00210}{210}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_abe492505e68ebc59e66e8f96c8851f64}\label{ha__m328p_8h_abe492505e68ebc59e66e8f96c8851f64}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER0\_DISABLE\_COM\_CHANNEL\_B\_INTERRUPT@{TIMER0\_DISABLE\_COM\_CHANNEL\_B\_INTERRUPT}}
+\index{TIMER0\_DISABLE\_COM\_CHANNEL\_B\_INTERRUPT@{TIMER0\_DISABLE\_COM\_CHANNEL\_B\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER0\_DISABLE\_COM\_CHANNEL\_B\_INTERRUPT}{TIMER0\_DISABLE\_COM\_CHANNEL\_B\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R0\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+B\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+S\+K0 \&= $\sim$(1 $<$$<$ O\+C\+I\+E0B)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00213}{213}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a1b22addfb3894baef12aebd10e0eea62}\label{ha__m328p_8h_a1b22addfb3894baef12aebd10e0eea62}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER0\_DISABLE\_OVERFLOW\_INTERRUPT@{TIMER0\_DISABLE\_OVERFLOW\_INTERRUPT}}
+\index{TIMER0\_DISABLE\_OVERFLOW\_INTERRUPT@{TIMER0\_DISABLE\_OVERFLOW\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER0\_DISABLE\_OVERFLOW\_INTERRUPT}{TIMER0\_DISABLE\_OVERFLOW\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R0\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+S\+K0 \&= $\sim$(1 $<$$<$ T\+O\+I\+E0)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00216}{216}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a8b2962adba0b332fa15157fa0a70b698}\label{ha__m328p_8h_a8b2962adba0b332fa15157fa0a70b698}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER0\_ENABLE\_COM\_CHANNEL\_A\_INTERRUPT@{TIMER0\_ENABLE\_COM\_CHANNEL\_A\_INTERRUPT}}
+\index{TIMER0\_ENABLE\_COM\_CHANNEL\_A\_INTERRUPT@{TIMER0\_ENABLE\_COM\_CHANNEL\_A\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER0\_ENABLE\_COM\_CHANNEL\_A\_INTERRUPT}{TIMER0\_ENABLE\_COM\_CHANNEL\_A\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+S\+K0 $\vert$=  1 $<$$<$ O\+C\+I\+E0A}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00209}{209}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a1d664566d43e78cd4b9292ce29a275d8}\label{ha__m328p_8h_a1d664566d43e78cd4b9292ce29a275d8}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER0\_ENABLE\_COM\_CHANNEL\_B\_INTERRUPT@{TIMER0\_ENABLE\_COM\_CHANNEL\_B\_INTERRUPT}}
+\index{TIMER0\_ENABLE\_COM\_CHANNEL\_B\_INTERRUPT@{TIMER0\_ENABLE\_COM\_CHANNEL\_B\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER0\_ENABLE\_COM\_CHANNEL\_B\_INTERRUPT}{TIMER0\_ENABLE\_COM\_CHANNEL\_B\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+B\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+S\+K0 $\vert$=  1 $<$$<$ O\+C\+I\+E0B}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00212}{212}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ae00558126f8d46ec9f97fc38f1a22699}\label{ha__m328p_8h_ae00558126f8d46ec9f97fc38f1a22699}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER0\_ENABLE\_OVERFLOW\_INTERRUPT@{TIMER0\_ENABLE\_OVERFLOW\_INTERRUPT}}
+\index{TIMER0\_ENABLE\_OVERFLOW\_INTERRUPT@{TIMER0\_ENABLE\_OVERFLOW\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER0\_ENABLE\_OVERFLOW\_INTERRUPT}{TIMER0\_ENABLE\_OVERFLOW\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+S\+K0 $\vert$=  1 $<$$<$ T\+O\+I\+E0}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00215}{215}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a84ea73f8d4f68d19a0b126337a5c0d94}\label{ha__m328p_8h_a84ea73f8d4f68d19a0b126337a5c0d94}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER0\_OVERFLOW\_INTERRUPT@{TIMER0\_OVERFLOW\_INTERRUPT}}
+\index{TIMER0\_OVERFLOW\_INTERRUPT@{TIMER0\_OVERFLOW\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER0\_OVERFLOW\_INTERRUPT}{TIMER0\_OVERFLOW\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R0\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+E\+R0\+\_\+\+O\+V\+F\+\_\+vect}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00241}{241}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_acbb5d2007fab14340dee5e63506eaddd}\label{ha__m328p_8h_acbb5d2007fab14340dee5e63506eaddd}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER0\_SELECT\_CLOCK\_SOURCE@{TIMER0\_SELECT\_CLOCK\_SOURCE}}
+\index{TIMER0\_SELECT\_CLOCK\_SOURCE@{TIMER0\_SELECT\_CLOCK\_SOURCE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER0\_SELECT\_CLOCK\_SOURCE}{TIMER0\_SELECT\_CLOCK\_SOURCE}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R0\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+CE(\begin{DoxyParamCaption}\item[{}]{clock\+Source }\end{DoxyParamCaption})~T\+C\+C\+R0B \&= 0x\+F8; T\+C\+C\+R0B $\vert$= clock\+Source}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00192}{192}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a699ba62171281602b953e44a7db8c06a}\label{ha__m328p_8h_a699ba62171281602b953e44a7db8c06a}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER0\_SELECT\_COM\_CHANNEL\_A@{TIMER0\_SELECT\_COM\_CHANNEL\_A}}
+\index{TIMER0\_SELECT\_COM\_CHANNEL\_A@{TIMER0\_SELECT\_COM\_CHANNEL\_A}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER0\_SELECT\_COM\_CHANNEL\_A}{TIMER0\_SELECT\_COM\_CHANNEL\_A}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R0\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+A(\begin{DoxyParamCaption}\item[{}]{compare\+Output\+Mode }\end{DoxyParamCaption})~T\+C\+C\+R0A \&= 0x3F; T\+C\+C\+R0A $\vert$= compare\+Output\+Mode $<$$<$ 6}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00200}{200}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ae948a76f8e1e36b9c41e5cb1b3208cda}\label{ha__m328p_8h_ae948a76f8e1e36b9c41e5cb1b3208cda}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER0\_SELECT\_COM\_CHANNEL\_B@{TIMER0\_SELECT\_COM\_CHANNEL\_B}}
+\index{TIMER0\_SELECT\_COM\_CHANNEL\_B@{TIMER0\_SELECT\_COM\_CHANNEL\_B}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER0\_SELECT\_COM\_CHANNEL\_B}{TIMER0\_SELECT\_COM\_CHANNEL\_B}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R0\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+B(\begin{DoxyParamCaption}\item[{}]{compare\+Output\+Mode }\end{DoxyParamCaption})~T\+C\+C\+R0A \&= 0x\+CF; T\+C\+C\+R0A $\vert$= compare\+Output\+Mode $<$$<$ 4}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00201}{201}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a8509885b7c83def201bba50e26b0a9be}\label{ha__m328p_8h_a8509885b7c83def201bba50e26b0a9be}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER0\_SELECT\_OPERATION\_MODE@{TIMER0\_SELECT\_OPERATION\_MODE}}
+\index{TIMER0\_SELECT\_OPERATION\_MODE@{TIMER0\_SELECT\_OPERATION\_MODE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER0\_SELECT\_OPERATION\_MODE}{TIMER0\_SELECT\_OPERATION\_MODE}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R0\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+\_\+\+M\+O\+DE(\begin{DoxyParamCaption}\item[{}]{operation\+Mode }\end{DoxyParamCaption})~T\+C\+C\+R0A \&= 0x\+FC; T\+C\+C\+R0A $\vert$= (operation\+Mode \& 3); T\+C\+C\+R0B \&= 0x\+F7; T\+C\+C\+R0B $\vert$= (operation\+Mode \& 12) $<$$<$ 1}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00196}{196}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a61d78875d88653be2b341c155f84c801}\label{ha__m328p_8h_a61d78875d88653be2b341c155f84c801}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER0\_STOP@{TIMER0\_STOP}}
+\index{TIMER0\_STOP@{TIMER0\_STOP}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER0\_STOP}{TIMER0\_STOP}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R0\+\_\+\+S\+T\+OP~T\+C\+C\+R0B \&= 0x\+F8}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00188}{188}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a856ba98941fa113b02f79fe74a377f70}\label{ha__m328p_8h_a856ba98941fa113b02f79fe74a377f70}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER1\_COM\_CHANNEL\_A\_INTERRUPT@{TIMER1\_COM\_CHANNEL\_A\_INTERRUPT}}
+\index{TIMER1\_COM\_CHANNEL\_A\_INTERRUPT@{TIMER1\_COM\_CHANNEL\_A\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER1\_COM\_CHANNEL\_A\_INTERRUPT}{TIMER1\_COM\_CHANNEL\_A\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R1\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+E\+R1\+\_\+\+C\+O\+M\+P\+A\+\_\+vect}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00243}{243}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ac154296cef80471ff783f4b807cc46fd}\label{ha__m328p_8h_ac154296cef80471ff783f4b807cc46fd}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER1\_COM\_CHANNEL\_B\_INTERRUPT@{TIMER1\_COM\_CHANNEL\_B\_INTERRUPT}}
+\index{TIMER1\_COM\_CHANNEL\_B\_INTERRUPT@{TIMER1\_COM\_CHANNEL\_B\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER1\_COM\_CHANNEL\_B\_INTERRUPT}{TIMER1\_COM\_CHANNEL\_B\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R1\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+B\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+E\+R1\+\_\+\+C\+O\+M\+P\+B\+\_\+vect}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00244}{244}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ad38a1b7cbb2769657eec9a9cbbcae4d1}\label{ha__m328p_8h_ad38a1b7cbb2769657eec9a9cbbcae4d1}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER1\_DISABLE\_COM\_CHANNEL\_A\_INTERRUPT@{TIMER1\_DISABLE\_COM\_CHANNEL\_A\_INTERRUPT}}
+\index{TIMER1\_DISABLE\_COM\_CHANNEL\_A\_INTERRUPT@{TIMER1\_DISABLE\_COM\_CHANNEL\_A\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER1\_DISABLE\_COM\_CHANNEL\_A\_INTERRUPT}{TIMER1\_DISABLE\_COM\_CHANNEL\_A\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R1\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+S\+K1 \&= $\sim$(1 $<$$<$ O\+C\+I\+E1A)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00219}{219}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a2b17161b4c48648ba86312de36309607}\label{ha__m328p_8h_a2b17161b4c48648ba86312de36309607}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER1\_DISABLE\_COM\_CHANNEL\_B\_INTERRUPT@{TIMER1\_DISABLE\_COM\_CHANNEL\_B\_INTERRUPT}}
+\index{TIMER1\_DISABLE\_COM\_CHANNEL\_B\_INTERRUPT@{TIMER1\_DISABLE\_COM\_CHANNEL\_B\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER1\_DISABLE\_COM\_CHANNEL\_B\_INTERRUPT}{TIMER1\_DISABLE\_COM\_CHANNEL\_B\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R1\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+B\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+S\+K1 \&= $\sim$(1 $<$$<$ O\+C\+I\+E1B)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00222}{222}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a7ebcec15236d84ef591ff241ecfc3a7b}\label{ha__m328p_8h_a7ebcec15236d84ef591ff241ecfc3a7b}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER1\_DISABLE\_INPUT\_CAPTURE\_INTERRUPT@{TIMER1\_DISABLE\_INPUT\_CAPTURE\_INTERRUPT}}
+\index{TIMER1\_DISABLE\_INPUT\_CAPTURE\_INTERRUPT@{TIMER1\_DISABLE\_INPUT\_CAPTURE\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER1\_DISABLE\_INPUT\_CAPTURE\_INTERRUPT}{TIMER1\_DISABLE\_INPUT\_CAPTURE\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R1\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+I\+N\+P\+U\+T\+\_\+\+C\+A\+P\+T\+U\+R\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+S\+K1 \&= $\sim$(1 $<$$<$ I\+C\+I\+E1)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00228}{228}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a9567d4eb612895726bb683b436870aac}\label{ha__m328p_8h_a9567d4eb612895726bb683b436870aac}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER1\_DISABLE\_OVERFLOW\_INTERRUPT@{TIMER1\_DISABLE\_OVERFLOW\_INTERRUPT}}
+\index{TIMER1\_DISABLE\_OVERFLOW\_INTERRUPT@{TIMER1\_DISABLE\_OVERFLOW\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER1\_DISABLE\_OVERFLOW\_INTERRUPT}{TIMER1\_DISABLE\_OVERFLOW\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R1\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+S\+K1 \&= $\sim$(1 $<$$<$ T\+O\+I\+E1)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00225}{225}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ab376fd307ffebc381e1f2f1316913fe1}\label{ha__m328p_8h_ab376fd307ffebc381e1f2f1316913fe1}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER1\_ENABLE\_COM\_CHANNEL\_A\_INTERRUPT@{TIMER1\_ENABLE\_COM\_CHANNEL\_A\_INTERRUPT}}
+\index{TIMER1\_ENABLE\_COM\_CHANNEL\_A\_INTERRUPT@{TIMER1\_ENABLE\_COM\_CHANNEL\_A\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER1\_ENABLE\_COM\_CHANNEL\_A\_INTERRUPT}{TIMER1\_ENABLE\_COM\_CHANNEL\_A\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R1\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+S\+K1 $\vert$=  1 $<$$<$ O\+C\+I\+E1A}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00218}{218}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_af89ac9e0e69841187cd7cf794be6770e}\label{ha__m328p_8h_af89ac9e0e69841187cd7cf794be6770e}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER1\_ENABLE\_COM\_CHANNEL\_B\_INTERRUPT@{TIMER1\_ENABLE\_COM\_CHANNEL\_B\_INTERRUPT}}
+\index{TIMER1\_ENABLE\_COM\_CHANNEL\_B\_INTERRUPT@{TIMER1\_ENABLE\_COM\_CHANNEL\_B\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER1\_ENABLE\_COM\_CHANNEL\_B\_INTERRUPT}{TIMER1\_ENABLE\_COM\_CHANNEL\_B\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R1\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+B\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+S\+K1 $\vert$=  1 $<$$<$ O\+C\+I\+E1B}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00221}{221}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a4c3debdaefcee597bf2e8bbc0d07db46}\label{ha__m328p_8h_a4c3debdaefcee597bf2e8bbc0d07db46}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER1\_ENABLE\_INPUT\_CAPTURE\_INTERRUPT@{TIMER1\_ENABLE\_INPUT\_CAPTURE\_INTERRUPT}}
+\index{TIMER1\_ENABLE\_INPUT\_CAPTURE\_INTERRUPT@{TIMER1\_ENABLE\_INPUT\_CAPTURE\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER1\_ENABLE\_INPUT\_CAPTURE\_INTERRUPT}{TIMER1\_ENABLE\_INPUT\_CAPTURE\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R1\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+I\+N\+P\+U\+T\+\_\+\+C\+A\+P\+T\+U\+R\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+S\+K1 $\vert$=  1 $<$$<$ I\+C\+I\+E1}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00227}{227}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ac6de15692a62db9168308a624ff3d76e}\label{ha__m328p_8h_ac6de15692a62db9168308a624ff3d76e}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER1\_ENABLE\_OVERFLOW\_INTERRUPT@{TIMER1\_ENABLE\_OVERFLOW\_INTERRUPT}}
+\index{TIMER1\_ENABLE\_OVERFLOW\_INTERRUPT@{TIMER1\_ENABLE\_OVERFLOW\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER1\_ENABLE\_OVERFLOW\_INTERRUPT}{TIMER1\_ENABLE\_OVERFLOW\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R1\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+S\+K1 $\vert$=  1 $<$$<$ T\+O\+I\+E1}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00224}{224}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a614a58a8f0241c4e3e81f43b6ac16071}\label{ha__m328p_8h_a614a58a8f0241c4e3e81f43b6ac16071}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER1\_INPUT\_CAPTURE\_INTERRUPT@{TIMER1\_INPUT\_CAPTURE\_INTERRUPT}}
+\index{TIMER1\_INPUT\_CAPTURE\_INTERRUPT@{TIMER1\_INPUT\_CAPTURE\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER1\_INPUT\_CAPTURE\_INTERRUPT}{TIMER1\_INPUT\_CAPTURE\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R1\+\_\+\+I\+N\+P\+U\+T\+\_\+\+C\+A\+P\+T\+U\+R\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+E\+R1\+\_\+\+C\+A\+P\+T\+\_\+vect}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00246}{246}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a331ad5505d95001c6c82e4297cb75275}\label{ha__m328p_8h_a331ad5505d95001c6c82e4297cb75275}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER1\_OVERFLOW\_INTERRUPT@{TIMER1\_OVERFLOW\_INTERRUPT}}
+\index{TIMER1\_OVERFLOW\_INTERRUPT@{TIMER1\_OVERFLOW\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER1\_OVERFLOW\_INTERRUPT}{TIMER1\_OVERFLOW\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R1\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+E\+R1\+\_\+\+O\+V\+F\+\_\+vect}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00245}{245}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_aba1494467305b44f1a632121a05930b8}\label{ha__m328p_8h_aba1494467305b44f1a632121a05930b8}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER1\_SELECT\_CLOCK\_SOURCE@{TIMER1\_SELECT\_CLOCK\_SOURCE}}
+\index{TIMER1\_SELECT\_CLOCK\_SOURCE@{TIMER1\_SELECT\_CLOCK\_SOURCE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER1\_SELECT\_CLOCK\_SOURCE}{TIMER1\_SELECT\_CLOCK\_SOURCE}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R1\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+CE(\begin{DoxyParamCaption}\item[{}]{clock\+Source }\end{DoxyParamCaption})~T\+C\+C\+R1B \&= 0x\+F8; T\+C\+C\+R1B $\vert$= clock\+Source}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00193}{193}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ae7723d4c5424f57e92a84ee6dd964def}\label{ha__m328p_8h_ae7723d4c5424f57e92a84ee6dd964def}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER1\_SELECT\_COM\_CHANNEL\_A@{TIMER1\_SELECT\_COM\_CHANNEL\_A}}
+\index{TIMER1\_SELECT\_COM\_CHANNEL\_A@{TIMER1\_SELECT\_COM\_CHANNEL\_A}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER1\_SELECT\_COM\_CHANNEL\_A}{TIMER1\_SELECT\_COM\_CHANNEL\_A}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R1\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+A(\begin{DoxyParamCaption}\item[{}]{compare\+Output\+Mode }\end{DoxyParamCaption})~T\+C\+C\+R1A \&= 0x3F; T\+C\+C\+R1A $\vert$= compare\+Output\+Mode $<$$<$ 6}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00203}{203}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a4fb65adc589348a65e6923ae810c72f0}\label{ha__m328p_8h_a4fb65adc589348a65e6923ae810c72f0}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER1\_SELECT\_COM\_CHANNEL\_B@{TIMER1\_SELECT\_COM\_CHANNEL\_B}}
+\index{TIMER1\_SELECT\_COM\_CHANNEL\_B@{TIMER1\_SELECT\_COM\_CHANNEL\_B}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER1\_SELECT\_COM\_CHANNEL\_B}{TIMER1\_SELECT\_COM\_CHANNEL\_B}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R1\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+B(\begin{DoxyParamCaption}\item[{}]{compare\+Output\+Mode }\end{DoxyParamCaption})~T\+C\+C\+R1A \&= 0x\+CF; T\+C\+C\+R1A $\vert$= compare\+Output\+Mode $<$$<$ 4}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00204}{204}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a253cb491631dd15d79b29c87847f1468}\label{ha__m328p_8h_a253cb491631dd15d79b29c87847f1468}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER1\_SELECT\_OPERATION\_MODE@{TIMER1\_SELECT\_OPERATION\_MODE}}
+\index{TIMER1\_SELECT\_OPERATION\_MODE@{TIMER1\_SELECT\_OPERATION\_MODE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER1\_SELECT\_OPERATION\_MODE}{TIMER1\_SELECT\_OPERATION\_MODE}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R1\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+\_\+\+M\+O\+DE(\begin{DoxyParamCaption}\item[{}]{operation\+Mode }\end{DoxyParamCaption})~T\+C\+C\+R1A \&= 0x\+FC; T\+C\+C\+R1A $\vert$= (operation\+Mode \& 3); T\+C\+C\+R1B \&= 0x\+E7; T\+C\+C\+R1B $\vert$= (operation\+Mode \& 12) $<$$<$ 1}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00197}{197}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_adb8423354f8164b55e4604a9353a3bda}\label{ha__m328p_8h_adb8423354f8164b55e4604a9353a3bda}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER1\_STOP@{TIMER1\_STOP}}
+\index{TIMER1\_STOP@{TIMER1\_STOP}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER1\_STOP}{TIMER1\_STOP}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R1\+\_\+\+S\+T\+OP~T\+C\+C\+R1B \&= 0x\+F8}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00189}{189}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_aa4f2a658e552d85ed82d6de3d1ebad71}\label{ha__m328p_8h_aa4f2a658e552d85ed82d6de3d1ebad71}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER2\_COM\_CHANNEL\_A\_INTERRUPT@{TIMER2\_COM\_CHANNEL\_A\_INTERRUPT}}
+\index{TIMER2\_COM\_CHANNEL\_A\_INTERRUPT@{TIMER2\_COM\_CHANNEL\_A\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER2\_COM\_CHANNEL\_A\_INTERRUPT}{TIMER2\_COM\_CHANNEL\_A\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R2\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+E\+R2\+\_\+\+C\+O\+M\+P\+A\+\_\+vect}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00248}{248}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ac187eca1eb867fc1e90a035afa9fb3a8}\label{ha__m328p_8h_ac187eca1eb867fc1e90a035afa9fb3a8}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER2\_COM\_CHANNEL\_B\_INTERRUPT@{TIMER2\_COM\_CHANNEL\_B\_INTERRUPT}}
+\index{TIMER2\_COM\_CHANNEL\_B\_INTERRUPT@{TIMER2\_COM\_CHANNEL\_B\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER2\_COM\_CHANNEL\_B\_INTERRUPT}{TIMER2\_COM\_CHANNEL\_B\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R2\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+B\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+E\+R2\+\_\+\+C\+O\+M\+P\+B\+\_\+vect}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00249}{249}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a2cc36f1fc9fbb654c059fd2ff58b6f10}\label{ha__m328p_8h_a2cc36f1fc9fbb654c059fd2ff58b6f10}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER2\_DISABLE\_COM\_CHANNEL\_A\_INTERRUPT@{TIMER2\_DISABLE\_COM\_CHANNEL\_A\_INTERRUPT}}
+\index{TIMER2\_DISABLE\_COM\_CHANNEL\_A\_INTERRUPT@{TIMER2\_DISABLE\_COM\_CHANNEL\_A\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER2\_DISABLE\_COM\_CHANNEL\_A\_INTERRUPT}{TIMER2\_DISABLE\_COM\_CHANNEL\_A\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R2\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+S\+K2 \&= $\sim$(1 $<$$<$ O\+C\+I\+E2A)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00231}{231}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a8ad2d4806b9cf07c0df894e29c35b492}\label{ha__m328p_8h_a8ad2d4806b9cf07c0df894e29c35b492}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER2\_DISABLE\_COM\_CHANNEL\_B\_INTERRUPT@{TIMER2\_DISABLE\_COM\_CHANNEL\_B\_INTERRUPT}}
+\index{TIMER2\_DISABLE\_COM\_CHANNEL\_B\_INTERRUPT@{TIMER2\_DISABLE\_COM\_CHANNEL\_B\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER2\_DISABLE\_COM\_CHANNEL\_B\_INTERRUPT}{TIMER2\_DISABLE\_COM\_CHANNEL\_B\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R2\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+B\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+S\+K2 \&= $\sim$(1 $<$$<$ O\+C\+I\+E2B)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00234}{234}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_aa8b792e1d53b1fcd905da5738c185f47}\label{ha__m328p_8h_aa8b792e1d53b1fcd905da5738c185f47}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER2\_DISABLE\_OVERFLOW\_INTERRUPT@{TIMER2\_DISABLE\_OVERFLOW\_INTERRUPT}}
+\index{TIMER2\_DISABLE\_OVERFLOW\_INTERRUPT@{TIMER2\_DISABLE\_OVERFLOW\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER2\_DISABLE\_OVERFLOW\_INTERRUPT}{TIMER2\_DISABLE\_OVERFLOW\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R2\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+S\+K2 \&= $\sim$(1 $<$$<$ T\+O\+I\+E2)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00237}{237}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a3f47776fa54c4f47d81cebce11e12041}\label{ha__m328p_8h_a3f47776fa54c4f47d81cebce11e12041}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER2\_ENABLE\_COM\_CHANNEL\_A\_INTERRUPT@{TIMER2\_ENABLE\_COM\_CHANNEL\_A\_INTERRUPT}}
+\index{TIMER2\_ENABLE\_COM\_CHANNEL\_A\_INTERRUPT@{TIMER2\_ENABLE\_COM\_CHANNEL\_A\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER2\_ENABLE\_COM\_CHANNEL\_A\_INTERRUPT}{TIMER2\_ENABLE\_COM\_CHANNEL\_A\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R2\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+S\+K2 $\vert$=  1 $<$$<$ O\+C\+I\+E2A}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00230}{230}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ac0304490eea11d5d34a19ee9d46281ad}\label{ha__m328p_8h_ac0304490eea11d5d34a19ee9d46281ad}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER2\_ENABLE\_COM\_CHANNEL\_B\_INTERRUPT@{TIMER2\_ENABLE\_COM\_CHANNEL\_B\_INTERRUPT}}
+\index{TIMER2\_ENABLE\_COM\_CHANNEL\_B\_INTERRUPT@{TIMER2\_ENABLE\_COM\_CHANNEL\_B\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER2\_ENABLE\_COM\_CHANNEL\_B\_INTERRUPT}{TIMER2\_ENABLE\_COM\_CHANNEL\_B\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R2\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+B\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+S\+K2 $\vert$=  1 $<$$<$ O\+C\+I\+E2B}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00233}{233}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_af4ab09d406cf0989a95c67d6a6134829}\label{ha__m328p_8h_af4ab09d406cf0989a95c67d6a6134829}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER2\_ENABLE\_OVERFLOW\_INTERRUPT@{TIMER2\_ENABLE\_OVERFLOW\_INTERRUPT}}
+\index{TIMER2\_ENABLE\_OVERFLOW\_INTERRUPT@{TIMER2\_ENABLE\_OVERFLOW\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER2\_ENABLE\_OVERFLOW\_INTERRUPT}{TIMER2\_ENABLE\_OVERFLOW\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R2\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+S\+K2 $\vert$=  1 $<$$<$ T\+O\+I\+E2}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00236}{236}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_aacfa1d5e58197c3686d626618591a2d0}\label{ha__m328p_8h_aacfa1d5e58197c3686d626618591a2d0}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER2\_OVERFLOW\_INTERRUPT@{TIMER2\_OVERFLOW\_INTERRUPT}}
+\index{TIMER2\_OVERFLOW\_INTERRUPT@{TIMER2\_OVERFLOW\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER2\_OVERFLOW\_INTERRUPT}{TIMER2\_OVERFLOW\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R2\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~T\+I\+M\+E\+R2\+\_\+\+O\+V\+F\+\_\+vect}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00250}{250}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a4c23789dfe90f4cda983cd7a934037f2}\label{ha__m328p_8h_a4c23789dfe90f4cda983cd7a934037f2}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER2\_SELECT\_CLOCK\_SOURCE@{TIMER2\_SELECT\_CLOCK\_SOURCE}}
+\index{TIMER2\_SELECT\_CLOCK\_SOURCE@{TIMER2\_SELECT\_CLOCK\_SOURCE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER2\_SELECT\_CLOCK\_SOURCE}{TIMER2\_SELECT\_CLOCK\_SOURCE}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R2\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+CE(\begin{DoxyParamCaption}\item[{}]{clock\+Source }\end{DoxyParamCaption})~T\+C\+C\+R2B \&= 0x\+F8; T\+C\+C\+R2B $\vert$= clock\+Source}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00194}{194}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a8ff17dc8b5a917399ebe8aa4fda83433}\label{ha__m328p_8h_a8ff17dc8b5a917399ebe8aa4fda83433}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER2\_SELECT\_COM\_CHANNEL\_A@{TIMER2\_SELECT\_COM\_CHANNEL\_A}}
+\index{TIMER2\_SELECT\_COM\_CHANNEL\_A@{TIMER2\_SELECT\_COM\_CHANNEL\_A}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER2\_SELECT\_COM\_CHANNEL\_A}{TIMER2\_SELECT\_COM\_CHANNEL\_A}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R2\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+A(\begin{DoxyParamCaption}\item[{}]{compare\+Output\+Mode }\end{DoxyParamCaption})~T\+C\+C\+R2A \&= 0x3F; T\+C\+C\+R2A $\vert$= compare\+Output\+Mode $<$$<$ 6}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00206}{206}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_aeb6f12e7e7f132e9fb49856f00deae27}\label{ha__m328p_8h_aeb6f12e7e7f132e9fb49856f00deae27}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER2\_SELECT\_COM\_CHANNEL\_B@{TIMER2\_SELECT\_COM\_CHANNEL\_B}}
+\index{TIMER2\_SELECT\_COM\_CHANNEL\_B@{TIMER2\_SELECT\_COM\_CHANNEL\_B}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER2\_SELECT\_COM\_CHANNEL\_B}{TIMER2\_SELECT\_COM\_CHANNEL\_B}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R2\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+O\+M\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+B(\begin{DoxyParamCaption}\item[{}]{compare\+Output\+Mode }\end{DoxyParamCaption})~T\+C\+C\+R2A \&= 0x\+CF; T\+C\+C\+R2A $\vert$= compare\+Output\+Mode $<$$<$ 4}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00207}{207}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a9c565dc6c762804ed50f0326151e87bd}\label{ha__m328p_8h_a9c565dc6c762804ed50f0326151e87bd}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER2\_SELECT\_OPERATION\_MODE@{TIMER2\_SELECT\_OPERATION\_MODE}}
+\index{TIMER2\_SELECT\_OPERATION\_MODE@{TIMER2\_SELECT\_OPERATION\_MODE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER2\_SELECT\_OPERATION\_MODE}{TIMER2\_SELECT\_OPERATION\_MODE}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R2\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+\_\+\+M\+O\+DE(\begin{DoxyParamCaption}\item[{}]{operation\+Mode }\end{DoxyParamCaption})~T\+C\+C\+R2A \&= 0x\+FC; T\+C\+C\+R2A $\vert$= (operation\+Mode \& 3); T\+C\+C\+R2B \&= 0x\+F7; T\+C\+C\+R2B $\vert$= (operation\+Mode \& 12) $<$$<$ 1}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00198}{198}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_af5d70ff1d14c996dabaa2469a8cb19c6}\label{ha__m328p_8h_af5d70ff1d14c996dabaa2469a8cb19c6}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!TIMER2\_STOP@{TIMER2\_STOP}}
+\index{TIMER2\_STOP@{TIMER2\_STOP}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{TIMER2\_STOP}{TIMER2\_STOP}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R2\+\_\+\+S\+T\+OP~T\+C\+C\+R2B \&= 0x\+F8}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00190}{190}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_aed6b4777897350e7993e5b1c49d05bfc}\label{ha__m328p_8h_aed6b4777897350e7993e5b1c49d05bfc}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_CONTROL\_STATUS\_REGISTER@{USART0\_CONTROL\_STATUS\_REGISTER}}
+\index{USART0\_CONTROL\_STATUS\_REGISTER@{USART0\_CONTROL\_STATUS\_REGISTER}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_CONTROL\_STATUS\_REGISTER}{USART0\_CONTROL\_STATUS\_REGISTER}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+E\+G\+I\+S\+T\+ER~U\+C\+S\+R0A}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00091}{91}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a0d79b84765d7970b0517138435ece61c}\label{ha__m328p_8h_a0d79b84765d7970b0517138435ece61c}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_DATA\_OVERRUN@{USART0\_DATA\_OVERRUN}}
+\index{USART0\_DATA\_OVERRUN@{USART0\_DATA\_OVERRUN}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_DATA\_OVERRUN}{USART0\_DATA\_OVERRUN}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+D\+A\+T\+A\+\_\+\+O\+V\+E\+R\+R\+UN~D\+O\+R0}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00099}{99}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ab7f4af91c7a7445e2b7868b18e4bd7f1}\label{ha__m328p_8h_ab7f4af91c7a7445e2b7868b18e4bd7f1}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_DATA\_REGISTER@{USART0\_DATA\_REGISTER}}
+\index{USART0\_DATA\_REGISTER@{USART0\_DATA\_REGISTER}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_DATA\_REGISTER}{USART0\_DATA\_REGISTER}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+D\+A\+T\+A\+\_\+\+R\+E\+G\+I\+S\+T\+ER~U\+D\+R0}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00092}{92}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a4a3f17a1e26e0f1ca39f335be1b15c0b}\label{ha__m328p_8h_a4a3f17a1e26e0f1ca39f335be1b15c0b}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_DATA\_REGISTER\_EMPTY\_INTERRUPT@{USART0\_DATA\_REGISTER\_EMPTY\_INTERRUPT}}
+\index{USART0\_DATA\_REGISTER\_EMPTY\_INTERRUPT@{USART0\_DATA\_REGISTER\_EMPTY\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_DATA\_REGISTER\_EMPTY\_INTERRUPT}{USART0\_DATA\_REGISTER\_EMPTY\_INTERRUPT}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+D\+A\+T\+A\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+\+E\+M\+P\+T\+Y\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~U\+S\+A\+R\+T\+\_\+\+U\+D\+R\+E\+\_\+vect}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00119}{119}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a827fb09c74eff8444e84a8b73e85525b}\label{ha__m328p_8h_a827fb09c74eff8444e84a8b73e85525b}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_DISABLE\_DATA\_REGISTER\_EMPTY\_INTERRUPT@{USART0\_DISABLE\_DATA\_REGISTER\_EMPTY\_INTERRUPT}}
+\index{USART0\_DISABLE\_DATA\_REGISTER\_EMPTY\_INTERRUPT@{USART0\_DISABLE\_DATA\_REGISTER\_EMPTY\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_DISABLE\_DATA\_REGISTER\_EMPTY\_INTERRUPT}{USART0\_DISABLE\_DATA\_REGISTER\_EMPTY\_INTERRUPT}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+D\+A\+T\+A\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+\+E\+M\+P\+T\+Y\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~U\+C\+S\+R0B \&= $\sim$(1 $<$$<$ U\+D\+R\+I\+E0)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00105}{105}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a0f1134791392fafed3bb3f3cbc59a3e6}\label{ha__m328p_8h_a0f1134791392fafed3bb3f3cbc59a3e6}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_DISABLE\_DOUBLE\_SPEED\_MODE@{USART0\_DISABLE\_DOUBLE\_SPEED\_MODE}}
+\index{USART0\_DISABLE\_DOUBLE\_SPEED\_MODE@{USART0\_DISABLE\_DOUBLE\_SPEED\_MODE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_DISABLE\_DOUBLE\_SPEED\_MODE}{USART0\_DISABLE\_DOUBLE\_SPEED\_MODE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+D\+O\+U\+B\+L\+E\+\_\+\+S\+P\+E\+E\+D\+\_\+\+M\+O\+DE}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00040}{40}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a0f1134791392fafed3bb3f3cbc59a3e6}\label{ha__m328p_8h_a0f1134791392fafed3bb3f3cbc59a3e6}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_DISABLE\_DOUBLE\_SPEED\_MODE@{USART0\_DISABLE\_DOUBLE\_SPEED\_MODE}}
+\index{USART0\_DISABLE\_DOUBLE\_SPEED\_MODE@{USART0\_DISABLE\_DOUBLE\_SPEED\_MODE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_DISABLE\_DOUBLE\_SPEED\_MODE}{USART0\_DISABLE\_DOUBLE\_SPEED\_MODE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+D\+O\+U\+B\+L\+E\+\_\+\+S\+P\+E\+E\+D\+\_\+\+M\+O\+DE~U\+C\+S\+R0A \&= $\sim$(1 $<$$<$ U2\+X0)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00040}{40}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_aa25afe8b4e8e08f889fe634c4860fb8c}\label{ha__m328p_8h_aa25afe8b4e8e08f889fe634c4860fb8c}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_DISABLE\_PARITY\_MODE@{USART0\_DISABLE\_PARITY\_MODE}}
+\index{USART0\_DISABLE\_PARITY\_MODE@{USART0\_DISABLE\_PARITY\_MODE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_DISABLE\_PARITY\_MODE}{USART0\_DISABLE\_PARITY\_MODE}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+M\+O\+DE~U\+C\+S\+R0C \&= $\sim$((1 $<$$<$ U\+P\+M01) $\vert$ (1 $<$$<$ U\+P\+M00))}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00045}{45}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a4307da1bc4fb9d77aa9e88b218f8a3ea}\label{ha__m328p_8h_a4307da1bc4fb9d77aa9e88b218f8a3ea}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_DISABLE\_RECEIVE\_COMPLETE\_INTERRUPT@{USART0\_DISABLE\_RECEIVE\_COMPLETE\_INTERRUPT}}
+\index{USART0\_DISABLE\_RECEIVE\_COMPLETE\_INTERRUPT@{USART0\_DISABLE\_RECEIVE\_COMPLETE\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_DISABLE\_RECEIVE\_COMPLETE\_INTERRUPT}{USART0\_DISABLE\_RECEIVE\_COMPLETE\_INTERRUPT}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~U\+C\+S\+R0B \&= $\sim$(1 $<$$<$ R\+X\+C\+I\+E0)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00108}{108}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a982ecd4479c68967c512ce377f77bd68}\label{ha__m328p_8h_a982ecd4479c68967c512ce377f77bd68}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_DISABLE\_RECEIVER@{USART0\_DISABLE\_RECEIVER}}
+\index{USART0\_DISABLE\_RECEIVER@{USART0\_DISABLE\_RECEIVER}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_DISABLE\_RECEIVER}{USART0\_DISABLE\_RECEIVER}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+R\+E\+C\+E\+I\+V\+ER~U\+C\+S\+R0B \&= $\sim$(1 $<$$<$ R\+X\+E\+N0)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00087}{87}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a79bcc04303d8c9d147b72b94b05c0750}\label{ha__m328p_8h_a79bcc04303d8c9d147b72b94b05c0750}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_DISABLE\_TRANSMIT\_COMPLETE\_INTERRUPT@{USART0\_DISABLE\_TRANSMIT\_COMPLETE\_INTERRUPT}}
+\index{USART0\_DISABLE\_TRANSMIT\_COMPLETE\_INTERRUPT@{USART0\_DISABLE\_TRANSMIT\_COMPLETE\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_DISABLE\_TRANSMIT\_COMPLETE\_INTERRUPT}{USART0\_DISABLE\_TRANSMIT\_COMPLETE\_INTERRUPT}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+T\+R\+A\+N\+S\+M\+I\+T\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~U\+C\+S\+R0B \&= $\sim$(1 $<$$<$ T\+X\+C\+I\+E0)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00111}{111}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a2f08394b86a3171d29fd04dcb01d99ad}\label{ha__m328p_8h_a2f08394b86a3171d29fd04dcb01d99ad}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_DISABLE\_TRANSMITTER@{USART0\_DISABLE\_TRANSMITTER}}
+\index{USART0\_DISABLE\_TRANSMITTER@{USART0\_DISABLE\_TRANSMITTER}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_DISABLE\_TRANSMITTER}{USART0\_DISABLE\_TRANSMITTER}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+T\+R\+A\+N\+S\+M\+I\+T\+T\+ER~U\+C\+S\+R0B \&= $\sim$(1 $<$$<$ T\+X\+E\+N0)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00082}{82}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ab061740cebeb64e894809d3fd7721a14}\label{ha__m328p_8h_ab061740cebeb64e894809d3fd7721a14}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_ENABLE\_ASYNC\_TRANSMISSION\_MODE@{USART0\_ENABLE\_ASYNC\_TRANSMISSION\_MODE}}
+\index{USART0\_ENABLE\_ASYNC\_TRANSMISSION\_MODE@{USART0\_ENABLE\_ASYNC\_TRANSMISSION\_MODE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_ENABLE\_ASYNC\_TRANSMISSION\_MODE}{USART0\_ENABLE\_ASYNC\_TRANSMISSION\_MODE}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+T\+R\+A\+N\+S\+M\+I\+S\+S\+I\+O\+N\+\_\+\+M\+O\+DE~U\+C\+S\+R0C \&= $\sim$((1 $<$$<$ U\+M\+S\+E\+L01) $\vert$ (1 $<$$<$ U\+M\+S\+E\+L00))}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00026}{26}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a3b266cb5a1688cbbb198d7f023f1411a}\label{ha__m328p_8h_a3b266cb5a1688cbbb198d7f023f1411a}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_ENABLE\_DATA\_REGISTER\_EMPTY\_INTERRUPT@{USART0\_ENABLE\_DATA\_REGISTER\_EMPTY\_INTERRUPT}}
+\index{USART0\_ENABLE\_DATA\_REGISTER\_EMPTY\_INTERRUPT@{USART0\_ENABLE\_DATA\_REGISTER\_EMPTY\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_ENABLE\_DATA\_REGISTER\_EMPTY\_INTERRUPT}{USART0\_ENABLE\_DATA\_REGISTER\_EMPTY\_INTERRUPT}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+D\+A\+T\+A\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+\+E\+M\+P\+T\+Y\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~U\+C\+S\+R0B $\vert$=   1 $<$$<$ U\+D\+R\+I\+E0}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00104}{104}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ab21a3211694bb84a2f70de2792d609aa}\label{ha__m328p_8h_ab21a3211694bb84a2f70de2792d609aa}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_ENABLE\_DOUBLE\_SPEED\_MODE@{USART0\_ENABLE\_DOUBLE\_SPEED\_MODE}}
+\index{USART0\_ENABLE\_DOUBLE\_SPEED\_MODE@{USART0\_ENABLE\_DOUBLE\_SPEED\_MODE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_ENABLE\_DOUBLE\_SPEED\_MODE}{USART0\_ENABLE\_DOUBLE\_SPEED\_MODE}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+D\+O\+U\+B\+L\+E\+\_\+\+S\+P\+E\+E\+D\+\_\+\+M\+O\+DE}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00031}{31}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a40d3b61f90cc579ed696e3aa06042645}\label{ha__m328p_8h_a40d3b61f90cc579ed696e3aa06042645}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_ENABLE\_EVEN\_PARITY\_MODE@{USART0\_ENABLE\_EVEN\_PARITY\_MODE}}
+\index{USART0\_ENABLE\_EVEN\_PARITY\_MODE@{USART0\_ENABLE\_EVEN\_PARITY\_MODE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_ENABLE\_EVEN\_PARITY\_MODE}{USART0\_ENABLE\_EVEN\_PARITY\_MODE}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+E\+V\+E\+N\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+M\+O\+DE~U\+C\+S\+R0C = (1 $<$$<$ U\+P\+M01) $\vert$ (U\+C\+S\+R0C \& $\sim$(1 $<$$<$ U\+P\+M00))}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00043}{43}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a699e9bbe70496f1b89161babd02352d5}\label{ha__m328p_8h_a699e9bbe70496f1b89161babd02352d5}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_ENABLE\_MASTER\_SPI\_MODE@{USART0\_ENABLE\_MASTER\_SPI\_MODE}}
+\index{USART0\_ENABLE\_MASTER\_SPI\_MODE@{USART0\_ENABLE\_MASTER\_SPI\_MODE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_ENABLE\_MASTER\_SPI\_MODE}{USART0\_ENABLE\_MASTER\_SPI\_MODE}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+S\+P\+I\+\_\+\+M\+O\+DE~U\+C\+S\+R0C $\vert$= (1 $<$$<$ U\+M\+S\+E\+L01) $\vert$ (1 $<$$<$ U\+M\+S\+E\+L00)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00028}{28}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_aa60d7f6a4d46ba98102e3ae6e9f6d5c6}\label{ha__m328p_8h_aa60d7f6a4d46ba98102e3ae6e9f6d5c6}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_ENABLE\_ODD\_PARITY\_MODE@{USART0\_ENABLE\_ODD\_PARITY\_MODE}}
+\index{USART0\_ENABLE\_ODD\_PARITY\_MODE@{USART0\_ENABLE\_ODD\_PARITY\_MODE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_ENABLE\_ODD\_PARITY\_MODE}{USART0\_ENABLE\_ODD\_PARITY\_MODE}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+O\+D\+D\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+M\+O\+DE~U\+C\+S\+R0C $\vert$=   ((1 $<$$<$ U\+P\+M01) $\vert$ (1 $<$$<$ U\+P\+M00))}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00044}{44}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a9a80d975c8c94bd31160c79f884727ad}\label{ha__m328p_8h_a9a80d975c8c94bd31160c79f884727ad}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_ENABLE\_RECEIVE\_COMPLETE\_INTERRUPT@{USART0\_ENABLE\_RECEIVE\_COMPLETE\_INTERRUPT}}
+\index{USART0\_ENABLE\_RECEIVE\_COMPLETE\_INTERRUPT@{USART0\_ENABLE\_RECEIVE\_COMPLETE\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_ENABLE\_RECEIVE\_COMPLETE\_INTERRUPT}{USART0\_ENABLE\_RECEIVE\_COMPLETE\_INTERRUPT}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~U\+C\+S\+R0B $\vert$=   1 $<$$<$ R\+X\+C\+I\+E0}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00107}{107}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a46adba4a2177845ac7f078c0cdf8fb85}\label{ha__m328p_8h_a46adba4a2177845ac7f078c0cdf8fb85}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_ENABLE\_RECEIVER@{USART0\_ENABLE\_RECEIVER}}
+\index{USART0\_ENABLE\_RECEIVER@{USART0\_ENABLE\_RECEIVER}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_ENABLE\_RECEIVER}{USART0\_ENABLE\_RECEIVER}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+R\+E\+C\+E\+I\+V\+ER~U\+C\+S\+R0B $\vert$=   1 $<$$<$ R\+X\+E\+N0}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00086}{86}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a6212b08eb58f6785bb42c0bd4aba4c06}\label{ha__m328p_8h_a6212b08eb58f6785bb42c0bd4aba4c06}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_ENABLE\_SYNC\_TRANSMISSION\_MODE@{USART0\_ENABLE\_SYNC\_TRANSMISSION\_MODE}}
+\index{USART0\_ENABLE\_SYNC\_TRANSMISSION\_MODE@{USART0\_ENABLE\_SYNC\_TRANSMISSION\_MODE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_ENABLE\_SYNC\_TRANSMISSION\_MODE}{USART0\_ENABLE\_SYNC\_TRANSMISSION\_MODE}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+S\+Y\+N\+C\+\_\+\+T\+R\+A\+N\+S\+M\+I\+S\+S\+I\+O\+N\+\_\+\+M\+O\+DE~U\+C\+S\+R0C = (U\+C\+S\+R0C \& $\sim$(1 $<$$<$ U\+M\+S\+E\+L01)) $\vert$ (1 $<$$<$ U\+M\+S\+E\+L00)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00027}{27}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ad92cc1e2b96d041857ca750c0e5fc3ff}\label{ha__m328p_8h_ad92cc1e2b96d041857ca750c0e5fc3ff}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_ENABLE\_TRANSMIT\_COMPLETE\_INTERRUPT@{USART0\_ENABLE\_TRANSMIT\_COMPLETE\_INTERRUPT}}
+\index{USART0\_ENABLE\_TRANSMIT\_COMPLETE\_INTERRUPT@{USART0\_ENABLE\_TRANSMIT\_COMPLETE\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_ENABLE\_TRANSMIT\_COMPLETE\_INTERRUPT}{USART0\_ENABLE\_TRANSMIT\_COMPLETE\_INTERRUPT}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+R\+A\+N\+S\+M\+I\+T\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~U\+C\+S\+R0B $\vert$=   1 $<$$<$ T\+X\+C\+I\+E0}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00110}{110}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a5e075de2723ff01c00e1f11a15d7a5a7}\label{ha__m328p_8h_a5e075de2723ff01c00e1f11a15d7a5a7}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_ENABLE\_TRANSMITTER@{USART0\_ENABLE\_TRANSMITTER}}
+\index{USART0\_ENABLE\_TRANSMITTER@{USART0\_ENABLE\_TRANSMITTER}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_ENABLE\_TRANSMITTER}{USART0\_ENABLE\_TRANSMITTER}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+R\+A\+N\+S\+M\+I\+T\+T\+ER~U\+C\+S\+R0B $\vert$=   1 $<$$<$ T\+X\+E\+N0}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00081}{81}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a8892e410fc1301f761ac930c7e8eab7b}\label{ha__m328p_8h_a8892e410fc1301f761ac930c7e8eab7b}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_FRAME\_ERROR@{USART0\_FRAME\_ERROR}}
+\index{USART0\_FRAME\_ERROR@{USART0\_FRAME\_ERROR}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_FRAME\_ERROR}{USART0\_FRAME\_ERROR}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+F\+R\+A\+M\+E\+\_\+\+E\+R\+R\+OR~F\+E0}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00097}{97}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ac38aefd2824611d15bf076b79833e344}\label{ha__m328p_8h_ac38aefd2824611d15bf076b79833e344}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_PARITY\_ERROR@{USART0\_PARITY\_ERROR}}
+\index{USART0\_PARITY\_ERROR@{USART0\_PARITY\_ERROR}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_PARITY\_ERROR}{USART0\_PARITY\_ERROR}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+E\+R\+R\+OR~U\+P\+E0}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00101}{101}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a9943d27cc50b04d087ab9663947c62b4}\label{ha__m328p_8h_a9943d27cc50b04d087ab9663947c62b4}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_RECEIVE\_COMPLETE\_INTERRUPT@{USART0\_RECEIVE\_COMPLETE\_INTERRUPT}}
+\index{USART0\_RECEIVE\_COMPLETE\_INTERRUPT@{USART0\_RECEIVE\_COMPLETE\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_RECEIVE\_COMPLETE\_INTERRUPT}{USART0\_RECEIVE\_COMPLETE\_INTERRUPT}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~U\+S\+A\+R\+T\+\_\+\+R\+X\+\_\+vect}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00115}{115}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_afe48275c2852f8e14e4cd01a7a909ae7}\label{ha__m328p_8h_afe48275c2852f8e14e4cd01a7a909ae7}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_SET\_5BIT\_FRAME\_SIZE@{USART0\_SET\_5BIT\_FRAME\_SIZE}}
+\index{USART0\_SET\_5BIT\_FRAME\_SIZE@{USART0\_SET\_5BIT\_FRAME\_SIZE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_SET\_5BIT\_FRAME\_SIZE}{USART0\_SET\_5BIT\_FRAME\_SIZE}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+S\+E\+T\+\_\+5\+B\+I\+T\+\_\+\+F\+R\+A\+M\+E\+\_\+\+S\+I\+ZE}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{        UCSR0C \&= \string~((1 << UCSZ01) | (1 << UCSZ00)); \(\backslash\)}
+\DoxyCodeLine{        UCSR0B \&= \string~(1 << UCSZ02); \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00074}{74}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a182b29e0b4ac11bab8ccd6241402e476}\label{ha__m328p_8h_a182b29e0b4ac11bab8ccd6241402e476}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_SET\_6BIT\_FRAME\_SIZE@{USART0\_SET\_6BIT\_FRAME\_SIZE}}
+\index{USART0\_SET\_6BIT\_FRAME\_SIZE@{USART0\_SET\_6BIT\_FRAME\_SIZE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_SET\_6BIT\_FRAME\_SIZE}{USART0\_SET\_6BIT\_FRAME\_SIZE}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+S\+E\+T\+\_\+6\+B\+I\+T\+\_\+\+F\+R\+A\+M\+E\+\_\+\+S\+I\+ZE}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{        UCSR0C = (UCSR0C \& \string~(1 << UCSZ01)) | (1 << UCSZ00); \(\backslash\)}
+\DoxyCodeLine{        UCSR0B \&= \string~(1 << UCSZ02); \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00069}{69}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_afccb2bb77275288c61e816b69e48d802}\label{ha__m328p_8h_afccb2bb77275288c61e816b69e48d802}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_SET\_7BIT\_FRAME\_SIZE@{USART0\_SET\_7BIT\_FRAME\_SIZE}}
+\index{USART0\_SET\_7BIT\_FRAME\_SIZE@{USART0\_SET\_7BIT\_FRAME\_SIZE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_SET\_7BIT\_FRAME\_SIZE}{USART0\_SET\_7BIT\_FRAME\_SIZE}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+S\+E\+T\+\_\+7\+B\+I\+T\+\_\+\+F\+R\+A\+M\+E\+\_\+\+S\+I\+ZE}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{        UCSR0C = (1 << UCSZ01) | (UCSR0C \& \string~(1 << UCSZ00)); \(\backslash\)}
+\DoxyCodeLine{        UCSR0B \&= \string~(1 << UCSZ02); \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00064}{64}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a6371432d26ff4ae3b8d0e68952c8c92f}\label{ha__m328p_8h_a6371432d26ff4ae3b8d0e68952c8c92f}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_SET\_8BIT\_FRAME\_SIZE@{USART0\_SET\_8BIT\_FRAME\_SIZE}}
+\index{USART0\_SET\_8BIT\_FRAME\_SIZE@{USART0\_SET\_8BIT\_FRAME\_SIZE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_SET\_8BIT\_FRAME\_SIZE}{USART0\_SET\_8BIT\_FRAME\_SIZE}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+S\+E\+T\+\_\+8\+B\+I\+T\+\_\+\+F\+R\+A\+M\+E\+\_\+\+S\+I\+ZE}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{        UCSR0C |= ((1 << UCSZ01) | (1 << UCSZ00)); \(\backslash\)}
+\DoxyCodeLine{        UCSR0B \&= \string~(1 << UCSZ02); \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00058}{58}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a91a0e3917badd3d83dfe9c9bcbaa20d6}\label{ha__m328p_8h_a91a0e3917badd3d83dfe9c9bcbaa20d6}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_SET\_9BIT\_FRAME\_SIZE@{USART0\_SET\_9BIT\_FRAME\_SIZE}}
+\index{USART0\_SET\_9BIT\_FRAME\_SIZE@{USART0\_SET\_9BIT\_FRAME\_SIZE}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_SET\_9BIT\_FRAME\_SIZE}{USART0\_SET\_9BIT\_FRAME\_SIZE}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+S\+E\+T\+\_\+9\+B\+I\+T\+\_\+\+F\+R\+A\+M\+E\+\_\+\+S\+I\+ZE}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{        UCSR0C |= ((1 << UCSZ01) | (1 << UCSZ00)); \(\backslash\)}
+\DoxyCodeLine{        UCSR0B |= (1 << UCSZ02); \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00052}{52}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a9f75e3254c6d84eb468a30f5a9b3431e}\label{ha__m328p_8h_a9f75e3254c6d84eb468a30f5a9b3431e}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_SET\_BAUDRATE\_HIGH\_REGISTER@{USART0\_SET\_BAUDRATE\_HIGH\_REGISTER}}
+\index{USART0\_SET\_BAUDRATE\_HIGH\_REGISTER@{USART0\_SET\_BAUDRATE\_HIGH\_REGISTER}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_SET\_BAUDRATE\_HIGH\_REGISTER}{USART0\_SET\_BAUDRATE\_HIGH\_REGISTER}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+S\+E\+T\+\_\+\+B\+A\+U\+D\+R\+A\+T\+E\+\_\+\+H\+I\+G\+H\+\_\+\+R\+E\+G\+I\+S\+T\+ER~U\+B\+R\+R0H = U\+B\+R\+R\+H\+\_\+\+V\+A\+L\+UE}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00023}{23}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_ad2d97daf2d69124280edd646ba409793}\label{ha__m328p_8h_ad2d97daf2d69124280edd646ba409793}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_SET\_BAUDRATE\_LOW\_REGISTER@{USART0\_SET\_BAUDRATE\_LOW\_REGISTER}}
+\index{USART0\_SET\_BAUDRATE\_LOW\_REGISTER@{USART0\_SET\_BAUDRATE\_LOW\_REGISTER}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_SET\_BAUDRATE\_LOW\_REGISTER}{USART0\_SET\_BAUDRATE\_LOW\_REGISTER}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+S\+E\+T\+\_\+\+B\+A\+U\+D\+R\+A\+T\+E\+\_\+\+L\+O\+W\+\_\+\+R\+E\+G\+I\+S\+T\+ER~U\+B\+R\+R0L = U\+B\+R\+R\+L\+\_\+\+V\+A\+L\+UE}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00024}{24}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_aceab97978186cfda4860b72f4d16d4d1}\label{ha__m328p_8h_aceab97978186cfda4860b72f4d16d4d1}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_SET\_ONE\_STOP\_BIT@{USART0\_SET\_ONE\_STOP\_BIT}}
+\index{USART0\_SET\_ONE\_STOP\_BIT@{USART0\_SET\_ONE\_STOP\_BIT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_SET\_ONE\_STOP\_BIT}{USART0\_SET\_ONE\_STOP\_BIT}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+S\+E\+T\+\_\+\+O\+N\+E\+\_\+\+S\+T\+O\+P\+\_\+\+B\+IT~U\+C\+S\+R0C \&= $\sim$(1 $<$$<$ U\+S\+B\+S0)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00048}{48}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a1610015cf2bbaee1d6de238a443c5a86}\label{ha__m328p_8h_a1610015cf2bbaee1d6de238a443c5a86}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_SET\_TWO\_STOP\_BITS@{USART0\_SET\_TWO\_STOP\_BITS}}
+\index{USART0\_SET\_TWO\_STOP\_BITS@{USART0\_SET\_TWO\_STOP\_BITS}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_SET\_TWO\_STOP\_BITS}{USART0\_SET\_TWO\_STOP\_BITS}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+S\+E\+T\+\_\+\+T\+W\+O\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+TS~U\+C\+S\+R0C $\vert$= (1 $<$$<$ U\+S\+B\+S0)}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00049}{49}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a0ad3840cfccb712fdbd678533032bde7}\label{ha__m328p_8h_a0ad3840cfccb712fdbd678533032bde7}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!USART0\_TRANSMIT\_COMPLETE\_INTERRUPT@{USART0\_TRANSMIT\_COMPLETE\_INTERRUPT}}
+\index{USART0\_TRANSMIT\_COMPLETE\_INTERRUPT@{USART0\_TRANSMIT\_COMPLETE\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{USART0\_TRANSMIT\_COMPLETE\_INTERRUPT}{USART0\_TRANSMIT\_COMPLETE\_INTERRUPT}}
+{\footnotesize\ttfamily \#define U\+S\+A\+R\+T0\+\_\+\+T\+R\+A\+N\+S\+M\+I\+T\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~U\+S\+A\+R\+T\+\_\+\+T\+X\+\_\+vect}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00117}{117}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_aba75578775b2daee8a601f9f8b9eae42}\label{ha__m328p_8h_aba75578775b2daee8a601f9f8b9eae42}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!WATCHDOG\_SELECT\_TIMEOUT@{WATCHDOG\_SELECT\_TIMEOUT}}
+\index{WATCHDOG\_SELECT\_TIMEOUT@{WATCHDOG\_SELECT\_TIMEOUT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{WATCHDOG\_SELECT\_TIMEOUT}{WATCHDOG\_SELECT\_TIMEOUT}}
+{\footnotesize\ttfamily \#define W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+T\+I\+M\+E\+O\+UT(\begin{DoxyParamCaption}\item[{}]{time\+Out }\end{DoxyParamCaption})~W\+D\+T\+C\+SR $\vert$= (1$<$$<$W\+D\+CE) $\vert$ (1$<$$<$W\+DE);  W\+D\+T\+C\+SR = (0$<$$<$W\+D\+IE) $\vert$ (0$<$$<$W\+DE) $\vert$ time\+Out;}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00254}{254}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_a7b5c6f1b3a3ace19ff65c9403a8b36c7}\label{ha__m328p_8h_a7b5c6f1b3a3ace19ff65c9403a8b36c7}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!WATCHDOG\_START@{WATCHDOG\_START}}
+\index{WATCHDOG\_START@{WATCHDOG\_START}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{WATCHDOG\_START}{WATCHDOG\_START}}
+{\footnotesize\ttfamily \#define W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+S\+T\+A\+RT(\begin{DoxyParamCaption}\item[{}]{operation\+Mode,  }\item[{}]{time\+Out }\end{DoxyParamCaption})~M\+C\+U\+SR \&= $\sim$(1$<$$<$W\+D\+RF); W\+D\+T\+C\+SR $\vert$= (1$<$$<$W\+D\+CE) $\vert$ (1$<$$<$W\+DE); W\+D\+T\+C\+SR = operation\+Mode $\vert$ time\+Out;}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00255}{255}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_aced6defdc7bc72ed639e3e05d57890c8}\label{ha__m328p_8h_aced6defdc7bc72ed639e3e05d57890c8}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!WATCHDOG\_STOP@{WATCHDOG\_STOP}}
+\index{WATCHDOG\_STOP@{WATCHDOG\_STOP}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{WATCHDOG\_STOP}{WATCHDOG\_STOP}}
+{\footnotesize\ttfamily \#define W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+S\+T\+OP~M\+C\+U\+SR \&= $\sim$(1$<$$<$W\+D\+RF); W\+D\+T\+C\+SR $\vert$= (1$<$$<$W\+D\+CE) $\vert$ (1$<$$<$W\+DE); W\+D\+T\+C\+SR = 0x00;}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00256}{256}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+
+\mbox{\Hypertarget{ha__m328p_8h_acdf32bb220ee0f1c7ca5fed49dd4acba}\label{ha__m328p_8h_acdf32bb220ee0f1c7ca5fed49dd4acba}} 
+\index{ha\_m328p.h@{ha\_m328p.h}!WATCHDOG\_TIMEOUT\_INTERRUPT@{WATCHDOG\_TIMEOUT\_INTERRUPT}}
+\index{WATCHDOG\_TIMEOUT\_INTERRUPT@{WATCHDOG\_TIMEOUT\_INTERRUPT}!ha\_m328p.h@{ha\_m328p.h}}
+\doxysubsubsection{\texorpdfstring{WATCHDOG\_TIMEOUT\_INTERRUPT}{WATCHDOG\_TIMEOUT\_INTERRUPT}}
+{\footnotesize\ttfamily \#define W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+T\+I\+M\+E\+O\+U\+T\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~W\+D\+T\+\_\+vect}
+
+
+
+Definition at line \mbox{\hyperlink{ha__m328p_8h_source_l00257}{257}} of file \mbox{\hyperlink{ha__m328p_8h_source}{ha\+\_\+m328p.\+h}}.
+

@@ -1,0 +1,269 @@
+\hypertarget{TimerCounter0_8cpp_source}{}\doxysection{Timer\+Counter0.\+cpp}
+\label{TimerCounter0_8cpp_source}\index{TimerCounter0.cpp@{TimerCounter0.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{TimerCounter0_8h}{TimerCounter0.h}}"}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{MCU_8h}{MCU.h}}"}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{\Hypertarget{TimerCounter0_8cpp_source_l00005}\mbox{\hyperlink{classcore_1_1TimerCounter0_a38849b2debf04224214f0fe3a4e77124}{00005}} \mbox{\hyperlink{classcore_1_1TimerCounter0}{core::TimerCounter0}}\& \mbox{\hyperlink{classcore_1_1TimerCounter0_a38849b2debf04224214f0fe3a4e77124}{core::TimerCounter0::getInstance}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{channel}} \&ar\_channel,}
+\DoxyCodeLine{00006                                                       \textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4}{operationMode}} \&ar\_operationMode,}
+\DoxyCodeLine{00007                                                       \textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1}{clockSource}} \&ar\_clockSource,}
+\DoxyCodeLine{00008                                                       \textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950}{compareOutputMode}} \&ar\_compareOutputMode)}
+\DoxyCodeLine{00009 \{}
+\DoxyCodeLine{00010     \textcolor{keyword}{static} \mbox{\hyperlink{classcore_1_1TimerCounter0}{TimerCounter0}} l\_instance(ar\_channel,}
+\DoxyCodeLine{00011                                     ar\_operationMode,}
+\DoxyCodeLine{00012                                     ar\_clockSource,}
+\DoxyCodeLine{00013                                     ar\_compareOutputMode);}
+\DoxyCodeLine{00014 }
+\DoxyCodeLine{00015     \textcolor{keywordflow}{return} l\_instance;}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{00017 }
+\DoxyCodeLine{00018 \}}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{\Hypertarget{TimerCounter0_8cpp_source_l00020}\mbox{\hyperlink{classcore_1_1TimerCounter0_ad4d9d8b5cd126fe725914504a696ba1c}{00020}} \mbox{\hyperlink{classcore_1_1TimerCounter0_ad4d9d8b5cd126fe725914504a696ba1c}{core::TimerCounter0::TimerCounter0}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{channel}} \&ar\_channel,}
+\DoxyCodeLine{00021                                    \textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4}{operationMode}} \&ar\_operationMode,}
+\DoxyCodeLine{00022                                    \textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1}{clockSource}} \&ar\_clockSource,}
+\DoxyCodeLine{00023                                    \textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950}{compareOutputMode}}\& ar\_compareOutputMode)}
+\DoxyCodeLine{00024 \{}
+\DoxyCodeLine{00025     \mbox{\hyperlink{classcore_1_1MCU_a07ead5d3a2e59e981b8d306d2b6aeb30}{core::MCU::enableTimerCounter0}}(1);}
+\DoxyCodeLine{00026     stop();}
+\DoxyCodeLine{00027     selectOperationMode(ar\_operationMode);}
+\DoxyCodeLine{00028     selectClockSource(ar\_clockSource);}
+\DoxyCodeLine{00029     selectCompareOutputMode(ar\_channel,ar\_compareOutputMode);}
+\DoxyCodeLine{00030 }
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{00033 \}}
+\DoxyCodeLine{\Hypertarget{TimerCounter0_8cpp_source_l00034}\mbox{\hyperlink{classcore_1_1TimerCounter0_a642550db693a8b972c77391704b5cb22}{00034}} \mbox{\hyperlink{classcore_1_1TimerCounter0_a642550db693a8b972c77391704b5cb22}{core::TimerCounter0::\string~TimerCounter0}}()}
+\DoxyCodeLine{00035 \{}
+\DoxyCodeLine{00036 }
+\DoxyCodeLine{00037 \}}
+\DoxyCodeLine{00038 }
+\DoxyCodeLine{\Hypertarget{TimerCounter0_8cpp_source_l00039}\mbox{\hyperlink{classcore_1_1TimerCounter0_aae3da9a882de37cd0d609e8dc0e15f00}{00039}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1TimerCounter0_aae3da9a882de37cd0d609e8dc0e15f00}{core::TimerCounter0::selectClockSource}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1}{clockSource}} \&ar\_clockSource)}
+\DoxyCodeLine{00040 \{}
+\DoxyCodeLine{00041     \textcolor{keywordflow}{switch} (ar\_clockSource)}
+\DoxyCodeLine{00042     \{}
+\DoxyCodeLine{00043         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a8142d11a166d596eb441b277c1f41a13}{core::clockSource::noClock}}:}
+\DoxyCodeLine{00044         \{}
+\DoxyCodeLine{00045             m\_clockPrescaler=0;}
+\DoxyCodeLine{00046             m\_clockSource=0;}
+\DoxyCodeLine{00047             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00048         \}}
+\DoxyCodeLine{00049         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1aaf2c699cdfcc3d8a67c38889aea60156}{core::clockSource::PS\_1}}:}
+\DoxyCodeLine{00050         \{}
+\DoxyCodeLine{00051             m\_clockPrescaler=1;}
+\DoxyCodeLine{00052             m\_clockSource=1;}
+\DoxyCodeLine{00053             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00054         \}}
+\DoxyCodeLine{00055         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1ae31444bf5c3424161080f9d328fd7955}{core::clockSource::PS\_8}}:}
+\DoxyCodeLine{00056         \{}
+\DoxyCodeLine{00057             m\_clockPrescaler=8;}
+\DoxyCodeLine{00058             m\_clockSource=2;}
+\DoxyCodeLine{00059             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00060         \}}
+\DoxyCodeLine{00061         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a97fb148ab1accd5462d69022d83b0ced}{core::clockSource::PS\_64}}:}
+\DoxyCodeLine{00062         \{}
+\DoxyCodeLine{00063             m\_clockPrescaler=64;}
+\DoxyCodeLine{00064             m\_clockSource=3;}
+\DoxyCodeLine{00065             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00066         \}}
+\DoxyCodeLine{00067         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1adc97a6c0356fdc030a8256db81ea738d}{core::clockSource::PS\_256}}:}
+\DoxyCodeLine{00068         \{}
+\DoxyCodeLine{00069             m\_clockPrescaler=256;}
+\DoxyCodeLine{00070             m\_clockSource=4;}
+\DoxyCodeLine{00071             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00072         \}}
+\DoxyCodeLine{00073         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a7fd03524c99e729c687d1057c771f11d}{core::clockSource::PS\_1024}}:}
+\DoxyCodeLine{00074         \{}
+\DoxyCodeLine{00075             m\_clockPrescaler=1024;}
+\DoxyCodeLine{00076             m\_clockSource=5;}
+\DoxyCodeLine{00077             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00078         \}}
+\DoxyCodeLine{00079         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1ae10b1d2d5e76776ac271c7ef3dcba483}{core::clockSource::extern\_Clock\_T0\_Falling\_Edge}}:}
+\DoxyCodeLine{00080         \{}
+\DoxyCodeLine{00081             m\_clockPrescaler=0;}
+\DoxyCodeLine{00082             m\_clockSource=6;}
+\DoxyCodeLine{00083             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00084         \}}
+\DoxyCodeLine{00085         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a85eda940954f04d0e630e77d7e16b421}{core::clockSource::extern\_Clock\_T0\_Rising\_Edge}}:}
+\DoxyCodeLine{00086         \{}
+\DoxyCodeLine{00087             m\_clockPrescaler=0;}
+\DoxyCodeLine{00088             m\_clockSource=7;}
+\DoxyCodeLine{00089             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00090         \}}
+\DoxyCodeLine{00091     \}}
+\DoxyCodeLine{00092 }
+\DoxyCodeLine{00093 }
+\DoxyCodeLine{00094 \}}
+\DoxyCodeLine{00095 }
+\DoxyCodeLine{\Hypertarget{TimerCounter0_8cpp_source_l00096}\mbox{\hyperlink{classcore_1_1TimerCounter0_a1c37a4faf329a0c539aec53e473874d9}{00096}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1TimerCounter0_a1c37a4faf329a0c539aec53e473874d9}{core::TimerCounter0::selectOperationMode}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4}{operationMode}} \&ar\_operationMode)}
+\DoxyCodeLine{00097 \{}
+\DoxyCodeLine{00098     \textcolor{keywordflow}{switch} (ar\_operationMode)}
+\DoxyCodeLine{00099     \{}
+\DoxyCodeLine{00100         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4afea087517c26fadd409bd4b9dc642555}{core::operationMode::normal}}:}
+\DoxyCodeLine{00101         \{}
+\DoxyCodeLine{00102             \mbox{\hyperlink{ha__m328p_8h_a8509885b7c83def201bba50e26b0a9be}{TIMER0\_SELECT\_OPERATION\_MODE}}(0);}
+\DoxyCodeLine{00103             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00104         \}}
+\DoxyCodeLine{00105         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a49196b0d24edb1a822132784eeffd5f3}{core::operationMode::PWM\_PC}}:}
+\DoxyCodeLine{00106         \{}
+\DoxyCodeLine{00107             \mbox{\hyperlink{ha__m328p_8h_a8509885b7c83def201bba50e26b0a9be}{TIMER0\_SELECT\_OPERATION\_MODE}}(1);}
+\DoxyCodeLine{00108             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00109         \}}
+\DoxyCodeLine{00110         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a9a9708b23d4611d606d2cab182ad99e5}{core::operationMode::CTC\_OCR}}:}
+\DoxyCodeLine{00111         \{}
+\DoxyCodeLine{00112             \mbox{\hyperlink{ha__m328p_8h_a8509885b7c83def201bba50e26b0a9be}{TIMER0\_SELECT\_OPERATION\_MODE}}(2);}
+\DoxyCodeLine{00113             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00114         \}}
+\DoxyCodeLine{00115         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a9bb3db07673e063e5eaadd3547848399}{core::operationMode::fast\_PWM}}:}
+\DoxyCodeLine{00116         \{}
+\DoxyCodeLine{00117             \mbox{\hyperlink{ha__m328p_8h_a8509885b7c83def201bba50e26b0a9be}{TIMER0\_SELECT\_OPERATION\_MODE}}(3);}
+\DoxyCodeLine{00118             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00119         \}}
+\DoxyCodeLine{00120         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4aaf87e8ea80940150346ebe17612ee70e}{core::operationMode::PWM\_PC\_OCR}}:}
+\DoxyCodeLine{00121         \{}
+\DoxyCodeLine{00122             \mbox{\hyperlink{ha__m328p_8h_a8509885b7c83def201bba50e26b0a9be}{TIMER0\_SELECT\_OPERATION\_MODE}}(5);}
+\DoxyCodeLine{00123             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00124         \}}
+\DoxyCodeLine{00125         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4ada00392d2f289eb77f4575d0371d9e90}{core::operationMode::fast\_PWM\_OCR}}:}
+\DoxyCodeLine{00126         \{}
+\DoxyCodeLine{00127             \mbox{\hyperlink{ha__m328p_8h_a8509885b7c83def201bba50e26b0a9be}{TIMER0\_SELECT\_OPERATION\_MODE}}(7);}
+\DoxyCodeLine{00128             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00129         \}}
+\DoxyCodeLine{00130 }
+\DoxyCodeLine{00131     \}}
+\DoxyCodeLine{00132 }
+\DoxyCodeLine{00133 \}}
+\DoxyCodeLine{00134 }
+\DoxyCodeLine{00135 }
+\DoxyCodeLine{\Hypertarget{TimerCounter0_8cpp_source_l00136}\mbox{\hyperlink{classcore_1_1TimerCounter0_a77b4cbefb55b3bfb0d46890c2226459b}{00136}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1TimerCounter0_a77b4cbefb55b3bfb0d46890c2226459b}{core::TimerCounter0::start}}()}
+\DoxyCodeLine{00137 \{}
+\DoxyCodeLine{00138     \mbox{\hyperlink{ha__m328p_8h_acbb5d2007fab14340dee5e63506eaddd}{TIMER0\_SELECT\_CLOCK\_SOURCE}}(m\_clockSource);}
+\DoxyCodeLine{00139 \}}
+\DoxyCodeLine{00140 }
+\DoxyCodeLine{\Hypertarget{TimerCounter0_8cpp_source_l00141}\mbox{\hyperlink{classcore_1_1TimerCounter0_a6aa7463fb54d3712667971baffe33549}{00141}} uint16\_t \mbox{\hyperlink{classcore_1_1TimerCounter0_a6aa7463fb54d3712667971baffe33549}{core::TimerCounter0::getClockPrescaler}}()}
+\DoxyCodeLine{00142 \{}
+\DoxyCodeLine{00143     \textcolor{keywordflow}{return} m\_clockPrescaler;}
+\DoxyCodeLine{00144 \}}
+\DoxyCodeLine{00145 }
+\DoxyCodeLine{\Hypertarget{TimerCounter0_8cpp_source_l00146}\mbox{\hyperlink{classcore_1_1TimerCounter0_a74e413b10377189fd7bfc5be1065ad44}{00146}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1TimerCounter0_a74e413b10377189fd7bfc5be1065ad44}{core::TimerCounter0::stop}}()}
+\DoxyCodeLine{00147 \{}
+\DoxyCodeLine{00148     \mbox{\hyperlink{ha__m328p_8h_a61d78875d88653be2b341c155f84c801}{TIMER0\_STOP}};}
+\DoxyCodeLine{00149 \}}
+\DoxyCodeLine{00150 }
+\DoxyCodeLine{00151 }
+\DoxyCodeLine{\Hypertarget{TimerCounter0_8cpp_source_l00152}\mbox{\hyperlink{classcore_1_1TimerCounter0_ace42b71582a993e758c00200082a4f39}{00152}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1TimerCounter0_ace42b71582a993e758c00200082a4f39}{core::TimerCounter0::selectCompareOutputMode}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{channel}} \&ar\_channel, \textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950}{compareOutputMode}} \&ar\_compareOutputMode)}
+\DoxyCodeLine{00153 \{}
+\DoxyCodeLine{00154     \textcolor{keywordflow}{switch} (ar\_channel)}
+\DoxyCodeLine{00155     \{}
+\DoxyCodeLine{00156         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}{core::channel::A}}:}
+\DoxyCodeLine{00157         \{}
+\DoxyCodeLine{00158             \mbox{\hyperlink{ha__m328p_8h_a699ba62171281602b953e44a7db8c06a}{TIMER0\_SELECT\_COM\_CHANNEL\_A}}(\textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(ar\_compareOutputMode));}
+\DoxyCodeLine{00159             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00160         \}}
+\DoxyCodeLine{00161         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a9d5ed678fe57bcca610140957afab571}{core::channel::B}}:}
+\DoxyCodeLine{00162         \{}
+\DoxyCodeLine{00163             \mbox{\hyperlink{ha__m328p_8h_ae948a76f8e1e36b9c41e5cb1b3208cda}{TIMER0\_SELECT\_COM\_CHANNEL\_B}}(\textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(ar\_compareOutputMode));}
+\DoxyCodeLine{00164             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00165         \}}
+\DoxyCodeLine{00166     \}}
+\DoxyCodeLine{00167 \}}
+\DoxyCodeLine{00168 }
+\DoxyCodeLine{00169 }
+\DoxyCodeLine{00170 }
+\DoxyCodeLine{\Hypertarget{TimerCounter0_8cpp_source_l00171}\mbox{\hyperlink{classcore_1_1TimerCounter0_acd4669d53301a6cf2ecd9a143d8c0e4b}{00171}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1TimerCounter0_acd4669d53301a6cf2ecd9a143d8c0e4b}{core::TimerCounter0::setCounter}}(\textcolor{keyword}{const} uint16\_t \&ar\_dataBuffer)}
+\DoxyCodeLine{00172 \{}
+\DoxyCodeLine{00173     TCNT0 = \textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(ar\_dataBuffer);}
+\DoxyCodeLine{00174 \}}
+\DoxyCodeLine{00175 }
+\DoxyCodeLine{\Hypertarget{TimerCounter0_8cpp_source_l00176}\mbox{\hyperlink{classcore_1_1TimerCounter0_adb14b27fbeddae3b6756a43049759aa5}{00176}} uint16\_t \mbox{\hyperlink{classcore_1_1TimerCounter0_adb14b27fbeddae3b6756a43049759aa5}{core::TimerCounter0::getCounter}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{00177 \textcolor{keyword}{}\{}
+\DoxyCodeLine{00178     \textcolor{keywordflow}{return} TCNT0;}
+\DoxyCodeLine{00179 \}}
+\DoxyCodeLine{00180 }
+\DoxyCodeLine{\Hypertarget{TimerCounter0_8cpp_source_l00181}\mbox{\hyperlink{classcore_1_1TimerCounter0_afcb226ada6e0f0619d28351188fe38b7}{00181}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1TimerCounter0_afcb226ada6e0f0619d28351188fe38b7}{core::TimerCounter0::setOutputCompareRegister}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{channel}} \&ar\_channel, \textcolor{keyword}{const} uint16\_t \&ar\_dataBuffer)}
+\DoxyCodeLine{00182 \{}
+\DoxyCodeLine{00183     \textcolor{keywordflow}{switch} (ar\_channel)}
+\DoxyCodeLine{00184     \{}
+\DoxyCodeLine{00185         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}{core::channel::A}}:}
+\DoxyCodeLine{00186         \{}
+\DoxyCodeLine{00187             OCR0A = \textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(ar\_dataBuffer);}
+\DoxyCodeLine{00188             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00189         \}}
+\DoxyCodeLine{00190         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a9d5ed678fe57bcca610140957afab571}{core::channel::B}}:}
+\DoxyCodeLine{00191         \{}
+\DoxyCodeLine{00192             OCR0B = \textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(ar\_dataBuffer);}
+\DoxyCodeLine{00193             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00194         \}}
+\DoxyCodeLine{00195 }
+\DoxyCodeLine{00196     \}}
+\DoxyCodeLine{00197 \}}
+\DoxyCodeLine{00198 }
+\DoxyCodeLine{00199 }
+\DoxyCodeLine{00200 }
+\DoxyCodeLine{\Hypertarget{TimerCounter0_8cpp_source_l00201}\mbox{\hyperlink{classcore_1_1TimerCounter0_a22c61d7a8438cb6ab31af473819877e9}{00201}} uint16\_t \mbox{\hyperlink{classcore_1_1TimerCounter0_a22c61d7a8438cb6ab31af473819877e9}{core::TimerCounter0::getOutputCompareRegister}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{channel}} \&ar\_channel)\textcolor{keyword}{ const}}
+\DoxyCodeLine{00202 \textcolor{keyword}{}\{}
+\DoxyCodeLine{00203     \textcolor{keywordflow}{switch} (ar\_channel)}
+\DoxyCodeLine{00204     \{}
+\DoxyCodeLine{00205         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}{core::channel::A}}:}
+\DoxyCodeLine{00206         \{}
+\DoxyCodeLine{00207             \textcolor{keywordflow}{return} OCR0A;}
+\DoxyCodeLine{00208         \}}
+\DoxyCodeLine{00209         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a9d5ed678fe57bcca610140957afab571}{core::channel::B}}:}
+\DoxyCodeLine{00210         \{}
+\DoxyCodeLine{00211             \textcolor{keywordflow}{return} OCR0B;}
+\DoxyCodeLine{00212         \}}
+\DoxyCodeLine{00213     \}}
+\DoxyCodeLine{00214 \}}
+\DoxyCodeLine{00215 }
+\DoxyCodeLine{\Hypertarget{TimerCounter0_8cpp_source_l00216}\mbox{\hyperlink{classcore_1_1TimerCounter0_a0125c01ed465998cca2d20aceb23405e}{00216}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1TimerCounter0_a0125c01ed465998cca2d20aceb23405e}{core::TimerCounter0::enableOutputCompareMatchInterrupt}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{channel}} \&ar\_channel, \textcolor{keyword}{const} uint8\_t a\_enable)}
+\DoxyCodeLine{00217 \{}
+\DoxyCodeLine{00218     \textcolor{keywordflow}{switch} (ar\_channel)}
+\DoxyCodeLine{00219     \{}
+\DoxyCodeLine{00220         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}{core::channel::A}}:}
+\DoxyCodeLine{00221         \{}
+\DoxyCodeLine{00222             \textcolor{keywordflow}{if} (a\_enable) \{}
+\DoxyCodeLine{00223 }
+\DoxyCodeLine{00224                 \mbox{\hyperlink{ha__m328p_8h_a8b2962adba0b332fa15157fa0a70b698}{TIMER0\_ENABLE\_COM\_CHANNEL\_A\_INTERRUPT}};}
+\DoxyCodeLine{00225 }
+\DoxyCodeLine{00226             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00227 }
+\DoxyCodeLine{00228                 \mbox{\hyperlink{ha__m328p_8h_ab5c460464add71a8105c1268c06bba33}{TIMER0\_DISABLE\_COM\_CHANNEL\_A\_INTERRUPT}};}
+\DoxyCodeLine{00229             \}}
+\DoxyCodeLine{00230             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00231         \}}
+\DoxyCodeLine{00232         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a9d5ed678fe57bcca610140957afab571}{core::channel::B}}:}
+\DoxyCodeLine{00233         \{}
+\DoxyCodeLine{00234             \textcolor{keywordflow}{if} (a\_enable) \{}
+\DoxyCodeLine{00235 }
+\DoxyCodeLine{00236                 \mbox{\hyperlink{ha__m328p_8h_a1d664566d43e78cd4b9292ce29a275d8}{TIMER0\_ENABLE\_COM\_CHANNEL\_B\_INTERRUPT}};}
+\DoxyCodeLine{00237 }
+\DoxyCodeLine{00238             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00239 }
+\DoxyCodeLine{00240                 \mbox{\hyperlink{ha__m328p_8h_abe492505e68ebc59e66e8f96c8851f64}{TIMER0\_DISABLE\_COM\_CHANNEL\_B\_INTERRUPT}};}
+\DoxyCodeLine{00241 }
+\DoxyCodeLine{00242             \}}
+\DoxyCodeLine{00243             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00244         \}}
+\DoxyCodeLine{00245     \}}
+\DoxyCodeLine{00246 }
+\DoxyCodeLine{00247 \}}
+\DoxyCodeLine{00248 }
+\DoxyCodeLine{00249 }
+\DoxyCodeLine{00250 }
+\DoxyCodeLine{\Hypertarget{TimerCounter0_8cpp_source_l00251}\mbox{\hyperlink{classcore_1_1TimerCounter0_a5319170ee618915a61e6f93b6af8afc7}{00251}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1TimerCounter0_a5319170ee618915a61e6f93b6af8afc7}{core::TimerCounter0::enableOverflowInterrupt}}(\textcolor{keyword}{const} uint8\_t a\_enable)}
+\DoxyCodeLine{00252 \{}
+\DoxyCodeLine{00253 }
+\DoxyCodeLine{00254     \textcolor{keywordflow}{if} (a\_enable) \{}
+\DoxyCodeLine{00255 }
+\DoxyCodeLine{00256         \mbox{\hyperlink{ha__m328p_8h_ae00558126f8d46ec9f97fc38f1a22699}{TIMER0\_ENABLE\_OVERFLOW\_INTERRUPT}};}
+\DoxyCodeLine{00257 }
+\DoxyCodeLine{00258     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00259 }
+\DoxyCodeLine{00260         \mbox{\hyperlink{ha__m328p_8h_a1b22addfb3894baef12aebd10e0eea62}{TIMER0\_DISABLE\_OVERFLOW\_INTERRUPT}};}
+\DoxyCodeLine{00261     \}}
+\DoxyCodeLine{00262 }
+\DoxyCodeLine{00263 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,82 @@
+\hypertarget{Pin_8cpp_source}{}\doxysection{Pin.\+cpp}
+\label{Pin_8cpp_source}\index{Pin.cpp@{Pin.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{Pin_8h}{Pin.h}}"}}
+\DoxyCodeLine{00002 }
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{\Hypertarget{Pin_8cpp_source_l00004}\mbox{\hyperlink{classio_1_1Pin_a09d277203b9a1f0d2f825037c8ab60c9}{00004}} \mbox{\hyperlink{classio_1_1Pin_a09d277203b9a1f0d2f825037c8ab60c9}{io::Pin::Pin}}(\textcolor{keyword}{const} uint8\_t a\_pinNumber, \textcolor{keyword}{const} \mbox{\hyperlink{structio_1_1Port}{Port}} \&mr\_portName)}
+\DoxyCodeLine{00005          : mr\_portName(mr\_portName), m\_pinNumber(a\_pinNumber)}
+\DoxyCodeLine{00006 \{}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00008 \}}
+\DoxyCodeLine{00009 }
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{\Hypertarget{Pin_8cpp_source_l00011}\mbox{\hyperlink{classio_1_1Pin_a24928d648072ca4aefdd233b2d7bcc30}{00011}} \mbox{\hyperlink{classio_1_1Pin_a24928d648072ca4aefdd233b2d7bcc30}{io::Pin::\string~Pin}}()}
+\DoxyCodeLine{00012 }
+\DoxyCodeLine{00013 \{}
+\DoxyCodeLine{00014 }
+\DoxyCodeLine{00015 \}}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{\Hypertarget{Pin_8cpp_source_l00017}\mbox{\hyperlink{classio_1_1Pin_a2d1e7ed9625d0c4bb8d81dadbadacc41}{00017}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1Pin_a2d1e7ed9625d0c4bb8d81dadbadacc41}{io::Pin::toOutput}}()}
+\DoxyCodeLine{00018 \{}
+\DoxyCodeLine{00019     *mr\_portName.mp\_ddrReg  |=  (1 << m\_pinNumber);}
+\DoxyCodeLine{00020 \}}
+\DoxyCodeLine{00021 }
+\DoxyCodeLine{\Hypertarget{Pin_8cpp_source_l00022}\mbox{\hyperlink{classio_1_1Pin_ab59ec50b7a87b0a440a95befdf47d014}{00022}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1Pin_ab59ec50b7a87b0a440a95befdf47d014}{io::Pin::toInput}}(\textcolor{keyword}{const} uint8\_t \&ar\_useInternalPullUp)}
+\DoxyCodeLine{00023 \{}
+\DoxyCodeLine{00024     \textcolor{keywordflow}{if} (ar\_useInternalPullUp)}
+\DoxyCodeLine{00025     \{}
+\DoxyCodeLine{00026         *mr\_portName.mp\_portReg |= (1 << m\_pinNumber);}
+\DoxyCodeLine{00027         *mr\_portName.mp\_ddrReg  \&= \string~(1 << m\_pinNumber);}
+\DoxyCodeLine{00028 }
+\DoxyCodeLine{00029 }
+\DoxyCodeLine{00030     \}}
+\DoxyCodeLine{00031     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00032     \{}
+\DoxyCodeLine{00033         *mr\_portName.mp\_portReg \&= \string~(1 << m\_pinNumber);}
+\DoxyCodeLine{00034         *mr\_portName.mp\_ddrReg  \&= \string~(1 << m\_pinNumber);}
+\DoxyCodeLine{00035     \}}
+\DoxyCodeLine{00036 }
+\DoxyCodeLine{00037 \}}
+\DoxyCodeLine{00038 }
+\DoxyCodeLine{\Hypertarget{Pin_8cpp_source_l00039}\mbox{\hyperlink{classio_1_1Pin_ad0895fa20099e97f9acbe85f7c92e57c}{00039}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1Pin_ad0895fa20099e97f9acbe85f7c92e57c}{io::Pin::setLow}}()}
+\DoxyCodeLine{00040 \{}
+\DoxyCodeLine{00041     \textcolor{keywordflow}{if} (*mr\_portName.mp\_ddrReg \& (1 << m\_pinNumber))}
+\DoxyCodeLine{00042     \{}
+\DoxyCodeLine{00043         *mr\_portName.mp\_portReg \&= \string~(1 << m\_pinNumber);}
+\DoxyCodeLine{00044     \}}
+\DoxyCodeLine{00045 \}}
+\DoxyCodeLine{00046 }
+\DoxyCodeLine{\Hypertarget{Pin_8cpp_source_l00047}\mbox{\hyperlink{classio_1_1Pin_a3ae65cd376608cc50329951e9da156d0}{00047}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1Pin_a3ae65cd376608cc50329951e9da156d0}{io::Pin::setHigh}}()}
+\DoxyCodeLine{00048 \{}
+\DoxyCodeLine{00049     \textcolor{keywordflow}{if} (*mr\_portName.mp\_ddrReg \& (1 << m\_pinNumber))}
+\DoxyCodeLine{00050     \{}
+\DoxyCodeLine{00051         *mr\_portName.mp\_portReg |=  (1 << m\_pinNumber);}
+\DoxyCodeLine{00052     \}}
+\DoxyCodeLine{00053 \}}
+\DoxyCodeLine{00054 }
+\DoxyCodeLine{\Hypertarget{Pin_8cpp_source_l00055}\mbox{\hyperlink{classio_1_1Pin_a4054302debf4a0bc99bdb93881f43765}{00055}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1Pin_a4054302debf4a0bc99bdb93881f43765}{io::Pin::toggle}}()}
+\DoxyCodeLine{00056 \{}
+\DoxyCodeLine{00057     \textcolor{keywordflow}{if} (*mr\_portName.mp\_ddrReg \& (1 << m\_pinNumber))}
+\DoxyCodeLine{00058     \{}
+\DoxyCodeLine{00059         *mr\_portName.mp\_portReg \string^=   1 << m\_pinNumber;}
+\DoxyCodeLine{00060     \}}
+\DoxyCodeLine{00061 \}}
+\DoxyCodeLine{00062 }
+\DoxyCodeLine{\Hypertarget{Pin_8cpp_source_l00063}\mbox{\hyperlink{classio_1_1Pin_a2da2a7ac73fe4c77203d38822f0d64fd}{00063}} uint8\_t \mbox{\hyperlink{classio_1_1Pin_a2da2a7ac73fe4c77203d38822f0d64fd}{io::Pin::isHigh}}()}
+\DoxyCodeLine{00064 \{}
+\DoxyCodeLine{00065     \textcolor{keywordflow}{return}   *mr\_portName.mp\_pinReg \& (1 << m\_pinNumber);}
+\DoxyCodeLine{00066 \}}
+\DoxyCodeLine{00067 }
+\DoxyCodeLine{\Hypertarget{Pin_8cpp_source_l00068}\mbox{\hyperlink{classio_1_1Pin_a53c77492c03a66457b711624b5a41e7e}{00068}} uint8\_t \mbox{\hyperlink{classio_1_1Pin_a53c77492c03a66457b711624b5a41e7e}{io::Pin::isLow}}()}
+\DoxyCodeLine{00069 \{}
+\DoxyCodeLine{00070     \textcolor{keywordflow}{return}   !(*mr\_portName.mp\_pinReg \& (1 << m\_pinNumber));}
+\DoxyCodeLine{00071 \}}
+\DoxyCodeLine{00072 }
+\DoxyCodeLine{\Hypertarget{Pin_8cpp_source_l00073}\mbox{\hyperlink{classio_1_1Pin_ae5bf05244692da8b6090c3ed54ae3a18}{00073}} uint8\_t \mbox{\hyperlink{classio_1_1Pin_ae5bf05244692da8b6090c3ed54ae3a18}{io::Pin::getPinNumber}}()}
+\DoxyCodeLine{00074 \{}
+\DoxyCodeLine{00075     \textcolor{keywordflow}{return} m\_pinNumber;}
+\DoxyCodeLine{00076 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,962 @@
+\hypertarget{namespacecore}{}\doxysection{core Namespace Reference}
+\label{namespacecore}\index{core@{core}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcore_1_1ADConverter}{A\+D\+Converter}}
+\item 
+class \mbox{\hyperlink{classcore_1_1AnalogComparator}{Analog\+Comparator}}
+\item 
+class \mbox{\hyperlink{classcore_1_1ExternInterrupt}{Extern\+Interrupt}}
+\item 
+class \mbox{\hyperlink{classcore_1_1MCU}{M\+CU}}
+\item 
+class \mbox{\hyperlink{classcore_1_1TimerCounter}{Timer\+Counter}}
+\item 
+class \mbox{\hyperlink{classcore_1_1TimerCounter0}{Timer\+Counter0}}
+\item 
+class \mbox{\hyperlink{classcore_1_1TimerCounter1}{Timer\+Counter1}}
+\item 
+class \mbox{\hyperlink{classcore_1_1TimerCounter2}{Timer\+Counter2}}
+\item 
+class \mbox{\hyperlink{classcore_1_1WatchdogTimer}{Watchdog\+Timer}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570}{resolution}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a7ea4d6dd280caccea297d0fa2f7e06f1}{resolution\+::res\+\_\+8bit}} =0, 
+\mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570acacc43ba446d9f5470d707377a9ab57d}{resolution\+::res\+\_\+9bit}}, 
+\mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a2dfcad6aa6be091d9ae2d89cba912d73}{resolution\+::res\+\_\+10bit}}, 
+\mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570ad5b2972aa04da9ded704d67af3160f73}{resolution\+::res\+\_\+11bit}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a2c112f82e3b38ea0e86502b21795f0ed}{resolution\+::res\+\_\+12bit}}, 
+\mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570aa4739f6369eb7a55eac3e4061811e9b2}{resolution\+::res\+\_\+13bit}}, 
+\mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a1d891da42f0b35691e041a787f279e2a}{resolution\+::res\+\_\+14bit}}, 
+\mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a308f1161ab8115148688b26457b94477}{resolution\+::res\+\_\+15bit}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570ae03d417bc0a8193a26018367d4899d83}{resolution\+::res\+\_\+16bit}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespacecore_a9bc91028526103cb0e5a3288177e1765}{reference\+Voltage}} \+: uint8\+\_\+t \{ \mbox{\hyperlink{namespacecore_a9bc91028526103cb0e5a3288177e1765a73baa1f279879a52ff4215d3c9031d1f}{reference\+Voltage\+::\+A\+R\+EF}} =0, 
+\mbox{\hyperlink{namespacecore_a9bc91028526103cb0e5a3288177e1765a7553837f2d19afc93f5bbc9d84e097f3}{reference\+Voltage\+::\+A\+V\+CC}}, 
+\mbox{\hyperlink{namespacecore_a9bc91028526103cb0e5a3288177e1765ad1efad72dc5b17dc66a46767c32fff40}{reference\+Voltage\+::internal}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13}{clock\+Prescaler}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13aca2ddd08703377bdfd1764242d8ff82e}{clock\+Prescaler\+::\+P\+S\+\_\+2}} = 1, 
+\mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13ad01a2fba340e44606cb932b086f27a75}{clock\+Prescaler\+::\+P\+S\+\_\+4}}, 
+\mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13ae31444bf5c3424161080f9d328fd7955}{clock\+Prescaler\+::\+P\+S\+\_\+8}}, 
+\mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13ab9652296e385e314ac2aa67878eacfe5}{clock\+Prescaler\+::\+P\+S\+\_\+16}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13ae4540d7f3a807bc544222beb154275f3}{clock\+Prescaler\+::\+P\+S\+\_\+32}}, 
+\mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13a97fb148ab1accd5462d69022d83b0ced}{clock\+Prescaler\+::\+P\+S\+\_\+64}}, 
+\mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13a5a748dfea8b6fda9f52e24f961378197}{clock\+Prescaler\+::\+P\+S\+\_\+128}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764b}{auto\+Trigger\+Source}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764ba4f6e582ea390561732302e2cf48b2303}{auto\+Trigger\+Source\+::free\+Running}}, 
+\mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764ba8841f18c722785f21089224aca7fb5f0}{auto\+Trigger\+Source\+::analog\+Comparator}}, 
+\mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764babb87f5c1c1528b642a5b6da4962b1414}{auto\+Trigger\+Source\+::ext\+Interrupt}}, 
+\mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764ba1bdd866305a68d21beb4822bf364460e}{auto\+Trigger\+Source\+::timer0\+Compare}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764bae5afbf1133d813deccded16f7658514e}{auto\+Trigger\+Source\+::timer0\+Overflow}}, 
+\mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764ba62e138fc90e5430da45b3978bf1870f8}{auto\+Trigger\+Source\+::timer1\+CompareB}}, 
+\mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764ba8bfdafa1426be90c0221490f9c08a2ed}{auto\+Trigger\+Source\+::timer1\+Overflow}}, 
+\mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764ba0314dfe333af62b3fc0f4b30cd846e4b}{auto\+Trigger\+Source\+::timer1\+Capture}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespacecore_a91994a2fb37f8b4df0567468e9d0e325}{sense\+Control}} \+: uint8\+\_\+t \{ \mbox{\hyperlink{namespacecore_a91994a2fb37f8b4df0567468e9d0e325a3239c07183a9b9a88045a5930139d353}{sense\+Control\+::low\+Level}} =0, 
+\mbox{\hyperlink{namespacecore_a91994a2fb37f8b4df0567468e9d0e325aa8e8974344f00f6a16f4aa4ca52834a3}{sense\+Control\+::logical\+Change}}, 
+\mbox{\hyperlink{namespacecore_a91994a2fb37f8b4df0567468e9d0e325af2e03b32ee1a55694d5d848178d41bb8}{sense\+Control\+::falling\+Edge}}, 
+\mbox{\hyperlink{namespacecore_a91994a2fb37f8b4df0567468e9d0e325a635b84b50f3e41bd784adf168b8cb49f}{sense\+Control\+::rising\+Edge}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespacecore_a53090c2070741c037b6c3606081a34dd}{pin\+Change\+Port}} \+: uint8\+\_\+t \{ \mbox{\hyperlink{namespacecore_a53090c2070741c037b6c3606081a34dda79ac6619c9a7c733ac96232e557fa156}{pin\+Change\+Port\+::\+P\+C\+I\+N\+TB}} =0, 
+\mbox{\hyperlink{namespacecore_a53090c2070741c037b6c3606081a34dda0d12bf50fa5634dc60479c1a7e575ea2}{pin\+Change\+Port\+::\+P\+C\+I\+N\+TC}}, 
+\mbox{\hyperlink{namespacecore_a53090c2070741c037b6c3606081a34dda6179ac5884ca1d03a6c79008a9d816ee}{pin\+Change\+Port\+::\+P\+C\+I\+N\+TD}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespacecore_ad5b02e50c9b8ee52a12e722aa060b0c2}{B\+O\+D\+Mode}} \+: uint8\+\_\+t \{ \mbox{\hyperlink{namespacecore_ad5b02e50c9b8ee52a12e722aa060b0c2aa10311459433adf322f2590a4987c423}{B\+O\+D\+Mode\+::enabled}} =0, 
+\mbox{\hyperlink{namespacecore_ad5b02e50c9b8ee52a12e722aa060b0c2a075ae3d2fc31640504f814f60e5ef713}{B\+O\+D\+Mode\+::disabled}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespacecore_a8608940f180761239dfb662871a4a4f8}{sleep\+Mode}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacecore_a8608940f180761239dfb662871a4a4f8ae599161956d626eda4cb0a5ffb85271c}{sleep\+Mode\+::\+Idle}} =0, 
+\mbox{\hyperlink{namespacecore_a8608940f180761239dfb662871a4a4f8abd41c8854a6f9310ed7d14f0483105a7}{sleep\+Mode\+::\+A\+D\+C\+\_\+\+Noise\+Reduction}}, 
+\mbox{\hyperlink{namespacecore_a8608940f180761239dfb662871a4a4f8a3320a4123d6c0038582f591177075169}{sleep\+Mode\+::power\+Down}}, 
+\mbox{\hyperlink{namespacecore_a8608940f180761239dfb662871a4a4f8a2dc5ec4c0b1b48bfd2b3ed9ed70d26d3}{sleep\+Mode\+::power\+Save}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a8608940f180761239dfb662871a4a4f8aa7b13e050d2c0d1c57dfaf194e917221}{sleep\+Mode\+::standby}} =6, 
+\mbox{\hyperlink{namespacecore_a8608940f180761239dfb662871a4a4f8a07eba4ac93c740f3413d1fb08573460c}{sleep\+Mode\+::extended\+Standby}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{channel}} \+: uint8\+\_\+t \{ \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}{channel\+::A}} =0, 
+\mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a9d5ed678fe57bcca610140957afab571}{channel\+::B}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950}{compare\+Output\+Mode}} \+: uint8\+\_\+t \{ \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950afea087517c26fadd409bd4b9dc642555}{compare\+Output\+Mode\+::normal}} =0, 
+\mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950a41f984bb082af806e510740db289125d}{compare\+Output\+Mode\+::toggle}}, 
+\mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950a01bc6f8efa4202821e95f4fdf6298b30}{compare\+Output\+Mode\+::clear}}, 
+\mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950acdaeeeba9b4a4c5ebf042c0215a7bb0e}{compare\+Output\+Mode\+::set}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4}{operation\+Mode}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4afea087517c26fadd409bd4b9dc642555}{operation\+Mode\+::normal}} =0, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a49196b0d24edb1a822132784eeffd5f3}{operation\+Mode\+::\+P\+W\+M\+\_\+\+PC}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4adc060b12f2a8c2ed0449043878c8dee9}{operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+C\+\_\+8bit}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a4092d7289a007c7c583325a9d0277d16}{operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+C\+\_\+9bit}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a7ec819df84b0dca3945c08b65a98fe41}{operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+C\+\_\+10bit}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a3ce160e6a1ac5bb1a58b465499a234f4}{operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+F\+C\+\_\+\+I\+CR}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a596199601954f751d5b9b35c7b06e7a0}{operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+F\+C\+\_\+\+O\+CR}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a8ef607651fb404e5e7bbf24fde8be544}{operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+C\+\_\+\+I\+CR}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4aaf87e8ea80940150346ebe17612ee70e}{operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+C\+\_\+\+O\+CR}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a9bb3db07673e063e5eaadd3547848399}{operation\+Mode\+::fast\+\_\+\+P\+WM}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4ae8ba4e6d60ad9c0ab7f2c9b1c1942a41}{operation\+Mode\+::fast\+\_\+\+P\+W\+M\+\_\+8bit}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a95ac8af4ebc841d7ebb3bbf25d5713ef}{operation\+Mode\+::fast\+\_\+\+P\+W\+M\+\_\+9bit}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a1df38a580f76d74bd1e84c27764fdc41}{operation\+Mode\+::fast\+\_\+\+P\+W\+M\+\_\+10bit}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4afc3f15b740f731d2d2ef7d32fac6d071}{operation\+Mode\+::fast\+\_\+\+P\+W\+M\+\_\+\+I\+CR}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4ada00392d2f289eb77f4575d0371d9e90}{operation\+Mode\+::fast\+\_\+\+P\+W\+M\+\_\+\+O\+CR}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a9a9708b23d4611d606d2cab182ad99e5}{operation\+Mode\+::\+C\+T\+C\+\_\+\+O\+CR}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a04690e34407e7b99353ce910f8c1a4a0}{operation\+Mode\+::\+C\+T\+C\+\_\+\+I\+CR}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a2414c252176310b2c04547257948c7b7}{operation\+Mode\+::interrupt}} =1, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a86266ee937d97f812a8e57d22b62ee29}{operation\+Mode\+::reset}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a81ac0c5a7b37b4e3166d6e3067c70b9c}{operation\+Mode\+::interrupt\+\_\+reset}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1}{clock\+Source}} \+: uint16\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a8142d11a166d596eb441b277c1f41a13}{clock\+Source\+::no\+Clock}} =0, 
+\mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1aaf2c699cdfcc3d8a67c38889aea60156}{clock\+Source\+::\+P\+S\+\_\+1}}, 
+\mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1ae31444bf5c3424161080f9d328fd7955}{clock\+Source\+::\+P\+S\+\_\+8}}, 
+\mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1ae4540d7f3a807bc544222beb154275f3}{clock\+Source\+::\+P\+S\+\_\+32}}, 
+\newline
+\mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a97fb148ab1accd5462d69022d83b0ced}{clock\+Source\+::\+P\+S\+\_\+64}}, 
+\mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a5a748dfea8b6fda9f52e24f961378197}{clock\+Source\+::\+P\+S\+\_\+128}}, 
+\mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1adc97a6c0356fdc030a8256db81ea738d}{clock\+Source\+::\+P\+S\+\_\+256}}, 
+\mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a7fd03524c99e729c687d1057c771f11d}{clock\+Source\+::\+P\+S\+\_\+1024}}, 
+\newline
+\mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1ae10b1d2d5e76776ac271c7ef3dcba483}{clock\+Source\+::extern\+\_\+\+Clock\+\_\+\+T0\+\_\+\+Falling\+\_\+\+Edge}}, 
+\mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a85eda940954f04d0e630e77d7e16b421}{clock\+Source\+::extern\+\_\+\+Clock\+\_\+\+T0\+\_\+\+Rising\+\_\+\+Edge}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144f}{time\+Out}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144fa7c78a2a19a715c4a7d2d6f1d6c8bd147}{time\+Out\+::to\+\_\+16ms}} =0, 
+\mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144fab98adeb6a091135b0200fac029cefe0f}{time\+Out\+::to\+\_\+32ms}}, 
+\mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144faf2ffa2921d64275b11b7463fc4d0d667}{time\+Out\+::to\+\_\+64ms}}, 
+\mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144fa69fcfbae6d8818272c395a23bff6bc0e}{time\+Out\+::to\+\_\+125ms}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144face7247a5c6052baae4ffe41f15e396db}{time\+Out\+::to\+\_\+250ms}}, 
+\mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144faababdddd7a7fdf8d2677b0bbfc563bd9}{time\+Out\+::to\+\_\+500ms}}, 
+\mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144fa39c30c1f7842ea56d2ab64b8c488924b}{time\+Out\+::to\+\_\+1s}}, 
+\mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144fa09fef63677fc1a9ae51231a4205c9c6b}{time\+Out\+::to\+\_\+2s}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144faf8d332b84ba19f14a1f63062dd6800a1}{time\+Out\+::to\+\_\+4s}}, 
+\mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144fa254b0b70ad7fbdd04a61a0d5f9b45e78}{time\+Out\+::to\+\_\+8s}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4}{operation\+Mode}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4afea087517c26fadd409bd4b9dc642555}{operation\+Mode\+::normal}} =0, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a49196b0d24edb1a822132784eeffd5f3}{operation\+Mode\+::\+P\+W\+M\+\_\+\+PC}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4adc060b12f2a8c2ed0449043878c8dee9}{operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+C\+\_\+8bit}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a4092d7289a007c7c583325a9d0277d16}{operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+C\+\_\+9bit}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a7ec819df84b0dca3945c08b65a98fe41}{operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+C\+\_\+10bit}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a3ce160e6a1ac5bb1a58b465499a234f4}{operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+F\+C\+\_\+\+I\+CR}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a596199601954f751d5b9b35c7b06e7a0}{operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+F\+C\+\_\+\+O\+CR}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a8ef607651fb404e5e7bbf24fde8be544}{operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+C\+\_\+\+I\+CR}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4aaf87e8ea80940150346ebe17612ee70e}{operation\+Mode\+::\+P\+W\+M\+\_\+\+P\+C\+\_\+\+O\+CR}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a9bb3db07673e063e5eaadd3547848399}{operation\+Mode\+::fast\+\_\+\+P\+WM}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4ae8ba4e6d60ad9c0ab7f2c9b1c1942a41}{operation\+Mode\+::fast\+\_\+\+P\+W\+M\+\_\+8bit}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a95ac8af4ebc841d7ebb3bbf25d5713ef}{operation\+Mode\+::fast\+\_\+\+P\+W\+M\+\_\+9bit}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a1df38a580f76d74bd1e84c27764fdc41}{operation\+Mode\+::fast\+\_\+\+P\+W\+M\+\_\+10bit}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4afc3f15b740f731d2d2ef7d32fac6d071}{operation\+Mode\+::fast\+\_\+\+P\+W\+M\+\_\+\+I\+CR}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4ada00392d2f289eb77f4575d0371d9e90}{operation\+Mode\+::fast\+\_\+\+P\+W\+M\+\_\+\+O\+CR}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a9a9708b23d4611d606d2cab182ad99e5}{operation\+Mode\+::\+C\+T\+C\+\_\+\+O\+CR}}, 
+\newline
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a04690e34407e7b99353ce910f8c1a4a0}{operation\+Mode\+::\+C\+T\+C\+\_\+\+I\+CR}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a2414c252176310b2c04547257948c7b7}{operation\+Mode\+::interrupt}} =1, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a86266ee937d97f812a8e57d22b62ee29}{operation\+Mode\+::reset}}, 
+\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a81ac0c5a7b37b4e3166d6e3067c70b9c}{operation\+Mode\+::interrupt\+\_\+reset}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{namespacecore_a0ed64747f2fd998093761f239e4a764b}\label{namespacecore_a0ed64747f2fd998093761f239e4a764b}} 
+\index{core@{core}!autoTriggerSource@{autoTriggerSource}}
+\index{autoTriggerSource@{autoTriggerSource}!core@{core}}
+\doxysubsubsection{\texorpdfstring{autoTriggerSource}{autoTriggerSource}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764b}{core\+::auto\+Trigger\+Source}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{freeRunning@{freeRunning}!core@{core}}\index{core@{core}!freeRunning@{freeRunning}}}\mbox{\Hypertarget{namespacecore_a0ed64747f2fd998093761f239e4a764ba4f6e582ea390561732302e2cf48b2303}\label{namespacecore_a0ed64747f2fd998093761f239e4a764ba4f6e582ea390561732302e2cf48b2303}} 
+free\+Running&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{analogComparator@{analogComparator}!core@{core}}\index{core@{core}!analogComparator@{analogComparator}}}\mbox{\Hypertarget{namespacecore_a0ed64747f2fd998093761f239e4a764ba8841f18c722785f21089224aca7fb5f0}\label{namespacecore_a0ed64747f2fd998093761f239e4a764ba8841f18c722785f21089224aca7fb5f0}} 
+analog\+Comparator&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{extInterrupt@{extInterrupt}!core@{core}}\index{core@{core}!extInterrupt@{extInterrupt}}}\mbox{\Hypertarget{namespacecore_a0ed64747f2fd998093761f239e4a764babb87f5c1c1528b642a5b6da4962b1414}\label{namespacecore_a0ed64747f2fd998093761f239e4a764babb87f5c1c1528b642a5b6da4962b1414}} 
+ext\+Interrupt&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{timer0Compare@{timer0Compare}!core@{core}}\index{core@{core}!timer0Compare@{timer0Compare}}}\mbox{\Hypertarget{namespacecore_a0ed64747f2fd998093761f239e4a764ba1bdd866305a68d21beb4822bf364460e}\label{namespacecore_a0ed64747f2fd998093761f239e4a764ba1bdd866305a68d21beb4822bf364460e}} 
+timer0\+Compare&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{timer0Overflow@{timer0Overflow}!core@{core}}\index{core@{core}!timer0Overflow@{timer0Overflow}}}\mbox{\Hypertarget{namespacecore_a0ed64747f2fd998093761f239e4a764bae5afbf1133d813deccded16f7658514e}\label{namespacecore_a0ed64747f2fd998093761f239e4a764bae5afbf1133d813deccded16f7658514e}} 
+timer0\+Overflow&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{timer1CompareB@{timer1CompareB}!core@{core}}\index{core@{core}!timer1CompareB@{timer1CompareB}}}\mbox{\Hypertarget{namespacecore_a0ed64747f2fd998093761f239e4a764ba62e138fc90e5430da45b3978bf1870f8}\label{namespacecore_a0ed64747f2fd998093761f239e4a764ba62e138fc90e5430da45b3978bf1870f8}} 
+timer1\+CompareB&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{timer1Overflow@{timer1Overflow}!core@{core}}\index{core@{core}!timer1Overflow@{timer1Overflow}}}\mbox{\Hypertarget{namespacecore_a0ed64747f2fd998093761f239e4a764ba8bfdafa1426be90c0221490f9c08a2ed}\label{namespacecore_a0ed64747f2fd998093761f239e4a764ba8bfdafa1426be90c0221490f9c08a2ed}} 
+timer1\+Overflow&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{timer1Capture@{timer1Capture}!core@{core}}\index{core@{core}!timer1Capture@{timer1Capture}}}\mbox{\Hypertarget{namespacecore_a0ed64747f2fd998093761f239e4a764ba0314dfe333af62b3fc0f4b30cd846e4b}\label{namespacecore_a0ed64747f2fd998093761f239e4a764ba0314dfe333af62b3fc0f4b30cd846e4b}} 
+timer1\+Capture&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{ADC_8h_source_l00118}{118}} of file \mbox{\hyperlink{ADC_8h_source}{A\+D\+C.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00118                              : uint8\_t \{}
+\DoxyCodeLine{00119     \mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764ba4f6e582ea390561732302e2cf48b2303}{freeRunning}},}
+\DoxyCodeLine{00120     \mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764ba8841f18c722785f21089224aca7fb5f0}{analogComparator}},}
+\DoxyCodeLine{00121     \mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764babb87f5c1c1528b642a5b6da4962b1414}{extInterrupt}},}
+\DoxyCodeLine{00122     \mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764ba1bdd866305a68d21beb4822bf364460e}{timer0Compare}},}
+\DoxyCodeLine{00123     \mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764bae5afbf1133d813deccded16f7658514e}{timer0Overflow}},}
+\DoxyCodeLine{00124     \mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764ba62e138fc90e5430da45b3978bf1870f8}{timer1CompareB}},}
+\DoxyCodeLine{00125     \mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764ba8bfdafa1426be90c0221490f9c08a2ed}{timer1Overflow}},}
+\DoxyCodeLine{00126     \mbox{\hyperlink{namespacecore_a0ed64747f2fd998093761f239e4a764ba0314dfe333af62b3fc0f4b30cd846e4b}{timer1Capture}}}
+\DoxyCodeLine{00127 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacecore_ad5b02e50c9b8ee52a12e722aa060b0c2}\label{namespacecore_ad5b02e50c9b8ee52a12e722aa060b0c2}} 
+\index{core@{core}!BODMode@{BODMode}}
+\index{BODMode@{BODMode}!core@{core}}
+\doxysubsubsection{\texorpdfstring{BODMode}{BODMode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacecore_ad5b02e50c9b8ee52a12e722aa060b0c2}{core\+::\+B\+O\+D\+Mode}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{enabled@{enabled}!core@{core}}\index{core@{core}!enabled@{enabled}}}\mbox{\Hypertarget{namespacecore_ad5b02e50c9b8ee52a12e722aa060b0c2aa10311459433adf322f2590a4987c423}\label{namespacecore_ad5b02e50c9b8ee52a12e722aa060b0c2aa10311459433adf322f2590a4987c423}} 
+enabled&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{disabled@{disabled}!core@{core}}\index{core@{core}!disabled@{disabled}}}\mbox{\Hypertarget{namespacecore_ad5b02e50c9b8ee52a12e722aa060b0c2a075ae3d2fc31640504f814f60e5ef713}\label{namespacecore_ad5b02e50c9b8ee52a12e722aa060b0c2a075ae3d2fc31640504f814f60e5ef713}} 
+disabled&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{MCU_8h_source_l00077}{77}} of file \mbox{\hyperlink{MCU_8h_source}{M\+C\+U.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00077                    : uint8\_t \{}
+\DoxyCodeLine{00078     \mbox{\hyperlink{namespacecore_ad5b02e50c9b8ee52a12e722aa060b0c2aa10311459433adf322f2590a4987c423}{enabled}}=0,    }
+\DoxyCodeLine{00079     \mbox{\hyperlink{namespacecore_ad5b02e50c9b8ee52a12e722aa060b0c2a075ae3d2fc31640504f814f60e5ef713}{disabled}},    }
+\DoxyCodeLine{00080 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}\label{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}} 
+\index{core@{core}!channel@{channel}}
+\index{channel@{channel}!core@{core}}
+\doxysubsubsection{\texorpdfstring{channel}{channel}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{core\+::channel}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{A@{A}!core@{core}}\index{core@{core}!A@{A}}}\mbox{\Hypertarget{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}\label{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}} 
+A&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B@{B}!core@{core}}\index{core@{core}!B@{B}}}\mbox{\Hypertarget{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a9d5ed678fe57bcca610140957afab571}\label{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a9d5ed678fe57bcca610140957afab571}} 
+B&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{TimerCounter_8h_source_l00470}{470}} of file \mbox{\hyperlink{TimerCounter_8h_source}{Timer\+Counter.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00470                    : uint8\_t \{}
+\DoxyCodeLine{00471     \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}{A}}=0,    }
+\DoxyCodeLine{00472     \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a9d5ed678fe57bcca610140957afab571}{B}},       }
+\DoxyCodeLine{00473 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13}\label{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13}} 
+\index{core@{core}!clockPrescaler@{clockPrescaler}}
+\index{clockPrescaler@{clockPrescaler}!core@{core}}
+\doxysubsubsection{\texorpdfstring{clockPrescaler}{clockPrescaler}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13}{core\+::clock\+Prescaler}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PS\_2@{PS\_2}!core@{core}}\index{core@{core}!PS\_2@{PS\_2}}}\mbox{\Hypertarget{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13aca2ddd08703377bdfd1764242d8ff82e}\label{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13aca2ddd08703377bdfd1764242d8ff82e}} 
+P\+S\+\_\+2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PS\_4@{PS\_4}!core@{core}}\index{core@{core}!PS\_4@{PS\_4}}}\mbox{\Hypertarget{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13ad01a2fba340e44606cb932b086f27a75}\label{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13ad01a2fba340e44606cb932b086f27a75}} 
+P\+S\+\_\+4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PS\_8@{PS\_8}!core@{core}}\index{core@{core}!PS\_8@{PS\_8}}}\mbox{\Hypertarget{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13ae31444bf5c3424161080f9d328fd7955}\label{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13ae31444bf5c3424161080f9d328fd7955}} 
+P\+S\+\_\+8&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PS\_16@{PS\_16}!core@{core}}\index{core@{core}!PS\_16@{PS\_16}}}\mbox{\Hypertarget{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13ab9652296e385e314ac2aa67878eacfe5}\label{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13ab9652296e385e314ac2aa67878eacfe5}} 
+P\+S\+\_\+16&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PS\_32@{PS\_32}!core@{core}}\index{core@{core}!PS\_32@{PS\_32}}}\mbox{\Hypertarget{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13ae4540d7f3a807bc544222beb154275f3}\label{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13ae4540d7f3a807bc544222beb154275f3}} 
+P\+S\+\_\+32&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PS\_64@{PS\_64}!core@{core}}\index{core@{core}!PS\_64@{PS\_64}}}\mbox{\Hypertarget{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13a97fb148ab1accd5462d69022d83b0ced}\label{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13a97fb148ab1accd5462d69022d83b0ced}} 
+P\+S\+\_\+64&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PS\_128@{PS\_128}!core@{core}}\index{core@{core}!PS\_128@{PS\_128}}}\mbox{\Hypertarget{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13a5a748dfea8b6fda9f52e24f961378197}\label{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13a5a748dfea8b6fda9f52e24f961378197}} 
+P\+S\+\_\+128&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{ADC_8h_source_l00108}{108}} of file \mbox{\hyperlink{ADC_8h_source}{A\+D\+C.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00108                           : uint8\_t \{}
+\DoxyCodeLine{00109      \mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13aca2ddd08703377bdfd1764242d8ff82e}{PS\_2}} = 1,}
+\DoxyCodeLine{00110      \mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13ad01a2fba340e44606cb932b086f27a75}{PS\_4}},}
+\DoxyCodeLine{00111      \mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13ae31444bf5c3424161080f9d328fd7955}{PS\_8}},}
+\DoxyCodeLine{00112      \mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13ab9652296e385e314ac2aa67878eacfe5}{PS\_16}},}
+\DoxyCodeLine{00113      \mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13ae4540d7f3a807bc544222beb154275f3}{PS\_32}},}
+\DoxyCodeLine{00114      \mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13a97fb148ab1accd5462d69022d83b0ced}{PS\_64}},}
+\DoxyCodeLine{00115      \mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13a5a748dfea8b6fda9f52e24f961378197}{PS\_128}}}
+\DoxyCodeLine{00116 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1}\label{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1}} 
+\index{core@{core}!clockSource@{clockSource}}
+\index{clockSource@{clockSource}!core@{core}}
+\doxysubsubsection{\texorpdfstring{clockSource}{clockSource}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1}{core\+::clock\+Source}} \+: uint16\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{noClock@{noClock}!core@{core}}\index{core@{core}!noClock@{noClock}}}\mbox{\Hypertarget{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a8142d11a166d596eb441b277c1f41a13}\label{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a8142d11a166d596eb441b277c1f41a13}} 
+no\+Clock&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PS\_1@{PS\_1}!core@{core}}\index{core@{core}!PS\_1@{PS\_1}}}\mbox{\Hypertarget{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1aaf2c699cdfcc3d8a67c38889aea60156}\label{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1aaf2c699cdfcc3d8a67c38889aea60156}} 
+P\+S\+\_\+1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PS\_8@{PS\_8}!core@{core}}\index{core@{core}!PS\_8@{PS\_8}}}\mbox{\Hypertarget{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1ae31444bf5c3424161080f9d328fd7955}\label{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1ae31444bf5c3424161080f9d328fd7955}} 
+P\+S\+\_\+8&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PS\_32@{PS\_32}!core@{core}}\index{core@{core}!PS\_32@{PS\_32}}}\mbox{\Hypertarget{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1ae4540d7f3a807bc544222beb154275f3}\label{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1ae4540d7f3a807bc544222beb154275f3}} 
+P\+S\+\_\+32&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PS\_64@{PS\_64}!core@{core}}\index{core@{core}!PS\_64@{PS\_64}}}\mbox{\Hypertarget{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a97fb148ab1accd5462d69022d83b0ced}\label{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a97fb148ab1accd5462d69022d83b0ced}} 
+P\+S\+\_\+64&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PS\_128@{PS\_128}!core@{core}}\index{core@{core}!PS\_128@{PS\_128}}}\mbox{\Hypertarget{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a5a748dfea8b6fda9f52e24f961378197}\label{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a5a748dfea8b6fda9f52e24f961378197}} 
+P\+S\+\_\+128&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PS\_256@{PS\_256}!core@{core}}\index{core@{core}!PS\_256@{PS\_256}}}\mbox{\Hypertarget{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1adc97a6c0356fdc030a8256db81ea738d}\label{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1adc97a6c0356fdc030a8256db81ea738d}} 
+P\+S\+\_\+256&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PS\_1024@{PS\_1024}!core@{core}}\index{core@{core}!PS\_1024@{PS\_1024}}}\mbox{\Hypertarget{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a7fd03524c99e729c687d1057c771f11d}\label{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a7fd03524c99e729c687d1057c771f11d}} 
+P\+S\+\_\+1024&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{extern\_Clock\_T0\_Falling\_Edge@{extern\_Clock\_T0\_Falling\_Edge}!core@{core}}\index{core@{core}!extern\_Clock\_T0\_Falling\_Edge@{extern\_Clock\_T0\_Falling\_Edge}}}\mbox{\Hypertarget{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1ae10b1d2d5e76776ac271c7ef3dcba483}\label{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1ae10b1d2d5e76776ac271c7ef3dcba483}} 
+extern\+\_\+\+Clock\+\_\+\+T0\+\_\+\+Falling\+\_\+\+Edge&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{extern\_Clock\_T0\_Rising\_Edge@{extern\_Clock\_T0\_Rising\_Edge}!core@{core}}\index{core@{core}!extern\_Clock\_T0\_Rising\_Edge@{extern\_Clock\_T0\_Rising\_Edge}}}\mbox{\Hypertarget{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a85eda940954f04d0e630e77d7e16b421}\label{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a85eda940954f04d0e630e77d7e16b421}} 
+extern\+\_\+\+Clock\+\_\+\+T0\+\_\+\+Rising\+\_\+\+Edge&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{TimerCounter_8h_source_l00504}{504}} of file \mbox{\hyperlink{TimerCounter_8h_source}{Timer\+Counter.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00504                        : uint16\_t \{}
+\DoxyCodeLine{00505      \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a8142d11a166d596eb441b277c1f41a13}{noClock}}=0,}
+\DoxyCodeLine{00506      \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1aaf2c699cdfcc3d8a67c38889aea60156}{PS\_1}},}
+\DoxyCodeLine{00507      \mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13ae31444bf5c3424161080f9d328fd7955}{PS\_8}},}
+\DoxyCodeLine{00508      \mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13ae4540d7f3a807bc544222beb154275f3}{PS\_32}},}
+\DoxyCodeLine{00509      \mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13a97fb148ab1accd5462d69022d83b0ced}{PS\_64}},}
+\DoxyCodeLine{00510      \mbox{\hyperlink{namespacecore_a5ddaba0dc5b7cfee8057116fb1e89b13a5a748dfea8b6fda9f52e24f961378197}{PS\_128}},}
+\DoxyCodeLine{00511      \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1adc97a6c0356fdc030a8256db81ea738d}{PS\_256}},}
+\DoxyCodeLine{00512      \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a7fd03524c99e729c687d1057c771f11d}{PS\_1024}},}
+\DoxyCodeLine{00513      \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1ae10b1d2d5e76776ac271c7ef3dcba483}{extern\_Clock\_T0\_Falling\_Edge}},}
+\DoxyCodeLine{00514      \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1a85eda940954f04d0e630e77d7e16b421}{extern\_Clock\_T0\_Rising\_Edge}},}
+\DoxyCodeLine{00515 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacecore_abf164abe46881599e64640a064d89950}\label{namespacecore_abf164abe46881599e64640a064d89950}} 
+\index{core@{core}!compareOutputMode@{compareOutputMode}}
+\index{compareOutputMode@{compareOutputMode}!core@{core}}
+\doxysubsubsection{\texorpdfstring{compareOutputMode}{compareOutputMode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950}{core\+::compare\+Output\+Mode}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{normal@{normal}!core@{core}}\index{core@{core}!normal@{normal}}}\mbox{\Hypertarget{namespacecore_abf164abe46881599e64640a064d89950afea087517c26fadd409bd4b9dc642555}\label{namespacecore_abf164abe46881599e64640a064d89950afea087517c26fadd409bd4b9dc642555}} 
+normal&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{toggle@{toggle}!core@{core}}\index{core@{core}!toggle@{toggle}}}\mbox{\Hypertarget{namespacecore_abf164abe46881599e64640a064d89950a41f984bb082af806e510740db289125d}\label{namespacecore_abf164abe46881599e64640a064d89950a41f984bb082af806e510740db289125d}} 
+toggle&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{clear@{clear}!core@{core}}\index{core@{core}!clear@{clear}}}\mbox{\Hypertarget{namespacecore_abf164abe46881599e64640a064d89950a01bc6f8efa4202821e95f4fdf6298b30}\label{namespacecore_abf164abe46881599e64640a064d89950a01bc6f8efa4202821e95f4fdf6298b30}} 
+clear&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{set@{set}!core@{core}}\index{core@{core}!set@{set}}}\mbox{\Hypertarget{namespacecore_abf164abe46881599e64640a064d89950acdaeeeba9b4a4c5ebf042c0215a7bb0e}\label{namespacecore_abf164abe46881599e64640a064d89950acdaeeeba9b4a4c5ebf042c0215a7bb0e}} 
+set&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{TimerCounter_8h_source_l00476}{476}} of file \mbox{\hyperlink{TimerCounter_8h_source}{Timer\+Counter.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00476                              : uint8\_t \{}
+\DoxyCodeLine{00477     \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950afea087517c26fadd409bd4b9dc642555}{normal}}=0,    }
+\DoxyCodeLine{00478     \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950a41f984bb082af806e510740db289125d}{toggle}},       }
+\DoxyCodeLine{00479     \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950a01bc6f8efa4202821e95f4fdf6298b30}{clear}},   }
+\DoxyCodeLine{00480     \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950acdaeeeba9b4a4c5ebf042c0215a7bb0e}{set}},   }
+\DoxyCodeLine{00481 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4}} 
+\index{core@{core}!operationMode@{operationMode}}
+\index{operationMode@{operationMode}!core@{core}}
+\doxysubsubsection{\texorpdfstring{operationMode}{operationMode}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4}{core\+::operation\+Mode}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{normal@{normal}!core@{core}}\index{core@{core}!normal@{normal}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4afea087517c26fadd409bd4b9dc642555}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4afea087517c26fadd409bd4b9dc642555}} 
+normal&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM\_PC@{PWM\_PC}!core@{core}}\index{core@{core}!PWM\_PC@{PWM\_PC}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a49196b0d24edb1a822132784eeffd5f3}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a49196b0d24edb1a822132784eeffd5f3}} 
+P\+W\+M\+\_\+\+PC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM\_PC\_8bit@{PWM\_PC\_8bit}!core@{core}}\index{core@{core}!PWM\_PC\_8bit@{PWM\_PC\_8bit}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4adc060b12f2a8c2ed0449043878c8dee9}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4adc060b12f2a8c2ed0449043878c8dee9}} 
+P\+W\+M\+\_\+\+P\+C\+\_\+8bit&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM\_PC\_9bit@{PWM\_PC\_9bit}!core@{core}}\index{core@{core}!PWM\_PC\_9bit@{PWM\_PC\_9bit}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a4092d7289a007c7c583325a9d0277d16}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a4092d7289a007c7c583325a9d0277d16}} 
+P\+W\+M\+\_\+\+P\+C\+\_\+9bit&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM\_PC\_10bit@{PWM\_PC\_10bit}!core@{core}}\index{core@{core}!PWM\_PC\_10bit@{PWM\_PC\_10bit}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a7ec819df84b0dca3945c08b65a98fe41}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a7ec819df84b0dca3945c08b65a98fe41}} 
+P\+W\+M\+\_\+\+P\+C\+\_\+10bit&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM\_PFC\_ICR@{PWM\_PFC\_ICR}!core@{core}}\index{core@{core}!PWM\_PFC\_ICR@{PWM\_PFC\_ICR}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a3ce160e6a1ac5bb1a58b465499a234f4}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a3ce160e6a1ac5bb1a58b465499a234f4}} 
+P\+W\+M\+\_\+\+P\+F\+C\+\_\+\+I\+CR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM\_PFC\_OCR@{PWM\_PFC\_OCR}!core@{core}}\index{core@{core}!PWM\_PFC\_OCR@{PWM\_PFC\_OCR}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a596199601954f751d5b9b35c7b06e7a0}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a596199601954f751d5b9b35c7b06e7a0}} 
+P\+W\+M\+\_\+\+P\+F\+C\+\_\+\+O\+CR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM\_PC\_ICR@{PWM\_PC\_ICR}!core@{core}}\index{core@{core}!PWM\_PC\_ICR@{PWM\_PC\_ICR}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a8ef607651fb404e5e7bbf24fde8be544}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a8ef607651fb404e5e7bbf24fde8be544}} 
+P\+W\+M\+\_\+\+P\+C\+\_\+\+I\+CR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM\_PC\_OCR@{PWM\_PC\_OCR}!core@{core}}\index{core@{core}!PWM\_PC\_OCR@{PWM\_PC\_OCR}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4aaf87e8ea80940150346ebe17612ee70e}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4aaf87e8ea80940150346ebe17612ee70e}} 
+P\+W\+M\+\_\+\+P\+C\+\_\+\+O\+CR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{fast\_PWM@{fast\_PWM}!core@{core}}\index{core@{core}!fast\_PWM@{fast\_PWM}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a9bb3db07673e063e5eaadd3547848399}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a9bb3db07673e063e5eaadd3547848399}} 
+fast\+\_\+\+P\+WM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{fast\_PWM\_8bit@{fast\_PWM\_8bit}!core@{core}}\index{core@{core}!fast\_PWM\_8bit@{fast\_PWM\_8bit}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4ae8ba4e6d60ad9c0ab7f2c9b1c1942a41}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4ae8ba4e6d60ad9c0ab7f2c9b1c1942a41}} 
+fast\+\_\+\+P\+W\+M\+\_\+8bit&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{fast\_PWM\_9bit@{fast\_PWM\_9bit}!core@{core}}\index{core@{core}!fast\_PWM\_9bit@{fast\_PWM\_9bit}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a95ac8af4ebc841d7ebb3bbf25d5713ef}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a95ac8af4ebc841d7ebb3bbf25d5713ef}} 
+fast\+\_\+\+P\+W\+M\+\_\+9bit&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{fast\_PWM\_10bit@{fast\_PWM\_10bit}!core@{core}}\index{core@{core}!fast\_PWM\_10bit@{fast\_PWM\_10bit}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a1df38a580f76d74bd1e84c27764fdc41}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a1df38a580f76d74bd1e84c27764fdc41}} 
+fast\+\_\+\+P\+W\+M\+\_\+10bit&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{fast\_PWM\_ICR@{fast\_PWM\_ICR}!core@{core}}\index{core@{core}!fast\_PWM\_ICR@{fast\_PWM\_ICR}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4afc3f15b740f731d2d2ef7d32fac6d071}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4afc3f15b740f731d2d2ef7d32fac6d071}} 
+fast\+\_\+\+P\+W\+M\+\_\+\+I\+CR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{fast\_PWM\_OCR@{fast\_PWM\_OCR}!core@{core}}\index{core@{core}!fast\_PWM\_OCR@{fast\_PWM\_OCR}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4ada00392d2f289eb77f4575d0371d9e90}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4ada00392d2f289eb77f4575d0371d9e90}} 
+fast\+\_\+\+P\+W\+M\+\_\+\+O\+CR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CTC\_OCR@{CTC\_OCR}!core@{core}}\index{core@{core}!CTC\_OCR@{CTC\_OCR}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a9a9708b23d4611d606d2cab182ad99e5}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a9a9708b23d4611d606d2cab182ad99e5}} 
+C\+T\+C\+\_\+\+O\+CR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CTC\_ICR@{CTC\_ICR}!core@{core}}\index{core@{core}!CTC\_ICR@{CTC\_ICR}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a04690e34407e7b99353ce910f8c1a4a0}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a04690e34407e7b99353ce910f8c1a4a0}} 
+C\+T\+C\+\_\+\+I\+CR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{interrupt@{interrupt}!core@{core}}\index{core@{core}!interrupt@{interrupt}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a2414c252176310b2c04547257948c7b7}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a2414c252176310b2c04547257948c7b7}} 
+interrupt&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{reset@{reset}!core@{core}}\index{core@{core}!reset@{reset}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a86266ee937d97f812a8e57d22b62ee29}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a86266ee937d97f812a8e57d22b62ee29}} 
+reset&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{interrupt\_reset@{interrupt\_reset}!core@{core}}\index{core@{core}!interrupt\_reset@{interrupt\_reset}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a81ac0c5a7b37b4e3166d6e3067c70b9c}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a81ac0c5a7b37b4e3166d6e3067c70b9c}} 
+interrupt\+\_\+reset&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{WatchdogTimer_8h_source_l00078}{78}} of file \mbox{\hyperlink{WatchdogTimer_8h_source}{Watchdog\+Timer.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00078                          : uint8\_t \{}
+\DoxyCodeLine{00079     \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a2414c252176310b2c04547257948c7b7}{interrupt}}=1,    }
+\DoxyCodeLine{00080     \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a86266ee937d97f812a8e57d22b62ee29}{reset}},       }
+\DoxyCodeLine{00081     \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a81ac0c5a7b37b4e3166d6e3067c70b9c}{interrupt\_reset}},   }
+\DoxyCodeLine{00082 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4}} 
+\index{core@{core}!operationMode@{operationMode}}
+\index{operationMode@{operationMode}!core@{core}}
+\doxysubsubsection{\texorpdfstring{operationMode}{operationMode}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4}{core\+::operation\+Mode}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{normal@{normal}!core@{core}}\index{core@{core}!normal@{normal}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4afea087517c26fadd409bd4b9dc642555}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4afea087517c26fadd409bd4b9dc642555}} 
+normal&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM\_PC@{PWM\_PC}!core@{core}}\index{core@{core}!PWM\_PC@{PWM\_PC}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a49196b0d24edb1a822132784eeffd5f3}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a49196b0d24edb1a822132784eeffd5f3}} 
+P\+W\+M\+\_\+\+PC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM\_PC\_8bit@{PWM\_PC\_8bit}!core@{core}}\index{core@{core}!PWM\_PC\_8bit@{PWM\_PC\_8bit}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4adc060b12f2a8c2ed0449043878c8dee9}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4adc060b12f2a8c2ed0449043878c8dee9}} 
+P\+W\+M\+\_\+\+P\+C\+\_\+8bit&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM\_PC\_9bit@{PWM\_PC\_9bit}!core@{core}}\index{core@{core}!PWM\_PC\_9bit@{PWM\_PC\_9bit}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a4092d7289a007c7c583325a9d0277d16}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a4092d7289a007c7c583325a9d0277d16}} 
+P\+W\+M\+\_\+\+P\+C\+\_\+9bit&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM\_PC\_10bit@{PWM\_PC\_10bit}!core@{core}}\index{core@{core}!PWM\_PC\_10bit@{PWM\_PC\_10bit}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a7ec819df84b0dca3945c08b65a98fe41}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a7ec819df84b0dca3945c08b65a98fe41}} 
+P\+W\+M\+\_\+\+P\+C\+\_\+10bit&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM\_PFC\_ICR@{PWM\_PFC\_ICR}!core@{core}}\index{core@{core}!PWM\_PFC\_ICR@{PWM\_PFC\_ICR}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a3ce160e6a1ac5bb1a58b465499a234f4}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a3ce160e6a1ac5bb1a58b465499a234f4}} 
+P\+W\+M\+\_\+\+P\+F\+C\+\_\+\+I\+CR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM\_PFC\_OCR@{PWM\_PFC\_OCR}!core@{core}}\index{core@{core}!PWM\_PFC\_OCR@{PWM\_PFC\_OCR}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a596199601954f751d5b9b35c7b06e7a0}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a596199601954f751d5b9b35c7b06e7a0}} 
+P\+W\+M\+\_\+\+P\+F\+C\+\_\+\+O\+CR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM\_PC\_ICR@{PWM\_PC\_ICR}!core@{core}}\index{core@{core}!PWM\_PC\_ICR@{PWM\_PC\_ICR}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a8ef607651fb404e5e7bbf24fde8be544}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a8ef607651fb404e5e7bbf24fde8be544}} 
+P\+W\+M\+\_\+\+P\+C\+\_\+\+I\+CR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM\_PC\_OCR@{PWM\_PC\_OCR}!core@{core}}\index{core@{core}!PWM\_PC\_OCR@{PWM\_PC\_OCR}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4aaf87e8ea80940150346ebe17612ee70e}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4aaf87e8ea80940150346ebe17612ee70e}} 
+P\+W\+M\+\_\+\+P\+C\+\_\+\+O\+CR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{fast\_PWM@{fast\_PWM}!core@{core}}\index{core@{core}!fast\_PWM@{fast\_PWM}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a9bb3db07673e063e5eaadd3547848399}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a9bb3db07673e063e5eaadd3547848399}} 
+fast\+\_\+\+P\+WM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{fast\_PWM\_8bit@{fast\_PWM\_8bit}!core@{core}}\index{core@{core}!fast\_PWM\_8bit@{fast\_PWM\_8bit}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4ae8ba4e6d60ad9c0ab7f2c9b1c1942a41}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4ae8ba4e6d60ad9c0ab7f2c9b1c1942a41}} 
+fast\+\_\+\+P\+W\+M\+\_\+8bit&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{fast\_PWM\_9bit@{fast\_PWM\_9bit}!core@{core}}\index{core@{core}!fast\_PWM\_9bit@{fast\_PWM\_9bit}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a95ac8af4ebc841d7ebb3bbf25d5713ef}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a95ac8af4ebc841d7ebb3bbf25d5713ef}} 
+fast\+\_\+\+P\+W\+M\+\_\+9bit&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{fast\_PWM\_10bit@{fast\_PWM\_10bit}!core@{core}}\index{core@{core}!fast\_PWM\_10bit@{fast\_PWM\_10bit}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a1df38a580f76d74bd1e84c27764fdc41}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a1df38a580f76d74bd1e84c27764fdc41}} 
+fast\+\_\+\+P\+W\+M\+\_\+10bit&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{fast\_PWM\_ICR@{fast\_PWM\_ICR}!core@{core}}\index{core@{core}!fast\_PWM\_ICR@{fast\_PWM\_ICR}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4afc3f15b740f731d2d2ef7d32fac6d071}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4afc3f15b740f731d2d2ef7d32fac6d071}} 
+fast\+\_\+\+P\+W\+M\+\_\+\+I\+CR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{fast\_PWM\_OCR@{fast\_PWM\_OCR}!core@{core}}\index{core@{core}!fast\_PWM\_OCR@{fast\_PWM\_OCR}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4ada00392d2f289eb77f4575d0371d9e90}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4ada00392d2f289eb77f4575d0371d9e90}} 
+fast\+\_\+\+P\+W\+M\+\_\+\+O\+CR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CTC\_OCR@{CTC\_OCR}!core@{core}}\index{core@{core}!CTC\_OCR@{CTC\_OCR}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a9a9708b23d4611d606d2cab182ad99e5}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a9a9708b23d4611d606d2cab182ad99e5}} 
+C\+T\+C\+\_\+\+O\+CR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CTC\_ICR@{CTC\_ICR}!core@{core}}\index{core@{core}!CTC\_ICR@{CTC\_ICR}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a04690e34407e7b99353ce910f8c1a4a0}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a04690e34407e7b99353ce910f8c1a4a0}} 
+C\+T\+C\+\_\+\+I\+CR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{interrupt@{interrupt}!core@{core}}\index{core@{core}!interrupt@{interrupt}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a2414c252176310b2c04547257948c7b7}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a2414c252176310b2c04547257948c7b7}} 
+interrupt&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{reset@{reset}!core@{core}}\index{core@{core}!reset@{reset}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a86266ee937d97f812a8e57d22b62ee29}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a86266ee937d97f812a8e57d22b62ee29}} 
+reset&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{interrupt\_reset@{interrupt\_reset}!core@{core}}\index{core@{core}!interrupt\_reset@{interrupt\_reset}}}\mbox{\Hypertarget{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a81ac0c5a7b37b4e3166d6e3067c70b9c}\label{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a81ac0c5a7b37b4e3166d6e3067c70b9c}} 
+interrupt\+\_\+reset&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{TimerCounter_8h_source_l00485}{485}} of file \mbox{\hyperlink{TimerCounter_8h_source}{Timer\+Counter.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00485                          : uint8\_t \{}
+\DoxyCodeLine{00486     \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950afea087517c26fadd409bd4b9dc642555}{normal}}=0,    }
+\DoxyCodeLine{00487     \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a49196b0d24edb1a822132784eeffd5f3}{PWM\_PC}},       }
+\DoxyCodeLine{00488     \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4adc060b12f2a8c2ed0449043878c8dee9}{PWM\_PC\_8bit}},   }
+\DoxyCodeLine{00489     \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a4092d7289a007c7c583325a9d0277d16}{PWM\_PC\_9bit}},   }
+\DoxyCodeLine{00490     \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a7ec819df84b0dca3945c08b65a98fe41}{PWM\_PC\_10bit}},   }
+\DoxyCodeLine{00491     \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a3ce160e6a1ac5bb1a58b465499a234f4}{PWM\_PFC\_ICR}}, }
+\DoxyCodeLine{00492     \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a596199601954f751d5b9b35c7b06e7a0}{PWM\_PFC\_OCR}}, }
+\DoxyCodeLine{00493     \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a8ef607651fb404e5e7bbf24fde8be544}{PWM\_PC\_ICR}}, }
+\DoxyCodeLine{00494     \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4aaf87e8ea80940150346ebe17612ee70e}{PWM\_PC\_OCR}}, }
+\DoxyCodeLine{00495     \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a9bb3db07673e063e5eaadd3547848399}{fast\_PWM}},   }
+\DoxyCodeLine{00496     \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4ae8ba4e6d60ad9c0ab7f2c9b1c1942a41}{fast\_PWM\_8bit}},   }
+\DoxyCodeLine{00497     \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a95ac8af4ebc841d7ebb3bbf25d5713ef}{fast\_PWM\_9bit}},   }
+\DoxyCodeLine{00498     \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a1df38a580f76d74bd1e84c27764fdc41}{fast\_PWM\_10bit}},   }
+\DoxyCodeLine{00499     \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4afc3f15b740f731d2d2ef7d32fac6d071}{fast\_PWM\_ICR}},   }
+\DoxyCodeLine{00500     \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4ada00392d2f289eb77f4575d0371d9e90}{fast\_PWM\_OCR}},   }
+\DoxyCodeLine{00501     \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a9a9708b23d4611d606d2cab182ad99e5}{CTC\_OCR}},   }
+\DoxyCodeLine{00502     \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a04690e34407e7b99353ce910f8c1a4a0}{CTC\_ICR}},   }
+\DoxyCodeLine{00503 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacecore_a53090c2070741c037b6c3606081a34dd}\label{namespacecore_a53090c2070741c037b6c3606081a34dd}} 
+\index{core@{core}!pinChangePort@{pinChangePort}}
+\index{pinChangePort@{pinChangePort}!core@{core}}
+\doxysubsubsection{\texorpdfstring{pinChangePort}{pinChangePort}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacecore_a53090c2070741c037b6c3606081a34dd}{core\+::pin\+Change\+Port}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PCINTB@{PCINTB}!core@{core}}\index{core@{core}!PCINTB@{PCINTB}}}\mbox{\Hypertarget{namespacecore_a53090c2070741c037b6c3606081a34dda79ac6619c9a7c733ac96232e557fa156}\label{namespacecore_a53090c2070741c037b6c3606081a34dda79ac6619c9a7c733ac96232e557fa156}} 
+P\+C\+I\+N\+TB&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PCINTC@{PCINTC}!core@{core}}\index{core@{core}!PCINTC@{PCINTC}}}\mbox{\Hypertarget{namespacecore_a53090c2070741c037b6c3606081a34dda0d12bf50fa5634dc60479c1a7e575ea2}\label{namespacecore_a53090c2070741c037b6c3606081a34dda0d12bf50fa5634dc60479c1a7e575ea2}} 
+P\+C\+I\+N\+TC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PCINTD@{PCINTD}!core@{core}}\index{core@{core}!PCINTD@{PCINTD}}}\mbox{\Hypertarget{namespacecore_a53090c2070741c037b6c3606081a34dda6179ac5884ca1d03a6c79008a9d816ee}\label{namespacecore_a53090c2070741c037b6c3606081a34dda6179ac5884ca1d03a6c79008a9d816ee}} 
+P\+C\+I\+N\+TD&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{ExternInterrupt_8h_source_l00156}{156}} of file \mbox{\hyperlink{ExternInterrupt_8h_source}{Extern\+Interrupt.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00156                          : uint8\_t \{}
+\DoxyCodeLine{00157     \mbox{\hyperlink{namespacecore_a53090c2070741c037b6c3606081a34dda79ac6619c9a7c733ac96232e557fa156}{PCINTB}}=0,    }
+\DoxyCodeLine{00158     \mbox{\hyperlink{namespacecore_a53090c2070741c037b6c3606081a34dda0d12bf50fa5634dc60479c1a7e575ea2}{PCINTC}},       }
+\DoxyCodeLine{00159     \mbox{\hyperlink{namespacecore_a53090c2070741c037b6c3606081a34dda6179ac5884ca1d03a6c79008a9d816ee}{PCINTD}},   }
+\DoxyCodeLine{00160 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacecore_a9bc91028526103cb0e5a3288177e1765}\label{namespacecore_a9bc91028526103cb0e5a3288177e1765}} 
+\index{core@{core}!referenceVoltage@{referenceVoltage}}
+\index{referenceVoltage@{referenceVoltage}!core@{core}}
+\doxysubsubsection{\texorpdfstring{referenceVoltage}{referenceVoltage}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacecore_a9bc91028526103cb0e5a3288177e1765}{core\+::reference\+Voltage}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AREF@{AREF}!core@{core}}\index{core@{core}!AREF@{AREF}}}\mbox{\Hypertarget{namespacecore_a9bc91028526103cb0e5a3288177e1765a73baa1f279879a52ff4215d3c9031d1f}\label{namespacecore_a9bc91028526103cb0e5a3288177e1765a73baa1f279879a52ff4215d3c9031d1f}} 
+A\+R\+EF&external A\+R\+EF pin voltage reference, internal 1.\+1V voltage reference turned off \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AVCC@{AVCC}!core@{core}}\index{core@{core}!AVCC@{AVCC}}}\mbox{\Hypertarget{namespacecore_a9bc91028526103cb0e5a3288177e1765a7553837f2d19afc93f5bbc9d84e097f3}\label{namespacecore_a9bc91028526103cb0e5a3288177e1765a7553837f2d19afc93f5bbc9d84e097f3}} 
+A\+V\+CC&A\+V\+CC voltage reference with external capacitor at A\+R\+EF pin. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{internal@{internal}!core@{core}}\index{core@{core}!internal@{internal}}}\mbox{\Hypertarget{namespacecore_a9bc91028526103cb0e5a3288177e1765ad1efad72dc5b17dc66a46767c32fff40}\label{namespacecore_a9bc91028526103cb0e5a3288177e1765ad1efad72dc5b17dc66a46767c32fff40}} 
+internal&internal 1.\+1V voltage reference with external capacitor at A\+R\+EF pin \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{ADC_8h_source_l00100}{100}} of file \mbox{\hyperlink{ADC_8h_source}{A\+D\+C.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00100                             : uint8\_t \{}
+\DoxyCodeLine{00101     \mbox{\hyperlink{namespacecore_a9bc91028526103cb0e5a3288177e1765a73baa1f279879a52ff4215d3c9031d1f}{AREF}}=0,    }
+\DoxyCodeLine{00102     \mbox{\hyperlink{namespacecore_a9bc91028526103cb0e5a3288177e1765a7553837f2d19afc93f5bbc9d84e097f3}{AVCC}},       }
+\DoxyCodeLine{00103     \textcolor{keyword}{internal}   }
+\DoxyCodeLine{00104 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570}\label{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570}} 
+\index{core@{core}!resolution@{resolution}}
+\index{resolution@{resolution}!core@{core}}
+\doxysubsubsection{\texorpdfstring{resolution}{resolution}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570}{core\+::resolution}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{res\_8bit@{res\_8bit}!core@{core}}\index{core@{core}!res\_8bit@{res\_8bit}}}\mbox{\Hypertarget{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a7ea4d6dd280caccea297d0fa2f7e06f1}\label{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a7ea4d6dd280caccea297d0fa2f7e06f1}} 
+res\+\_\+8bit&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{res\_9bit@{res\_9bit}!core@{core}}\index{core@{core}!res\_9bit@{res\_9bit}}}\mbox{\Hypertarget{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570acacc43ba446d9f5470d707377a9ab57d}\label{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570acacc43ba446d9f5470d707377a9ab57d}} 
+res\+\_\+9bit&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{res\_10bit@{res\_10bit}!core@{core}}\index{core@{core}!res\_10bit@{res\_10bit}}}\mbox{\Hypertarget{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a2dfcad6aa6be091d9ae2d89cba912d73}\label{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a2dfcad6aa6be091d9ae2d89cba912d73}} 
+res\+\_\+10bit&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{res\_11bit@{res\_11bit}!core@{core}}\index{core@{core}!res\_11bit@{res\_11bit}}}\mbox{\Hypertarget{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570ad5b2972aa04da9ded704d67af3160f73}\label{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570ad5b2972aa04da9ded704d67af3160f73}} 
+res\+\_\+11bit&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{res\_12bit@{res\_12bit}!core@{core}}\index{core@{core}!res\_12bit@{res\_12bit}}}\mbox{\Hypertarget{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a2c112f82e3b38ea0e86502b21795f0ed}\label{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a2c112f82e3b38ea0e86502b21795f0ed}} 
+res\+\_\+12bit&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{res\_13bit@{res\_13bit}!core@{core}}\index{core@{core}!res\_13bit@{res\_13bit}}}\mbox{\Hypertarget{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570aa4739f6369eb7a55eac3e4061811e9b2}\label{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570aa4739f6369eb7a55eac3e4061811e9b2}} 
+res\+\_\+13bit&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{res\_14bit@{res\_14bit}!core@{core}}\index{core@{core}!res\_14bit@{res\_14bit}}}\mbox{\Hypertarget{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a1d891da42f0b35691e041a787f279e2a}\label{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a1d891da42f0b35691e041a787f279e2a}} 
+res\+\_\+14bit&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{res\_15bit@{res\_15bit}!core@{core}}\index{core@{core}!res\_15bit@{res\_15bit}}}\mbox{\Hypertarget{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a308f1161ab8115148688b26457b94477}\label{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a308f1161ab8115148688b26457b94477}} 
+res\+\_\+15bit&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{res\_16bit@{res\_16bit}!core@{core}}\index{core@{core}!res\_16bit@{res\_16bit}}}\mbox{\Hypertarget{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570ae03d417bc0a8193a26018367d4899d83}\label{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570ae03d417bc0a8193a26018367d4899d83}} 
+res\+\_\+16bit&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{ADC_8h_source_l00087}{87}} of file \mbox{\hyperlink{ADC_8h_source}{A\+D\+C.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087                       : uint8\_t \{}
+\DoxyCodeLine{00088     \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a7ea4d6dd280caccea297d0fa2f7e06f1}{res\_8bit}}=0,}
+\DoxyCodeLine{00089     \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570acacc43ba446d9f5470d707377a9ab57d}{res\_9bit}},}
+\DoxyCodeLine{00090     \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a2dfcad6aa6be091d9ae2d89cba912d73}{res\_10bit}},}
+\DoxyCodeLine{00091     \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570ad5b2972aa04da9ded704d67af3160f73}{res\_11bit}},}
+\DoxyCodeLine{00092     \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a2c112f82e3b38ea0e86502b21795f0ed}{res\_12bit}},}
+\DoxyCodeLine{00093     \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570aa4739f6369eb7a55eac3e4061811e9b2}{res\_13bit}},}
+\DoxyCodeLine{00094     \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a1d891da42f0b35691e041a787f279e2a}{res\_14bit}},}
+\DoxyCodeLine{00095     \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570a308f1161ab8115148688b26457b94477}{res\_15bit}},}
+\DoxyCodeLine{00096     \mbox{\hyperlink{namespacecore_a3d1c76b64ea2576cdb8ff5a1456b9570ae03d417bc0a8193a26018367d4899d83}{res\_16bit}}}
+\DoxyCodeLine{00097 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacecore_a91994a2fb37f8b4df0567468e9d0e325}\label{namespacecore_a91994a2fb37f8b4df0567468e9d0e325}} 
+\index{core@{core}!senseControl@{senseControl}}
+\index{senseControl@{senseControl}!core@{core}}
+\doxysubsubsection{\texorpdfstring{senseControl}{senseControl}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacecore_a91994a2fb37f8b4df0567468e9d0e325}{core\+::sense\+Control}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{lowLevel@{lowLevel}!core@{core}}\index{core@{core}!lowLevel@{lowLevel}}}\mbox{\Hypertarget{namespacecore_a91994a2fb37f8b4df0567468e9d0e325a3239c07183a9b9a88045a5930139d353}\label{namespacecore_a91994a2fb37f8b4df0567468e9d0e325a3239c07183a9b9a88045a5930139d353}} 
+low\+Level&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{logicalChange@{logicalChange}!core@{core}}\index{core@{core}!logicalChange@{logicalChange}}}\mbox{\Hypertarget{namespacecore_a91994a2fb37f8b4df0567468e9d0e325aa8e8974344f00f6a16f4aa4ca52834a3}\label{namespacecore_a91994a2fb37f8b4df0567468e9d0e325aa8e8974344f00f6a16f4aa4ca52834a3}} 
+logical\+Change&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{fallingEdge@{fallingEdge}!core@{core}}\index{core@{core}!fallingEdge@{fallingEdge}}}\mbox{\Hypertarget{namespacecore_a91994a2fb37f8b4df0567468e9d0e325af2e03b32ee1a55694d5d848178d41bb8}\label{namespacecore_a91994a2fb37f8b4df0567468e9d0e325af2e03b32ee1a55694d5d848178d41bb8}} 
+falling\+Edge&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{risingEdge@{risingEdge}!core@{core}}\index{core@{core}!risingEdge@{risingEdge}}}\mbox{\Hypertarget{namespacecore_a91994a2fb37f8b4df0567468e9d0e325a635b84b50f3e41bd784adf168b8cb49f}\label{namespacecore_a91994a2fb37f8b4df0567468e9d0e325a635b84b50f3e41bd784adf168b8cb49f}} 
+rising\+Edge&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{ExternInterrupt_8h_source_l00149}{149}} of file \mbox{\hyperlink{ExternInterrupt_8h_source}{Extern\+Interrupt.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00149                         : uint8\_t \{}
+\DoxyCodeLine{00150     \mbox{\hyperlink{namespacecore_a91994a2fb37f8b4df0567468e9d0e325a3239c07183a9b9a88045a5930139d353}{lowLevel}}=0,    }
+\DoxyCodeLine{00151     \mbox{\hyperlink{namespacecore_a91994a2fb37f8b4df0567468e9d0e325aa8e8974344f00f6a16f4aa4ca52834a3}{logicalChange}},       }
+\DoxyCodeLine{00152     \mbox{\hyperlink{namespacecore_a91994a2fb37f8b4df0567468e9d0e325af2e03b32ee1a55694d5d848178d41bb8}{fallingEdge}},   }
+\DoxyCodeLine{00153     \mbox{\hyperlink{namespacecore_a91994a2fb37f8b4df0567468e9d0e325a635b84b50f3e41bd784adf168b8cb49f}{risingEdge}}   }
+\DoxyCodeLine{00154 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacecore_a8608940f180761239dfb662871a4a4f8}\label{namespacecore_a8608940f180761239dfb662871a4a4f8}} 
+\index{core@{core}!sleepMode@{sleepMode}}
+\index{sleepMode@{sleepMode}!core@{core}}
+\doxysubsubsection{\texorpdfstring{sleepMode}{sleepMode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacecore_a8608940f180761239dfb662871a4a4f8}{core\+::sleep\+Mode}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Idle@{Idle}!core@{core}}\index{core@{core}!Idle@{Idle}}}\mbox{\Hypertarget{namespacecore_a8608940f180761239dfb662871a4a4f8ae599161956d626eda4cb0a5ffb85271c}\label{namespacecore_a8608940f180761239dfb662871a4a4f8ae599161956d626eda4cb0a5ffb85271c}} 
+Idle&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADC\_NoiseReduction@{ADC\_NoiseReduction}!core@{core}}\index{core@{core}!ADC\_NoiseReduction@{ADC\_NoiseReduction}}}\mbox{\Hypertarget{namespacecore_a8608940f180761239dfb662871a4a4f8abd41c8854a6f9310ed7d14f0483105a7}\label{namespacecore_a8608940f180761239dfb662871a4a4f8abd41c8854a6f9310ed7d14f0483105a7}} 
+A\+D\+C\+\_\+\+Noise\+Reduction&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{powerDown@{powerDown}!core@{core}}\index{core@{core}!powerDown@{powerDown}}}\mbox{\Hypertarget{namespacecore_a8608940f180761239dfb662871a4a4f8a3320a4123d6c0038582f591177075169}\label{namespacecore_a8608940f180761239dfb662871a4a4f8a3320a4123d6c0038582f591177075169}} 
+power\+Down&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{powerSave@{powerSave}!core@{core}}\index{core@{core}!powerSave@{powerSave}}}\mbox{\Hypertarget{namespacecore_a8608940f180761239dfb662871a4a4f8a2dc5ec4c0b1b48bfd2b3ed9ed70d26d3}\label{namespacecore_a8608940f180761239dfb662871a4a4f8a2dc5ec4c0b1b48bfd2b3ed9ed70d26d3}} 
+power\+Save&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{standby@{standby}!core@{core}}\index{core@{core}!standby@{standby}}}\mbox{\Hypertarget{namespacecore_a8608940f180761239dfb662871a4a4f8aa7b13e050d2c0d1c57dfaf194e917221}\label{namespacecore_a8608940f180761239dfb662871a4a4f8aa7b13e050d2c0d1c57dfaf194e917221}} 
+standby&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{extendedStandby@{extendedStandby}!core@{core}}\index{core@{core}!extendedStandby@{extendedStandby}}}\mbox{\Hypertarget{namespacecore_a8608940f180761239dfb662871a4a4f8a07eba4ac93c740f3413d1fb08573460c}\label{namespacecore_a8608940f180761239dfb662871a4a4f8a07eba4ac93c740f3413d1fb08573460c}} 
+extended\+Standby&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{MCU_8h_source_l00082}{82}} of file \mbox{\hyperlink{MCU_8h_source}{M\+C\+U.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00082                      : uint8\_t \{}
+\DoxyCodeLine{00083     \mbox{\hyperlink{namespacecore_a8608940f180761239dfb662871a4a4f8ae599161956d626eda4cb0a5ffb85271c}{Idle}}=0,    }
+\DoxyCodeLine{00084     \mbox{\hyperlink{namespacecore_a8608940f180761239dfb662871a4a4f8abd41c8854a6f9310ed7d14f0483105a7}{ADC\_NoiseReduction}},    }
+\DoxyCodeLine{00085     \mbox{\hyperlink{namespacecore_a8608940f180761239dfb662871a4a4f8a3320a4123d6c0038582f591177075169}{powerDown}},    }
+\DoxyCodeLine{00086     \mbox{\hyperlink{namespacecore_a8608940f180761239dfb662871a4a4f8a2dc5ec4c0b1b48bfd2b3ed9ed70d26d3}{powerSave}},    }
+\DoxyCodeLine{00087     \mbox{\hyperlink{namespacecore_a8608940f180761239dfb662871a4a4f8aa7b13e050d2c0d1c57dfaf194e917221}{standby}}=6,    }
+\DoxyCodeLine{00088     \mbox{\hyperlink{namespacecore_a8608940f180761239dfb662871a4a4f8a07eba4ac93c740f3413d1fb08573460c}{extendedStandby}},    }
+\DoxyCodeLine{00089 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacecore_a58824599b582b6f035f314469e8f144f}\label{namespacecore_a58824599b582b6f035f314469e8f144f}} 
+\index{core@{core}!timeOut@{timeOut}}
+\index{timeOut@{timeOut}!core@{core}}
+\doxysubsubsection{\texorpdfstring{timeOut}{timeOut}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144f}{core\+::time\+Out}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{to\_16ms@{to\_16ms}!core@{core}}\index{core@{core}!to\_16ms@{to\_16ms}}}\mbox{\Hypertarget{namespacecore_a58824599b582b6f035f314469e8f144fa7c78a2a19a715c4a7d2d6f1d6c8bd147}\label{namespacecore_a58824599b582b6f035f314469e8f144fa7c78a2a19a715c4a7d2d6f1d6c8bd147}} 
+to\+\_\+16ms&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{to\_32ms@{to\_32ms}!core@{core}}\index{core@{core}!to\_32ms@{to\_32ms}}}\mbox{\Hypertarget{namespacecore_a58824599b582b6f035f314469e8f144fab98adeb6a091135b0200fac029cefe0f}\label{namespacecore_a58824599b582b6f035f314469e8f144fab98adeb6a091135b0200fac029cefe0f}} 
+to\+\_\+32ms&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{to\_64ms@{to\_64ms}!core@{core}}\index{core@{core}!to\_64ms@{to\_64ms}}}\mbox{\Hypertarget{namespacecore_a58824599b582b6f035f314469e8f144faf2ffa2921d64275b11b7463fc4d0d667}\label{namespacecore_a58824599b582b6f035f314469e8f144faf2ffa2921d64275b11b7463fc4d0d667}} 
+to\+\_\+64ms&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{to\_125ms@{to\_125ms}!core@{core}}\index{core@{core}!to\_125ms@{to\_125ms}}}\mbox{\Hypertarget{namespacecore_a58824599b582b6f035f314469e8f144fa69fcfbae6d8818272c395a23bff6bc0e}\label{namespacecore_a58824599b582b6f035f314469e8f144fa69fcfbae6d8818272c395a23bff6bc0e}} 
+to\+\_\+125ms&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{to\_250ms@{to\_250ms}!core@{core}}\index{core@{core}!to\_250ms@{to\_250ms}}}\mbox{\Hypertarget{namespacecore_a58824599b582b6f035f314469e8f144face7247a5c6052baae4ffe41f15e396db}\label{namespacecore_a58824599b582b6f035f314469e8f144face7247a5c6052baae4ffe41f15e396db}} 
+to\+\_\+250ms&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{to\_500ms@{to\_500ms}!core@{core}}\index{core@{core}!to\_500ms@{to\_500ms}}}\mbox{\Hypertarget{namespacecore_a58824599b582b6f035f314469e8f144faababdddd7a7fdf8d2677b0bbfc563bd9}\label{namespacecore_a58824599b582b6f035f314469e8f144faababdddd7a7fdf8d2677b0bbfc563bd9}} 
+to\+\_\+500ms&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{to\_1s@{to\_1s}!core@{core}}\index{core@{core}!to\_1s@{to\_1s}}}\mbox{\Hypertarget{namespacecore_a58824599b582b6f035f314469e8f144fa39c30c1f7842ea56d2ab64b8c488924b}\label{namespacecore_a58824599b582b6f035f314469e8f144fa39c30c1f7842ea56d2ab64b8c488924b}} 
+to\+\_\+1s&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{to\_2s@{to\_2s}!core@{core}}\index{core@{core}!to\_2s@{to\_2s}}}\mbox{\Hypertarget{namespacecore_a58824599b582b6f035f314469e8f144fa09fef63677fc1a9ae51231a4205c9c6b}\label{namespacecore_a58824599b582b6f035f314469e8f144fa09fef63677fc1a9ae51231a4205c9c6b}} 
+to\+\_\+2s&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{to\_4s@{to\_4s}!core@{core}}\index{core@{core}!to\_4s@{to\_4s}}}\mbox{\Hypertarget{namespacecore_a58824599b582b6f035f314469e8f144faf8d332b84ba19f14a1f63062dd6800a1}\label{namespacecore_a58824599b582b6f035f314469e8f144faf8d332b84ba19f14a1f63062dd6800a1}} 
+to\+\_\+4s&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{to\_8s@{to\_8s}!core@{core}}\index{core@{core}!to\_8s@{to\_8s}}}\mbox{\Hypertarget{namespacecore_a58824599b582b6f035f314469e8f144fa254b0b70ad7fbdd04a61a0d5f9b45e78}\label{namespacecore_a58824599b582b6f035f314469e8f144fa254b0b70ad7fbdd04a61a0d5f9b45e78}} 
+to\+\_\+8s&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{WatchdogTimer_8h_source_l00065}{65}} of file \mbox{\hyperlink{WatchdogTimer_8h_source}{Watchdog\+Timer.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065                    : uint8\_t \{}
+\DoxyCodeLine{00066     \mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144fa7c78a2a19a715c4a7d2d6f1d6c8bd147}{to\_16ms}}=0,    }
+\DoxyCodeLine{00067     \mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144fab98adeb6a091135b0200fac029cefe0f}{to\_32ms}},    }
+\DoxyCodeLine{00068     \mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144faf2ffa2921d64275b11b7463fc4d0d667}{to\_64ms}},    }
+\DoxyCodeLine{00069     \mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144fa69fcfbae6d8818272c395a23bff6bc0e}{to\_125ms}},    }
+\DoxyCodeLine{00070     \mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144face7247a5c6052baae4ffe41f15e396db}{to\_250ms}},    }
+\DoxyCodeLine{00071     \mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144faababdddd7a7fdf8d2677b0bbfc563bd9}{to\_500ms}},    }
+\DoxyCodeLine{00072     \mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144fa39c30c1f7842ea56d2ab64b8c488924b}{to\_1s}},    }
+\DoxyCodeLine{00073     \mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144fa09fef63677fc1a9ae51231a4205c9c6b}{to\_2s}},    }
+\DoxyCodeLine{00074     \mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144faf8d332b84ba19f14a1f63062dd6800a1}{to\_4s}},    }
+\DoxyCodeLine{00075     \mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144fa254b0b70ad7fbdd04a61a0d5f9b45e78}{to\_8s}},    }
+\DoxyCodeLine{00076 \};}
+
+\end{DoxyCode}

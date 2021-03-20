@@ -1,0 +1,269 @@
+\hypertarget{classcomponent_1_1DCMotor}{}\doxysection{component\+::D\+C\+Motor Class Reference}
+\label{classcomponent_1_1DCMotor}\index{component::DCMotor@{component::DCMotor}}
+
+
+{\ttfamily \#include $<$D\+C\+Motor.\+h$>$}
+
+
+
+Collaboration diagram for component\+::D\+C\+Motor\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{classcomponent_1_1DCMotor__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcomponent_1_1DCMotor_a771ddbbecacf29fef3915b8d9d4012d3}{D\+C\+Motor}} (const \mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}} \&ar\+\_\+pin)
+\item 
+\mbox{\hyperlink{classcomponent_1_1DCMotor_a3c0d940fa3a3774c83bc8b6c13b7a541}{$\sim$\+D\+C\+Motor}} ()
+\item 
+void \mbox{\hyperlink{classcomponent_1_1DCMotor_a35e5bab4c36e3ab3698bedac701a7ebd}{on}} ()
+\begin{DoxyCompactList}\small\item\em Turn servo motor On. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcomponent_1_1DCMotor_a14c55f109e59f03e4f65af826907492b}{off}} ()
+\begin{DoxyCompactList}\small\item\em Turn servo motor Off. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcomponent_1_1DCMotor_afdf705b2eeb8ba39e7909495a69e6773}{toggle}} ()
+\begin{DoxyCompactList}\small\item\em Toggle servo motor state. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TC $>$ }\\void \mbox{\hyperlink{classcomponent_1_1DCMotor_a97585ba9dc524ed1c514bae19590bffc}{spin}} (TC \&ar\+\_\+timer\+Counter, const uint16\+\_\+t \&ar\+\_\+speed, const \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{core\+::channel}} \&ar\+\_\+channel=\mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}{core\+::channel\+::A}})
+\item 
+{\footnotesize template$<$typename TC $>$ }\\void \mbox{\hyperlink{classcomponent_1_1DCMotor_adcca551f188d1c523c05378336d6bf6f}{stop}} (TC \&ar\+\_\+timer\+Counter)
+\item 
+{\footnotesize template$<$typename TC $>$ }\\void \mbox{\hyperlink{classcomponent_1_1DCMotor_abbf74978c679123302558eabdc8d39e1}{connect}} (TC \&ar\+\_\+timer\+Counter, const \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{core\+::channel}} \&ar\+\_\+channel=\mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}{core\+::channel\+::A}})
+\item 
+{\footnotesize template$<$typename TC $>$ }\\void \mbox{\hyperlink{classcomponent_1_1DCMotor_a11dccdb5f84a54d9ebe9e2b9940cad1d}{disconnect}} (TC \&ar\+\_\+timer\+Counter, const \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{core\+::channel}} \&ar\+\_\+channel=\mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}{core\+::channel\+::A}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}} \mbox{\hyperlink{classcomponent_1_1DCMotor_ae003ad10273d1a2cd4d8006f49bb44c1}{m\+\_\+pin}}
+\begin{DoxyCompactList}\small\item\em pin object \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{DCMotor_8h_source_l00126}{126}} of file \mbox{\hyperlink{DCMotor_8h_source}{D\+C\+Motor.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcomponent_1_1DCMotor_a771ddbbecacf29fef3915b8d9d4012d3}\label{classcomponent_1_1DCMotor_a771ddbbecacf29fef3915b8d9d4012d3}} 
+\index{component::DCMotor@{component::DCMotor}!DCMotor@{DCMotor}}
+\index{DCMotor@{DCMotor}!component::DCMotor@{component::DCMotor}}
+\doxysubsubsection{\texorpdfstring{DCMotor()}{DCMotor()}}
+{\footnotesize\ttfamily component\+::\+D\+C\+Motor\+::\+D\+C\+Motor (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}} \&}]{ar\+\_\+pin }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{DCMotor_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{DCMotor_8cpp_source}{D\+C\+Motor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00004        : \mbox{\hyperlink{classcomponent_1_1DCMotor_ae003ad10273d1a2cd4d8006f49bb44c1}{m\_pin}}(ar\_pin)}
+\DoxyCodeLine{00005 \{}
+\DoxyCodeLine{00006     \mbox{\hyperlink{classcomponent_1_1DCMotor_ae003ad10273d1a2cd4d8006f49bb44c1}{m\_pin}}.\mbox{\hyperlink{classio_1_1Pin_a2d1e7ed9625d0c4bb8d81dadbadacc41}{toOutput}}();}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00008 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{DCMotor_8h_source_l00185}{m\+\_\+pin}}, and \mbox{\hyperlink{Pin_8cpp_source_l00017}{io\+::\+Pin\+::to\+Output()}}.
+
+\mbox{\Hypertarget{classcomponent_1_1DCMotor_a3c0d940fa3a3774c83bc8b6c13b7a541}\label{classcomponent_1_1DCMotor_a3c0d940fa3a3774c83bc8b6c13b7a541}} 
+\index{component::DCMotor@{component::DCMotor}!````~DCMotor@{$\sim$DCMotor}}
+\index{````~DCMotor@{$\sim$DCMotor}!component::DCMotor@{component::DCMotor}}
+\doxysubsubsection{\texorpdfstring{$\sim$DCMotor()}{~DCMotor()}}
+{\footnotesize\ttfamily component\+::\+D\+C\+Motor\+::$\sim$\+D\+C\+Motor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{DCMotor_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{DCMotor_8cpp_source}{D\+C\+Motor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012 \{}
+\DoxyCodeLine{00013 }
+\DoxyCodeLine{00014 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcomponent_1_1DCMotor_abbf74978c679123302558eabdc8d39e1}\label{classcomponent_1_1DCMotor_abbf74978c679123302558eabdc8d39e1}} 
+\index{component::DCMotor@{component::DCMotor}!connect@{connect}}
+\index{connect@{connect}!component::DCMotor@{component::DCMotor}}
+\doxysubsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily template$<$typename TC $>$ \\
+void component\+::\+D\+C\+Motor\+::connect (\begin{DoxyParamCaption}\item[{TC \&}]{ar\+\_\+timer\+Counter,  }\item[{const \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{core\+::channel}} \&}]{ar\+\_\+channel = {\ttfamily \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}{core\+::channel\+::A}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{DCMotor_8h_source_l00164}{164}} of file \mbox{\hyperlink{DCMotor_8h_source}{D\+C\+Motor.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00166     \{}
+\DoxyCodeLine{00167         ar\_timerCounter.selectOperationMode(\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a9bb3db07673e063e5eaadd3547848399}{core::operationMode::fast\_PWM}});}
+\DoxyCodeLine{00168         ar\_timerCounter.selectCompareOutputMode(ar\_channel, \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950a01bc6f8efa4202821e95f4fdf6298b30}{core::compareOutputMode::clear}});}
+\DoxyCodeLine{00169         ar\_timerCounter.setCounter(0);}
+\DoxyCodeLine{00170 }
+\DoxyCodeLine{00171     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950a01bc6f8efa4202821e95f4fdf6298b30}{core\+::clear}}, and \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a9bb3db07673e063e5eaadd3547848399}{core\+::fast\+\_\+\+P\+WM}}.
+
+\mbox{\Hypertarget{classcomponent_1_1DCMotor_a11dccdb5f84a54d9ebe9e2b9940cad1d}\label{classcomponent_1_1DCMotor_a11dccdb5f84a54d9ebe9e2b9940cad1d}} 
+\index{component::DCMotor@{component::DCMotor}!disconnect@{disconnect}}
+\index{disconnect@{disconnect}!component::DCMotor@{component::DCMotor}}
+\doxysubsubsection{\texorpdfstring{disconnect()}{disconnect()}}
+{\footnotesize\ttfamily template$<$typename TC $>$ \\
+void component\+::\+D\+C\+Motor\+::disconnect (\begin{DoxyParamCaption}\item[{TC \&}]{ar\+\_\+timer\+Counter,  }\item[{const \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{core\+::channel}} \&}]{ar\+\_\+channel = {\ttfamily \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}{core\+::channel\+::A}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{DCMotor_8h_source_l00174}{174}} of file \mbox{\hyperlink{DCMotor_8h_source}{D\+C\+Motor.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00176     \{}
+\DoxyCodeLine{00177         ar\_timerCounter.selectCompareOutputMode(ar\_channel, \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950afea087517c26fadd409bd4b9dc642555}{core::compareOutputMode::normal}});}
+\DoxyCodeLine{00178         ar\_timerCounter.stop();}
+\DoxyCodeLine{00179     \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950afea087517c26fadd409bd4b9dc642555}{core\+::normal}}.
+
+\mbox{\Hypertarget{classcomponent_1_1DCMotor_a14c55f109e59f03e4f65af826907492b}\label{classcomponent_1_1DCMotor_a14c55f109e59f03e4f65af826907492b}} 
+\index{component::DCMotor@{component::DCMotor}!off@{off}}
+\index{off@{off}!component::DCMotor@{component::DCMotor}}
+\doxysubsubsection{\texorpdfstring{off()}{off()}}
+{\footnotesize\ttfamily void component\+::\+D\+C\+Motor\+::off (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Turn servo motor Off. 
+
+
+
+Definition at line \mbox{\hyperlink{DCMotor_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{DCMotor_8cpp_source}{D\+C\+Motor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022 \{}
+\DoxyCodeLine{00023     \mbox{\hyperlink{classcomponent_1_1DCMotor_ae003ad10273d1a2cd4d8006f49bb44c1}{m\_pin}}.\mbox{\hyperlink{classio_1_1Pin_ad0895fa20099e97f9acbe85f7c92e57c}{setLow}}();}
+\DoxyCodeLine{00024 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcomponent_1_1DCMotor_a35e5bab4c36e3ab3698bedac701a7ebd}\label{classcomponent_1_1DCMotor_a35e5bab4c36e3ab3698bedac701a7ebd}} 
+\index{component::DCMotor@{component::DCMotor}!on@{on}}
+\index{on@{on}!component::DCMotor@{component::DCMotor}}
+\doxysubsubsection{\texorpdfstring{on()}{on()}}
+{\footnotesize\ttfamily void component\+::\+D\+C\+Motor\+::on (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Turn servo motor On. 
+
+
+
+Definition at line \mbox{\hyperlink{DCMotor_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{DCMotor_8cpp_source}{D\+C\+Motor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017 \{}
+\DoxyCodeLine{00018     \mbox{\hyperlink{classcomponent_1_1DCMotor_ae003ad10273d1a2cd4d8006f49bb44c1}{m\_pin}}.\mbox{\hyperlink{classio_1_1Pin_a3ae65cd376608cc50329951e9da156d0}{setHigh}}();}
+\DoxyCodeLine{00019 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcomponent_1_1DCMotor_a97585ba9dc524ed1c514bae19590bffc}\label{classcomponent_1_1DCMotor_a97585ba9dc524ed1c514bae19590bffc}} 
+\index{component::DCMotor@{component::DCMotor}!spin@{spin}}
+\index{spin@{spin}!component::DCMotor@{component::DCMotor}}
+\doxysubsubsection{\texorpdfstring{spin()}{spin()}}
+{\footnotesize\ttfamily template$<$typename TC $>$ \\
+void component\+::\+D\+C\+Motor\+::spin (\begin{DoxyParamCaption}\item[{TC \&}]{ar\+\_\+timer\+Counter,  }\item[{const uint16\+\_\+t \&}]{ar\+\_\+speed,  }\item[{const \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{core\+::channel}} \&}]{ar\+\_\+channel = {\ttfamily \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}{core\+::channel\+::A}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{DCMotor_8h_source_l00144}{144}} of file \mbox{\hyperlink{DCMotor_8h_source}{D\+C\+Motor.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00148     \{}
+\DoxyCodeLine{00149 }
+\DoxyCodeLine{00150         ar\_timerCounter.setOutputCompareRegister(ar\_channel, ar\_speed);}
+\DoxyCodeLine{00151         ar\_timerCounter.start();}
+\DoxyCodeLine{00152 }
+\DoxyCodeLine{00153 }
+\DoxyCodeLine{00154     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcomponent_1_1DCMotor_adcca551f188d1c523c05378336d6bf6f}\label{classcomponent_1_1DCMotor_adcca551f188d1c523c05378336d6bf6f}} 
+\index{component::DCMotor@{component::DCMotor}!stop@{stop}}
+\index{stop@{stop}!component::DCMotor@{component::DCMotor}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily template$<$typename TC $>$ \\
+void component\+::\+D\+C\+Motor\+::stop (\begin{DoxyParamCaption}\item[{TC \&}]{ar\+\_\+timer\+Counter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{DCMotor_8h_source_l00156}{156}} of file \mbox{\hyperlink{DCMotor_8h_source}{D\+C\+Motor.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00157     \{}
+\DoxyCodeLine{00158         ar\_timerCounter.stop();}
+\DoxyCodeLine{00159 }
+\DoxyCodeLine{00160 }
+\DoxyCodeLine{00161     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcomponent_1_1DCMotor_afdf705b2eeb8ba39e7909495a69e6773}\label{classcomponent_1_1DCMotor_afdf705b2eeb8ba39e7909495a69e6773}} 
+\index{component::DCMotor@{component::DCMotor}!toggle@{toggle}}
+\index{toggle@{toggle}!component::DCMotor@{component::DCMotor}}
+\doxysubsubsection{\texorpdfstring{toggle()}{toggle()}}
+{\footnotesize\ttfamily void component\+::\+D\+C\+Motor\+::toggle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Toggle servo motor state. 
+
+
+
+Definition at line \mbox{\hyperlink{DCMotor_8cpp_source_l00026}{26}} of file \mbox{\hyperlink{DCMotor_8cpp_source}{D\+C\+Motor.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027 \{}
+\DoxyCodeLine{00028     \mbox{\hyperlink{classcomponent_1_1DCMotor_ae003ad10273d1a2cd4d8006f49bb44c1}{m\_pin}}.\mbox{\hyperlink{classio_1_1Pin_a4054302debf4a0bc99bdb93881f43765}{toggle}}();}
+\DoxyCodeLine{00029 }
+\DoxyCodeLine{00030 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcomponent_1_1DCMotor_ae003ad10273d1a2cd4d8006f49bb44c1}\label{classcomponent_1_1DCMotor_ae003ad10273d1a2cd4d8006f49bb44c1}} 
+\index{component::DCMotor@{component::DCMotor}!m\_pin@{m\_pin}}
+\index{m\_pin@{m\_pin}!component::DCMotor@{component::DCMotor}}
+\doxysubsubsection{\texorpdfstring{m\_pin}{m\_pin}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}} component\+::\+D\+C\+Motor\+::m\+\_\+pin\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+pin object 
+
+
+
+Definition at line \mbox{\hyperlink{DCMotor_8h_source_l00185}{185}} of file \mbox{\hyperlink{DCMotor_8h_source}{D\+C\+Motor.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{DCMotor_8cpp_source_l00003}{D\+C\+Motor()}}.
+

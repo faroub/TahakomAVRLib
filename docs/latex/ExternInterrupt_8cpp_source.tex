@@ -1,0 +1,104 @@
+\hypertarget{ExternInterrupt_8cpp_source}{}\doxysection{Extern\+Interrupt.\+cpp}
+\label{ExternInterrupt_8cpp_source}\index{ExternInterrupt.cpp@{ExternInterrupt.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{ExternInterrupt_8h}{ExternInterrupt.h}}"}}
+\DoxyCodeLine{00002 }
+\DoxyCodeLine{\Hypertarget{ExternInterrupt_8cpp_source_l00003}\mbox{\hyperlink{classcore_1_1ExternInterrupt_adda31b2ddeb86687186f0c80f3011e39}{00003}} \mbox{\hyperlink{classcore_1_1ExternInterrupt}{core::ExternInterrupt}}\& \mbox{\hyperlink{classcore_1_1ExternInterrupt_adda31b2ddeb86687186f0c80f3011e39}{core::ExternInterrupt::getInstance}}()}
+\DoxyCodeLine{00004 \{}
+\DoxyCodeLine{00005     \textcolor{keyword}{static} \mbox{\hyperlink{classcore_1_1ExternInterrupt}{ExternInterrupt}} l\_instance;}
+\DoxyCodeLine{00006     \textcolor{keywordflow}{return} l\_instance;}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00008 \}}
+\DoxyCodeLine{00009 }
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{\Hypertarget{ExternInterrupt_8cpp_source_l00011}\mbox{\hyperlink{classcore_1_1ExternInterrupt_a62ca6e122db30dd295888e9c6095f41b}{00011}} \mbox{\hyperlink{classcore_1_1ExternInterrupt_a62ca6e122db30dd295888e9c6095f41b}{core::ExternInterrupt::ExternInterrupt}}()}
+\DoxyCodeLine{00012 \{}
+\DoxyCodeLine{00013     sei();}
+\DoxyCodeLine{00014 }
+\DoxyCodeLine{00015 \}}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{\Hypertarget{ExternInterrupt_8cpp_source_l00017}\mbox{\hyperlink{classcore_1_1ExternInterrupt_af6c713d5dba0d81da72518adbe4c4b02}{00017}} \mbox{\hyperlink{classcore_1_1ExternInterrupt_af6c713d5dba0d81da72518adbe4c4b02}{core::ExternInterrupt::\string~ExternInterrupt}}()}
+\DoxyCodeLine{00018 \{}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{00020 \}}
+\DoxyCodeLine{00021 }
+\DoxyCodeLine{\Hypertarget{ExternInterrupt_8cpp_source_l00022}\mbox{\hyperlink{classcore_1_1ExternInterrupt_ae9d598f4dc123ff2778780cda366ab80}{00022}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1ExternInterrupt_ae9d598f4dc123ff2778780cda366ab80}{core::ExternInterrupt::setInt0SenseControl}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_a91994a2fb37f8b4df0567468e9d0e325}{senseControl}}\& ar\_senseControl)}
+\DoxyCodeLine{00023 \{}
+\DoxyCodeLine{00024     \mbox{\hyperlink{ha__m328p_8h_a293ef234d030ae22ecbaacfadbedd8b6}{EXT\_INT\_SET\_INT0\_SENSE\_CONTROL}}(\textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(ar\_senseControl));}
+\DoxyCodeLine{00025 }
+\DoxyCodeLine{00026 \}}
+\DoxyCodeLine{00027 }
+\DoxyCodeLine{\Hypertarget{ExternInterrupt_8cpp_source_l00028}\mbox{\hyperlink{classcore_1_1ExternInterrupt_af2a73ca47a5798c4392392181f27e9ff}{00028}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1ExternInterrupt_af2a73ca47a5798c4392392181f27e9ff}{core::ExternInterrupt::setInt1SenseControl}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_a91994a2fb37f8b4df0567468e9d0e325}{senseControl}}\& ar\_senseControl)}
+\DoxyCodeLine{00029 \{}
+\DoxyCodeLine{00030     \mbox{\hyperlink{ha__m328p_8h_af7cbf6405655d1b9d3c782d0886b00c5}{EXT\_INT\_SET\_INT1\_SENSE\_CONTROL}}(\textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(ar\_senseControl));}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{00032 \}}
+\DoxyCodeLine{00033 }
+\DoxyCodeLine{\Hypertarget{ExternInterrupt_8cpp_source_l00034}\mbox{\hyperlink{classcore_1_1ExternInterrupt_aac90ee869dfceac3278aaca48aa06d49}{00034}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1ExternInterrupt_aac90ee869dfceac3278aaca48aa06d49}{core::ExternInterrupt::enableInt0}}(\textcolor{keyword}{const} uint8\_t a\_enable)}
+\DoxyCodeLine{00035 \{}
+\DoxyCodeLine{00036     \textcolor{keywordflow}{if} (a\_enable) \{}
+\DoxyCodeLine{00037         \mbox{\hyperlink{ha__m328p_8h_aa904947319098d79c01ecab3886e54a3}{EXT\_INT\_ENABLE\_INT0}};}
+\DoxyCodeLine{00038 }
+\DoxyCodeLine{00039     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00040         \mbox{\hyperlink{ha__m328p_8h_a2e84e4ba842d7af17e5c37f75fe19007}{EXT\_INT\_DISABLE\_INT0}};}
+\DoxyCodeLine{00041     \}}
+\DoxyCodeLine{00042 }
+\DoxyCodeLine{00043 \}}
+\DoxyCodeLine{00044 }
+\DoxyCodeLine{\Hypertarget{ExternInterrupt_8cpp_source_l00045}\mbox{\hyperlink{classcore_1_1ExternInterrupt_ad559641ac3bb2837d5fc37630f64a2e5}{00045}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1ExternInterrupt_ad559641ac3bb2837d5fc37630f64a2e5}{core::ExternInterrupt::enableInt1}}(\textcolor{keyword}{const} uint8\_t a\_enable)}
+\DoxyCodeLine{00046 \{}
+\DoxyCodeLine{00047     \textcolor{keywordflow}{if} (a\_enable) \{}
+\DoxyCodeLine{00048         \mbox{\hyperlink{ha__m328p_8h_aff9dc8b6a68427e1c2fb27df66b9ba28}{EXT\_INT\_ENABLE\_INT1}};}
+\DoxyCodeLine{00049 }
+\DoxyCodeLine{00050     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00051         \mbox{\hyperlink{ha__m328p_8h_a4fbbc483403ee2faedfc6462a4a7bdbf}{EXT\_INT\_DISABLE\_INT1}};}
+\DoxyCodeLine{00052     \}}
+\DoxyCodeLine{00053 \}}
+\DoxyCodeLine{00054 }
+\DoxyCodeLine{00055 }
+\DoxyCodeLine{\Hypertarget{ExternInterrupt_8cpp_source_l00056}\mbox{\hyperlink{classcore_1_1ExternInterrupt_ac922b96106a0b95ee2e15762206fd1b8}{00056}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1ExternInterrupt_ac922b96106a0b95ee2e15762206fd1b8}{core::ExternInterrupt::enablePinChange}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_a53090c2070741c037b6c3606081a34dd}{pinChangePort}}\& ar\_pinChangePort, \textcolor{keyword}{const} uint8\_t a\_enable)}
+\DoxyCodeLine{00057 \{}
+\DoxyCodeLine{00058     \textcolor{keywordflow}{if} (a\_enable) \{}
+\DoxyCodeLine{00059         \mbox{\hyperlink{ha__m328p_8h_aaf8929d2d1e493b7f5388ff8627af3b0}{EXT\_INT\_ENABLE\_PIN\_CHANGE\_INTERRUPT}}(\textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(ar\_pinChangePort));}
+\DoxyCodeLine{00060 }
+\DoxyCodeLine{00061     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00062         \mbox{\hyperlink{ha__m328p_8h_a5098ef144f9be388d07a8ece51e95c43}{EXT\_INT\_DISABLE\_PIN\_CHANGE\_INTERRUPT}}(\textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(ar\_pinChangePort));}
+\DoxyCodeLine{00063     \}}
+\DoxyCodeLine{00064 }
+\DoxyCodeLine{00065 \}}
+\DoxyCodeLine{00066 }
+\DoxyCodeLine{\Hypertarget{ExternInterrupt_8cpp_source_l00067}\mbox{\hyperlink{classcore_1_1ExternInterrupt_a22d2674945395aaab8bd7d170c91f965}{00067}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1ExternInterrupt_a22d2674945395aaab8bd7d170c91f965}{core::ExternInterrupt::enablePinChangeMaskPortB}}(\textcolor{keyword}{const} uint8\_t a\_pinNumber, \textcolor{keyword}{const} uint8\_t a\_enable)}
+\DoxyCodeLine{00068 \{}
+\DoxyCodeLine{00069     \textcolor{keywordflow}{if} (a\_enable) \{}
+\DoxyCodeLine{00070         \mbox{\hyperlink{ha__m328p_8h_a522af5e2a4fe5e71c9283db34a8f8429}{EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTB}}(a\_pinNumber);}
+\DoxyCodeLine{00071 }
+\DoxyCodeLine{00072     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00073         \mbox{\hyperlink{ha__m328p_8h_a522af5e2a4fe5e71c9283db34a8f8429}{EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTB}}(a\_pinNumber);}
+\DoxyCodeLine{00074     \}}
+\DoxyCodeLine{00075 }
+\DoxyCodeLine{00076 \}}
+\DoxyCodeLine{00077 }
+\DoxyCodeLine{00078 }
+\DoxyCodeLine{\Hypertarget{ExternInterrupt_8cpp_source_l00079}\mbox{\hyperlink{classcore_1_1ExternInterrupt_a508a88a1855be2431df1c94e38a6e1d4}{00079}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1ExternInterrupt_a508a88a1855be2431df1c94e38a6e1d4}{core::ExternInterrupt::enablePinChangeMaskPortC}}(\textcolor{keyword}{const} uint8\_t a\_pinNumber, \textcolor{keyword}{const} uint8\_t a\_enable)}
+\DoxyCodeLine{00080 \{}
+\DoxyCodeLine{00081     \textcolor{keywordflow}{if} (a\_enable) \{}
+\DoxyCodeLine{00082         \mbox{\hyperlink{ha__m328p_8h_ae12249a6b78c9f574fb8d6e1eb55d146}{EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTC}}(a\_pinNumber);}
+\DoxyCodeLine{00083 }
+\DoxyCodeLine{00084     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00085         \mbox{\hyperlink{ha__m328p_8h_ae12249a6b78c9f574fb8d6e1eb55d146}{EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTC}}(a\_pinNumber);}
+\DoxyCodeLine{00086     \}}
+\DoxyCodeLine{00087 }
+\DoxyCodeLine{00088 \}}
+\DoxyCodeLine{00089 }
+\DoxyCodeLine{\Hypertarget{ExternInterrupt_8cpp_source_l00090}\mbox{\hyperlink{classcore_1_1ExternInterrupt_aac838a477dac733e76e7a1d7feea760f}{00090}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1ExternInterrupt_aac838a477dac733e76e7a1d7feea760f}{core::ExternInterrupt::enablePinChangeMaskPortD}}(\textcolor{keyword}{const} uint8\_t a\_pinNumber, \textcolor{keyword}{const} uint8\_t a\_enable)}
+\DoxyCodeLine{00091 \{}
+\DoxyCodeLine{00092     \textcolor{keywordflow}{if} (a\_enable) \{}
+\DoxyCodeLine{00093         \mbox{\hyperlink{ha__m328p_8h_a7ba26c1decfa5763d2f5042f8debeac0}{EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTD}}(a\_pinNumber);}
+\DoxyCodeLine{00094 }
+\DoxyCodeLine{00095     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00096         \mbox{\hyperlink{ha__m328p_8h_a7ba26c1decfa5763d2f5042f8debeac0}{EXT\_INT\_ENABLE\_PIN\_CHANGE\_MASK\_PORTD}}(a\_pinNumber);}
+\DoxyCodeLine{00097     \}}
+\DoxyCodeLine{00098 \}}
+
+\end{DoxyCode}

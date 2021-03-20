@@ -1,0 +1,52 @@
+\hypertarget{Led_8cpp_source}{}\doxysection{Led.\+cpp}
+\label{Led_8cpp_source}\index{Led.cpp@{Led.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{Led_8h}{Led.h}}"}}
+\DoxyCodeLine{00002 }
+\DoxyCodeLine{\Hypertarget{Led_8cpp_source_l00003}\mbox{\hyperlink{classcomponent_1_1Led_acdc827044aedadff54c3e8924442fa6b}{00003}} \mbox{\hyperlink{classcomponent_1_1Led_acdc827044aedadff54c3e8924442fa6b}{component::Led::Led}}(\textcolor{keyword}{const} \mbox{\hyperlink{classio_1_1Pin}{io::Pin}} \&ar\_pin)}
+\DoxyCodeLine{00004          : m\_pin(ar\_pin)}
+\DoxyCodeLine{00005 \{}
+\DoxyCodeLine{00006     \mbox{\hyperlink{classcomponent_1_1Led_ae8d24164367f6b379984a1b55a4debe4}{m\_pin}}.\mbox{\hyperlink{classio_1_1Pin_a2d1e7ed9625d0c4bb8d81dadbadacc41}{toOutput}}();}
+\DoxyCodeLine{00007 \}}
+\DoxyCodeLine{00008 }
+\DoxyCodeLine{\Hypertarget{Led_8cpp_source_l00009}\mbox{\hyperlink{classcomponent_1_1Led_a766f800a5552413d646c2d700daae513}{00009}} \mbox{\hyperlink{classcomponent_1_1Led_a766f800a5552413d646c2d700daae513}{component::Led::\string~Led}}()}
+\DoxyCodeLine{00010 \{}
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{00012 \}}
+\DoxyCodeLine{00013 }
+\DoxyCodeLine{00014 }
+\DoxyCodeLine{\Hypertarget{Led_8cpp_source_l00015}\mbox{\hyperlink{classcomponent_1_1Led_a7b04e5787d404d9ab381a4afb20d8a1d}{00015}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcomponent_1_1Led_a7b04e5787d404d9ab381a4afb20d8a1d}{component::Led::on}}()}
+\DoxyCodeLine{00016 \{}
+\DoxyCodeLine{00017     m\_pin.setHigh();}
+\DoxyCodeLine{00018 }
+\DoxyCodeLine{00019 \}}
+\DoxyCodeLine{00020 }
+\DoxyCodeLine{\Hypertarget{Led_8cpp_source_l00021}\mbox{\hyperlink{classcomponent_1_1Led_ac8247121fcb3ccf6e09ff8aa67f8d5aa}{00021}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcomponent_1_1Led_ac8247121fcb3ccf6e09ff8aa67f8d5aa}{component::Led::off}}()}
+\DoxyCodeLine{00022 \{}
+\DoxyCodeLine{00023     m\_pin.setLow();}
+\DoxyCodeLine{00024 }
+\DoxyCodeLine{00025 \}}
+\DoxyCodeLine{00026 }
+\DoxyCodeLine{00027 }
+\DoxyCodeLine{\Hypertarget{Led_8cpp_source_l00028}\mbox{\hyperlink{classcomponent_1_1Led_ae3f04d9c41a277d969dce6952fe54938}{00028}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcomponent_1_1Led_ae3f04d9c41a277d969dce6952fe54938}{component::Led::toggle}}()}
+\DoxyCodeLine{00029 \{}
+\DoxyCodeLine{00030     m\_pin.toggle();}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{00032 \}}
+\DoxyCodeLine{00033 }
+\DoxyCodeLine{\Hypertarget{Led_8cpp_source_l00034}\mbox{\hyperlink{classcomponent_1_1Led_a7e5541cb3058107641ec9517ea09ad94}{00034}} uint8\_t \mbox{\hyperlink{classcomponent_1_1Led_a7e5541cb3058107641ec9517ea09ad94}{component::Led::isOn}}()}
+\DoxyCodeLine{00035 \{}
+\DoxyCodeLine{00036     \textcolor{keywordflow}{return} m\_pin.isHigh();}
+\DoxyCodeLine{00037 }
+\DoxyCodeLine{00038 \}}
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{00040 }
+\DoxyCodeLine{\Hypertarget{Led_8cpp_source_l00041}\mbox{\hyperlink{classcomponent_1_1Led_a007cbe535217f12abea01198b8384372}{00041}} uint8\_t \mbox{\hyperlink{classcomponent_1_1Led_a007cbe535217f12abea01198b8384372}{component::Led::isOff}}()}
+\DoxyCodeLine{00042 \{}
+\DoxyCodeLine{00043     \textcolor{keywordflow}{return} m\_pin.isLow();}
+\DoxyCodeLine{00044 }
+\DoxyCodeLine{00045 \}}
+\DoxyCodeLine{00046 }
+
+\end{DoxyCode}

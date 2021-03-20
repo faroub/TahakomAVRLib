@@ -1,0 +1,86 @@
+\hypertarget{Buzzer_8h}{}\doxysection{Buzzer.\+h File Reference}
+\label{Buzzer_8h}\index{Buzzer.h@{Buzzer.h}}
+
+
+Header file of the Buzzer class.  
+
+
+{\ttfamily \#include \char`\"{}ha\+\_\+base.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Pin.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Timer\+Counter.\+h\char`\"{}}\newline
+Include dependency graph for Buzzer.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Buzzer_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=145pt]{Buzzer_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcomponent_1_1Buzzer}{component\+::\+Buzzer}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacecomponent}{component}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file of the Buzzer class. 
+
+Usage example (test)\+: \#include \char`\"{}\+Buzzer.\+h\char`\"{} \#include \char`\"{}\+Timer\+Counter0.\+h\char`\"{} \#include \char`\"{}buzzer\+\_\+pitches\+\_\+8bit.\+h\char`\"{}
+
+\#define B\+U\+Z\+Z\+ER 6
+
+int \mbox{\hyperlink{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}{main(void)}} \{
+
+Init instantiate the Buzzer object \mbox{\hyperlink{classcomponent_1_1Buzzer}{component\+::\+Buzzer}} Buzzer(io\+::\+Pin(\+B\+U\+Z\+Z\+E\+R,io\+::\+Port\+D));
+
+instantiate the Timer\+Counter0 object \mbox{\hyperlink{classcore_1_1TimerCounter0}{core\+::\+Timer\+Counter0}} \&my\+Timer\+Counter0 = \mbox{\hyperlink{classcore_1_1TimerCounter0_a38849b2debf04224214f0fe3a4e77124}{core\+::\+Timer\+Counter0\+::get\+Instance()}};
+
+notes in the melody\+: const uint16\+\_\+t notes\mbox{[}\mbox{]} = \{C2, E2, G2, C3\};
+
+\begin{DoxyVerb}for (uint8_t i = 0; i < sizeof (notes)/sizeof (uint16_t); i++)
+{
+
+    Buzzer.buzz(notes[i],200);
+
+}
+
+_delay_ms(1000);
+_delay_ms(1000);
+_delay_ms(1000);
+
+for (uint8_t i = 0; i < sizeof (notes)/sizeof (uint16_t); i++)
+{
+    Buzzer.buzz(myTimerCounter0,notes[i],200);
+}
+\end{DoxyVerb}
+
+
+-\/-\/-\/--- Event loop -\/-\/-\/--- // while (1) \{
+
+\begin{DoxyVerb}}
+return 0;
+\end{DoxyVerb}
+ \}
+
+Basic class for IO abstraction of Pin and Port \begin{DoxyAuthor}{Author}
+Farid Oubbati (\href{https://github.com/faroub}{\texttt{ https\+://github.\+com/faroub}}) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+March 2020 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{Buzzer_8h_source}{Buzzer.\+h}}.
+

@@ -1,0 +1,77 @@
+\hypertarget{WatchdogTimer_8cpp_source}{}\doxysection{Watchdog\+Timer.\+cpp}
+\label{WatchdogTimer_8cpp_source}\index{WatchdogTimer.cpp@{WatchdogTimer.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{WatchdogTimer_8h}{WatchdogTimer.h}}"}}
+\DoxyCodeLine{00002 }
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{\Hypertarget{WatchdogTimer_8cpp_source_l00004}\mbox{\hyperlink{classcore_1_1WatchdogTimer_a70a7f14997f008638566a318e7a28bd2}{00004}} \mbox{\hyperlink{classcore_1_1WatchdogTimer}{core::WatchdogTimer}}\& \mbox{\hyperlink{classcore_1_1WatchdogTimer_a70a7f14997f008638566a318e7a28bd2}{core::WatchdogTimer::getInstance}}()}
+\DoxyCodeLine{00005 \{}
+\DoxyCodeLine{00006     \textcolor{keyword}{static} \mbox{\hyperlink{classcore_1_1WatchdogTimer}{WatchdogTimer}} l\_instance;}
+\DoxyCodeLine{00007     \textcolor{keywordflow}{return} l\_instance;}
+\DoxyCodeLine{00008 }
+\DoxyCodeLine{00009 \}}
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{\Hypertarget{WatchdogTimer_8cpp_source_l00011}\mbox{\hyperlink{classcore_1_1WatchdogTimer_a4fb81fbe383eebe190457285b3393d92}{00011}} \mbox{\hyperlink{classcore_1_1WatchdogTimer_a4fb81fbe383eebe190457285b3393d92}{core::WatchdogTimer::WatchdogTimer}}()}
+\DoxyCodeLine{00012 \{}
+\DoxyCodeLine{00013     sei();}
+\DoxyCodeLine{00014     stop();}
+\DoxyCodeLine{00015 \}}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{\Hypertarget{WatchdogTimer_8cpp_source_l00017}\mbox{\hyperlink{classcore_1_1WatchdogTimer_a4d745ec246e4da57cab1ed6bc6ee0897}{00017}} \mbox{\hyperlink{classcore_1_1WatchdogTimer_a4d745ec246e4da57cab1ed6bc6ee0897}{core::WatchdogTimer::\string~WatchdogTimer}}()}
+\DoxyCodeLine{00018 \{}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{00020 \}}
+\DoxyCodeLine{00021 }
+\DoxyCodeLine{\Hypertarget{WatchdogTimer_8cpp_source_l00022}\mbox{\hyperlink{classcore_1_1WatchdogTimer_a0e31afb9ba3f6c1ddd5c16372f47b1b6}{00022}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1WatchdogTimer_a0e31afb9ba3f6c1ddd5c16372f47b1b6}{core::WatchdogTimer::selectTimeOut}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144f}{timeOut}} \&ar\_timeOut)}
+\DoxyCodeLine{00023 \{}
+\DoxyCodeLine{00024     m\_timeOut = \textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(ar\_timeOut);}
+\DoxyCodeLine{00025     m\_timeOut = \textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}((m\_timeOut \& 7) | ((m\_timeOut \& 8) << 2 ));}
+\DoxyCodeLine{00026     cli();}
+\DoxyCodeLine{00027     wdt\_reset();}
+\DoxyCodeLine{00028     \mbox{\hyperlink{ha__m328p_8h_aba75578775b2daee8a601f9f8b9eae42}{WATCHDOG\_SELECT\_TIMEOUT}}(m\_timeOut);}
+\DoxyCodeLine{00029     sei();}
+\DoxyCodeLine{00030 }
+\DoxyCodeLine{00031 \}}
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{\Hypertarget{WatchdogTimer_8cpp_source_l00033}\mbox{\hyperlink{classcore_1_1WatchdogTimer_af0ca19b23f49a8e971efcfa2852cf233}{00033}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1WatchdogTimer_af0ca19b23f49a8e971efcfa2852cf233}{core::WatchdogTimer::reset}}()}
+\DoxyCodeLine{00034 \{}
+\DoxyCodeLine{00035     wdt\_reset();}
+\DoxyCodeLine{00036 }
+\DoxyCodeLine{00037 \}}
+\DoxyCodeLine{00038 }
+\DoxyCodeLine{\Hypertarget{WatchdogTimer_8cpp_source_l00039}\mbox{\hyperlink{classcore_1_1WatchdogTimer_a645904e999a598cc99d050cf094bbca2}{00039}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1WatchdogTimer_a645904e999a598cc99d050cf094bbca2}{core::WatchdogTimer::start}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4}{operationMode}} \&ar\_operationMode)}
+\DoxyCodeLine{00040 \{}
+\DoxyCodeLine{00041     m\_operationMode = \textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(ar\_operationMode);}
+\DoxyCodeLine{00042     m\_operationMode = \textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(((m\_operationMode \& 1) << 6) | ((m\_operationMode \& 2) << 3 ));}
+\DoxyCodeLine{00043     cli();}
+\DoxyCodeLine{00044     wdt\_reset();}
+\DoxyCodeLine{00045     \mbox{\hyperlink{ha__m328p_8h_a7b5c6f1b3a3ace19ff65c9403a8b36c7}{WATCHDOG\_START}}(m\_operationMode,m\_timeOut);}
+\DoxyCodeLine{00046     sei();}
+\DoxyCodeLine{00047 }
+\DoxyCodeLine{00048 \}}
+\DoxyCodeLine{00049 }
+\DoxyCodeLine{\Hypertarget{WatchdogTimer_8cpp_source_l00050}\mbox{\hyperlink{classcore_1_1WatchdogTimer_a261b39e09a70a07247448f1b9f86c5d1}{00050}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1WatchdogTimer_a645904e999a598cc99d050cf094bbca2}{core::WatchdogTimer::start}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4}{operationMode}} \&ar\_operationMode, \textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_a58824599b582b6f035f314469e8f144f}{timeOut}} \&ar\_timeOut)}
+\DoxyCodeLine{00051 \{}
+\DoxyCodeLine{00052     m\_timeOut = \textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(ar\_timeOut);}
+\DoxyCodeLine{00053     m\_timeOut = \textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}((m\_timeOut \& 7) | ((m\_timeOut \& 8) << 2 ));}
+\DoxyCodeLine{00054     m\_operationMode = \textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(ar\_operationMode);}
+\DoxyCodeLine{00055     m\_operationMode = \textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(((m\_operationMode \& 1) << 6) | ((m\_operationMode \& 2) << 3 ));}
+\DoxyCodeLine{00056     cli();}
+\DoxyCodeLine{00057     wdt\_reset();}
+\DoxyCodeLine{00058     \mbox{\hyperlink{ha__m328p_8h_a7b5c6f1b3a3ace19ff65c9403a8b36c7}{WATCHDOG\_START}}(m\_operationMode,m\_timeOut);}
+\DoxyCodeLine{00059     sei();}
+\DoxyCodeLine{00060 }
+\DoxyCodeLine{00061 \}}
+\DoxyCodeLine{00062 }
+\DoxyCodeLine{\Hypertarget{WatchdogTimer_8cpp_source_l00063}\mbox{\hyperlink{classcore_1_1WatchdogTimer_a921ae55a5b8bd65ce1a4ee42e9f361f8}{00063}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcore_1_1WatchdogTimer_a921ae55a5b8bd65ce1a4ee42e9f361f8}{core::WatchdogTimer::stop}}()}
+\DoxyCodeLine{00064 \{}
+\DoxyCodeLine{00065     cli();}
+\DoxyCodeLine{00066     wdt\_reset();}
+\DoxyCodeLine{00067     \mbox{\hyperlink{ha__m328p_8h_aced6defdc7bc72ed639e3e05d57890c8}{WATCHDOG\_STOP}};}
+\DoxyCodeLine{00068     sei();}
+\DoxyCodeLine{00069 }
+\DoxyCodeLine{00070 \}}
+\DoxyCodeLine{00071 }
+
+\end{DoxyCode}

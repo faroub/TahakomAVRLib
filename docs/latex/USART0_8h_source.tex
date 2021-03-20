@@ -1,0 +1,134 @@
+\hypertarget{USART0_8h_source}{}\doxysection{U\+S\+A\+R\+T0.\+h}
+\label{USART0_8h_source}\index{USART0.h@{USART0.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 }
+\DoxyCodeLine{00071 \textcolor{preprocessor}{\#ifndef USART\_H}}
+\DoxyCodeLine{00072 \textcolor{preprocessor}{\#define USART\_H}}
+\DoxyCodeLine{00073 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{ha__base_8h}{ha\_base.h}}"}}
+\DoxyCodeLine{00074 }
+\DoxyCodeLine{00075 \textcolor{comment}{// TODO: add aditional function to send data}}
+\DoxyCodeLine{00076 \textcolor{comment}{// TODO: add a fuse programmer}}
+\DoxyCodeLine{00077 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceio}{io}}}
+\DoxyCodeLine{00078 \{}
+\DoxyCodeLine{\Hypertarget{USART0_8h_source_l00079}\mbox{\hyperlink{namespaceio_a45e1fcaa207053a34d25f14ece044cc8}{00079}} \textcolor{keyword}{enum class} \mbox{\hyperlink{namespaceio_a45e1fcaa207053a34d25f14ece044cc8}{transmissionMode}} : uint8\_t \{}
+\DoxyCodeLine{00080     \mbox{\hyperlink{namespaceio_a45e1fcaa207053a34d25f14ece044cc8a0df93e34273b367bb63bad28c94c78d5}{async}}=0,    }
+\DoxyCodeLine{00081     \mbox{\hyperlink{namespaceio_a45e1fcaa207053a34d25f14ece044cc8a63ad9d34f3503826e5f649ae6b7ac92c}{sync}},       }
+\DoxyCodeLine{00082     \mbox{\hyperlink{namespaceio_a45e1fcaa207053a34d25f14ece044cc8acf840bd202dedd899ac911ae2f8a499f}{masterSPI}}   }
+\DoxyCodeLine{00083 \};}
+\DoxyCodeLine{00084 }
+\DoxyCodeLine{\Hypertarget{USART0_8h_source_l00085}\mbox{\hyperlink{namespaceio_a42a6fa0fa3ae883e7bbd56940fe826d7}{00085}} \textcolor{keyword}{enum class} \mbox{\hyperlink{namespaceio_a42a6fa0fa3ae883e7bbd56940fe826d7}{communicationMode}} : uint8\_t \{}
+\DoxyCodeLine{00086     \mbox{\hyperlink{namespaceio_a42a6fa0fa3ae883e7bbd56940fe826d7a1151f638136f16f4e05c3c44b5ca0ce6}{duplex}}=0,   }
+\DoxyCodeLine{00087     \mbox{\hyperlink{namespaceio_a42a6fa0fa3ae883e7bbd56940fe826d7af477de506a932b4c64020556d2d4b40b}{transmit}},   }
+\DoxyCodeLine{00088     \mbox{\hyperlink{namespaceio_a42a6fa0fa3ae883e7bbd56940fe826d7acbd71f0d3114139d38a8d080d610e5fd}{receive}},    }
+\DoxyCodeLine{00090 \};}
+\DoxyCodeLine{00091 }
+\DoxyCodeLine{\Hypertarget{USART0_8h_source_l00092}\mbox{\hyperlink{namespaceio_aff83b31c2107877eab6896af2f26473d}{00092}} \textcolor{keyword}{enum class} \mbox{\hyperlink{namespaceio_aff83b31c2107877eab6896af2f26473d}{parityMode}} : uint8\_t \{}
+\DoxyCodeLine{00093     \mbox{\hyperlink{namespaceio_aff83b31c2107877eab6896af2f26473da44d98c594e2582acdda78154827f9fb6}{noParity}}=0, }
+\DoxyCodeLine{00094     \mbox{\hyperlink{namespaceio_aff83b31c2107877eab6896af2f26473dadceb499126d39f02b90fc0568511348c}{evenParity}}, }
+\DoxyCodeLine{00095     \mbox{\hyperlink{namespaceio_aff83b31c2107877eab6896af2f26473dad6f5540a1b621e24c76f97f61511e685}{oddParity}} }
+\DoxyCodeLine{00096 \};}
+\DoxyCodeLine{00097 }
+\DoxyCodeLine{\Hypertarget{USART0_8h_source_l00098}\mbox{\hyperlink{namespaceio_af048673c97e2851e9f698ade3eac3d94}{00098}} \textcolor{keyword}{enum class} \mbox{\hyperlink{namespaceio_af048673c97e2851e9f698ade3eac3d94}{frameSize}} : uint8\_t \{}
+\DoxyCodeLine{00099     \mbox{\hyperlink{namespaceio_af048673c97e2851e9f698ade3eac3d94ab42f784b79e512bbfe55fba2293918f6}{eightBits}}=0, }
+\DoxyCodeLine{00100     \mbox{\hyperlink{namespaceio_af048673c97e2851e9f698ade3eac3d94ad2172140683f3cabe78ede6317040eea}{fiveBits}},   }
+\DoxyCodeLine{00101     \mbox{\hyperlink{namespaceio_af048673c97e2851e9f698ade3eac3d94a664b25345df80b2e675d08c9d79b647d}{sixBits}}, }
+\DoxyCodeLine{00102     \mbox{\hyperlink{namespaceio_af048673c97e2851e9f698ade3eac3d94a79c698b6ec536efa5deaf48fd29f3320}{sevenBits}}, }
+\DoxyCodeLine{00103     \mbox{\hyperlink{namespaceio_af048673c97e2851e9f698ade3eac3d94a7b23fd26ca366edb65fecd1daea875fa}{neineBits}} }
+\DoxyCodeLine{00104 \};}
+\DoxyCodeLine{00105 }
+\DoxyCodeLine{\Hypertarget{USART0_8h_source_l00106}\mbox{\hyperlink{namespaceio_a289d74a06bc85c2902bef57a51b59047}{00106}} \textcolor{keyword}{enum class} \mbox{\hyperlink{namespaceio_a289d74a06bc85c2902bef57a51b59047}{stopBit}} : uint8\_t\{}
+\DoxyCodeLine{00107     \mbox{\hyperlink{namespaceio_a289d74a06bc85c2902bef57a51b59047ae89f045718a988ab25f333614a2413c4}{oneStopBit}}=0, }
+\DoxyCodeLine{00108     \mbox{\hyperlink{namespaceio_a289d74a06bc85c2902bef57a51b59047a82320fbce0bc5d05a8a9b3a979bd8a1f}{twoStopBits}} }
+\DoxyCodeLine{00109 \};}
+\DoxyCodeLine{00110 }
+\DoxyCodeLine{00111 }
+\DoxyCodeLine{\Hypertarget{USART0_8h_source_l00112}\mbox{\hyperlink{classio_1_1USART0}{00112}} \textcolor{keyword}{class }\mbox{\hyperlink{classio_1_1USART0}{USART0}}}
+\DoxyCodeLine{00113 \{}
+\DoxyCodeLine{00114 }
+\DoxyCodeLine{00115 \textcolor{keyword}{public}:}
+\DoxyCodeLine{00116 }
+\DoxyCodeLine{00117 }
+\DoxyCodeLine{00126     \textcolor{keyword}{static} \mbox{\hyperlink{classio_1_1USART0}{USART0}}\& \mbox{\hyperlink{classio_1_1USART0_ac3f9fa641ed5ea5628fd8fa65848ae0e}{getInstance}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespaceio_a45e1fcaa207053a34d25f14ece044cc8}{transmissionMode}}\& ar\_transMode = \mbox{\hyperlink{namespaceio_a45e1fcaa207053a34d25f14ece044cc8a0df93e34273b367bb63bad28c94c78d5}{transmissionMode::async}},}
+\DoxyCodeLine{00127                                \textcolor{keyword}{const} \mbox{\hyperlink{namespaceio_a42a6fa0fa3ae883e7bbd56940fe826d7}{communicationMode}}\& ar\_comMode = \mbox{\hyperlink{namespaceio_a42a6fa0fa3ae883e7bbd56940fe826d7a1151f638136f16f4e05c3c44b5ca0ce6}{communicationMode::duplex}},}
+\DoxyCodeLine{00128                                \textcolor{keyword}{const} \mbox{\hyperlink{namespaceio_af048673c97e2851e9f698ade3eac3d94}{frameSize}}\& ar\_frameSize = \mbox{\hyperlink{namespaceio_af048673c97e2851e9f698ade3eac3d94ab42f784b79e512bbfe55fba2293918f6}{frameSize::eightBits}},}
+\DoxyCodeLine{00129                                \textcolor{keyword}{const} \mbox{\hyperlink{namespaceio_a289d74a06bc85c2902bef57a51b59047}{stopBit}}\& ar\_stopBit = \mbox{\hyperlink{namespaceio_a289d74a06bc85c2902bef57a51b59047ae89f045718a988ab25f333614a2413c4}{stopBit::oneStopBit}},}
+\DoxyCodeLine{00130                                \textcolor{keyword}{const} \mbox{\hyperlink{namespaceio_aff83b31c2107877eab6896af2f26473d}{parityMode}}\& ar\_parityMode = \mbox{\hyperlink{namespaceio_aff83b31c2107877eab6896af2f26473da44d98c594e2582acdda78154827f9fb6}{parityMode::noParity}});}
+\DoxyCodeLine{00134     \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1USART0_a040e69856bc4f2694789bb266b33f710}{setBaudRate}}();}
+\DoxyCodeLine{00139     \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1USART0_aa217e640089047ca6daf8cb78a2fcbd6}{setTransmissionMode}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespaceio_a45e1fcaa207053a34d25f14ece044cc8}{transmissionMode}}\& ar\_transMode);}
+\DoxyCodeLine{00144     \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1USART0_af7df61dcf6a7600dff76287a2db2f2bc}{setCommunicationMode}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespaceio_a42a6fa0fa3ae883e7bbd56940fe826d7}{communicationMode}}\& ar\_comMode);}
+\DoxyCodeLine{00149     \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1USART0_a36e895c76bdac84a4c8fea4e3d73c984}{setParityMode}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespaceio_aff83b31c2107877eab6896af2f26473d}{parityMode}}\& ar\_parityMode);}
+\DoxyCodeLine{00154     \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1USART0_ac1b725c0a7d4875346d24c418726208b}{setFrameSize}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespaceio_af048673c97e2851e9f698ade3eac3d94}{frameSize}}\& ar\_frameSize);}
+\DoxyCodeLine{00159     \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1USART0_a736d11494eeb12b1a746b24d6f3aac8a}{setStopBit}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespaceio_a289d74a06bc85c2902bef57a51b59047}{stopBit}}\& ar\_stopBit);}
+\DoxyCodeLine{00165     \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1USART0_af98fdf20e4129fc9a0237c97aa8d8e91}{sendFrames}}(\textcolor{keyword}{const} uint8\_t *ap\_dataBuffer, \textcolor{keyword}{const} uint8\_t a\_size);}
+\DoxyCodeLine{00170     \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1USART0_a0842f21dd4e086580b3031c2099c504e}{sendString}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *ap\_string);}
+\DoxyCodeLine{00175     \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1USART0_a8cf6ccbc30ca0b4163e3f24a0aac8c31}{receiveString}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *ap\_string);}
+\DoxyCodeLine{00180     \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1USART0_a07042e6b07ac7959b6efb7a4e3dde62c}{sendChar}}(\textcolor{keyword}{const} uint8\_t \&ar\_char);}
+\DoxyCodeLine{00185     \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1USART0_ad43e1dc9fe57e85d88d84d231c2deaec}{sendByte}}(\textcolor{keyword}{const} uint8\_t \&ar\_byte);}
+\DoxyCodeLine{00186 }
+\DoxyCodeLine{00191     \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1USART0_a4f6e7008138147251693f6cda2567cb0}{sendWord}}(\textcolor{keyword}{const} uint16\_t \&ar\_word);}
+\DoxyCodeLine{00196     \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1USART0_a6d8cb5df3803545f8ff29f14ff313060}{sendLong}}(\textcolor{keyword}{const} uint32\_t \&ar\_long);}
+\DoxyCodeLine{00197 }
+\DoxyCodeLine{00202     \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1USART0_ac6e6718c0dda65e7eb14ccc56343a1cf}{receiveChar}}(uint8\_t \&ar\_char);}
+\DoxyCodeLine{00203 }
+\DoxyCodeLine{00210     \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1USART0_a24562b3565ff8fafaf3e8e2861a749f8}{receiveFrames}}(uint8\_t *ap\_dataBuffer, \textcolor{keyword}{const} uint8\_t a\_size);}
+\DoxyCodeLine{00215     \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1USART0_a994b22bc41cc256bae48a061918d5792}{enableTransmitCompleteInterrupt}}(\textcolor{keyword}{const} uint8\_t ar\_enable);}
+\DoxyCodeLine{00220     \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1USART0_a70eee561d259aac7ace413d812342270}{enableReceiveCompleteInterrupt}}(\textcolor{keyword}{const} uint8\_t ar\_enable);}
+\DoxyCodeLine{00225     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1USART0_ab342bf25ee9acc36ea28d341b3ceb02c}{enableDataRegisterEmptyInterrupt}}(\textcolor{keyword}{const} uint8\_t ar\_enable);}
+\DoxyCodeLine{00228     uint8\_t \mbox{\hyperlink{classio_1_1USART0_a8e0948f697cb892d386e6c879dc3cc3e}{frameError}}();}
+\DoxyCodeLine{00231     uint8\_t \mbox{\hyperlink{classio_1_1USART0_adfc94044d654eef7b4c7630ff9ff01c9}{dataOverrun}}();}
+\DoxyCodeLine{00234     uint8\_t \mbox{\hyperlink{classio_1_1USART0_aa4a8833cb897d968b1b1601ba8db7e0c}{parityError}}();}
+\DoxyCodeLine{00237     uint16\_t \mbox{\hyperlink{classio_1_1USART0_a2bf063d3eab54bae06112d37a8271fe4}{getNumberBytesReceived}}();}
+\DoxyCodeLine{00240     uint16\_t \mbox{\hyperlink{classio_1_1USART0_a4e206525cfe9e5974314c5452cd0691d}{getNumberBytesSent}}();}
+\DoxyCodeLine{00243     uint8\_t \mbox{\hyperlink{classio_1_1USART0_ab16fd406bf6b887481edcdcfc3093eb5}{ready2Send}}();}
+\DoxyCodeLine{00246     \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1USART0_a8460051e7d26ef0fa9f1640455ba7fb2}{resetNumberBytesReceived}}();}
+\DoxyCodeLine{\Hypertarget{USART0_8h_source_l00249}\mbox{\hyperlink{classio_1_1USART0_a596f5ebc7cea67633d8ff01a57dcb856}{00249}}     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1USART0_aa5c951d08d3492b29b33796cccd7eadb}{receiveCompleteServiceRoutine}}() \_\_asm\_\_(\mbox{\hyperlink{ha__base_8h_a6388870e639eee9c0a69446876f1f8cc}{STR}}(\mbox{\hyperlink{ha__m328p_8h_a9943d27cc50b04d087ab9663947c62b4}{USART0\_RECEIVE\_COMPLETE\_INTERRUPT}})) \_\_attribute\_\_((\_\_signal\_\_, \mbox{\hyperlink{classio_1_1USART0_a596f5ebc7cea67633d8ff01a57dcb856}{\_\_used\_\_}}, \mbox{\hyperlink{classio_1_1USART0_a8d1d1b6f0e35aec0785aa9a237502926}{\_\_externally\_visible\_\_}}));}
+\DoxyCodeLine{00252     static \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1USART0_ae0246272c4f61a2610ccdbf7f0a9aaa1}{dataRegisterEmptyServiceRoutine}}() \_\_asm\_\_(\mbox{\hyperlink{ha__base_8h_a6388870e639eee9c0a69446876f1f8cc}{STR}}(\mbox{\hyperlink{ha__m328p_8h_a4a3f17a1e26e0f1ca39f335be1b15c0b}{USART0\_DATA\_REGISTER\_EMPTY\_INTERRUPT}})) \_\_attribute\_\_((\_\_signal\_\_,\mbox{\hyperlink{classio_1_1USART0_a596f5ebc7cea67633d8ff01a57dcb856}{\_\_used\_\_}}, \mbox{\hyperlink{classio_1_1USART0_a8d1d1b6f0e35aec0785aa9a237502926}{\_\_externally\_visible\_\_}}));}
+\DoxyCodeLine{00255     static \textcolor{keywordtype}{void} \mbox{\hyperlink{classio_1_1USART0_ab1ff371fea6f6ac761e65f9025488691}{transmitCompleteServiceRoutine}}() \_\_asm\_\_(\mbox{\hyperlink{ha__base_8h_a6388870e639eee9c0a69446876f1f8cc}{STR}}(\mbox{\hyperlink{ha__m328p_8h_a0ad3840cfccb712fdbd678533032bde7}{USART0\_TRANSMIT\_COMPLETE\_INTERRUPT}})) \_\_attribute\_\_((\_\_signal\_\_, \mbox{\hyperlink{classio_1_1USART0_a596f5ebc7cea67633d8ff01a57dcb856}{\_\_used\_\_}}, \mbox{\hyperlink{classio_1_1USART0_a8d1d1b6f0e35aec0785aa9a237502926}{\_\_externally\_visible\_\_}}));}
+\DoxyCodeLine{00256 }
+\DoxyCodeLine{00257 }
+\DoxyCodeLine{00258 protected:}
+\DoxyCodeLine{00259 }
+\DoxyCodeLine{00260 }
+\DoxyCodeLine{00261 }
+\DoxyCodeLine{00262 }
+\DoxyCodeLine{00263 private:}
+\DoxyCodeLine{00272     \mbox{\hyperlink{classio_1_1USART0}{USART0}}(const \mbox{\hyperlink{namespaceio_a45e1fcaa207053a34d25f14ece044cc8}{transmissionMode}}\& ar\_transMode,}
+\DoxyCodeLine{00273            const \mbox{\hyperlink{namespaceio_a42a6fa0fa3ae883e7bbd56940fe826d7}{communicationMode}}\& ar\_comMode,}
+\DoxyCodeLine{00274            const \mbox{\hyperlink{namespaceio_af048673c97e2851e9f698ade3eac3d94}{frameSize}}\& ar\_frameSize,}
+\DoxyCodeLine{00275            const \mbox{\hyperlink{namespaceio_a289d74a06bc85c2902bef57a51b59047}{stopBit}}\& ar\_stopBit,}
+\DoxyCodeLine{00276            const \mbox{\hyperlink{namespaceio_aff83b31c2107877eab6896af2f26473d}{parityMode}}\& ar\_parityMode);}
+\DoxyCodeLine{00277 }
+\DoxyCodeLine{00280     \string~\mbox{\hyperlink{classio_1_1USART0}{USART0}}();}
+\DoxyCodeLine{00281 }
+\DoxyCodeLine{00284     \mbox{\hyperlink{classio_1_1USART0}{USART0}}(const \mbox{\hyperlink{classio_1_1USART0}{USART0}}\&);}
+\DoxyCodeLine{00285 }
+\DoxyCodeLine{00288     const \mbox{\hyperlink{classio_1_1USART0}{USART0}}\& operator=(const \mbox{\hyperlink{classio_1_1USART0}{USART0}}\&);}
+\DoxyCodeLine{00289 }
+\DoxyCodeLine{\Hypertarget{USART0_8h_source_l00290}\mbox{\hyperlink{classio_1_1USART0_a29e87c3560ff9f1c3d5e1438cb000cbf}{00290}}     static volatile uint8\_t \mbox{\hyperlink{classio_1_1USART0_a29e87c3560ff9f1c3d5e1438cb000cbf}{m\_status}};   }
+\DoxyCodeLine{\Hypertarget{USART0_8h_source_l00292}\mbox{\hyperlink{classio_1_1USART0_a3b03d95bc85233e13b18bd8ab72a5bd6}{00292}}     static const uint8\_t *\mbox{\hyperlink{classio_1_1USART0_a3b03d95bc85233e13b18bd8ab72a5bd6}{mp\_data2Send}}; }
+\DoxyCodeLine{\Hypertarget{USART0_8h_source_l00294}\mbox{\hyperlink{classio_1_1USART0_ac3639e8b5cb15b633f2c77162fbc70e8}{00294}}     static uint8\_t *\mbox{\hyperlink{classio_1_1USART0_ac3639e8b5cb15b633f2c77162fbc70e8}{mp\_data2Receive}}; }
+\DoxyCodeLine{\Hypertarget{USART0_8h_source_l00296}\mbox{\hyperlink{classio_1_1USART0_a04696a1e41d6d5b3292fed565b442cb2}{00296}}     static uint16\_t \mbox{\hyperlink{classio_1_1USART0_a04696a1e41d6d5b3292fed565b442cb2}{m\_sizeData2Send}};  }
+\DoxyCodeLine{\Hypertarget{USART0_8h_source_l00298}\mbox{\hyperlink{classio_1_1USART0_afd04f755cc1c1b86bd5a5c61f69379c3}{00298}}     static uint16\_t \mbox{\hyperlink{classio_1_1USART0_afd04f755cc1c1b86bd5a5c61f69379c3}{m\_sizeData2Receive}};  }
+\DoxyCodeLine{\Hypertarget{USART0_8h_source_l00300}\mbox{\hyperlink{classio_1_1USART0_a0e0876e2b35597d9757cc3da8d171369}{00300}}     static volatile uint16\_t \mbox{\hyperlink{classio_1_1USART0_a0e0876e2b35597d9757cc3da8d171369}{m\_numberBytesReceived}};   }
+\DoxyCodeLine{\Hypertarget{USART0_8h_source_l00302}\mbox{\hyperlink{classio_1_1USART0_ad2ea359d2062072c1a1ddef5463a362e}{00302}}     static volatile uint16\_t \mbox{\hyperlink{classio_1_1USART0_ad2ea359d2062072c1a1ddef5463a362e}{m\_numberBytesSent}};   }
+\DoxyCodeLine{\Hypertarget{USART0_8h_source_l00304}\mbox{\hyperlink{classio_1_1USART0_a2ed589598012f3f7296b318d122c3bcd}{00304}}     static volatile uint8\_t \mbox{\hyperlink{classio_1_1USART0_a2ed589598012f3f7296b318d122c3bcd}{m\_ready2Send}};   }
+\DoxyCodeLine{00307 \};}
+\DoxyCodeLine{00308 }
+\DoxyCodeLine{00309 }
+\DoxyCodeLine{00310 }
+\DoxyCodeLine{00311 \}}
+\DoxyCodeLine{00312 }
+\DoxyCodeLine{00313 }
+\DoxyCodeLine{00314 }
+\DoxyCodeLine{00315 }
+\DoxyCodeLine{00316 }
+\DoxyCodeLine{00317 }
+\DoxyCodeLine{00318 }
+\DoxyCodeLine{00319 }
+\DoxyCodeLine{00320 }
+\DoxyCodeLine{00321 }
+\DoxyCodeLine{00322 }
+\DoxyCodeLine{00323 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

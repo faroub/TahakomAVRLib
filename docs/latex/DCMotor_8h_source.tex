@@ -1,0 +1,74 @@
+\hypertarget{DCMotor_8h_source}{}\doxysection{D\+C\+Motor.\+h}
+\label{DCMotor_8h_source}\index{DCMotor.h@{DCMotor.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 }
+\DoxyCodeLine{00117 \textcolor{preprocessor}{\#ifndef DCMOTOR\_H}}
+\DoxyCodeLine{00118 \textcolor{preprocessor}{\#define DCMOTOR\_H}}
+\DoxyCodeLine{00119 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{ha__base_8h}{ha\_base.h}}"}}
+\DoxyCodeLine{00120 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{Pin_8h}{Pin.h}}"}}
+\DoxyCodeLine{00121 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{TimerCounter_8h}{TimerCounter.h}}"}}
+\DoxyCodeLine{00122 }
+\DoxyCodeLine{00123 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacecomponent}{component}}}
+\DoxyCodeLine{00124 \{}
+\DoxyCodeLine{00125 }
+\DoxyCodeLine{\Hypertarget{DCMotor_8h_source_l00126}\mbox{\hyperlink{classcomponent_1_1DCMotor}{00126}} \textcolor{keyword}{class }\mbox{\hyperlink{classcomponent_1_1DCMotor}{DCMotor}}}
+\DoxyCodeLine{00127 \{}
+\DoxyCodeLine{00128 \textcolor{keyword}{public}:}
+\DoxyCodeLine{00129     \mbox{\hyperlink{classcomponent_1_1DCMotor_a771ddbbecacf29fef3915b8d9d4012d3}{DCMotor}}(\textcolor{keyword}{const} \mbox{\hyperlink{classio_1_1Pin}{io::Pin}} \&ar\_pin);}
+\DoxyCodeLine{00130 }
+\DoxyCodeLine{00131     \mbox{\hyperlink{classcomponent_1_1DCMotor_a3c0d940fa3a3774c83bc8b6c13b7a541}{\string~DCMotor}}();}
+\DoxyCodeLine{00132 }
+\DoxyCodeLine{00135     \textcolor{keywordtype}{void} \mbox{\hyperlink{classcomponent_1_1DCMotor_a35e5bab4c36e3ab3698bedac701a7ebd}{on}}();}
+\DoxyCodeLine{00138     \textcolor{keywordtype}{void} \mbox{\hyperlink{classcomponent_1_1DCMotor_a14c55f109e59f03e4f65af826907492b}{off}}();}
+\DoxyCodeLine{00141     \textcolor{keywordtype}{void} \mbox{\hyperlink{classcomponent_1_1DCMotor_afdf705b2eeb8ba39e7909495a69e6773}{toggle}}();}
+\DoxyCodeLine{00142 }
+\DoxyCodeLine{00143     \textcolor{keyword}{template}<\textcolor{keyword}{typename} TC>}
+\DoxyCodeLine{\Hypertarget{DCMotor_8h_source_l00144}\mbox{\hyperlink{classcomponent_1_1DCMotor_a97585ba9dc524ed1c514bae19590bffc}{00144}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{classcomponent_1_1DCMotor_a97585ba9dc524ed1c514bae19590bffc}{spin}}(TC \&ar\_timerCounter,}
+\DoxyCodeLine{00145               \textcolor{comment}{//const uint8\_t \&ar\_dir,}}
+\DoxyCodeLine{00146               \textcolor{keyword}{const} uint16\_t \&ar\_speed,}
+\DoxyCodeLine{00147               \textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{core::channel}} \&ar\_channel=\mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}{core::channel::A}})}
+\DoxyCodeLine{00148     \{}
+\DoxyCodeLine{00149 }
+\DoxyCodeLine{00150         ar\_timerCounter.setOutputCompareRegister(ar\_channel, ar\_speed);}
+\DoxyCodeLine{00151         ar\_timerCounter.start();}
+\DoxyCodeLine{00152 }
+\DoxyCodeLine{00153 }
+\DoxyCodeLine{00154     \}}
+\DoxyCodeLine{00155     \textcolor{keyword}{template}<\textcolor{keyword}{typename} TC>}
+\DoxyCodeLine{\Hypertarget{DCMotor_8h_source_l00156}\mbox{\hyperlink{classcomponent_1_1DCMotor_adcca551f188d1c523c05378336d6bf6f}{00156}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{classcomponent_1_1DCMotor_adcca551f188d1c523c05378336d6bf6f}{stop}}(TC \&ar\_timerCounter)}
+\DoxyCodeLine{00157     \{}
+\DoxyCodeLine{00158         ar\_timerCounter.stop();}
+\DoxyCodeLine{00159 }
+\DoxyCodeLine{00160 }
+\DoxyCodeLine{00161     \}}
+\DoxyCodeLine{00162 }
+\DoxyCodeLine{00163     \textcolor{keyword}{template}<\textcolor{keyword}{typename} TC>}
+\DoxyCodeLine{\Hypertarget{DCMotor_8h_source_l00164}\mbox{\hyperlink{classcomponent_1_1DCMotor_abbf74978c679123302558eabdc8d39e1}{00164}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{classcomponent_1_1DCMotor_abbf74978c679123302558eabdc8d39e1}{connect}}(TC \&ar\_timerCounter,}
+\DoxyCodeLine{00165                  \textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{core::channel}} \&ar\_channel=\mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}{core::channel::A}})}
+\DoxyCodeLine{00166     \{}
+\DoxyCodeLine{00167         ar\_timerCounter.selectOperationMode(\mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4a9bb3db07673e063e5eaadd3547848399}{core::operationMode::fast\_PWM}});}
+\DoxyCodeLine{00168         ar\_timerCounter.selectCompareOutputMode(ar\_channel, \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950a01bc6f8efa4202821e95f4fdf6298b30}{core::compareOutputMode::clear}});}
+\DoxyCodeLine{00169         ar\_timerCounter.setCounter(0);}
+\DoxyCodeLine{00170 }
+\DoxyCodeLine{00171     \}}
+\DoxyCodeLine{00172 }
+\DoxyCodeLine{00173     \textcolor{keyword}{template}<\textcolor{keyword}{typename} TC>}
+\DoxyCodeLine{\Hypertarget{DCMotor_8h_source_l00174}\mbox{\hyperlink{classcomponent_1_1DCMotor_a11dccdb5f84a54d9ebe9e2b9940cad1d}{00174}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{classcomponent_1_1DCMotor_a11dccdb5f84a54d9ebe9e2b9940cad1d}{disconnect}}(TC \&ar\_timerCounter,}
+\DoxyCodeLine{00175                     \textcolor{keyword}{const} \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{core::channel}} \&ar\_channel=\mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419a7fc56270e7a70fa81a5935b72eacbe29}{core::channel::A}})}
+\DoxyCodeLine{00176     \{}
+\DoxyCodeLine{00177         ar\_timerCounter.selectCompareOutputMode(ar\_channel, \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950afea087517c26fadd409bd4b9dc642555}{core::compareOutputMode::normal}});}
+\DoxyCodeLine{00178         ar\_timerCounter.stop();}
+\DoxyCodeLine{00179     \}}
+\DoxyCodeLine{00180 }
+\DoxyCodeLine{00181 }
+\DoxyCodeLine{00182 }
+\DoxyCodeLine{00183 \textcolor{keyword}{private}:}
+\DoxyCodeLine{00184 }
+\DoxyCodeLine{\Hypertarget{DCMotor_8h_source_l00185}\mbox{\hyperlink{classcomponent_1_1DCMotor_ae003ad10273d1a2cd4d8006f49bb44c1}{00185}}     \mbox{\hyperlink{classio_1_1Pin}{io::Pin}} \mbox{\hyperlink{classcomponent_1_1DCMotor_ae003ad10273d1a2cd4d8006f49bb44c1}{m\_pin}}; }
+\DoxyCodeLine{00187 \};}
+\DoxyCodeLine{00188 }
+\DoxyCodeLine{00189 \}}
+\DoxyCodeLine{00190 \textcolor{preprocessor}{\#endif // DCMOTOR\_H}}
+
+\end{DoxyCode}

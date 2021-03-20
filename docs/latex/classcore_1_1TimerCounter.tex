@@ -1,0 +1,172 @@
+\hypertarget{classcore_1_1TimerCounter}{}\doxysection{core\+::Timer\+Counter Class Reference}
+\label{classcore_1_1TimerCounter}\index{core::TimerCounter@{core::TimerCounter}}
+
+
+{\ttfamily \#include $<$Timer\+Counter.\+h$>$}
+
+
+
+Inheritance diagram for core\+::Timer\+Counter\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcore_1_1TimerCounter__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classcore_1_1TimerCounter_a6bf77b7d6569a4ff723015f74207af57}{select\+Operation\+Mode}} (const \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4}{operation\+Mode}} \&ar\+\_\+operation\+Mode)=0
+\item 
+virtual void \mbox{\hyperlink{classcore_1_1TimerCounter_aa6f73069acbe1a7500a6f3991ad1893a}{start}} ()=0
+\item 
+virtual void \mbox{\hyperlink{classcore_1_1TimerCounter_aa0a771f6db254df76daf79d02fd18bc6}{stop}} ()=0
+\item 
+virtual void \mbox{\hyperlink{classcore_1_1TimerCounter_a5dba14e709537b0268b87e313ca419e2}{select\+Clock\+Source}} (const \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1}{clock\+Source}} \&ar\+\_\+clock\+Source)=0
+\item 
+virtual void \mbox{\hyperlink{classcore_1_1TimerCounter_a9fabaf6994c9541fdeb83f8923aafe4c}{select\+Compare\+Output\+Mode}} (const \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{channel}} \&ar\+\_\+channel, const \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950}{compare\+Output\+Mode}} \&ar\+\_\+compare\+Output\+Mode)=0
+\item 
+virtual void \mbox{\hyperlink{classcore_1_1TimerCounter_a0315b613c37b26b57446ba862499ff35}{set\+Counter}} (const uint16\+\_\+t \&ar\+\_\+data\+Buffer)=0
+\item 
+virtual uint16\+\_\+t \mbox{\hyperlink{classcore_1_1TimerCounter_aeae0e9eef31c63c39b24872131a55434}{get\+Counter}} () const =0
+\item 
+virtual void \mbox{\hyperlink{classcore_1_1TimerCounter_a13b4a52958822d95a4773254254ad6a3}{set\+Output\+Compare\+Register}} (const \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{channel}} \&ar\+\_\+channel, const uint16\+\_\+t \&ar\+\_\+data\+Buffer)=0
+\item 
+virtual uint16\+\_\+t \mbox{\hyperlink{classcore_1_1TimerCounter_a58f31e9a44323dc12514023c3a33dfcd}{get\+Output\+Compare\+Register}} (const \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{channel}} \&ar\+\_\+channel) const =0
+\item 
+virtual void \mbox{\hyperlink{classcore_1_1TimerCounter_aa7744ca1c99dc1c5ae27820fa03e6929}{enable\+Output\+Compare\+Match\+Interrupt}} (const \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{channel}} \&ar\+\_\+channel, const uint8\+\_\+t a\+\_\+enable)=0
+\item 
+virtual void \mbox{\hyperlink{classcore_1_1TimerCounter_aa9adfb19ee2ea63f457f20c6080fbd38}{enable\+Overflow\+Interrupt}} (const uint8\+\_\+t a\+\_\+enable)=0
+\item 
+virtual uint16\+\_\+t \mbox{\hyperlink{classcore_1_1TimerCounter_a2386c8a295c4efa2474d07d2b0a22b9b}{get\+Clock\+Prescaler}} ()=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{TimerCounter_8h_source_l00517}{517}} of file \mbox{\hyperlink{TimerCounter_8h_source}{Timer\+Counter.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcore_1_1TimerCounter_aa7744ca1c99dc1c5ae27820fa03e6929}\label{classcore_1_1TimerCounter_aa7744ca1c99dc1c5ae27820fa03e6929}} 
+\index{core::TimerCounter@{core::TimerCounter}!enableOutputCompareMatchInterrupt@{enableOutputCompareMatchInterrupt}}
+\index{enableOutputCompareMatchInterrupt@{enableOutputCompareMatchInterrupt}!core::TimerCounter@{core::TimerCounter}}
+\doxysubsubsection{\texorpdfstring{enableOutputCompareMatchInterrupt()}{enableOutputCompareMatchInterrupt()}}
+{\footnotesize\ttfamily virtual void core\+::\+Timer\+Counter\+::enable\+Output\+Compare\+Match\+Interrupt (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{channel}} \&}]{ar\+\_\+channel,  }\item[{const uint8\+\_\+t}]{a\+\_\+enable }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcore_1_1TimerCounter1_a52d2bf67893d2db01253b9ed7e4af3f2}{core\+::\+Timer\+Counter1}}, \mbox{\hyperlink{classcore_1_1TimerCounter0_a0125c01ed465998cca2d20aceb23405e}{core\+::\+Timer\+Counter0}}, and \mbox{\hyperlink{classcore_1_1TimerCounter2_a1d5dbeebe151fea418fd60da2dadc56d}{core\+::\+Timer\+Counter2}}.
+
+\mbox{\Hypertarget{classcore_1_1TimerCounter_aa9adfb19ee2ea63f457f20c6080fbd38}\label{classcore_1_1TimerCounter_aa9adfb19ee2ea63f457f20c6080fbd38}} 
+\index{core::TimerCounter@{core::TimerCounter}!enableOverflowInterrupt@{enableOverflowInterrupt}}
+\index{enableOverflowInterrupt@{enableOverflowInterrupt}!core::TimerCounter@{core::TimerCounter}}
+\doxysubsubsection{\texorpdfstring{enableOverflowInterrupt()}{enableOverflowInterrupt()}}
+{\footnotesize\ttfamily virtual void core\+::\+Timer\+Counter\+::enable\+Overflow\+Interrupt (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{a\+\_\+enable }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcore_1_1TimerCounter1_ab455eec99616b1e61161d26ac76c6920}{core\+::\+Timer\+Counter1}}, \mbox{\hyperlink{classcore_1_1TimerCounter0_a5319170ee618915a61e6f93b6af8afc7}{core\+::\+Timer\+Counter0}}, and \mbox{\hyperlink{classcore_1_1TimerCounter2_addb751ab2b5e8a0de300c5ae28ca6428}{core\+::\+Timer\+Counter2}}.
+
+\mbox{\Hypertarget{classcore_1_1TimerCounter_a2386c8a295c4efa2474d07d2b0a22b9b}\label{classcore_1_1TimerCounter_a2386c8a295c4efa2474d07d2b0a22b9b}} 
+\index{core::TimerCounter@{core::TimerCounter}!getClockPrescaler@{getClockPrescaler}}
+\index{getClockPrescaler@{getClockPrescaler}!core::TimerCounter@{core::TimerCounter}}
+\doxysubsubsection{\texorpdfstring{getClockPrescaler()}{getClockPrescaler()}}
+{\footnotesize\ttfamily virtual uint16\+\_\+t core\+::\+Timer\+Counter\+::get\+Clock\+Prescaler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcore_1_1TimerCounter1_a4acdbf18d86748032abf6f07e7a6d9b1}{core\+::\+Timer\+Counter1}}, \mbox{\hyperlink{classcore_1_1TimerCounter0_a6aa7463fb54d3712667971baffe33549}{core\+::\+Timer\+Counter0}}, and \mbox{\hyperlink{classcore_1_1TimerCounter2_afe78260d856dd392609ec105b74e3a61}{core\+::\+Timer\+Counter2}}.
+
+\mbox{\Hypertarget{classcore_1_1TimerCounter_aeae0e9eef31c63c39b24872131a55434}\label{classcore_1_1TimerCounter_aeae0e9eef31c63c39b24872131a55434}} 
+\index{core::TimerCounter@{core::TimerCounter}!getCounter@{getCounter}}
+\index{getCounter@{getCounter}!core::TimerCounter@{core::TimerCounter}}
+\doxysubsubsection{\texorpdfstring{getCounter()}{getCounter()}}
+{\footnotesize\ttfamily virtual uint16\+\_\+t core\+::\+Timer\+Counter\+::get\+Counter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcore_1_1TimerCounter1_a472c12984fabaeb316eb90c66bc2b545}{core\+::\+Timer\+Counter1}}, \mbox{\hyperlink{classcore_1_1TimerCounter0_adb14b27fbeddae3b6756a43049759aa5}{core\+::\+Timer\+Counter0}}, and \mbox{\hyperlink{classcore_1_1TimerCounter2_ad12946e00ed430912c5c7a361402a29f}{core\+::\+Timer\+Counter2}}.
+
+\mbox{\Hypertarget{classcore_1_1TimerCounter_a58f31e9a44323dc12514023c3a33dfcd}\label{classcore_1_1TimerCounter_a58f31e9a44323dc12514023c3a33dfcd}} 
+\index{core::TimerCounter@{core::TimerCounter}!getOutputCompareRegister@{getOutputCompareRegister}}
+\index{getOutputCompareRegister@{getOutputCompareRegister}!core::TimerCounter@{core::TimerCounter}}
+\doxysubsubsection{\texorpdfstring{getOutputCompareRegister()}{getOutputCompareRegister()}}
+{\footnotesize\ttfamily virtual uint16\+\_\+t core\+::\+Timer\+Counter\+::get\+Output\+Compare\+Register (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{channel}} \&}]{ar\+\_\+channel }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcore_1_1TimerCounter1_a79f343a0a8e69ac7bf271b94d5e8971d}{core\+::\+Timer\+Counter1}}, \mbox{\hyperlink{classcore_1_1TimerCounter0_a22c61d7a8438cb6ab31af473819877e9}{core\+::\+Timer\+Counter0}}, and \mbox{\hyperlink{classcore_1_1TimerCounter2_afc8c568dc7f30b16b795f727bd1c2eca}{core\+::\+Timer\+Counter2}}.
+
+\mbox{\Hypertarget{classcore_1_1TimerCounter_a5dba14e709537b0268b87e313ca419e2}\label{classcore_1_1TimerCounter_a5dba14e709537b0268b87e313ca419e2}} 
+\index{core::TimerCounter@{core::TimerCounter}!selectClockSource@{selectClockSource}}
+\index{selectClockSource@{selectClockSource}!core::TimerCounter@{core::TimerCounter}}
+\doxysubsubsection{\texorpdfstring{selectClockSource()}{selectClockSource()}}
+{\footnotesize\ttfamily virtual void core\+::\+Timer\+Counter\+::select\+Clock\+Source (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacecore_ae157e8ac43bcf6dc8f7115c4ccacb2e1}{clock\+Source}} \&}]{ar\+\_\+clock\+Source }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcore_1_1TimerCounter0_aae3da9a882de37cd0d609e8dc0e15f00}{core\+::\+Timer\+Counter0}}, \mbox{\hyperlink{classcore_1_1TimerCounter1_add7e77ea0827ebac37229948d992815f}{core\+::\+Timer\+Counter1}}, and \mbox{\hyperlink{classcore_1_1TimerCounter2_a358eb30809281992b1ab907f9b5410d5}{core\+::\+Timer\+Counter2}}.
+
+\mbox{\Hypertarget{classcore_1_1TimerCounter_a9fabaf6994c9541fdeb83f8923aafe4c}\label{classcore_1_1TimerCounter_a9fabaf6994c9541fdeb83f8923aafe4c}} 
+\index{core::TimerCounter@{core::TimerCounter}!selectCompareOutputMode@{selectCompareOutputMode}}
+\index{selectCompareOutputMode@{selectCompareOutputMode}!core::TimerCounter@{core::TimerCounter}}
+\doxysubsubsection{\texorpdfstring{selectCompareOutputMode()}{selectCompareOutputMode()}}
+{\footnotesize\ttfamily virtual void core\+::\+Timer\+Counter\+::select\+Compare\+Output\+Mode (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{channel}} \&}]{ar\+\_\+channel,  }\item[{const \mbox{\hyperlink{namespacecore_abf164abe46881599e64640a064d89950}{compare\+Output\+Mode}} \&}]{ar\+\_\+compare\+Output\+Mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcore_1_1TimerCounter1_a663221dc1a1b1d04c2aa06dec2a6bb72}{core\+::\+Timer\+Counter1}}, \mbox{\hyperlink{classcore_1_1TimerCounter0_ace42b71582a993e758c00200082a4f39}{core\+::\+Timer\+Counter0}}, and \mbox{\hyperlink{classcore_1_1TimerCounter2_ad4f4e70052c76cf561770aa82526f36b}{core\+::\+Timer\+Counter2}}.
+
+\mbox{\Hypertarget{classcore_1_1TimerCounter_a6bf77b7d6569a4ff723015f74207af57}\label{classcore_1_1TimerCounter_a6bf77b7d6569a4ff723015f74207af57}} 
+\index{core::TimerCounter@{core::TimerCounter}!selectOperationMode@{selectOperationMode}}
+\index{selectOperationMode@{selectOperationMode}!core::TimerCounter@{core::TimerCounter}}
+\doxysubsubsection{\texorpdfstring{selectOperationMode()}{selectOperationMode()}}
+{\footnotesize\ttfamily virtual void core\+::\+Timer\+Counter\+::select\+Operation\+Mode (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacecore_a5fa1c13ba2de3f8eacf4d56627b359b4}{operation\+Mode}} \&}]{ar\+\_\+operation\+Mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcore_1_1TimerCounter0_a1c37a4faf329a0c539aec53e473874d9}{core\+::\+Timer\+Counter0}}, \mbox{\hyperlink{classcore_1_1TimerCounter1_a09071abf6d7f6a99216bf3735a94df0e}{core\+::\+Timer\+Counter1}}, and \mbox{\hyperlink{classcore_1_1TimerCounter2_a1141cdb547ed2b82daeba5ffa952c6dd}{core\+::\+Timer\+Counter2}}.
+
+\mbox{\Hypertarget{classcore_1_1TimerCounter_a0315b613c37b26b57446ba862499ff35}\label{classcore_1_1TimerCounter_a0315b613c37b26b57446ba862499ff35}} 
+\index{core::TimerCounter@{core::TimerCounter}!setCounter@{setCounter}}
+\index{setCounter@{setCounter}!core::TimerCounter@{core::TimerCounter}}
+\doxysubsubsection{\texorpdfstring{setCounter()}{setCounter()}}
+{\footnotesize\ttfamily virtual void core\+::\+Timer\+Counter\+::set\+Counter (\begin{DoxyParamCaption}\item[{const uint16\+\_\+t \&}]{ar\+\_\+data\+Buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcore_1_1TimerCounter1_a80b34086ae7fc68a693e26ea9400a892}{core\+::\+Timer\+Counter1}}, \mbox{\hyperlink{classcore_1_1TimerCounter0_acd4669d53301a6cf2ecd9a143d8c0e4b}{core\+::\+Timer\+Counter0}}, and \mbox{\hyperlink{classcore_1_1TimerCounter2_a31d021f2fbffe9fb5e4ab44a084d02ef}{core\+::\+Timer\+Counter2}}.
+
+\mbox{\Hypertarget{classcore_1_1TimerCounter_a13b4a52958822d95a4773254254ad6a3}\label{classcore_1_1TimerCounter_a13b4a52958822d95a4773254254ad6a3}} 
+\index{core::TimerCounter@{core::TimerCounter}!setOutputCompareRegister@{setOutputCompareRegister}}
+\index{setOutputCompareRegister@{setOutputCompareRegister}!core::TimerCounter@{core::TimerCounter}}
+\doxysubsubsection{\texorpdfstring{setOutputCompareRegister()}{setOutputCompareRegister()}}
+{\footnotesize\ttfamily virtual void core\+::\+Timer\+Counter\+::set\+Output\+Compare\+Register (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacecore_a1bbe9e05be92da10bbb8ef7805df1419}{channel}} \&}]{ar\+\_\+channel,  }\item[{const uint16\+\_\+t \&}]{ar\+\_\+data\+Buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcore_1_1TimerCounter1_a80fd69004f5e154dd7f20741863306e2}{core\+::\+Timer\+Counter1}}, \mbox{\hyperlink{classcore_1_1TimerCounter0_afcb226ada6e0f0619d28351188fe38b7}{core\+::\+Timer\+Counter0}}, and \mbox{\hyperlink{classcore_1_1TimerCounter2_a25b7b754c1a9c41a6cd5379d7669fa3e}{core\+::\+Timer\+Counter2}}.
+
+\mbox{\Hypertarget{classcore_1_1TimerCounter_aa6f73069acbe1a7500a6f3991ad1893a}\label{classcore_1_1TimerCounter_aa6f73069acbe1a7500a6f3991ad1893a}} 
+\index{core::TimerCounter@{core::TimerCounter}!start@{start}}
+\index{start@{start}!core::TimerCounter@{core::TimerCounter}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily virtual void core\+::\+Timer\+Counter\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcore_1_1TimerCounter0_a77b4cbefb55b3bfb0d46890c2226459b}{core\+::\+Timer\+Counter0}}, \mbox{\hyperlink{classcore_1_1TimerCounter1_ad6322d60b67dce323aa7952fd9923040}{core\+::\+Timer\+Counter1}}, and \mbox{\hyperlink{classcore_1_1TimerCounter2_a3e0e6c67eb0e005927f7be6873ba132e}{core\+::\+Timer\+Counter2}}.
+
+\mbox{\Hypertarget{classcore_1_1TimerCounter_aa0a771f6db254df76daf79d02fd18bc6}\label{classcore_1_1TimerCounter_aa0a771f6db254df76daf79d02fd18bc6}} 
+\index{core::TimerCounter@{core::TimerCounter}!stop@{stop}}
+\index{stop@{stop}!core::TimerCounter@{core::TimerCounter}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily virtual void core\+::\+Timer\+Counter\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classcore_1_1TimerCounter0_a74e413b10377189fd7bfc5be1065ad44}{core\+::\+Timer\+Counter0}}, \mbox{\hyperlink{classcore_1_1TimerCounter1_a2604e3b9ee815ce34876da9c09db840d}{core\+::\+Timer\+Counter1}}, and \mbox{\hyperlink{classcore_1_1TimerCounter2_ae80f71c669d7eff54f3df4651dbd5090}{core\+::\+Timer\+Counter2}}.
+

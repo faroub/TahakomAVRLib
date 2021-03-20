@@ -1,0 +1,235 @@
+\hypertarget{classcomponent_1_1Led}{}\doxysection{component\+::Led Class Reference}
+\label{classcomponent_1_1Led}\index{component::Led@{component::Led}}
+
+
+{\ttfamily \#include $<$Led.\+h$>$}
+
+
+
+Collaboration diagram for component\+::Led\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classcomponent_1_1Led__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcomponent_1_1Led_acdc827044aedadff54c3e8924442fa6b}{Led}} (const \mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}} \&ar\+\_\+pin)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcomponent_1_1Led_a766f800a5552413d646c2d700daae513}{$\sim$\+Led}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcomponent_1_1Led_a7b04e5787d404d9ab381a4afb20d8a1d}{on}} ()
+\begin{DoxyCompactList}\small\item\em Turn led On. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcomponent_1_1Led_ac8247121fcb3ccf6e09ff8aa67f8d5aa}{off}} ()
+\begin{DoxyCompactList}\small\item\em Turn led Off. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcomponent_1_1Led_ae3f04d9c41a277d969dce6952fe54938}{toggle}} ()
+\begin{DoxyCompactList}\small\item\em Toggle led state. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classcomponent_1_1Led_a7e5541cb3058107641ec9517ea09ad94}{is\+On}} ()
+\begin{DoxyCompactList}\small\item\em Is led On. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classcomponent_1_1Led_a007cbe535217f12abea01198b8384372}{is\+Off}} ()
+\begin{DoxyCompactList}\small\item\em Is led Off. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}} \mbox{\hyperlink{classcomponent_1_1Led_ae8d24164367f6b379984a1b55a4debe4}{m\+\_\+pin}}
+\begin{DoxyCompactList}\small\item\em pin object \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{Led_8h_source_l00032}{32}} of file \mbox{\hyperlink{Led_8h_source}{Led.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcomponent_1_1Led_acdc827044aedadff54c3e8924442fa6b}\label{classcomponent_1_1Led_acdc827044aedadff54c3e8924442fa6b}} 
+\index{component::Led@{component::Led}!Led@{Led}}
+\index{Led@{Led}!component::Led@{component::Led}}
+\doxysubsubsection{\texorpdfstring{Led()}{Led()}}
+{\footnotesize\ttfamily component\+::\+Led\+::\+Led (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}} \&}]{ar\+\_\+pin }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Initalizes the led object
+
+
+\begin{DoxyParams}{Parameters}
+{\em ar\+\_\+pin} & constant reference to pin object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Led_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{Led_8cpp_source}{Led.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00004          : \mbox{\hyperlink{classcomponent_1_1Led_ae8d24164367f6b379984a1b55a4debe4}{m\_pin}}(ar\_pin)}
+\DoxyCodeLine{00005 \{}
+\DoxyCodeLine{00006     \mbox{\hyperlink{classcomponent_1_1Led_ae8d24164367f6b379984a1b55a4debe4}{m\_pin}}.\mbox{\hyperlink{classio_1_1Pin_a2d1e7ed9625d0c4bb8d81dadbadacc41}{toOutput}}();}
+\DoxyCodeLine{00007 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{Led_8h_source_l00067}{m\+\_\+pin}}, and \mbox{\hyperlink{Pin_8cpp_source_l00017}{io\+::\+Pin\+::to\+Output()}}.
+
+\mbox{\Hypertarget{classcomponent_1_1Led_a766f800a5552413d646c2d700daae513}\label{classcomponent_1_1Led_a766f800a5552413d646c2d700daae513}} 
+\index{component::Led@{component::Led}!````~Led@{$\sim$Led}}
+\index{````~Led@{$\sim$Led}!component::Led@{component::Led}}
+\doxysubsubsection{\texorpdfstring{$\sim$Led()}{~Led()}}
+{\footnotesize\ttfamily component\+::\+Led\+::$\sim$\+Led (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+
+Definition at line \mbox{\hyperlink{Led_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{Led_8cpp_source}{Led.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00010 \{}
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{00012 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcomponent_1_1Led_a007cbe535217f12abea01198b8384372}\label{classcomponent_1_1Led_a007cbe535217f12abea01198b8384372}} 
+\index{component::Led@{component::Led}!isOff@{isOff}}
+\index{isOff@{isOff}!component::Led@{component::Led}}
+\doxysubsubsection{\texorpdfstring{isOff()}{isOff()}}
+{\footnotesize\ttfamily uint8\+\_\+t component\+::\+Led\+::is\+Off (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Is led Off. 
+
+
+
+Definition at line \mbox{\hyperlink{Led_8cpp_source_l00041}{41}} of file \mbox{\hyperlink{Led_8cpp_source}{Led.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042 \{}
+\DoxyCodeLine{00043     \textcolor{keywordflow}{return} \mbox{\hyperlink{classcomponent_1_1Led_ae8d24164367f6b379984a1b55a4debe4}{m\_pin}}.\mbox{\hyperlink{classio_1_1Pin_a53c77492c03a66457b711624b5a41e7e}{isLow}}();}
+\DoxyCodeLine{00044 }
+\DoxyCodeLine{00045 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcomponent_1_1Led_a7e5541cb3058107641ec9517ea09ad94}\label{classcomponent_1_1Led_a7e5541cb3058107641ec9517ea09ad94}} 
+\index{component::Led@{component::Led}!isOn@{isOn}}
+\index{isOn@{isOn}!component::Led@{component::Led}}
+\doxysubsubsection{\texorpdfstring{isOn()}{isOn()}}
+{\footnotesize\ttfamily uint8\+\_\+t component\+::\+Led\+::is\+On (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Is led On. 
+
+
+
+Definition at line \mbox{\hyperlink{Led_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{Led_8cpp_source}{Led.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035 \{}
+\DoxyCodeLine{00036     \textcolor{keywordflow}{return} \mbox{\hyperlink{classcomponent_1_1Led_ae8d24164367f6b379984a1b55a4debe4}{m\_pin}}.\mbox{\hyperlink{classio_1_1Pin_a2da2a7ac73fe4c77203d38822f0d64fd}{isHigh}}();}
+\DoxyCodeLine{00037 }
+\DoxyCodeLine{00038 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcomponent_1_1Led_ac8247121fcb3ccf6e09ff8aa67f8d5aa}\label{classcomponent_1_1Led_ac8247121fcb3ccf6e09ff8aa67f8d5aa}} 
+\index{component::Led@{component::Led}!off@{off}}
+\index{off@{off}!component::Led@{component::Led}}
+\doxysubsubsection{\texorpdfstring{off()}{off()}}
+{\footnotesize\ttfamily void component\+::\+Led\+::off (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Turn led Off. 
+
+
+
+Definition at line \mbox{\hyperlink{Led_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{Led_8cpp_source}{Led.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022 \{}
+\DoxyCodeLine{00023     \mbox{\hyperlink{classcomponent_1_1Led_ae8d24164367f6b379984a1b55a4debe4}{m\_pin}}.\mbox{\hyperlink{classio_1_1Pin_ad0895fa20099e97f9acbe85f7c92e57c}{setLow}}();}
+\DoxyCodeLine{00024 }
+\DoxyCodeLine{00025 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcomponent_1_1Led_a7b04e5787d404d9ab381a4afb20d8a1d}\label{classcomponent_1_1Led_a7b04e5787d404d9ab381a4afb20d8a1d}} 
+\index{component::Led@{component::Led}!on@{on}}
+\index{on@{on}!component::Led@{component::Led}}
+\doxysubsubsection{\texorpdfstring{on()}{on()}}
+{\footnotesize\ttfamily void component\+::\+Led\+::on (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Turn led On. 
+
+
+
+Definition at line \mbox{\hyperlink{Led_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{Led_8cpp_source}{Led.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016 \{}
+\DoxyCodeLine{00017     \mbox{\hyperlink{classcomponent_1_1Led_ae8d24164367f6b379984a1b55a4debe4}{m\_pin}}.\mbox{\hyperlink{classio_1_1Pin_a3ae65cd376608cc50329951e9da156d0}{setHigh}}();}
+\DoxyCodeLine{00018 }
+\DoxyCodeLine{00019 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcomponent_1_1Led_ae3f04d9c41a277d969dce6952fe54938}\label{classcomponent_1_1Led_ae3f04d9c41a277d969dce6952fe54938}} 
+\index{component::Led@{component::Led}!toggle@{toggle}}
+\index{toggle@{toggle}!component::Led@{component::Led}}
+\doxysubsubsection{\texorpdfstring{toggle()}{toggle()}}
+{\footnotesize\ttfamily void component\+::\+Led\+::toggle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Toggle led state. 
+
+
+
+Definition at line \mbox{\hyperlink{Led_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{Led_8cpp_source}{Led.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029 \{}
+\DoxyCodeLine{00030     \mbox{\hyperlink{classcomponent_1_1Led_ae8d24164367f6b379984a1b55a4debe4}{m\_pin}}.\mbox{\hyperlink{classio_1_1Pin_a4054302debf4a0bc99bdb93881f43765}{toggle}}();}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{00032 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcomponent_1_1Led_ae8d24164367f6b379984a1b55a4debe4}\label{classcomponent_1_1Led_ae8d24164367f6b379984a1b55a4debe4}} 
+\index{component::Led@{component::Led}!m\_pin@{m\_pin}}
+\index{m\_pin@{m\_pin}!component::Led@{component::Led}}
+\doxysubsubsection{\texorpdfstring{m\_pin}{m\_pin}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classio_1_1Pin}{io\+::\+Pin}} component\+::\+Led\+::m\+\_\+pin\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+pin object 
+
+
+
+Definition at line \mbox{\hyperlink{Led_8h_source_l00067}{67}} of file \mbox{\hyperlink{Led_8h_source}{Led.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{Led_8cpp_source_l00003}{Led()}}.
+
