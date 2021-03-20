@@ -1,4 +1,4 @@
-## Blink a Led   
+# Blink a Led   
 
 This example demonstrates the library usage in a simple blink a Led example. 
 It also shows how to use the Pin and Led abstraction objects. 
@@ -6,7 +6,7 @@ It also shows how to use the Pin and Led abstraction objects.
 The pinout of the **ATmega48P/88P/168P/328P AVR microcontrollers** family is illustrated bellow:
 
 <img src="pics/pinout.jpeg" alt="pinout.jpeg" width="570">
-![Caption text](pics/pinout.jpeg)
+
 
 ## Hardware
 
