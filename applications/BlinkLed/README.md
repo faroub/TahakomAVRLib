@@ -9,7 +9,7 @@ The pinout of the **ATmega48P/88P/168P/328P AVR microcontrollers** family is ill
 
 <img src="pinout.jpeg" alt="" width="570" onerror="this.style.display='none'">
 
-![Caption text](pics/pinout.jpeg "Image title")
+![Caption text](pics/pinout.jpeg | width="570")
 
 
 ## Hardware
