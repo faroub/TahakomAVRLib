@@ -106,7 +106,7 @@ These applications demonstrate the usage of **TahakomAVRLib** in simple examples
 
 ## Projects
 
-These are more complex projects implemented using TahakomAVRLib
+These are more complex projects implemented using **TahakomAVRLib**
 
 
 ## Author
