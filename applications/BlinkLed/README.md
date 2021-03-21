@@ -5,7 +5,7 @@ It also shows how to use the Pin and Led abstraction objects.
 
 The pinout of the **ATmega48P/88P/168P/328P AVR microcontrollers** family is illustrated bellow:
 
-![kkkk](pics/blink_led.png){ width="250" }
+![Pinout of ATmega48P/88P/168P/328P AVR microcontrollers family](pics/pinout.png)
 
 ## Hardware
 
@@ -20,7 +20,7 @@ The Led with the current limiting resistor are connected to pin PB0 (digital pin
 
 The circuit connection is as follows:
 
-<img src="../../pics/blink_led.png" alt="blink_led.png" title = "Circuit diagram" width="570">
+![Circuit diagram](pics/blink_led.png)
 
 
 ## Code
