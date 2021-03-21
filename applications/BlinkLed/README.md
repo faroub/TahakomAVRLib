@@ -1,4 +1,4 @@
-\page blinkaledid Blink a Led
+# Blink a Led {#a1}
 
 This example demonstrates the library usage in a simple blink a Led example. 
 It also shows how to use the Pin and Led abstraction objects. 
