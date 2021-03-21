@@ -1,16 +1,3 @@
-/**
- * @file Pin.h
- * @brief Header file of the Pin class
- *
- * Basic class for Pin and Port abstraction
- *
- * - Compiler:           gcc-avr
- * - Supported devices:  The example compiles on the ATmega48P/88P/168P/328P AVR family
- *
- * @author Farid Oubbati (https://github.com/faroub)
- * @date March 2018
-*/
-
 #ifndef PIN_H
 #define PIN_H
 #include "ha_base.h"

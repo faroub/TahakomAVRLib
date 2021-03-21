@@ -9,11 +9,15 @@
 #ifndef HABASE_H
 #define HABASE_H
 
-// helper construct to get interrupt numbers from names
+/*
+ *  Helper construct to get interrupt numbers from names
+ */
 #define STRx(s)  #s
 #define STR(s)   STRx(s)
 
-// any class needs these includes
+/*
+ *  Any class needs these includes from avr-libc
+ */
 #include <stdint.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>

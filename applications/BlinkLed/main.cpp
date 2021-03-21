@@ -1,23 +1,31 @@
 /**
  * @file main.cpp
- * @brief Demo example: Blink a Led
+ *
+ * Demo example: Blink a Led
  *
  * Usage demonstration of the TahakomAVRLib in a simple blink a Led example.
- * This example demonstrates the use of the Led and Pin abstraction objects.
+ * This example demonstrates the use of the component::Led() and io::Pin() abstraction objects.
  *
- * - Compiler:           gcc-avr
+ * - Compiler: avr-gcc (GCC) 5.4.0
  * - Supported devices:  The example compiles on the ATmega48P/88P/168P/328P AVR family
  *
  *
- * @author Farid Oubbati (https://github.com/faroub)
+ * @author Farid Oubbati (farid.oubbati@outlook.com)
  * @date March 2018
 */
 
 #include "Led.h"
 #include <util/delay.h>
 
-#define PIN_NUMBER 0  /**< Led pin number */
-#define TIMEDELAY 500 /**< Time delay */
+/**
+ *  Led pin number
+*/
+#define PIN_NUMBER 0
+
+/**
+ *  Time delay
+*/
+#define TIMEDELAY 500
 
 int main(void) {
 
