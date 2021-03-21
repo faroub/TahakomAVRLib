@@ -5,7 +5,7 @@ It also shows how to use the Pin and Led abstraction objects.
 
 The pinout of the **ATmega48P/88P/168P/328P AVR microcontrollers** family is illustrated bellow:
 
-![kkkk](pics/blink_led.png)
+![kkkk](pics/blink_led.png){ width="250" }
 
 ## Hardware
 
