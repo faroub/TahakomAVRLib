@@ -25,7 +25,8 @@ The circuit connection is as follows:
 
 ## Code
 
-The following code permits to turn a Buzzer to an Organ that plays notes entered by a user via a serial terminal (GTKTerm serial port terminal is used):
+The following code permits to turn a Buzzer into an Organ that plays notes entered by a user via a serial terminal (GTKTerm serial port terminal is used):
+
 
 ```
 #include "Buzzer.h"
