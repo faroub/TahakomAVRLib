@@ -1,3 +1,12 @@
+/**
+ *
+ * @author Farid Oubbati (farid.oubbati@outlook.com)
+ * @date March 2018
+ *
+ *  *
+ * See Buzzer.h for a description of this code
+*/
+
 #include "Buzzer.h"
 
 
@@ -13,16 +22,12 @@ component::Buzzer::~Buzzer()
 
 }
 
-
-
-void component::Buzzer::buzz(const uint16_t &ar_period_us , const uint16_t &ar_duration_ms)
+void component::Buzzer::buzz(const uint16_t &ar_period_us , const uint16_t &ar_duration_us)
 {
-    uint32_t l_duration_us = ar_duration_ms*1000UL;
 
-    for (uint32_t i = 0; i < l_duration_us; i += ar_period_us)
+    for (uint16_t i = 0; i < ar_duration_us; i += ar_period_us)
     {
-        /* For loop with variable delay selects the pitch */
-        // _delay_us() needs a constant defined at compile time
+        // for loop with variable delay selects the pitch
         for (uint16_t j = 0; j < ar_period_us; j++)
         {
             _delay_us(1);
@@ -34,3 +39,9 @@ void component::Buzzer::buzz(const uint16_t &ar_period_us , const uint16_t &ar_d
 }
 
 
+void component::Buzzer::pause(uint16_t a_duration_us)
+{
+    do {
+      _delay_us(1);
+    } while (--a_duration_us);
+}

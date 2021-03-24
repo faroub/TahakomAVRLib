@@ -1,3 +1,12 @@
+/**
+ *
+ * @author Farid Oubbati (farid.oubbati@outlook.com)
+ * @date March 2018
+ *
+ *  *
+ * See Led.h for a description of this code
+*/
+
 #include "Led.h"
 
 component::Led::Led(const io::Pin &ar_pin)

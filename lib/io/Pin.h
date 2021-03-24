@@ -1,60 +1,80 @@
 #ifndef PIN_H
 #define PIN_H
 #include "ha_base.h"
-
+/**
+ *
+ * @brief AVR chip internal i/o components
+ *
+ * The namespace englobes all internal input/output components that, when configured,
+ * allows the AVR MCU to communicate with the external World
+ *
+*/
 namespace io
 {
 
-/** Structure. Contains pointers to the Port's registers
-     *
-     */
+/**
+ *  @brief Contains defintions of pointers to the AVR port's registers
+ *
+*/
 struct Port
 {
-  volatile uint8_t* mp_ddrReg; /**< pointer to the data direction register */
+  volatile uint8_t* mp_ddrReg; /**< Pointer to the data direction register */
 
-  volatile uint8_t* mp_portReg; /**< pointer to the port register */
+  volatile uint8_t* mp_portReg; /**< Pointer to the port register */
 
-  volatile uint8_t* mp_pinReg; /**< pointer to the pin register */
+  volatile uint8_t* mp_pinReg; /**< Pointer to the pin register */
 };
 
 class Pin
 {
 
 public:
-    /** Constructor. Initalizes the pin object
-         *
-         *  @param ar_portName defines the port name of the avr chip
-         *  @param ar_pinNumber defines the pin number of the avr chip
-         */
+    /** Constructor
+     *
+     *  Initalizes the pin object
+     *
+     *  @param ar_portName Defines the Port name in the AVR chip
+     *  @param a_pinNumber Defines the Pin number in the AVR chip
+     */
     Pin(const uint8_t a_pinNumber, const Port &ar_portName);
-    /** Destructor.
+    /** Destructor
         */
     ~Pin();
-    /** Configures pin to output.
+    /** Configures Pin to output
          */
     void toOutput();
-    /** Configures pin to input.
+    /** Configures Pin to input
         *
-        * @param ar_useInternalPullUp indicates if internal pull up resistor is used
+        * @param ar_useInternalPullUp Indicates if internal pull up resistor is used
         */
     void toInput(const uint8_t &ar_useInternalPullUp);
-    /** Set pin to logic low.
+    /** Set Pin to logic low
          */
     void setLow();
-    /** Set pin to logic high.
+    /** Set Pin to logic high
          */
     void setHigh();
-    /** Toggle pin state.
+
+    /** Toggle Pin state
          */
     void toggle();
-    /** Check if pin is logic high.
-         */
+    /**
+     *  Check if Pin is logic high
+     *
+     *  @return  Pin status
+     */
     uint8_t isHigh();
-    /** Check if pin is logic low.
-         */
+    /**
+     *  Check if Pin is logic low
+     *
+     *  @return  Pin status
+     */
     uint8_t isLow();
-    /** Get pin number.
-         */
+    /**
+     *  Get Pin number
+     *
+     *  @return  Pin number
+     */
     uint8_t getPinNumber();
 
 protected:
@@ -62,8 +82,8 @@ protected:
 
 private:
 
-     const Port &mr_portName; /**< constant reference to port object */
-     const uint8_t m_pinNumber; /**< pin number */
+     const Port &mr_portName; /**< Port object */
+     const uint8_t m_pinNumber; /**< Pin number */
 
 
 

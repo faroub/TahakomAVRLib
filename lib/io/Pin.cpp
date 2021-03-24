@@ -1,3 +1,11 @@
+/**
+ *
+ * @author Farid Oubbati (farid.oubbati@outlook.com)
+ * @date March 2018
+ *
+ *  *
+ * See Pin.h for a description of this code
+*/
 #include "Pin.h"
 
 

@@ -1,3 +1,12 @@
+/**
+ *
+ * @author Farid Oubbati (farid.oubbati@outlook.com)
+ * @date March 2018
+ *
+ *
+ * See USART0.h for a description of this code
+*/
+
 #include "USART0.h"
 #include "MCU.h"
 #include <string.h>
@@ -204,7 +213,7 @@ uint8_t io::USART0::parityError()
 
 }
 
-void io::USART0::sendFrames(const uint8_t* ap_dataBuffer, const uint8_t a_size)
+void io::USART0::sendFrame(const uint8_t* ap_dataBuffer, const uint8_t a_size)
 {
     while (!ready2Send()){};
     m_sizeData2Send = a_size;
@@ -288,18 +297,18 @@ void io::USART0::receiveChar(uint8_t &ar_char)
 }
 
 
-void io::USART0::receiveFrames(uint8_t *ap_dataBuffer, const uint8_t a_size)
+void io::USART0::receiveFrame(uint8_t *ap_dataBuffer, const uint8_t a_size)
 {
     m_sizeData2Receive = a_size;
     mp_data2Receive = ap_dataBuffer;
-
+// TODO: to be implemented
 
 
 }
 
 void io::USART0::receiveString(const char *ap_string)
 {
-
+// TODO: to be implemented
 }
 
 
@@ -350,9 +359,9 @@ void io::USART0::dataRegisterEmptyServiceRoutine()
 }
 
 
-void io::USART0::enableTransmitCompleteInterrupt(const uint8_t ar_enable)
+void io::USART0::enableTransmitCompleteInterrupt(const uint8_t a_enable)
 {
-    if (ar_enable) {
+    if (a_enable) {
         USART0_ENABLE_TRANSMIT_COMPLETE_INTERRUPT;
     } else {
         USART0_DISABLE_TRANSMIT_COMPLETE_INTERRUPT;
@@ -360,9 +369,9 @@ void io::USART0::enableTransmitCompleteInterrupt(const uint8_t ar_enable)
 
 }
 
-void io::USART0::enableReceiveCompleteInterrupt(const uint8_t ar_enable)
+void io::USART0::enableReceiveCompleteInterrupt(const uint8_t a_enable)
 {
-    if (ar_enable) {
+    if (a_enable) {
         USART0_ENABLE_RECEIVE_COMPLETE_INTERRUPT;
 
     } else {
@@ -371,9 +380,9 @@ void io::USART0::enableReceiveCompleteInterrupt(const uint8_t ar_enable)
 
 }
 
-void io::USART0::enableDataRegisterEmptyInterrupt(const uint8_t ar_enable)
+void io::USART0::enableDataRegisterEmptyInterrupt(const uint8_t a_enable)
 {
-    if (ar_enable) {
+    if (a_enable) {
         USART0_ENABLE_DATA_REGISTER_EMPTY_INTERRUPT;
 
     } else {

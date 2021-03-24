@@ -28,7 +28,7 @@
 
 
 /*
- * include hardware abstraction the Atmega328p
+ * Include hardware abstraction the Atmega328p
  */
 #if   defined(__AVR_ATmega328P__)
 

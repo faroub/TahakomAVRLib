@@ -1,82 +1,115 @@
-/**
- * @file Buzzer.h
- * @brief Header file of the Buzzer class
- *
- * Usage example (test):
- #include "Buzzer.h"
- #include "TimerCounter0.h"
- #include "buzzer_pitches_8bit.h"
+
+// #include "Buzzer.h"
+// #include "TimerCounter0.h"
+// #include "buzzer_pitches_8bit.h"
 
 
- #define BUZZER 6
+// #define BUZZER 6
 
 
- int main(void) {
+// int main(void) {
 
-    // Init
-    // instantiate the Buzzer object
-    component::Buzzer Buzzer(io::Pin(BUZZER,io::PortD));
-
-
-    // instantiate the TimerCounter0 object
-    core::TimerCounter0 &myTimerCounter0 = core::TimerCounter0::getInstance();
-
-    // notes in the melody:
-    const uint16_t notes[] = {C2, E2, G2, C3};
+//    // Init
+//    // instantiate the Buzzer object
+//    component::Buzzer Buzzer(io::Pin(BUZZER,io::PortD));
 
 
-    for (uint8_t i = 0; i < sizeof (notes)/sizeof (uint16_t); i++)
-    {
+//    // instantiate the TimerCounter0 object
+//    core::TimerCounter0 &myTimerCounter0 = core::TimerCounter0::getInstance();
 
-        Buzzer.buzz(notes[i],200);
-
-    }
-
-    _delay_ms(1000);
-    _delay_ms(1000);
-    _delay_ms(1000);
-
-    for (uint8_t i = 0; i < sizeof (notes)/sizeof (uint16_t); i++)
-    {
-        Buzzer.buzz(myTimerCounter0,notes[i],200);
-    }
+//    // notes in the melody:
+//    const uint16_t notes[] = {C2, E2, G2, C3};
 
 
-    // ------ Event loop ------ //
-    while (1) {
+//    for (uint8_t i = 0; i < sizeof (notes)/sizeof (uint16_t); i++)
+//    {
+
+//        Buzzer.buzz(notes[i],200);
+
+//    }
+
+//    _delay_ms(1000);
+//    _delay_ms(1000);
+//    _delay_ms(1000);
+
+//    for (uint8_t i = 0; i < sizeof (notes)/sizeof (uint16_t); i++)
+//    {
+//        Buzzer.buzz(myTimerCounter0,notes[i],200);
+//    }
 
 
-    }
-    return 0;
- }
- *
- *
- * Basic class for IO abstraction of Pin and Port
- * @author Farid Oubbati (https://github.com/faroub)
- * @date March 2020
-*/
+//    // ------ Event loop ------ //
+//    while (1) {
+
+
+//    }
+//    return 0;
+// }
+
 #ifndef BUZZER_H
 #define BUZZER_H
 #include "ha_base.h"
 #include "Pin.h"
 #include "TimerCounter.h"
 
+/**
+ *
+ * @brief AVR chip external components
+ *
+ * The namespace englobes all external components that, when hooked up,
+ * allows the AVR chip to interact with the external World
+ *
+*/
 namespace component
 {
 
-
-
+/**
+ * @brief Class for handling a Buzzer component
+ *
+ * The class implements Buzzer component operations
+ *
+ * @author Farid Oubbati (farid.oubbati@outlook.com)
+ * @date March 2018
+*/
 class Buzzer
 {
 
 public:
-
+    /**
+     *  Constructor
+     *
+     *  Initalizes the Buzzer object
+     *
+     *  @param ar_pin Defines a Pin object
+     */
     Buzzer(const io::Pin &ar_pin);
-
+    /**
+     *  Destructor
+     */
     ~Buzzer();
 
-    void buzz(const uint16_t &ar_period_us , const uint16_t &ar_duration_ms);
+    /** Generate a Buzzer signal
+    *
+    * @param ar_period_us Defines period of Buzzer signal
+    * @param ar_duration_us Defines duration of Buzzer signal
+    */
+    void buzz(const uint16_t &ar_period_us , const uint16_t &ar_duration_us);
 
+    /** Generate a time break
+    *
+    * @param a_duration_us Defines duration of time break
+    */
+    void pause(uint16_t a_duration_us);
+
+    /**
+     * Generate a Buzzer signal
+     *
+     * \tparam TC Type Defines a TimerCounter object
+     * @param ar_period_us Defines period of Buzzer signal
+     * @param ar_duration_ms Defines duration of Buzzer signal
+     * @param ar_channel Defines TimerCounter channel
+     * @param ar_clockSource Defines TimerCounter clock source
+     */
     template<typename TC>
     void buzz(TC &ar_timerCounter,
               const uint16_t &ar_period_us,
@@ -106,7 +139,7 @@ protected:
 
 private:
 
-    io::Pin m_pin; /**< pin object */
+    io::Pin m_pin; /**< Pin object */
 
 
 };

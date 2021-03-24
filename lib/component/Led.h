@@ -2,31 +2,25 @@
 #define LED_H
 #include "Pin.h"
 
-/**
- * @file Led.h
- * @brief Header file of the Led class
+/**  
  *
- * class to control a Led.
+ * @brief AVR chip external components
  *
- * Usage example (simple on/off example):
+ * The namespace englobes all external components that, when hooked up,
+ * allows the AVR MCU to interact with the external World
  *
- * @author Farid Oubbati (https://github.com/faroub)
- * @date March 2020
 */
 
 namespace component
 {
 
 /**
- * @file Led.h
- * @brief Header file of the Led class
+ * @brief Class for handling a Led component
  *
- * class to control a Led.
+ * The class implements Led component operations
  *
- * Usage example (simple on/off example):
- *
- * @author Farid Oubbati (https://github.com/faroub)
- * @date March 2020
+ * @author Farid Oubbati (farid.oubbati@outlook.com)
+ * @date March 2018
 */
 
 class Led
@@ -34,37 +28,44 @@ class Led
 
 public:
     /**
-     *  Constructor.
-     *  Initalizes the led object
+     *  Constructor
      *
-     *  @param ar_pin constant reference to pin object
+     *  Initalizes the Led object
+     *
+     *  @param ar_pin Defines a Pin object
      */
     Led(const io::Pin &ar_pin);
     /**
-     *  Destructor.
+     *  Destructor
      */
     ~Led();
-    /** Turn led On.
+    /** Turn Led On
          */
     void on();
-    /** Turn led Off.
+    /** Turn Led Off
          */
     void off();
-    /** Toggle led state.
+    /** Toggle Led state
          */
     void toggle();
-    /** Is led On.
-         */
+    /**
+     * Is Led On
+     *
+     * @return  Led status
+     */
     uint8_t isOn();
-    /** Is led Off.
-         */
+    /**
+     *  Is Led Off
+     *
+     *  @return  Led status
+     */
     uint8_t isOff();
 
 protected:
 
 private:
 
-    io::Pin m_pin; /**< pin object */
+    io::Pin m_pin; /**< Pin object */
 
 
 
