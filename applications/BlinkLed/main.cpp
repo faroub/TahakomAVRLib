@@ -17,15 +17,9 @@
 #include "Led.h"
 #include <util/delay.h>
 
-/**
- *  Led pin number
-*/
-#define PIN_NUMBER 0
+#define PIN_NUMBER 0 /**< Led pin number */
 
-/**
- *  Time delay
-*/
-#define TIMEDELAY 500
+#define TIMEDELAY 500 /**< Time delay */
 
 int main(void) {
 
