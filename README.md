@@ -102,6 +102,7 @@ To compile and flash a program code to the AVR chip via USB port, you need to:
 These applications demonstrate the usage of **TahakomAVRLib** in simple examples:
 
 * [Blink a Led](applications/BlinkLed)
+* [AVR Square-Wave Organ](applications/Organ)
 
 
 ## Projects
