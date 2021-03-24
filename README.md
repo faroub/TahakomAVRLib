@@ -103,6 +103,7 @@ These applications demonstrate the usage of **TahakomAVRLib** in simple examples
 
 * [Blink a Led](applications/BlinkLed)
 * [AVR Square-Wave Organ](applications/Organ)
+* [AVR Music Box](applications/MusicBox)
 
 
 ## Projects
