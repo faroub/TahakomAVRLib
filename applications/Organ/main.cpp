@@ -75,12 +75,12 @@ int main(void) {
       /********** Play key notes ***********/
 
       l_isNote = 0;
-      // loop through keys table
+      // Loop through keys table
       for (uint8_t i = 0; i < sizeof(l_keys); i++) {
-          // found match in lookup table
+          // Found match in lookup table
           if (l_key == l_keys[i]) {
               Buzzer.buzz(l_notes[i], l_currentNoteLength);
-              // record that we've found a note
+              // Record that we've found a note
               l_isNote = 1;
               break;
           }
@@ -89,15 +89,15 @@ int main(void) {
       // Handle non-note keys: tempo changes and rests
       if (!l_isNote) {
           if (l_key == '-') {
-              // code for short note
+              // Code for short note
               l_currentNoteLength = l_currentNoteLength / 2;
           }
           else if (l_key == '+') {
-              // code for long note
+              // Code for long note
               l_currentNoteLength = l_currentNoteLength * 2;
           }
           else {
-              // unrecognized, just rest
+              // Unrecognized, just rest
               Buzzer.pause(l_currentNoteLength);
           }
       }
