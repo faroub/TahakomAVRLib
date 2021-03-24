@@ -1,128 +1,70 @@
-/**
- * @file PushButton.h
- * @brief Header file of the Push Button class
- *
- * class to monitor a Push Button
- *
- * Usage example (current state):
- *
-   #include "PushButton.h"
-   #include "Led.h"
-
-   #define PUSHBUTTON_NUMBER 1
-   #define LED_NUMBER 0
-
-   int main(void) {
-
-   // Init
-
-
-   // instantiate a Led object
-   component::Led Led(io::Pin(LED_NUMBER,io::PortB));
-
-   // instantiate a Led object
-   component::PushButton PushButton(io::Pin(PUSHBUTTON_NUMBER,io::PortB));
-
-   // Mainloop
-   while (1) {
-
-      if (PushButton.isPressed())
-      {
-          Led.on();
-      } else {
-          Led.off();
-      }
-
-
-   }
-   return 0;
-   }
- *
- * Usage example (changing state):
- *
-   #include "PushButton.h"
-   #include "Led.h"
-
-   #define PUSHBUTTON_NUMBER 1
-   #define LED_NUMBER 0
-
-   int main(void) {
-
-   // Init
-
-   uint8_t l_statePushButton = 0;
-
-   // instantiate a Led object
-   component::Led Led(io::Pin(LED_NUMBER,io::PortB));
-
-   // instantiate a Led object
-   component::PushButton PushButton(io::Pin(PUSHBUTTON_NUMBER,io::PortB));
-
-
-
-
-
-   // Mainloop
-   while (1) {
-
-      if (PushButton.isPressed())
-      {
-          if (l_statePushButton == 0) {
-
-              Led.toggle();
-              l_statePushButton = 1;
-          }
-      } else {
-          l_statePushButton = 0;
-      }
-
-   }
-   return 0;
-   }
- * @author Farid Oubbati (https://github.com/faroub)
- * @date March 2020
-*/
 #ifndef PUSHBUTTON_H
 #define PUSHBUTTON_H
 #include "Pin.h"
-#include <math.h>
 
-// TODO: check the use PUSHBUTTON_SAMPLING in ha_m328p.h
-
+/**
+ *
+ * @brief AVR chip external components
+ *
+ * The namespace englobes all external components that, when hooked up,
+ * allows the AVR MCU to interact with the external World
+ *
+*/
 
 namespace component
 {
+
+/**
+ * @brief Class for handling a PushButton component
+ *
+ * The class implements PushButton component operations
+ *
+ * @author Farid Oubbati (farid.oubbati@outlook.com)
+ * @date March 2018
+*/
+
 class PushButton
 {    
 public:
-    /** Constructor. Initializes pushbutton object
-         *
-         *  @param ar_pin pin object
-         *  @param ar_useInternalPullUp indicates if internal pull up resistor used
-
-         */
+    /** Constructor.
+     *
+     *  Initializes The PushButton object
+     *
+     *  @param ar_pin Defines a Pin object
+     *  @param ar_useInternalPullUp Defines if internal pull up resistor is used
+     *  @param ar_isActiveLow Defines if input is active low or active high
+     */
     PushButton(const io::Pin &ar_pin, const uint8_t &ar_useInternalPullUp=1, const uint8_t &ar_isActiveLow=1);
-    /** Destructor.
-        */
+    /**
+     *  Destructor
+    */
     ~PushButton();
-    /** Is pushbutton pressed.
-         */
+    /**
+     *  Is pushbutton pressed
+     *
+     *  @return  PushButton status
+     */
     uint8_t isPressed();
-    /** Get pushbutton pressed count.
-         */
+    /**
+     *  Get pushbutton pressed count
+     *
+     *  @return  PushButton press count
+     */
     uint8_t getPressedCount() const;
-    /** Reset pushbutton pressed count.
-         */
+    /**
+     *  Reset pushbutton pressed count
+     *
+     */
     void resetPressedCount();
 
 
 protected:
 
 private:
-    io::Pin m_pin; /**< pin object */
-    const uint8_t &mr_isActiveLow; /**< indicates led active state */
-    const uint8_t &mr_useInternalPullUp; /**< indicates if internal pullup resistor used  */
-    uint8_t m_buttonPressed;    /**< pushbutton pressed count */
+    io::Pin m_pin; /**< Pin object */
+    const uint8_t &mr_isActiveLow; /**< Input active state */
+    const uint8_t &mr_useInternalPullUp; /**< Internal pullup resistor use  */
+    uint8_t m_buttonPressed;    /**< PushButton pressed count */
 
 
 

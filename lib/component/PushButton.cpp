@@ -1,3 +1,12 @@
+/**
+ *
+ * @author Farid Oubbati (farid.oubbati@outlook.com)
+ * @date March 2018
+ *
+ *  *
+ * See PushButton.h for a description of this code
+*/
+
 #include "PushButton.h"
 
 component::PushButton::PushButton(const io::Pin& ar_pin, const uint8_t &ar_useInternalPullUp, const uint8_t &ar_isActiveLow)
@@ -38,7 +47,7 @@ uint8_t component::PushButton::isPressed()
         }
 
     }
-    m_buttonPressed = 0;
+
     return 0;
 
 }
