@@ -10,10 +10,10 @@ Currently, the classes compile on the **ATmega48P/88P/168P/328P AVR microcontrol
 
 The library is composed of several classes that abstract the internal elements of a microcontroller and some external components that when hooked up to the chip can perform some actions. 
 
-These classes implement the different functionalities and are classified into: 
+These classes implement all functionalities and are organized into the namespaces: 
 
 * core
-* input/output
+* io (input/output)
 * or components
 
 Several [Applications](#applications) and [Projects](#projects) are implemented in order to demonstrate the library usage. 
