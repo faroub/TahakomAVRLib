@@ -24,7 +24,14 @@ struct Port
 
   volatile uint8_t* mp_pinReg; /**< Pointer to the pin register */
 };
-
+/**
+ * @brief Class for handling a Pin
+ *
+ * The class implements Pin operations
+ *
+ * @author Farid Oubbati (farid.oubbati@outlook.com)
+ * @date March 2018
+*/
 class Pin
 {
 
@@ -82,8 +89,9 @@ protected:
 
 private:
 
-     const Port &mr_portName; /**< Port object */
+     const Port &mr_portName; /**< Port object reference */
      const uint8_t m_pinNumber; /**< Pin number */
+
 
 
 

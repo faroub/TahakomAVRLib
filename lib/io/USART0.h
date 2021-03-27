@@ -87,9 +87,9 @@ enum class stopBit : uint8_t{
 };
 
 /**
- * @brief Class for handling USART0 component
+ * @brief Class for handling USART0
  *
- * The class implements USART0 component operations
+ * The class implements USART0 operations
  *
  * @author Farid Oubbati (farid.oubbati@outlook.com)
  * @date March 2018
@@ -299,11 +299,11 @@ private:
      *
      *  Initalizes the USART0 object
      *
-     *  @param ar_transMode defines transmission mode
-     *  @param ar_comMode defines communication mode
-     *  @param ar_frameSize defines data frame size
-     *  @param ar_stopBit defines number of stop bits
-     *  @param ar_parityMode defines parity mode
+     *  @param ar_transMode Defines transmission mode
+     *  @param ar_comMode Defines communication mode
+     *  @param ar_frameSize Defines data frame size
+     *  @param ar_stopBit Defines number of stop bits
+     *  @param ar_parityMode Defines parity mode
      */
     USART0(const transmissionMode& ar_transMode,
            const communicationMode& ar_comMode,

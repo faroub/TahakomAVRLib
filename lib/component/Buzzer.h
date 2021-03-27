@@ -66,7 +66,7 @@ namespace component
 /**
  * @brief Class for handling a Buzzer component
  *
- * The class implements Buzzer component operations
+ * The class implements Buzzer operations
  *
  * @author Farid Oubbati (farid.oubbati@outlook.com)
  * @date March 2018

@@ -17,7 +17,7 @@ namespace component
 /**
  * @brief Class for handling a Led component
  *
- * The class implements Led component operations
+ * The class implements Led operations
  *
  * @author Farid Oubbati (farid.oubbati@outlook.com)
  * @date March 2018
@@ -34,7 +34,7 @@ public:
      *
      *  @param ar_pin Defines a Pin object
      */
-    Led(const io::Pin &ar_pin);
+    Led(const io::Pin &ar_pin);    
     /**
      *  Destructor
      */

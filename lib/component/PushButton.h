@@ -17,7 +17,7 @@ namespace component
 /**
  * @brief Class for handling a PushButton component
  *
- * The class implements PushButton component operations
+ * The class implements PushButton operations
  *
  * @author Farid Oubbati (farid.oubbati@outlook.com)
  * @date March 2018

@@ -9,12 +9,11 @@
 #include "Pin.h"
 
 
-io::Pin::Pin(const uint8_t a_pinNumber, const Port &mr_portName)
-         : mr_portName(mr_portName), m_pinNumber(a_pinNumber)
+io::Pin::Pin(const uint8_t a_pinNumber, const Port &ar_portName)
+         : mr_portName(ar_portName), m_pinNumber(a_pinNumber)
 {
 
 }
-
 
 io::Pin::~Pin()
 

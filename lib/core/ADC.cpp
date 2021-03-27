@@ -1,8 +1,7 @@
 #include "ADC.h"
 #include "MCU.h"
 
-volatile uint16_t* core::ADConverter::mp_conversionResult = nullptr;
-volatile uint8_t core::ADConverter::m_conversionComplete = 0;
+volatile uint16_t core::ADConverter::m_conversionResult = 0;
 uint8_t core::ADConverter::m_resolution = 10;
 
 
@@ -112,25 +111,23 @@ void core::ADConverter::conversionCompleteServiceRoutine()
     static uint32_t l_resultData = 0;
     static uint16_t l_resultDataIndex = 0;
 
-    m_conversionComplete = 0;
+
+
     switch (m_resolution)
     {
         case 8:
         {
-            *mp_conversionResult = ADC >> 8;
-            m_conversionComplete = 1;
+            m_conversionResult = ADC >> 8;
             break;
         }
         case 9:
         {
-            *mp_conversionResult = ADC >> 7;
-            m_conversionComplete = 1;
-            break;
+            m_conversionResult = ADC >> 7;
+             break;
         }
         case 10:
         {
-            *mp_conversionResult = ADC;
-            m_conversionComplete = 1;
+            m_conversionResult = ADC;
             break;
         }
         case 11:
@@ -144,11 +141,9 @@ void core::ADConverter::conversionCompleteServiceRoutine()
             }
             else
             {
-                *mp_conversionResult = l_resultData >> 1;
+                m_conversionResult = l_resultData >> 1;
                 l_resultData = 0;
                 l_resultDataIndex = 0;
-                m_conversionComplete = 1;
-
             }
 
             break;
@@ -163,11 +158,9 @@ void core::ADConverter::conversionCompleteServiceRoutine()
             }
             else
             {
-                *mp_conversionResult = l_resultData >> 2;
+                m_conversionResult = l_resultData >> 2;
                 l_resultData = 0;
                 l_resultDataIndex = 0;
-                m_conversionComplete = 1;
-
             }
             break;
         }
@@ -181,11 +174,9 @@ void core::ADConverter::conversionCompleteServiceRoutine()
             }
             else
             {
-                *mp_conversionResult = l_resultData >> 3;
+                m_conversionResult = l_resultData >> 3;
                 l_resultData = 0;
                 l_resultDataIndex = 0;
-                m_conversionComplete = 1;
-
             }
             break;
         }
@@ -199,11 +190,9 @@ void core::ADConverter::conversionCompleteServiceRoutine()
             }
             else
             {
-                *mp_conversionResult = l_resultData >> 4;
+                m_conversionResult = l_resultData >> 4;
                 l_resultData = 0;
                 l_resultDataIndex = 0;
-                m_conversionComplete = 1;
-
             }
             break;
         }
@@ -217,11 +206,9 @@ void core::ADConverter::conversionCompleteServiceRoutine()
             }
             else
             {
-                *mp_conversionResult = l_resultData >> 5;
+                m_conversionResult = l_resultData >> 5;
                 l_resultData = 0;
                 l_resultDataIndex = 0;
-                m_conversionComplete = 1;
-
             }
             break;
         }
@@ -236,11 +223,9 @@ void core::ADConverter::conversionCompleteServiceRoutine()
             }
             else
             {
-                *mp_conversionResult = l_resultData >> 6;
+                m_conversionResult = l_resultData >> 6;
                 l_resultData = 0;
                 l_resultDataIndex = 0;
-                m_conversionComplete = 1;
-
             }
             break;
         }
@@ -252,16 +237,12 @@ void core::ADConverter::conversionCompleteServiceRoutine()
 
 }
 
-uint8_t core::ADConverter::conversionComplete()
+
+
+
+uint16_t core::ADConverter::getConversionResult( const resolution& ar_resolution)
 {
-    return m_conversionComplete;
 
-}
-
-
-void core::ADConverter::getConversionResult(uint16_t *ap_resultData, const resolution& ar_resolution)
-{
-    mp_conversionResult = ap_resultData;
 
     switch (ar_resolution)
     {
@@ -315,6 +296,8 @@ void core::ADConverter::getConversionResult(uint16_t *ap_resultData, const resol
             break;
         }
     }
+
+    return m_conversionResult;
 
 
 }

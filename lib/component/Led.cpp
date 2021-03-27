@@ -15,6 +15,7 @@ component::Led::Led(const io::Pin &ar_pin)
     m_pin.toOutput();
 }
 
+
 component::Led::~Led()
 {
 
