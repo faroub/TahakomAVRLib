@@ -14,9 +14,9 @@ The pinout of the **ATmega48P/88P/168P/328P AVR microcontrollers** family is ill
 * 100 ohm current limiting resistor
 * A breadboard
 
-The Buzzer with the current limiting resistor are connected to pin PB0 (digital pin 8 in Arduino UNO).
-
 ## Circuit
+
+The Buzzer with the current limiting resistor are connected to pin PB0 (digital pin 8 in Arduino UNO).
 
 The circuit connection is as follows:
 

@@ -15,9 +15,8 @@
 */
 
 #include "Led.h"
-#include <util/delay.h>
 
-#define PIN_NUMBER 0 /**< Led pin number */
+#define LED 0 /**< Led pin number */
 
 #define TIMEDELAY 500 /**< Time delay */
 
@@ -26,7 +25,7 @@ int main(void) {
   // Init
 
   // Instantiate a Led object
-  component::Led Led(io::Pin(PIN_NUMBER,io::PortB));
+  component::Led Led(io::Pin(LED,io::PortB));
 
   // Mainloop
   while (1) {
