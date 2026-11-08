@@ -135,10 +135,12 @@
         ADMUX &= 0xF0; \
         ADMUX |= (pinNumber); \
     } while (0)
+// Disable the digital input buffer of a single ADC pin.  Only sets the
+// pin's ADCnD bit; it does not clear the other bits, so switching analog
+// inputs leaves previously disabled digital inputs disabled.
 #define   ADC_DISABLE_DIGITAL_INPUT_REGISTER(pinNumber) \
     do { \
-        DIDR0 &= 0xC0; \
-        DIDR0 |= (pinNumber); \
+        DIDR0 |= (1 << (pinNumber)); \
     } while (0)
 
 
@@ -146,6 +148,10 @@
 #define   ADC_DISABLE           ADCSRA &= ~(1 << ADEN)
 
 #define   ADC_START_CONVERSION            ADCSRA |=  1 << ADSC
+// NOTE: clearing ADSC does not abort an ongoing conversion, it only stops
+// the auto-trigger sequence from starting new conversions (see the ADC
+// conversion timing in the datasheet).  To stop the ADC itself, clear ADEN
+// with ADC_DISABLE.
 #define   ADC_STOP_CONVERSION           ADCSRA &= ~(1 << ADSC)
 
 #define   ADC_ENABLE_AUTOTRIGGER          ADCSRA |=   1 << ADATE

@@ -53,6 +53,7 @@ void core::ADConverter::selectAnalogInput(io::Pin a_pin)
 {
     a_pin.toInput(0);
     ADC_SELECT_ANALOG_INPUT(a_pin.getPinNumber());
+    // disables the digital input buffer of the selected pin only
     ADC_DISABLE_DIGITAL_INPUT_REGISTER(a_pin.getPinNumber());
 
 }
@@ -64,8 +65,9 @@ void core::ADConverter::start()
 }
 
 void core::ADConverter::stop()
-{    
-    ADC_STOP_CONVERSION;
+{
+    // Clearing ADSC does not abort an ongoing conversion, it only stops the
+    // auto-trigger sequence, so stopping relies on clearing ADEN instead.
     ADC_DISABLE;
 }
 
@@ -267,31 +269,42 @@ uint16_t core::ADConverter::getConversionResult( const resolution& ar_resolution
         case core::resolution::res_11bit:
         {
 
+            ADC_ADJUST_RESULT_RIGHT;
             m_resolution = 11;
             break;
         }
         case core::resolution::res_12bit:
         {
+
+            ADC_ADJUST_RESULT_RIGHT;
             m_resolution = 12;
             break;
         }
         case core::resolution::res_13bit:
         {
+
+            ADC_ADJUST_RESULT_RIGHT;
             m_resolution = 13;
             break;
         }
         case core::resolution::res_14bit:
         {
+
+            ADC_ADJUST_RESULT_RIGHT;
             m_resolution = 14;
             break;
         }
         case core::resolution::res_15bit:
         {
+
+            ADC_ADJUST_RESULT_RIGHT;
             m_resolution = 15;
             break;
         }
         case core::resolution::res_16bit:
         {
+
+            ADC_ADJUST_RESULT_RIGHT;
             m_resolution = 16;
             break;
         }

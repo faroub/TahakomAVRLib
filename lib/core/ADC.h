@@ -44,8 +44,18 @@ enum class resolution : uint8_t {
 enum class referenceVoltage : uint8_t {
     AREF=0,    /**< external AREF pin voltage reference, internal 1.1V voltage reference turned off */
     AVCC,       /**< AVCC voltage reference with external capacitor at AREF pin */
-    internal   /**< internal 1.1V voltage reference with external capacitor at AREF pin */
+    internal=3   /**< internal 1.1V voltage reference with external capacitor at AREF pin */
 };
+
+// The referenceVoltage values encode the ADMUX REFS field (bits 7:6) as a
+// 2-bit number: 0b00 selects AREF, 0b01 selects AVCC (REFS0) and 0b11
+// selects the internal 1.1V reference (REFS1 | REFS0).
+static_assert(static_cast<uint8_t>(referenceVoltage::AREF) == 0,
+              "AREF must encode REFS = 0b00");
+static_assert(static_cast<uint8_t>(referenceVoltage::AVCC) == 1,
+              "AVCC must encode REFS = 0b01");
+static_assert(static_cast<uint8_t>(referenceVoltage::internal) == 3,
+              "internal must encode REFS = 0b11");
 
 
 /**

@@ -17,7 +17,7 @@ LIB_DIR  := ../../lib
 
 OBJ_DIR  := obj
 
-TESTS := $(OBJ_DIR)/test_WatchdogTimer $(OBJ_DIR)/test_ExternInterrupt
+TESTS := $(OBJ_DIR)/test_WatchdogTimer $(OBJ_DIR)/test_ExternInterrupt $(OBJ_DIR)/test_ADC
 
 .PHONY: all test clean
 all: $(TESTS)
@@ -27,11 +27,15 @@ test: all
 
 test_WatchdogTimer_OBJS := $(OBJ_DIR)/WatchdogTimer.o
 test_ExternInterrupt_OBJS := $(OBJ_DIR)/ExternInterrupt.o
+test_ADC_OBJS := $(OBJ_DIR)/ADC.o $(OBJ_DIR)/MCU.o $(OBJ_DIR)/Pin.o
 
 $(OBJ_DIR)/test_WatchdogTimer: $(OBJ_DIR)/test_WatchdogTimer.o $(test_WatchdogTimer_OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 $(OBJ_DIR)/test_ExternInterrupt: $(OBJ_DIR)/test_ExternInterrupt.o $(test_ExternInterrupt_OBJS)
+	$(CXX) $(CXXFLAGS) -o $@ $^
+
+$(OBJ_DIR)/test_ADC: $(OBJ_DIR)/test_ADC.o $(test_ADC_OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 # generic rules
@@ -43,6 +47,15 @@ $(OBJ_DIR)/WatchdogTimer.o: $(LIB_DIR)/core/WatchdogTimer.cpp | $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) $(STUBS) $(LIB_INC) -c $< -o $@
 
 $(OBJ_DIR)/ExternInterrupt.o: $(LIB_DIR)/core/ExternInterrupt.cpp | $(OBJ_DIR)
+	$(CXX) $(CXXFLAGS) $(STUBS) $(LIB_INC) -c $< -o $@
+
+$(OBJ_DIR)/ADC.o: $(LIB_DIR)/core/ADC.cpp | $(OBJ_DIR)
+	$(CXX) $(CXXFLAGS) $(STUBS) $(LIB_INC) -c $< -o $@
+
+$(OBJ_DIR)/MCU.o: $(LIB_DIR)/core/MCU.cpp | $(OBJ_DIR)
+	$(CXX) $(CXXFLAGS) $(STUBS) $(LIB_INC) -c $< -o $@
+
+$(OBJ_DIR)/Pin.o: $(LIB_DIR)/io/Pin.cpp | $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) $(STUBS) $(LIB_INC) -c $< -o $@
 
 $(OBJ_DIR):
