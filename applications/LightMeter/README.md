@@ -4,9 +4,9 @@ This example presents an AVR based Light Meter that displays its Lux measurement
 It also demonstrates the use of the LED, LDR and ADC abstraction objects.
  
  
-The pinout of the **ATmega48P/88P/168P/328P AVR microcontrollers** family is illustrated bellow:
+The pinout of the **ATmega328P** AVR microcontroller is illustrated bellow:
 
-![Pinout of ATmega48P/88P/168P/328P AVR microcontrollers family](pics/pinout.png)
+![Pinout of ATmega328P AVR microcontroller](pics/pinout.png)
 
 ## Hardware
 

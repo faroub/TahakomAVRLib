@@ -30,10 +30,14 @@
 /*
  * Include hardware abstraction the Atmega328p
  */
-#if   defined(__AVR_ATmega328P__)
+#if defined(__AVR_ATmega328P__)
 
     #include "ha_m328p.h"
     #include "utils_m328p.h"
+
+#else
+
+    #error "TahakomAVRLib: unsupported MCU"
 
 #endif
 

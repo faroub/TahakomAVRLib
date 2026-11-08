@@ -3,7 +3,7 @@
 **TahakomAVRLib** is a C++ library to program Atmel AVR microcontrollers. 
 The library make use of the AVR standard C library and is written for easy usage.
 
-Currently, the classes compile on the **ATmega48P/88P/168P/328P AVR microcontrollers** family. 
+Currently, the library compiles on the **ATmega328P** AVR microcontroller only (the hardware abstraction in lib/utils checks the chip at compile time and fails with "TahakomAVRLib: unsupported MCU" for anything else). 
 
 
 ## Library structure 

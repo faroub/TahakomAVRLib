@@ -8,7 +8,7 @@
  * This example demonstrates the use of the component::Buzzer() and io::USART0() abstraction objects.
  *
  * - Compiler: avr-gcc (GCC) 5.4.0
- * - Supported devices:  The example compiles on the ATmega48P/88P/168P/328P AVR family
+ * - Supported devices: ATmega328P only
  *
  *
  * @author Farid Oubbati (farid.oubbati@outlook.com)

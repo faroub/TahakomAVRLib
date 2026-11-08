@@ -4,9 +4,9 @@ This example allows the user to play a predefined song in a Buzzer and control i
 It also demonstrates the use of the Buzzer and PushButton abstraction objects.
  
  
-The pinout of the **ATmega48P/88P/168P/328P AVR microcontrollers** family is illustrated bellow:
+The pinout of the **ATmega328P** AVR microcontroller is illustrated bellow:
 
-![Pinout of ATmega48P/88P/168P/328P AVR microcontrollers family](pics/pinout.png)
+![Pinout of ATmega328P AVR microcontroller](pics/pinout.png)
 
 ## Hardware
 

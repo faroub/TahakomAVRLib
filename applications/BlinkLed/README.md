@@ -3,9 +3,9 @@
 This example demonstrates the library usage in a simple blink a Led example. 
 It also shows how to use the Pin and Led abstraction objects. 
 
-The pinout of the **ATmega48P/88P/168P/328P AVR microcontrollers** family is illustrated bellow:
+The pinout of the **ATmega328P** AVR microcontroller is illustrated bellow:
 
-![Pinout of ATmega48P/88P/168P/328P AVR microcontrollers family](pics/pinout.png)
+![Pinout of ATmega328P AVR microcontroller](pics/pinout.png)
 
 ## Hardware
 
