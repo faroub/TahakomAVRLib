@@ -180,7 +180,7 @@
 #define EXT_INT_SET_INT1_SENSE_CONTROL(senseControl) \
     do { \
         EICRA &= 0xF3; \
-        EICRA |= (senseControl); \
+        EICRA |= (senseControl) << 2; \
     } while (0)
 
 #define EXT_INT_ENABLE_INT0   EIMSK |= 1 << INT0

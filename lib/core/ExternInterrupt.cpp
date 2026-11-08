@@ -70,7 +70,7 @@ void core::ExternInterrupt::enablePinChangeMaskPortB(const uint8_t a_pinNumber, 
         EXT_INT_ENABLE_PIN_CHANGE_MASK_PORTB(a_pinNumber);
 
     } else {
-        EXT_INT_ENABLE_PIN_CHANGE_MASK_PORTB(a_pinNumber);
+        EXT_INT_DISABLE_PIN_CHANGE_MASK_PORTB(a_pinNumber);
     }
 
 }
@@ -82,7 +82,7 @@ void core::ExternInterrupt::enablePinChangeMaskPortC(const uint8_t a_pinNumber, 
         EXT_INT_ENABLE_PIN_CHANGE_MASK_PORTC(a_pinNumber);
 
     } else {
-        EXT_INT_ENABLE_PIN_CHANGE_MASK_PORTC(a_pinNumber);
+        EXT_INT_DISABLE_PIN_CHANGE_MASK_PORTC(a_pinNumber);
     }
 
 }
@@ -93,6 +93,6 @@ void core::ExternInterrupt::enablePinChangeMaskPortD(const uint8_t a_pinNumber, 
         EXT_INT_ENABLE_PIN_CHANGE_MASK_PORTD(a_pinNumber);
 
     } else {
-        EXT_INT_ENABLE_PIN_CHANGE_MASK_PORTD(a_pinNumber);
+        EXT_INT_DISABLE_PIN_CHANGE_MASK_PORTD(a_pinNumber);
     }
 }

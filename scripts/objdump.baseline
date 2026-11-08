@@ -2276,12 +2276,14 @@ Disassembly of section .text._ZN4core15ExternInterrupt19setInt1SenseControlERKNS
    4:	80 81       	ld	r24, Z
    6:	83 7f       	andi	r24, 0xF3	; 243
    8:	80 83       	st	Z, r24
-   a:	80 81       	ld	r24, Z
+   a:	90 81       	ld	r25, Z
    c:	db 01       	movw	r26, r22
-   e:	9c 91       	ld	r25, X
-  10:	89 2b       	or	r24, r25
-  12:	80 83       	st	Z, r24
-  14:	08 95       	ret
+   e:	8c 91       	ld	r24, X
+  10:	88 0f       	add	r24, r24
+  12:	88 0f       	add	r24, r24
+  14:	89 2b       	or	r24, r25
+  16:	80 83       	st	Z, r24
+  18:	08 95       	ret
 
 Disassembly of section .text._ZN4core15ExternInterrupt10enableInt0Eh:
 
@@ -2334,7 +2336,7 @@ Disassembly of section .text._ZN4core15ExternInterrupt15enablePinChangeERKNS_13p
 00000020 <.L15>:
   20:	80 95       	com	r24
   22:	89 23       	and	r24, r25
-  24:	00 c0       	rjmp	.+0      	; 0x26 <.L15+0x6>
+  24:	00 c0       	rjmp	.+0      	; 0x26 <.L19+0x4>
 
 Disassembly of section .text._ZN4core15ExternInterrupt24enablePinChangeMaskPortBEhh:
 
@@ -2351,12 +2353,19 @@ Disassembly of section .text._ZN4core15ExternInterrupt24enablePinChangeMaskPortB
 0000000c <.L2^B2>:
    c:	6a 95       	dec	r22
    e:	02 f4       	brpl	.+0      	; 0x10 <.L2^B2+0x4>
-  10:	80 91 6b 00 	lds	r24, 0x006B	; 0x80006b <__SREG__+0x80002c>
-  14:	82 2b       	or	r24, r18
-  16:	80 93 6b 00 	sts	0x006B, r24	; 0x80006b <__SREG__+0x80002c>
-  1a:	41 11       	cpse	r20, r1
-  1c:	08 95       	ret
-  1e:	08 95       	ret
+  10:	b9 01       	movw	r22, r18
+  12:	80 91 6b 00 	lds	r24, 0x006B	; 0x80006b <__SREG__+0x80002c>
+  16:	41 15       	cp	r20, r1
+  18:	01 f0       	breq	.+0      	; 0x1a <.L2^B2+0xe>
+  1a:	82 2b       	or	r24, r18
+  1c:	80 93 6b 00 	sts	0x006B, r24	; 0x80006b <__SREG__+0x80002c>
+  20:	08 95       	ret
+
+00000022 <.L19>:
+  22:	60 95       	com	r22
+  24:	68 23       	and	r22, r24
+  26:	60 93 6b 00 	sts	0x006B, r22	; 0x80006b <__SREG__+0x80002c>
+  2a:	08 95       	ret
 
 Disassembly of section .text._ZN4core15ExternInterrupt24enablePinChangeMaskPortCEhh:
 
@@ -2373,12 +2382,19 @@ Disassembly of section .text._ZN4core15ExternInterrupt24enablePinChangeMaskPortC
 0000000c <.L2^B3>:
    c:	6a 95       	dec	r22
    e:	02 f4       	brpl	.+0      	; 0x10 <.L2^B3+0x4>
-  10:	80 91 6c 00 	lds	r24, 0x006C	; 0x80006c <__SREG__+0x80002d>
-  14:	82 2b       	or	r24, r18
-  16:	80 93 6c 00 	sts	0x006C, r24	; 0x80006c <__SREG__+0x80002d>
-  1a:	41 11       	cpse	r20, r1
-  1c:	08 95       	ret
-  1e:	08 95       	ret
+  10:	b9 01       	movw	r22, r18
+  12:	80 91 6c 00 	lds	r24, 0x006C	; 0x80006c <__SREG__+0x80002d>
+  16:	41 15       	cp	r20, r1
+  18:	01 f0       	breq	.+0      	; 0x1a <.L2^B3+0xe>
+  1a:	82 2b       	or	r24, r18
+  1c:	80 93 6c 00 	sts	0x006C, r24	; 0x80006c <__SREG__+0x80002d>
+  20:	08 95       	ret
+
+00000022 <.L22>:
+  22:	60 95       	com	r22
+  24:	68 23       	and	r22, r24
+  26:	60 93 6c 00 	sts	0x006C, r22	; 0x80006c <__SREG__+0x80002d>
+  2a:	08 95       	ret
 
 Disassembly of section .text._ZN4core15ExternInterrupt24enablePinChangeMaskPortDEhh:
 
@@ -2395,12 +2411,19 @@ Disassembly of section .text._ZN4core15ExternInterrupt24enablePinChangeMaskPortD
 0000000c <.L2^B4>:
    c:	6a 95       	dec	r22
    e:	02 f4       	brpl	.+0      	; 0x10 <.L2^B4+0x4>
-  10:	80 91 6d 00 	lds	r24, 0x006D	; 0x80006d <__SREG__+0x80002e>
-  14:	82 2b       	or	r24, r18
-  16:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <__SREG__+0x80002e>
-  1a:	41 11       	cpse	r20, r1
-  1c:	08 95       	ret
-  1e:	08 95       	ret
+  10:	b9 01       	movw	r22, r18
+  12:	80 91 6d 00 	lds	r24, 0x006D	; 0x80006d <__SREG__+0x80002e>
+  16:	41 15       	cp	r20, r1
+  18:	01 f0       	breq	.+0      	; 0x1a <.L2^B4+0xe>
+  1a:	82 2b       	or	r24, r18
+  1c:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <__SREG__+0x80002e>
+  20:	08 95       	ret
+
+00000022 <.L25>:
+  22:	60 95       	com	r22
+  24:	68 23       	and	r22, r24
+  26:	60 93 6d 00 	sts	0x006D, r22	; 0x80006d <__SREG__+0x80002e>
+  2a:	08 95       	ret
 ********** scripts/.build/lib/core/MCU.o **********
 
 scripts/.build/lib/core/MCU.o:     file format elf32-avr
