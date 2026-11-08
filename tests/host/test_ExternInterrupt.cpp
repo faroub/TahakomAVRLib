@@ -10,13 +10,7 @@
 #include <stdint.h>
 #include <stdio.h>
 
-// device registers as plain globals
-volatile uint8_t EICRA;
-volatile uint8_t EIMSK;
-volatile uint8_t PCICR;
-volatile uint8_t PCMSK0;
-volatile uint8_t PCMSK1;
-volatile uint8_t PCMSK2;
+#include "host_registers.h"
 
 #include "ExternInterrupt.h"
 

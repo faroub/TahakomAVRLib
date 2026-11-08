@@ -11,18 +11,7 @@
 #include <stdint.h>
 #include <stdio.h>
 
-// device registers as plain globals
-volatile uint8_t DDRB, PORTB, PINB, DDRD, PORTD, PIND;
-volatile uint8_t SMCR, MCUCR;
-volatile uint8_t ADMUX;
-volatile uint8_t DIDR0;
-volatile uint8_t ADCSRA;
-volatile uint8_t ADCSRB;
-volatile uint16_t ADC;
-volatile uint8_t PRR;
-volatile uint8_t DDRC;
-volatile uint8_t PORTC;
-volatile uint8_t PINC;
+#include "host_registers.h"
 
 #include "ADC.h"
 

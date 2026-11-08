@@ -10,9 +10,7 @@
 #include <stdint.h>
 #include <stdio.h>
 
-// device registers as plain globals
-volatile uint8_t WDTCSR;
-volatile uint8_t MCUSR;
+#include "host_registers.h"
 
 #include "WatchdogTimer.h"
 

@@ -409,7 +409,12 @@
 
 // ServoMotor defines
 
-#define SERVOMOTOR_TIMER_PULSE_WIDTH_COUNT(pulseWidth,clockPrescaler) ((F_CPU/1000000UL) * ((pulseWidth) / (clockPrescaler)))
+// Timer count for a servo pulse width given in microseconds: the pulse
+// width is multiplied by the timer tick rate (F_CPU / 1 MHz) first and only
+// then divided by the prescaler, so no precision is lost to integer
+// division (1500 us at prescaler 8 gives exactly 3000 ticks at F_CPU=16 MHz).
+#define SERVOMOTOR_TIMER_PULSE_WIDTH_COUNT(pulseWidth,clockPrescaler) \
+    ((((uint32_t)(pulseWidth)) * ((F_CPU) / 1000000UL)) / (clockPrescaler))
 
 #define SERVOMOTOR_TIMER_ANGLE_COUNT(angle,out_min,out_mid,out_max) (((((out_min)*((angle) - 90L)*((angle) - 180L))/16200L) + (((angle)*(out_max)*((angle) - 90L))/16200L) - (((angle)*(out_mid)*((angle) - 180L))/8100L)))
 

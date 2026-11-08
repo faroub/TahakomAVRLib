@@ -185,6 +185,13 @@ protected:
 private:
 
 
+    /** Clamp a computed timer count to the 16-bit timer range.
+     *
+     *  @param a_count Timer count
+     *  @return Count clamped to 0..65535
+     */
+    static uint16_t clampTimerCount(uint32_t a_count);
+
     io::Pin m_pin; /**< pin object */
 
     uint16_t m_pulseCycle; /**< pulse cycle [us] */

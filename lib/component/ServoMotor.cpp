@@ -25,6 +25,16 @@ component::ServoMotor::~ServoMotor()
 
 
 
+
+uint16_t component::ServoMotor::clampTimerCount(uint32_t a_count)
+{
+    if (a_count > UINT16_MAX)
+    {
+        a_count = UINT16_MAX;
+    }
+    return static_cast<uint16_t>(a_count);
+}
+
 void component::ServoMotor::on()
 {
     m_pin.setHigh();
@@ -43,27 +53,27 @@ void component::ServoMotor::toggle()
 
 uint16_t component::ServoMotor::computePulseCycleCount(const uint16_t &ar_clockPrescaler)
 {
-    return SERVOMOTOR_TIMER_PULSE_WIDTH_COUNT(m_pulseCycle,ar_clockPrescaler);
+    return clampTimerCount(SERVOMOTOR_TIMER_PULSE_WIDTH_COUNT(m_pulseCycle,ar_clockPrescaler));
 }
 
 uint16_t component::ServoMotor::computePulseWidthMinCount(const uint16_t &ar_clockPrescaler)
 {
-    return SERVOMOTOR_TIMER_PULSE_WIDTH_COUNT(m_pulseWidthMin,ar_clockPrescaler);
+    return clampTimerCount(SERVOMOTOR_TIMER_PULSE_WIDTH_COUNT(m_pulseWidthMin,ar_clockPrescaler));
 }
 
 uint16_t component::ServoMotor::computePulseWidthMaxCount(const uint16_t &ar_clockPrescaler)
 {
-    return SERVOMOTOR_TIMER_PULSE_WIDTH_COUNT(m_pulseWidthMax,ar_clockPrescaler);
+    return clampTimerCount(SERVOMOTOR_TIMER_PULSE_WIDTH_COUNT(m_pulseWidthMax,ar_clockPrescaler));
 }
 
 uint16_t component::ServoMotor::computePulseWidthMidCount(const uint16_t &ar_clockPrescaler)
 {
-    return SERVOMOTOR_TIMER_PULSE_WIDTH_COUNT(m_pulseWidthMid,ar_clockPrescaler);
+    return clampTimerCount(SERVOMOTOR_TIMER_PULSE_WIDTH_COUNT(m_pulseWidthMid,ar_clockPrescaler));
 }
 
 uint16_t component::ServoMotor::computeRotationAngleCount(const uint8_t &ar_angle_deg,const uint16_t &ar_clockPrescaler)
 {
-    return static_cast<uint16_t>(SERVOMOTOR_TIMER_ANGLE_COUNT(ar_angle_deg,static_cast<long>(computePulseWidthMinCount(ar_clockPrescaler)),static_cast<long>(computePulseWidthMidCount(ar_clockPrescaler)),static_cast<long>(computePulseWidthMaxCount(ar_clockPrescaler))));
+    return clampTimerCount(SERVOMOTOR_TIMER_ANGLE_COUNT(ar_angle_deg,static_cast<long>(computePulseWidthMinCount(ar_clockPrescaler)),static_cast<long>(computePulseWidthMidCount(ar_clockPrescaler)),static_cast<long>(computePulseWidthMaxCount(ar_clockPrescaler))));
 }
 
 
