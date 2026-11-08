@@ -121,13 +121,25 @@
 
 // ADC defines
 
-#define   ADC_SELECT_REF_VOLTAGE(refVoltage)         ADMUX &= 0x3F; ADMUX |= refVoltage << 6
+#define   ADC_SELECT_REF_VOLTAGE(refVoltage) \
+    do { \
+        ADMUX &= 0x3F; \
+        ADMUX |= (refVoltage) << 6; \
+    } while (0)
 
 #define   ADC_ADJUST_RESULT_LEFT            ADMUX |=  1 << ADLAR
 #define   ADC_ADJUST_RESULT_RIGHT           ADMUX &= ~(1 << ADLAR)
 
-#define   ADC_SELECT_ANALOG_INPUT(pinNumber)         ADMUX &= 0xF0; ADMUX |= pinNumber
-#define   ADC_DISABLE_DIGITAL_INPUT_REGISTER(pinNumber)         DIDR0 &= 0xC0; DIDR0 |= pinNumber
+#define   ADC_SELECT_ANALOG_INPUT(pinNumber) \
+    do { \
+        ADMUX &= 0xF0; \
+        ADMUX |= (pinNumber); \
+    } while (0)
+#define   ADC_DISABLE_DIGITAL_INPUT_REGISTER(pinNumber) \
+    do { \
+        DIDR0 &= 0xC0; \
+        DIDR0 |= (pinNumber); \
+    } while (0)
 
 
 #define   ADC_ENABLE            ADCSRA |=  1 << ADEN
@@ -142,18 +154,34 @@
 #define   ADC_ENABLE_CONVERSION_COMPLETE_INTERRUPT   ADCSRA |=   1 << ADIE
 #define   ADC_DISABLE_CONVERSION_COMPLETE_INTERRUPT  ADCSRA &= ~(1 << ADIE)
 
-#define   ADC_SELECT_CLOCK_PRESCALER(clockPrescaler)         ADCSRA &= 0xF8; ADCSRA |= clockPrescaler
+#define   ADC_SELECT_CLOCK_PRESCALER(clockPrescaler) \
+    do { \
+        ADCSRA &= 0xF8; \
+        ADCSRA |= (clockPrescaler); \
+    } while (0)
 
 
-#define   ADC_SELECT_AUTO_TRIGGER_SOURCE(triggerSource)         ADCSRB &= 0xF8; ADCSRB |= triggerSource
+#define   ADC_SELECT_AUTO_TRIGGER_SOURCE(triggerSource) \
+    do { \
+        ADCSRB &= 0xF8; \
+        ADCSRB |= (triggerSource); \
+    } while (0)
 
 
 #define   ADC_CONVERSION_COMPLETE_INTERRUPT  ADC_vect
 
 // Externally Triggered Interrupts defines
 
-#define EXT_INT_SET_INT0_SENSE_CONTROL(senseControl) EICRA &= 0xFC; EICRA |= senseControl
-#define EXT_INT_SET_INT1_SENSE_CONTROL(senseControl) EICRA &= 0xF3; EICRA |= senseControl
+#define EXT_INT_SET_INT0_SENSE_CONTROL(senseControl) \
+    do { \
+        EICRA &= 0xFC; \
+        EICRA |= (senseControl); \
+    } while (0)
+#define EXT_INT_SET_INT1_SENSE_CONTROL(senseControl) \
+    do { \
+        EICRA &= 0xF3; \
+        EICRA |= (senseControl); \
+    } while (0)
 
 #define EXT_INT_ENABLE_INT0   EIMSK |= 1 << INT0
 #define EXT_INT_DISABLE_INT0   EIMSK &= ~(1 << INT0)
@@ -162,18 +190,18 @@
 #define EXT_INT_DISABLE_INT1   EIMSK &= ~(1 << INT1)
 
 
-#define EXT_INT_ENABLE_PIN_CHANGE_INTERRUPT(pinChangePort)    PCICR |= 1 << pinChangePort
-#define EXT_INT_DISABLE_PIN_CHANGE_INTERRUPT(pinChangePort)   PCICR &= ~(1 << pinChangePort)
+#define EXT_INT_ENABLE_PIN_CHANGE_INTERRUPT(pinChangePort)    PCICR |= 1 << (pinChangePort)
+#define EXT_INT_DISABLE_PIN_CHANGE_INTERRUPT(pinChangePort)   PCICR &= ~(1 << (pinChangePort))
 
 
-#define EXT_INT_ENABLE_PIN_CHANGE_MASK_PORTB(pinChangePin)    PCMSK0 |= 1 << pinChangePin
-#define EXT_INT_DISABLE_PIN_CHANGE_MASK_PORTB(pinChangePin)   PCMSK0 &= ~(1 << pinChangePin)
+#define EXT_INT_ENABLE_PIN_CHANGE_MASK_PORTB(pinChangePin)    PCMSK0 |= 1 << (pinChangePin)
+#define EXT_INT_DISABLE_PIN_CHANGE_MASK_PORTB(pinChangePin)   PCMSK0 &= ~(1 << (pinChangePin))
 
-#define EXT_INT_ENABLE_PIN_CHANGE_MASK_PORTC(pinChangePin)    PCMSK1 |= 1 << pinChangePin
-#define EXT_INT_DISABLE_PIN_CHANGE_MASK_PORTC(pinChangePin)   PCMSK1 &= ~(1 << pinChangePin)
+#define EXT_INT_ENABLE_PIN_CHANGE_MASK_PORTC(pinChangePin)    PCMSK1 |= 1 << (pinChangePin)
+#define EXT_INT_DISABLE_PIN_CHANGE_MASK_PORTC(pinChangePin)   PCMSK1 &= ~(1 << (pinChangePin))
 
-#define EXT_INT_ENABLE_PIN_CHANGE_MASK_PORTD(pinChangePin)    PCMSK2 |= 1 << pinChangePin
-#define EXT_INT_DISABLE_PIN_CHANGE_MASK_PORTD(pinChangePin)   PCMSK2 &= ~(1 << pinChangePin)
+#define EXT_INT_ENABLE_PIN_CHANGE_MASK_PORTD(pinChangePin)    PCMSK2 |= 1 << (pinChangePin)
+#define EXT_INT_DISABLE_PIN_CHANGE_MASK_PORTD(pinChangePin)   PCMSK2 &= ~(1 << (pinChangePin))
 
 
 #define  EXT_INT_INT0_INTERRUPT   INT0_vect
@@ -185,26 +213,89 @@
 
 // Timers/Counters defines
 
-#define TIMER0_STOP TCCR0B &= 0xF8
-#define TIMER1_STOP TCCR1B &= 0xF8
-#define TIMER2_STOP TCCR2B &= 0xF8
+#define TIMER0_STOP \
+    do { \
+        TCCR0B &= 0xF8; \
+    } while (0)
+#define TIMER1_STOP \
+    do { \
+        TCCR1B &= 0xF8; \
+    } while (0)
+#define TIMER2_STOP \
+    do { \
+        TCCR2B &= 0xF8; \
+    } while (0)
 
-#define TIMER0_SELECT_CLOCK_SOURCE(clockSource) TCCR0B &= 0xF8; TCCR0B |= clockSource
-#define TIMER1_SELECT_CLOCK_SOURCE(clockSource) TCCR1B &= 0xF8; TCCR1B |= clockSource
-#define TIMER2_SELECT_CLOCK_SOURCE(clockSource) TCCR2B &= 0xF8; TCCR2B |= clockSource
+#define TIMER0_SELECT_CLOCK_SOURCE(clockSource) \
+    do { \
+        TCCR0B &= 0xF8; \
+        TCCR0B |= (clockSource); \
+    } while (0)
+#define TIMER1_SELECT_CLOCK_SOURCE(clockSource) \
+    do { \
+        TCCR1B &= 0xF8; \
+        TCCR1B |= (clockSource); \
+    } while (0)
+#define TIMER2_SELECT_CLOCK_SOURCE(clockSource) \
+    do { \
+        TCCR2B &= 0xF8; \
+        TCCR2B |= (clockSource); \
+    } while (0)
 
-#define TIMER0_SELECT_OPERATION_MODE(operationMode) TCCR0A &= 0xFC; TCCR0A |= (operationMode & 3); TCCR0B &= 0xF7; TCCR0B |= (operationMode & 12) << 1
-#define TIMER1_SELECT_OPERATION_MODE(operationMode) TCCR1A &= 0xFC; TCCR1A |= (operationMode & 3); TCCR1B &= 0xE7; TCCR1B |= (operationMode & 12) << 1
-#define TIMER2_SELECT_OPERATION_MODE(operationMode) TCCR2A &= 0xFC; TCCR2A |= (operationMode & 3); TCCR2B &= 0xF7; TCCR2B |= (operationMode & 12) << 1
+#define TIMER0_SELECT_OPERATION_MODE(operationMode) \
+    do { \
+        TCCR0A &= 0xFC; \
+        TCCR0A |= ((operationMode) & 3); \
+        TCCR0B &= 0xF7; \
+        TCCR0B |= (((operationMode) & 12) << 1); \
+    } while (0)
+#define TIMER1_SELECT_OPERATION_MODE(operationMode) \
+    do { \
+        TCCR1A &= 0xFC; \
+        TCCR1A |= ((operationMode) & 3); \
+        TCCR1B &= 0xE7; \
+        TCCR1B |= (((operationMode) & 12) << 1); \
+    } while (0)
+#define TIMER2_SELECT_OPERATION_MODE(operationMode) \
+    do { \
+        TCCR2A &= 0xFC; \
+        TCCR2A |= ((operationMode) & 3); \
+        TCCR2B &= 0xF7; \
+        TCCR2B |= (((operationMode) & 12) << 1); \
+    } while (0)
 
-#define TIMER0_SELECT_COM_CHANNEL_A(compareOutputMode) TCCR0A &= 0x3F; TCCR0A |= compareOutputMode << 6
-#define TIMER0_SELECT_COM_CHANNEL_B(compareOutputMode) TCCR0A &= 0xCF; TCCR0A |= compareOutputMode << 4
+#define TIMER0_SELECT_COM_CHANNEL_A(compareOutputMode) \
+    do { \
+        TCCR0A &= 0x3F; \
+        TCCR0A |= (compareOutputMode) << 6; \
+    } while (0)
+#define TIMER0_SELECT_COM_CHANNEL_B(compareOutputMode) \
+    do { \
+        TCCR0A &= 0xCF; \
+        TCCR0A |= (compareOutputMode) << 4; \
+    } while (0)
 
-#define TIMER1_SELECT_COM_CHANNEL_A(compareOutputMode) TCCR1A &= 0x3F; TCCR1A |= compareOutputMode << 6
-#define TIMER1_SELECT_COM_CHANNEL_B(compareOutputMode) TCCR1A &= 0xCF; TCCR1A |= compareOutputMode << 4
+#define TIMER1_SELECT_COM_CHANNEL_A(compareOutputMode) \
+    do { \
+        TCCR1A &= 0x3F; \
+        TCCR1A |= (compareOutputMode) << 6; \
+    } while (0)
+#define TIMER1_SELECT_COM_CHANNEL_B(compareOutputMode) \
+    do { \
+        TCCR1A &= 0xCF; \
+        TCCR1A |= (compareOutputMode) << 4; \
+    } while (0)
 
-#define TIMER2_SELECT_COM_CHANNEL_A(compareOutputMode) TCCR2A &= 0x3F; TCCR2A |= compareOutputMode << 6
-#define TIMER2_SELECT_COM_CHANNEL_B(compareOutputMode) TCCR2A &= 0xCF; TCCR2A |= compareOutputMode << 4
+#define TIMER2_SELECT_COM_CHANNEL_A(compareOutputMode) \
+    do { \
+        TCCR2A &= 0x3F; \
+        TCCR2A |= (compareOutputMode) << 6; \
+    } while (0)
+#define TIMER2_SELECT_COM_CHANNEL_B(compareOutputMode) \
+    do { \
+        TCCR2A &= 0xCF; \
+        TCCR2A |= (compareOutputMode) << 4; \
+    } while (0)
 
 #define TIMER0_ENABLE_COM_CHANNEL_A_INTERRUPT TIMSK0 |=  1 << OCIE0A
 #define TIMER0_DISABLE_COM_CHANNEL_A_INTERRUPT TIMSK0 &= ~(1 << OCIE0A)
@@ -251,15 +342,33 @@
 
 // Watchdog Timer defines
 
-#define WATCHDOG_SELECT_TIMEOUT(timeOut) WDTCSR |= (1<<WDCE) | (1<<WDE);  WDTCSR = (0<<WDIE) | (0<<WDE) | timeOut;
-#define WATCHDOG_START(operationMode,timeOut) MCUSR &= ~(1<<WDRF); WDTCSR |= (1<<WDCE) | (1<<WDE); WDTCSR = operationMode | timeOut;
-#define WATCHDOG_STOP MCUSR &= ~(1<<WDRF); WDTCSR |= (1<<WDCE) | (1<<WDE); WDTCSR = 0x00;
+#define WATCHDOG_SELECT_TIMEOUT(timeOut) \
+    do { \
+        WDTCSR |= (1<<WDCE) | (1<<WDE); \
+        WDTCSR = (0<<WDIE) | (0<<WDE) | (timeOut); \
+    } while (0)
+#define WATCHDOG_START(operationMode,timeOut) \
+    do { \
+        MCUSR &= ~(1<<WDRF); \
+        WDTCSR |= (1<<WDCE) | (1<<WDE); \
+        WDTCSR = (operationMode) | (timeOut); \
+    } while (0)
+#define WATCHDOG_STOP \
+    do { \
+        MCUSR &= ~(1<<WDRF); \
+        WDTCSR |= (1<<WDCE) | (1<<WDE); \
+        WDTCSR = 0x00; \
+    } while (0)
 #define WATCHDOG_TIMEOUT_INTERRUPT  WDT_vect
 
 // MCU defines
 
 
-#define MCU_SELECT_SLEEP_MODE(sleepMode) SMCR &= 0xF1; SMCR |= sleepMode << 1
+#define MCU_SELECT_SLEEP_MODE(sleepMode) \
+    do { \
+        SMCR &= 0xF1; \
+        SMCR |= (sleepMode) << 1; \
+    } while (0)
 
 #define MCU_SLEEP_ENABLE SMCR |=  1 << SE
 #define MCU_SLEEP_DISABLE SMCR &= ~(1 << SE)
@@ -285,14 +394,18 @@
 #define MCU_ADC_ENABLE PRR &= ~(1 << PRADC)
 #define MCU_ADC_DISABLE PRR |=  1 << PRADC
 
-#define MCU_BOD_DISABLE MCUCR |= (1<<BODSE) | (1<<BODS); MCUCR &= ~(1<<BODSE);
+#define MCU_BOD_DISABLE \
+    do { \
+        MCUCR |= (1<<BODSE) | (1<<BODS); \
+        MCUCR &= ~(1<<BODSE); \
+    } while (0)
 
 
 // ServoMotor defines
 
-#define SERVOMOTOR_TIMER_PULSE_WIDTH_COUNT(pulseWidth,clockPrescaler) ((F_CPU/1000000UL) * (pulseWidth/ clockPrescaler))
+#define SERVOMOTOR_TIMER_PULSE_WIDTH_COUNT(pulseWidth,clockPrescaler) ((F_CPU/1000000UL) * ((pulseWidth) / (clockPrescaler)))
 
-#define SERVOMOTOR_TIMER_ANGLE_COUNT(angle,out_min,out_mid,out_max) (((out_min*(angle - 90L)*(angle - 180L))/16200L + (angle*out_max*(angle - 90L))/16200L - (angle*out_mid*(angle - 180L))/8100L))
+#define SERVOMOTOR_TIMER_ANGLE_COUNT(angle,out_min,out_mid,out_max) (((((out_min)*((angle) - 90L)*((angle) - 180L))/16200L) + (((angle)*(out_max)*((angle) - 90L))/16200L) - (((angle)*(out_mid)*((angle) - 180L))/8100L)))
 
 // SPI defines
 
@@ -302,9 +415,23 @@
 #define   SPI_SELECT_SLAVE_MODE SPCR &= ~(1 << MSTR)
 
 
-#define   SPI_SELECT_DATA_MODE(dataMode) SPCR &= 0xF3; SPCR |= dataMode << 2
-#define   SPI_SELECT_CLOCK_PRESCALER(clockPrescaler) SPCR &= 0xFC; SPCR |= (clockPrescaler & 3); SPSR &= 0xFE; SPSR |= (clockPrescaler & 4) >> 2
-#define   SPI_SELECT_DATA_ORDER(dataOrder) SPCR &= 0xDF; SPCR |= dataOrder << 5
+#define   SPI_SELECT_DATA_MODE(dataMode) \
+    do { \
+        SPCR &= 0xF3; \
+        SPCR |= (dataMode) << 2; \
+    } while (0)
+#define   SPI_SELECT_CLOCK_PRESCALER(clockPrescaler) \
+    do { \
+        SPCR &= 0xFC; \
+        SPCR |= ((clockPrescaler) & 3); \
+        SPSR &= 0xFE; \
+        SPSR |= (((clockPrescaler) & 4) >> 2); \
+    } while (0)
+#define   SPI_SELECT_DATA_ORDER(dataOrder) \
+    do { \
+        SPCR &= 0xDF; \
+        SPCR |= (dataOrder) << 5; \
+    } while (0)
 
 #define   SPI_WRITE_COLLISION WCOL
 #define   SPI_TRANSFER_COMPLETE SPIF
