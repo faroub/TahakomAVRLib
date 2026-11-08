@@ -4107,23 +4107,46 @@ Disassembly of section .text._ZN4core13WatchdogTimer13selectTimeOutERKNS_7timeOu
    0:	fc 01       	movw	r30, r24
    2:	db 01       	movw	r26, r22
    4:	8c 91       	ld	r24, X
-   6:	83 fb       	bst	r24, 3
-   8:	99 27       	eor	r25, r25
-   a:	95 f9       	bld	r25, 5
-   c:	87 70       	andi	r24, 0x07	; 7
-   e:	89 2b       	or	r24, r25
-  10:	80 83       	st	Z, r24
-  12:	f8 94       	cli
-  14:	a8 95       	wdr
-  16:	a0 e6       	ldi	r26, 0x60	; 96
-  18:	b0 e0       	ldi	r27, 0x00	; 0
-  1a:	8c 91       	ld	r24, X
-  1c:	88 61       	ori	r24, 0x18	; 24
-  1e:	8c 93       	st	X, r24
-  20:	80 81       	ld	r24, Z
-  22:	8c 93       	st	X, r24
-  24:	78 94       	sei
-  26:	08 95       	ret
+   6:	80 83       	st	Z, r24
+   8:	f8 94       	cli
+   a:	a8 95       	wdr
+   c:	82 81       	ldd	r24, Z+2	; 0x02
+   e:	81 15       	cp	r24, r1
+  10:	01 f0       	breq	.+0      	; 0x12 <_ZN4core13WatchdogTimer13selectTimeOutERKNS_7timeOutE+0x12>
+  12:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <.L4+0x80001e>
+  16:	88 61       	ori	r24, 0x18	; 24
+  18:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <.L4+0x80001e>
+  1c:	20 81       	ld	r18, Z
+  1e:	91 81       	ldd	r25, Z+1	; 0x01
+  20:	90 fb       	bst	r25, 0
+  22:	88 27       	eor	r24, r24
+  24:	86 f9       	bld	r24, 6
+  26:	23 fb       	bst	r18, 3
+  28:	33 27       	eor	r19, r19
+  2a:	35 f9       	bld	r19, 5
+  2c:	83 2b       	or	r24, r19
+  2e:	27 70       	andi	r18, 0x07	; 7
+  30:	82 2b       	or	r24, r18
+  32:	91 fb       	bst	r25, 1
+  34:	99 27       	eor	r25, r25
+  36:	93 f9       	bld	r25, 3
+
+00000038 <.L6>:
+  38:	89 2b       	or	r24, r25
+  3a:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <.L4+0x80001e>
+  3e:	78 94       	sei
+  40:	08 95       	ret
+
+00000042 <.L4>:
+  42:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <.L4+0x80001e>
+  46:	88 61       	ori	r24, 0x18	; 24
+  48:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <.L4+0x80001e>
+  4c:	80 81       	ld	r24, Z
+  4e:	83 fb       	bst	r24, 3
+  50:	99 27       	eor	r25, r25
+  52:	95 f9       	bld	r25, 5
+  54:	87 70       	andi	r24, 0x07	; 7
+  56:	00 c0       	rjmp	.+0      	; 0x58 <.L4+0x16>
 
 Disassembly of section .text._ZN4core13WatchdogTimer5resetEv:
 
@@ -4137,30 +4160,38 @@ Disassembly of section .text._ZN4core13WatchdogTimer5startERKNS_13operationModeE
    0:	fc 01       	movw	r30, r24
    2:	db 01       	movw	r26, r22
    4:	8c 91       	ld	r24, X
-   6:	80 fb       	bst	r24, 0
-   8:	99 27       	eor	r25, r25
-   a:	96 f9       	bld	r25, 6
-   c:	81 fb       	bst	r24, 1
-   e:	88 27       	eor	r24, r24
-  10:	84 f9       	bld	r24, 4
-  12:	89 2b       	or	r24, r25
-  14:	81 83       	std	Z+1, r24	; 0x01
-  16:	f8 94       	cli
-  18:	a8 95       	wdr
-  1a:	84 b7       	in	r24, 0x34	; 52
-  1c:	87 7f       	andi	r24, 0xF7	; 247
-  1e:	84 bf       	out	0x34, r24	; 52
-  20:	a0 e6       	ldi	r26, 0x60	; 96
-  22:	b0 e0       	ldi	r27, 0x00	; 0
-  24:	8c 91       	ld	r24, X
-  26:	88 61       	ori	r24, 0x18	; 24
-  28:	8c 93       	st	X, r24
-  2a:	81 81       	ldd	r24, Z+1	; 0x01
-  2c:	90 81       	ld	r25, Z
-  2e:	89 2b       	or	r24, r25
-  30:	8c 93       	st	X, r24
-  32:	78 94       	sei
-  34:	08 95       	ret
+   6:	81 83       	std	Z+1, r24	; 0x01
+   8:	f8 94       	cli
+   a:	a8 95       	wdr
+   c:	84 b7       	in	r24, 0x34	; 52
+   e:	87 7f       	andi	r24, 0xF7	; 247
+  10:	84 bf       	out	0x34, r24	; 52
+  12:	a0 e6       	ldi	r26, 0x60	; 96
+  14:	b0 e0       	ldi	r27, 0x00	; 0
+  16:	8c 91       	ld	r24, X
+  18:	88 61       	ori	r24, 0x18	; 24
+  1a:	8c 93       	st	X, r24
+  1c:	21 81       	ldd	r18, Z+1	; 0x01
+  1e:	90 81       	ld	r25, Z
+  20:	20 fb       	bst	r18, 0
+  22:	88 27       	eor	r24, r24
+  24:	86 f9       	bld	r24, 6
+  26:	21 fb       	bst	r18, 1
+  28:	22 27       	eor	r18, r18
+  2a:	23 f9       	bld	r18, 3
+  2c:	82 2b       	or	r24, r18
+  2e:	29 2f       	mov	r18, r25
+  30:	27 70       	andi	r18, 0x07	; 7
+  32:	82 2b       	or	r24, r18
+  34:	93 fb       	bst	r25, 3
+  36:	99 27       	eor	r25, r25
+  38:	95 f9       	bld	r25, 5
+  3a:	89 2b       	or	r24, r25
+  3c:	8c 93       	st	X, r24
+  3e:	81 e0       	ldi	r24, 0x01	; 1
+  40:	82 83       	std	Z+2, r24	; 0x02
+  42:	78 94       	sei
+  44:	08 95       	ret
 
 Disassembly of section .text._ZN4core13WatchdogTimer5startERKNS_13operationModeERKNS_7timeOutE:
 
@@ -4168,55 +4199,60 @@ Disassembly of section .text._ZN4core13WatchdogTimer5startERKNS_13operationModeE
    0:	fc 01       	movw	r30, r24
    2:	da 01       	movw	r26, r20
    4:	8c 91       	ld	r24, X
-   6:	83 fb       	bst	r24, 3
-   8:	99 27       	eor	r25, r25
-   a:	95 f9       	bld	r25, 5
-   c:	87 70       	andi	r24, 0x07	; 7
-   e:	89 2b       	or	r24, r25
-  10:	80 83       	st	Z, r24
-  12:	db 01       	movw	r26, r22
-  14:	8c 91       	ld	r24, X
-  16:	80 fb       	bst	r24, 0
-  18:	99 27       	eor	r25, r25
-  1a:	96 f9       	bld	r25, 6
-  1c:	81 fb       	bst	r24, 1
-  1e:	88 27       	eor	r24, r24
-  20:	84 f9       	bld	r24, 4
-  22:	89 2b       	or	r24, r25
-  24:	81 83       	std	Z+1, r24	; 0x01
-  26:	f8 94       	cli
-  28:	a8 95       	wdr
-  2a:	84 b7       	in	r24, 0x34	; 52
-  2c:	87 7f       	andi	r24, 0xF7	; 247
-  2e:	84 bf       	out	0x34, r24	; 52
-  30:	a0 e6       	ldi	r26, 0x60	; 96
-  32:	b0 e0       	ldi	r27, 0x00	; 0
-  34:	8c 91       	ld	r24, X
-  36:	88 61       	ori	r24, 0x18	; 24
-  38:	8c 93       	st	X, r24
-  3a:	81 81       	ldd	r24, Z+1	; 0x01
-  3c:	90 81       	ld	r25, Z
-  3e:	89 2b       	or	r24, r25
-  40:	8c 93       	st	X, r24
-  42:	78 94       	sei
-  44:	08 95       	ret
+   6:	80 83       	st	Z, r24
+   8:	db 01       	movw	r26, r22
+   a:	8c 91       	ld	r24, X
+   c:	81 83       	std	Z+1, r24	; 0x01
+   e:	f8 94       	cli
+  10:	a8 95       	wdr
+  12:	84 b7       	in	r24, 0x34	; 52
+  14:	87 7f       	andi	r24, 0xF7	; 247
+  16:	84 bf       	out	0x34, r24	; 52
+  18:	a0 e6       	ldi	r26, 0x60	; 96
+  1a:	b0 e0       	ldi	r27, 0x00	; 0
+  1c:	8c 91       	ld	r24, X
+  1e:	88 61       	ori	r24, 0x18	; 24
+  20:	8c 93       	st	X, r24
+  22:	21 81       	ldd	r18, Z+1	; 0x01
+  24:	90 81       	ld	r25, Z
+  26:	20 fb       	bst	r18, 0
+  28:	88 27       	eor	r24, r24
+  2a:	86 f9       	bld	r24, 6
+  2c:	21 fb       	bst	r18, 1
+  2e:	22 27       	eor	r18, r18
+  30:	23 f9       	bld	r18, 3
+  32:	82 2b       	or	r24, r18
+  34:	29 2f       	mov	r18, r25
+  36:	27 70       	andi	r18, 0x07	; 7
+  38:	82 2b       	or	r24, r18
+  3a:	93 fb       	bst	r25, 3
+  3c:	99 27       	eor	r25, r25
+  3e:	95 f9       	bld	r25, 5
+  40:	89 2b       	or	r24, r25
+  42:	8c 93       	st	X, r24
+  44:	81 e0       	ldi	r24, 0x01	; 1
+  46:	82 83       	std	Z+2, r24	; 0x02
+  48:	78 94       	sei
+  4a:	08 95       	ret
 
 Disassembly of section .text._ZN4core13WatchdogTimer4stopEv:
 
 00000000 <_ZN4core13WatchdogTimer4stopEv>:
-   0:	f8 94       	cli
-   2:	a8 95       	wdr
-   4:	84 b7       	in	r24, 0x34	; 52
-   6:	87 7f       	andi	r24, 0xF7	; 247
-   8:	84 bf       	out	0x34, r24	; 52
-   a:	e0 e6       	ldi	r30, 0x60	; 96
-   c:	f0 e0       	ldi	r31, 0x00	; 0
-   e:	80 81       	ld	r24, Z
-  10:	88 61       	ori	r24, 0x18	; 24
-  12:	80 83       	st	Z, r24
-  14:	10 82       	st	Z, r1
-  16:	78 94       	sei
-  18:	08 95       	ret
+   0:	fc 01       	movw	r30, r24
+   2:	f8 94       	cli
+   4:	a8 95       	wdr
+   6:	84 b7       	in	r24, 0x34	; 52
+   8:	87 7f       	andi	r24, 0xF7	; 247
+   a:	84 bf       	out	0x34, r24	; 52
+   c:	a0 e6       	ldi	r26, 0x60	; 96
+   e:	b0 e0       	ldi	r27, 0x00	; 0
+  10:	8c 91       	ld	r24, X
+  12:	88 61       	ori	r24, 0x18	; 24
+  14:	8c 93       	st	X, r24
+  16:	1c 92       	st	X, r1
+  18:	12 82       	std	Z+2, r1	; 0x02
+  1a:	78 94       	sei
+  1c:	08 95       	ret
 
 Disassembly of section .text._ZN4core13WatchdogTimerC2Ev:
 
@@ -4227,19 +4263,19 @@ Disassembly of section .text._ZN4core13WatchdogTimerC2Ev:
 Disassembly of section .text._ZN4core13WatchdogTimer11getInstanceEv:
 
 00000000 <_ZN4core13WatchdogTimer11getInstanceEv>:
-   0:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <__SREG__+0x7fffc1>
+   0:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L4+0x7fffbe>
    4:	81 11       	cpse	r24, r1
    6:	00 c0       	rjmp	.+0      	; 0x8 <_ZN4core13WatchdogTimer11getInstanceEv+0x8>
    8:	80 e0       	ldi	r24, 0x00	; 0
    a:	90 e0       	ldi	r25, 0x00	; 0
    c:	0e 94 00 00 	call	0	; 0x0 <_ZN4core13WatchdogTimer11getInstanceEv>
   10:	81 e0       	ldi	r24, 0x01	; 1
-  12:	80 93 00 00 	sts	0x0000, r24	; 0x800000 <__SREG__+0x7fffc1>
+  12:	80 93 00 00 	sts	0x0000, r24	; 0x800000 <.L4+0x7fffbe>
   16:	80 e0       	ldi	r24, 0x00	; 0
   18:	90 e0       	ldi	r25, 0x00	; 0
   1a:	0e 94 00 00 	call	0	; 0x0 <_ZN4core13WatchdogTimer11getInstanceEv>
 
-0000001e <.L10>:
+0000001e <.L13>:
   1e:	80 e0       	ldi	r24, 0x00	; 0
   20:	90 e0       	ldi	r25, 0x00	; 0
   22:	08 95       	ret

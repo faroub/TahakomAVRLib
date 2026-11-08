@@ -13,3 +13,6 @@ scripts/.build/
 # Doxygen output
 docs/html/
 docs/latex/
+
+# host test build artifacts
+tests/host/obj/

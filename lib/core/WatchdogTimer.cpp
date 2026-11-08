@@ -22,10 +22,22 @@ core::WatchdogTimer::~WatchdogTimer()
 void core::WatchdogTimer::selectTimeOut(const timeOut &ar_timeOut)
 {
     m_timeOut = static_cast<uint8_t>(ar_timeOut);
-    m_timeOut = static_cast<uint8_t>((m_timeOut & 7) | ((m_timeOut & 8) << 2 ));
     cli();
     wdt_reset();
-    WATCHDOG_SELECT_TIMEOUT(m_timeOut);
+    if (m_isRunning)
+    {
+        // watchdog is running: follow the timed change sequence and keep the
+        // programmed mode bits (WDIE/WDE) set, so the watchdog keeps running
+        // with the new timeout
+        WDTCSR |= (1 << WDCE) | (1 << WDE);
+        WDTCSR = timeOutToWDTCSR(static_cast<timeOut>(m_timeOut)) |
+                 operationModeToWDTCSR(static_cast<operationMode>(m_operationMode));
+    }
+    else
+    {
+        // watchdog not running: stage the timeout bits only
+        WATCHDOG_SELECT_TIMEOUT(timeOutToWDTCSR(static_cast<timeOut>(m_timeOut)));
+    }
     sei();
 
 }
@@ -39,10 +51,11 @@ void core::WatchdogTimer::reset()
 void core::WatchdogTimer::start(const operationMode &ar_operationMode)
 {
     m_operationMode = static_cast<uint8_t>(ar_operationMode);
-    m_operationMode = static_cast<uint8_t>(((m_operationMode & 1) << 6) | ((m_operationMode & 2) << 3 ));
     cli();
     wdt_reset();
-    WATCHDOG_START(m_operationMode,m_timeOut);
+    WATCHDOG_START(operationModeToWDTCSR(static_cast<operationMode>(m_operationMode)),
+                   timeOutToWDTCSR(static_cast<timeOut>(m_timeOut)));
+    m_isRunning = 1;
     sei();
 
 }
@@ -50,12 +63,12 @@ void core::WatchdogTimer::start(const operationMode &ar_operationMode)
 void core::WatchdogTimer::start(const operationMode &ar_operationMode, const timeOut &ar_timeOut)
 {
     m_timeOut = static_cast<uint8_t>(ar_timeOut);
-    m_timeOut = static_cast<uint8_t>((m_timeOut & 7) | ((m_timeOut & 8) << 2 ));
     m_operationMode = static_cast<uint8_t>(ar_operationMode);
-    m_operationMode = static_cast<uint8_t>(((m_operationMode & 1) << 6) | ((m_operationMode & 2) << 3 ));
     cli();
     wdt_reset();
-    WATCHDOG_START(m_operationMode,m_timeOut);
+    WATCHDOG_START(operationModeToWDTCSR(static_cast<operationMode>(m_operationMode)),
+                   timeOutToWDTCSR(static_cast<timeOut>(m_timeOut)));
+    m_isRunning = 1;
     sei();
 
 }
@@ -65,7 +78,7 @@ void core::WatchdogTimer::stop()
     cli();
     wdt_reset();
     WATCHDOG_STOP;
+    m_isRunning = 0;
     sei();
 
 }
-

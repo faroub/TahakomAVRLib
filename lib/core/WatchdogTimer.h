@@ -81,6 +81,41 @@ enum class operationMode : uint8_t {
     interrupt_reset,   /**<  */
 };
 
+/** Map a watchdog timeout setting to the WDTCSR timeout bits (WDP3:WDP0).
+ *
+ *  The enum value uses a plain binary encoding (0..9), the WDTCSR lays the
+ *  prescaler bits out as WDP3:WDP2:WDP1:WDP0 = bit5:bit2:bit1:bit0.
+ *
+ *  @param ar_timeOut Timeout setting
+ *  @return WDTCSR timeout bits
+ */
+constexpr uint8_t timeOutToWDTCSR(const timeOut ar_timeOut)
+{
+    return static_cast<uint8_t>((static_cast<uint8_t>(ar_timeOut) & 7u) |
+                                ((static_cast<uint8_t>(ar_timeOut) & 8u) << 2u));
+}
+
+/** Map a watchdog operation mode to the WDTCSR mode bits (WDIE, WDE).
+ *
+ *  @param ar_operationMode Operation mode
+ *  @return WDTCSR mode bits
+ */
+constexpr uint8_t operationModeToWDTCSR(const operationMode ar_operationMode)
+{
+    // mode bit 0 (value 1) maps to WDIE (bit 6); mode bit 1 (value 2) maps to
+    // WDE (bit 3), so it must be shifted left by (WDE - 1): shifting by WDE
+    // would land on WDCE (bit 4) instead
+    return static_cast<uint8_t>(((static_cast<uint8_t>(ar_operationMode) & 1u) << WDIE) |
+                                ((static_cast<uint8_t>(ar_operationMode) & 2u) << (WDE - 1)));
+}
+
+static_assert((operationModeToWDTCSR(operationMode::reset) & (1u << WDE)) != 0,
+              "watchdog reset mode must set WDE");
+static_assert((operationModeToWDTCSR(operationMode::interrupt_reset) & (1u << WDE)) != 0,
+              "watchdog interrupt+reset mode must set WDE");
+static_assert((operationModeToWDTCSR(operationMode::interrupt) & (1u << WDE)) == 0,
+              "watchdog interrupt-only mode must not set WDE");
+
 class WatchdogTimer
 {
 
@@ -88,6 +123,16 @@ public:
 
     static WatchdogTimer& getInstance();
 
+    /** Select the watchdog timeout.
+     *
+     *  Rule: if the watchdog is already running (start() was called), the
+     *  timeout change keeps the watchdog running: it preserves the
+     *  programmed mode bits (WDIE/WDE) and only applies the new timeout.
+     *  If the watchdog is not running, the timeout is only staged in WDTCSR
+     *  without enabling it; start() turns it on.
+     *
+     *  @param ar_timeOut Defines the timeout
+     */
     void selectTimeOut(const timeOut &ar_timeOut);
 
     void reset();
@@ -123,6 +168,8 @@ private:
     uint8_t m_timeOut;
 
     uint8_t m_operationMode;
+
+    uint8_t m_isRunning; /**< Watchdog running state, tracked in software */
 
 };
 
