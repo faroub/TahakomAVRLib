@@ -8,6 +8,9 @@
 */
 #include "Pin.h"
 
+extern const io::Port io::PortB = { &DDRB, &PORTB, &PINB }; /**< global Port B object */
+extern const io::Port io::PortC = { &DDRC, &PORTC, &PINC }; /**< global Port C object */
+extern const io::Port io::PortD = { &DDRD, &PORTD, &PIND }; /**< global Port D object */
 
 io::Pin::Pin(const uint8_t a_pinNumber, const Port &ar_portName)
          : mr_portName(ar_portName), m_pinNumber(a_pinNumber)
@@ -69,12 +72,12 @@ void io::Pin::toggle()
 
 uint8_t io::Pin::isHigh()
 {
-    return   *mr_portName.mp_pinReg & (1 << m_pinNumber);
+    return (*mr_portName.mp_pinReg & (1 << m_pinNumber)) ? 1 : 0;
 }
 
 uint8_t io::Pin::isLow()
 {
-    return   !(*mr_portName.mp_pinReg & (1 << m_pinNumber));
+    return (*mr_portName.mp_pinReg & (1 << m_pinNumber)) ? 0 : 1;
 }
 
 uint8_t io::Pin::getPinNumber()

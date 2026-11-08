@@ -277,23 +277,20 @@ Disassembly of section .text._ZN2io3Pin6isHighEv:
    8:	0d 90       	ld	r0, X+
    a:	bc 91       	ld	r27, X
    c:	a0 2d       	mov	r26, r0
-   e:	4c 91       	ld	r20, X
-  10:	82 81       	ldd	r24, Z+2	; 0x02
-  12:	21 e0       	ldi	r18, 0x01	; 1
-  14:	30 e0       	ldi	r19, 0x00	; 0
-  16:	b9 01       	movw	r22, r18
-  18:	00 c0       	rjmp	.+0      	; 0x1a <.L1^B11>
+   e:	8c 91       	ld	r24, X
+  10:	90 e0       	ldi	r25, 0x00	; 0
+  12:	22 81       	ldd	r18, Z+2	; 0x02
+  14:	00 c0       	rjmp	.+0      	; 0x16 <.L1^B11>
 
-0000001a <.L1^B11>:
-  1a:	66 0f       	add	r22, r22
-  1c:	77 1f       	adc	r23, r23
+00000016 <.L1^B11>:
+  16:	95 95       	asr	r25
+  18:	87 95       	ror	r24
 
-0000001e <.L2^B11>:
-  1e:	8a 95       	dec	r24
-  20:	02 f4       	brpl	.+0      	; 0x22 <.L2^B11+0x4>
-  22:	cb 01       	movw	r24, r22
-  24:	84 23       	and	r24, r20
-  26:	08 95       	ret
+0000001a <.L2^B11>:
+  1a:	2a 95       	dec	r18
+  1c:	02 f4       	brpl	.+0      	; 0x1e <.L2^B11+0x4>
+  1e:	81 70       	andi	r24, 0x01	; 1
+  20:	08 95       	ret
 
 Disassembly of section .text._ZN2io3Pin5isLowEv:
 

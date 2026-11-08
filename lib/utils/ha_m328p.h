@@ -5,8 +5,8 @@
  * @author Farid Oubbati (https://github.com/faroub)
  * @date March 2020
 */
-#ifndef HAM329P_H
-#define HAM329P_H
+#ifndef HA_M328P_H
+#define HA_M328P_H
 
 #ifndef HABASE_H
     #error "don't use this file directly! Please include only ha_base.h!"
