@@ -1,0 +1,15 @@
+# CMake build directories
+**/build/
+
+# AVR build outputs
+*.elf
+*.hex
+*.eeprom
+*.lst
+
+# build check harness scratch directory
+scripts/.build/
+
+# Doxygen output
+docs/html/
+docs/latex/

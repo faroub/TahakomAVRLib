@@ -53,13 +53,16 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Set compiler flags
 set(CSTANDARD "-std=gnu99 ")
 set(CDEBUG    "-gstabs -g -ggdb")
-set(CWARN     "-Wall -Wstrict-prototypes -Wl,--gc-sections -Wl,--relax")
+set(CWARN     "-Wall -Wstrict-prototypes -Wl,--relax")
 set(CTUNING   "-funsigned-char -funsigned-bitfields -fshort-enums -ffunction-sections -fdata-sections -fno-threadsafe-statics")
-set(COPT      "-Os -lm -lprintf_flt")
+set(COPT      "-Os")
 set(CMCU      "-mmcu=${MCU}")
 set(CDEFS     "-DF_CPU=${F_CPU} -DBAUD=${BAUD}")
 set(CFLAGS   "${CMCU} ${CDEBUG} ${CDEFS} ${COPT} ${CWARN} ${CSTANDARD} ${CTUNING}")
-set(CXXFLAGS "${CMCU} ${CDEBUG} ${CDEFS} ${COPT}  ${CTUNING}")
+set(CXXFLAGS "${CMCU} ${CDEBUG} ${CDEFS} ${COPT} ${CTUNING} -Wall -Wextra -fno-exceptions -fno-rtti")
+
+# Move --gc-sections to the linker flags; it is a linker option
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--gc-sections")
 
 # Use compiler flags
 set(CMAKE_C_FLAGS   "${CFLAGS}")
@@ -68,7 +71,7 @@ set(CMAKE_ASM_FLAGS   "${CFLAGS}")
 
 
 # Build documentation along?
-option(BUILD_DOC "Build documentation" ON)
+option(BUILD_DOC "Build documentation" OFF)
 
 
 # Set MCU library path
@@ -85,16 +88,17 @@ include_directories("${LIB_DIR}/io"
 add_subdirectory("${LIB_DIR}/io" "${CMAKE_BINARY_DIR}/io")
 add_subdirectory("${LIB_DIR}/component" "${CMAKE_BINARY_DIR}/component")
 add_subdirectory("${LIB_DIR}/core" "${CMAKE_BINARY_DIR}/core")
+add_subdirectory("${LIB_DIR}/utils" "${CMAKE_BINARY_DIR}/utils")
 
 # Set the internal and external libs
-set (INTERN_LINK_LIBS ${INTERN_LINK_LIBS} component io core)
+set (INTERN_LINK_LIBS ${INTERN_LINK_LIBS} component io core utils)
 set (EXTERN_LINK_LIBS ${EXTERN_LINK_LIBS})
 
 # Add an executable target
 add_executable("${FIRMWARE}" main.cpp)
 
 # Specify the libraries to use when linking the target
-target_link_libraries("${FIRMWARE}" ${INTERN_LINK_LIBS} ${EXTERN_LINK_LIBS})
+target_link_libraries("${FIRMWARE}" ${INTERN_LINK_LIBS} ${EXTERN_LINK_LIBS} m)
 
 # Set output name property of the target to target.elf
 set_target_properties("${FIRMWARE}" PROPERTIES OUTPUT_NAME "${FIRMWARE}.elf")
@@ -104,7 +108,7 @@ add_custom_command(TARGET "${FIRMWARE}" POST_BUILD COMMAND ${AVRSTRIP} "${FIRMWA
 
 # Add custom command to list section sizes and total size
 if (CMAKE_HOST_UNIX)
-    add_custom_command(TARGET "${FIRMWARE}" POST_BUILD COMMAND ${AVRSIZE} -C --mcu=${MCU} "${FIRMWARE}.elf")
+    add_custom_command(TARGET "${FIRMWARE}" POST_BUILD COMMAND ${AVRSIZE} --format=avr --mcu=${MCU} "${FIRMWARE}.elf")
 elseif (CMAKE_HOST_WIN32)
     add_custom_command(TARGET "${FIRMWARE}" POST_BUILD COMMAND ${AVRSIZE} -B --format=gnu --mcu=${MCU} "${FIRMWARE}.elf")
 endif ()
