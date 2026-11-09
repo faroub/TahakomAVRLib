@@ -4638,32 +4638,32 @@ Disassembly of section .text._ZN9component3Led5isOffEv:
 scripts/.build/lib/component/PushButton.o:     file format elf32-avr
 
 
-Disassembly of section .text._ZN9component10PushButtonC2ERKN2io3PinERKhS6_:
+Disassembly of section .text._ZN9component10PushButtonC2ERKN2io3PinEhh:
 
-00000000 <_ZN9component10PushButtonC1ERKN2io3PinERKhS6_>:
+00000000 <_ZN9component10PushButtonC1ERKN2io3PinEhh>:
    0:	cf 93       	push	r28
    2:	df 93       	push	r29
    4:	ec 01       	movw	r28, r24
    6:	fb 01       	movw	r30, r22
-   8:	ba 01       	movw	r22, r20
-   a:	83 e0       	ldi	r24, 0x03	; 3
-   c:	de 01       	movw	r26, r28
+   8:	83 e0       	ldi	r24, 0x03	; 3
+   a:	de 01       	movw	r26, r28
 
-0000000e <.L0^B1>:
-   e:	01 90       	ld	r0, Z+
-  10:	0d 92       	st	X+, r0
-  12:	8a 95       	dec	r24
-  14:	01 f4       	brne	.+0      	; 0x16 <.L0^B1+0x8>
-  16:	3c 83       	std	Y+4, r19	; 0x04
-  18:	2b 83       	std	Y+3, r18	; 0x03
-  1a:	4d 83       	std	Y+5, r20	; 0x05
-  1c:	7e 83       	std	Y+6, r23	; 0x06
-  1e:	ce 01       	movw	r24, r28
-  20:	0e 94 00 00 	call	0	; 0x0 <_ZN9component10PushButtonC1ERKN2io3PinERKhS6_>
-  24:	1f 82       	std	Y+7, r1	; 0x07
-  26:	df 91       	pop	r29
-  28:	cf 91       	pop	r28
-  2a:	08 95       	ret
+0000000c <.L0^B1>:
+   c:	01 90       	ld	r0, Z+
+   e:	0d 92       	st	X+, r0
+  10:	8a 95       	dec	r24
+  12:	01 f4       	brne	.+0      	; 0x14 <.L0^B1+0x8>
+  14:	2b 83       	std	Y+3, r18	; 0x03
+  16:	4c 83       	std	Y+4, r20	; 0x04
+  18:	1d 82       	std	Y+5, r1	; 0x05
+  1a:	1e 82       	std	Y+6, r1	; 0x06
+  1c:	be 01       	movw	r22, r28
+  1e:	6c 5f       	subi	r22, 0xFC	; 252
+  20:	7f 4f       	sbci	r23, 0xFF	; 255
+  22:	ce 01       	movw	r24, r28
+  24:	df 91       	pop	r29
+  26:	cf 91       	pop	r28
+  28:	0c 94 00 00 	jmp	0	; 0x0 <_ZN9component10PushButtonC1ERKN2io3PinEhh>
 
 Disassembly of section .text._ZN9component10PushButtonD2Ev:
 
@@ -4676,85 +4676,85 @@ Disassembly of section .text._ZN9component10PushButton9isPressedEv:
    0:	cf 93       	push	r28
    2:	df 93       	push	r29
    4:	ec 01       	movw	r28, r24
-   6:	eb 81       	ldd	r30, Y+3	; 0x03
-   8:	fc 81       	ldd	r31, Y+4	; 0x04
-   a:	80 81       	ld	r24, Z
-   c:	81 11       	cpse	r24, r1
-   e:	00 c0       	rjmp	.+0      	; 0x10 <_ZN9component10PushButton9isPressedEv+0x10>
-  10:	ed 81       	ldd	r30, Y+5	; 0x05
-  12:	fe 81       	ldd	r31, Y+6	; 0x06
-  14:	80 81       	ld	r24, Z
-  16:	81 15       	cp	r24, r1
-  18:	01 f0       	breq	.+0      	; 0x1a <.L4>
+   6:	8b 81       	ldd	r24, Y+3	; 0x03
+   8:	81 15       	cp	r24, r1
+   a:	01 f0       	breq	.+0      	; 0xc <_ZN9component10PushButton9isPressedEv+0xc>
+   c:	ce 01       	movw	r24, r28
+   e:	0e 94 00 00 	call	0	; 0x0 <_ZN9component10PushButton9isPressedEv>
+  12:	81 11       	cpse	r24, r1
+  14:	00 c0       	rjmp	.+0      	; 0x16 <.L7>
 
-0000001a <.L4>:
-  1a:	ce 01       	movw	r24, r28
-  1c:	0e 94 00 00 	call	0	; 0x0 <_ZN9component10PushButton9isPressedEv>
-  20:	81 11       	cpse	r24, r1
-  22:	00 c0       	rjmp	.+0      	; 0x24 <.L8>
+00000016 <.L7>:
+  16:	80 e0       	ldi	r24, 0x00	; 0
 
-00000024 <.L8>:
-  24:	80 e0       	ldi	r24, 0x00	; 0
+00000018 <.L6>:
+  18:	8d 83       	std	Y+5, r24	; 0x05
+  1a:	df 91       	pop	r29
+  1c:	cf 91       	pop	r28
+  1e:	08 95       	ret
 
-00000026 <.L3>:
-  26:	df 91       	pop	r29
-  28:	cf 91       	pop	r28
-  2a:	08 95       	ret
+00000020 <.L5>:
+  20:	8f e9       	ldi	r24, 0x9F	; 159
+  22:	9f e0       	ldi	r25, 0x0F	; 15
 
-0000002c <.L6>:
-  2c:	8f e9       	ldi	r24, 0x9F	; 159
-  2e:	9f e0       	ldi	r25, 0x0F	; 15
+00000024 <.L1^B1>:
+  24:	01 97       	sbiw	r24, 0x01	; 1
+  26:	01 f4       	brne	.+0      	; 0x28 <.L1^B1+0x4>
+  28:	00 c0       	rjmp	.+0      	; 0x2a <L0^A>
 
-00000030 <.L1^B1>:
-  30:	01 97       	sbiw	r24, 0x01	; 1
-  32:	01 f4       	brne	.+0      	; 0x34 <.L1^B1+0x4>
-  34:	00 c0       	rjmp	.+0      	; 0x36 <L0^A>
+0000002a <L0^A>:
+  2a:	00 00       	nop
+  2c:	ce 01       	movw	r24, r28
+  2e:	0e 94 00 00 	call	0	; 0x0 <_ZN9component10PushButton9isPressedEv>
 
-00000036 <L0^A>:
-  36:	00 00       	nop
-  38:	ce 01       	movw	r24, r28
-  3a:	0e 94 00 00 	call	0	; 0x0 <_ZN9component10PushButton9isPressedEv>
+00000032 <.L17>:
+  32:	81 15       	cp	r24, r1
+  34:	01 f0       	breq	.+0      	; 0x36 <.L17+0x4>
+  36:	8d 81       	ldd	r24, Y+5	; 0x05
+  38:	81 15       	cp	r24, r1
+  3a:	01 f0       	breq	.+0      	; 0x3c <.L9>
 
-0000003e <.L21>:
-  3e:	81 15       	cp	r24, r1
-  40:	01 f0       	breq	.+0      	; 0x42 <.L21+0x4>
-  42:	8f 81       	ldd	r24, Y+7	; 0x07
-  44:	8f 5f       	subi	r24, 0xFF	; 255
-  46:	8f 83       	std	Y+7, r24	; 0x07
-  48:	81 e0       	ldi	r24, 0x01	; 1
-  4a:	00 c0       	rjmp	.+0      	; 0x4c <.L5>
+0000003c <.L9>:
+  3c:	81 e0       	ldi	r24, 0x01	; 1
+  3e:	00 c0       	rjmp	.+0      	; 0x40 <.L4>
 
-0000004c <.L5>:
-  4c:	ce 01       	movw	r24, r28
-  4e:	0e 94 00 00 	call	0	; 0x0 <_ZN9component10PushButton9isPressedEv>
-  52:	81 15       	cp	r24, r1
-  54:	01 f0       	breq	.+0      	; 0x56 <.L5+0xa>
-  56:	8f e9       	ldi	r24, 0x9F	; 159
-  58:	9f e0       	ldi	r25, 0x0F	; 15
+00000040 <.L4>:
+  40:	ce 01       	movw	r24, r28
+  42:	0e 94 00 00 	call	0	; 0x0 <_ZN9component10PushButton9isPressedEv>
+  46:	81 15       	cp	r24, r1
+  48:	01 f0       	breq	.+0      	; 0x4a <.L4+0xa>
+  4a:	8f e9       	ldi	r24, 0x9F	; 159
+  4c:	9f e0       	ldi	r25, 0x0F	; 15
 
-0000005a <.L1^B2>:
-  5a:	01 97       	sbiw	r24, 0x01	; 1
-  5c:	01 f4       	brne	.+0      	; 0x5e <.L1^B2+0x4>
-  5e:	00 c0       	rjmp	.+0      	; 0x60 <L0^A>
+0000004e <.L1^B2>:
+  4e:	01 97       	sbiw	r24, 0x01	; 1
+  50:	01 f4       	brne	.+0      	; 0x52 <.L1^B2+0x4>
+  52:	00 c0       	rjmp	.+0      	; 0x54 <L0^A>
 
-00000060 <L0^A>:
-  60:	00 00       	nop
-  62:	ce 01       	movw	r24, r28
-  64:	0e 94 00 00 	call	0	; 0x0 <_ZN9component10PushButton9isPressedEv>
-  68:	00 c0       	rjmp	.+0      	; 0x6a <L0^A+0xa>
+00000054 <L0^A>:
+  54:	00 00       	nop
+  56:	ce 01       	movw	r24, r28
+  58:	0e 94 00 00 	call	0	; 0x0 <_ZN9component10PushButton9isPressedEv>
+  5c:	00 c0       	rjmp	.+0      	; 0x5e <.L8>
+
+0000005e <.L8>:
+  5e:	8e 81       	ldd	r24, Y+6	; 0x06
+  60:	8f 5f       	subi	r24, 0xFF	; 255
+  62:	8e 83       	std	Y+6, r24	; 0x06
+  64:	00 c0       	rjmp	.+0      	; 0x66 <.L8+0x8>
 
 Disassembly of section .text._ZNK9component10PushButton15getPressedCountEv:
 
 00000000 <_ZNK9component10PushButton15getPressedCountEv>:
    0:	fc 01       	movw	r30, r24
-   2:	87 81       	ldd	r24, Z+7	; 0x07
+   2:	86 81       	ldd	r24, Z+6	; 0x06
    4:	08 95       	ret
 
 Disassembly of section .text._ZN9component10PushButton17resetPressedCountEv:
 
 00000000 <_ZN9component10PushButton17resetPressedCountEv>:
    0:	fc 01       	movw	r30, r24
-   2:	17 82       	std	Z+7, r1	; 0x07
+   2:	16 82       	std	Z+6, r1	; 0x06
    4:	08 95       	ret
 ********** scripts/.build/lib/component/ServoMotor.o **********
 

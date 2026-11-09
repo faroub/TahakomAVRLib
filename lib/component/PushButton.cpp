@@ -9,15 +9,15 @@
 
 #include "PushButton.h"
 
-component::PushButton::PushButton(const io::Pin& ar_pin, const uint8_t &ar_useInternalPullUp, const uint8_t &ar_isActiveLow)
+component::PushButton::PushButton(const io::Pin& ar_pin, uint8_t ar_useInternalPullUp, uint8_t ar_isActiveLow)
                                   : m_pin(ar_pin),
-                                    mr_isActiveLow(ar_isActiveLow),
-                                    mr_useInternalPullUp(ar_useInternalPullUp)
-
+                                    m_isActiveLow(ar_isActiveLow),
+                                    m_useInternalPullUp(ar_useInternalPullUp),
+                                    m_lastState(0),
+                                    m_buttonPressed(0)
 
 {
-    m_pin.toInput(mr_useInternalPullUp);
-    m_buttonPressed = 0;
+    m_pin.toInput(m_useInternalPullUp);
 }
 
 component::PushButton::~PushButton()
@@ -28,27 +28,31 @@ component::PushButton::~PushButton()
 
 uint8_t component::PushButton::isPressed()
 {
-    if (mr_isActiveLow || mr_useInternalPullUp) {
+    uint8_t l_pressed = 0;
+
+    if (m_isActiveLow) {
         if (m_pin.isLow()) {
             _delay_us(PUSHBUTTON_DEBOUNCE_TIME_US);
             if (m_pin.isLow()) {
-                ++m_buttonPressed;
-                return 1;
+                l_pressed = 1;
             }
         }
     } else {
-
         if (m_pin.isHigh()) {
             _delay_us(PUSHBUTTON_DEBOUNCE_TIME_US);
             if (m_pin.isHigh()) {
-                ++m_buttonPressed;
-                return 1;
+                l_pressed = 1;
             }
         }
-
     }
 
-    return 0;
+    // count one press per release->press transition
+    if (l_pressed && !m_lastState) {
+        ++m_buttonPressed;
+    }
+    m_lastState = l_pressed;
+
+    return l_pressed;
 
 }
 

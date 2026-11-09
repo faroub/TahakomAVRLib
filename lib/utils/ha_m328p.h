@@ -13,8 +13,9 @@
 #endif
 
 // PushButton defines
+// Debounce time between the two pin samples of isPressed(): 1 ms, long
+// enough to skip the bounce of a typical tactile switch
 #define PUSHBUTTON_DEBOUNCE_TIME_US 1000 // microseconds to wait for next check
-#define PUSHBUTTON_SAMPLING     12           // number of times a push button must be pressed
 
 
 // USART defines
