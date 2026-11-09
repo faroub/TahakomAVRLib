@@ -105,6 +105,15 @@ public:
 
     static void selectSleepMode(const sleepMode &a_sleepMode);
 
+    /** Enter sleep until an interrupt wakes the chip.
+     *
+     *  The sleep instruction must run with interrupts enabled, otherwise
+     *  the chip never wakes up.  In the BOD-disabled mode the timed
+     *  avr-libc sleep_bod_disable() sequence runs immediately before
+     *  sleep_cpu(), as the datasheet requires.
+     *
+     *  @param a_BODMode Defines whether the brown-out detector stays on
+     */
     static void goToSleep(const BODMode &a_BODMode);
 
     static void sleepEnable(const uint8_t ar_enable);
@@ -122,8 +131,6 @@ public:
     static void enableSPI(const uint8_t a_enable);
 
     static void enableADC(const uint8_t a_enable);
-
-    static void disableBOD();
 
 
 

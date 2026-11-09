@@ -401,12 +401,6 @@
 #define MCU_ADC_ENABLE PRR &= ~(1 << PRADC)
 #define MCU_ADC_DISABLE PRR |=  1 << PRADC
 
-#define MCU_BOD_DISABLE \
-    do { \
-        MCUCR |= (1<<BODSE) | (1<<BODS); \
-        MCUCR &= ~(1<<BODSE); \
-    } while (0)
-
 
 // ServoMotor defines
 

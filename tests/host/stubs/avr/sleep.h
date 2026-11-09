@@ -7,4 +7,6 @@
 
 static inline void sleep_cpu(void) {}
 
+static inline void sleep_bod_disable(void) {}
+
 #endif /* HOST_STUB_AVR_SLEEP_H */

@@ -1,4 +1,5 @@
 #include "MCU.h"
+#include <avr/sleep.h>
 #include <util/atomic.h>
 
 void core::MCU::enableInterrupts()
@@ -44,8 +45,12 @@ void core::MCU::goToSleep(const BODMode &a_BODMode)
             case core::BODMode::disabled:
             {
                 sleepEnable(1);
-                disableBOD();
+                // the sleep instruction must run with interrupts enabled so
+                // that the chip can wake up again
                 sei();
+                // the timed BOD disable sequence must immediately precede
+                // sleep_cpu(), an interrupt in between would break it
+                sleep_bod_disable();
                 sleep_cpu();
                 sleepEnable(0);
                 break;
@@ -132,9 +137,4 @@ void core::MCU::enableADC(const uint8_t a_enable)
     } else {
         MCU_ADC_DISABLE;
     }
-}
-
-void core::MCU::disableBOD()
-{
-    MCU_BOD_DISABLE;
 }

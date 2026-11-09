@@ -2505,7 +2505,49 @@ Disassembly of section .text._ZN4core3MCU11sleepEnableEh:
 0000000c <.L4>:
    c:	83 b7       	in	r24, 0x33	; 51
    e:	8e 7f       	andi	r24, 0xFE	; 254
-  10:	00 c0       	rjmp	.+0      	; 0x12 <.L40>
+  10:	00 c0       	rjmp	.+0      	; 0x12 <.L10>
+
+Disassembly of section .text._ZN4core3MCU9goToSleepERKNS_7BODModeE:
+
+00000000 <_ZN4core3MCU9goToSleepERKNS_7BODModeE>:
+   0:	cf 93       	push	r28
+   2:	fc 01       	movw	r30, r24
+   4:	cf b7       	in	r28, 0x3f	; 63
+   6:	f8 94       	cli
+   8:	80 81       	ld	r24, Z
+   a:	81 15       	cp	r24, r1
+   c:	01 f0       	breq	.+0      	; 0xe <_ZN4core3MCU9goToSleepERKNS_7BODModeE+0xe>
+   e:	81 30       	cpi	r24, 0x01	; 1
+  10:	01 f0       	breq	.+0      	; 0x12 <.L10>
+
+00000012 <.L10>:
+  12:	cf bf       	out	0x3f, r28	; 63
+  14:	cf 91       	pop	r28
+  16:	08 95       	ret
+
+00000018 <.L8>:
+  18:	83 b7       	in	r24, 0x33	; 51
+  1a:	81 60       	ori	r24, 0x01	; 1
+  1c:	83 bf       	out	0x33, r24	; 51
+  1e:	78 94       	sei
+
+00000020 <.L11>:
+  20:	88 95       	sleep
+  22:	80 e0       	ldi	r24, 0x00	; 0
+  24:	0e 94 00 00 	call	0	; 0x0 <_ZN4core3MCU9goToSleepERKNS_7BODModeE>
+  28:	00 c0       	rjmp	.+0      	; 0x2a <.L9>
+
+0000002a <.L9>:
+  2a:	83 b7       	in	r24, 0x33	; 51
+  2c:	81 60       	ori	r24, 0x01	; 1
+  2e:	83 bf       	out	0x33, r24	; 51
+  30:	78 94       	sei
+  32:	85 b7       	in	r24, 0x35	; 53
+  34:	80 66       	ori	r24, 0x60	; 96
+  36:	85 bf       	out	0x35, r24	; 53
+  38:	8f 7d       	andi	r24, 0xDF	; 223
+  3a:	85 bf       	out	0x35, r24	; 53
+  3c:	00 c0       	rjmp	.+0      	; 0x3e <__SP_H__>
 
 Disassembly of section .text._ZN4core3MCU12enableUSART0Eh:
 
@@ -2515,14 +2557,14 @@ Disassembly of section .text._ZN4core3MCU12enableUSART0Eh:
    4:	80 91 64 00 	lds	r24, 0x0064	; 0x800064 <__SREG__+0x800025>
    8:	8d 7f       	andi	r24, 0xFD	; 253
 
-0000000a <.L10>:
+0000000a <.L15>:
    a:	80 93 64 00 	sts	0x0064, r24	; 0x800064 <__SREG__+0x800025>
    e:	08 95       	ret
 
-00000010 <.L8>:
+00000010 <.L13>:
   10:	80 91 64 00 	lds	r24, 0x0064	; 0x800064 <__SREG__+0x800025>
   14:	82 60       	ori	r24, 0x02	; 2
-  16:	00 c0       	rjmp	.+0      	; 0x18 <.L38>
+  16:	00 c0       	rjmp	.+0      	; 0x18 <.L8>
 
 Disassembly of section .text._ZN4core3MCU19enableTimerCounter0Eh:
 
@@ -2532,14 +2574,14 @@ Disassembly of section .text._ZN4core3MCU19enableTimerCounter0Eh:
    4:	80 91 64 00 	lds	r24, 0x0064	; 0x800064 <__SREG__+0x800025>
    8:	8f 7d       	andi	r24, 0xDF	; 223
 
-0000000a <.L14>:
+0000000a <.L19>:
    a:	80 93 64 00 	sts	0x0064, r24	; 0x800064 <__SREG__+0x800025>
    e:	08 95       	ret
 
-00000010 <.L12>:
+00000010 <.L17>:
   10:	80 91 64 00 	lds	r24, 0x0064	; 0x800064 <__SREG__+0x800025>
   14:	80 62       	ori	r24, 0x20	; 32
-  16:	00 c0       	rjmp	.+0      	; 0x18 <.L38>
+  16:	00 c0       	rjmp	.+0      	; 0x18 <.L8>
 
 Disassembly of section .text._ZN4core3MCU19enableTimerCounter1Eh:
 
@@ -2549,14 +2591,14 @@ Disassembly of section .text._ZN4core3MCU19enableTimerCounter1Eh:
    4:	80 91 64 00 	lds	r24, 0x0064	; 0x800064 <__SREG__+0x800025>
    8:	87 7f       	andi	r24, 0xF7	; 247
 
-0000000a <.L18>:
+0000000a <.L23>:
    a:	80 93 64 00 	sts	0x0064, r24	; 0x800064 <__SREG__+0x800025>
    e:	08 95       	ret
 
-00000010 <.L16>:
+00000010 <.L21>:
   10:	80 91 64 00 	lds	r24, 0x0064	; 0x800064 <__SREG__+0x800025>
   14:	88 60       	ori	r24, 0x08	; 8
-  16:	00 c0       	rjmp	.+0      	; 0x18 <.L38>
+  16:	00 c0       	rjmp	.+0      	; 0x18 <.L8>
 
 Disassembly of section .text._ZN4core3MCU19enableTimerCounter2Eh:
 
@@ -2566,14 +2608,14 @@ Disassembly of section .text._ZN4core3MCU19enableTimerCounter2Eh:
    4:	80 91 64 00 	lds	r24, 0x0064	; 0x800064 <__SREG__+0x800025>
    8:	8f 7b       	andi	r24, 0xBF	; 191
 
-0000000a <.L22>:
+0000000a <.L27>:
    a:	80 93 64 00 	sts	0x0064, r24	; 0x800064 <__SREG__+0x800025>
    e:	08 95       	ret
 
-00000010 <.L20>:
+00000010 <.L25>:
   10:	80 91 64 00 	lds	r24, 0x0064	; 0x800064 <__SREG__+0x800025>
   14:	80 64       	ori	r24, 0x40	; 64
-  16:	00 c0       	rjmp	.+0      	; 0x18 <.L38>
+  16:	00 c0       	rjmp	.+0      	; 0x18 <.L8>
 
 Disassembly of section .text._ZN4core3MCU9enableTWIEh:
 
@@ -2583,14 +2625,14 @@ Disassembly of section .text._ZN4core3MCU9enableTWIEh:
    4:	80 91 64 00 	lds	r24, 0x0064	; 0x800064 <__SREG__+0x800025>
    8:	8f 77       	andi	r24, 0x7F	; 127
 
-0000000a <.L26>:
+0000000a <.L31>:
    a:	80 93 64 00 	sts	0x0064, r24	; 0x800064 <__SREG__+0x800025>
    e:	08 95       	ret
 
-00000010 <.L24>:
+00000010 <.L29>:
   10:	80 91 64 00 	lds	r24, 0x0064	; 0x800064 <__SREG__+0x800025>
   14:	80 68       	ori	r24, 0x80	; 128
-  16:	00 c0       	rjmp	.+0      	; 0x18 <.L38>
+  16:	00 c0       	rjmp	.+0      	; 0x18 <.L8>
 
 Disassembly of section .text._ZN4core3MCU9enableSPIEh:
 
@@ -2600,14 +2642,14 @@ Disassembly of section .text._ZN4core3MCU9enableSPIEh:
    4:	80 91 64 00 	lds	r24, 0x0064	; 0x800064 <__SREG__+0x800025>
    8:	8b 7f       	andi	r24, 0xFB	; 251
 
-0000000a <.L30>:
+0000000a <.L35>:
    a:	80 93 64 00 	sts	0x0064, r24	; 0x800064 <__SREG__+0x800025>
    e:	08 95       	ret
 
-00000010 <.L28>:
+00000010 <.L33>:
   10:	80 91 64 00 	lds	r24, 0x0064	; 0x800064 <__SREG__+0x800025>
   14:	84 60       	ori	r24, 0x04	; 4
-  16:	00 c0       	rjmp	.+0      	; 0x18 <.L38>
+  16:	00 c0       	rjmp	.+0      	; 0x18 <.L8>
 
 Disassembly of section .text._ZN4core3MCU9enableADCEh:
 
@@ -2617,14 +2659,14 @@ Disassembly of section .text._ZN4core3MCU9enableADCEh:
    4:	80 91 64 00 	lds	r24, 0x0064	; 0x800064 <__SREG__+0x800025>
    8:	8e 7f       	andi	r24, 0xFE	; 254
 
-0000000a <.L34>:
+0000000a <.L39>:
    a:	80 93 64 00 	sts	0x0064, r24	; 0x800064 <__SREG__+0x800025>
    e:	08 95       	ret
 
-00000010 <.L32>:
+00000010 <.L37>:
   10:	80 91 64 00 	lds	r24, 0x0064	; 0x800064 <__SREG__+0x800025>
   14:	81 60       	ori	r24, 0x01	; 1
-  16:	00 c0       	rjmp	.+0      	; 0x18 <.L38>
+  16:	00 c0       	rjmp	.+0      	; 0x18 <.L8>
 
 Disassembly of section .text._ZN4core3MCU4initEv:
 
@@ -2643,54 +2685,6 @@ Disassembly of section .text._ZN4core3MCU4initEv:
   20:	0e 94 00 00 	call	0	; 0x0 <_ZN4core3MCU4initEv>
   24:	80 e0       	ldi	r24, 0x00	; 0
   26:	0c 94 00 00 	jmp	0	; 0x0 <_ZN4core3MCU4initEv>
-
-Disassembly of section .text._ZN4core3MCU10disableBODEv:
-
-00000000 <_ZN4core3MCU10disableBODEv>:
-   0:	85 b7       	in	r24, 0x35	; 53
-   2:	80 66       	ori	r24, 0x60	; 96
-   4:	85 bf       	out	0x35, r24	; 53
-   6:	85 b7       	in	r24, 0x35	; 53
-   8:	8f 7d       	andi	r24, 0xDF	; 223
-   a:	85 bf       	out	0x35, r24	; 53
-   c:	08 95       	ret
-
-Disassembly of section .text._ZN4core3MCU9goToSleepERKNS_7BODModeE:
-
-00000000 <_ZN4core3MCU9goToSleepERKNS_7BODModeE>:
-   0:	cf 93       	push	r28
-   2:	fc 01       	movw	r30, r24
-   4:	cf b7       	in	r28, 0x3f	; 63
-   6:	f8 94       	cli
-   8:	80 81       	ld	r24, Z
-   a:	81 15       	cp	r24, r1
-   c:	01 f0       	breq	.+0      	; 0xe <_ZN4core3MCU9goToSleepERKNS_7BODModeE+0xe>
-   e:	81 30       	cpi	r24, 0x01	; 1
-  10:	01 f0       	breq	.+0      	; 0x12 <.L40>
-
-00000012 <.L40>:
-  12:	cf bf       	out	0x3f, r28	; 63
-  14:	cf 91       	pop	r28
-  16:	08 95       	ret
-
-00000018 <.L38>:
-  18:	83 b7       	in	r24, 0x33	; 51
-  1a:	81 60       	ori	r24, 0x01	; 1
-  1c:	83 bf       	out	0x33, r24	; 51
-
-0000001e <.L41>:
-  1e:	78 94       	sei
-  20:	88 95       	sleep
-  22:	80 e0       	ldi	r24, 0x00	; 0
-  24:	0e 94 00 00 	call	0	; 0x0 <_ZN4core3MCU9goToSleepERKNS_7BODModeE>
-  28:	00 c0       	rjmp	.+0      	; 0x2a <.L39>
-
-0000002a <.L39>:
-  2a:	83 b7       	in	r24, 0x33	; 51
-  2c:	81 60       	ori	r24, 0x01	; 1
-  2e:	83 bf       	out	0x33, r24	; 51
-  30:	0e 94 00 00 	call	0	; 0x0 <_ZN4core3MCU9goToSleepERKNS_7BODModeE>
-  34:	00 c0       	rjmp	.+0      	; 0x36 <.L39+0xc>
 ********** scripts/.build/lib/core/TimerCounter0.o **********
 
 scripts/.build/lib/core/TimerCounter0.o:     file format elf32-avr
