@@ -86,6 +86,14 @@ void core::TimerCounter2::selectClockSource(const clockSource &ar_clockSource)
             m_clockSource=7;
             break;
         }
+        default:
+        {
+            // unsupported on this timer (external clock options): stop the
+            // clock instead of keeping the previously selected source
+            m_clockPrescaler=0;
+            m_clockSource=0;
+            break;
+        }
     }
 
 }
@@ -122,6 +130,13 @@ void core::TimerCounter2::selectOperationMode(const operationMode &ar_operationM
         case core::operationMode::fast_PWM_OCR:
         {
             TIMER2_SELECT_OPERATION_MODE(7);
+            break;
+        }
+        default:
+        {
+            // unsupported on this timer: fall back to normal mode instead
+            // of keeping the previously programmed mode
+            TIMER2_SELECT_OPERATION_MODE(0);
             break;
         }
 
@@ -198,17 +213,21 @@ void core::TimerCounter2::setOutputCompareRegister(const channel &ar_channel, co
 
 uint16_t core::TimerCounter2::getOutputCompareRegister(const channel &ar_channel) const
 {
+    uint16_t compareRegister = 0;
     switch (ar_channel)
     {
         case core::channel::A:
         {
-            return OCR2A;
+            compareRegister = OCR2A;
+            break;
         }
         case core::channel::B:
         {
-            return OCR2B;
+            compareRegister = OCR2B;
+            break;
         }
     }
+    return compareRegister;
 
 }
 

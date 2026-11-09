@@ -88,6 +88,14 @@ void core::TimerCounter1::selectClockSource(const clockSource &ar_clockSource)
             m_clockSource=7;
             break;
         }
+        default:
+        {
+            // unsupported on this timer (e.g. PS_32, PS_128): stop the
+            // clock instead of keeping the previously selected source
+            m_clockPrescaler=0;
+            m_clockSource=0;
+            break;
+        }
     }
 
 
@@ -170,6 +178,13 @@ void core::TimerCounter1::selectOperationMode(const operationMode &ar_operationM
         case core::operationMode::fast_PWM_OCR:
         {
             TIMER1_SELECT_OPERATION_MODE(15);
+            break;
+        }
+        default:
+        {
+            // unsupported on this timer: fall back to normal mode instead
+            // of keeping the previously programmed mode
+            TIMER1_SELECT_OPERATION_MODE(0);
             break;
         }
 

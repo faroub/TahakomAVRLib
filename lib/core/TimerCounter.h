@@ -519,14 +519,44 @@ class TimerCounter
 
 public:
 
+    /**
+     *  Virtual destructor so subclass objects can be deleted through a
+     *  TimerCounter pointer.
+     */
+    virtual ~TimerCounter() {}
 
+    /**
+     *  Freestanding C++ on AVR has no libstdc++ and therefore no global
+     *  operator delete, which the deleting destructor above would
+     *  otherwise reference and fail to link.  Nothing in this library is
+     *  heap-allocated (there is no operator new either), so the body is
+     *  empty.
+     */
+    static void operator delete(void *) {}
+
+    /**
+     *  Select the operation mode.
+     *
+     *  Each timer supports a subset of core::operationMode.  A value the
+     *  timer does not support is a programming error: the timer falls
+     *  back to normal mode instead of keeping the previously programmed
+     *  mode.
+     */
     virtual void selectOperationMode(const operationMode &ar_operationMode) = 0;
+
+    /**
+     *  Select the clock source (prescaler).
+     *
+     *  Each timer supports a subset of core::clockSource.  A value the
+     *  timer does not support is a programming error: the timer falls
+     *  back to the stopped state (noClock) instead of keeping the
+     *  previously selected source.
+     */
+    virtual void selectClockSource(const clockSource &ar_clockSource) = 0;
 
     virtual void start() = 0;
 
     virtual void stop() = 0;
-
-    virtual void selectClockSource(const clockSource &ar_clockSource) = 0;
 
     virtual void selectCompareOutputMode(const channel &ar_channel, const compareOutputMode &ar_compareOutputMode) = 0;
 

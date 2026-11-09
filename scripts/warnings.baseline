@@ -14,9 +14,9 @@ lib/core/ADC.cpp 0
 lib/core/AnalogComparator.cpp 0
 lib/core/ExternInterrupt.cpp 0
 lib/core/MCU.cpp 0
-lib/core/TimerCounter0.cpp 14
-lib/core/TimerCounter1.cpp 4
-lib/core/TimerCounter2.cpp 14
+lib/core/TimerCounter0.cpp 0
+lib/core/TimerCounter1.cpp 0
+lib/core/TimerCounter2.cpp 0
 lib/core/WatchdogTimer.cpp 0
 lib/io/Pin.cpp 0
 lib/io/SPI.cpp 0
