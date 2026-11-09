@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file main.cpp
  *
  * Demo example: Light Meter
@@ -18,6 +18,7 @@
 #include "Led.h"
 #include "ADC.h"
 #include "LDR.h"
+#include "utils_m328p.h"
 
 #define LED0 0 /**< Led 0 */
 #define LED1 1 /**< Led 1 */
@@ -30,6 +31,13 @@
 
 #define LDRVD 0 /**< LDR */
 
+// Display range of the light meter in lux, from the GL5528-type LDR
+// characteristic that LDR::getLux() implements: LUX_MIN is a dimly lit
+// room, LUX_MAX is bright indoor lighting close to a window.  Light
+// above the range (direct sunlight) saturates the display, all 8 LEDs
+// on; light below it switches all LEDs off.
+#define LUX_MIN 1
+#define LUX_MAX 1000
 
 int main(void) {
 
@@ -60,13 +68,31 @@ int main(void) {
   // Mainloop
   while (1) {
 
+    // one measurement per loop iteration
+    uint16_t l_lux = LDR.getLux(5);
 
-    for (uint8_t i=0;i<=(7-(LDR.getLux(5) & 7));i++)
+    // clamp into the display range
+    if (l_lux < LUX_MIN)
+    {
+        l_lux = LUX_MIN;
+    }
+    if (l_lux > LUX_MAX)
+    {
+        l_lux = LUX_MAX;
+    }
+
+    const uint8_t l_numLeds = static_cast<uint8_t>(utils::map(l_lux,
+                                                              LUX_MIN,
+                                                              LUX_MAX,
+                                                              0,
+                                                              8));
+
+    for (uint8_t i=0;i<l_numLeds;i++)
     {
         Led[i].on();
     }
 
-    for (uint8_t i=(7-(LDR.getLux(5) & 7))+1;i<8;i++)
+    for (uint8_t i=l_numLeds;i<8;i++)
     {
         Led[i].off();
     }

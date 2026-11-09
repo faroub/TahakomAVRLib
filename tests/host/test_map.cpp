@@ -85,6 +85,43 @@ int main(void)
     printf("  map(15,0,10,0,100)=%ld map(-5,0,10,0,100)=%ld\n",
            utils::map(15, 0, 10, 0, 100), utils::map(-5, 0, 10, 0, 100));
 
+    // The LightMeter mapping (applications/LightMeter/main.cpp): the
+    // lux measurement is clamped to [LUX_MIN, LUX_MAX] and mapped to the
+    // 0..8 count of lit LEDs.  The clamp is essential because utils::map
+    // extrapolates instead of clamping.
+    printf("the LightMeter lux-to-LED mapping is monotone and saturated:\n");
+    const long LUX_MIN = 1;
+    const long LUX_MAX = 1000;
+    struct LuxCase { uint16_t lux; uint8_t expected; };
+    const LuxCase luxCases[] = {
+        {    0, 0 },   // dark, clamped to LUX_MIN -> 0 LEDs
+        {    1, 0 },   // LUX_MIN itself
+        {  100, 0 },   // 0.79 -> 0
+        {  126, 1 },   // 1.0 -> 1
+        {  500, 3 },   // 3.99 -> 3
+        {  750, 5 },   // 5.99 -> 5
+        {  875, 6 },   // 6.99 -> 6
+        {  999, 7 },   // 7.98 -> 7
+        { 1000, 8 },   // LUX_MAX -> all 8 LEDs
+        { 65535, 8 },  // sunlight, clamped to LUX_MAX -> 8
+    };
+    for (uint8_t i = 0; i < 10; i++)
+    {
+        uint16_t l_lux = luxCases[i].lux;
+        if (l_lux < LUX_MIN)
+        {
+            l_lux = LUX_MIN;
+        }
+        if (l_lux > LUX_MAX)
+        {
+            l_lux = LUX_MAX;
+        }
+        uint8_t l_numLeds = static_cast<uint8_t>(utils::map(l_lux, LUX_MIN, LUX_MAX, 0, 8));
+        printf("  lux=%5u -> %u LED(s) (expected %u)\n",
+               luxCases[i].lux, l_numLeds, luxCases[i].expected);
+        CHECK(l_numLeds == luxCases[i].expected);
+    }
+
     printf("%s: %u failure(s), %u xfail(s), %u xpass(es)\n",
            failures ? "FAILED" : "PASSED", failures, xfailures, xpasses);
     return failures ? 1 : 0;
