@@ -38,6 +38,54 @@ int main(void)
 {
     io::USART0 &usart = io::USART0::getInstance();
 
+    printf("transmit: sendChar claims the transmitter synchronously and copies the byte:\n");
+    uint8_t l_char2Send = 'X';
+    usart.sendChar(l_char2Send);
+    CHECK(usart.ready2Send() == 0);         // cleared before the interrupt is armed
+    CHECK((UCSR0B & (1 << UDRIE0)) != 0);   // data-register-empty interrupt enabled
+    // the byte is copied: overwriting the caller variable must not matter
+    l_char2Send = 'Y';
+    UDR0 = 0;
+    usart.dataRegisterEmptyServiceRoutine();
+    CHECK(UDR0 == 'X');
+    CHECK(usart.getNumberBytesSent() == 1);
+    usart.dataRegisterEmptyServiceRoutine();
+    CHECK(usart.ready2Send() == 1);         // transmitter released after the last byte
+    CHECK((UCSR0B & (1 << UDRIE0)) == 0);
+
+    printf("sendString drains the whole string before releasing:\n");
+    UCSR0B = 0;
+    usart.sendString("OK!");
+    CHECK(usart.ready2Send() == 0);
+    uint8_t l_sent[3] = {0, 0, 0};
+    for (uint8_t i = 0; i < 3; i++)
+    {
+        UDR0 = 0;
+        usart.dataRegisterEmptyServiceRoutine();
+        l_sent[i] = UDR0;
+        CHECK(usart.ready2Send() == 0);   // busy until the last byte is drained
+    }
+    // on the wire, UDRE fires once more with the buffer empty -> release
+    usart.dataRegisterEmptyServiceRoutine();
+    CHECK(usart.ready2Send() == 1);
+    CHECK(l_sent[0] == 'O');
+    CHECK(l_sent[1] == 'K');
+    CHECK(l_sent[2] == '!');
+    CHECK(usart.getNumberBytesSent() == 3);
+
+    printf("sendByte is zero-padded to 3 characters:\n");
+    usart.sendByte(5);
+    uint8_t l_out[3] = {0, 0, 0};
+    for (uint8_t i = 0; i < 3; i++)
+    {
+        UDR0 = 0;
+        usart.dataRegisterEmptyServiceRoutine();
+        l_out[i] = UDR0;
+    }
+    usart.dataRegisterEmptyServiceRoutine();  // release
+    CHECK(l_out[0] == '0' && l_out[1] == '0' && l_out[2] == '5');
+    CHECK(usart.ready2Send() == 1);
+
     printf("receive frame of 4 bytes lands in the buffer in order:\n");
     uint8_t l_buffer[4] = {0xFF, 0xFF, 0xFF, 0xFF};
     usart.resetNumberBytesReceived();

@@ -156,8 +156,16 @@ public:
     /**
      *  Transmit data frame
      *
+     *  Claims the transmitter and enables the data-register-empty
+     *  interrupt; ready2Send() is cleared synchronously before the
+     *  interrupt is enabled, and getNumberBytesSent() is restarted
+     *  at 0.
+     *
      *  @param ap_dataBuffer Defines pointer to transmitter buffer
      *  @param a_size Defines size of transmitter buffer
+     *
+     *  @note ap_dataBuffer must outlive the transmission: the transmit
+     *  ISR reads from it until all a_size bytes have been sent.
      */
     void sendFrame(const uint8_t *ap_dataBuffer, const uint8_t a_size);
 
@@ -165,6 +173,9 @@ public:
      *  Transmit string
      *
      *  @param ap_string Defines pointer to string
+     *
+     *  @note ap_string must outlive the transmission (string literals
+     *  are fine, they live in program storage for the whole program).
      */
     void sendString(const char *ap_string);
 
@@ -186,12 +197,18 @@ public:
     /**
      *  Transmit character
      *
+     *  The byte is copied into internal storage, so ar_char does not
+     *  have to outlive the call.
+     *
      *  @param ar_char Defines character to be sent
      */
     void sendChar(const uint8_t &ar_char);
 
     /**
      *  Transmit byte
+     *
+     *  Always transmits 3 characters, zero-padded: sendByte(5) sends
+     *  "005", sendByte(255) sends "255".
      *
      *  @param ar_byte Defines byte to be sent
      */
@@ -200,12 +217,18 @@ public:
     /**
      *  Transmit word
      *
+     *  Always transmits 5 characters, zero-padded: sendWord(5) sends
+     *  "00005".
+     *
      *  @param ar_word Defines word to be sent
      */
     void sendWord(const uint16_t &ar_word);
 
     /**
      *  Transmit long word
+     *
+     *  Always transmits 10 characters, zero-padded: sendLong(5) sends
+     *  "0000000005".
      *
      *  @param ar_long Defines long word to be sent
      */
@@ -293,6 +316,9 @@ public:
     uint16_t getNumberBytesReceived();
     /**
      *  Get number of bytes sent
+     *
+     *  Bytes sent by the current transmission; restarted at 0 at the
+     *  start of each send.
      *
      *  @return  Number of transmitted bytes
      */

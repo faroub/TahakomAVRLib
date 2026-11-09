@@ -217,8 +217,12 @@ uint8_t io::USART0::parityError()
 void io::USART0::sendFrame(const uint8_t* ap_dataBuffer, const uint8_t a_size)
 {
     while (!ready2Send()){};
+    // claimed here, before the interrupt is enabled, so a second send cannot
+    // observe a ready transmitter while this one is still running
+    m_numberBytesSent = 0;
     m_sizeData2Send = a_size;
     mp_data2Send = ap_dataBuffer;
+    m_ready2Send = 0;
     enableDataRegisterEmptyInterrupt(1);
 }
 
@@ -226,8 +230,10 @@ void io::USART0::sendFrame(const uint8_t* ap_dataBuffer, const uint8_t a_size)
 void io::USART0::sendString(const char* ap_string)
 {
     while (!ready2Send()){};
+    m_numberBytesSent = 0;
     m_sizeData2Send = strlen(ap_string);
     mp_data2Send = reinterpret_cast<const uint8_t*>(ap_string);
+    m_ready2Send = 0;
     enableDataRegisterEmptyInterrupt(1);
 
 }
@@ -239,11 +245,7 @@ void io::USART0::sendByte(const uint8_t &ar_byte)
     l_byte2Send[0] = '0' + (ar_byte / 100);
     l_byte2Send[1] = '0' + ((ar_byte / 10) % 10);
     l_byte2Send[2] = '0' + (ar_byte % 10);
-
-    while (!ready2Send()){};
-    m_sizeData2Send = 3;
-    mp_data2Send = l_byte2Send;
-    enableDataRegisterEmptyInterrupt(1);
+    sendFrame(l_byte2Send, 3);
 
 }
 void io::USART0::sendLong(const uint32_t &ar_long)
@@ -259,11 +261,7 @@ void io::USART0::sendLong(const uint32_t &ar_long)
     l_word2Send[7] = '0' + ((ar_long /       100) % 10);
     l_word2Send[8] = '0' + ((ar_long /        10) % 10);
     l_word2Send[9] = '0' + (ar_long % 10);
-
-    while (!ready2Send()){};
-    m_sizeData2Send = 10;
-    mp_data2Send = l_word2Send;
-    enableDataRegisterEmptyInterrupt(1);
+    sendFrame(l_word2Send, 10);
 
 }
 void io::USART0::sendWord(const uint16_t &ar_word)
@@ -274,20 +272,16 @@ void io::USART0::sendWord(const uint16_t &ar_word)
     l_word2Send[2] = '0' + ((ar_word /  100) % 10);
     l_word2Send[3] = '0' + ((ar_word /   10) % 10);
     l_word2Send[4] = '0' + (ar_word %    10);
-
-    while (!ready2Send()){};
-    m_sizeData2Send = 5;
-    mp_data2Send = l_word2Send;
-    enableDataRegisterEmptyInterrupt(1);
+    sendFrame(l_word2Send, 5);
 
 }
 
 void io::USART0::sendChar(const uint8_t &ar_char)
 {
-    while (!ready2Send()){};
-    m_sizeData2Send = 1;
-    mp_data2Send = &ar_char;
-    enableDataRegisterEmptyInterrupt(1);
+    // copied into internal storage: ar_char does not have to outlive the call
+    static uint8_t l_char2Send = 0;
+    l_char2Send = ar_char;
+    sendFrame(&l_char2Send, 1);
 
 }
 
@@ -352,7 +346,6 @@ void io::USART0::dataRegisterEmptyServiceRoutine()
 
     if (m_sizeData2Send)
     {
-        m_ready2Send = 0;
         USART0_DATA_REGISTER = *mp_data2Send++;
         m_sizeData2Send--;
         m_numberBytesSent++;
@@ -361,7 +354,6 @@ void io::USART0::dataRegisterEmptyServiceRoutine()
     else
     {
         enableDataRegisterEmptyInterrupt(0);
-        m_numberBytesSent = 0;
         m_ready2Send = 1;
 
     }
