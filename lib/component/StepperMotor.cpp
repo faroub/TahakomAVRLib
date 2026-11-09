@@ -63,7 +63,7 @@ void component::StepperMotor::step(const int16_t a_step,
         const uint16_t a_accel,
         const uint16_t a_decel)
 {
-    uint8_t l_stepDelay_ms = 0;
+    uint16_t l_stepDelay_ms = 0;
     uint16_t l_step=0;
 
     // a different target, or a call after the goal was reached, starts
@@ -86,8 +86,8 @@ void component::StepperMotor::step(const int16_t a_step,
                                       a_accel,
                                       a_decel);
 
-if (l_stepDelay_ms>0)
-{
+    if (l_stepDelay_ms>0)
+    {
 
     if (a_step<=0)
     {
@@ -140,21 +140,37 @@ if (l_stepDelay_ms>0)
         stepDelay(l_stepDelay_ms);
 
     }
-}
+    }
+    else
+    {
+        // no step fired this tick: keep the 1 ms polling cadence
+        stepDelay(1);
+    }
 
 }
 
-uint8_t component::StepperMotor::computeStepDelay(uint16_t a_step,
-                       uint16_t a_speed,
-                       uint16_t a_accel,
-                       uint16_t a_decel)
+uint16_t component::StepperMotor::computeStepDelay(uint16_t a_step,
+                       const uint16_t a_speed,
+                       const uint16_t a_accel,
+                       const uint16_t a_decel)
 {
 
-
+   // a profile cannot be driven by a zero speed, acceleration or
+   // deceleration: fire no step and avoid the division by zero
+   if ((a_speed == 0) || (a_accel == 0) || (a_decel == 0))
+   {
+       return 0;
+   }
 
    uint32_t l_accelTime= (1000UL*a_speed/a_accel);
-   uint16_t l_decelTime = (1000UL*a_speed/a_decel);
-   int16_t l_constSpeedTime=((1000UL*a_step/a_speed)-(l_accelTime/2)-(l_decelTime/2));
+   uint32_t l_decelTime = (1000UL*a_speed/a_decel);
+   uint16_t l_speed = a_speed;   // rescaled when the ramp is shortened
+   // signed and 32-bit wide: the constant-speed phase can be negative
+   // before the ramp correction below, and 1000*steps/step/s overflows
+   // int16 for any move longer than a few steps
+   int32_t l_constSpeedTime = static_cast<int32_t>(1000UL*a_step/a_speed)
+                              - static_cast<int32_t>(l_accelTime/2UL)
+                              - static_cast<int32_t>(l_decelTime/2UL);
 
 
 
@@ -162,9 +178,12 @@ uint8_t component::StepperMotor::computeStepDelay(uint16_t a_step,
    if (l_constSpeedTime<0)
    {
        l_constSpeedTime=0;
-       l_accelTime = static_cast<uint32_t>(1000UL*sqrtf(a_step/a_accel));
-       a_speed=l_accelTime*a_accel/1000UL;
-       l_decelTime = 1000UL*a_speed/a_decel;
+       // sqrtf of the float ratio: the old integer division
+       // a_step/a_accel truncated to 0 for any realistic ramp
+       l_accelTime = static_cast<uint32_t>(1000UL*sqrtf(static_cast<float>(a_step)
+                                                      / static_cast<float>(a_accel)));
+       l_speed=static_cast<uint16_t>(l_accelTime*a_accel/1000UL);
+       l_decelTime = 1000UL*l_speed/a_decel;
 
    }
 
@@ -178,12 +197,12 @@ uint8_t component::StepperMotor::computeStepDelay(uint16_t a_step,
    }
    else if ((m_profileTime>l_accelTime) && (m_profileTime<=(l_accelTime+l_constSpeedTime)))
    {
-        m_profileSpeed=1000UL*a_speed;
+        m_profileSpeed=1000UL*l_speed;
 
    }
    else if ((m_profileTime>(l_accelTime+l_constSpeedTime))&&(m_profileTime<=l_accelTime+l_constSpeedTime+l_decelTime))
    {
-       m_profileSpeed= (1000UL*a_speed)-a_decel*(m_profileTime-l_accelTime-l_constSpeedTime);
+       m_profileSpeed= (1000UL*l_speed)-a_decel*(m_profileTime-l_accelTime-static_cast<uint32_t>(l_constSpeedTime));
 
 
    }
@@ -201,7 +220,6 @@ uint8_t component::StepperMotor::computeStepDelay(uint16_t a_step,
    }
    else
    {
-       stepDelay(1);
        return 0;
    }
 
@@ -221,7 +239,7 @@ void component::StepperMotor::step(const int16_t a_step, const uint16_t a_speed)
     {
         beginMove(a_step);
     }
-    uint8_t l_stepDelay_ms = static_cast<uint8_t>(1000UL/a_speed);
+    uint16_t l_stepDelay_ms = static_cast<uint16_t>(1000UL/a_speed);
 
     if (a_step<=0)
     {
@@ -285,7 +303,7 @@ void component::StepperMotor::step(const int16_t a_step, const uint16_t a_speed,
     {
         beginMove(a_step);
     }
-    uint8_t l_stepDelay_ms = static_cast<uint8_t>(1000UL*a_stepAngle/a_speed);
+    uint16_t l_stepDelay_ms = static_cast<uint16_t>(1000UL*a_stepAngle/a_speed);
 
     if (a_step<=0)
     {
@@ -418,7 +436,7 @@ void component::StepperMotor::stepPulse(const uint8_t a_stepPulse)
 
 
 
-void component::StepperMotor::stepDelay(uint8_t a_stepDelay)
+void component::StepperMotor::stepDelay(uint16_t a_stepDelay)
 {
     while(a_stepDelay--)
     {

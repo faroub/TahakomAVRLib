@@ -101,7 +101,11 @@ public:
 
     void stepPulse(const uint8_t a_stepPulse);
 
-    void stepDelay(uint8_t a_stepDelay);
+    /** Wait for a number of milliseconds.
+     *
+     *  @param a_stepDelay Defines duration in ms
+     */
+    void stepDelay(uint16_t a_stepDelay);
 
     uint8_t goalReached();
 
@@ -110,7 +114,27 @@ public:
     uint16_t currentPos();
 
 
-    uint8_t computeStepDelay(uint16_t a_step,
+    /** Compute the step delay of one profile tick.
+     *
+     *  Units: speed is given in steps/s, acceleration and deceleration in
+     *  steps/s^2, a_step in steps; the profile time unit is one call of
+     *  step()/computeStepDelay() (1 ms when the caller polls at 1 kHz).
+     *  The returned delay is in ms: 0 when this tick fires no step, 1
+     *  when it fires one, so a move of N steps takes as many ticks as
+     *  the trapezoid accelTime + constSpeedTime + decelTime (in ms) that
+     *  the caller sees when polling at 1 kHz.  The function has no side
+     *  effects beyond advancing the profile state.  A speed, an
+     *  acceleration or a deceleration of 0 cannot drive a profile and
+     *  are guarded: the function returns 0 forever (no step fires, no
+     *  division by zero).
+     *
+     *  @param a_step Defines the number of steps of the current move
+     *  @param a_speed Defines the maximum speed in steps/s
+     *  @param a_accel Defines the acceleration in steps/s^2
+     *  @param a_decel Defines the deceleration in steps/s^2
+     *  @return Step delay in ms (0 = no step this tick)
+     */
+    uint16_t computeStepDelay(uint16_t a_step,
                            const uint16_t a_speed,
                            const uint16_t a_accel,
                            const uint16_t a_decel);

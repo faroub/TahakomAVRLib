@@ -5696,6 +5696,445 @@ Disassembly of section .text._ZN9component12StepperMotor10currentPosEv:
    4:	91 8d       	ldd	r25, Z+25	; 0x19
    6:	08 95       	ret
 
+Disassembly of section .text._ZN9component12StepperMotor16computeStepDelayEjjjj:
+
+00000000 <_ZN9component12StepperMotor16computeStepDelayEjjjj>:
+   0:	2f 92       	push	r2
+   2:	3f 92       	push	r3
+   4:	4f 92       	push	r4
+   6:	5f 92       	push	r5
+   8:	6f 92       	push	r6
+   a:	7f 92       	push	r7
+   c:	8f 92       	push	r8
+   e:	9f 92       	push	r9
+  10:	af 92       	push	r10
+  12:	bf 92       	push	r11
+  14:	cf 92       	push	r12
+  16:	df 92       	push	r13
+  18:	ef 92       	push	r14
+  1a:	ff 92       	push	r15
+  1c:	0f 93       	push	r16
+  1e:	1f 93       	push	r17
+  20:	cf 93       	push	r28
+  22:	df 93       	push	r29
+  24:	cd b7       	in	r28, 0x3d	; 61
+  26:	de b7       	in	r29, 0x3e	; 62
+  28:	62 97       	sbiw	r28, 0x12	; 18
+  2a:	0f b6       	in	r0, 0x3f	; 63
+  2c:	f8 94       	cli
+  2e:	de bf       	out	0x3e, r29	; 62
+  30:	0f be       	out	0x3f, r0	; 63
+  32:	cd bf       	out	0x3d, r28	; 61
+  34:	89 8b       	std	Y+17, r24	; 0x11
+  36:	9a 8b       	std	Y+18, r25	; 0x12
+  38:	4b 01       	movw	r8, r22
+  3a:	1a 01       	movw	r2, r20
+  3c:	a9 01       	movw	r20, r18
+  3e:	21 14       	cp	r2, r1
+  40:	31 04       	cpc	r3, r1
+  42:	01 f4       	brne	.+0      	; 0x44 <.L9>
+
+00000044 <.L9>:
+  44:	80 e0       	ldi	r24, 0x00	; 0
+  46:	90 e0       	ldi	r25, 0x00	; 0
+
+00000048 <.L6>:
+  48:	62 96       	adiw	r28, 0x12	; 18
+  4a:	0f b6       	in	r0, 0x3f	; 63
+  4c:	f8 94       	cli
+  4e:	de bf       	out	0x3e, r29	; 62
+  50:	0f be       	out	0x3f, r0	; 63
+  52:	cd bf       	out	0x3d, r28	; 61
+  54:	df 91       	pop	r29
+  56:	cf 91       	pop	r28
+  58:	1f 91       	pop	r17
+  5a:	0f 91       	pop	r16
+  5c:	ff 90       	pop	r15
+  5e:	ef 90       	pop	r14
+  60:	df 90       	pop	r13
+  62:	cf 90       	pop	r12
+  64:	bf 90       	pop	r11
+  66:	af 90       	pop	r10
+  68:	9f 90       	pop	r9
+  6a:	8f 90       	pop	r8
+  6c:	7f 90       	pop	r7
+  6e:	6f 90       	pop	r6
+  70:	5f 90       	pop	r5
+  72:	4f 90       	pop	r4
+  74:	3f 90       	pop	r3
+  76:	2f 90       	pop	r2
+  78:	08 95       	ret
+
+0000007a <.L7>:
+  7a:	23 2b       	or	r18, r19
+  7c:	01 f0       	breq	.+0      	; 0x7e <.L7+0x4>
+  7e:	01 15       	cp	r16, r1
+  80:	11 05       	cpc	r17, r1
+  82:	01 f0       	breq	.+0      	; 0x84 <.L7+0xa>
+  84:	21 01       	movw	r4, r2
+  86:	61 2c       	mov	r6, r1
+  88:	71 2c       	mov	r7, r1
+  8a:	91 01       	movw	r18, r2
+  8c:	a8 ee       	ldi	r26, 0xE8	; 232
+  8e:	b3 e0       	ldi	r27, 0x03	; 3
+  90:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
+  94:	6d 83       	std	Y+5, r22	; 0x05
+  96:	7e 83       	std	Y+6, r23	; 0x06
+  98:	8f 83       	std	Y+7, r24	; 0x07
+  9a:	98 87       	std	Y+8, r25	; 0x08
+  9c:	ca 01       	movw	r24, r20
+  9e:	a0 e0       	ldi	r26, 0x00	; 0
+  a0:	b0 e0       	ldi	r27, 0x00	; 0
+  a2:	89 83       	std	Y+1, r24	; 0x01
+  a4:	9a 83       	std	Y+2, r25	; 0x02
+  a6:	ab 83       	std	Y+3, r26	; 0x03
+  a8:	bc 83       	std	Y+4, r27	; 0x04
+  aa:	6d 81       	ldd	r22, Y+5	; 0x05
+  ac:	7e 81       	ldd	r23, Y+6	; 0x06
+  ae:	8f 81       	ldd	r24, Y+7	; 0x07
+  b0:	98 85       	ldd	r25, Y+8	; 0x08
+  b2:	29 81       	ldd	r18, Y+1	; 0x01
+  b4:	3a 81       	ldd	r19, Y+2	; 0x02
+  b6:	4b 81       	ldd	r20, Y+3	; 0x03
+  b8:	5c 81       	ldd	r21, Y+4	; 0x04
+  ba:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
+  be:	69 01       	movw	r12, r18
+  c0:	7a 01       	movw	r14, r20
+  c2:	98 01       	movw	r18, r16
+  c4:	40 e0       	ldi	r20, 0x00	; 0
+  c6:	50 e0       	ldi	r21, 0x00	; 0
+  c8:	29 87       	std	Y+9, r18	; 0x09
+  ca:	3a 87       	std	Y+10, r19	; 0x0a
+  cc:	4b 87       	std	Y+11, r20	; 0x0b
+  ce:	5c 87       	std	Y+12, r21	; 0x0c
+  d0:	6d 81       	ldd	r22, Y+5	; 0x05
+  d2:	7e 81       	ldd	r23, Y+6	; 0x06
+  d4:	8f 81       	ldd	r24, Y+7	; 0x07
+  d6:	98 85       	ldd	r25, Y+8	; 0x08
+  d8:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
+  dc:	2d 83       	std	Y+5, r18	; 0x05
+  de:	3e 83       	std	Y+6, r19	; 0x06
+  e0:	4f 83       	std	Y+7, r20	; 0x07
+  e2:	58 87       	std	Y+8, r21	; 0x08
+  e4:	c4 01       	movw	r24, r8
+  e6:	a0 e0       	ldi	r26, 0x00	; 0
+  e8:	b0 e0       	ldi	r27, 0x00	; 0
+  ea:	8d 87       	std	Y+13, r24	; 0x0d
+  ec:	9e 87       	std	Y+14, r25	; 0x0e
+  ee:	af 87       	std	Y+15, r26	; 0x0f
+  f0:	b8 8b       	std	Y+16, r27	; 0x10
+  f2:	94 01       	movw	r18, r8
+  f4:	a8 ee       	ldi	r26, 0xE8	; 232
+  f6:	b3 e0       	ldi	r27, 0x03	; 3
+  f8:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
+  fc:	a3 01       	movw	r20, r6
+  fe:	92 01       	movw	r18, r4
+ 100:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
+ 104:	d7 01       	movw	r26, r14
+ 106:	c6 01       	movw	r24, r12
+ 108:	b6 95       	lsr	r27
+ 10a:	a7 95       	ror	r26
+ 10c:	97 95       	ror	r25
+ 10e:	87 95       	ror	r24
+ 110:	49 01       	movw	r8, r18
+ 112:	5a 01       	movw	r10, r20
+ 114:	88 1a       	sub	r8, r24
+ 116:	99 0a       	sbc	r9, r25
+ 118:	aa 0a       	sbc	r10, r26
+ 11a:	bb 0a       	sbc	r11, r27
+ 11c:	4d 81       	ldd	r20, Y+5	; 0x05
+ 11e:	5e 81       	ldd	r21, Y+6	; 0x06
+ 120:	6f 81       	ldd	r22, Y+7	; 0x07
+ 122:	78 85       	ldd	r23, Y+8	; 0x08
+ 124:	76 95       	lsr	r23
+ 126:	67 95       	ror	r22
+ 128:	57 95       	ror	r21
+ 12a:	47 95       	ror	r20
+ 12c:	84 1a       	sub	r8, r20
+ 12e:	95 0a       	sbc	r9, r21
+ 130:	a6 0a       	sbc	r10, r22
+ 132:	b7 0a       	sbc	r11, r23
+ 134:	b7 fe       	sbrs	r11, 7
+ 136:	00 c0       	rjmp	.+0      	; 0x138 <.L7+0xbe>
+ 138:	6d 85       	ldd	r22, Y+13	; 0x0d
+ 13a:	7e 85       	ldd	r23, Y+14	; 0x0e
+ 13c:	8f 85       	ldd	r24, Y+15	; 0x0f
+ 13e:	98 89       	ldd	r25, Y+16	; 0x10
+ 140:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
+ 144:	4b 01       	movw	r8, r22
+ 146:	5c 01       	movw	r10, r24
+ 148:	69 81       	ldd	r22, Y+1	; 0x01
+ 14a:	7a 81       	ldd	r23, Y+2	; 0x02
+ 14c:	8b 81       	ldd	r24, Y+3	; 0x03
+ 14e:	9c 81       	ldd	r25, Y+4	; 0x04
+ 150:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
+ 154:	9b 01       	movw	r18, r22
+ 156:	ac 01       	movw	r20, r24
+ 158:	b4 01       	movw	r22, r8
+ 15a:	c5 01       	movw	r24, r10
+ 15c:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
+ 160:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
+ 164:	20 e0       	ldi	r18, 0x00	; 0
+ 166:	30 e0       	ldi	r19, 0x00	; 0
+ 168:	4a e7       	ldi	r20, 0x7A	; 122
+ 16a:	54 e4       	ldi	r21, 0x44	; 68
+ 16c:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
+ 170:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
+ 174:	6b 01       	movw	r12, r22
+ 176:	7c 01       	movw	r14, r24
+ 178:	29 81       	ldd	r18, Y+1	; 0x01
+ 17a:	3a 81       	ldd	r19, Y+2	; 0x02
+ 17c:	4b 81       	ldd	r20, Y+3	; 0x03
+ 17e:	5c 81       	ldd	r21, Y+4	; 0x04
+ 180:	c7 01       	movw	r24, r14
+ 182:	b6 01       	movw	r22, r12
+ 184:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
+ 188:	28 ee       	ldi	r18, 0xE8	; 232
+ 18a:	33 e0       	ldi	r19, 0x03	; 3
+ 18c:	40 e0       	ldi	r20, 0x00	; 0
+ 18e:	50 e0       	ldi	r21, 0x00	; 0
+ 190:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
+ 194:	19 01       	movw	r2, r18
+ 196:	a8 ee       	ldi	r26, 0xE8	; 232
+ 198:	b3 e0       	ldi	r27, 0x03	; 3
+ 19a:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
+ 19e:	29 85       	ldd	r18, Y+9	; 0x09
+ 1a0:	3a 85       	ldd	r19, Y+10	; 0x0a
+ 1a2:	4b 85       	ldd	r20, Y+11	; 0x0b
+ 1a4:	5c 85       	ldd	r21, Y+12	; 0x0c
+ 1a6:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
+ 1aa:	2d 83       	std	Y+5, r18	; 0x05
+ 1ac:	3e 83       	std	Y+6, r19	; 0x06
+ 1ae:	4f 83       	std	Y+7, r20	; 0x07
+ 1b0:	58 87       	std	Y+8, r21	; 0x08
+ 1b2:	81 2c       	mov	r8, r1
+ 1b4:	91 2c       	mov	r9, r1
+ 1b6:	54 01       	movw	r10, r8
+
+000001b8 <.L10>:
+ 1b8:	a9 89       	ldd	r26, Y+17	; 0x11
+ 1ba:	ba 89       	ldd	r27, Y+18	; 0x12
+ 1bc:	5a 96       	adiw	r26, 0x1a	; 26
+ 1be:	4d 90       	ld	r4, X+
+ 1c0:	5d 90       	ld	r5, X+
+ 1c2:	6d 90       	ld	r6, X+
+ 1c4:	7c 90       	ld	r7, X
+ 1c6:	5d 97       	sbiw	r26, 0x1d	; 29
+ 1c8:	c4 14       	cp	r12, r4
+ 1ca:	d5 04       	cpc	r13, r5
+ 1cc:	e6 04       	cpc	r14, r6
+ 1ce:	f7 04       	cpc	r15, r7
+ 1d0:	00 f4       	brcc	.+0      	; 0x1d2 <L0^A>
+
+000001d2 <L0^A>:
+ 1d2:	00 c0       	rjmp	.+0      	; 0x1d4 <L0^A+0x2>
+ 1d4:	29 81       	ldd	r18, Y+1	; 0x01
+ 1d6:	3a 81       	ldd	r19, Y+2	; 0x02
+ 1d8:	4b 81       	ldd	r20, Y+3	; 0x03
+ 1da:	5c 81       	ldd	r21, Y+4	; 0x04
+ 1dc:	c3 01       	movw	r24, r6
+ 1de:	b2 01       	movw	r22, r4
+ 1e0:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
+ 1e4:	e9 89       	ldd	r30, Y+17	; 0x11
+ 1e6:	fa 89       	ldd	r31, Y+18	; 0x12
+ 1e8:	66 8f       	std	Z+30, r22	; 0x1e
+ 1ea:	77 8f       	std	Z+31, r23	; 0x1f
+ 1ec:	80 a3       	std	Z+32, r24	; 0x20
+ 1ee:	91 a3       	std	Z+33, r25	; 0x21
+
+000001f0 <.L12>:
+ 1f0:	bf ef       	ldi	r27, 0xFF	; 255
+ 1f2:	4b 1a       	sub	r4, r27
+ 1f4:	5b 0a       	sbc	r5, r27
+ 1f6:	6b 0a       	sbc	r6, r27
+ 1f8:	7b 0a       	sbc	r7, r27
+ 1fa:	e9 89       	ldd	r30, Y+17	; 0x11
+ 1fc:	fa 89       	ldd	r31, Y+18	; 0x12
+ 1fe:	42 8e       	std	Z+26, r4	; 0x1a
+ 200:	53 8e       	std	Z+27, r5	; 0x1b
+ 202:	64 8e       	std	Z+28, r6	; 0x1c
+ 204:	75 8e       	std	Z+29, r7	; 0x1d
+ 206:	86 8c       	ldd	r8, Z+30	; 0x1e
+ 208:	97 8c       	ldd	r9, Z+31	; 0x1f
+ 20a:	a0 a0       	ldd	r10, Z+32	; 0x20
+ 20c:	b1 a0       	ldd	r11, Z+33	; 0x21
+ 20e:	94 01       	movw	r18, r8
+ 210:	a5 01       	movw	r20, r10
+ 212:	60 e0       	ldi	r22, 0x00	; 0
+ 214:	70 e0       	ldi	r23, 0x00	; 0
+ 216:	80 e0       	ldi	r24, 0x00	; 0
+ 218:	90 e0       	ldi	r25, 0x00	; 0
+ 21a:	a2 a0       	ldd	r10, Z+34	; 0x22
+ 21c:	b3 a0       	ldd	r11, Z+35	; 0x23
+ 21e:	c4 a0       	ldd	r12, Z+36	; 0x24
+ 220:	d5 a0       	ldd	r13, Z+37	; 0x25
+ 222:	e6 a0       	ldd	r14, Z+38	; 0x26
+ 224:	f7 a0       	ldd	r15, Z+39	; 0x27
+ 226:	00 a5       	ldd	r16, Z+40	; 0x28
+ 228:	11 a5       	ldd	r17, Z+41	; 0x29
+ 22a:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
+ 22e:	22 a3       	std	Z+34, r18	; 0x22
+ 230:	33 a3       	std	Z+35, r19	; 0x23
+ 232:	44 a3       	std	Z+36, r20	; 0x24
+ 234:	55 a3       	std	Z+37, r21	; 0x25
+ 236:	66 a3       	std	Z+38, r22	; 0x26
+ 238:	77 a3       	std	Z+39, r23	; 0x27
+ 23a:	80 a7       	std	Z+40, r24	; 0x28
+ 23c:	91 a7       	std	Z+41, r25	; 0x29
+ 23e:	62 a4       	ldd	r6, Z+42	; 0x2a
+ 240:	73 a4       	ldd	r7, Z+43	; 0x2b
+ 242:	84 a4       	ldd	r8, Z+44	; 0x2c
+ 244:	95 a4       	ldd	r9, Z+45	; 0x2d
+ 246:	b6 a5       	ldd	r27, Z+46	; 0x2e
+ 248:	a7 a5       	ldd	r26, Z+47	; 0x2f
+ 24a:	50 a8       	ldd	r5, Z+48	; 0x30
+ 24c:	41 a8       	ldd	r4, Z+49	; 0x31
+ 24e:	53 01       	movw	r10, r6
+ 250:	64 01       	movw	r12, r8
+ 252:	eb 2e       	mov	r14, r27
+ 254:	fa 2e       	mov	r15, r26
+ 256:	05 2d       	mov	r16, r5
+ 258:	14 2d       	mov	r17, r4
+ 25a:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
+ 25e:	20 34       	cpi	r18, 0x40	; 64
+ 260:	32 44       	sbci	r19, 0x42	; 66
+ 262:	4f 40       	sbci	r20, 0x0F	; 15
+ 264:	51 05       	cpc	r21, r1
+ 266:	61 05       	cpc	r22, r1
+ 268:	71 05       	cpc	r23, r1
+ 26a:	81 05       	cpc	r24, r1
+ 26c:	91 05       	cpc	r25, r1
+ 26e:	00 f4       	brcc	.+0      	; 0x270 <L0^A>
+
+00000270 <L0^A>:
+ 270:	00 c0       	rjmp	.+0      	; 0x272 <L0^A+0x2>
+ 272:	93 01       	movw	r18, r6
+ 274:	a4 01       	movw	r20, r8
+ 276:	6b 2f       	mov	r22, r27
+ 278:	7a 2f       	mov	r23, r26
+ 27a:	85 2d       	mov	r24, r5
+ 27c:	94 2d       	mov	r25, r4
+ 27e:	20 5c       	subi	r18, 0xC0	; 192
+ 280:	3d 4b       	sbci	r19, 0xBD	; 189
+ 282:	40 4f       	sbci	r20, 0xF0	; 240
+ 284:	5f 4f       	sbci	r21, 0xFF	; 255
+ 286:	6f 4f       	sbci	r22, 0xFF	; 255
+ 288:	7f 4f       	sbci	r23, 0xFF	; 255
+ 28a:	8f 4f       	sbci	r24, 0xFF	; 255
+ 28c:	9f 4f       	sbci	r25, 0xFF	; 255
+ 28e:	a9 89       	ldd	r26, Y+17	; 0x11
+ 290:	ba 89       	ldd	r27, Y+18	; 0x12
+ 292:	9a 96       	adiw	r26, 0x2a	; 42
+ 294:	2c 93       	st	X, r18
+ 296:	9a 97       	sbiw	r26, 0x2a	; 42
+ 298:	9b 96       	adiw	r26, 0x2b	; 43
+ 29a:	3c 93       	st	X, r19
+ 29c:	9b 97       	sbiw	r26, 0x2b	; 43
+ 29e:	9c 96       	adiw	r26, 0x2c	; 44
+ 2a0:	4c 93       	st	X, r20
+ 2a2:	9c 97       	sbiw	r26, 0x2c	; 44
+ 2a4:	9d 96       	adiw	r26, 0x2d	; 45
+ 2a6:	5c 93       	st	X, r21
+ 2a8:	9d 97       	sbiw	r26, 0x2d	; 45
+ 2aa:	9e 96       	adiw	r26, 0x2e	; 46
+ 2ac:	6c 93       	st	X, r22
+ 2ae:	9e 97       	sbiw	r26, 0x2e	; 46
+ 2b0:	9f 96       	adiw	r26, 0x2f	; 47
+ 2b2:	7c 93       	st	X, r23
+ 2b4:	9f 97       	sbiw	r26, 0x2f	; 47
+ 2b6:	d0 96       	adiw	r26, 0x30	; 48
+ 2b8:	8c 93       	st	X, r24
+ 2ba:	d0 97       	sbiw	r26, 0x30	; 48
+ 2bc:	d1 96       	adiw	r26, 0x31	; 49
+ 2be:	9c 93       	st	X, r25
+ 2c0:	81 e0       	ldi	r24, 0x01	; 1
+ 2c2:	90 e0       	ldi	r25, 0x00	; 0
+ 2c4:	00 c0       	rjmp	.+0      	; 0x2c6 <.L11>
+
+000002c6 <.L11>:
+ 2c6:	d5 01       	movw	r26, r10
+ 2c8:	c4 01       	movw	r24, r8
+ 2ca:	8c 0d       	add	r24, r12
+ 2cc:	9d 1d       	adc	r25, r13
+ 2ce:	ae 1d       	adc	r26, r14
+ 2d0:	bf 1d       	adc	r27, r15
+ 2d2:	84 15       	cp	r24, r4
+ 2d4:	95 05       	cpc	r25, r5
+ 2d6:	a6 05       	cpc	r26, r6
+ 2d8:	b7 05       	cpc	r27, r7
+ 2da:	00 f0       	brcs	.+0      	; 0x2dc <.L11+0x16>
+ 2dc:	91 01       	movw	r18, r2
+ 2de:	a8 ee       	ldi	r26, 0xE8	; 232
+ 2e0:	b3 e0       	ldi	r27, 0x03	; 3
+ 2e2:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
+ 2e6:	a9 89       	ldd	r26, Y+17	; 0x11
+ 2e8:	ba 89       	ldd	r27, Y+18	; 0x12
+ 2ea:	5e 96       	adiw	r26, 0x1e	; 30
+ 2ec:	6d 93       	st	X+, r22
+ 2ee:	7d 93       	st	X+, r23
+ 2f0:	8d 93       	st	X+, r24
+ 2f2:	9c 93       	st	X, r25
+ 2f4:	91 97       	sbiw	r26, 0x21	; 33
+ 2f6:	00 c0       	rjmp	.+0      	; 0x2f8 <.L13>
+
+000002f8 <.L13>:
+ 2f8:	2d 81       	ldd	r18, Y+5	; 0x05
+ 2fa:	3e 81       	ldd	r19, Y+6	; 0x06
+ 2fc:	4f 81       	ldd	r20, Y+7	; 0x07
+ 2fe:	58 85       	ldd	r21, Y+8	; 0x08
+ 300:	82 0f       	add	r24, r18
+ 302:	93 1f       	adc	r25, r19
+ 304:	a4 1f       	adc	r26, r20
+ 306:	b5 1f       	adc	r27, r21
+ 308:	84 15       	cp	r24, r4
+ 30a:	95 05       	cpc	r25, r5
+ 30c:	a6 05       	cpc	r26, r6
+ 30e:	b7 05       	cpc	r27, r7
+ 310:	00 f4       	brcc	.+0      	; 0x312 <L0^A>
+
+00000312 <L0^A>:
+ 312:	00 c0       	rjmp	.+0      	; 0x314 <L0^A+0x2>
+ 314:	91 01       	movw	r18, r2
+ 316:	a8 ee       	ldi	r26, 0xE8	; 232
+ 318:	b3 e0       	ldi	r27, 0x03	; 3
+ 31a:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
+ 31e:	69 83       	std	Y+1, r22	; 0x01
+ 320:	7a 83       	std	Y+2, r23	; 0x02
+ 322:	8b 83       	std	Y+3, r24	; 0x03
+ 324:	9c 83       	std	Y+4, r25	; 0x04
+ 326:	a3 01       	movw	r20, r6
+ 328:	92 01       	movw	r18, r4
+ 32a:	2c 19       	sub	r18, r12
+ 32c:	3d 09       	sbc	r19, r13
+ 32e:	4e 09       	sbc	r20, r14
+ 330:	5f 09       	sbc	r21, r15
+ 332:	28 19       	sub	r18, r8
+ 334:	39 09       	sbc	r19, r9
+ 336:	4a 09       	sbc	r20, r10
+ 338:	5b 09       	sbc	r21, r11
+ 33a:	69 85       	ldd	r22, Y+9	; 0x09
+ 33c:	7a 85       	ldd	r23, Y+10	; 0x0a
+ 33e:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 340:	9c 85       	ldd	r25, Y+12	; 0x0c
+ 342:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
+ 346:	c9 80       	ldd	r12, Y+1	; 0x01
+ 348:	da 80       	ldd	r13, Y+2	; 0x02
+ 34a:	eb 80       	ldd	r14, Y+3	; 0x03
+ 34c:	fc 80       	ldd	r15, Y+4	; 0x04
+ 34e:	c6 1a       	sub	r12, r22
+ 350:	d7 0a       	sbc	r13, r23
+ 352:	e8 0a       	sbc	r14, r24
+ 354:	f9 0a       	sbc	r15, r25
+ 356:	a9 89       	ldd	r26, Y+17	; 0x11
+ 358:	ba 89       	ldd	r27, Y+18	; 0x12
+ 35a:	5e 96       	adiw	r26, 0x1e	; 30
+ 35c:	cd 92       	st	X+, r12
+ 35e:	dd 92       	st	X+, r13
+ 360:	ed 92       	st	X+, r14
+ 362:	fc 92       	st	X, r15
+ 364:	91 97       	sbiw	r26, 0x21	; 33
+ 366:	00 c0       	rjmp	.+0      	; 0x368 <L0^A+0x56>
+
 Disassembly of section .text._ZN9component12StepperMotor9stepPulseEh:
 
 00000000 <_ZN9component12StepperMotor9stepPulseEh>:
@@ -5726,16 +6165,16 @@ Disassembly of section .text._ZN9component12StepperMotor9stepPulseEh:
   2c:	2f 96       	adiw	r28, 0x0f	; 15
   2e:	0c 94 00 00 	jmp	0	; 0x0 <_ZN9component12StepperMotor9stepPulseEh>
 
-00000032 <.L16>:
+00000032 <.L30>:
   32:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor9stepPulseEh>
   36:	c7 01       	movw	r24, r14
   38:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor9stepPulseEh>
 
-0000003c <.L17>:
+0000003c <.L31>:
   3c:	c8 01       	movw	r24, r16
   3e:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor9stepPulseEh>
 
-00000042 <.L21>:
+00000042 <.L35>:
   42:	ce 01       	movw	r24, r28
   44:	df 91       	pop	r29
   46:	cf 91       	pop	r28
@@ -5745,42 +6184,42 @@ Disassembly of section .text._ZN9component12StepperMotor9stepPulseEh:
   4e:	ef 90       	pop	r14
   50:	0c 94 00 00 	jmp	0	; 0x0 <_ZN9component12StepperMotor9stepPulseEh>
 
-00000054 <.L15>:
+00000054 <.L29>:
   54:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor9stepPulseEh>
 
-00000058 <.L18>:
+00000058 <.L32>:
   58:	c7 01       	movw	r24, r14
   5a:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor9stepPulseEh>
-  5e:	00 c0       	rjmp	.+0      	; 0x60 <.L14>
+  5e:	00 c0       	rjmp	.+0      	; 0x60 <.L28>
 
-00000060 <.L14>:
+00000060 <.L28>:
   60:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor9stepPulseEh>
-  64:	00 c0       	rjmp	.+0      	; 0x66 <.L13>
+  64:	00 c0       	rjmp	.+0      	; 0x66 <.L27>
 
-00000066 <.L13>:
+00000066 <.L27>:
   66:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor9stepPulseEh>
   6a:	c7 01       	movw	r24, r14
   6c:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor9stepPulseEh>
 
-00000070 <.L22>:
+00000070 <.L36>:
   70:	c8 01       	movw	r24, r16
   72:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor9stepPulseEh>
-  76:	00 c0       	rjmp	.+0      	; 0x78 <.L12>
+  76:	00 c0       	rjmp	.+0      	; 0x78 <.L26>
 
-00000078 <.L12>:
+00000078 <.L26>:
   78:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor9stepPulseEh>
   7c:	c7 01       	movw	r24, r14
   7e:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor9stepPulseEh>
-  82:	00 c0       	rjmp	.+0      	; 0x84 <.L11>
+  82:	00 c0       	rjmp	.+0      	; 0x84 <.L25>
 
-00000084 <.L11>:
+00000084 <.L25>:
   84:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor9stepPulseEh>
   88:	c7 01       	movw	r24, r14
   8a:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor9stepPulseEh>
   8e:	c8 01       	movw	r24, r16
   90:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor9stepPulseEh>
 
-00000094 <.L20>:
+00000094 <.L34>:
   94:	ce 01       	movw	r24, r28
   96:	df 91       	pop	r29
   98:	cf 91       	pop	r28
@@ -5790,21 +6229,21 @@ Disassembly of section .text._ZN9component12StepperMotor9stepPulseEh:
   a0:	ef 90       	pop	r14
   a2:	0c 94 00 00 	jmp	0	; 0x0 <_ZN9component12StepperMotor9stepPulseEh>
 
-000000a6 <.L10>:
+000000a6 <.L24>:
   a6:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor9stepPulseEh>
 
-000000aa <.L19>:
+000000aa <.L33>:
   aa:	c7 01       	movw	r24, r14
   ac:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor9stepPulseEh>
   b0:	c8 01       	movw	r24, r16
   b2:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor9stepPulseEh>
-  b6:	00 c0       	rjmp	.+0      	; 0xb8 <.L8>
+  b6:	00 c0       	rjmp	.+0      	; 0xb8 <.L22>
 
-000000b8 <.L8>:
+000000b8 <.L22>:
   b8:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor9stepPulseEh>
-  bc:	00 c0       	rjmp	.+0      	; 0xbe <.L6>
+  bc:	00 c0       	rjmp	.+0      	; 0xbe <.L20>
 
-000000be <.L6>:
+000000be <.L20>:
   be:	df 91       	pop	r29
   c0:	cf 91       	pop	r28
   c2:	1f 91       	pop	r17
@@ -5813,470 +6252,29 @@ Disassembly of section .text._ZN9component12StepperMotor9stepPulseEh:
   c8:	ef 90       	pop	r14
   ca:	08 95       	ret
 
-Disassembly of section .text._ZN9component12StepperMotor9stepDelayEh:
+Disassembly of section .text._ZN9component12StepperMotor9stepDelayEj:
 
-00000000 <_ZN9component12StepperMotor9stepDelayEh>:
-   0:	61 11       	cpse	r22, r1
-   2:	00 c0       	rjmp	.+0      	; 0x4 <_ZN9component12StepperMotor9stepDelayEh+0x4>
-   4:	08 95       	ret
+00000000 <_ZN9component12StepperMotor9stepDelayEj>:
+   0:	cb 01       	movw	r24, r22
 
-00000006 <.L25>:
-   6:	8f e9       	ldi	r24, 0x9F	; 159
-   8:	9f e0       	ldi	r25, 0x0F	; 15
+00000002 <.L38>:
+   2:	00 97       	sbiw	r24, 0x00	; 0
+   4:	01 f4       	brne	.+0      	; 0x6 <.L38+0x4>
+   6:	08 95       	ret
 
-0000000a <.L1^B1>:
-   a:	01 97       	sbiw	r24, 0x01	; 1
-   c:	01 f4       	brne	.+0      	; 0xe <.L1^B1+0x4>
-   e:	00 c0       	rjmp	.+0      	; 0x10 <L0^A>
+00000008 <.L39>:
+   8:	ef e9       	ldi	r30, 0x9F	; 159
+   a:	ff e0       	ldi	r31, 0x0F	; 15
 
-00000010 <L0^A>:
-  10:	00 00       	nop
-  12:	61 50       	subi	r22, 0x01	; 1
-  14:	00 c0       	rjmp	.+0      	; 0x16 <.L0^B1>
+0000000c <.L1^B1>:
+   c:	31 97       	sbiw	r30, 0x01	; 1
+   e:	01 f4       	brne	.+0      	; 0x10 <.L1^B1+0x4>
+  10:	00 c0       	rjmp	.+0      	; 0x12 <L0^A>
 
-Disassembly of section .text._ZN9component12StepperMotor16computeStepDelayEjjjj:
-
-00000000 <_ZN9component12StepperMotor16computeStepDelayEjjjj>:
-   0:	2f 92       	push	r2
-   2:	3f 92       	push	r3
-   4:	4f 92       	push	r4
-   6:	5f 92       	push	r5
-   8:	6f 92       	push	r6
-   a:	7f 92       	push	r7
-   c:	8f 92       	push	r8
-   e:	9f 92       	push	r9
-  10:	af 92       	push	r10
-  12:	bf 92       	push	r11
-  14:	cf 92       	push	r12
-  16:	df 92       	push	r13
-  18:	ef 92       	push	r14
-  1a:	ff 92       	push	r15
-  1c:	0f 93       	push	r16
-  1e:	1f 93       	push	r17
-  20:	cf 93       	push	r28
-  22:	df 93       	push	r29
-  24:	cd b7       	in	r28, 0x3d	; 61
-  26:	de b7       	in	r29, 0x3e	; 62
-  28:	60 97       	sbiw	r28, 0x10	; 16
-  2a:	0f b6       	in	r0, 0x3f	; 63
-  2c:	f8 94       	cli
-  2e:	de bf       	out	0x3e, r29	; 62
-  30:	0f be       	out	0x3f, r0	; 63
-  32:	cd bf       	out	0x3d, r28	; 61
-  34:	8f 87       	std	Y+15, r24	; 0x0f
-  36:	98 8b       	std	Y+16, r25	; 0x10
-  38:	6d 87       	std	Y+13, r22	; 0x0d
-  3a:	7e 87       	std	Y+14, r23	; 0x0e
-  3c:	1a 01       	movw	r2, r20
-  3e:	29 83       	std	Y+1, r18	; 0x01
-  40:	3a 83       	std	Y+2, r19	; 0x02
-  42:	2a 01       	movw	r4, r20
-  44:	61 2c       	mov	r6, r1
-  46:	71 2c       	mov	r7, r1
-  48:	9a 01       	movw	r18, r20
-  4a:	a8 ee       	ldi	r26, 0xE8	; 232
-  4c:	b3 e0       	ldi	r27, 0x03	; 3
-  4e:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
-  52:	6d 83       	std	Y+5, r22	; 0x05
-  54:	7e 83       	std	Y+6, r23	; 0x06
-  56:	8f 83       	std	Y+7, r24	; 0x07
-  58:	98 87       	std	Y+8, r25	; 0x08
-  5a:	89 81       	ldd	r24, Y+1	; 0x01
-  5c:	9a 81       	ldd	r25, Y+2	; 0x02
-  5e:	6c 01       	movw	r12, r24
-  60:	e1 2c       	mov	r14, r1
-  62:	f1 2c       	mov	r15, r1
-  64:	6d 81       	ldd	r22, Y+5	; 0x05
-  66:	7e 81       	ldd	r23, Y+6	; 0x06
-  68:	8f 81       	ldd	r24, Y+7	; 0x07
-  6a:	98 85       	ldd	r25, Y+8	; 0x08
-  6c:	a7 01       	movw	r20, r14
-  6e:	96 01       	movw	r18, r12
-  70:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
-  74:	49 01       	movw	r8, r18
-  76:	5a 01       	movw	r10, r20
-  78:	c8 01       	movw	r24, r16
-  7a:	a0 e0       	ldi	r26, 0x00	; 0
-  7c:	b0 e0       	ldi	r27, 0x00	; 0
-  7e:	89 87       	std	Y+9, r24	; 0x09
-  80:	9a 87       	std	Y+10, r25	; 0x0a
-  82:	ab 87       	std	Y+11, r26	; 0x0b
-  84:	bc 87       	std	Y+12, r27	; 0x0c
-  86:	6d 81       	ldd	r22, Y+5	; 0x05
-  88:	7e 81       	ldd	r23, Y+6	; 0x06
-  8a:	8f 81       	ldd	r24, Y+7	; 0x07
-  8c:	98 85       	ldd	r25, Y+8	; 0x08
-  8e:	29 85       	ldd	r18, Y+9	; 0x09
-  90:	3a 85       	ldd	r19, Y+10	; 0x0a
-  92:	4b 85       	ldd	r20, Y+11	; 0x0b
-  94:	5c 85       	ldd	r21, Y+12	; 0x0c
-  96:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
-  9a:	2d 83       	std	Y+5, r18	; 0x05
-  9c:	3e 83       	std	Y+6, r19	; 0x06
-  9e:	4f 83       	std	Y+7, r20	; 0x07
-  a0:	58 87       	std	Y+8, r21	; 0x08
-  a2:	0d 81       	ldd	r16, Y+5	; 0x05
-  a4:	1e 81       	ldd	r17, Y+6	; 0x06
-  a6:	2d 85       	ldd	r18, Y+13	; 0x0d
-  a8:	3e 85       	ldd	r19, Y+14	; 0x0e
-  aa:	a8 ee       	ldi	r26, 0xE8	; 232
-  ac:	b3 e0       	ldi	r27, 0x03	; 3
-  ae:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
-  b2:	a3 01       	movw	r20, r6
-  b4:	92 01       	movw	r18, r4
-  b6:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
-  ba:	d5 01       	movw	r26, r10
-  bc:	c4 01       	movw	r24, r8
-  be:	b6 95       	lsr	r27
-  c0:	a7 95       	ror	r26
-  c2:	97 95       	ror	r25
-  c4:	87 95       	ror	r24
-  c6:	b8 01       	movw	r22, r16
-  c8:	76 95       	lsr	r23
-  ca:	67 95       	ror	r22
-  cc:	86 0f       	add	r24, r22
-  ce:	97 1f       	adc	r25, r23
-  d0:	28 1b       	sub	r18, r24
-  d2:	39 0b       	sbc	r19, r25
-  d4:	37 ff       	sbrs	r19, 7
-  d6:	00 c0       	rjmp	.+0      	; 0xd8 <_ZN9component12StepperMotor16computeStepDelayEjjjj+0xd8>
-  d8:	8d 85       	ldd	r24, Y+13	; 0x0d
-  da:	9e 85       	ldd	r25, Y+14	; 0x0e
-  dc:	69 81       	ldd	r22, Y+1	; 0x01
-  de:	7a 81       	ldd	r23, Y+2	; 0x02
-  e0:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
-  e4:	80 e0       	ldi	r24, 0x00	; 0
-  e6:	90 e0       	ldi	r25, 0x00	; 0
-  e8:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
-  ec:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
-  f0:	20 e0       	ldi	r18, 0x00	; 0
-  f2:	30 e0       	ldi	r19, 0x00	; 0
-  f4:	4a e7       	ldi	r20, 0x7A	; 122
-  f6:	54 e4       	ldi	r21, 0x44	; 68
-  f8:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
-  fc:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
- 100:	4b 01       	movw	r8, r22
- 102:	5c 01       	movw	r10, r24
- 104:	a7 01       	movw	r20, r14
- 106:	96 01       	movw	r18, r12
- 108:	c5 01       	movw	r24, r10
- 10a:	b4 01       	movw	r22, r8
- 10c:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
- 110:	28 ee       	ldi	r18, 0xE8	; 232
- 112:	33 e0       	ldi	r19, 0x03	; 3
- 114:	40 e0       	ldi	r20, 0x00	; 0
- 116:	50 e0       	ldi	r21, 0x00	; 0
- 118:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
- 11c:	19 01       	movw	r2, r18
- 11e:	a8 ee       	ldi	r26, 0xE8	; 232
- 120:	b3 e0       	ldi	r27, 0x03	; 3
- 122:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
- 126:	29 85       	ldd	r18, Y+9	; 0x09
- 128:	3a 85       	ldd	r19, Y+10	; 0x0a
- 12a:	4b 85       	ldd	r20, Y+11	; 0x0b
- 12c:	5c 85       	ldd	r21, Y+12	; 0x0c
- 12e:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
- 132:	89 01       	movw	r16, r18
- 134:	20 e0       	ldi	r18, 0x00	; 0
- 136:	30 e0       	ldi	r19, 0x00	; 0
-
-00000138 <.L27>:
- 138:	af 85       	ldd	r26, Y+15	; 0x0f
- 13a:	b8 89       	ldd	r27, Y+16	; 0x10
- 13c:	5a 96       	adiw	r26, 0x1a	; 26
- 13e:	4d 90       	ld	r4, X+
- 140:	5d 90       	ld	r5, X+
- 142:	6d 90       	ld	r6, X+
- 144:	7c 90       	ld	r7, X
- 146:	5d 97       	sbiw	r26, 0x1d	; 29
- 148:	84 14       	cp	r8, r4
- 14a:	95 04       	cpc	r9, r5
- 14c:	a6 04       	cpc	r10, r6
- 14e:	b7 04       	cpc	r11, r7
- 150:	00 f4       	brcc	.+0      	; 0x152 <L0^A>
-
-00000152 <L0^A>:
- 152:	00 c0       	rjmp	.+0      	; 0x154 <L0^A+0x2>
- 154:	a7 01       	movw	r20, r14
- 156:	96 01       	movw	r18, r12
- 158:	c3 01       	movw	r24, r6
- 15a:	b2 01       	movw	r22, r4
- 15c:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
- 160:	ef 85       	ldd	r30, Y+15	; 0x0f
- 162:	f8 89       	ldd	r31, Y+16	; 0x10
- 164:	66 8f       	std	Z+30, r22	; 0x1e
- 166:	77 8f       	std	Z+31, r23	; 0x1f
- 168:	80 a3       	std	Z+32, r24	; 0x20
- 16a:	91 a3       	std	Z+33, r25	; 0x21
-
-0000016c <.L29>:
- 16c:	ff ef       	ldi	r31, 0xFF	; 255
- 16e:	4f 1a       	sub	r4, r31
- 170:	5f 0a       	sbc	r5, r31
- 172:	6f 0a       	sbc	r6, r31
- 174:	7f 0a       	sbc	r7, r31
- 176:	af 85       	ldd	r26, Y+15	; 0x0f
- 178:	b8 89       	ldd	r27, Y+16	; 0x10
- 17a:	5a 96       	adiw	r26, 0x1a	; 26
- 17c:	4d 92       	st	X+, r4
- 17e:	5d 92       	st	X+, r5
- 180:	6d 92       	st	X+, r6
- 182:	7c 92       	st	X, r7
- 184:	5d 97       	sbiw	r26, 0x1d	; 29
- 186:	5e 96       	adiw	r26, 0x1e	; 30
- 188:	8d 90       	ld	r8, X+
- 18a:	9d 90       	ld	r9, X+
- 18c:	ad 90       	ld	r10, X+
- 18e:	bc 90       	ld	r11, X
- 190:	91 97       	sbiw	r26, 0x21	; 33
- 192:	94 01       	movw	r18, r8
- 194:	a5 01       	movw	r20, r10
- 196:	60 e0       	ldi	r22, 0x00	; 0
- 198:	70 e0       	ldi	r23, 0x00	; 0
- 19a:	80 e0       	ldi	r24, 0x00	; 0
- 19c:	90 e0       	ldi	r25, 0x00	; 0
- 19e:	92 96       	adiw	r26, 0x22	; 34
- 1a0:	ac 90       	ld	r10, X
- 1a2:	92 97       	sbiw	r26, 0x22	; 34
- 1a4:	93 96       	adiw	r26, 0x23	; 35
- 1a6:	bc 90       	ld	r11, X
- 1a8:	93 97       	sbiw	r26, 0x23	; 35
- 1aa:	94 96       	adiw	r26, 0x24	; 36
- 1ac:	cc 90       	ld	r12, X
- 1ae:	94 97       	sbiw	r26, 0x24	; 36
- 1b0:	95 96       	adiw	r26, 0x25	; 37
- 1b2:	dc 90       	ld	r13, X
- 1b4:	95 97       	sbiw	r26, 0x25	; 37
- 1b6:	96 96       	adiw	r26, 0x26	; 38
- 1b8:	ec 90       	ld	r14, X
- 1ba:	96 97       	sbiw	r26, 0x26	; 38
- 1bc:	97 96       	adiw	r26, 0x27	; 39
- 1be:	fc 90       	ld	r15, X
- 1c0:	97 97       	sbiw	r26, 0x27	; 39
- 1c2:	98 96       	adiw	r26, 0x28	; 40
- 1c4:	0c 91       	ld	r16, X
- 1c6:	98 97       	sbiw	r26, 0x28	; 40
- 1c8:	99 96       	adiw	r26, 0x29	; 41
- 1ca:	1c 91       	ld	r17, X
- 1cc:	99 97       	sbiw	r26, 0x29	; 41
- 1ce:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
- 1d2:	92 96       	adiw	r26, 0x22	; 34
- 1d4:	2c 93       	st	X, r18
- 1d6:	92 97       	sbiw	r26, 0x22	; 34
- 1d8:	93 96       	adiw	r26, 0x23	; 35
- 1da:	3c 93       	st	X, r19
- 1dc:	93 97       	sbiw	r26, 0x23	; 35
- 1de:	94 96       	adiw	r26, 0x24	; 36
- 1e0:	4c 93       	st	X, r20
- 1e2:	94 97       	sbiw	r26, 0x24	; 36
- 1e4:	95 96       	adiw	r26, 0x25	; 37
- 1e6:	5c 93       	st	X, r21
- 1e8:	95 97       	sbiw	r26, 0x25	; 37
- 1ea:	96 96       	adiw	r26, 0x26	; 38
- 1ec:	6c 93       	st	X, r22
- 1ee:	96 97       	sbiw	r26, 0x26	; 38
- 1f0:	97 96       	adiw	r26, 0x27	; 39
- 1f2:	7c 93       	st	X, r23
- 1f4:	97 97       	sbiw	r26, 0x27	; 39
- 1f6:	98 96       	adiw	r26, 0x28	; 40
- 1f8:	8c 93       	st	X, r24
- 1fa:	98 97       	sbiw	r26, 0x28	; 40
- 1fc:	99 96       	adiw	r26, 0x29	; 41
- 1fe:	9c 93       	st	X, r25
- 200:	99 97       	sbiw	r26, 0x29	; 41
- 202:	9a 96       	adiw	r26, 0x2a	; 42
- 204:	6c 90       	ld	r6, X
- 206:	9a 97       	sbiw	r26, 0x2a	; 42
- 208:	9b 96       	adiw	r26, 0x2b	; 43
- 20a:	7c 90       	ld	r7, X
- 20c:	9b 97       	sbiw	r26, 0x2b	; 43
- 20e:	9c 96       	adiw	r26, 0x2c	; 44
- 210:	8c 90       	ld	r8, X
- 212:	9c 97       	sbiw	r26, 0x2c	; 44
- 214:	9d 96       	adiw	r26, 0x2d	; 45
- 216:	9c 90       	ld	r9, X
- 218:	9d 97       	sbiw	r26, 0x2d	; 45
- 21a:	fd 01       	movw	r30, r26
- 21c:	b6 a5       	ldd	r27, Z+46	; 0x2e
- 21e:	a7 a5       	ldd	r26, Z+47	; 0x2f
- 220:	50 a8       	ldd	r5, Z+48	; 0x30
- 222:	41 a8       	ldd	r4, Z+49	; 0x31
- 224:	53 01       	movw	r10, r6
- 226:	64 01       	movw	r12, r8
- 228:	eb 2e       	mov	r14, r27
- 22a:	fa 2e       	mov	r15, r26
- 22c:	05 2d       	mov	r16, r5
- 22e:	14 2d       	mov	r17, r4
- 230:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
- 234:	20 34       	cpi	r18, 0x40	; 64
- 236:	32 44       	sbci	r19, 0x42	; 66
- 238:	4f 40       	sbci	r20, 0x0F	; 15
- 23a:	51 05       	cpc	r21, r1
- 23c:	61 05       	cpc	r22, r1
- 23e:	71 05       	cpc	r23, r1
- 240:	81 05       	cpc	r24, r1
- 242:	91 05       	cpc	r25, r1
- 244:	00 f4       	brcc	.+0      	; 0x246 <L0^A>
-
-00000246 <L0^A>:
- 246:	00 c0       	rjmp	.+0      	; 0x248 <L0^A+0x2>
- 248:	93 01       	movw	r18, r6
- 24a:	a4 01       	movw	r20, r8
- 24c:	6b 2f       	mov	r22, r27
- 24e:	7a 2f       	mov	r23, r26
- 250:	85 2d       	mov	r24, r5
- 252:	94 2d       	mov	r25, r4
- 254:	20 5c       	subi	r18, 0xC0	; 192
- 256:	3d 4b       	sbci	r19, 0xBD	; 189
- 258:	40 4f       	sbci	r20, 0xF0	; 240
- 25a:	5f 4f       	sbci	r21, 0xFF	; 255
- 25c:	6f 4f       	sbci	r22, 0xFF	; 255
- 25e:	7f 4f       	sbci	r23, 0xFF	; 255
- 260:	8f 4f       	sbci	r24, 0xFF	; 255
- 262:	9f 4f       	sbci	r25, 0xFF	; 255
- 264:	af 85       	ldd	r26, Y+15	; 0x0f
- 266:	b8 89       	ldd	r27, Y+16	; 0x10
- 268:	9a 96       	adiw	r26, 0x2a	; 42
- 26a:	2c 93       	st	X, r18
- 26c:	9a 97       	sbiw	r26, 0x2a	; 42
- 26e:	9b 96       	adiw	r26, 0x2b	; 43
- 270:	3c 93       	st	X, r19
- 272:	9b 97       	sbiw	r26, 0x2b	; 43
- 274:	9c 96       	adiw	r26, 0x2c	; 44
- 276:	4c 93       	st	X, r20
- 278:	9c 97       	sbiw	r26, 0x2c	; 44
- 27a:	9d 96       	adiw	r26, 0x2d	; 45
- 27c:	5c 93       	st	X, r21
- 27e:	9d 97       	sbiw	r26, 0x2d	; 45
- 280:	9e 96       	adiw	r26, 0x2e	; 46
- 282:	6c 93       	st	X, r22
- 284:	9e 97       	sbiw	r26, 0x2e	; 46
- 286:	9f 96       	adiw	r26, 0x2f	; 47
- 288:	7c 93       	st	X, r23
- 28a:	9f 97       	sbiw	r26, 0x2f	; 47
- 28c:	d0 96       	adiw	r26, 0x30	; 48
- 28e:	8c 93       	st	X, r24
- 290:	d0 97       	sbiw	r26, 0x30	; 48
- 292:	d1 96       	adiw	r26, 0x31	; 49
- 294:	9c 93       	st	X, r25
- 296:	81 e0       	ldi	r24, 0x01	; 1
-
-00000298 <.L26>:
- 298:	60 96       	adiw	r28, 0x10	; 16
- 29a:	0f b6       	in	r0, 0x3f	; 63
- 29c:	f8 94       	cli
- 29e:	de bf       	out	0x3e, r29	; 62
- 2a0:	0f be       	out	0x3f, r0	; 63
- 2a2:	cd bf       	out	0x3d, r28	; 61
- 2a4:	df 91       	pop	r29
- 2a6:	cf 91       	pop	r28
- 2a8:	1f 91       	pop	r17
- 2aa:	0f 91       	pop	r16
- 2ac:	ff 90       	pop	r15
- 2ae:	ef 90       	pop	r14
- 2b0:	df 90       	pop	r13
- 2b2:	cf 90       	pop	r12
- 2b4:	bf 90       	pop	r11
- 2b6:	af 90       	pop	r10
- 2b8:	9f 90       	pop	r9
- 2ba:	8f 90       	pop	r8
- 2bc:	7f 90       	pop	r7
- 2be:	6f 90       	pop	r6
- 2c0:	5f 90       	pop	r5
- 2c2:	4f 90       	pop	r4
- 2c4:	3f 90       	pop	r3
- 2c6:	2f 90       	pop	r2
- 2c8:	08 95       	ret
-
-000002ca <.L28>:
- 2ca:	69 01       	movw	r12, r18
- 2cc:	33 0f       	add	r19, r19
- 2ce:	ee 08       	sbc	r14, r14
- 2d0:	ff 08       	sbc	r15, r15
- 2d2:	d7 01       	movw	r26, r14
- 2d4:	c6 01       	movw	r24, r12
- 2d6:	88 0d       	add	r24, r8
- 2d8:	99 1d       	adc	r25, r9
- 2da:	aa 1d       	adc	r26, r10
- 2dc:	bb 1d       	adc	r27, r11
- 2de:	84 15       	cp	r24, r4
- 2e0:	95 05       	cpc	r25, r5
- 2e2:	a6 05       	cpc	r26, r6
- 2e4:	b7 05       	cpc	r27, r7
- 2e6:	00 f0       	brcs	.+0      	; 0x2e8 <.L28+0x1e>
- 2e8:	91 01       	movw	r18, r2
- 2ea:	a8 ee       	ldi	r26, 0xE8	; 232
- 2ec:	b3 e0       	ldi	r27, 0x03	; 3
- 2ee:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
- 2f2:	af 85       	ldd	r26, Y+15	; 0x0f
- 2f4:	b8 89       	ldd	r27, Y+16	; 0x10
- 2f6:	5e 96       	adiw	r26, 0x1e	; 30
- 2f8:	6d 93       	st	X+, r22
- 2fa:	7d 93       	st	X+, r23
- 2fc:	8d 93       	st	X+, r24
- 2fe:	9c 93       	st	X, r25
- 300:	91 97       	sbiw	r26, 0x21	; 33
- 302:	00 c0       	rjmp	.+0      	; 0x304 <.L30>
-
-00000304 <.L30>:
- 304:	80 0f       	add	r24, r16
- 306:	91 1f       	adc	r25, r17
- 308:	a1 1d       	adc	r26, r1
- 30a:	b1 1d       	adc	r27, r1
- 30c:	84 15       	cp	r24, r4
- 30e:	95 05       	cpc	r25, r5
- 310:	a6 05       	cpc	r26, r6
- 312:	b7 05       	cpc	r27, r7
- 314:	00 f4       	brcc	.+0      	; 0x316 <L0^A>
-
-00000316 <L0^A>:
- 316:	00 c0       	rjmp	.+0      	; 0x318 <L0^A+0x2>
- 318:	91 01       	movw	r18, r2
- 31a:	a8 ee       	ldi	r26, 0xE8	; 232
- 31c:	b3 e0       	ldi	r27, 0x03	; 3
- 31e:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
- 322:	69 83       	std	Y+1, r22	; 0x01
- 324:	7a 83       	std	Y+2, r23	; 0x02
- 326:	8b 83       	std	Y+3, r24	; 0x03
- 328:	9c 83       	std	Y+4, r25	; 0x04
- 32a:	a3 01       	movw	r20, r6
- 32c:	92 01       	movw	r18, r4
- 32e:	28 19       	sub	r18, r8
- 330:	39 09       	sbc	r19, r9
- 332:	4a 09       	sbc	r20, r10
- 334:	5b 09       	sbc	r21, r11
- 336:	2c 19       	sub	r18, r12
- 338:	3d 09       	sbc	r19, r13
- 33a:	4e 09       	sbc	r20, r14
- 33c:	5f 09       	sbc	r21, r15
- 33e:	69 85       	ldd	r22, Y+9	; 0x09
- 340:	7a 85       	ldd	r23, Y+10	; 0x0a
- 342:	8b 85       	ldd	r24, Y+11	; 0x0b
- 344:	9c 85       	ldd	r25, Y+12	; 0x0c
- 346:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
- 34a:	c9 80       	ldd	r12, Y+1	; 0x01
- 34c:	da 80       	ldd	r13, Y+2	; 0x02
- 34e:	eb 80       	ldd	r14, Y+3	; 0x03
- 350:	fc 80       	ldd	r15, Y+4	; 0x04
- 352:	c6 1a       	sub	r12, r22
- 354:	d7 0a       	sbc	r13, r23
- 356:	e8 0a       	sbc	r14, r24
- 358:	f9 0a       	sbc	r15, r25
- 35a:	ef 85       	ldd	r30, Y+15	; 0x0f
- 35c:	f8 89       	ldd	r31, Y+16	; 0x10
- 35e:	c6 8e       	std	Z+30, r12	; 0x1e
- 360:	d7 8e       	std	Z+31, r13	; 0x1f
- 362:	e0 a2       	std	Z+32, r14	; 0x20
- 364:	f1 a2       	std	Z+33, r15	; 0x21
- 366:	00 c0       	rjmp	.+0      	; 0x368 <.L31>
-
-00000368 <.L31>:
- 368:	61 e0       	ldi	r22, 0x01	; 1
- 36a:	8f 85       	ldd	r24, Y+15	; 0x0f
- 36c:	98 89       	ldd	r25, Y+16	; 0x10
- 36e:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor16computeStepDelayEjjjj>
- 372:	80 e0       	ldi	r24, 0x00	; 0
- 374:	00 c0       	rjmp	.+0      	; 0x376 <.L31+0xe>
+00000012 <L0^A>:
+  12:	00 00       	nop
+  14:	01 97       	sbiw	r24, 0x01	; 1
+  16:	00 c0       	rjmp	.+0      	; 0x18 <.L0^B1+0x2>
 
 Disassembly of section .text._ZN9component12StepperMotor4stepEijjj:
 
@@ -6302,29 +6300,29 @@ Disassembly of section .text._ZN9component12StepperMotor4stepEijjj:
   24:	9f 89       	ldd	r25, Y+23	; 0x17
   26:	86 17       	cp	r24, r22
   28:	97 07       	cpc	r25, r23
-  2a:	01 f0       	breq	.+0      	; 0x2c <.L34>
+  2a:	01 f0       	breq	.+0      	; 0x2c <.L41>
 
-0000002c <.L34>:
+0000002c <.L41>:
   2c:	b7 01       	movw	r22, r14
   2e:	ce 01       	movw	r24, r28
   30:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor4stepEijjj>
 
-00000034 <.L35>:
+00000034 <.L42>:
   34:	b7 01       	movw	r22, r14
   36:	f7 fe       	sbrs	r15, 7
-  38:	00 c0       	rjmp	.+0      	; 0x3a <.L35+0x6>
+  38:	00 c0       	rjmp	.+0      	; 0x3a <.L42+0x6>
   3a:	66 27       	eor	r22, r22
   3c:	77 27       	eor	r23, r23
   3e:	6e 19       	sub	r22, r14
   40:	7f 09       	sbc	r23, r15
 
-00000042 <.L36>:
+00000042 <.L43>:
   42:	95 01       	movw	r18, r10
   44:	a6 01       	movw	r20, r12
   46:	ce 01       	movw	r24, r28
   48:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor4stepEijjj>
-  4c:	81 15       	cp	r24, r1
-  4e:	01 f0       	breq	.+0      	; 0x50 <.L36+0xe>
+  4c:	89 2b       	or	r24, r25
+  4e:	01 f0       	breq	.+0      	; 0x50 <.L43+0xe>
   50:	8c 89       	ldd	r24, Y+20	; 0x14
   52:	9d 89       	ldd	r25, Y+21	; 0x15
   54:	22 27       	eor	r18, r18
@@ -6333,16 +6331,16 @@ Disassembly of section .text._ZN9component12StepperMotor4stepEijjj:
   5a:	3f 09       	sbc	r19, r15
   5c:	1e 14       	cp	r1, r14
   5e:	1f 04       	cpc	r1, r15
-  60:	04 f0       	brlt	.+0      	; 0x62 <.L36+0x20>
+  60:	04 f0       	brlt	.+0      	; 0x62 <.L43+0x20>
   62:	82 17       	cp	r24, r18
   64:	93 07       	cpc	r25, r19
-  66:	01 f4       	brne	.+0      	; 0x68 <.L41>
+  66:	01 f4       	brne	.+0      	; 0x68 <.L49>
 
-00000068 <.L41>:
+00000068 <.L49>:
   68:	81 e0       	ldi	r24, 0x01	; 1
   6a:	8b 8b       	std	Y+19, r24	; 0x13
 
-0000006c <.L33>:
+0000006c <.L40>:
   6c:	df 91       	pop	r29
   6e:	cf 91       	pop	r28
   70:	1f 91       	pop	r17
@@ -6355,7 +6353,7 @@ Disassembly of section .text._ZN9component12StepperMotor4stepEijjj:
   7e:	af 90       	pop	r10
   80:	08 95       	ret
 
-00000082 <.L39>:
+00000082 <.L46>:
   82:	01 96       	adiw	r24, 0x01	; 1
   84:	9d 8b       	std	Y+21, r25	; 0x15
   86:	8c 8b       	std	Y+20, r24	; 0x14
@@ -6363,60 +6361,61 @@ Disassembly of section .text._ZN9component12StepperMotor4stepEijjj:
   8a:	99 8d       	ldd	r25, Y+25	; 0x19
   8c:	01 96       	adiw	r24, 0x01	; 1
 
-0000008e <.L40>:
+0000008e <.L48>:
   8e:	99 8f       	std	Y+25, r25	; 0x19
   90:	88 8f       	std	Y+24, r24	; 0x18
   92:	8b 89       	ldd	r24, Y+19	; 0x13
   94:	81 11       	cpse	r24, r1
-  96:	00 c0       	rjmp	.+0      	; 0x98 <.L40+0xa>
+  96:	00 c0       	rjmp	.+0      	; 0x98 <.L48+0xa>
   98:	8a 89       	ldd	r24, Y+18	; 0x12
   9a:	81 15       	cp	r24, r1
-  9c:	01 f0       	breq	.+0      	; 0x9e <.L40+0x10>
+  9c:	01 f0       	breq	.+0      	; 0x9e <.L48+0x10>
   9e:	81 30       	cpi	r24, 0x01	; 1
   a0:	01 f0       	breq	.+0      	; 0xa2 <.L44>
 
 000000a2 <.L44>:
   a2:	61 e0       	ldi	r22, 0x01	; 1
-  a4:	ce 01       	movw	r24, r28
-  a6:	df 91       	pop	r29
-  a8:	cf 91       	pop	r28
-  aa:	1f 91       	pop	r17
-  ac:	0f 91       	pop	r16
-  ae:	ff 90       	pop	r15
-  b0:	ef 90       	pop	r14
-  b2:	df 90       	pop	r13
-  b4:	cf 90       	pop	r12
-  b6:	bf 90       	pop	r11
-  b8:	af 90       	pop	r10
-  ba:	0c 94 00 00 	jmp	0	; 0x0 <_ZN9component12StepperMotor4stepEijjj>
+  a4:	70 e0       	ldi	r23, 0x00	; 0
+  a6:	ce 01       	movw	r24, r28
+  a8:	df 91       	pop	r29
+  aa:	cf 91       	pop	r28
+  ac:	1f 91       	pop	r17
+  ae:	0f 91       	pop	r16
+  b0:	ff 90       	pop	r15
+  b2:	ef 90       	pop	r14
+  b4:	df 90       	pop	r13
+  b6:	cf 90       	pop	r12
+  b8:	bf 90       	pop	r11
+  ba:	af 90       	pop	r10
+  bc:	0c 94 00 00 	jmp	0	; 0x0 <_ZN9component12StepperMotor4stepEijjj>
 
-000000be <.L38>:
-  be:	82 17       	cp	r24, r18
-  c0:	93 07       	cpc	r25, r19
-  c2:	01 f0       	breq	.+0      	; 0xc4 <.L38+0x6>
-  c4:	01 97       	sbiw	r24, 0x01	; 1
-  c6:	9d 8b       	std	Y+21, r25	; 0x15
-  c8:	8c 8b       	std	Y+20, r24	; 0x14
-  ca:	88 8d       	ldd	r24, Y+24	; 0x18
-  cc:	99 8d       	ldd	r25, Y+25	; 0x19
-  ce:	01 97       	sbiw	r24, 0x01	; 1
-  d0:	00 c0       	rjmp	.+0      	; 0xd2 <.L42>
+000000c0 <.L45>:
+  c0:	82 17       	cp	r24, r18
+  c2:	93 07       	cpc	r25, r19
+  c4:	01 f0       	breq	.+0      	; 0xc6 <.L45+0x6>
+  c6:	01 97       	sbiw	r24, 0x01	; 1
+  c8:	9d 8b       	std	Y+21, r25	; 0x15
+  ca:	8c 8b       	std	Y+20, r24	; 0x14
+  cc:	88 8d       	ldd	r24, Y+24	; 0x18
+  ce:	99 8d       	ldd	r25, Y+25	; 0x19
+  d0:	01 97       	sbiw	r24, 0x01	; 1
+  d2:	00 c0       	rjmp	.+0      	; 0xd4 <.L50>
 
-000000d2 <.L42>:
-  d2:	6c 89       	ldd	r22, Y+20	; 0x14
-  d4:	63 70       	andi	r22, 0x03	; 3
-  d6:	66 0f       	add	r22, r22
-  d8:	6f 5f       	subi	r22, 0xFF	; 255
+000000d4 <.L50>:
+  d4:	6c 89       	ldd	r22, Y+20	; 0x14
+  d6:	63 70       	andi	r22, 0x03	; 3
+  d8:	66 0f       	add	r22, r22
+  da:	6f 5f       	subi	r22, 0xFF	; 255
 
-000000da <.L49>:
-  da:	ce 01       	movw	r24, r28
-  dc:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor4stepEijjj>
-  e0:	00 c0       	rjmp	.+0      	; 0xe2 <.L43>
+000000dc <.L54>:
+  dc:	ce 01       	movw	r24, r28
+  de:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor4stepEijjj>
+  e2:	00 c0       	rjmp	.+0      	; 0xe4 <.L51>
 
-000000e2 <.L43>:
-  e2:	6c 89       	ldd	r22, Y+20	; 0x14
-  e4:	67 70       	andi	r22, 0x07	; 7
-  e6:	00 c0       	rjmp	.+0      	; 0xe8 <.L71+0x2>
+000000e4 <.L51>:
+  e4:	6c 89       	ldd	r22, Y+20	; 0x14
+  e6:	67 70       	andi	r22, 0x07	; 7
+  e8:	00 c0       	rjmp	.+0      	; 0xea <.L76+0x4>
 
 Disassembly of section .text._ZN9component12StepperMotor4stepEij:
 
@@ -6437,14 +6436,14 @@ Disassembly of section .text._ZN9component12StepperMotor4stepEij:
   1a:	9f 89       	ldd	r25, Y+23	; 0x17
   1c:	86 17       	cp	r24, r22
   1e:	97 07       	cpc	r25, r23
-  20:	01 f0       	breq	.+0      	; 0x22 <.L51>
+  20:	01 f0       	breq	.+0      	; 0x22 <.L56>
 
-00000022 <.L51>:
+00000022 <.L56>:
   22:	b7 01       	movw	r22, r14
   24:	ce 01       	movw	r24, r28
   26:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor4stepEij>
 
-0000002a <.L52>:
+0000002a <.L57>:
   2a:	8c 89       	ldd	r24, Y+20	; 0x14
   2c:	9d 89       	ldd	r25, Y+21	; 0x15
   2e:	22 27       	eor	r18, r18
@@ -6453,16 +6452,16 @@ Disassembly of section .text._ZN9component12StepperMotor4stepEij:
   34:	3f 09       	sbc	r19, r15
   36:	1e 14       	cp	r1, r14
   38:	1f 04       	cpc	r1, r15
-  3a:	04 f0       	brlt	.+0      	; 0x3c <.L52+0x12>
+  3a:	04 f0       	brlt	.+0      	; 0x3c <.L57+0x12>
   3c:	82 17       	cp	r24, r18
   3e:	93 07       	cpc	r25, r19
-  40:	01 f4       	brne	.+0      	; 0x42 <.L57>
+  40:	01 f4       	brne	.+0      	; 0x42 <.L62>
 
-00000042 <.L57>:
+00000042 <.L62>:
   42:	81 e0       	ldi	r24, 0x01	; 1
   44:	8b 8b       	std	Y+19, r24	; 0x13
 
-00000046 <.L50>:
+00000046 <.L55>:
   46:	df 91       	pop	r29
   48:	cf 91       	pop	r28
   4a:	1f 91       	pop	r17
@@ -6471,7 +6470,7 @@ Disassembly of section .text._ZN9component12StepperMotor4stepEij:
   50:	ef 90       	pop	r14
   52:	08 95       	ret
 
-00000054 <.L54>:
+00000054 <.L59>:
   54:	01 96       	adiw	r24, 0x01	; 1
   56:	9d 8b       	std	Y+21, r25	; 0x15
   58:	8c 8b       	std	Y+20, r24	; 0x14
@@ -6479,19 +6478,19 @@ Disassembly of section .text._ZN9component12StepperMotor4stepEij:
   5c:	99 8d       	ldd	r25, Y+25	; 0x19
   5e:	01 96       	adiw	r24, 0x01	; 1
 
-00000060 <.L56>:
+00000060 <.L61>:
   60:	99 8f       	std	Y+25, r25	; 0x19
   62:	88 8f       	std	Y+24, r24	; 0x18
   64:	8b 89       	ldd	r24, Y+19	; 0x13
   66:	81 11       	cpse	r24, r1
-  68:	00 c0       	rjmp	.+0      	; 0x6a <.L56+0xa>
+  68:	00 c0       	rjmp	.+0      	; 0x6a <.L61+0xa>
   6a:	8a 89       	ldd	r24, Y+18	; 0x12
   6c:	81 15       	cp	r24, r1
-  6e:	01 f0       	breq	.+0      	; 0x70 <.L56+0x10>
+  6e:	01 f0       	breq	.+0      	; 0x70 <.L61+0x10>
   70:	81 30       	cpi	r24, 0x01	; 1
-  72:	01 f0       	breq	.+0      	; 0x74 <.L60>
+  72:	01 f0       	breq	.+0      	; 0x74 <.L65>
 
-00000074 <.L60>:
+00000074 <.L65>:
   74:	88 ee       	ldi	r24, 0xE8	; 232
   76:	93 e0       	ldi	r25, 0x03	; 3
   78:	b8 01       	movw	r22, r16
@@ -6505,33 +6504,33 @@ Disassembly of section .text._ZN9component12StepperMotor4stepEij:
   8a:	ef 90       	pop	r14
   8c:	0c 94 00 00 	jmp	0	; 0x0 <_ZN9component12StepperMotor4stepEij>
 
-00000090 <.L53>:
+00000090 <.L58>:
   90:	82 17       	cp	r24, r18
   92:	93 07       	cpc	r25, r19
-  94:	01 f0       	breq	.+0      	; 0x96 <.L53+0x6>
+  94:	01 f0       	breq	.+0      	; 0x96 <.L58+0x6>
   96:	01 97       	sbiw	r24, 0x01	; 1
   98:	9d 8b       	std	Y+21, r25	; 0x15
   9a:	8c 8b       	std	Y+20, r24	; 0x14
   9c:	88 8d       	ldd	r24, Y+24	; 0x18
   9e:	99 8d       	ldd	r25, Y+25	; 0x19
   a0:	01 97       	sbiw	r24, 0x01	; 1
-  a2:	00 c0       	rjmp	.+0      	; 0xa4 <.L58>
+  a2:	00 c0       	rjmp	.+0      	; 0xa4 <.L63>
 
-000000a4 <.L58>:
+000000a4 <.L63>:
   a4:	6c 89       	ldd	r22, Y+20	; 0x14
   a6:	63 70       	andi	r22, 0x03	; 3
   a8:	66 0f       	add	r22, r22
   aa:	6f 5f       	subi	r22, 0xFF	; 255
 
-000000ac <.L62>:
+000000ac <.L67>:
   ac:	ce 01       	movw	r24, r28
   ae:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor4stepEij>
-  b2:	00 c0       	rjmp	.+0      	; 0xb4 <.L59>
+  b2:	00 c0       	rjmp	.+0      	; 0xb4 <.L64>
 
-000000b4 <.L59>:
+000000b4 <.L64>:
   b4:	6c 89       	ldd	r22, Y+20	; 0x14
   b6:	67 70       	andi	r22, 0x07	; 7
-  b8:	00 c0       	rjmp	.+0      	; 0xba <.L8+0x2>
+  b8:	00 c0       	rjmp	.+0      	; 0xba <.L22+0x2>
 
 Disassembly of section .text._ZN9component12StepperMotor4stepEijf:
 
@@ -6557,14 +6556,14 @@ Disassembly of section .text._ZN9component12StepperMotor4stepEijf:
   24:	9f 89       	ldd	r25, Y+23	; 0x17
   26:	86 17       	cp	r24, r22
   28:	97 07       	cpc	r25, r23
-  2a:	01 f0       	breq	.+0      	; 0x2c <.L64>
+  2a:	01 f0       	breq	.+0      	; 0x2c <.L69>
 
-0000002c <.L64>:
+0000002c <.L69>:
   2c:	b6 01       	movw	r22, r12
   2e:	ce 01       	movw	r24, r28
   30:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor4stepEijf>
 
-00000034 <.L65>:
+00000034 <.L70>:
   34:	8c 89       	ldd	r24, Y+20	; 0x14
   36:	9d 89       	ldd	r25, Y+21	; 0x15
   38:	22 27       	eor	r18, r18
@@ -6579,13 +6578,13 @@ Disassembly of section .text._ZN9component12StepperMotor4stepEijf:
   46:	00 c0       	rjmp	.+0      	; 0x48 <L0^A+0x2>
   48:	82 17       	cp	r24, r18
   4a:	93 07       	cpc	r25, r19
-  4c:	01 f4       	brne	.+0      	; 0x4e <.L70>
+  4c:	01 f4       	brne	.+0      	; 0x4e <.L75>
 
-0000004e <.L70>:
+0000004e <.L75>:
   4e:	81 e0       	ldi	r24, 0x01	; 1
   50:	8b 8b       	std	Y+19, r24	; 0x13
 
-00000052 <.L63>:
+00000052 <.L68>:
   52:	df 91       	pop	r29
   54:	cf 91       	pop	r28
   56:	1f 91       	pop	r17
@@ -6598,7 +6597,7 @@ Disassembly of section .text._ZN9component12StepperMotor4stepEijf:
   64:	af 90       	pop	r10
   66:	08 95       	ret
 
-00000068 <.L67>:
+00000068 <.L72>:
   68:	01 96       	adiw	r24, 0x01	; 1
   6a:	9d 8b       	std	Y+21, r25	; 0x15
   6c:	8c 8b       	std	Y+20, r24	; 0x14
@@ -6606,19 +6605,19 @@ Disassembly of section .text._ZN9component12StepperMotor4stepEijf:
   70:	99 8d       	ldd	r25, Y+25	; 0x19
   72:	01 96       	adiw	r24, 0x01	; 1
 
-00000074 <.L69>:
+00000074 <.L74>:
   74:	99 8f       	std	Y+25, r25	; 0x19
   76:	88 8f       	std	Y+24, r24	; 0x18
   78:	8b 89       	ldd	r24, Y+19	; 0x13
   7a:	81 11       	cpse	r24, r1
-  7c:	00 c0       	rjmp	.+0      	; 0x7e <.L69+0xa>
+  7c:	00 c0       	rjmp	.+0      	; 0x7e <.L74+0xa>
   7e:	8a 89       	ldd	r24, Y+18	; 0x12
   80:	81 15       	cp	r24, r1
-  82:	01 f0       	breq	.+0      	; 0x84 <.L69+0x10>
+  82:	01 f0       	breq	.+0      	; 0x84 <.L74+0x10>
   84:	81 30       	cpi	r24, 0x01	; 1
-  86:	01 f0       	breq	.+0      	; 0x88 <.L73>
+  86:	01 f0       	breq	.+0      	; 0x88 <.L78>
 
-00000088 <.L73>:
+00000088 <.L78>:
   88:	20 e0       	ldi	r18, 0x00	; 0
   8a:	30 e0       	ldi	r19, 0x00	; 0
   8c:	4a e7       	ldi	r20, 0x7A	; 122
@@ -6651,7 +6650,7 @@ Disassembly of section .text._ZN9component12StepperMotor4stepEijf:
   ca:	af 90       	pop	r10
   cc:	0c 94 00 00 	jmp	0	; 0x0 <_ZN9component12StepperMotor4stepEijf>
 
-000000d0 <.L66>:
+000000d0 <.L71>:
   d0:	82 17       	cp	r24, r18
   d2:	93 07       	cpc	r25, r19
   d4:	01 f4       	brne	.+0      	; 0xd6 <L0^A>
@@ -6664,23 +6663,23 @@ Disassembly of section .text._ZN9component12StepperMotor4stepEijf:
   de:	88 8d       	ldd	r24, Y+24	; 0x18
   e0:	99 8d       	ldd	r25, Y+25	; 0x19
   e2:	01 97       	sbiw	r24, 0x01	; 1
-  e4:	00 c0       	rjmp	.+0      	; 0xe6 <.L71>
+  e4:	00 c0       	rjmp	.+0      	; 0xe6 <.L76>
 
-000000e6 <.L71>:
+000000e6 <.L76>:
   e6:	6c 89       	ldd	r22, Y+20	; 0x14
   e8:	63 70       	andi	r22, 0x03	; 3
   ea:	66 0f       	add	r22, r22
   ec:	6f 5f       	subi	r22, 0xFF	; 255
 
-000000ee <.L75>:
+000000ee <.L80>:
   ee:	ce 01       	movw	r24, r28
   f0:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12StepperMotor4stepEijf>
-  f4:	00 c0       	rjmp	.+0      	; 0xf6 <.L72>
+  f4:	00 c0       	rjmp	.+0      	; 0xf6 <.L77>
 
-000000f6 <.L72>:
+000000f6 <.L77>:
   f6:	6c 89       	ldd	r22, Y+20	; 0x14
   f8:	67 70       	andi	r22, 0x07	; 7
-  fa:	00 c0       	rjmp	.+0      	; 0xfc <.L72+0x6>
+  fa:	00 c0       	rjmp	.+0      	; 0xfc <.L77+0x6>
 
 Disassembly of section .text._ZN9component12StepperMotor11goalReachedEv:
 
