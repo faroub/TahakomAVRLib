@@ -94,6 +94,15 @@ public:
 
     static void init();
 
+    /** Enable interrupts globally.
+     *
+     *  Applications call this once after the peripherals that need
+     *  interrupts (USART0, SPI, ADC, ExternInterrupt, WatchdogTimer) have
+     *  been created and configured.  The peripheral constructors used to
+     *  call sei() themselves, which silently enabled interrupts early.
+     */
+    static void enableInterrupts();
+
     static void selectSleepMode(const sleepMode &a_sleepMode);
 
     static void goToSleep(const BODMode &a_BODMode);

@@ -17,6 +17,7 @@
 
 #include "Buzzer.h"
 #include "USART0.h"
+#include "MCU.h"
 // Note pitch data
 #include "buzzer_pitches_16bit.h"
 
@@ -34,6 +35,10 @@ int main(void) {
 
   // Instantiate a USART0 object
   io::USART0 &myUSART0 = io::USART0::getInstance();
+
+  // The serial receive path uses the receive-complete interrupt, so
+  // interrupts must be enabled globally
+  core::MCU::enableInterrupts();
 
   // List of possible keypresses
   const uint8_t l_keys[] = { 'a', 'w', 's', 'e', 'd', 'f', 't',

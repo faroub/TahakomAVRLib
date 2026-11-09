@@ -10,7 +10,6 @@ core::ExternInterrupt& core::ExternInterrupt::getInstance()
 
 core::ExternInterrupt::ExternInterrupt()
 {
-    sei();
 
 }
 

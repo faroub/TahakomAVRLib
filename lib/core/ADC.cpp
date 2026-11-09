@@ -30,7 +30,6 @@ core::ADConverter::ADConverter(const referenceVoltage &ar_refVoltage,
     selectClockPrescaler(ar_clockPrescaler);
     enableAutoTrigger(1);
     selectAutoTriggerSource(ar_autoTriggerSource);
-    sei();
     enableConversionCompleteInterrupt(1);
 
 

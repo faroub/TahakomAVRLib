@@ -29,7 +29,6 @@ io::SPI::SPI(const Pin &ar_pinSCK,
           m_pinSS(ar_pinSS)
 {
     core::MCU::enableSPI(1);
-    sei();
     enableTransferCompleteInterrupt(1);
 
 }

@@ -54,7 +54,6 @@ io::USART0::USART0(const transmissionMode& ar_transMode,
     setParityMode(ar_parityMode);
     setFrameSize(ar_frameSize);
     setStopBit(ar_stopBit);
-    sei();
     enableReceiveCompleteInterrupt(1);
 }
 

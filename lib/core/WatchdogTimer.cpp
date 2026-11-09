@@ -1,4 +1,5 @@
 #include "WatchdogTimer.h"
+#include <util/atomic.h>
 
 
 core::WatchdogTimer& core::WatchdogTimer::getInstance()
@@ -10,7 +11,6 @@ core::WatchdogTimer& core::WatchdogTimer::getInstance()
 
 core::WatchdogTimer::WatchdogTimer()
 {
-    sei();
     stop();
 }
 
@@ -22,23 +22,24 @@ core::WatchdogTimer::~WatchdogTimer()
 void core::WatchdogTimer::selectTimeOut(const timeOut &ar_timeOut)
 {
     m_timeOut = static_cast<uint8_t>(ar_timeOut);
-    cli();
-    wdt_reset();
-    if (m_isRunning)
+    ATOMIC_BLOCK(ATOMIC_RESTORESTATE)
     {
-        // watchdog is running: follow the timed change sequence and keep the
-        // programmed mode bits (WDIE/WDE) set, so the watchdog keeps running
-        // with the new timeout
-        WDTCSR |= (1 << WDCE) | (1 << WDE);
-        WDTCSR = timeOutToWDTCSR(static_cast<timeOut>(m_timeOut)) |
-                 operationModeToWDTCSR(static_cast<operationMode>(m_operationMode));
+        wdt_reset();
+        if (m_isRunning)
+        {
+            // watchdog is running: follow the timed change sequence and keep the
+            // programmed mode bits (WDIE/WDE) set, so the watchdog keeps running
+            // with the new timeout
+            WDTCSR |= (1 << WDCE) | (1 << WDE);
+            WDTCSR = timeOutToWDTCSR(static_cast<timeOut>(m_timeOut)) |
+                     operationModeToWDTCSR(static_cast<operationMode>(m_operationMode));
+        }
+        else
+        {
+            // watchdog not running: stage the timeout bits only
+            WATCHDOG_SELECT_TIMEOUT(timeOutToWDTCSR(static_cast<timeOut>(m_timeOut)));
+        }
     }
-    else
-    {
-        // watchdog not running: stage the timeout bits only
-        WATCHDOG_SELECT_TIMEOUT(timeOutToWDTCSR(static_cast<timeOut>(m_timeOut)));
-    }
-    sei();
 
 }
 
@@ -51,12 +52,13 @@ void core::WatchdogTimer::reset()
 void core::WatchdogTimer::start(const operationMode &ar_operationMode)
 {
     m_operationMode = static_cast<uint8_t>(ar_operationMode);
-    cli();
-    wdt_reset();
-    WATCHDOG_START(operationModeToWDTCSR(static_cast<operationMode>(m_operationMode)),
-                   timeOutToWDTCSR(static_cast<timeOut>(m_timeOut)));
-    m_isRunning = 1;
-    sei();
+    ATOMIC_BLOCK(ATOMIC_RESTORESTATE)
+    {
+        wdt_reset();
+        WATCHDOG_START(operationModeToWDTCSR(static_cast<operationMode>(m_operationMode)),
+                       timeOutToWDTCSR(static_cast<timeOut>(m_timeOut)));
+        m_isRunning = 1;
+    }
 
 }
 
@@ -64,21 +66,23 @@ void core::WatchdogTimer::start(const operationMode &ar_operationMode, const tim
 {
     m_timeOut = static_cast<uint8_t>(ar_timeOut);
     m_operationMode = static_cast<uint8_t>(ar_operationMode);
-    cli();
-    wdt_reset();
-    WATCHDOG_START(operationModeToWDTCSR(static_cast<operationMode>(m_operationMode)),
-                   timeOutToWDTCSR(static_cast<timeOut>(m_timeOut)));
-    m_isRunning = 1;
-    sei();
+    ATOMIC_BLOCK(ATOMIC_RESTORESTATE)
+    {
+        wdt_reset();
+        WATCHDOG_START(operationModeToWDTCSR(static_cast<operationMode>(m_operationMode)),
+                       timeOutToWDTCSR(static_cast<timeOut>(m_timeOut)));
+        m_isRunning = 1;
+    }
 
 }
 
 void core::WatchdogTimer::stop()
 {
-    cli();
-    wdt_reset();
-    WATCHDOG_STOP;
-    m_isRunning = 0;
-    sei();
+    ATOMIC_BLOCK(ATOMIC_RESTORESTATE)
+    {
+        wdt_reset();
+        WATCHDOG_STOP;
+        m_isRunning = 0;
+    }
 
 }

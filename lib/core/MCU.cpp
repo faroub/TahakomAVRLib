@@ -1,4 +1,11 @@
 #include "MCU.h"
+#include <util/atomic.h>
+
+void core::MCU::enableInterrupts()
+{
+    sei();
+
+}
 
 void core::MCU::init()
 {
@@ -20,25 +27,29 @@ void core::MCU::selectSleepMode(const sleepMode &a_sleepMode)
 
 void core::MCU::goToSleep(const BODMode &a_BODMode)
 {
-    cli();
-    switch (a_BODMode)
+    ATOMIC_BLOCK(ATOMIC_RESTORESTATE)
     {
-        case core::BODMode::enabled:
+        switch (a_BODMode)
         {
-            sleepEnable(1);
-            sei();
-            sleep_cpu();
-            sleepEnable(0);
-            break;
-        }
-        case core::BODMode::disabled:
-        {
-            sleepEnable(1);
-            disableBOD();
-            sei();
-            sleep_cpu();
-            sleepEnable(0);
-            break;
+            case core::BODMode::enabled:
+            {
+                sleepEnable(1);
+                // the sleep instruction must run with interrupts enabled so
+                // that the chip can wake up again
+                sei();
+                sleep_cpu();
+                sleepEnable(0);
+                break;
+            }
+            case core::BODMode::disabled:
+            {
+                sleepEnable(1);
+                disableBOD();
+                sei();
+                sleep_cpu();
+                sleepEnable(0);
+                break;
+            }
         }
     }
 
