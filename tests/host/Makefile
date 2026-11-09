@@ -17,7 +17,7 @@ LIB_DIR  := ../../lib
 
 OBJ_DIR  := obj
 
-TESTS := $(OBJ_DIR)/test_WatchdogTimer $(OBJ_DIR)/test_ExternInterrupt $(OBJ_DIR)/test_ADC $(OBJ_DIR)/test_ServoMotor $(OBJ_DIR)/test_USART0
+TESTS := $(OBJ_DIR)/test_WatchdogTimer $(OBJ_DIR)/test_ExternInterrupt $(OBJ_DIR)/test_ADC $(OBJ_DIR)/test_ServoMotor $(OBJ_DIR)/test_USART0 $(OBJ_DIR)/test_SPI
 
 .PHONY: all test clean
 all: $(TESTS)
@@ -31,6 +31,8 @@ test_ADC_OBJS := $(OBJ_DIR)/ADC.o $(OBJ_DIR)/MCU.o $(OBJ_DIR)/Pin.o
 test_ServoMotor_OBJS := $(OBJ_DIR)/ServoMotor.o $(OBJ_DIR)/TimerCounter1.o $(OBJ_DIR)/MCU.o $(OBJ_DIR)/Pin.o
 
 test_USART0_OBJS := $(OBJ_DIR)/USART0.o $(OBJ_DIR)/MCU.o
+
+test_SPI_OBJS := $(OBJ_DIR)/SPI.o $(OBJ_DIR)/MCU.o $(OBJ_DIR)/Pin.o
 
 $(OBJ_DIR)/test_WatchdogTimer: $(OBJ_DIR)/test_WatchdogTimer.o $(test_WatchdogTimer_OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
@@ -46,6 +48,10 @@ $(OBJ_DIR)/test_ServoMotor: $(OBJ_DIR)/test_ServoMotor.o $(test_ServoMotor_OBJS)
 
 $(OBJ_DIR)/test_USART0: $(OBJ_DIR)/test_USART0.o $(test_USART0_OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
+
+# test_SPI needs pthreads for the thread that runs the blocking transfer
+$(OBJ_DIR)/test_SPI: $(OBJ_DIR)/test_SPI.o $(test_SPI_OBJS)
+	$(CXX) $(CXXFLAGS) -pthread -o $@ $^
 
 # generic rules
 $(OBJ_DIR)/%.o: %.cpp | $(OBJ_DIR)
@@ -74,6 +80,9 @@ $(OBJ_DIR)/TimerCounter1.o: $(LIB_DIR)/core/TimerCounter1.cpp | $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) $(STUBS) $(LIB_INC) -c $< -o $@
 
 $(OBJ_DIR)/USART0.o: $(LIB_DIR)/io/USART0.cpp | $(OBJ_DIR)
+	$(CXX) $(CXXFLAGS) $(STUBS) $(LIB_INC) -c $< -o $@
+
+$(OBJ_DIR)/SPI.o: $(LIB_DIR)/io/SPI.cpp | $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) $(STUBS) $(LIB_INC) -c $< -o $@
 
 $(OBJ_DIR):

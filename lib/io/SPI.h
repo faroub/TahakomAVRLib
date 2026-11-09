@@ -113,8 +113,31 @@ public:
 
     static void enableTransferCompleteInterrupt(const uint8_t a_enable);
 
+    /**
+     *  Send a byte to the slave as SPI master.
+     *
+     *  SS is asserted (low) before SPDR is written so the slave is
+     *  selected when the transfer starts, then the call busy-waits
+     *  until the transfer-complete ISR sets m_transferComplete and
+     *  deasserts SS again.  The wait runs with interrupts enabled and
+     *  relies on the SPI transfer-complete interrupt, armed by the
+     *  constructor; global interrupts must be enabled
+     *  (core::MCU::enableInterrupts()).
+     *
+     *  @param ar_byte Defines byte to be sent
+     */
     void masterSendByte(const uint8_t &ar_byte);
 
+    /**
+     *  Receive a byte from the slave as SPI master.
+     *
+     *  Sends a dummy byte (clocking 8 SCK pulses); the byte the slave
+     *  shifted in during the same transfer is read by the
+     *  transfer-complete ISR and returned through ar_byte once the
+     *  transfer has completed.
+     *
+     *  @param ar_byte Defines byte to be received
+     */
     void masterReceiveByte(uint8_t &ar_byte);
 
     void slaveReceiveByte(uint8_t &ar_byte);
@@ -152,6 +175,8 @@ private:
     const SPI& operator=(const SPI&);
 
     static volatile uint8_t m_data;
+
+    static volatile uint8_t m_transferComplete; /**< set by the transfer-complete ISR, awaited by masterSendByte */
 
     io::Pin m_pinSCK; /**< pin object */
     io::Pin m_pinMISO; /**< pin object */

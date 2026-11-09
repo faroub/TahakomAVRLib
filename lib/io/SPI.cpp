@@ -2,6 +2,7 @@
 #include "MCU.h"
 
 volatile uint8_t io::SPI::m_data = 0;
+volatile uint8_t io::SPI::m_transferComplete = 0;
 
 
 
@@ -128,15 +129,22 @@ void io::SPI::selectSlave(const uint8_t a_select)
 void io::SPI::transferCompleteServiceRoutine()
 {
 
+        // reading SPDR also clears SPIF in the status register
         m_data = SPI_DATA_REGISTER;
+        m_transferComplete = 1;
 }
 
 void io::SPI::masterSendByte(const uint8_t &ar_byte)
 {
-
-    SPI_DATA_REGISTER = ar_byte;
+    // assert SS before writing SPDR, so the slave is selected when the
+    // transfer starts
     selectSlave(1);
-    while(!transferComplete()){};
+    m_transferComplete = 0;
+    SPI_DATA_REGISTER = ar_byte;
+    // busy-wait on the flag set by the transfer-complete ISR: the wait
+    // runs with interrupts enabled, so the SPI interrupt (armed in the
+    // constructor) can fire and release it
+    while (m_transferComplete == 0) {}
     selectSlave(0);
 
 
@@ -145,6 +153,8 @@ void io::SPI::masterSendByte(const uint8_t &ar_byte)
 
 void io::SPI::masterReceiveByte(uint8_t &ar_byte)
 {
+    // a dummy write clocks 8 SCK pulses; the ISR reads the byte the slave
+    // shifted into SPDR during the same transfer
     masterSendByte(0);
     ar_byte = m_data;
 
