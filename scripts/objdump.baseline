@@ -4323,78 +4323,89 @@ Disassembly of section .text._ZN9component6Buzzer4buzzERKjS2_:
    a:	1f 93       	push	r17
    c:	cf 93       	push	r28
    e:	df 93       	push	r29
-  10:	d8 2f       	mov	r29, r24
-  12:	c9 2f       	mov	r28, r25
-  14:	8b 01       	movw	r16, r22
-  16:	6a 01       	movw	r12, r20
-  18:	e1 2c       	mov	r14, r1
-  1a:	f1 2c       	mov	r15, r1
+  10:	8c 01       	movw	r16, r24
+  12:	eb 01       	movw	r28, r22
+  14:	6a 01       	movw	r12, r20
+  16:	88 81       	ld	r24, Y
+  18:	99 81       	ldd	r25, Y+1	; 0x01
+  1a:	e1 2c       	mov	r14, r1
+  1c:	f1 2c       	mov	r15, r1
+  1e:	89 2b       	or	r24, r25
+  20:	01 f4       	brne	.+0      	; 0x22 <_ZN9component6Buzzer4buzzERKjS2_+0x22>
+  22:	df 91       	pop	r29
+  24:	cf 91       	pop	r28
+  26:	1f 91       	pop	r17
+  28:	0f 91       	pop	r16
+  2a:	ff 90       	pop	r15
+  2c:	ef 90       	pop	r14
+  2e:	df 90       	pop	r13
+  30:	cf 90       	pop	r12
+  32:	08 95       	ret
 
-0000001c <.L4>:
-  1c:	f6 01       	movw	r30, r12
-  1e:	80 81       	ld	r24, Z
-  20:	91 81       	ldd	r25, Z+1	; 0x01
-  22:	e8 16       	cp	r14, r24
-  24:	f9 06       	cpc	r15, r25
-  26:	00 f0       	brcs	.+0      	; 0x28 <.L4+0xc>
-  28:	8d 2f       	mov	r24, r29
-  2a:	9c 2f       	mov	r25, r28
-  2c:	df 91       	pop	r29
-  2e:	cf 91       	pop	r28
-  30:	1f 91       	pop	r17
-  32:	0f 91       	pop	r16
-  34:	ff 90       	pop	r15
-  36:	ef 90       	pop	r14
-  38:	df 90       	pop	r13
-  3a:	cf 90       	pop	r12
-  3c:	0c 94 00 00 	jmp	0	; 0x0 <_ZN9component6Buzzer4buzzERKjS2_>
+00000034 <.L6>:
+  34:	25 e0       	ldi	r18, 0x05	; 5
 
-00000040 <.L5>:
-  40:	25 e0       	ldi	r18, 0x05	; 5
+00000036 <.L1^B1>:
+  36:	2a 95       	dec	r18
+  38:	01 f4       	brne	.+0      	; 0x3a <.L1^B1+0x4>
+  3a:	00 00       	nop
+  3c:	01 96       	adiw	r24, 0x01	; 1
 
-00000042 <.L1^B1>:
-  42:	2a 95       	dec	r18
-  44:	01 f4       	brne	.+0      	; 0x46 <.L1^B1+0x4>
-  46:	00 00       	nop
-  48:	01 96       	adiw	r24, 0x01	; 1
+0000003e <.L7>:
+  3e:	28 81       	ld	r18, Y
+  40:	39 81       	ldd	r19, Y+1	; 0x01
+  42:	82 17       	cp	r24, r18
+  44:	93 07       	cpc	r25, r19
+  46:	00 f0       	brcs	.+0      	; 0x48 <.L7+0xa>
+  48:	c8 01       	movw	r24, r16
+  4a:	0e 94 00 00 	call	0	; 0x0 <_ZN9component6Buzzer4buzzERKjS2_>
+  4e:	88 81       	ld	r24, Y
+  50:	99 81       	ldd	r25, Y+1	; 0x01
+  52:	e8 0e       	add	r14, r24
+  54:	f9 1e       	adc	r15, r25
 
-0000004a <.L6>:
-  4a:	f8 01       	movw	r30, r16
-  4c:	20 81       	ld	r18, Z
-  4e:	31 81       	ldd	r19, Z+1	; 0x01
-  50:	82 17       	cp	r24, r18
-  52:	93 07       	cpc	r25, r19
-  54:	00 f0       	brcs	.+0      	; 0x56 <.L6+0xc>
-  56:	8d 2f       	mov	r24, r29
-  58:	9c 2f       	mov	r25, r28
-  5a:	0e 94 00 00 	call	0	; 0x0 <_ZN9component6Buzzer4buzzERKjS2_>
-  5e:	f8 01       	movw	r30, r16
-  60:	80 81       	ld	r24, Z
-  62:	91 81       	ldd	r25, Z+1	; 0x01
-  64:	e8 0e       	add	r14, r24
-  66:	f9 1e       	adc	r15, r25
-  68:	00 c0       	rjmp	.+0      	; 0x6a <.L7>
+00000056 <.L5>:
+  56:	f6 01       	movw	r30, r12
+  58:	80 81       	ld	r24, Z
+  5a:	91 81       	ldd	r25, Z+1	; 0x01
+  5c:	e8 16       	cp	r14, r24
+  5e:	f9 06       	cpc	r15, r25
+  60:	00 f0       	brcs	.+0      	; 0x62 <.L5+0xc>
+  62:	c8 01       	movw	r24, r16
+  64:	df 91       	pop	r29
+  66:	cf 91       	pop	r28
+  68:	1f 91       	pop	r17
+  6a:	0f 91       	pop	r16
+  6c:	ff 90       	pop	r15
+  6e:	ef 90       	pop	r14
+  70:	df 90       	pop	r13
+  72:	cf 90       	pop	r12
+  74:	0c 94 00 00 	jmp	0	; 0x0 <_ZN9component6Buzzer4buzzERKjS2_>
 
-0000006a <.L7>:
-  6a:	80 e0       	ldi	r24, 0x00	; 0
-  6c:	90 e0       	ldi	r25, 0x00	; 0
-  6e:	00 c0       	rjmp	.+0      	; 0x70 <.L7+0x6>
+00000078 <.L8>:
+  78:	80 e0       	ldi	r24, 0x00	; 0
+  7a:	90 e0       	ldi	r25, 0x00	; 0
+  7c:	00 c0       	rjmp	.+0      	; 0x7e <.L8+0x6>
 
 Disassembly of section .text._ZN9component6Buzzer5pauseEj:
 
 00000000 <_ZN9component6Buzzer5pauseEj>:
    0:	cb 01       	movw	r24, r22
 
-00000002 <.L9>:
-   2:	25 e0       	ldi	r18, 0x05	; 5
+00000002 <.L16>:
+   2:	00 97       	sbiw	r24, 0x00	; 0
+   4:	01 f0       	breq	.+0      	; 0x6 <.L16+0x4>
+   6:	25 e0       	ldi	r18, 0x05	; 5
 
-00000004 <.L1^B2>:
-   4:	2a 95       	dec	r18
-   6:	01 f4       	brne	.+0      	; 0x8 <.L1^B2+0x4>
-   8:	00 00       	nop
-   a:	01 97       	sbiw	r24, 0x01	; 1
-   c:	01 f4       	brne	.+0      	; 0xe <.L1^B2+0xa>
-   e:	08 95       	ret
+00000008 <.L1^B2>:
+   8:	2a 95       	dec	r18
+   a:	01 f4       	brne	.+0      	; 0xc <.L1^B2+0x4>
+   c:	00 00       	nop
+   e:	01 97       	sbiw	r24, 0x01	; 1
+  10:	00 c0       	rjmp	.+0      	; 0x12 <.L9>
+
+00000012 <.L9>:
+  12:	08 95       	ret
 ********** scripts/.build/lib/component/DCMotor.o **********
 
 scripts/.build/lib/component/DCMotor.o:     file format elf32-avr

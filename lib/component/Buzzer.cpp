@@ -24,6 +24,11 @@ component::Buzzer::~Buzzer()
 
 void component::Buzzer::buzz(const uint16_t &ar_period_us , const uint16_t &ar_duration_us)
 {
+    // a zero period would step the pitch loop by 0 and spin forever
+    if (ar_period_us == 0)
+    {
+        return;
+    }
 
     for (uint16_t i = 0; i < ar_duration_us; i += ar_period_us)
     {
@@ -41,6 +46,11 @@ void component::Buzzer::buzz(const uint16_t &ar_period_us , const uint16_t &ar_d
 
 void component::Buzzer::pause(uint16_t a_duration_us)
 {
+    // the decrement loop would wrap a zero around to 65535
+    if (a_duration_us == 0)
+    {
+        return;
+    }
     do {
       _delay_us(1);
     } while (--a_duration_us);

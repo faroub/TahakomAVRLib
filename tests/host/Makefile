@@ -18,7 +18,7 @@ LIB_DIR  := ../../lib
 OBJ_DIR  := obj
 
 # each test lists the library objects it needs
-TESTS := $(OBJ_DIR)/test_WatchdogTimer $(OBJ_DIR)/test_ExternInterrupt $(OBJ_DIR)/test_ADC $(OBJ_DIR)/test_ServoMotor $(OBJ_DIR)/test_USART0 $(OBJ_DIR)/test_SPI $(OBJ_DIR)/test_StepperMotor $(OBJ_DIR)/test_LDR $(OBJ_DIR)/test_map $(OBJ_DIR)/test_Organ $(OBJ_DIR)/test_PushButton
+TESTS := $(OBJ_DIR)/test_WatchdogTimer $(OBJ_DIR)/test_ExternInterrupt $(OBJ_DIR)/test_ADC $(OBJ_DIR)/test_ServoMotor $(OBJ_DIR)/test_USART0 $(OBJ_DIR)/test_SPI $(OBJ_DIR)/test_StepperMotor $(OBJ_DIR)/test_LDR $(OBJ_DIR)/test_map $(OBJ_DIR)/test_Organ $(OBJ_DIR)/test_PushButton $(OBJ_DIR)/test_Buzzer
 
 .PHONY: all test clean
 all: $(TESTS)
@@ -40,6 +40,7 @@ test_LDR_OBJS := $(OBJ_DIR)/LDR.o $(OBJ_DIR)/ADC.o $(OBJ_DIR)/MCU.o $(OBJ_DIR)/P
 test_map_OBJS := $(OBJ_DIR)/utils_m328p.o
 test_Organ_OBJS :=
 test_PushButton_OBJS := $(OBJ_DIR)/PushButton.o $(OBJ_DIR)/Pin.o
+test_Buzzer_OBJS := $(OBJ_DIR)/Buzzer.o $(OBJ_DIR)/TimerCounter1.o $(OBJ_DIR)/MCU.o $(OBJ_DIR)/Pin.o
 
 $(OBJ_DIR)/test_WatchdogTimer: $(OBJ_DIR)/test_WatchdogTimer.o $(test_WatchdogTimer_OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
@@ -70,6 +71,9 @@ $(OBJ_DIR)/test_map: $(OBJ_DIR)/test_map.o $(test_map_OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 $(OBJ_DIR)/test_PushButton: $(OBJ_DIR)/test_PushButton.o $(test_PushButton_OBJS)
+	$(CXX) $(CXXFLAGS) -o $@ $^
+
+$(OBJ_DIR)/test_Buzzer: $(OBJ_DIR)/test_Buzzer.o $(test_Buzzer_OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 # pure-arithmetic characterization: no library objects needed
@@ -115,6 +119,9 @@ $(OBJ_DIR)/LDR.o: $(LIB_DIR)/component/LDR.cpp | $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) $(STUBS) $(LIB_INC) -c $< -o $@
 
 $(OBJ_DIR)/PushButton.o: $(LIB_DIR)/component/PushButton.cpp | $(OBJ_DIR)
+	$(CXX) $(CXXFLAGS) $(STUBS) $(LIB_INC) -c $< -o $@
+
+$(OBJ_DIR)/Buzzer.o: $(LIB_DIR)/component/Buzzer.cpp | $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) $(STUBS) $(LIB_INC) -c $< -o $@
 
 $(OBJ_DIR)/utils_m328p.o: $(LIB_DIR)/utils/utils_m328p.cpp | $(OBJ_DIR)
