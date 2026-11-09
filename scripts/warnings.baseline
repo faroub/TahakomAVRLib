@@ -11,7 +11,6 @@ lib/component/PushButton.cpp 0
 lib/component/ServoMotor.cpp 0
 lib/component/StepperMotor.cpp 0
 lib/core/ADC.cpp 0
-lib/core/AnalogComparator.cpp 0
 lib/core/ExternInterrupt.cpp 0
 lib/core/MCU.cpp 0
 lib/core/TimerCounter0.cpp 0

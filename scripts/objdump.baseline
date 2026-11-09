@@ -2232,9 +2232,6 @@ Disassembly of section .text._ZN4core11ADConverter19getConversionResultERKNS_10r
   7a:	80 93 7c 00 	sts	0x007C, r24	; 0x80007c <.L1^B6+0x7ffe9e>
   7e:	80 e1       	ldi	r24, 0x10	; 16
   80:	00 c0       	rjmp	.+0      	; 0x82 <.L28>
-********** scripts/.build/lib/core/AnalogComparator.o **********
-
-scripts/.build/lib/core/AnalogComparator.o:     file format elf32-avr
 ********** scripts/.build/lib/core/ExternInterrupt.o **********
 
 scripts/.build/lib/core/ExternInterrupt.o:     file format elf32-avr
