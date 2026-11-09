@@ -4454,148 +4454,169 @@ Disassembly of section .text._ZN9component3LDRC2ERKN2io3PinERN4core11ADConverter
 00000000 <_ZN9component3LDRC1ERKN2io3PinERN4core11ADConverterE>:
    0:	cf 93       	push	r28
    2:	df 93       	push	r29
-   4:	0f 92       	push	r0
-   6:	cd b7       	in	r28, 0x3d	; 61
-   8:	de b7       	in	r29, 0x3e	; 62
-   a:	fb 01       	movw	r30, r22
-   c:	23 e0       	ldi	r18, 0x03	; 3
-   e:	dc 01       	movw	r26, r24
+   4:	00 d0       	rcall	.+0      	; 0x6 <L0^A>
 
-00000010 <.L0^B1>:
-  10:	01 90       	ld	r0, Z+
-  12:	0d 92       	st	X+, r0
-  14:	2a 95       	dec	r18
-  16:	01 f4       	brne	.+0      	; 0x18 <.L0^B1+0x8>
-  18:	fc 01       	movw	r30, r24
-  1a:	54 83       	std	Z+4, r21	; 0x04
-  1c:	43 83       	std	Z+3, r20	; 0x03
-  1e:	19 82       	std	Y+1, r1	; 0x01
-  20:	be 01       	movw	r22, r28
-  22:	6f 5f       	subi	r22, 0xFF	; 255
-  24:	7f 4f       	sbci	r23, 0xFF	; 255
-  26:	0e 94 00 00 	call	0	; 0x0 <_ZN9component3LDRC1ERKN2io3PinERN4core11ADConverterE>
-  2a:	0f 90       	pop	r0
-  2c:	df 91       	pop	r29
-  2e:	cf 91       	pop	r28
-  30:	08 95       	ret
+00000006 <L0^A>:
+   6:	0f 92       	push	r0
+   8:	cd b7       	in	r28, 0x3d	; 61
+   a:	de b7       	in	r29, 0x3e	; 62
+   c:	9c 01       	movw	r18, r24
+   e:	fb 01       	movw	r30, r22
+  10:	ca 01       	movw	r24, r20
+  12:	43 e0       	ldi	r20, 0x03	; 3
+  14:	d9 01       	movw	r26, r18
+
+00000016 <.L0^B1>:
+  16:	01 90       	ld	r0, Z+
+  18:	0d 92       	st	X+, r0
+  1a:	4a 95       	dec	r20
+  1c:	01 f4       	brne	.+0      	; 0x1e <.L0^B1+0x8>
+  1e:	f9 01       	movw	r30, r18
+  20:	83 83       	std	Z+3, r24	; 0x03
+  22:	94 83       	std	Z+4, r25	; 0x04
+  24:	43 e0       	ldi	r20, 0x03	; 3
+  26:	de 01       	movw	r26, r28
+  28:	11 96       	adiw	r26, 0x01	; 1
+
+0000002a <.L0^B2>:
+  2a:	01 90       	ld	r0, Z+
+  2c:	0d 92       	st	X+, r0
+  2e:	4a 95       	dec	r20
+  30:	01 f4       	brne	.+0      	; 0x32 <.L0^B2+0x8>
+  32:	be 01       	movw	r22, r28
+  34:	6f 5f       	subi	r22, 0xFF	; 255
+  36:	7f 4f       	sbci	r23, 0xFF	; 255
+  38:	0e 94 00 00 	call	0	; 0x0 <_ZN9component3LDRC1ERKN2io3PinERN4core11ADConverterE>
+  3c:	ce 01       	movw	r24, r28
+  3e:	01 96       	adiw	r24, 0x01	; 1
+  40:	0e 94 00 00 	call	0	; 0x0 <_ZN9component3LDRC1ERKN2io3PinERN4core11ADConverterE>
+  44:	0f 90       	pop	r0
+  46:	0f 90       	pop	r0
+  48:	0f 90       	pop	r0
+  4a:	df 91       	pop	r29
+  4c:	cf 91       	pop	r28
+  4e:	08 95       	ret
 
 Disassembly of section .text._ZN9component3LDRD2Ev:
 
 00000000 <_ZN9component3LDRD1Ev>:
    0:	0c 94 00 00 	jmp	0	; 0x0 <_ZN9component3LDRD1Ev>
 
-Disassembly of section .text._ZN9component3LDR13getResistanceERKh:
+Disassembly of section .text._ZN9component3LDR13getResistanceERKj:
 
-00000000 <_ZN9component3LDR13getResistanceERKh>:
-   0:	cf 92       	push	r12
-   2:	df 92       	push	r13
-   4:	ef 92       	push	r14
-   6:	ff 92       	push	r15
-   8:	cf 93       	push	r28
-   a:	df 93       	push	r29
-   c:	0f 92       	push	r0
-   e:	cd b7       	in	r28, 0x3d	; 61
-  10:	de b7       	in	r29, 0x3e	; 62
-  12:	fb 01       	movw	r30, r22
-  14:	c0 80       	ld	r12, Z
-  16:	d1 2c       	mov	r13, r1
-  18:	e1 2c       	mov	r14, r1
-  1a:	f1 2c       	mov	r15, r1
-  1c:	22 e0       	ldi	r18, 0x02	; 2
-  1e:	29 83       	std	Y+1, r18	; 0x01
-  20:	be 01       	movw	r22, r28
-  22:	6f 5f       	subi	r22, 0xFF	; 255
-  24:	7f 4f       	sbci	r23, 0xFF	; 255
-  26:	fc 01       	movw	r30, r24
-  28:	83 81       	ldd	r24, Z+3	; 0x03
-  2a:	94 81       	ldd	r25, Z+4	; 0x04
-  2c:	0e 94 00 00 	call	0	; 0x0 <_ZN9component3LDR13getResistanceERKh>
-  30:	9c 01       	movw	r18, r24
+00000000 <_ZN9component3LDR13getResistanceERKj>:
+   0:	0f 93       	push	r16
+   2:	1f 93       	push	r17
+   4:	cf 93       	push	r28
+   6:	df 93       	push	r29
+   8:	0f 92       	push	r0
+   a:	cd b7       	in	r28, 0x3d	; 61
+   c:	de b7       	in	r29, 0x3e	; 62
+   e:	8b 01       	movw	r16, r22
+  10:	22 e0       	ldi	r18, 0x02	; 2
+  12:	29 83       	std	Y+1, r18	; 0x01
+  14:	be 01       	movw	r22, r28
+  16:	6f 5f       	subi	r22, 0xFF	; 255
+  18:	7f 4f       	sbci	r23, 0xFF	; 255
+  1a:	fc 01       	movw	r30, r24
+  1c:	83 81       	ldd	r24, Z+3	; 0x03
+  1e:	94 81       	ldd	r25, Z+4	; 0x04
+  20:	0e 94 00 00 	call	0	; 0x0 <_ZN9component3LDR13getResistanceERKj>
+  24:	9c 01       	movw	r18, r24
+  26:	6f ef       	ldi	r22, 0xFF	; 255
+  28:	7f ef       	ldi	r23, 0xFF	; 255
+  2a:	cb 01       	movw	r24, r22
+  2c:	21 15       	cp	r18, r1
+  2e:	31 05       	cpc	r19, r1
+  30:	01 f0       	breq	.+0      	; 0x32 <_ZN9component3LDR13getResistanceERKj+0x32>
   32:	40 e0       	ldi	r20, 0x00	; 0
   34:	50 e0       	ldi	r21, 0x00	; 0
   36:	68 e1       	ldi	r22, 0x18	; 24
   38:	7c e9       	ldi	r23, 0x9C	; 156
   3a:	8f e0       	ldi	r24, 0x0F	; 15
   3c:	90 e0       	ldi	r25, 0x00	; 0
-  3e:	0e 94 00 00 	call	0	; 0x0 <_ZN9component3LDR13getResistanceERKh>
+  3e:	0e 94 00 00 	call	0	; 0x0 <_ZN9component3LDR13getResistanceERKj>
   42:	28 5e       	subi	r18, 0xE8	; 232
   44:	33 40       	sbci	r19, 0x03	; 3
   46:	41 09       	sbc	r20, r1
   48:	51 09       	sbc	r21, r1
-  4a:	c7 01       	movw	r24, r14
-  4c:	b6 01       	movw	r22, r12
-  4e:	0e 94 00 00 	call	0	; 0x0 <_ZN9component3LDR13getResistanceERKh>
-  52:	0f 90       	pop	r0
-  54:	df 91       	pop	r29
-  56:	cf 91       	pop	r28
-  58:	ff 90       	pop	r15
-  5a:	ef 90       	pop	r14
-  5c:	df 90       	pop	r13
-  5e:	cf 90       	pop	r12
-  60:	08 95       	ret
+  4a:	f8 01       	movw	r30, r16
+  4c:	a0 81       	ld	r26, Z
+  4e:	b1 81       	ldd	r27, Z+1	; 0x01
+  50:	0e 94 00 00 	call	0	; 0x0 <_ZN9component3LDR13getResistanceERKj>
 
-Disassembly of section .text._ZN9component3LDR6getLuxERKh:
+00000054 <.L3>:
+  54:	0f 90       	pop	r0
+  56:	df 91       	pop	r29
+  58:	cf 91       	pop	r28
+  5a:	1f 91       	pop	r17
+  5c:	0f 91       	pop	r16
+  5e:	08 95       	ret
 
-00000000 <_ZN9component3LDR6getLuxERKh>:
-   0:	cf 92       	push	r12
-   2:	df 92       	push	r13
-   4:	ef 92       	push	r14
-   6:	ff 92       	push	r15
-   8:	cf 93       	push	r28
-   a:	df 93       	push	r29
-   c:	0f 92       	push	r0
-   e:	cd b7       	in	r28, 0x3d	; 61
-  10:	de b7       	in	r29, 0x3e	; 62
-  12:	fb 01       	movw	r30, r22
-  14:	c0 80       	ld	r12, Z
-  16:	d1 2c       	mov	r13, r1
-  18:	e1 2c       	mov	r14, r1
-  1a:	f1 2c       	mov	r15, r1
-  1c:	22 e0       	ldi	r18, 0x02	; 2
-  1e:	29 83       	std	Y+1, r18	; 0x01
-  20:	be 01       	movw	r22, r28
-  22:	6f 5f       	subi	r22, 0xFF	; 255
-  24:	7f 4f       	sbci	r23, 0xFF	; 255
-  26:	fc 01       	movw	r30, r24
-  28:	83 81       	ldd	r24, Z+3	; 0x03
-  2a:	94 81       	ldd	r25, Z+4	; 0x04
-  2c:	0e 94 00 00 	call	0	; 0x0 <_ZN9component3LDR6getLuxERKh>
-  30:	9c 01       	movw	r18, r24
-  32:	40 e0       	ldi	r20, 0x00	; 0
-  34:	50 e0       	ldi	r21, 0x00	; 0
-  36:	68 e1       	ldi	r22, 0x18	; 24
-  38:	7c e9       	ldi	r23, 0x9C	; 156
-  3a:	8f e0       	ldi	r24, 0x0F	; 15
-  3c:	90 e0       	ldi	r25, 0x00	; 0
-  3e:	0e 94 00 00 	call	0	; 0x0 <_ZN9component3LDR6getLuxERKh>
-  42:	28 5e       	subi	r18, 0xE8	; 232
-  44:	33 40       	sbci	r19, 0x03	; 3
-  46:	41 09       	sbc	r20, r1
-  48:	51 09       	sbc	r21, r1
-  4a:	c7 01       	movw	r24, r14
-  4c:	b6 01       	movw	r22, r12
-  4e:	0e 94 00 00 	call	0	; 0x0 <_ZN9component3LDR6getLuxERKh>
-  52:	0e 94 00 00 	call	0	; 0x0 <_ZN9component3LDR6getLuxERKh>
-  56:	2a e0       	ldi	r18, 0x0A	; 10
-  58:	37 ed       	ldi	r19, 0xD7	; 215
-  5a:	43 eb       	ldi	r20, 0xB3	; 179
-  5c:	5f eb       	ldi	r21, 0xBF	; 191
-  5e:	0e 94 00 00 	call	0	; 0x0 <_ZN9component3LDR6getLuxERKh>
-  62:	23 e1       	ldi	r18, 0x13	; 19
-  64:	36 e0       	ldi	r19, 0x06	; 6
-  66:	4f e3       	ldi	r20, 0x3F	; 63
-  68:	5b e4       	ldi	r21, 0x4B	; 75
-  6a:	0e 94 00 00 	call	0	; 0x0 <_ZN9component3LDR6getLuxERKh>
-  6e:	0e 94 00 00 	call	0	; 0x0 <_ZN9component3LDR6getLuxERKh>
-  72:	cb 01       	movw	r24, r22
-  74:	0f 90       	pop	r0
-  76:	df 91       	pop	r29
-  78:	cf 91       	pop	r28
-  7a:	ff 90       	pop	r15
-  7c:	ef 90       	pop	r14
-  7e:	df 90       	pop	r13
-  80:	cf 90       	pop	r12
-  82:	08 95       	ret
+Disassembly of section .text._ZN9component3LDR6getLuxERKj:
+
+00000000 <_ZN9component3LDR6getLuxERKj>:
+   0:	0f 93       	push	r16
+   2:	1f 93       	push	r17
+   4:	cf 93       	push	r28
+   6:	df 93       	push	r29
+   8:	0e 94 00 00 	call	0	; 0x0 <_ZN9component3LDR6getLuxERKj>
+   c:	6f 3f       	cpi	r22, 0xFF	; 255
+   e:	2f ef       	ldi	r18, 0xFF	; 255
+  10:	72 07       	cpc	r23, r18
+  12:	82 07       	cpc	r24, r18
+  14:	92 07       	cpc	r25, r18
+  16:	01 f0       	breq	.+0      	; 0x18 <_ZN9component3LDR6getLuxERKj+0x18>
+  18:	0e 94 00 00 	call	0	; 0x0 <_ZN9component3LDR6getLuxERKj>
+  1c:	2a e0       	ldi	r18, 0x0A	; 10
+  1e:	37 ed       	ldi	r19, 0xD7	; 215
+  20:	43 eb       	ldi	r20, 0xB3	; 179
+  22:	5f eb       	ldi	r21, 0xBF	; 191
+  24:	0e 94 00 00 	call	0	; 0x0 <_ZN9component3LDR6getLuxERKj>
+  28:	23 e1       	ldi	r18, 0x13	; 19
+  2a:	36 e0       	ldi	r19, 0x06	; 6
+  2c:	4f e3       	ldi	r20, 0x3F	; 63
+  2e:	5b e4       	ldi	r21, 0x4B	; 75
+  30:	0e 94 00 00 	call	0	; 0x0 <_ZN9component3LDR6getLuxERKj>
+  34:	8b 01       	movw	r16, r22
+  36:	d8 2f       	mov	r29, r24
+  38:	c9 2f       	mov	r28, r25
+  3a:	20 e0       	ldi	r18, 0x00	; 0
+  3c:	3f ef       	ldi	r19, 0xFF	; 255
+  3e:	4f e7       	ldi	r20, 0x7F	; 127
+  40:	57 e4       	ldi	r21, 0x47	; 71
+  42:	fe 01       	movw	r30, r28
+  44:	71 2f       	mov	r23, r17
+  46:	8f 2f       	mov	r24, r31
+  48:	9e 2f       	mov	r25, r30
+  4a:	0e 94 00 00 	call	0	; 0x0 <_ZN9component3LDR6getLuxERKj>
+  4e:	18 16       	cp	r1, r24
+  50:	04 f4       	brge	.+0      	; 0x52 <_ZN9component3LDR6getLuxERKj+0x52>
+  52:	00 e0       	ldi	r16, 0x00	; 0
+  54:	1f ef       	ldi	r17, 0xFF	; 255
+  56:	df e7       	ldi	r29, 0x7F	; 127
+  58:	c7 e4       	ldi	r28, 0x47	; 71
+
+0000005a <.L9>:
+  5a:	9e 01       	movw	r18, r28
+  5c:	60 2f       	mov	r22, r16
+  5e:	71 2f       	mov	r23, r17
+  60:	83 2f       	mov	r24, r19
+  62:	9c 2f       	mov	r25, r28
+  64:	0e 94 00 00 	call	0	; 0x0 <_ZN9component3LDR6getLuxERKj>
+  68:	cb 01       	movw	r24, r22
+
+0000006a <.L6>:
+  6a:	df 91       	pop	r29
+  6c:	cf 91       	pop	r28
+  6e:	1f 91       	pop	r17
+  70:	0f 91       	pop	r16
+  72:	08 95       	ret
+
+00000074 <.L11>:
+  74:	80 e0       	ldi	r24, 0x00	; 0
+  76:	90 e0       	ldi	r25, 0x00	; 0
+  78:	00 c0       	rjmp	.+0      	; 0x7a <.L11+0x6>
 ********** scripts/.build/lib/component/Led.o **********
 
 scripts/.build/lib/component/Led.o:     file format elf32-avr

@@ -1,26 +1,21 @@
 /**
  * @file test_LDR.cpp
- * @brief Characterization tests of the LDR resistance and lux formulas
+ * @brief Host test of the LDR resistance and lux formulas
  *
  * Register-level host test: the ADC result register ADC is a plain global
  * (host_registers.h); the conversion-complete ISR of core::ADConverter is
  * driven by hand to publish a chosen 10-bit result.  The stub headers
  * under stubs/ supply the ATmega328P bit constants.
  *
- * These tests characterize the CURRENT behavior of component::LDR:
- * the voltage-divider resistance formula, the lux formula (which wraps
- * around 16 bits instead of clamping when the LDR is brightly lit), and
- * the integer division by zero that occurs when the ADC reads 0.  Cases
- * marked XFAIL are known-wrong behaviors that P21 reworks; an XFAIL that
- * starts to pass shows the fix landed.
+ * The tests pin the resistance formula of the voltage divider, the
+ * clamped lux formula, the ADC channel selection in the constructor, and
+ * the sentinel that guards an ADC result of 0 (P21).  The P18
+ * characterization marks (wrapping lux, SIGFPE) are gone with the fix.
  */
 
 #include <stdint.h>
 #include <stdio.h>
 #include <math.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <unistd.h>
 
 #include "host_registers.h"
 
@@ -28,27 +23,12 @@
 #include "LDR.h"
 
 static uint8_t failures = 0;
-static uint16_t xfailures = 0;
-static uint16_t xpasses = 0;
 
 #define CHECK(cond) \
     do { \
         if (!(cond)) { \
             printf("  FAIL: %s (line %d)\n", #cond, __LINE__); \
             failures++; \
-        } \
-    } while (0)
-
-// expected-to-fail: known-wrong current behavior; must not fail the suite
-#define XFAIL(cond) \
-    do { \
-        if (!(cond)) { \
-            printf("  XFAIL (known-wrong): %s (line %d)\n", #cond, __LINE__); \
-            xfailures++; \
-        } \
-        else { \
-            printf("  XPASS (was expected to fail): %s (line %d)\n", #cond, __LINE__); \
-            xpasses++; \
         } \
     } while (0)
 
@@ -64,10 +44,13 @@ int main(void)
 {
     core::ADConverter &adc = core::ADConverter::getInstance();
 
-    // the LDR pin: the constructor only configures the pin as an input,
-    // it does not select the ADC channel (that is P21's rework)
+    // the LDR pin: the constructor selects it as the ADC input and
+    // disables its digital input buffer (DIDR0 bit of channel 1); the
+    // ADC singleton already selected its default channel 0
     component::LDR ldr(io::Pin(1, io::PortC), adc);
     CHECK(DDRC == 0);
+    CHECK(DIDR0 == ((1 << 0) | (1 << 1)));
+    CHECK((ADMUX & 0x0F) == 1);
 
     printf("voltage-divider resistance, fixed resistor 5 kOhm:\n");
     // R = r * (1000 * 1023 / adc - 1000), integer division
@@ -91,48 +74,33 @@ int main(void)
     uint32_t resistance = ldr.getResistance(5);
     uint16_t lux = ldr.getLux(5);
     double expectedLux = 12518931.0 * pow((double)resistance, -1.405);
-    printf("  R=%lu -> lux=%u (double formula gives %.2f)\n",
+    printf("  R=%lu -> lux=%u (float formula gives %.2f)\n",
            (unsigned long)resistance, lux, expectedLux);
     CHECK(lux == (uint16_t)expectedLux);
 
-    printf("bright light saturates the LDR and wraps around uint16_t:\n");
+    printf("bright light clamps to 65535 instead of wrapping:\n");
     // ADC=1021 is the highest reading that leaves a nonzero resistance;
     // the resulting small R gives a lux value far above 65535
     setConversionResult(adc, 1021);
     uint16_t bright = ldr.getLux(5);
-    double expectedBright = 12518931.0 * pow((double)ldr.getResistance(5), -1.405);
-    printf("  ADC=1021 -> lux=%u (double formula gives %.2f, 0x%04X after the wrap)\n",
-           bright, expectedBright, (unsigned)(uint16_t)expectedBright);
-    CHECK(bright == (uint16_t)expectedBright);
-    XFAIL(bright == 65535);   // a saturated sensor should clamp, not wrap
+    printf("  ADC=1021 -> lux=%u\n", bright);
+    CHECK(bright == 65535);
 
-    printf("a dark LDR reads as 0 lux (division result rounded down):\n");
+    printf("full scale (ADC=1023) is the bright end of the scale:\n");
     setConversionResult(adc, 1023);
-    uint16_t dark = ldr.getLux(5);
     printf("  ADC=1023 -> R=%lu, lux=%u\n",
-           (unsigned long)ldr.getResistance(5), dark);
+           (unsigned long)ldr.getResistance(5), ldr.getLux(5));
     CHECK(ldr.getResistance(5) == 0);
-    CHECK(dark <= 10);   // the dark end collapses to (almost) zero
+    CHECK(ldr.getLux(5) == 65535);
 
-    printf("ADC == 0 divides by zero (SIGFPE), there is no sentinel:\n");
-    fflush(stdout);
-    pid_t l_pid = fork();
-    if (l_pid == 0)
-    {
-        // publish a zero 10-bit result, then compute the resistance
-        ADC = 0;
-        core::ADConverter::conversionCompleteServiceRoutine();
-        component::LDR child(io::Pin(2, io::PortC), adc);
-        child.getResistance(5);
-        _exit(0);
-    }
-    int l_status = 0;
-    waitpid(l_pid, &l_status, 0);
-    printf("  child killed by signal %d (expected SIGFPE=%d)\n",
-           WIFSIGNALED(l_status) ? WTERMSIG(l_status) : 0, SIGFPE);
-    XFAIL(!WIFSIGNALED(l_status));   // P21 guards the zero instead of crashing
+    printf("ADC == 0 returns the sentinel instead of dividing by zero:\n");
+    setConversionResult(adc, 0);
+    uint32_t dark = ldr.getResistance(5);
+    printf("  R=0x%08lX (expected 0x%08lX)\n",
+           (unsigned long)dark, (unsigned long)component::LDR::ADC_ZERO_SENTINEL);
+    CHECK(dark == component::LDR::ADC_ZERO_SENTINEL);
+    CHECK(ldr.getLux(5) == 0);
 
-    printf("%s: %u failure(s), %u xfail(s), %u xpass(es)\n",
-           failures ? "FAILED" : "PASSED", failures, xfailures, xpasses);
+    printf("%s: %u failure(s)\n", failures ? "FAILED" : "PASSED", failures);
     return failures ? 1 : 0;
 }
