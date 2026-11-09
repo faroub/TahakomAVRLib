@@ -1,4 +1,5 @@
 #include "TimerCounter1.h"
+#include <util/atomic.h>
 #include "MCU.h"
 
 
@@ -215,12 +216,20 @@ void core::TimerCounter1::selectCompareOutputMode(const channel &ar_channel, con
 
 void core::TimerCounter1::setCounter(const uint16_t &ar_dataBuffer)
 {
-    TCNT1 = ar_dataBuffer;
+    ATOMIC_BLOCK(ATOMIC_RESTORESTATE)
+    {
+        TCNT1 = ar_dataBuffer;
+    }
 }
 
 uint16_t core::TimerCounter1::getCounter() const
 {
-    return TCNT1;
+    uint16_t counter;
+    ATOMIC_BLOCK(ATOMIC_RESTORESTATE)
+    {
+        counter = TCNT1;
+    }
+    return counter;
 }
 
 void core::TimerCounter1::setOutputCompareRegister(const channel &ar_channel, const uint16_t &ar_dataBuffer)
@@ -229,12 +238,18 @@ void core::TimerCounter1::setOutputCompareRegister(const channel &ar_channel, co
     {
         case core::channel::A:
         {
-            OCR1A = ar_dataBuffer;
+            ATOMIC_BLOCK(ATOMIC_RESTORESTATE)
+            {
+                OCR1A = ar_dataBuffer;
+            }
             break;
         }
         case core::channel::B:
         {
-            OCR1B = ar_dataBuffer;
+            ATOMIC_BLOCK(ATOMIC_RESTORESTATE)
+            {
+                OCR1B = ar_dataBuffer;
+            }
             break;
         }
     }
@@ -244,17 +259,27 @@ void core::TimerCounter1::setOutputCompareRegister(const channel &ar_channel, co
 
 uint16_t core::TimerCounter1::getOutputCompareRegister(const channel &ar_channel) const
 {
+    uint16_t compareRegister = 0;
     switch (ar_channel)
     {
         case core::channel::A:
         {
-            return OCR1A;
+            ATOMIC_BLOCK(ATOMIC_RESTORESTATE)
+            {
+                compareRegister = OCR1A;
+            }
+            break;
         }
         case core::channel::B:
         {
-            return OCR1B;
+            ATOMIC_BLOCK(ATOMIC_RESTORESTATE)
+            {
+                compareRegister = OCR1B;
+            }
+            break;
         }
     }
+    return compareRegister;
 }
 
 void core::TimerCounter1::enableOutputCompareMatchInterrupt(const channel &ar_channel, const uint8_t a_enable)
@@ -320,11 +345,19 @@ void core::TimerCounter1::enableInputCaptureInterrupt(const uint8_t a_enable)
 
 void core::TimerCounter1::setInputCaptureRegister(const uint16_t &ar_dataBuffer)
 {
-    ICR1 = ar_dataBuffer;
+    ATOMIC_BLOCK(ATOMIC_RESTORESTATE)
+    {
+        ICR1 = ar_dataBuffer;
+    }
 }
 
 
 uint16_t core::TimerCounter1::getInputCaptureRegister() const
 {
-    return ICR1;
+    uint16_t captureRegister;
+    ATOMIC_BLOCK(ATOMIC_RESTORESTATE)
+    {
+        captureRegister = ICR1;
+    }
+    return captureRegister;
 }

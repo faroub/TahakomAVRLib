@@ -1,4 +1,5 @@
 #include "ADC.h"
+#include <util/atomic.h>
 #include "MCU.h"
 
 volatile uint16_t core::ADConverter::m_conversionResult = 0;
@@ -309,7 +310,12 @@ uint16_t core::ADConverter::getConversionResult( const resolution& ar_resolution
         }
     }
 
-    return m_conversionResult;
+    uint16_t result;
+    ATOMIC_BLOCK(ATOMIC_RESTORESTATE)
+    {
+        result = m_conversionResult;
+    }
+    return result;
 
 
 }
