@@ -12,6 +12,7 @@
 
 #include "host_registers.h"
 
+#include "ha_base.h"   // SERVOMOTOR_TIMER_PULSE_WIDTH_COUNT
 #include "ServoMotor.h"
 
 static uint8_t failures = 0;
@@ -70,6 +71,26 @@ int main(void)
            atMax, servo.computePulseWidthMaxCount(8));
     CHECK(atMin == servo.computePulseWidthMinCount(8));
     CHECK(atMax == servo.computePulseWidthMaxCount(8));
+
+    printf("SERVOMOTOR_TIMER_PULSE_WIDTH_COUNT macro (F_CPU = 16 MHz):\n");
+    // ((uint32_t)(pulseWidth) * (F_CPU/1000000UL)) / (clockPrescaler)
+    struct MacroCase { uint16_t pulseWidth_us; uint16_t prescaler; uint32_t expected; };
+    const MacroCase macros[] = {
+        { 1500,    1, 24000 },   // 1500 us at prescaler 1
+        { 1500,    8,  3000 },   // required case: 1500 us at prescaler 8
+        {  500,   64,   125 },
+        { 2000,    8,  4000 },
+        { 2500, 1024,    39 },   // floor(40000 / 1024)
+    };
+    for (uint8_t i = 0; i < 5; i++)
+    {
+        uint32_t count = SERVOMOTOR_TIMER_PULSE_WIDTH_COUNT(
+            macros[i].pulseWidth_us, macros[i].prescaler);
+        printf("  %4u us prescaler %4u -> %5lu (expected %5lu)\n",
+               macros[i].pulseWidth_us, macros[i].prescaler,
+               (unsigned long)count, (unsigned long)macros[i].expected);
+        CHECK(count == macros[i].expected);
+    }
 
     printf("%s: %u failure(s)\n", failures ? "FAILED" : "PASSED", failures);
     return failures ? 1 : 0;
