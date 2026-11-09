@@ -81,20 +81,24 @@ int main(void)
     CHECK(l_pulses > 196);      // ~200 coil outputs, 1% slack either side
     CHECK(l_pulses < 206);
     CHECK(stepper.currentPos() == 200);
-    // known-wrong: with this profile the speed integrator runs out
-    // exactly when the 200th step fires, so the call that would set the
-    // goal flag never happens and polling goalReached() spins forever
+    // known-wrong: when the ramp ends the profile speed keeps its final
+    // value (zero), so the one extra fire that would set the goal flag
+    // never comes and polling goalReached() spins forever; the position
+    // and pulse count of the move itself are correct
     XFAIL(stepper.goalReached() == 1);
     XFAIL(l_calls < l_callCap);
 
-    printf("a second identical move never moves (state is never reset):\n");
-    stepper.setCurrentPos(0);
-    uint16_t l_calls2 = 0;
+    printf("a consecutive move with a new target replays the profile:\n");
+    // move 2: 200 steps the other way; beginMove() reset the profile
+    // state of the previous move, so this move emits its own pulses and
+    // walks the position back (the static state used to leak between
+    // moves and the second move never moved at all)
+    uint32_t l_calls2 = 0;
     uint16_t l_pulses2 = 0;
     uint8_t l_lastPattern2 = PORTB;
-    for (uint16_t i = 0; i < 400; i++)
+    while (!stepper.goalReached() && (l_calls2 < l_callCap))
     {
-        stepper.step(-200, 1000, 5000, 5000);
+        stepper.step(200, 1000, 5000, 5000);
         l_calls2++;
         if (PORTB != l_lastPattern2)
         {
@@ -102,11 +106,37 @@ int main(void)
             l_lastPattern2 = PORTB;
         }
     }
-    printf("  calls=%u pulses=%u currentPos=%u goal=%u\n",
-           l_calls2, l_pulses2, stepper.currentPos(), stepper.goalReached());
-    CHECK(l_calls2 == 400);
-    XFAIL(l_pulses2 > 100);             // no coil activity at all
-    XFAIL(stepper.currentPos() == 200); // the position never reaches the goal
+    printf("  calls=%lu pulses=%u currentPos=%u goal=%u\n",
+           (unsigned long)l_calls2, l_pulses2, stepper.currentPos(),
+           stepper.goalReached());
+    CHECK(l_pulses2 > 196);
+    CHECK(l_pulses2 < 206);
+    CHECK(stepper.currentPos() == 0);
+    XFAIL(stepper.goalReached() == 1);
+    XFAIL(l_calls2 < l_callCap);
+
+    printf("and a third move back to the first target:\n");
+    uint32_t l_calls3 = 0;
+    uint16_t l_pulses3 = 0;
+    uint8_t l_lastPattern3 = PORTB;
+    while (!stepper.goalReached() && (l_calls3 < l_callCap))
+    {
+        stepper.step(-200, 1000, 5000, 5000);
+        l_calls3++;
+        if (PORTB != l_lastPattern3)
+        {
+            l_pulses3++;
+            l_lastPattern3 = PORTB;
+        }
+    }
+    printf("  calls=%lu pulses=%u currentPos=%u goal=%u\n",
+           (unsigned long)l_calls3, l_pulses3, stepper.currentPos(),
+           stepper.goalReached());
+    CHECK(l_pulses3 > 196);
+    CHECK(l_pulses3 < 206);
+    CHECK(stepper.currentPos() == 200);
+    XFAIL(stepper.goalReached() == 1);
+    XFAIL(l_calls3 < l_callCap);
 
     printf("accel/decel larger than the step count scales the profile out of reach:\n");
     component::StepperMotor &stepper2 = *new component::StepperMotor(

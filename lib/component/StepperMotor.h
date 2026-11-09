@@ -127,8 +127,14 @@ private:
 //                           const uint16_t a_speed,
 //                           const uint16_t a_accel,
 //                           const uint16_t a_decel);
-    
-    
+
+    /** Reset the state at the start of a move: the step counter, the
+     *  speed profile, and the goal flag.  Called when the goal of the
+     *  previous move was reached or when the target changes, so the
+     *  state of one move never leaks into the next.
+     */
+    void beginMove(const int16_t a_step);
+
     io::Pin m_pinCoil1; /**< pin object */
     io::Pin m_pinCoil2; /**< pin object */
     io::Pin m_pinCoil3; /**< pin object */
@@ -136,7 +142,14 @@ private:
 
     mode stepMode; /**< steps per revolution */
     uint8_t m_goalReached;
+    int16_t m_stepNumber; /**< step counter of the current move */
+    int16_t m_targetStep; /**< target step count of the current move */
     uint16_t m_currentPos; /**< pulse delay in ms */
+    // speed profile state of the current move, recomputed per call
+    uint32_t m_profileTime; /**< computeStepDelay() call counter */
+    uint32_t m_profileSpeed; /**< current speed in 1/1000 steps/s */
+    uint64_t m_speedTimeProduct; /**< accumulated speed-time product */
+    uint64_t m_profilePosition; /**< product already turned into steps */
 
 
 
