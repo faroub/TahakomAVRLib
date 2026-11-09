@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file main.cpp
  *
  * Demo example: AVR Square-Wave Organ
@@ -18,6 +18,7 @@
 #include "Buzzer.h"
 #include "USART0.h"
 #include "MCU.h"
+#include <avr/pgmspace.h>
 // Note pitch data
 #include "buzzer_pitches_16bit.h"
 
@@ -40,14 +41,15 @@ int main(void) {
   // interrupts must be enabled globally
   core::MCU::enableInterrupts();
 
-  // List of possible keypresses
-  const uint8_t l_keys[] = { 'a', 'w', 's', 'e', 'd', 'f', 't',
+  // List of possible keypresses: kept in flash so the lookup tables do
+  // not consume RAM
+  const uint8_t l_keys[] PROGMEM = { 'a', 'w', 's', 'e', 'd', 'f', 't',
       'g', 'y', 'h', 'j', 'i', 'k', 'o',
       'l', 'p', ';', '\''
   };
 
   // List of the keypresses corresponding pitches
-  const uint16_t l_notes[] = { G4, Gx4, A4, Ax4, B4, C5, Cx5,
+  const uint16_t l_notes[] PROGMEM = { G4, Gx4, A4, Ax4, B4, C5, Cx5,
       D5, Dx5, E5, F5, Fx5, G5, Gx5,
       A5, Ax5, B5, C6
   };
@@ -69,11 +71,13 @@ int main(void) {
       // Send N to signal that AVR chip is ready for next key note input
       myUSART0.sendString("Enter key note\r\n");
 
-      // Wait for key note input
+      // Wait for key note input: arm the receiver for a single byte
+      // once; the receive-complete ISR stores the byte and counts it,
+      // so the busy-wait polls the counter without re-arming the
+      // buffer on every iteration
+      myUSART0.receiveChar(l_key);
       while (myUSART0.getNumberBytesReceived()==0)
       {
-              myUSART0.receiveChar(l_key);
-
       }
       myUSART0.resetNumberBytesReceived();
 
@@ -83,8 +87,8 @@ int main(void) {
       // Loop through keys table
       for (uint8_t i = 0; i < sizeof(l_keys); i++) {
           // Found match in lookup table
-          if (l_key == l_keys[i]) {
-              Buzzer.buzz(l_notes[i], l_currentNoteLength);
+          if (l_key == pgm_read_byte(&l_keys[i])) {
+              Buzzer.buzz(pgm_read_word(&l_notes[i]), l_currentNoteLength);
               // Record that we've found a note
               l_isNote = 1;
               break;
@@ -94,12 +98,25 @@ int main(void) {
       // Handle non-note keys: tempo changes and rests
       if (!l_isNote) {
           if (l_key == '-') {
-              // Code for short note
-              l_currentNoteLength = l_currentNoteLength / 2;
+              // Code for short note: halve the length, but reject the
+              // halving when the result would be zero, a zero length
+              // would silence every following note
+              if (l_currentNoteLength > 1)
+              {
+                  l_currentNoteLength = l_currentNoteLength / 2;
+              }
           }
           else if (l_key == '+') {
-              // Code for long note
-              l_currentNoteLength = l_currentNoteLength * 2;
+              // Code for long note: double the length in 32 bits and
+              // saturate at the 16-bit maximum instead of wrapping
+              // around to a small or zero length
+              uint32_t l_newNoteLength =
+                  static_cast<uint32_t>(l_currentNoteLength) * 2UL;
+              if (l_newNoteLength > 0xFFFFUL)
+              {
+                  l_newNoteLength = 0xFFFFUL;
+              }
+              l_currentNoteLength = static_cast<uint16_t>(l_newNoteLength);
           }
           else {
               // Unrecognized, just rest
