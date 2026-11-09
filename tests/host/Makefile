@@ -17,7 +17,7 @@ LIB_DIR  := ../../lib
 
 OBJ_DIR  := obj
 
-TESTS := $(OBJ_DIR)/test_WatchdogTimer $(OBJ_DIR)/test_ExternInterrupt $(OBJ_DIR)/test_ADC $(OBJ_DIR)/test_ServoMotor
+TESTS := $(OBJ_DIR)/test_WatchdogTimer $(OBJ_DIR)/test_ExternInterrupt $(OBJ_DIR)/test_ADC $(OBJ_DIR)/test_ServoMotor $(OBJ_DIR)/test_USART0
 
 .PHONY: all test clean
 all: $(TESTS)
@@ -30,6 +30,8 @@ test_ExternInterrupt_OBJS := $(OBJ_DIR)/ExternInterrupt.o
 test_ADC_OBJS := $(OBJ_DIR)/ADC.o $(OBJ_DIR)/MCU.o $(OBJ_DIR)/Pin.o
 test_ServoMotor_OBJS := $(OBJ_DIR)/ServoMotor.o $(OBJ_DIR)/TimerCounter1.o $(OBJ_DIR)/MCU.o $(OBJ_DIR)/Pin.o
 
+test_USART0_OBJS := $(OBJ_DIR)/USART0.o $(OBJ_DIR)/MCU.o
+
 $(OBJ_DIR)/test_WatchdogTimer: $(OBJ_DIR)/test_WatchdogTimer.o $(test_WatchdogTimer_OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
@@ -40,6 +42,9 @@ $(OBJ_DIR)/test_ADC: $(OBJ_DIR)/test_ADC.o $(test_ADC_OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 $(OBJ_DIR)/test_ServoMotor: $(OBJ_DIR)/test_ServoMotor.o $(test_ServoMotor_OBJS)
+	$(CXX) $(CXXFLAGS) -o $@ $^
+
+$(OBJ_DIR)/test_USART0: $(OBJ_DIR)/test_USART0.o $(test_USART0_OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 # generic rules
@@ -66,6 +71,9 @@ $(OBJ_DIR)/ServoMotor.o: $(LIB_DIR)/component/ServoMotor.cpp | $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) $(STUBS) $(LIB_INC) -c $< -o $@
 
 $(OBJ_DIR)/TimerCounter1.o: $(LIB_DIR)/core/TimerCounter1.cpp | $(OBJ_DIR)
+	$(CXX) $(CXXFLAGS) $(STUBS) $(LIB_INC) -c $< -o $@
+
+$(OBJ_DIR)/USART0.o: $(LIB_DIR)/io/USART0.cpp | $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) $(STUBS) $(LIB_INC) -c $< -o $@
 
 $(OBJ_DIR):

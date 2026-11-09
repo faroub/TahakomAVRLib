@@ -109,6 +109,9 @@ public:
      *  @param ar_frameSize Defines data frame size
      *  @param ar_stopBit Defines number of stop bits
      *  @param ar_parityMode Defines parity mode
+     *
+     *  @note The parameters are only honored by the first call.  Every later
+     *  call returns the existing instance and ignores its arguments.
      */
     static USART0& getInstance(const transmissionMode& ar_transMode = transmissionMode::async,
                                const communicationMode& ar_comMode = communicationMode::duplex,
@@ -168,7 +171,15 @@ public:
     /**
      *  Receive string
      *
+     *  Arms the receiver for a NUL-terminated string.  Reception stops when
+     *  a NUL byte is stored, or after 255 bytes if no NUL arrives.
+     *
      *  @param ap_string Defines pointer to string
+     *
+     *  @note The signature keeps the const qualifier of the original API,
+     *  but the ISR writes received bytes into the buffer, so ap_string must
+     *  point to modifiable storage and must never be a string literal.  The
+     *  buffer must outlive the reception.
      */
     void receiveString(const char *ap_string);
 
@@ -203,16 +214,29 @@ public:
     /**
      *  Receive character
      *
-     *  @param ar_char Defines charcter to be received
+     *  Arms the receiver for a single byte.  The byte is delivered by the
+     *  receive-complete ISR; poll getNumberBytesReceived() to know when it
+     *  has arrived.
+     *
+     *  @param ar_char Defines character to be received
+     *
+     *  @note ar_char must outlive the reception: the ISR stores into it
+     *  until a byte has been received.
      */
     void receiveChar(uint8_t &ar_char);
 
     /**
      *  Receive data frame
      *
+     *  Arms the receiver for a_size bytes.  Bytes are delivered by the
+     *  receive-complete ISR; poll getNumberBytesReceived() for the number
+     *  of bytes stored so far.
+     *
      *  @param ap_dataBuffer Defines pointer to receiver buffer
      *  @param a_size Defines size of receiver buffer
-     *  @param a_ready2Receive Indicates if chip ready to receive data
+     *
+     *  @note ap_dataBuffer must outlive the reception: the ISR keeps
+     *  writing into it until all a_size bytes have been received.
      */
     void receiveFrame(uint8_t *ap_dataBuffer, const uint8_t a_size);
 
@@ -259,6 +283,10 @@ public:
     uint8_t parityError();
     /**
      *  Get number of bytes received
+     *
+     *  Counts the bytes stored by the receive-complete ISR, not the bytes
+     *  that arrived on the wire: bytes received while no buffer is armed,
+     *  or after the armed buffer is full, are dropped and not counted.
      *
      *  @return  Number of received bytes
      */
@@ -329,11 +357,13 @@ private:
 
     static const uint8_t *mp_data2Send; /**< Pointer to transmitter buffer */
 
-    static uint8_t *mp_data2Receive; /**< Pointer to receiver buffer */
+    static uint8_t *mp_data2Receive; /**< Pointer to the next free byte of the receiver buffer */
 
     static uint16_t m_sizeData2Send;  /**< Size of data to be transmitted */
 
-    static uint16_t m_sizeData2Receive;  /**< Size of data to be received */
+    static volatile uint16_t m_sizeData2Receive;  /**< Number of bytes the ISR still stores into mp_data2Receive */
+
+    static volatile uint8_t m_stringReceive;  /**< Receiving a NUL-terminated string: ISR disarms on NUL */
 
     static volatile uint16_t m_numberBytesReceived;   /**< Nnumber of received bytes */
 

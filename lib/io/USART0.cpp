@@ -9,13 +9,15 @@
 
 #include "USART0.h"
 #include "MCU.h"
+#include <util/atomic.h>
 #include <string.h>
 
 volatile uint8_t io::USART0::m_status = 0;
 const uint8_t* io::USART0::mp_data2Send = nullptr;
 uint8_t* io::USART0::mp_data2Receive = nullptr;
 uint16_t io::USART0::m_sizeData2Send = 0;
-uint16_t io::USART0::m_sizeData2Receive = 0;
+volatile uint16_t io::USART0::m_sizeData2Receive = 0;
+volatile uint8_t io::USART0::m_stringReceive = 0;
 volatile uint16_t io::USART0::m_numberBytesReceived = 0;
 volatile uint16_t io::USART0::m_numberBytesSent = 0;
 volatile uint8_t io::USART0::m_ready2Send = 1;
@@ -291,48 +293,57 @@ void io::USART0::sendChar(const uint8_t &ar_char)
 
 void io::USART0::receiveChar(uint8_t &ar_char)
 {
-    m_sizeData2Receive = 1;
-    mp_data2Receive = &ar_char;
+    receiveFrame(&ar_char, 1);
 }
 
 
 void io::USART0::receiveFrame(uint8_t *ap_dataBuffer, const uint8_t a_size)
 {
-    m_sizeData2Receive = a_size;
-    mp_data2Receive = ap_dataBuffer;
-// TODO: to be implemented
-
-
+    // arming is shared with the receive ISR, which runs at any priority
+    ATOMIC_BLOCK(ATOMIC_RESTORESTATE)
+    {
+        mp_data2Receive = ap_dataBuffer;
+        m_sizeData2Receive = a_size;
+        m_stringReceive = 0;
+    }
 }
 
 void io::USART0::receiveString(const char *ap_string)
 {
-// TODO: to be implemented
+    // the const signature is kept for compatibility, but the receive ISR
+    // stores into the buffer, so ap_string must be modifiable storage
+    ATOMIC_BLOCK(ATOMIC_RESTORESTATE)
+    {
+        mp_data2Receive = const_cast<uint8_t*>(reinterpret_cast<const uint8_t*>(ap_string));
+        // no length parameter: bound the write by the receive counter and
+        // stop after a NUL byte
+        m_sizeData2Receive = 255;
+        m_stringReceive = 1;
+    }
 }
 
 
 void io::USART0::receiveCompleteServiceRoutine()
 {
-    static volatile uint8_t *lp_dataReceived = mp_data2Receive;
-    static uint16_t l_dataSize = m_sizeData2Receive;
-
     m_status = USART0_CONTROL_STATUS_REGISTER;
 
+    // always read UDR0 first, even with no buffer armed, so the hardware
+    // receive register is drained and RXC is cleared
+    const uint8_t l_data = USART0_DATA_REGISTER;
 
+    if ((mp_data2Receive != nullptr) && (m_sizeData2Receive != 0))
+    {
+        *mp_data2Receive++ = l_data;
+        m_sizeData2Receive--;
+        m_numberBytesReceived++;
 
-        if (l_dataSize)
+        if ((m_stringReceive != 0) && (l_data == 0))
         {
-
-            *lp_dataReceived++ = USART0_DATA_REGISTER;
-            l_dataSize--;
-            m_numberBytesReceived++;
-
+            // NUL terminator stored: string reception complete
+            m_stringReceive = 0;
+            m_sizeData2Receive = 0;
         }
-        else
-        {
-            l_dataSize = m_sizeData2Receive;
-            lp_dataReceived = mp_data2Receive;
-        }
+    }
 
 }
 
@@ -407,7 +418,10 @@ uint16_t io::USART0::getNumberBytesReceived()
 
 void io::USART0::resetNumberBytesReceived()
 {
-    m_numberBytesReceived = 0;
+    ATOMIC_BLOCK(ATOMIC_RESTORESTATE)
+    {
+        m_numberBytesReceived = 0;
+    }
 }
 
 uint8_t io::USART0::ready2Send()
