@@ -361,3 +361,14 @@ uint16_t core::TimerCounter1::getInputCaptureRegister() const
     }
     return captureRegister;
 }
+
+// weak default interrupt handlers: empty bodies the application may
+// override by defining the same vector symbol (e.g. ISR(TIMER0_COMPA_vect))
+
+void core::TimerCounter1::outputCompareMatchAServiceRoutine() {}
+
+void core::TimerCounter1::outputCompareMatchBServiceRoutine() {}
+
+void core::TimerCounter1::overflowServiceRoutine() {}
+
+void core::TimerCounter1::inputCaptureServiceRoutine() {}

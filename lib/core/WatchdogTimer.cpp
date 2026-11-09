@@ -32,7 +32,7 @@ void core::WatchdogTimer::selectTimeOut(const timeOut &ar_timeOut)
             // with the new timeout
             WDTCSR |= (1 << WDCE) | (1 << WDE);
             WDTCSR = timeOutToWDTCSR(static_cast<timeOut>(m_timeOut)) |
-                     operationModeToWDTCSR(static_cast<operationMode>(m_operationMode));
+                     operationModeToWDTCSR(static_cast<watchdogOperationMode>(m_operationMode));
         }
         else
         {
@@ -49,27 +49,27 @@ void core::WatchdogTimer::reset()
 
 }
 
-void core::WatchdogTimer::start(const operationMode &ar_operationMode)
+void core::WatchdogTimer::start(const watchdogOperationMode &ar_operationMode)
 {
     m_operationMode = static_cast<uint8_t>(ar_operationMode);
     ATOMIC_BLOCK(ATOMIC_RESTORESTATE)
     {
         wdt_reset();
-        WATCHDOG_START(operationModeToWDTCSR(static_cast<operationMode>(m_operationMode)),
+        WATCHDOG_START(operationModeToWDTCSR(static_cast<watchdogOperationMode>(m_operationMode)),
                        timeOutToWDTCSR(static_cast<timeOut>(m_timeOut)));
         m_isRunning = 1;
     }
 
 }
 
-void core::WatchdogTimer::start(const operationMode &ar_operationMode, const timeOut &ar_timeOut)
+void core::WatchdogTimer::start(const watchdogOperationMode &ar_operationMode, const timeOut &ar_timeOut)
 {
     m_timeOut = static_cast<uint8_t>(ar_timeOut);
     m_operationMode = static_cast<uint8_t>(ar_operationMode);
     ATOMIC_BLOCK(ATOMIC_RESTORESTATE)
     {
         wdt_reset();
-        WATCHDOG_START(operationModeToWDTCSR(static_cast<operationMode>(m_operationMode)),
+        WATCHDOG_START(operationModeToWDTCSR(static_cast<watchdogOperationMode>(m_operationMode)),
                        timeOutToWDTCSR(static_cast<timeOut>(m_timeOut)));
         m_isRunning = 1;
     }
@@ -86,3 +86,8 @@ void core::WatchdogTimer::stop()
     }
 
 }
+
+// weak default interrupt handlers: empty bodies the application may
+// override by defining the same vector symbol (e.g. ISR(TIMER0_COMPA_vect))
+
+void core::WatchdogTimer::timeOutServiceRoutine() {}

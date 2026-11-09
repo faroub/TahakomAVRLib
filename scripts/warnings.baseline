@@ -2,6 +2,7 @@ applications/BlinkLed/main.cpp 0
 applications/LightMeter/main.cpp 0
 applications/MusicBox/main.cpp 0
 applications/Organ/main.cpp 0
+applications/tests/WeakIsr/main.cpp 0
 lib/component/Buzzer.cpp 0
 lib/component/DCMotor.cpp 0
 lib/component/LDR.cpp 0

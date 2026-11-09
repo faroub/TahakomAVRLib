@@ -24,7 +24,7 @@
    LedStart.on();
    _delay_ms(5000);
    LedStart.off();
-   myWatchdog.start(core::operationMode::reset);
+   myWatchdog.start(core::watchdogOperationMode::reset);
    // ------ Event loop ------ //
    while (1) {
 
@@ -75,7 +75,7 @@ enum class timeOut : uint8_t {
     to_8s,    /**<  */
 };
 
-enum class operationMode : uint8_t {
+enum class watchdogOperationMode : uint8_t {
     interrupt=1,    /**<  */
     reset,       /**<  */
     interrupt_reset,   /**<  */
@@ -100,7 +100,7 @@ constexpr uint8_t timeOutToWDTCSR(const timeOut ar_timeOut)
  *  @param ar_operationMode Operation mode
  *  @return WDTCSR mode bits
  */
-constexpr uint8_t operationModeToWDTCSR(const operationMode ar_operationMode)
+constexpr uint8_t operationModeToWDTCSR(const watchdogOperationMode ar_operationMode)
 {
     // mode bit 0 (value 1) maps to WDIE (bit 6); mode bit 1 (value 2) maps to
     // WDE (bit 3), so it must be shifted left by (WDE - 1): shifting by WDE
@@ -109,11 +109,11 @@ constexpr uint8_t operationModeToWDTCSR(const operationMode ar_operationMode)
                                 ((static_cast<uint8_t>(ar_operationMode) & 2u) << (WDE - 1)));
 }
 
-static_assert((operationModeToWDTCSR(operationMode::reset) & (1u << WDE)) != 0,
+static_assert((operationModeToWDTCSR(watchdogOperationMode::reset) & (1u << WDE)) != 0,
               "watchdog reset mode must set WDE");
-static_assert((operationModeToWDTCSR(operationMode::interrupt_reset) & (1u << WDE)) != 0,
+static_assert((operationModeToWDTCSR(watchdogOperationMode::interrupt_reset) & (1u << WDE)) != 0,
               "watchdog interrupt+reset mode must set WDE");
-static_assert((operationModeToWDTCSR(operationMode::interrupt) & (1u << WDE)) == 0,
+static_assert((operationModeToWDTCSR(watchdogOperationMode::interrupt) & (1u << WDE)) == 0,
               "watchdog interrupt-only mode must not set WDE");
 
 class WatchdogTimer
@@ -137,14 +137,14 @@ public:
 
     void reset();
 
-    void start(const operationMode &ar_operationMode);
+    void start(const watchdogOperationMode &ar_operationMode);
 
-    void start(const operationMode &ar_operationMode, const timeOut &ar_timeOut);
+    void start(const watchdogOperationMode &ar_operationMode, const timeOut &ar_timeOut);
 
 
     void stop();
 
-    static void timeOutServiceRoutine() __asm__(STR(WATCHDOG_TIMEOUT_INTERRUPT)) __attribute__((__signal__, __used__, __externally_visible__));
+    static void timeOutServiceRoutine() __asm__(STR(WATCHDOG_TIMEOUT_INTERRUPT)) __attribute__((__signal__, __used__, __externally_visible__, weak));
 
 
 protected:

@@ -107,6 +107,38 @@ These applications demonstrate the usage of **TahakomAVRLib** in simple examples
 * [AVR Light Meter](applications/LightMeter)
 
 
+## Interrupt service routines
+
+The library declares the interrupt service routines of its peripherals as
+static member functions (e.g. `core::TimerCounter0::overflowServiceRoutine`,
+`core::WatchdogTimer::timeOutServiceRoutine`).  For the vectors the library
+itself never uses - the timer 0/1/2 compare and overflow vectors, the Timer 1
+input-capture vector, the INT0/INT1 and pin-change vectors, and the watchdog
+vector - it provides a **weak default**: an empty handler that immediately
+returns.  An application takes ownership of any of those interrupts by
+defining the same symbol, which silently overrides the default:
+
+```cpp
+#include <avr/interrupt.h>
+
+ISR(TIMER0_COMPA_vect)      // overrides core::TimerCounter0::outputCompareMatchAServiceRoutine
+{
+    // your handler
+}
+```
+
+The vectors the library fills with working handlers (ADC conversion complete,
+SPI transfer complete, and the three USART0 interrupts) cannot be overridden;
+the library owns them.
+
+Note for custom builds: the startup code of the C runtime weakly aliases
+every unused vector to `__bad_interrupt`, and the first weak definition wins
+the link.  Both the `scripts/check_build.sh` harness and the application
+CMake files therefore link the CRT startup object *after* the libraries, so
+the library weak defaults take effect.  Keep that order when building the
+library into your own project.
+
+
 ## Projects
 
 These are more complex projects implemented using **TahakomAVRLib**

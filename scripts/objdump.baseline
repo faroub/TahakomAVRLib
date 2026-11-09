@@ -2443,6 +2443,31 @@ Disassembly of section .text._ZN4core15ExternInterrupt24enablePinChangeMaskPortD
   24:	68 23       	and	r22, r24
   26:	60 93 6d 00 	sts	0x006D, r22	; 0x80006d <__SREG__+0x80002e>
   2a:	08 95       	ret
+
+Disassembly of section .text.__vector_1:
+
+00000000 <__vector_1>:
+   0:	18 95       	reti
+
+Disassembly of section .text.__vector_2:
+
+00000000 <__vector_2>:
+   0:	18 95       	reti
+
+Disassembly of section .text.__vector_3:
+
+00000000 <__vector_3>:
+   0:	18 95       	reti
+
+Disassembly of section .text.__vector_4:
+
+00000000 <__vector_4>:
+   0:	18 95       	reti
+
+Disassembly of section .text.__vector_5:
+
+00000000 <__vector_5>:
+   0:	18 95       	reti
 ********** scripts/.build/lib/core/MCU.o **********
 
 scripts/.build/lib/core/MCU.o:     file format elf32-avr
@@ -3116,6 +3141,21 @@ Disassembly of section .text._ZN4core13TimerCounter0D2Ev:
 
 00000000 <_ZN4core13TimerCounter0D1Ev>:
    0:	08 95       	ret
+
+Disassembly of section .text.__vector_14:
+
+00000000 <__vector_14>:
+   0:	18 95       	reti
+
+Disassembly of section .text.__vector_15:
+
+00000000 <__vector_15>:
+   0:	18 95       	reti
+
+Disassembly of section .text.__vector_16:
+
+00000000 <__vector_16>:
+   0:	18 95       	reti
 ********** scripts/.build/lib/core/TimerCounter1.o **********
 
 scripts/.build/lib/core/TimerCounter1.o:     file format elf32-avr
@@ -3715,6 +3755,26 @@ Disassembly of section .text._ZNK4core13TimerCounter123getInputCaptureRegisterEv
    8:	90 91 87 00 	lds	r25, 0x0087	; 0x800087 <.L19+0x7fff2f>
    c:	2f bf       	out	0x3f, r18	; 63
    e:	08 95       	ret
+
+Disassembly of section .text.__vector_11:
+
+00000000 <__vector_11>:
+   0:	18 95       	reti
+
+Disassembly of section .text.__vector_12:
+
+00000000 <__vector_12>:
+   0:	18 95       	reti
+
+Disassembly of section .text.__vector_13:
+
+00000000 <__vector_13>:
+   0:	18 95       	reti
+
+Disassembly of section .text.__vector_10:
+
+00000000 <__vector_10>:
+   0:	18 95       	reti
 ********** scripts/.build/lib/core/TimerCounter2.o **********
 
 scripts/.build/lib/core/TimerCounter2.o:     file format elf32-avr
@@ -4174,6 +4234,21 @@ Disassembly of section .text._ZN4core13TimerCounter2D2Ev:
 
 00000000 <_ZN4core13TimerCounter2D1Ev>:
    0:	08 95       	ret
+
+Disassembly of section .text.__vector_7:
+
+00000000 <__vector_7>:
+   0:	18 95       	reti
+
+Disassembly of section .text.__vector_8:
+
+00000000 <__vector_8>:
+   0:	18 95       	reti
+
+Disassembly of section .text.__vector_9:
+
+00000000 <__vector_9>:
+   0:	18 95       	reti
 ********** scripts/.build/lib/core/WatchdogTimer.o **********
 
 scripts/.build/lib/core/WatchdogTimer.o:     file format elf32-avr
@@ -4243,9 +4318,9 @@ Disassembly of section .text._ZN4core13WatchdogTimer5resetEv:
    0:	a8 95       	wdr
    2:	08 95       	ret
 
-Disassembly of section .text._ZN4core13WatchdogTimer5startERKNS_13operationModeE:
+Disassembly of section .text._ZN4core13WatchdogTimer5startERKNS_21watchdogOperationModeE:
 
-00000000 <_ZN4core13WatchdogTimer5startERKNS_13operationModeE>:
+00000000 <_ZN4core13WatchdogTimer5startERKNS_21watchdogOperationModeE>:
    0:	fc 01       	movw	r30, r24
    2:	db 01       	movw	r26, r22
    4:	8c 91       	ld	r24, X
@@ -4283,9 +4358,9 @@ Disassembly of section .text._ZN4core13WatchdogTimer5startERKNS_13operationModeE
   44:	3f bf       	out	0x3f, r19	; 63
   46:	08 95       	ret
 
-Disassembly of section .text._ZN4core13WatchdogTimer5startERKNS_13operationModeERKNS_7timeOutE:
+Disassembly of section .text._ZN4core13WatchdogTimer5startERKNS_21watchdogOperationModeERKNS_7timeOutE:
 
-00000000 <_ZN4core13WatchdogTimer5startERKNS_13operationModeERKNS_7timeOutE>:
+00000000 <_ZN4core13WatchdogTimer5startERKNS_21watchdogOperationModeERKNS_7timeOutE>:
    0:	fc 01       	movw	r30, r24
    2:	da 01       	movw	r26, r20
    4:	8c 91       	ld	r24, X
@@ -4370,6 +4445,11 @@ Disassembly of section .text._ZN4core13WatchdogTimer11getInstanceEv:
   1e:	80 e0       	ldi	r24, 0x00	; 0
   20:	90 e0       	ldi	r25, 0x00	; 0
   22:	08 95       	ret
+
+Disassembly of section .text.__vector_6:
+
+00000000 <__vector_6>:
+   0:	18 95       	reti
 ********** scripts/.build/lib/component/Buzzer.o **********
 
 scripts/.build/lib/component/Buzzer.o:     file format elf32-avr

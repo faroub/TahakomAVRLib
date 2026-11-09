@@ -95,3 +95,16 @@ void core::ExternInterrupt::enablePinChangeMaskPortD(const uint8_t a_pinNumber, 
         EXT_INT_DISABLE_PIN_CHANGE_MASK_PORTD(a_pinNumber);
     }
 }
+
+// weak default interrupt handlers: empty bodies the application may
+// override by defining the same vector symbol (e.g. ISR(TIMER0_COMPA_vect))
+
+void core::ExternInterrupt::Int0ServiceRoutine() {}
+
+void core::ExternInterrupt::Int1ServiceRoutine() {}
+
+void core::ExternInterrupt::pinChangePortBServiceRoutine() {}
+
+void core::ExternInterrupt::pinChangePortCServiceRoutine() {}
+
+void core::ExternInterrupt::pinChangePortDServiceRoutine() {}

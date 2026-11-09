@@ -90,6 +90,13 @@ add_subdirectory("${LIB_DIR}/component" "${CMAKE_BINARY_DIR}/component")
 add_subdirectory("${LIB_DIR}/core" "${CMAKE_BINARY_DIR}/core")
 add_subdirectory("${LIB_DIR}/utils" "${CMAKE_BINARY_DIR}/utils")
 
+# Locate the CRT startup object: it must be linked AFTER the libraries, not
+# in the driver's default first position.  The startup code weakly aliases
+# every vector to __bad_interrupt and the first weak definition wins, so the
+# library's weak default interrupt handlers only take effect if the CRT sees
+# them first; -nostartfiles suppresses the automatic placement.
+execute_process(COMMAND ${AVRCPP} -mmcu=${MCU} -print-file-name=crt${MCU}.o
+                OUTPUT_VARIABLE AVRCRT OUTPUT_STRIP_TRAILING_WHITESPACE)
 # Set the internal and external libs
 set (INTERN_LINK_LIBS ${INTERN_LINK_LIBS} component io core utils)
 set (EXTERN_LINK_LIBS ${EXTERN_LINK_LIBS})
@@ -98,7 +105,11 @@ set (EXTERN_LINK_LIBS ${EXTERN_LINK_LIBS})
 add_executable("${FIRMWARE}" main.cpp)
 
 # Specify the libraries to use when linking the target
-target_link_libraries("${FIRMWARE}" ${INTERN_LINK_LIBS} ${EXTERN_LINK_LIBS} m)
+# Suppress the driver's startup placement: the CRT is linked explicitly
+# after the libraries (see AVRCRT above) so the library's weak default
+# handlers take effect over the CRT's __bad_interrupt aliases
+set_target_properties("${FIRMWARE}" PROPERTIES LINK_FLAGS "-nostartfiles")
+target_link_libraries("${FIRMWARE}" ${INTERN_LINK_LIBS} ${EXTERN_LINK_LIBS} ${AVRCRT} m)
 
 # Set output name property of the target to target.elf
 set_target_properties("${FIRMWARE}" PROPERTIES OUTPUT_NAME "${FIRMWARE}.elf")

@@ -260,3 +260,12 @@ void core::TimerCounter2::enableOverflowInterrupt(const uint8_t a_enable)
     }
 
 }
+
+// weak default interrupt handlers: empty bodies the application may
+// override by defining the same vector symbol (e.g. ISR(TIMER0_COMPA_vect))
+
+void core::TimerCounter2::outputCompareMatchAServiceRoutine() {}
+
+void core::TimerCounter2::outputCompareMatchBServiceRoutine() {}
+
+void core::TimerCounter2::overflowServiceRoutine() {}

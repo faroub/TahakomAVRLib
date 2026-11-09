@@ -317,13 +317,13 @@ public:
 
     uint16_t getClockPrescaler() override;
 
-    static void outputCompareMatchAServiceRoutine() __asm__(STR(TIMER1_COM_CHANNEL_A_INTERRUPT)) __attribute__((__signal__, __used__, __externally_visible__));
+    static void outputCompareMatchAServiceRoutine() __asm__(STR(TIMER1_COM_CHANNEL_A_INTERRUPT)) __attribute__((__signal__, __used__, __externally_visible__, weak));
 
-    static void outputCompareMatchBServiceRoutine() __asm__(STR(TIMER1_COM_CHANNEL_B_INTERRUPT)) __attribute__((__signal__, __used__, __externally_visible__));
+    static void outputCompareMatchBServiceRoutine() __asm__(STR(TIMER1_COM_CHANNEL_B_INTERRUPT)) __attribute__((__signal__, __used__, __externally_visible__, weak));
 
-    static void overflowServiceRoutine() __asm__(STR(TIMER1_OVERFLOW_INTERRUPT)) __attribute__((__signal__, __used__, __externally_visible__));
+    static void overflowServiceRoutine() __asm__(STR(TIMER1_OVERFLOW_INTERRUPT)) __attribute__((__signal__, __used__, __externally_visible__, weak));
 
-    static void inputCaptureServiceRoutine() __asm__(STR(TIMER1_INPUT_CAPTURE_INTERRUPT)) __attribute__((__signal__, __used__, __externally_visible__));
+    static void inputCaptureServiceRoutine() __asm__(STR(TIMER1_INPUT_CAPTURE_INTERRUPT)) __attribute__((__signal__, __used__, __externally_visible__, weak));
 
 
 

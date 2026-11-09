@@ -33,7 +33,7 @@ GLOBAL_FLAGS="-mmcu=${MCU} -DF_CPU=16000000UL -DBAUD=9600 -D__AVR_ATmega328P__ -
 INCLUDE_FLAGS="-Ilib/io -Ilib/core -Ilib/component -Ilib/utils"
 
 LIB_GROUPS="io core component utils"
-APPS="applications/BlinkLed applications/LightMeter applications/MusicBox applications/Organ"
+APPS="applications/BlinkLed applications/LightMeter applications/MusicBox applications/Organ applications/tests/WeakIsr"
 
 BUILD_DIR="scripts/.build"
 WARNINGS_BASELINE="scripts/warnings.baseline"
@@ -122,7 +122,18 @@ for app in ${APPS}; do
     elf="${BUILD_DIR}/${app_name}/${app_name}.elf"
     link_log="${BUILD_DIR}/${app_name}/link.log"
     LIB_OBJECTS=$(find "${BUILD_DIR}/lib" -name '*.o' | LC_ALL=C sort | tr '\n' ' ')
-    if ! "${CXX}" -mmcu=${MCU} -o "${elf}" "${main_obj}" ${LIB_OBJECTS} -lm 2> "${link_log}"; then
+# The libraries must be linked before the CRT startup object: the startup
+# code defines every vector weakly (aliased to __bad_interrupt), and the
+# first weak definition wins, so the library's weak default handlers only
+# take effect if the CRT comes after them.  -nostartfiles suppresses the
+# driver's automatic (first) placement; the CRT is passed explicitly here.
+CRT="$("${CXX}" -mmcu=${MCU} -print-file-name=crt${MCU}.o)"
+if [ ! -e "${CRT}" ]; then
+    echo "ERROR: startup object ${CRT} not found"
+    FAILED=1
+    continue
+fi
+if ! "${CXX}" -mmcu=${MCU} -nostartfiles -o "${elf}" "${main_obj}" ${LIB_OBJECTS} "${CRT}" -lm 2> "${link_log}"; then
         echo "ERROR: linking ${app_name} failed:"
         cat "${link_log}"
         FAILED=1
