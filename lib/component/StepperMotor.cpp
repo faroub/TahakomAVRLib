@@ -44,7 +44,7 @@ void component::StepperMotor::beginMove(const int16_t a_step)
     m_profileSpeed = 0;
     m_speedTimeProduct = 0;
     m_profilePosition = 0;
-    m_goalReached = 0;
+    m_goalReached = (a_step == 0) ? 1 : 0;
 }
 
 void component::StepperMotor::setCurrentPos(uint16_t a_currentPos)
@@ -91,55 +91,45 @@ void component::StepperMotor::step(const int16_t a_step,
 
     if (a_step<=0)
     {
-        if (m_stepNumber== -a_step)
-        {
-            m_goalReached = 1;
-
-        } else {
-            m_stepNumber++;
-            m_currentPos++;
-        }
-
-
-    } else {
-
+        m_stepNumber++;
+        m_currentPos++;
         if (m_stepNumber == -a_step)
         {
             m_goalReached = 1;
-
-        } else {
-            m_stepNumber--;
-            m_currentPos--;
-
         }
-    }
 
+    } else {
 
-    if (m_goalReached == 0)
-    {
-
-        switch (stepMode)
+        m_stepNumber--;
+        m_currentPos--;
+        if (m_stepNumber == -a_step)
         {
-            case mode::fullStep:
-            {
-                // equivalent to m_stepNumber % 4
-                // 1 3 5 7 <->
-                stepPulse(2*(m_stepNumber & 3)+1);
-                break;
-            }
+            m_goalReached = 1;
+        }
+    }
 
-            case mode::halfStep:
-            {
-                // equivalent to m_stepNumber % 8
-                // 0 1 2 3 4 5 6 7 <->
-                stepPulse(m_stepNumber & 7);
-                break;
-            }
+
+    switch (stepMode)
+    {
+        case mode::fullStep:
+        {
+            // equivalent to m_stepNumber % 4
+            // 1 3 5 7 <->
+            stepPulse(2*(m_stepNumber & 3)+1);
+            break;
         }
 
-        stepDelay(l_stepDelay_ms);
-
+        case mode::halfStep:
+        {
+            // equivalent to m_stepNumber % 8
+            // 0 1 2 3 4 5 6 7 <->
+            stepPulse(m_stepNumber & 7);
+            break;
+        }
     }
+
+    stepDelay(l_stepDelay_ms);
+
     }
     else
     {
@@ -243,55 +233,43 @@ void component::StepperMotor::step(const int16_t a_step, const uint16_t a_speed)
 
     if (a_step<=0)
     {
-        if (m_stepNumber== -a_step)
-        {
-            m_goalReached = 1;
-
-        } else {
-            m_stepNumber++;
-            m_currentPos++;
-        }
-
-
-    } else {
-
+        m_stepNumber++;
+        m_currentPos++;
         if (m_stepNumber == -a_step)
         {
             m_goalReached = 1;
-
-        } else {
-            m_stepNumber--;
-            m_currentPos--;
-
         }
-    }
 
+    } else {
 
-    if (m_goalReached == 0)
-    {
-
-        switch (stepMode)
+        m_stepNumber--;
+        m_currentPos--;
+        if (m_stepNumber == -a_step)
         {
-            case mode::fullStep:
-            {
-                // equivalent to m_stepNumber % 4
-                // 1 3 5 7 <->
-                stepPulse(2*(m_stepNumber & 3)+1);
-                break;
-            }
+            m_goalReached = 1;
+        }
+    }
 
-            case mode::halfStep:
-            {
-                // equivalent to m_stepNumber % 8
-                // 0 1 2 3 4 5 6 7 <->
-                stepPulse(m_stepNumber & 7);
-                break;
-            }
+    switch (stepMode)
+    {
+        case mode::fullStep:
+        {
+            // equivalent to m_stepNumber % 4
+            // 1 3 5 7 <->
+            stepPulse(2*(m_stepNumber & 3)+1);
+            break;
         }
 
-        stepDelay(l_stepDelay_ms);
-
+        case mode::halfStep:
+        {
+            // equivalent to m_stepNumber % 8
+            // 0 1 2 3 4 5 6 7 <->
+            stepPulse(m_stepNumber & 7);
+            break;
+        }
     }
+
+    stepDelay(l_stepDelay_ms);
 }
 
 void component::StepperMotor::step(const int16_t a_step, const uint16_t a_speed, const float a_stepAngle)
@@ -307,57 +285,43 @@ void component::StepperMotor::step(const int16_t a_step, const uint16_t a_speed,
 
     if (a_step<=0)
     {
-        if (m_stepNumber== -a_step)
-        {
-            m_goalReached = 1;
-
-        } else {
-            m_stepNumber++;
-            m_currentPos++;
-        }
-
-
-    } else {
-
+        m_stepNumber++;
+        m_currentPos++;
         if (m_stepNumber == -a_step)
         {
             m_goalReached = 1;
-
-        } else {
-            m_stepNumber--;
-            m_currentPos--;
-
         }
-    }
 
+    } else {
 
-    if (m_goalReached == 0)
-    {
-
-        switch (stepMode)
+        m_stepNumber--;
+        m_currentPos--;
+        if (m_stepNumber == -a_step)
         {
-            case mode::fullStep:
-            {
-                // equivalent to m_stepNumber % 4
-                // 1 3 5 7 <->
-                stepPulse(2*(m_stepNumber & 3)+1);
-                break;
-            }
-
-            case mode::halfStep:
-            {
-                // equivalent to m_stepNumber % 8
-                // 0 1 2 3 4 5 6 7 <->
-                stepPulse(m_stepNumber & 7);
-                break;
-            }
+            m_goalReached = 1;
         }
-
-        stepDelay(l_stepDelay_ms);
-
     }
 
+    switch (stepMode)
+    {
+        case mode::fullStep:
+        {
+            // equivalent to m_stepNumber % 4
+            // 1 3 5 7 <->
+            stepPulse(2*(m_stepNumber & 3)+1);
+            break;
+        }
 
+        case mode::halfStep:
+        {
+            // equivalent to m_stepNumber % 8
+            // 0 1 2 3 4 5 6 7 <->
+            stepPulse(m_stepNumber & 7);
+            break;
+        }
+    }
+
+    stepDelay(l_stepDelay_ms);
 }
 
 

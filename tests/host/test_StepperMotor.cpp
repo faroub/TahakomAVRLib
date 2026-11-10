@@ -66,7 +66,7 @@ static void runMove(component::StepperMotor &ar_stepper,
     ar_pulses = 0;
     ar_lastPulseCall = 0;
     ar_calls = 0;
-    while ((ar_calls < a_callCap) && !ar_stepper.goalReached())
+    do
     {
         ar_stepper.step(a_step, a_speed, a_accel, a_decel);
         ar_calls++;
@@ -76,7 +76,7 @@ static void runMove(component::StepperMotor &ar_stepper,
             ar_lastPulseCall = ar_calls;
             l_lastPattern = PORTB;
         }
-    }
+    } while ((ar_calls < a_callCap) && !ar_stepper.goalReached());
 }
 
 int main(void)
@@ -106,12 +106,8 @@ int main(void)
     CHECK(l_lastPulseCall > 396);   // ~400 ms, 1% of the analytic 400 ms
     CHECK(l_lastPulseCall < 404);
     CHECK(stepper.currentPos() == 200);
-    // known-wrong: when the ramp ends the profile speed keeps its final
-    // value (zero), so the one extra fire that would set the goal flag
-    // never comes and polling goalReached() spins forever; the step
-    // count and duration of the move itself are correct
-    XFAIL(stepper.goalReached() == 1);
-    XFAIL(l_calls < 1000UL);
+    CHECK(stepper.goalReached() == 1);
+    CHECK(l_calls < 1000UL);
 
     printf("a consecutive move with a new target replays the profile:\n");
     // move 2: 200 steps the other way; beginMove() reset the profile
@@ -127,8 +123,8 @@ int main(void)
     CHECK(l_lastPulseCall > 396);
     CHECK(l_lastPulseCall < 404);
     CHECK(stepper.currentPos() == 0);
-    XFAIL(stepper.goalReached() == 1);
-    XFAIL(l_calls < 1000UL);
+    CHECK(stepper.goalReached() == 1);
+    CHECK(l_calls < 1000UL);
 
     printf("and a third move back to the first target:\n");
     runMove(stepper, -200, 1000, 5000, 5000, 1000UL,
@@ -141,8 +137,8 @@ int main(void)
     CHECK(l_lastPulseCall > 396);
     CHECK(l_lastPulseCall < 404);
     CHECK(stepper.currentPos() == 200);
-    XFAIL(stepper.goalReached() == 1);
-    XFAIL(l_calls < 1000UL);
+    CHECK(stepper.goalReached() == 1);
+    CHECK(l_calls < 1000UL);
 
     // accel/decel smaller than what the step count needs: the profile is
     // rescaled so the motor still moves (the sqrtf fix; the old integer
