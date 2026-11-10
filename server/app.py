@@ -64,4 +64,5 @@ def run_server(port=8000):
     httpd.serve_forever()
 
 if __name__ == "__main__":
-    run_server()
+    p = int(os.environ.get("PORT", 8000))
+    run_server(p)

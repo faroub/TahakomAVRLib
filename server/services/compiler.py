@@ -60,6 +60,10 @@ def compile_sketch(code: str, mcu: str = "atmega328p", f_cpu: int = 16000000, ba
         f"-D{mcu_def}",
         "-Os",
         "-std=c++11",
+        "-funsigned-char",
+        "-funsigned-bitfields",
+        "-fshort-enums",
+        "-fno-threadsafe-statics",
         "-Wall",
         "-Wextra",
         "-ffunction-sections",
@@ -71,6 +75,7 @@ def compile_sketch(code: str, mcu: str = "atmega328p", f_cpu: int = 16000000, ba
 
     cmd.extend(["-o", sketch_elf, sketch_cpp])
     cmd.extend(lib_sources)
+    cmd.append("-lm")
 
     proc = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     diagnostics = parse_gcc_output(proc.stderr)
