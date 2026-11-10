@@ -1,8 +1,10 @@
 class ScopeViewer {
-    constructor(canvasId) {
+    constructor(canvasId, isLogic = false) {
         this.canvas = document.getElementById(canvasId);
         this.ctx = this.canvas.getContext('2d');
         this.data = new Array(100).fill(0);
+        this.isLogic = isLogic;
+        this.decodedFrames = [];
         this.resize();
         window.addEventListener('resize', () => this.resize());
         this.draw();
@@ -16,6 +18,12 @@ class ScopeViewer {
     pushSample(val) {
         this.data.shift();
         this.data.push(val);
+        this.draw();
+    }
+
+    addDecodedFrame(str) {
+        this.decodedFrames.push({ time: Date.now(), label: str });
+        if (this.decodedFrames.length > 5) this.decodedFrames.shift();
         this.draw();
     }
 
@@ -42,20 +50,34 @@ class ScopeViewer {
         }
 
         // Plot line
-        this.ctx.strokeStyle = '#00d2ff';
+        this.ctx.strokeStyle = this.isLogic ? '#55efc4' : '#00d2ff';
         this.ctx.lineWidth = 2;
         this.ctx.beginPath();
         const step = w / (this.data.length - 1);
         for (let i = 0; i < this.data.length; i++) {
             const x = i * step;
-            const norm = this.data[i] / 1023; // 10-bit ADC
-            const y = h - (norm * (h - 10) + 5);
+            const norm = this.isLogic ? (this.data[i] ? 0.8 : 0.2) : (this.data[i] / 1023);
+            const y = h - (norm * (h - 20) + 10);
             if (i === 0) this.ctx.moveTo(x, y);
-            else this.ctx.lineTo(x, y);
+            else {
+                if (this.isLogic) {
+                    const prevX = (i - 1) * step;
+                    this.ctx.lineTo(x, h - ((this.data[i - 1] ? 0.8 : 0.2) * (h - 20) + 10));
+                }
+                this.ctx.lineTo(x, y);
+            }
         }
         this.ctx.stroke();
+
+        // Protocol Decoder overlay
+        if (this.isLogic && this.decodedFrames.length > 0) {
+            this.ctx.fillStyle = '#ff7675';
+            this.ctx.font = '11px monospace';
+            const lastFrame = this.decodedFrames[this.decodedFrames.length - 1];
+            this.ctx.fillText(`Decoded Frame: ${lastFrame.label}`, 10, 20);
+        }
     }
 }
 
-const scope = new ScopeViewer('scopeCanvas');
-const logicScope = new ScopeViewer('logicCanvas');
+const scope = new ScopeViewer('scopeCanvas', false);
+const logicScope = new ScopeViewer('logicCanvas', true);

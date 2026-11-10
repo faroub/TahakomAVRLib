@@ -66,6 +66,7 @@
                 <span>C++ Sketch (TahakomAVRLib)</span>
                 <span id="build-status">Ready</span>
             </div>
+            <label for="code-editor" style="display:none;">Code Editor</label>
             <textarea id="code-editor" spellcheck="false"></textarea>
         </div>
 
@@ -78,6 +79,24 @@
             <div class="card">
                 <div class="card-title">📊 Digital Logic Analyzer (Pin Signals)</div>
                 <canvas id="logicCanvas"></canvas>
+            </div>
+
+            <div class="card">
+                <div class="card-title">🔋 Power Budget & Battery Lifespan Estimator</div>
+                <div class="widget-grid">
+                    <div class="widget">
+                        <div>Estimated Current</div>
+                        <div class="widget-val" id="pwr-current">12.55 mA</div>
+                    </div>
+                    <div class="widget">
+                        <div>Est. Power (5V)</div>
+                        <div class="widget-val" id="pwr-mW">62.75 mW</div>
+                    </div>
+                    <div class="widget">
+                        <div>CR2032 Lifespan</div>
+                        <div class="widget-val" id="pwr-days">0.7 Days</div>
+                    </div>
+                </div>
             </div>
 
             <div class="card">
@@ -106,6 +125,7 @@
 
     <script src="js/scope.js"></script>
     <script src="js/configurator.js"></script>
+    <script src="js/power.js"></script>
     <script src="js/editor.js"></script>
 </body>
 </html>

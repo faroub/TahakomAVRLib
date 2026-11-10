@@ -32,4 +32,6 @@ volatile uint8_t WDTCSR, MCUSR, SMCR, PRR, MCUCR;
 
 volatile uint8_t SPCR, SPSR, SPDR;
 
+volatile uint8_t TWBR, TWSR, TWCR, TWDR;
+
 #endif /* HOST_REGISTERS_H */
