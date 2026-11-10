@@ -28,11 +28,26 @@
 
 
 /*
- * Include hardware abstraction the Atmega328p
+ * Include hardware abstraction for supported MCUs
  */
 #if defined(__AVR_ATmega328P__)
 
     #include "ha_m328p.h"
+    #include "utils_m328p.h"
+
+#elif defined(__AVR_ATmega2560__)
+
+    #include "ha_m2560.h"
+    #include "utils_m328p.h"
+
+#elif defined(__AVR_ATmega168P__) || defined(__AVR_ATmega88P__) || defined(__AVR_ATmega48P__)
+
+    #include "ha_m168p.h"
+    #include "utils_m328p.h"
+
+#elif defined(__AVR_ATtiny85__)
+
+    #include "ha_attiny85.h"
     #include "utils_m328p.h"
 
 #else

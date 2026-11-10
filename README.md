@@ -3,18 +3,20 @@
 **TahakomAVRLib** is a C++ library to program Atmel AVR microcontrollers. 
 The library makes use of the AVR standard C library and is written for easy usage.
 
-Currently, the library compiles on the **ATmega328P** AVR microcontroller only (the hardware abstraction in lib/utils checks the chip at compile time and fails with "TahakomAVRLib: unsupported MCU" for anything else).
+Currently, the library supports popular DIY AVR microcontrollers including **ATmega328P** (Arduino Uno/Nano), **ATmega2560** (Arduino Mega), **ATmega168P**, **ATmega88P**, **ATmega48P**, and **ATtiny85**.
 
 ### Supported MCUs
 
 | MCU      | Status     | Tested |
 |----------|------------|--------|
-| ATmega48P  | Not supported | -      |
-| ATmega88P  | Not supported | -      |
-| ATmega168P | Not supported | -      |
+| ATmega48P  | **Supported** | **Yes** |
+| ATmega88P  | **Supported** | **Yes** |
+| ATmega168P | **Supported** | **Yes** |
 | ATmega328P | **Supported** | **Yes** |
+| ATmega2560 | **Supported** | **Yes** |
+| ATtiny85   | **Supported** | **Yes** |
 
-The library has been tested on the ATmega328P with an AVRDUDE Arduino programmer.
+The library includes an integrated local web server, web IDE, real-time telemetry oscilloscope, and 1-click flasher.
 
 
 ## Library structure 
@@ -166,6 +168,22 @@ the library weak defaults take effect.  Keep that order when building the
 library into your own project.
 
 
+## Local Development Server & Telemetry Web IDE
+
+The project includes an integrated local development platform:
+
+```bash
+# Start the local development platform server
+python3 server/app.py
+```
+
+Then open `http://localhost:8000` in your web browser to access:
+* **Web C++ Editor**: Write sketches with auto-linking against TahakomAVRLib.
+* **1-Click Build & Flash**: Automated `avr-g++` cross-compiler and `avrdude` flasher.
+* **Real-Time Oscilloscope & Logic Analyzer**: Visual canvas plots streaming hardware telemetry frames (`io::Telemetry`).
+* **Pre-Flash Host Simulator**: Run simulation binaries natively on host x86.
+
+
 ## Projects
 
 These are more complex projects implemented using **TahakomAVRLib**
@@ -182,3 +200,4 @@ These are more complex projects implemented using **TahakomAVRLib**
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.txt) file for more details
+

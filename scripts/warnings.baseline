@@ -19,5 +19,6 @@ lib/core/TimerCounter2.cpp 0
 lib/core/WatchdogTimer.cpp 0
 lib/io/Pin.cpp 0
 lib/io/SPI.cpp 0
+lib/io/Telemetry.cpp 0
 lib/io/USART0.cpp 0
 lib/utils/utils_m328p.cpp 0

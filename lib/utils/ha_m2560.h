@@ -1,0 +1,414 @@
+/**
+ * @file ha_m2560.h
+ * @brief Header file for the hardware abstraction macros of the ATmega2560
+ *
+ * @author Farid Oubbati (https://github.com/faroub)
+ * @date March 2026
+*/
+#ifndef HA_M2560_H
+#define HA_M2560_H
+
+#ifndef HABASE_H
+    #error "don't use this file directly! Please include only ha_base.h!"
+#endif
+
+// PushButton defines
+#define PUSHBUTTON_DEBOUNCE_TIME_US 1000
+
+// USART defines
+#include <util/setbaud.h>
+
+#define   USART0_SET_BAUDRATE_HIGH_REGISTER     UBRR0H = UBRRH_VALUE
+#define   USART0_SET_BAUDRATE_LOW_REGISTER      UBRR0L = UBRRL_VALUE
+
+#define   USART0_ENABLE_ASYNC_TRANSMISSION_MODE     UCSR0C &= ~((1 << UMSEL01) | (1 << UMSEL00))
+#define   USART0_ENABLE_SYNC_TRANSMISSION_MODE      UCSR0C = (UCSR0C & ~(1 << UMSEL01)) | (1 << UMSEL00)
+#define   USART0_ENABLE_MASTER_SPI_MODE             UCSR0C |= (1 << UMSEL01) | (1 << UMSEL00)
+
+#define   USART0_ENABLE_DOUBLE_SPEED_MODE
+#define   USART0_DISABLE_DOUBLE_SPEED_MODE
+
+#if USE_2X
+    #undef  USART0_ENABLE_DOUBLE_SPEED_MODE
+    #define USART0_ENABLE_DOUBLE_SPEED_MODE UCSR0A |= (1 << U2X0)
+#else
+    #undef  USART0_DISABLE_DOUBLE_SPEED_MODE
+    #define USART0_DISABLE_DOUBLE_SPEED_MODE UCSR0A &= ~(1 << U2X0)
+#endif
+
+#define   USART0_ENABLE_EVEN_PARITY_MODE    UCSR0C = (1 << UPM01) | (UCSR0C & ~(1 << UPM00))
+#define   USART0_ENABLE_ODD_PARITY_MODE     UCSR0C |=   ((1 << UPM01) | (1 << UPM00))
+#define   USART0_DISABLE_PARITY_MODE        UCSR0C &= ~((1 << UPM01) | (1 << UPM00))
+
+#define   USART0_SET_ONE_STOP_BIT   UCSR0C &= ~(1 << USBS0)
+#define   USART0_SET_TWO_STOP_BITS  UCSR0C |= (1 << USBS0)
+
+#define   USART0_SET_9BIT_FRAME_SIZE   \
+    do { \
+        UCSR0C |= ((1 << UCSZ01) | (1 << UCSZ00)); \
+        UCSR0B |= (1 << UCSZ02); \
+    } while (0)
+
+#define   USART0_SET_8BIT_FRAME_SIZE   \
+    do { \
+        UCSR0C |= ((1 << UCSZ01) | (1 << UCSZ00)); \
+        UCSR0B &= ~(1 << UCSZ02); \
+    } while (0)
+
+#define   USART0_SET_7BIT_FRAME_SIZE  \
+    do { \
+        UCSR0C = (1 << UCSZ01) | (UCSR0C & ~(1 << UCSZ00)); \
+        UCSR0B &= ~(1 << UCSZ02); \
+    } while (0)
+#define   USART0_SET_6BIT_FRAME_SIZE \
+    do { \
+        UCSR0C = (UCSR0C & ~(1 << UCSZ01)) | (1 << UCSZ00); \
+        UCSR0B &= ~(1 << UCSZ02); \
+    } while (0)
+#define   USART0_SET_5BIT_FRAME_SIZE \
+    do { \
+        UCSR0C &= ~((1 << UCSZ01) | (1 << UCSZ00)); \
+        UCSR0B &= ~(1 << UCSZ02); \
+    } while (0)
+
+#define   USART0_ENABLE_TRANSMITTER      UCSR0B |=   1 << TXEN0
+#define   USART0_DISABLE_TRANSMITTER     UCSR0B &= ~(1 << TXEN0)
+
+#define   USART0_ENABLE_RECEIVER         UCSR0B |=   1 << RXEN0
+#define   USART0_DISABLE_RECEIVER        UCSR0B &= ~(1 << RXEN0)
+
+#define   USART0_CONTROL_STATUS_REGISTER UCSR0A
+#define   USART0_DATA_REGISTER           UDR0
+
+#define   USART0_FRAME_ERROR             FE0
+#define   USART0_DATA_OVERRUN            DOR0
+#define   USART0_PARITY_ERROR            UPE0
+
+#define   USART0_ENABLE_DATA_REGISTER_EMPTY_INTERRUPT   UCSR0B |=   1 << UDRIE0
+#define   USART0_DISABLE_DATA_REGISTER_EMPTY_INTERRUPT  UCSR0B &= ~(1 << UDRIE0)
+
+#define   USART0_ENABLE_RECEIVE_COMPLETE_INTERRUPT   UCSR0B |=   1 << RXCIE0
+#define   USART0_DISABLE_RECEIVE_COMPLETE_INTERRUPT  UCSR0B &= ~(1 << RXCIE0)
+
+#define   USART0_ENABLE_TRANSMIT_COMPLETE_INTERRUPT   UCSR0B |=   1 << TXCIE0
+#define   USART0_DISABLE_TRANSMIT_COMPLETE_INTERRUPT  UCSR0B &= ~(1 << TXCIE0)
+
+#define   USART0_RECEIVE_COMPLETE_INTERRUPT     USART0_RX_vect
+#define   USART0_TRANSMIT_COMPLETE_INTERRUPT    USART0_TX_vect
+#define   USART0_DATA_REGISTER_EMPTY_INTERRUPT  USART0_UDRE_vect
+
+// ADC defines
+#define   ADC_SELECT_REF_VOLTAGE(refVoltage) \
+    do { \
+        ADMUX &= 0x3F; \
+        ADMUX |= (refVoltage) << 6; \
+    } while (0)
+
+#define   ADC_ADJUST_RESULT_LEFT            ADMUX |=  1 << ADLAR
+#define   ADC_ADJUST_RESULT_RIGHT           ADMUX &= ~(1 << ADLAR)
+
+#define   ADC_SELECT_ANALOG_INPUT(pinNumber) \
+    do { \
+        ADMUX &= 0xE0; \
+        ADCSRB &= ~(1 << MUX5); \
+        if ((pinNumber) & 8) { \
+            ADCSRB |= (1 << MUX5); \
+        } \
+        ADMUX |= ((pinNumber) & 7); \
+    } while (0)
+
+#define   ADC_DISABLE_DIGITAL_INPUT_REGISTER(pinNumber) \
+    do { \
+        if ((pinNumber) < 8) { \
+            DIDR0 |= (1 << (pinNumber)); \
+        } else { \
+            DIDR2 |= (1 << ((pinNumber) - 8)); \
+        } \
+    } while (0)
+
+#define   ADC_ENABLE            ADCSRA |=  1 << ADEN
+#define   ADC_DISABLE           ADCSRA &= ~(1 << ADEN)
+
+#define   ADC_START_CONVERSION            ADCSRA |=  1 << ADSC
+#define   ADC_STOP_CONVERSION           ADCSRA &= ~(1 << ADSC)
+
+#define   ADC_ENABLE_AUTOTRIGGER          ADCSRA |=   1 << ADATE
+#define   ADC_DISABLE_AUTOTRIGGER        ADCSRA &= ~(1 << ADATE)
+
+#define   ADC_ENABLE_CONVERSION_COMPLETE_INTERRUPT   ADCSRA |=   1 << ADIE
+#define   ADC_DISABLE_CONVERSION_COMPLETE_INTERRUPT  ADCSRA &= ~(1 << ADIE)
+
+#define   ADC_SELECT_CLOCK_PRESCALER(clockPrescaler) \
+    do { \
+        ADCSRA &= 0xF8; \
+        ADCSRA |= (clockPrescaler); \
+    } while (0)
+
+#define   ADC_SELECT_AUTO_TRIGGER_SOURCE(triggerSource) \
+    do { \
+        ADCSRB &= 0xF8; \
+        ADCSRB |= (triggerSource); \
+    } while (0)
+
+#define   ADC_CONVERSION_COMPLETE_INTERRUPT  ADC_vect
+
+// Externally Triggered Interrupts defines
+#define EXT_INT_SET_INT0_SENSE_CONTROL(senseControl) \
+    do { \
+        EICRA &= 0xFC; \
+        EICRA |= (senseControl); \
+    } while (0)
+#define EXT_INT_SET_INT1_SENSE_CONTROL(senseControl) \
+    do { \
+        EICRA &= 0xF3; \
+        EICRA |= (senseControl) << 2; \
+    } while (0)
+
+#define EXT_INT_ENABLE_INT0   EIMSK |= 1 << INT0
+#define EXT_INT_DISABLE_INT0   EIMSK &= ~(1 << INT0)
+
+#define EXT_INT_ENABLE_INT1   EIMSK |= 1 << INT1
+#define EXT_INT_DISABLE_INT1   EIMSK &= ~(1 << INT1)
+
+#define EXT_INT_ENABLE_PIN_CHANGE_INTERRUPT(pinChangePort)    PCICR |= 1 << (pinChangePort)
+#define EXT_INT_DISABLE_PIN_CHANGE_INTERRUPT(pinChangePort)   PCICR &= ~(1 << (pinChangePort))
+
+#define EXT_INT_ENABLE_PIN_CHANGE_MASK_PORTB(pinChangePin)    PCMSK0 |= 1 << (pinChangePin)
+#define EXT_INT_DISABLE_PIN_CHANGE_MASK_PORTB(pinChangePin)   PCMSK0 &= ~(1 << (pinChangePin))
+
+#define EXT_INT_ENABLE_PIN_CHANGE_MASK_PORTC(pinChangePin)    PCMSK1 |= 1 << (pinChangePin)
+#define EXT_INT_DISABLE_PIN_CHANGE_MASK_PORTC(pinChangePin)   PCMSK1 &= ~(1 << (pinChangePin))
+
+#define EXT_INT_ENABLE_PIN_CHANGE_MASK_PORTD(pinChangePin)    PCMSK2 |= 1 << (pinChangePin)
+#define EXT_INT_DISABLE_PIN_CHANGE_MASK_PORTD(pinChangePin)   PCMSK2 &= ~(1 << (pinChangePin))
+
+#define  EXT_INT_INT0_INTERRUPT   INT0_vect
+#define  EXT_INT_INT1_INTERRUPT   INT1_vect
+
+#define  EXT_INT_PIN_CHANGE_PORTB_INTERRUPT   PCINT0_vect
+#define  EXT_INT_PIN_CHANGE_PORTC_INTERRUPT   PCINT1_vect
+#define  EXT_INT_PIN_CHANGE_PORTD_INTERRUPT   PCINT2_vect
+
+// Timers/Counters defines
+#define TIMER0_STOP \
+    do { \
+        TCCR0B &= 0xF8; \
+    } while (0)
+#define TIMER1_STOP \
+    do { \
+        TCCR1B &= 0xF8; \
+    } while (0)
+#define TIMER2_STOP \
+    do { \
+        TCCR2B &= 0xF8; \
+    } while (0)
+
+#define TIMER0_SELECT_CLOCK_SOURCE(clockSource) \
+    do { \
+        TCCR0B &= 0xF8; \
+        TCCR0B |= (clockSource); \
+    } while (0)
+#define TIMER1_SELECT_CLOCK_SOURCE(clockSource) \
+    do { \
+        TCCR1B &= 0xF8; \
+        TCCR1B |= (clockSource); \
+    } while (0)
+#define TIMER2_SELECT_CLOCK_SOURCE(clockSource) \
+    do { \
+        TCCR2B &= 0xF8; \
+        TCCR2B |= (clockSource); \
+    } while (0)
+
+#define TIMER0_SELECT_OPERATION_MODE(operationMode) \
+    do { \
+        TCCR0A &= 0xFC; \
+        TCCR0A |= ((operationMode) & 3); \
+        TCCR0B &= 0xF7; \
+        TCCR0B |= (((operationMode) & 12) << 1); \
+    } while (0)
+#define TIMER1_SELECT_OPERATION_MODE(operationMode) \
+    do { \
+        TCCR1A &= 0xFC; \
+        TCCR1A |= ((operationMode) & 3); \
+        TCCR1B &= 0xE7; \
+        TCCR1B |= (((operationMode) & 12) << 1); \
+    } while (0)
+#define TIMER2_SELECT_OPERATION_MODE(operationMode) \
+    do { \
+        TCCR2A &= 0xFC; \
+        TCCR2A |= ((operationMode) & 3); \
+        TCCR2B &= 0xF7; \
+        TCCR2B |= (((operationMode) & 12) << 1); \
+    } while (0)
+
+#define TIMER0_SELECT_COM_CHANNEL_A(compareOutputMode) \
+    do { \
+        TCCR0A &= 0x3F; \
+        TCCR0A |= (compareOutputMode) << 6; \
+    } while (0)
+#define TIMER0_SELECT_COM_CHANNEL_B(compareOutputMode) \
+    do { \
+        TCCR0A &= 0xCF; \
+        TCCR0A |= (compareOutputMode) << 4; \
+    } while (0)
+
+#define TIMER1_SELECT_COM_CHANNEL_A(compareOutputMode) \
+    do { \
+        TCCR1A &= 0x3F; \
+        TCCR1A |= (compareOutputMode) << 6; \
+    } while (0)
+#define TIMER1_SELECT_COM_CHANNEL_B(compareOutputMode) \
+    do { \
+        TCCR1A &= 0xCF; \
+        TCCR1A |= (compareOutputMode) << 4; \
+    } while (0)
+
+#define TIMER2_SELECT_COM_CHANNEL_A(compareOutputMode) \
+    do { \
+        TCCR2A &= 0x3F; \
+        TCCR2A |= (compareOutputMode) << 6; \
+    } while (0)
+#define TIMER2_SELECT_COM_CHANNEL_B(compareOutputMode) \
+    do { \
+        TCCR2A &= 0xCF; \
+        TCCR2A |= (compareOutputMode) << 4; \
+    } while (0)
+
+#define TIMER0_ENABLE_COM_CHANNEL_A_INTERRUPT TIMSK0 |=  1 << OCIE0A
+#define TIMER0_DISABLE_COM_CHANNEL_A_INTERRUPT TIMSK0 &= ~(1 << OCIE0A)
+
+#define TIMER0_ENABLE_COM_CHANNEL_B_INTERRUPT TIMSK0 |=  1 << OCIE0B
+#define TIMER0_DISABLE_COM_CHANNEL_B_INTERRUPT TIMSK0 &= ~(1 << OCIE0B)
+
+#define TIMER0_ENABLE_OVERFLOW_INTERRUPT TIMSK0 |=  1 << TOIE0
+#define TIMER0_DISABLE_OVERFLOW_INTERRUPT TIMSK0 &= ~(1 << TOIE0)
+
+#define TIMER1_ENABLE_COM_CHANNEL_A_INTERRUPT TIMSK1 |=  1 << OCIE1A
+#define TIMER1_DISABLE_COM_CHANNEL_A_INTERRUPT TIMSK1 &= ~(1 << OCIE1A)
+
+#define TIMER1_ENABLE_COM_CHANNEL_B_INTERRUPT TIMSK1 |=  1 << OCIE1B
+#define TIMER1_DISABLE_COM_CHANNEL_B_INTERRUPT TIMSK1 &= ~(1 << OCIE1B)
+
+#define TIMER1_ENABLE_OVERFLOW_INTERRUPT TIMSK1 |=  1 << TOIE1
+#define TIMER1_DISABLE_OVERFLOW_INTERRUPT TIMSK1 &= ~(1 << TOIE1)
+
+#define TIMER1_ENABLE_INPUT_CAPTURE_INTERRUPT TIMSK1 |=  1 << ICIE1
+#define TIMER1_DISABLE_INPUT_CAPTURE_INTERRUPT TIMSK1 &= ~(1 << ICIE1)
+
+#define TIMER2_ENABLE_COM_CHANNEL_A_INTERRUPT TIMSK2 |=  1 << OCIE2A
+#define TIMER2_DISABLE_COM_CHANNEL_A_INTERRUPT TIMSK2 &= ~(1 << OCIE2A)
+
+#define TIMER2_ENABLE_COM_CHANNEL_B_INTERRUPT TIMSK2 |=  1 << OCIE2B
+#define TIMER2_DISABLE_COM_CHANNEL_B_INTERRUPT TIMSK2 &= ~(1 << OCIE2B)
+
+#define TIMER2_ENABLE_OVERFLOW_INTERRUPT TIMSK2 |=  1 << TOIE2
+#define TIMER2_DISABLE_OVERFLOW_INTERRUPT TIMSK2 &= ~(1 << TOIE2)
+
+#define   TIMER0_COM_CHANNEL_A_INTERRUPT  TIMER0_COMPA_vect
+#define   TIMER0_COM_CHANNEL_B_INTERRUPT  TIMER0_COMPB_vect
+#define   TIMER0_OVERFLOW_INTERRUPT  TIMER0_OVF_vect
+
+#define   TIMER1_COM_CHANNEL_A_INTERRUPT  TIMER1_COMPA_vect
+#define   TIMER1_COM_CHANNEL_B_INTERRUPT  TIMER1_COMPB_vect
+#define   TIMER1_OVERFLOW_INTERRUPT  TIMER1_OVF_vect
+#define   TIMER1_INPUT_CAPTURE_INTERRUPT  TIMER1_CAPT_vect
+
+#define   TIMER2_COM_CHANNEL_A_INTERRUPT  TIMER2_COMPA_vect
+#define   TIMER2_COM_CHANNEL_B_INTERRUPT  TIMER2_COMPB_vect
+#define   TIMER2_OVERFLOW_INTERRUPT  TIMER2_OVF_vect
+
+// Watchdog Timer defines
+#define WATCHDOG_SELECT_TIMEOUT(timeOut) \
+    do { \
+        WDTCSR |= (1<<WDCE) | (1<<WDE); \
+        WDTCSR = (0<<WDIE) | (0<<WDE) | (timeOut); \
+    } while (0)
+#define WATCHDOG_START(operationMode,timeOut) \
+    do { \
+        MCUSR &= ~(1<<WDRF); \
+        WDTCSR |= (1<<WDCE) | (1<<WDE); \
+        WDTCSR = (operationMode) | (timeOut); \
+    } while (0)
+#define WATCHDOG_STOP \
+    do { \
+        MCUSR &= ~(1<<WDRF); \
+        WDTCSR |= (1<<WDCE) | (1<<WDE); \
+        WDTCSR = 0x00; \
+    } while (0)
+#define WATCHDOG_TIMEOUT_INTERRUPT  WDT_vect
+
+// MCU defines
+#define MCU_SELECT_SLEEP_MODE(sleepMode) \
+    do { \
+        SMCR &= 0xF1; \
+        SMCR |= (sleepMode) << 1; \
+    } while (0)
+
+#define MCU_SLEEP_ENABLE SMCR |=  1 << SE
+#define MCU_SLEEP_DISABLE SMCR &= ~(1 << SE)
+
+#define MCU_TWI_ENABLE PRR0 &= ~(1 << PRTWI)
+#define MCU_TWI_DISABLE PRR0 |=  1 << PRTWI
+
+#define MCU_TIMER2_ENABLE PRR0 &= ~(1 << PRTIM2)
+#define MCU_TIMER2_DISABLE PRR0 |=  1 << PRTIM2
+
+#define MCU_TIMER1_ENABLE PRR0 &= ~(1 << PRTIM1)
+#define MCU_TIMER1_DISABLE PRR0 |=  1 << PRTIM1
+
+#define MCU_TIMER0_ENABLE PRR0 &= ~(1 << PRTIM0)
+#define MCU_TIMER0_DISABLE PRR0 |=  1 << PRTIM0
+
+#define MCU_SPI_ENABLE PRR0 &= ~(1 << PRSPI)
+#define MCU_SPI_DISABLE PRR0 |=  1 << PRSPI
+
+#define MCU_USART0_ENABLE PRR0 &= ~(1 << PRUSART0)
+#define MCU_USART0_DISABLE PRR0 |=  1 << PRUSART0
+
+#define MCU_ADC_ENABLE PRR0 &= ~(1 << PRADC)
+#define MCU_ADC_DISABLE PRR0 |=  1 << PRADC
+
+// ServoMotor defines
+#define SERVOMOTOR_TIMER_PULSE_WIDTH_COUNT(pulseWidth,clockPrescaler) \
+    ((((uint32_t)(pulseWidth)) * ((F_CPU) / 1000000UL)) / (clockPrescaler))
+
+#define SERVOMOTOR_TIMER_ANGLE_COUNT(angle,out_min,out_mid,out_max) (((((out_min)*((angle) - 90L)*((angle) - 180L))/16200L) + (((angle)*(out_max)*((angle) - 90L))/16200L) - (((angle)*(out_mid)*((angle) - 180L))/8100L)))
+
+// SPI defines
+#define   SPI_ENABLE            SPCR |=  1 << SPE
+#define   SPI_DISABLE           SPCR &= ~(1 << SPE)
+#define   SPI_SELECT_MASTER_MODE SPCR |=  1 << MSTR
+#define   SPI_SELECT_SLAVE_MODE SPCR &= ~(1 << MSTR)
+
+#define   SPI_SELECT_DATA_MODE(dataMode) \
+    do { \
+        SPCR &= 0xF3; \
+        SPCR |= (dataMode) << 2; \
+    } while (0)
+#define   SPI_SELECT_CLOCK_PRESCALER(clockPrescaler) \
+    do { \
+        SPCR &= 0xFC; \
+        SPCR |= ((clockPrescaler) & 3); \
+        SPSR &= 0xFE; \
+        SPSR |= (((clockPrescaler) & 4) >> 2); \
+    } while (0)
+#define   SPI_SELECT_DATA_ORDER(dataOrder) \
+    do { \
+        SPCR &= 0xDF; \
+        SPCR |= (dataOrder) << 5; \
+    } while (0)
+
+#define   SPI_WRITE_COLLISION WCOL
+#define   SPI_TRANSFER_COMPLETE SPIF
+
+#define   SPI_MASTER_MODE MSTR
+#define   SPI_CONTROL_REGISTER SPCR
+#define   SPI_DATA_REGISTER SPDR
+#define   SPI_STATUS_REGISTER SPSR
+
+#define   SPI_ENABLE_TRANSFER_COMPLETE_INTERRUPT SPCR |= 1 << SPIE
+#define   SPI_DISABLE_TRANSFER_COMPLETE_INTERRUPT SPCR &= ~(1 << SPIE)
+
+#define   SPI_TRANSFER_COMPLETE_INTERRUPT SPI_STC_vect
+
+#endif
