@@ -1,9 +1,20 @@
 ## Introduction
 
 **TahakomAVRLib** is a C++ library to program Atmel AVR microcontrollers. 
-The library make use of the AVR standard C library and is written for easy usage.
+The library makes use of the AVR standard C library and is written for easy usage.
 
-Currently, the library compiles on the **ATmega328P** AVR microcontroller only (the hardware abstraction in lib/utils checks the chip at compile time and fails with "TahakomAVRLib: unsupported MCU" for anything else). 
+Currently, the library compiles on the **ATmega328P** AVR microcontroller only (the hardware abstraction in lib/utils checks the chip at compile time and fails with "TahakomAVRLib: unsupported MCU" for anything else).
+
+### Supported MCUs
+
+| MCU      | Status     | Tested |
+|----------|------------|--------|
+| ATmega48P  | Not supported | -      |
+| ATmega88P  | Not supported | -      |
+| ATmega168P | Not supported | -      |
+| ATmega328P | **Supported** | **Yes** |
+
+The library has been tested on the ATmega328P with an AVRDUDE Arduino programmer.
 
 
 ## Library structure 
@@ -14,7 +25,7 @@ These classes implement all functionalities and are organized into the namespace
 
 * core
 * io (input/output)
-* or components
+* and components
 
 Several [Applications](#applications) and [Projects](#projects) are implemented in order to demonstrate the library usage. 
 
@@ -40,7 +51,7 @@ In Linux (Ubuntu in my case), the software packages can be installed as follows:
 ```
 sudo apt-get update
 sudo apt-get install gcc build-essential
-sudo apt-get install gcc-avr binutils-avr avr-libc gdb-avr
+sudo apt-get install gcc-avr binutils-avr avr-libc
 sudo apt-get install avrdude
 ```
 
@@ -48,14 +59,16 @@ sudo apt-get install avrdude
 
 In Windows, the software packages can be downloaded and installed as follows:
 
-* AVR toolchain for windows: can be downloaded from the Atmel's website [download](https://www.microchip.com/en-us/development-tools-tools-and-software/gcc-compilers-avr-and-arm)
-* avrdude: can be downloaded from [download](http://download.savannah.gnu.org/releases/avrdude/)
-* make: can be downloaded from [download](http://fab.cba.mit.edu/classes/863.16/doc/projects/ftsmin/make-3.81.exe)
-* cmake: binary distribution can be downloaded from [download](https://cmake.org/download/)
+* AVR toolchain for Windows: can be downloaded from the Microchip website (formerly Atmel) [GCC compilers for AVR and ARM](https://www.microchip.com/en-us/development-tools-tools-and-software/gcc-compilers-avr-and-arm)
+* avrdude: can be downloaded from [GNU Savanna - avrdude](http://download.savannah.gnu.org/releases/avrdude/)
+* make: can be downloaded from [make-3.81.exe](http://fab.cba.mit.edu/classes/863.16/doc/projects/ftsmin/make-3.81.exe) (precompiled for Windows)
+* cmake: binary distribution can be downloaded from [cmake downloads](https://cmake.org/download/)
 
-An alternative, would be to download the precompiled AVR-GCC toolchain from [download](https://blog.zakkemble.net/avr-gcc-builds/) that also include avrdude and make utilities but not cmake.
+An alternative would be to download the precompiled AVR-GCC toolchain from [Zakkemble's AVR-GCC builds](https://blog.zakkemble.net/avr-gcc-builds/) that also includes avrdude and make utilities but not cmake.
 
-Before using these software tools, you need to update the **PATH** environement variable with the file paths to their executables and restart the system.
+Before using these software tools, you need to update the **PATH** environment variable with the file paths to their executables and restart the system.
+
+*Note: The Windows setup instructions depend on the specific versions of make and cmake used. Newer versions may have different installation procedures or command-line options.*
 
 ## Compile and Flash programs
 
@@ -65,7 +78,7 @@ To compile and flash a program code to the AVR chip via USB port, you need to:
 * Adapt the CMakeLists.txt parameters to your system configuration: 
     * **MCU**: AVR chip used 
     * **F_CPU**: AVR CPU frequency
-    * **BAUD**: Baude rate for serial communication
+    * **BAUD**: Baud rate for serial communication
     * **PROG_TYPE**: Programmer type
     * **AVRFLASH_PORT**: Flash port name
 * Change compiler flags if necessary
@@ -73,7 +86,21 @@ To compile and flash a program code to the AVR chip via USB port, you need to:
  and execute the following steps (shown for the [Blink a Led](applications/BlinkLed) application): 
 
 ### Linux
- 
+
+#### Linux permissions
+
+To flash via USB, your user account needs access to the serial device (e.g. `/dev/ttyUSB*` or `/dev/ttyACM*`). On most distributions, you can add your user to the `dialout` group (or `uinput`/`serial` on some systems) and then log out and back in (or reload udev rules):
+
+```bash
+sudo usermod -aG dialout $USER
+# or on some systems:
+# sudo usermod -aG uinput $USER
+sudo systemctl restart udev   # or just log out and back in
+ls /dev/ttyUSB* /dev/ttyACM*  # verify the programmer is visible
+```
+
+If you see the device node listed, you're ready to flash.
+
 ```
 ../BlinkLed$ mkdir build
 ../BlinkLed$ cd build
@@ -94,7 +121,7 @@ To compile and flash a program code to the AVR chip via USB port, you need to:
 * A bunch of Leds, resistors, drivers, sensors and actuators
 * A breadboard
 * Jumper wires
-* An AVR ISPProgrammer (optional)
+* An AVR ISP Programmer (optional)
 
 
 ## Applications
@@ -142,6 +169,8 @@ library into your own project.
 ## Projects
 
 These are more complex projects implemented using **TahakomAVRLib**
+
+*Currently, there are no completed projects in this directory.*
 
 
 ## Author

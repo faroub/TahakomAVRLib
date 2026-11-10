@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 3.14)
 
+# Include shared build configuration
+include(${CMAKE_SOURCE_DIR}/../cmake/config.cmake)
+
 # Set AVR GCC toolchain
 set(AVRCPP   avr-g++)
 set(AVRC     avr-gcc)
@@ -8,24 +11,10 @@ set(OBJCOPY  avr-objcopy)
 set(OBJDUMP avr-objdump)
 set(AVRSIZE avr-size)
 
-# The programmer to use, ask avrdude ($ avrdude -c ?) for a list
-set(PROG_TYPE arduino)
-
-# Set flash software tool
+# Programmer type and flash port are defined in cmake/config.cmake
+# The flash software tool
 set(AVRFLASH_TOOL avrdude)
 
-# Set flash port, check the port name in your system
-if (UNIX)
-    set(AVRFLASH_PORT /dev/ttyACM0)
-elseif (WIN32)
-    set(AVRFLASH_PORT COM3)
-endif ()
-
-
-# Set AVR chip configuration
-set(MCU   atmega328p)
-set(F_CPU 16000000UL)
-set(BAUD  9600)
 
 # Pass defines to the compiler
 # __AVR_ATmega328P__ definition is only necessary when using an IDE
