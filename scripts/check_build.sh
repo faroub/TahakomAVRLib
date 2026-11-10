@@ -33,7 +33,7 @@ GLOBAL_FLAGS="-mmcu=${MCU} -DF_CPU=16000000UL -DBAUD=9600 -D__AVR_ATmega328P__ -
 INCLUDE_FLAGS="-Ilib/io -Ilib/core -Ilib/component -Ilib/utils"
 
 LIB_GROUPS="io core component utils"
-APPS="applications/BlinkLed applications/LightMeter applications/MusicBox applications/Organ applications/tests/WeakIsr"
+APPS="applications/BlinkLed applications/LightMeter applications/MusicBox applications/Organ applications/PID_MotorControl applications/I2C_OLED_Dashboard applications/LCD_EnvironmentMonitor applications/TelemetryStreamer projects/SmartHomeGateway projects/AutonomousRobotController applications/tests/WeakIsr"
 
 BUILD_DIR="scripts/.build"
 WARNINGS_BASELINE="scripts/warnings.baseline"

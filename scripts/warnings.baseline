@@ -1,7 +1,11 @@
 applications/BlinkLed/main.cpp 0
+applications/I2C_OLED_Dashboard/main.cpp 0
+applications/LCD_EnvironmentMonitor/main.cpp 0
 applications/LightMeter/main.cpp 0
 applications/MusicBox/main.cpp 0
 applications/Organ/main.cpp 0
+applications/PID_MotorControl/main.cpp 0
+applications/TelemetryStreamer/main.cpp 0
 applications/tests/WeakIsr/main.cpp 0
 lib/component/Buzzer.cpp 0
 lib/component/DCMotor.cpp 0
@@ -27,3 +31,5 @@ lib/io/Telemetry.cpp 0
 lib/io/USART0.cpp 0
 lib/utils/PIDController.cpp 0
 lib/utils/utils_m328p.cpp 0
+projects/AutonomousRobotController/main.cpp 0
+projects/SmartHomeGateway/main.cpp 0

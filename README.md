@@ -130,10 +130,14 @@ If you see the device node listed, you're ready to flash.
 
 These applications demonstrate the usage of **TahakomAVRLib** in simple examples:
 
-* [Blink a Led](applications/BlinkLed)
-* [AVR Square-Wave Organ](applications/Organ)
-* [AVR Music Box](applications/MusicBox)
-* [AVR Light Meter](applications/LightMeter)
+* [Blink a Led](file:///home/faroub/Documents/Projects/TahakomAVRLib/applications/BlinkLed): Basic GPIO output control.
+* [AVR Square-Wave Organ](file:///home/faroub/Documents/Projects/TahakomAVRLib/applications/Organ): Interactive square-wave tone synthesizer.
+* [AVR Music Box](file:///home/faroub/Documents/Projects/TahakomAVRLib/applications/MusicBox): Tune & melody generator using TimerCounter1.
+* [AVR Light Meter](file:///home/faroub/Documents/Projects/TahakomAVRLib/applications/LightMeter): Ambient light sensor with LED bargraph display.
+* [PID Motor Control](file:///home/faroub/Documents/Projects/TahakomAVRLib/applications/PID_MotorControl): Closed-loop DC motor velocity control using PID and Rotary Encoder.
+* [I2C OLED Dashboard](file:///home/faroub/Documents/Projects/TahakomAVRLib/applications/I2C_OLED_Dashboard): Real-time ADC sensor readout dashboard on SSD1306 OLED display.
+* [LCD Environment Monitor](file:///home/faroub/Documents/Projects/TahakomAVRLib/applications/LCD_EnvironmentMonitor): Lux light monitoring rendered on LCD1602 via PCF8574 I2C expander.
+* [Telemetry Streamer](file:///home/faroub/Documents/Projects/TahakomAVRLib/applications/TelemetryStreamer): Real-time hardware telemetry streaming over USART0.
 
 
 ## Interrupt service routines
@@ -186,9 +190,10 @@ Then open `http://localhost:8000` in your web browser to access:
 
 ## Projects
 
-These are more complex projects implemented using **TahakomAVRLib**
+These are complete hardware projects implemented using **TahakomAVRLib**:
 
-*Currently, there are no completed projects in this directory.*
+* [Smart Home Gateway](file:///home/faroub/Documents/Projects/TahakomAVRLib/projects/SmartHomeGateway): Integrated smart home gateway with OLED display, servo door lock, pushbutton toggle, buzzer tones, LDR light sensing, and UART telemetry.
+* [Autonomous Robot Controller](file:///home/faroub/Documents/Projects/TahakomAVRLib/projects/AutonomousRobotController): Differential drive robot controller with dual DC motors, quadrature rotary encoder feedback, PID velocity loops, and telemetry.
 
 
 ## Author
