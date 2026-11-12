@@ -140,6 +140,7 @@ These applications demonstrate the usage of **TahakomAVRLib** in simple examples
 * [I2C OLED Dashboard](file:///home/faroub/Documents/Projects/TahakomAVRLib/applications/I2C_OLED_Dashboard): Real-time ADC sensor readout dashboard on SSD1306 OLED display.
 * [LCD Environment Monitor](file:///home/faroub/Documents/Projects/TahakomAVRLib/applications/LCD_EnvironmentMonitor): Lux light monitoring rendered on LCD1602 via PCF8574 I2C expander.
 * [Telemetry Streamer](file:///home/faroub/Documents/Projects/TahakomAVRLib/applications/TelemetryStreamer): Real-time hardware telemetry streaming over USART0.
+* [ESP32 Wi-Fi Telemetry](file:///home/faroub/Documents/Projects/TahakomAVRLib/applications/ESP32_WiFi_Telemetry): Real-time ADC light sensing and telemetry streaming on ESP32.
 
 
 ## Interrupt service routines
@@ -196,6 +197,7 @@ These are complete hardware projects implemented using **TahakomAVRLib**:
 
 * [Smart Home Gateway](file:///home/faroub/Documents/Projects/TahakomAVRLib/projects/SmartHomeGateway): Integrated smart home gateway with OLED display, servo door lock, pushbutton toggle, buzzer tones, LDR light sensing, and UART telemetry.
 * [Autonomous Robot Controller](file:///home/faroub/Documents/Projects/TahakomAVRLib/projects/AutonomousRobotController): Differential drive robot controller with dual DC motors, quadrature rotary encoder feedback, PID velocity loops, and telemetry.
+* [ESP32 Smart Environmental Node](file:///home/faroub/Documents/Projects/TahakomAVRLib/projects/ESP32_SmartEnvironmentalNode): Environmental node integrating SSD1306 OLED display, LDR light sensor, Rotary Encoder UI, PID fan loop, and live telemetry streaming on ESP32.
 
 
 ## Author

@@ -1,4 +1,5 @@
 applications/BlinkLed/main.cpp 0
+applications/ESP32_WiFi_Telemetry/main.cpp 0
 applications/I2C_OLED_Dashboard/main.cpp 0
 applications/LCD_EnvironmentMonitor/main.cpp 0
 applications/LightMeter/main.cpp 0
@@ -32,4 +33,5 @@ lib/io/USART0.cpp 0
 lib/utils/PIDController.cpp 0
 lib/utils/utils_m328p.cpp 0
 projects/AutonomousRobotController/main.cpp 0
+projects/ESP32_SmartEnvironmentalNode/main.cpp 0
 projects/SmartHomeGateway/main.cpp 0
