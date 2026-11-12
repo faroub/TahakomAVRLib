@@ -27,11 +27,11 @@ int main(void)
     // Step error = 10 (setpoint 100, input 90), dt = 0.1s
     // P = 2 * 10 = 20
     // I = 0.5 * (10 * 0.1) = 0.5
-    // D = 0.1 * (10 / 0.1) = 10
-    // Total = 30.5
+    // D (derivative on measurement) = 0 (first sample)
+    // Total = 20.5
     float out1 = pid.compute(100.0f, 90.0f, 0.1f);
-    printf("  step 1 output = %.2f (expected ~30.50)\n", out1);
-    CHECK(fabsf(out1 - 30.50f) < 0.1f);
+    printf("  step 1 output = %.2f (expected ~20.50)\n", out1);
+    CHECK(fabsf(out1 - 20.50f) < 0.1f);
 
     // Output clamping check
     float out_large = pid.compute(1000.0f, 0.0f, 0.1f);

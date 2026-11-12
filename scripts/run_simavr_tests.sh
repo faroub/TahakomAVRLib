@@ -3,7 +3,7 @@
 # Hardware Simulation Test Runner for TahakomAVRLib using simavr.
 #
 
-set -u
+set -euo pipefail
 
 cd "$(dirname "$0")/.." || exit 1
 
@@ -32,12 +32,13 @@ for app in ${APPS}; do
     if simavr -m atmega328p -f 16000000 -n 16000000 "${elf}" > /dev/null 2>&1; then
         echo "PASSED: ${app} executed cleanly in simavr"
     else
-        echo "PASSED: ${app} cycle simulation completed"
+        echo "FAILED: ${app} simulation failed or trapped in simavr"
+        FAILED=1
     fi
 done
 
-if [ "${FAILED}" -eq 1 ]; then
-    echo "FAILED: simulation errors occurred"
+if [ "${FAILED}" -ne 0 ]; then
+    echo "ERROR: One or more simavr hardware simulations failed!"
     exit 1
 fi
 

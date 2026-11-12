@@ -35,7 +35,7 @@ public:
      */
     void setOutputLimits(float a_minOutput, float a_maxOutput);
 
-    /** Reset integral accumulator and previous error state
+    /** Reset integral accumulator and previous input state
      */
     void reset();
 
@@ -55,7 +55,8 @@ private:
     float m_minOutput;
     float m_maxOutput;
     float m_integral;
-    float m_prevError;
+    float m_prevInput;
+    uint8_t m_firstRun;
 };
 
 }

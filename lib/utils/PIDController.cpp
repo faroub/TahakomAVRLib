@@ -7,27 +7,35 @@
 */
 
 #include "PIDController.h"
+#include <math.h>
 
 utils::PIDController::PIDController(float a_kp, float a_ki, float a_kd, float a_minOutput, float a_maxOutput)
-    : m_kp(a_kp),
-      m_ki(a_ki),
-      m_kd(a_kd),
-      m_minOutput(a_minOutput),
-      m_maxOutput(a_maxOutput),
-      m_integral(0.0f),
-      m_prevError(0.0f)
+    : m_integral(0.0f),
+      m_prevInput(0.0f),
+      m_firstRun(1)
 {
+    setGains(a_kp, a_ki, a_kd);
+    setOutputLimits(a_minOutput, a_maxOutput);
 }
 
 void utils::PIDController::setGains(float a_kp, float a_ki, float a_kd)
 {
-    m_kp = a_kp;
-    m_ki = a_ki;
-    m_kd = a_kd;
+    m_kp = (isnan(a_kp) || isinf(a_kp)) ? 0.0f : a_kp;
+    m_ki = (isnan(a_ki) || isinf(a_ki)) ? 0.0f : a_ki;
+    m_kd = (isnan(a_kd) || isinf(a_kd)) ? 0.0f : a_kd;
 }
 
 void utils::PIDController::setOutputLimits(float a_minOutput, float a_maxOutput)
 {
+    if (isnan(a_minOutput) || isinf(a_minOutput)) a_minOutput = -255.0f;
+    if (isnan(a_maxOutput) || isinf(a_maxOutput)) a_maxOutput = 255.0f;
+
+    if (a_minOutput > a_maxOutput) {
+        float tmp = a_minOutput;
+        a_minOutput = a_maxOutput;
+        a_maxOutput = tmp;
+    }
+
     m_minOutput = a_minOutput;
     m_maxOutput = a_maxOutput;
 }
@@ -35,37 +43,45 @@ void utils::PIDController::setOutputLimits(float a_minOutput, float a_maxOutput)
 void utils::PIDController::reset()
 {
     m_integral = 0.0f;
-    m_prevError = 0.0f;
+    m_prevInput = 0.0f;
+    m_firstRun = 1;
 }
 
 float utils::PIDController::compute(float a_setpoint, float a_input, float a_dt_s)
 {
-    if (a_dt_s <= 0.0f) return 0.0f;
+    if (isnan(a_setpoint) || isinf(a_setpoint) || isnan(a_input) || isinf(a_input) || isnan(a_dt_s) || isinf(a_dt_s) || a_dt_s <= 0.0f) {
+        return 0.0f;
+    }
+
+    if (m_firstRun) {
+        m_prevInput = a_input;
+        m_firstRun = 0;
+    }
 
     float error = a_setpoint - a_input;
 
     // Proportional term
     float p_out = m_kp * error;
 
-    // Integral term with anti-windup clamping
+    // Integral term
     m_integral += error * a_dt_s;
     float i_out = m_ki * m_integral;
 
-    // Derivative term
-    float derivative = (error - m_prevError) / a_dt_s;
-    float d_out = m_kd * derivative;
+    // Derivative on measurement (prevents derivative kick on setpoint change)
+    float d_input = (a_input - m_prevInput) / a_dt_s;
+    float d_out = -m_kd * d_input;
 
     float total = p_out + i_out + d_out;
 
-    // Output clamping & anti-windup clamping
+    // Anti-windup clamping
     if (total > m_maxOutput) {
         total = m_maxOutput;
-        m_integral -= error * a_dt_s; // freeze integral integration
+        m_integral -= error * a_dt_s; // freeze integration
     } else if (total < m_minOutput) {
         total = m_minOutput;
         m_integral -= error * a_dt_s;
     }
 
-    m_prevError = error;
+    m_prevInput = a_input;
     return total;
 }

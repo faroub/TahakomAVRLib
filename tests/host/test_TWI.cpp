@@ -34,10 +34,10 @@ int main(void)
     printf("TWI start condition sets TWSTA & TWEN:\n");
     TWSR = 0x08; // Simulate START transmitted
     TWCR = 0;
-    // In host test mode, start() writes TWCR and checks TWINT
-    TWCR |= (1 << TWINT); // simulate hardware flag
     uint8_t res = twi.start();
     CHECK(res == 1);
+    CHECK((TWCR & (1 << TWSTA)) != 0);
+    CHECK((TWCR & (1 << TWEN)) != 0);
 
     printf("%s: %u failure(s)\n", failures ? "FAILED" : "PASSED", failures);
     return failures ? 1 : 0;
