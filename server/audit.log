@@ -8,3 +8,8 @@
 {"timestamp": "2026-11-12T18:26:57Z", "client_ip": "127.0.0.1", "endpoint": "/api/compile", "action": "VALIDATION", "status": "PAYLOAD_TOO_LARGE", "details": {"size": 2097185}}
 {"timestamp": "2026-11-12T18:26:57Z", "client_ip": "127.0.0.1", "endpoint": "/api/compile", "action": "BUILD_SERVICE", "status": "FAILED", "details": {"mcu": "invalid_mcu_999"}}
 {"timestamp": "2026-11-12T18:26:57Z", "client_ip": "127.0.0.1", "endpoint": "/api/simulate", "action": "SANDBOX_SERVICE", "status": "SUCCESS", "details": {}}
+{"timestamp": "2026-11-12T18:55:50Z", "client_ip": "127.0.0.1", "endpoint": "/api/compile", "action": "AUTH", "status": "UNAUTHORIZED", "details": {}}
+{"timestamp": "2026-11-12T18:55:51Z", "client_ip": "127.0.0.1", "endpoint": "/api/compile", "action": "BUILD_SERVICE", "status": "SUCCESS", "details": {"mcu": "atmega328p"}}
+{"timestamp": "2026-11-12T18:55:51Z", "client_ip": "127.0.0.1", "endpoint": "/api/compile", "action": "VALIDATION", "status": "PAYLOAD_TOO_LARGE", "details": {"size": 2097185}}
+{"timestamp": "2026-11-12T18:55:51Z", "client_ip": "127.0.0.1", "endpoint": "/api/compile", "action": "BUILD_SERVICE", "status": "FAILED", "details": {"mcu": "invalid_mcu_999"}}
+{"timestamp": "2026-11-12T18:55:51Z", "client_ip": "127.0.0.1", "endpoint": "/api/simulate", "action": "SANDBOX_SERVICE", "status": "SUCCESS", "details": {}}
