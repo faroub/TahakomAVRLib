@@ -40,16 +40,15 @@ def validate_intel_hex(hex_str: str):
         except ValueError:
             return False, f"Line {line_num}: IHEX line contains non-hex characters", 0
 
-        # Verify Checksum
         if sum(line_bytes) % 256 != 0:
             return False, f"Line {line_num}: IHEX checksum error", 0
 
         byte_count = line_bytes[0]
         record_type = line_bytes[3]
 
-        if record_type == 0:  # Data record
+        if record_type == 0:
             total_data_bytes += byte_count
-        elif record_type == 1:  # EOF record
+        elif record_type == 1:
             has_eof = True
 
     if not has_eof:
