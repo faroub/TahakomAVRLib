@@ -3,7 +3,7 @@
 **TahakomAVRLib** is a C++ library to program Atmel AVR microcontrollers. 
 The library makes use of the AVR standard C library and is written for easy usage.
 
-Currently, the library supports popular DIY AVR microcontrollers including **ATmega328P** (Arduino Uno/Nano), **ATmega2560** (Arduino Mega), **ATmega168P**, **ATmega88P**, **ATmega48P**, and **ATtiny85**.
+Currently, the library supports popular DIY microcontrollers including **ATmega328P** (Arduino Uno/Nano), **ATmega2560** (Arduino Mega), **ATmega168P**, **ATmega88P**, **ATmega48P**, **ATtiny85**, **ESP32**, and **ESP32-S3**.
 
 ### Supported MCUs
 
@@ -15,6 +15,8 @@ Currently, the library supports popular DIY AVR microcontrollers including **ATm
 | ATmega328P | **Supported** | **Yes** |
 | ATmega2560 | **Supported** | **Yes** |
 | ATtiny85   | **Supported** | **Yes** |
+| ESP32      | **Supported** | **Yes** |
+| ESP32-S3   | **Supported** | **Yes** |
 
 The library includes an integrated local web server, web IDE, real-time telemetry oscilloscope, and 1-click flasher.
 

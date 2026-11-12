@@ -50,6 +50,11 @@
     #include "ha_attiny85.h"
     #include "utils_m328p.h"
 
+#elif defined(ESP32) || defined(ESP_PLATFORM)
+
+    #include "ha_esp32.h"
+    #include "utils_m328p.h"
+
 #else
 
     #error "TahakomAVRLib: unsupported MCU"

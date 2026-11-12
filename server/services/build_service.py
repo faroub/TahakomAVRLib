@@ -19,7 +19,9 @@ ALLOWED_MCUS = {
     "atmega168p": "__AVR_ATmega168P__",
     "atmega88p": "__AVR_ATmega88P__",
     "atmega48p": "__AVR_ATmega48P__",
-    "attiny85": "__AVR_ATtiny85__"
+    "attiny85": "__AVR_ATtiny85__",
+    "esp32": "ESP32",
+    "esp32s3": "ESP32S3"
 }
 
 MAX_CODE_SIZE = 512 * 1024  # 512 KB max sketch source code

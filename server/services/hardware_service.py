@@ -9,10 +9,12 @@ MCU_FLASH_CAPACITIES = {
     "atmega168p": 16384,
     "atmega88p": 8192,
     "atmega48p": 4096,
-    "attiny85": 8192
+    "attiny85": 8192,
+    "esp32": 4194304,
+    "esp32s3": 8388608
 }
 
-ALLOWED_PROGRAMMERS = {"arduino", "stk500v1", "stk500v2", "usbtiny", "usbasp", "wiring", "buspirate"}
+ALLOWED_PROGRAMMERS = {"arduino", "stk500v1", "stk500v2", "usbtiny", "usbasp", "wiring", "buspirate", "esptool"}
 
 def list_serial_ports():
     ports = []
