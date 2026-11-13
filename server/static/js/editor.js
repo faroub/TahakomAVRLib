@@ -144,7 +144,7 @@ async function flashCode() {
         const res = await fetch('/api/flash', {
             method: 'POST',
             headers: getAuthHeaders(),
-            body: JSON.stringify({ hex: compiledHex, mcu, port })
+            body: JSON.stringify({ hex: compiledHex, mcu, port, confirmed: true })
         });
         const data = await res.json();
         if (data.success) {

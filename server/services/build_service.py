@@ -15,21 +15,38 @@ LIB_INCLUDES = [
     os.path.join(PROJECT_ROOT, "lib/utils"),
 ]
 
-ALLOWED_MCUS = {
+AVR_MCUS = {
     "atmega328p": "__AVR_ATmega328P__",
     "atmega2560": "__AVR_ATmega2560__",
     "atmega168p": "__AVR_ATmega168P__",
     "atmega88p": "__AVR_ATmega88P__",
     "atmega48p": "__AVR_ATmega48P__",
-    "attiny85": "__AVR_ATtiny85__",
+    "attiny85": "__AVR_ATtiny85__"
+}
+
+ESP32_MCUS = {
     "esp32": "ESP32",
     "esp32s3": "ESP32S3"
 }
+
+ALLOWED_MCUS = {**AVR_MCUS, **ESP32_MCUS}
 
 MAX_CODE_SIZE = 512 * 1024  # 512 KB max sketch source code
 MAX_OUTPUT_LEN = 16 * 1024  # 16 KB max stdout/stderr
 
 build_semaphore = threading.Semaphore(4)
+_esp32_toolchain_available = None
+
+def is_esp32_toolchain_available() -> bool:
+    """Check if ESP32 toolchain (xtensa-esp32-elf-g++ or arduino-cli) is installed."""
+    global _esp32_toolchain_available
+    if _esp32_toolchain_available is not None:
+        return _esp32_toolchain_available
+
+    xtensa_gxx = shutil.which("xtensa-esp32-elf-g++")
+    arduino_cli = shutil.which("arduino-cli")
+    _esp32_toolchain_available = bool(xtensa_gxx or arduino_cli)
+    return _esp32_toolchain_available
 
 def find_lib_sources():
     sources = []
@@ -142,6 +159,16 @@ def compile_sketch(code: str, mcu: str = "atmega328p", f_cpu: int = 16000000, ba
 
     if isinstance(baud, bool) or not isinstance(baud, int) or not (300 <= baud <= 115200):
         return {"success": False, "stage": "validation", "error": f"Invalid baud rate: {baud}", "hex": None}
+
+    # ESP32 Backend Toolchain Routing
+    if mcu_key in ESP32_MCUS:
+        if not is_esp32_toolchain_available():
+            return {
+                "success": False,
+                "stage": "validation",
+                "error": f"ESP32 toolchain (xtensa-esp32-elf-g++ or arduino-cli) is unavailable on host to compile target '{mcu_key}'",
+                "hex": None
+            }
 
     acquired = build_semaphore.acquire(blocking=True, timeout=2.0)
     if not acquired:

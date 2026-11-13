@@ -166,11 +166,13 @@ class TahakomGatewayHandler(SimpleHTTPRequestHandler):
             elif parsed.path == "/api/flash":
                 hex_content = data.get("hex", "")
                 mcu = data.get("mcu", "atmega328p")
+                programmer = data.get("programmer", "arduino")
                 port = data.get("port", None)
-                if not isinstance(hex_content, str) or not isinstance(mcu, str) or (port is not None and not isinstance(port, str)):
+                confirmed = data.get("confirmed", False)
+                if not isinstance(hex_content, str) or not isinstance(mcu, str) or not isinstance(programmer, str) or (port is not None and not isinstance(port, str)):
                     self._send_json({"error": "Invalid payload field types"}, status=400)
                     return
-                res = flash_hex(hex_content, mcu=mcu, port=port)
+                res = flash_hex(hex_content, mcu=mcu, programmer=programmer, port=port, confirmed=confirmed)
                 audit_logger.log_event(client_ip, parsed.path, "HARDWARE_SERVICE", "SUCCESS" if res.get("success") else "FAILED", {"mcu": mcu, "port": port})
                 self._send_json(res)
 
