@@ -47,8 +47,7 @@ public:
 private:
     io::Pin m_pinA;
     io::Pin m_pinB;
-    uint8_t m_lastStateA;
-    uint8_t m_lastStateB;
+    uint8_t m_lastState;
     int32_t m_position;
     int8_t m_direction;
 };

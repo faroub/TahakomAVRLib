@@ -65,6 +65,14 @@ float utils::PIDController::compute(float a_setpoint, float a_input, float a_dt_
 
     // Integral term
     m_integral += error * a_dt_s;
+
+    // Clamp integral term to prevent windup
+    if (m_ki > 0.0f) {
+        float max_i = fabsf(m_maxOutput) / m_ki;
+        if (m_integral > max_i) m_integral = max_i;
+        if (m_integral < -max_i) m_integral = -max_i;
+    }
+
     float i_out = m_ki * m_integral;
 
     // Derivative on measurement (prevents derivative kick on setpoint change)
@@ -76,7 +84,7 @@ float utils::PIDController::compute(float a_setpoint, float a_input, float a_dt_
     // Anti-windup clamping
     if (total > m_maxOutput) {
         total = m_maxOutput;
-        m_integral -= error * a_dt_s; // freeze integration
+        m_integral -= error * a_dt_s;
     } else if (total < m_minOutput) {
         total = m_minOutput;
         m_integral -= error * a_dt_s;
