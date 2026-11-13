@@ -15,12 +15,13 @@ PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 SERVER_APP = os.path.join(PROJECT_ROOT, "server/app.py")
 PORT = 8199
 BASE_URL = f"http://localhost:{PORT}"
+AUTH_TOKEN = "ci_secret_test_token_1234"
 
 def wait_for_server(timeout=10.0):
     start = time.time()
     while time.time() - start < timeout:
         try:
-            req = urllib.request.Request(f"{BASE_URL}/api/ports")
+            req = urllib.request.Request(f"{BASE_URL}/api/token", headers={"X-Auth-Token": AUTH_TOKEN})
             with urllib.request.urlopen(req) as resp:
                 if resp.status == 200:
                     return True
@@ -32,7 +33,7 @@ def run_tests():
     print(f"--- Starting local server on port {PORT} for CI security smoke testing ---")
     env = os.environ.copy()
     env["PORT"] = str(PORT)
-    env["TAHAKOM_AUTH_TOKEN"] = "ci_secret_test_token_1234"
+    env["TAHAKOM_AUTH_TOKEN"] = AUTH_TOKEN
     proc = subprocess.Popen([sys.executable, SERVER_APP], cwd=PROJECT_ROOT, env=env)
 
     try:
@@ -41,14 +42,14 @@ def run_tests():
 
         auth_headers = {
             "Content-Type": "application/json",
-            "X-Auth-Token": "ci_secret_test_token_1234"
+            "X-Auth-Token": AUTH_TOKEN
         }
 
-        # Test 1: GET /api/ports
-        req = urllib.request.Request(f"{BASE_URL}/api/ports")
+        # Test 1: Authenticated GET /api/ports
+        req = urllib.request.Request(f"{BASE_URL}/api/ports", headers={"X-Auth-Token": AUTH_TOKEN})
         with urllib.request.urlopen(req) as resp:
             data = json.loads(resp.read().decode("utf-8"))
-            print("  [Pass] GET /api/ports ->", data)
+            print("  [Pass] Authenticated GET /api/ports ->", data)
             assert "ports" in data
 
         # Test 2: Unauthorized request (Missing token) -> 401

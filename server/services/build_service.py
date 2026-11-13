@@ -1,7 +1,9 @@
 import os
 import re
 import glob
+import signal
 import shutil
+import threading
 import subprocess
 import tempfile
 
@@ -25,6 +27,9 @@ ALLOWED_MCUS = {
 }
 
 MAX_CODE_SIZE = 512 * 1024  # 512 KB max sketch source code
+MAX_OUTPUT_LEN = 16 * 1024  # 16 KB max stdout/stderr
+
+build_semaphore = threading.Semaphore(4)
 
 def find_lib_sources():
     sources = []
@@ -59,6 +64,68 @@ def validate_hex_format(hex_str: str):
         if line == ":00000001FF": has_eof = True
     return has_eof
 
+def run_bounded_subprocess(cmd, cwd, timeout=15):
+    """Run subprocess with chunked bounded output reading and process group cleanup."""
+    proc = subprocess.Popen(
+        cmd,
+        cwd=cwd,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        preexec_fn=os.setpgrp
+    )
+
+    kill_event = threading.Event()
+    stdout_buf = []
+    stderr_buf = []
+
+    def reader(stream, buf_list):
+        data = bytearray()
+        while not kill_event.is_set():
+            chunk = stream.read(1024)
+            if not chunk:
+                break
+            data.extend(chunk)
+            if len(data) > MAX_OUTPUT_LEN:
+                kill_event.set()
+                try:
+                    os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
+                except Exception:
+                    pass
+                break
+        buf_list.append(bytes(data[:MAX_OUTPUT_LEN]).decode("utf-8", errors="replace"))
+
+    t_out = threading.Thread(target=reader, args=(proc.stdout, stdout_buf))
+    t_err = threading.Thread(target=reader, args=(proc.stderr, stderr_buf))
+
+    t_out.start()
+    t_err.start()
+
+    timed_out = False
+    try:
+        proc.wait(timeout=timeout)
+    except subprocess.TimeoutExpired:
+        timed_out = True
+        kill_event.set()
+        try:
+            os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
+        except Exception:
+            proc.kill()
+        proc.wait()
+
+    t_out.join(timeout=1.0)
+    t_err.join(timeout=1.0)
+
+    try:
+        proc.stdout.close()
+        proc.stderr.close()
+    except Exception:
+        pass
+
+    stdout_str = stdout_buf[0] if stdout_buf else ""
+    stderr_str = stderr_buf[0] if stderr_buf else ""
+
+    return proc.returncode, stdout_str, stderr_str, timed_out, kill_event.is_set()
+
 def compile_sketch(code: str, mcu: str = "atmega328p", f_cpu: int = 16000000, baud: int = 9600):
     if not isinstance(code, str) or not code.strip():
         return {"success": False, "stage": "validation", "error": "Source code is empty", "hex": None}
@@ -70,14 +137,19 @@ def compile_sketch(code: str, mcu: str = "atmega328p", f_cpu: int = 16000000, ba
     if mcu_key not in ALLOWED_MCUS:
         return {"success": False, "stage": "validation", "error": f"Unsupported or unknown MCU target: '{mcu}'", "hex": None}
 
-    if not (1000000 <= f_cpu <= 20000000):
-        return {"success": False, "stage": "validation", "error": f"Invalid CPU frequency: {f_cpu} Hz", "hex": None}
+    if isinstance(f_cpu, bool) or not isinstance(f_cpu, int) or not (1000000 <= f_cpu <= 20000000):
+        return {"success": False, "stage": "validation", "error": f"Invalid CPU frequency: {f_cpu}", "hex": None}
 
-    if not (300 <= baud <= 115200):
+    if isinstance(baud, bool) or not isinstance(baud, int) or not (300 <= baud <= 115200):
         return {"success": False, "stage": "validation", "error": f"Invalid baud rate: {baud}", "hex": None}
 
-    mcu_def = ALLOWED_MCUS[mcu_key]
+    acquired = build_semaphore.acquire(blocking=True, timeout=2.0)
+    if not acquired:
+        return {"success": False, "stage": "infrastructure", "error": "Build server busy, concurrency limit reached", "hex": None}
+
     build_dir = tempfile.mkdtemp(prefix="tahakom_build_")
+    os.chmod(build_dir, 0o700)
+
     sketch_cpp = os.path.join(build_dir, "main.cpp")
     sketch_elf = os.path.join(build_dir, "app.elf")
     sketch_hex = os.path.join(build_dir, "app.hex")
@@ -87,6 +159,7 @@ def compile_sketch(code: str, mcu: str = "atmega328p", f_cpu: int = 16000000, ba
             f.write(code)
 
         lib_sources = find_lib_sources()
+        mcu_def = ALLOWED_MCUS[mcu_key]
 
         cmd = [
             "avr-g++",
@@ -114,18 +187,21 @@ def compile_sketch(code: str, mcu: str = "atmega328p", f_cpu: int = 16000000, ba
         cmd.append("-lm")
 
         # Stage 1: Compilation
-        try:
-            proc = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=15)
-        except subprocess.TimeoutExpired:
+        returncode, stdout_str, stderr_str, timed_out, output_overflow = run_bounded_subprocess(cmd, build_dir, timeout=15)
+        diagnostics = parse_gcc_output(stderr_str)
+
+        if timed_out:
             return {"success": False, "stage": "compilation", "error": "Compilation timed out after 15s", "hex": None}
 
-        diagnostics = parse_gcc_output(proc.stderr)
-        if proc.returncode != 0:
+        if output_overflow:
+            return {"success": False, "stage": "compilation", "error": "Compiler output exceeded limit (16KB)", "hex": None}
+
+        if returncode != 0:
             return {
                 "success": False,
                 "stage": "compilation",
-                "stdout": proc.stdout,
-                "stderr": proc.stderr,
+                "stdout": stdout_str,
+                "stderr": stderr_str,
                 "diagnostics": diagnostics,
                 "error": "avr-g++ compilation failed",
                 "hex": None
@@ -133,17 +209,17 @@ def compile_sketch(code: str, mcu: str = "atmega328p", f_cpu: int = 16000000, ba
 
         # Stage 2: Binary Conversion (avr-objcopy)
         hex_cmd = ["avr-objcopy", "-O", "ihex", "-R", ".eeprom", sketch_elf, sketch_hex]
-        try:
-            hex_proc = subprocess.run(hex_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=10)
-        except subprocess.TimeoutExpired:
-            return {"success": False, "stage": "objcopy", "error": "avr-objcopy timed out", "hex": None}
+        h_code, h_out, h_err, h_timed_out, _ = run_bounded_subprocess(hex_cmd, build_dir, timeout=10)
 
-        if hex_proc.returncode != 0 or not os.path.exists(sketch_hex):
+        if h_timed_out:
+            return {"success": False, "stage": "objcopy", "error": "avr-objcopy timed out after 10s", "hex": None}
+
+        if h_code != 0 or not os.path.exists(sketch_hex):
             return {
                 "success": False,
                 "stage": "objcopy",
-                "stdout": hex_proc.stdout,
-                "stderr": hex_proc.stderr,
+                "stdout": h_out,
+                "stderr": h_err,
                 "error": "avr-objcopy failed to generate HEX output",
                 "hex": None
             }
@@ -163,11 +239,12 @@ def compile_sketch(code: str, mcu: str = "atmega328p", f_cpu: int = 16000000, ba
         return {
             "success": True,
             "stage": "completed",
-            "stdout": proc.stdout,
-            "stderr": proc.stderr,
+            "stdout": stdout_str,
+            "stderr": stderr_str,
             "diagnostics": diagnostics,
             "hex": hex_content
         }
 
     finally:
+        build_semaphore.release()
         shutil.rmtree(build_dir, ignore_errors=True)
