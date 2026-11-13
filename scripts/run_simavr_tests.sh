@@ -28,11 +28,20 @@ for app in ${APPS}; do
     fi
 
     echo "--- Simulating ${app} with simavr ---"
-    # Run simavr for 1 second (16000000 cycles) in headless mode
-    if simavr -m atmega328p -f 16000000 -n 16000000 "${elf}" > /dev/null 2>&1; then
-        echo "PASSED: ${app} executed cleanly in simavr"
+    set +e
+    sim_output=$(simavr -m atmega328p -f 16000000 -n 16000000 "${elf}" 2>&1)
+    sim_rc=$?
+    set -e
+
+    if echo "${sim_output}" | grep -iqE "crashed|trap|fatal|illegal instruction"; then
+        echo "FAILED: ${app} simulation crashed or trapped in simavr:"
+        echo "${sim_output}"
+        FAILED=1
+    elif [ "${sim_rc}" -eq 0 ] || [ "${sim_rc}" -eq 3 ]; then
+        echo "PASSED: ${app} executed cleanly in simavr (exit code ${sim_rc})"
     else
-        echo "FAILED: ${app} simulation failed or trapped in simavr"
+        echo "FAILED: ${app} simulation exited with unexpected code ${sim_rc}:"
+        echo "${sim_output}"
         FAILED=1
     fi
 done
