@@ -29,7 +29,6 @@ core::TWI::~TWI()
 
 void core::TWI::setClock(uint32_t a_clockFreq_hz)
 {
-    // Clamp clock frequency to valid range [10 kHz, 400 kHz]
     if (a_clockFreq_hz < 10000UL) a_clockFreq_hz = 10000UL;
     if (a_clockFreq_hz > 400000UL) a_clockFreq_hz = 400000UL;
 
@@ -42,7 +41,7 @@ void core::TWI::setClock(uint32_t a_clockFreq_hz)
     uint32_t twbr_val = ((F_CPU / a_clockFreq_hz) - 16UL) / 2UL;
     if (twbr_val > 255UL) twbr_val = 255UL;
 
-    TWSR = 0; // Prescaler = 1
+    TWSR = 0;
     TWBR = static_cast<uint8_t>(twbr_val);
 }
 
@@ -51,15 +50,18 @@ uint8_t core::TWI::start()
     TWCR = (1 << TWINT) | (1 << TWSTA) | (1 << TWEN);
     uint16_t timeout = TWI_TIMEOUT_CYCLES;
     while (!(TWCR & (1 << TWINT)) && --timeout) {}
-    if (timeout == 0) return 0; // Bus timeout
+    if (timeout == 0) return 0;
 
     uint8_t status = TWSR & 0xF8;
     return (status == 0x08 || status == 0x10) ? 1 : 0;
 }
 
-void core::TWI::stop()
+uint8_t core::TWI::stop()
 {
     TWCR = (1 << TWINT) | (1 << TWSTO) | (1 << TWEN);
+    uint16_t timeout = TWI_TIMEOUT_CYCLES;
+    while ((TWCR & (1 << TWSTO)) && --timeout) {}
+    return (timeout > 0) ? 1 : 0;
 }
 
 uint8_t core::TWI::write(uint8_t a_data)
@@ -68,26 +70,58 @@ uint8_t core::TWI::write(uint8_t a_data)
     TWCR = (1 << TWINT) | (1 << TWEN);
     uint16_t timeout = TWI_TIMEOUT_CYCLES;
     while (!(TWCR & (1 << TWINT)) && --timeout) {}
-    if (timeout == 0) return 0; // Bus timeout
+    if (timeout == 0) return 0;
 
     uint8_t status = TWSR & 0xF8;
     return (status == 0x18 || status == 0x28 || status == 0x40) ? 1 : 0;
 }
 
-uint8_t core::TWI::readAck()
+uint8_t core::TWI::readAck(uint8_t &ar_data)
 {
     TWCR = (1 << TWINT) | (1 << TWEN) | (1 << TWEA);
     uint16_t timeout = TWI_TIMEOUT_CYCLES;
     while (!(TWCR & (1 << TWINT)) && --timeout) {}
-    if (timeout == 0) return 0xFF;
-    return TWDR;
+    if (timeout == 0) {
+        ar_data = 0;
+        return 0;
+    }
+    uint8_t status = TWSR & 0xF8;
+    if (status != 0x50 && status != 0x58) {
+        ar_data = 0;
+        return 0;
+    }
+    ar_data = TWDR;
+    return 1;
 }
 
-uint8_t core::TWI::readNack()
+uint8_t core::TWI::readNack(uint8_t &ar_data)
 {
     TWCR = (1 << TWINT) | (1 << TWEN);
     uint16_t timeout = TWI_TIMEOUT_CYCLES;
     while (!(TWCR & (1 << TWINT)) && --timeout) {}
-    if (timeout == 0) return 0xFF;
-    return TWDR;
+    if (timeout == 0) {
+        ar_data = 0;
+        return 0;
+    }
+    uint8_t status = TWSR & 0xF8;
+    if (status != 0x58) {
+        ar_data = 0;
+        return 0;
+    }
+    ar_data = TWDR;
+    return 1;
+}
+
+uint8_t core::TWI::readAck()
+{
+    uint8_t data = 0;
+    if (readAck(data)) return data;
+    return 0xFF;
+}
+
+uint8_t core::TWI::readNack()
+{
+    uint8_t data = 0;
+    if (readNack(data)) return data;
+    return 0xFF;
 }

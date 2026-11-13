@@ -133,7 +133,7 @@ int main(void)
     printf("receiveString stops at the NUL terminator:\n");
     char l_string[8] = {0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11};
     usart.resetNumberBytesReceived();
-    usart.receiveString(l_string);
+    usart.receiveString(l_string, 8);
     feedByte(usart, 'h');
     feedByte(usart, 'i');
     feedByte(usart, 0x00);
@@ -145,6 +145,20 @@ int main(void)
     feedByte(usart, 'x');
     CHECK(l_string[3] == 0x11);
     CHECK(usart.getNumberBytesReceived() == 3);
+
+    printf("receiveString capacity boundary overflow stops cleanly:\n");
+    char l_small[4] = {'A', 'A', 'A', 'A'};
+    usart.resetNumberBytesReceived();
+    usart.receiveString(l_small, 4);
+    feedByte(usart, '1');
+    feedByte(usart, '2');
+    feedByte(usart, '3');
+    feedByte(usart, '4'); // 4th character forces NUL termination and overflow flag
+    CHECK(l_small[0] == '1');
+    CHECK(l_small[1] == '2');
+    CHECK(l_small[2] == '3');
+    CHECK(l_small[3] == 0x00);
+    CHECK(usart.hasOverflowed() == 1);
 
     printf("%s: %u failure(s)\n", failures ? "FAILED" : "PASSED", failures);
     return failures ? 1 : 0;

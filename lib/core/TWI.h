@@ -17,44 +17,45 @@ namespace core
 class TWI
 {
 public:
-    /** Get singleton instance of the TWI hardware manager
-     *
-     *  @param a_clockFreq_hz Requested I2C clock rate (default 100 kHz)
-     */
     static TWI& getInstance(uint32_t a_clockFreq_hz = 100000UL);
 
-    /** Initialize or change I2C clock frequency
-     *
-     *  @param a_clockFreq_hz Requested I2C clock rate in Hz
-     */
     void setClock(uint32_t a_clockFreq_hz);
 
     /** Transmit START condition on I2C bus
-     *
-     *  @return Status flag (1 = success, 0 = error)
+     *  @return Status flag (1 = success, 0 = error/timeout)
      */
     uint8_t start();
 
     /** Transmit STOP condition on I2C bus
+     *  @return Status flag (1 = success, 0 = error/timeout)
      */
-    void stop();
+    uint8_t stop();
 
     /** Write byte to I2C bus
-     *
      *  @param a_data Byte to send
-     *  @return Status flag (1 = ACK received, 0 = NACK/error)
+     *  @return Status flag (1 = ACK received, 0 = NACK/error/timeout)
      */
     uint8_t write(uint8_t a_data);
 
-    /** Read byte from I2C bus and send ACK
-     *
-     *  @return Received byte
+    /** Read byte from I2C bus and send ACK (Status separated)
+     *  @param ar_data Reference to output byte
+     *  @return Status flag (1 = success, 0 = error/timeout)
+     */
+    uint8_t readAck(uint8_t &ar_data);
+
+    /** Read byte from I2C bus and send NACK (Status separated)
+     *  @param ar_data Reference to output byte
+     *  @return Status flag (1 = success, 0 = error/timeout)
+     */
+    uint8_t readNack(uint8_t &ar_data);
+
+    /** Legacy Read byte from I2C bus and send ACK
+     *  @return Received byte (or 0xFF on timeout)
      */
     uint8_t readAck();
 
-    /** Read byte from I2C bus and send NACK
-     *
-     *  @return Received byte
+    /** Legacy Read byte from I2C bus and send NACK
+     *  @return Received byte (or 0xFF on timeout)
      */
     uint8_t readNack();
 

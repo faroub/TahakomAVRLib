@@ -24,18 +24,17 @@ component::PCF8574_LCD::PCF8574_LCD(uint8_t a_i2cAddress, uint8_t a_cols, uint8_
 void component::PCF8574_LCD::init()
 {
     _delay_ms(50);
-    // Sequence to initialize HD44780 in 4-bit mode over PCF8574
     sendNibble(0x03, 0);
     _delay_ms(5);
     sendNibble(0x03, 0);
     _delay_us(150);
     sendNibble(0x03, 0);
-    sendNibble(0x02, 0); // 4-bit mode
+    sendNibble(0x02, 0);
 
-    sendByte(0x28, 0); // 2 lines, 5x8 font
-    sendByte(0x0C, 0); // Display ON, Cursor OFF
+    sendByte(0x28, 0);
+    sendByte(0x0C, 0);
     clear();
-    sendByte(0x06, 0); // Entry mode auto increment
+    sendByte(0x06, 0);
 }
 
 void component::PCF8574_LCD::clear()
@@ -68,9 +67,9 @@ void component::PCF8574_LCD::setBacklight(uint8_t a_enable)
 void component::PCF8574_LCD::sendNibble(uint8_t a_nibble, uint8_t a_mode)
 {
     uint8_t payload = (a_nibble << 4) | a_mode | m_backlightMask;
-    mr_twi.start();
-    mr_twi.write(m_i2cAddr << 1);
-    mr_twi.write(payload | LCD_ENABLE_BIT);
+    if (!mr_twi.start()) return;
+    if (!mr_twi.write(m_i2cAddr << 1)) { mr_twi.stop(); return; }
+    if (!mr_twi.write(payload | LCD_ENABLE_BIT)) { mr_twi.stop(); return; }
     _delay_us(1);
     mr_twi.write(payload & ~LCD_ENABLE_BIT);
     _delay_us(50);

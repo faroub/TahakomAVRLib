@@ -1,10 +1,18 @@
+/**
+ * @file SPI.cpp
+ * @brief Implementation of the SPI hardware driver
+ *
+ * @author Farid Oubbati (https://github.com/faroub)
+ * @date March 2020
+*/
+
 #include "SPI.h"
 #include "MCU.h"
 
 volatile uint8_t io::SPI::m_data = 0;
 volatile uint8_t io::SPI::m_transferComplete = 0;
 
-
+#define SPI_TIMEOUT_CYCLES 10000U
 
 io::SPI& io::SPI::getInstance(const Pin &ar_pinSCK,
                               const Pin &ar_pinMISO,
@@ -15,9 +23,7 @@ io::SPI& io::SPI::getInstance(const Pin &ar_pinSCK,
                           ar_pinMISO,
                           ar_pinMOSI,
                           ar_pinSS);
-
     return l_instance;
-
 }
 
 io::SPI::SPI(const Pin &ar_pinSCK,
@@ -31,29 +37,25 @@ io::SPI::SPI(const Pin &ar_pinSCK,
 {
     core::MCU::enableSPI(1);
     enableTransferCompleteInterrupt(1);
-
 }
 
 io::SPI::~SPI()
 {
-
 }
 
 uint8_t io::SPI::writeCollision()
 {
-    return (SPI_STATUS_REGISTER & (1 << SPI_WRITE_COLLISION));
+    return (SPI_STATUS_REGISTER & (1 << SPI_WRITE_COLLISION)) ? 1 : 0;
 }
-
 
 uint8_t io::SPI::transferComplete()
 {
-    return (SPI_STATUS_REGISTER & (1 << SPI_TRANSFER_COMPLETE));
+    return (SPI_STATUS_REGISTER & (1 << SPI_TRANSFER_COMPLETE)) ? 1 : 0;
 }
 
 void io::SPI::selectClockPrescaler(const clockPrescaler& ar_clockPrescaler)
 {
     SPI_SELECT_CLOCK_PRESCALER(static_cast<uint8_t>(ar_clockPrescaler));
-
 }
 
 void io::SPI::selectOperationMode(const operationMode& ar_operationMode)
@@ -61,7 +63,6 @@ void io::SPI::selectOperationMode(const operationMode& ar_operationMode)
     switch (ar_operationMode)
     {
         case operationMode::master:
-        {
             m_pinMOSI.toOutput();
             m_pinSCK.toOutput();
             m_pinMISO.toInput(1);
@@ -70,16 +71,12 @@ void io::SPI::selectOperationMode(const operationMode& ar_operationMode)
             SPI_SELECT_MASTER_MODE;
             SPI_ENABLE;
             break;
-        }
         case operationMode::slave:
-        {
             m_pinMISO.toOutput();
             SPI_SELECT_SLAVE_MODE;
             SPI_ENABLE;
             break;
-        }
         case operationMode::submaster:
-        {
             m_pinMOSI.toOutput();
             m_pinSCK.toOutput();
             m_pinMISO.toInput(1);
@@ -87,12 +84,9 @@ void io::SPI::selectOperationMode(const operationMode& ar_operationMode)
             SPI_SELECT_MASTER_MODE;
             SPI_ENABLE;
             break;
-        }
         case operationMode::disable:
-        {
             SPI_DISABLE;
             break;
-        }
     }
 }
 
@@ -104,7 +98,6 @@ void io::SPI::selectDataMode(const dataMode& ar_dataMode)
 void io::SPI::selectDataOrder(const dataOrder& ar_dataOrder)
 {
     SPI_SELECT_DATA_ORDER(static_cast<uint8_t>(ar_dataOrder));
-
 }
 
 void io::SPI::enableTransferCompleteInterrupt(const uint8_t a_enable)
@@ -120,48 +113,44 @@ void io::SPI::selectSlave(const uint8_t a_select)
 {
     if (a_select) {
         m_pinSS.setLow();
-
     } else {
         m_pinSS.setHigh();
     }
-
 }
+
 void io::SPI::transferCompleteServiceRoutine()
 {
-
-        // reading SPDR also clears SPIF in the status register
-        m_data = SPI_DATA_REGISTER;
-        m_transferComplete = 1;
+    m_data = SPI_DATA_REGISTER;
+    m_transferComplete = 1;
 }
 
-void io::SPI::masterSendByte(const uint8_t &ar_byte)
+uint8_t io::SPI::masterSendByte(const uint8_t &ar_byte)
 {
-    // assert SS before writing SPDR, so the slave is selected when the
-    // transfer starts
     selectSlave(1);
     m_transferComplete = 0;
     SPI_DATA_REGISTER = ar_byte;
-    // busy-wait on the flag set by the transfer-complete ISR: the wait
-    // runs with interrupts enabled, so the SPI interrupt (armed in the
-    // constructor) can fire and release it
-    while (m_transferComplete == 0) {}
+
+    uint16_t timeout = SPI_TIMEOUT_CYCLES;
+    while (m_transferComplete == 0 && --timeout) {}
+
+    // ALWAYS deassert SS on exit path
     selectSlave(0);
 
-
-
+    return (timeout > 0) ? 1 : 0;
 }
 
-void io::SPI::masterReceiveByte(uint8_t &ar_byte)
+uint8_t io::SPI::masterReceiveByte(uint8_t &ar_byte)
 {
-    // a dummy write clocks 8 SCK pulses; the ISR reads the byte the slave
-    // shifted into SPDR during the same transfer
-    masterSendByte(0);
-    ar_byte = m_data;
-
+    uint8_t status = masterSendByte(0x00);
+    if (status) {
+        ar_byte = m_data;
+        return 1;
+    }
+    ar_byte = 0;
+    return 0;
 }
 
 void io::SPI::slaveReceiveByte(uint8_t &ar_byte)
 {
     ar_byte = m_data;
-
 }

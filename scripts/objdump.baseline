@@ -446,15 +446,19 @@ Disassembly of section .text._ZN2io3SPI14writeCollisionEv:
 
 00000000 <_ZN2io3SPI14writeCollisionEv>:
    0:	8d b5       	in	r24, 0x2d	; 45
-   2:	80 74       	andi	r24, 0x40	; 64
-   4:	08 95       	ret
+   2:	86 fb       	bst	r24, 6
+   4:	88 27       	eor	r24, r24
+   6:	80 f9       	bld	r24, 0
+   8:	08 95       	ret
 
 Disassembly of section .text._ZN2io3SPI16transferCompleteEv:
 
 00000000 <_ZN2io3SPI16transferCompleteEv>:
    0:	8d b5       	in	r24, 0x2d	; 45
-   2:	80 78       	andi	r24, 0x80	; 128
-   4:	08 95       	ret
+   2:	87 fb       	bst	r24, 7
+   4:	88 27       	eor	r24, r24
+   6:	80 f9       	bld	r24, 0
+   8:	08 95       	ret
 
 Disassembly of section .text._ZN2io3SPI20selectClockPrescalerERKNS_14clockPrescalerE:
 
@@ -660,26 +664,39 @@ Disassembly of section .text._ZN2io3SPI14masterSendByteERKh:
    2:	1f 93       	push	r17
    4:	cf 93       	push	r28
    6:	df 93       	push	r29
-   8:	8b 01       	movw	r16, r22
-   a:	ec 01       	movw	r28, r24
-   c:	29 96       	adiw	r28, 0x09	; 9
-   e:	ce 01       	movw	r24, r28
-  10:	0e 94 00 00 	call	0	; 0x0 <_ZN2io3SPI14masterSendByteERKh>
-  14:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L14+0x7fff46>
-  18:	f8 01       	movw	r30, r16
-  1a:	80 81       	ld	r24, Z
+   8:	eb 01       	movw	r28, r22
+   a:	8c 01       	movw	r16, r24
+   c:	07 5f       	subi	r16, 0xF7	; 247
+   e:	1f 4f       	sbci	r17, 0xFF	; 255
+  10:	c8 01       	movw	r24, r16
+  12:	0e 94 00 00 	call	0	; 0x0 <_ZN2io3SPI14masterSendByteERKh>
+  16:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L14+0x7fff46>
+  1a:	88 81       	ld	r24, Y
   1c:	8e bd       	out	0x2e, r24	; 46
+  1e:	c0 e1       	ldi	r28, 0x10	; 16
+  20:	d7 e2       	ldi	r29, 0x27	; 39
 
-0000001e <.L30>:
-  1e:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L14+0x7fff46>
-  22:	81 15       	cp	r24, r1
-  24:	01 f0       	breq	.+0      	; 0x26 <.L30+0x8>
-  26:	ce 01       	movw	r24, r28
-  28:	df 91       	pop	r29
-  2a:	cf 91       	pop	r28
-  2c:	1f 91       	pop	r17
-  2e:	0f 91       	pop	r16
-  30:	0c 94 00 00 	jmp	0	; 0x0 <_ZN2io3SPI14masterSendByteERKh>
+00000022 <.L31>:
+  22:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L14+0x7fff46>
+  26:	81 11       	cpse	r24, r1
+  28:	00 c0       	rjmp	.+0      	; 0x2a <.L31+0x8>
+  2a:	21 97       	sbiw	r28, 0x01	; 1
+  2c:	01 f4       	brne	.+0      	; 0x2e <.L30>
+
+0000002e <.L30>:
+  2e:	c8 01       	movw	r24, r16
+  30:	0e 94 00 00 	call	0	; 0x0 <_ZN2io3SPI14masterSendByteERKh>
+  34:	81 e0       	ldi	r24, 0x01	; 1
+  36:	cd 2b       	or	r28, r29
+  38:	01 f4       	brne	.+0      	; 0x3a <.L30+0xc>
+  3a:	80 e0       	ldi	r24, 0x00	; 0
+
+0000003c <.L32>:
+  3c:	df 91       	pop	r29
+  3e:	cf 91       	pop	r28
+  40:	1f 91       	pop	r17
+  42:	0f 91       	pop	r16
+  44:	08 95       	ret
 
 Disassembly of section .text._ZN2io3SPI17masterReceiveByteERh:
 
@@ -697,15 +714,17 @@ Disassembly of section .text._ZN2io3SPI17masterReceiveByteERh:
   14:	6f 5f       	subi	r22, 0xFF	; 255
   16:	7f 4f       	sbci	r23, 0xFF	; 255
   18:	0e 94 00 00 	call	0	; 0x0 <_ZN2io3SPI17masterReceiveByteERh>
-  1c:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L14+0x7fff46>
-  20:	f8 01       	movw	r30, r16
-  22:	80 83       	st	Z, r24
-  24:	0f 90       	pop	r0
-  26:	df 91       	pop	r29
-  28:	cf 91       	pop	r28
-  2a:	1f 91       	pop	r17
-  2c:	0f 91       	pop	r16
-  2e:	08 95       	ret
+  1c:	90 e0       	ldi	r25, 0x00	; 0
+  1e:	81 11       	cpse	r24, r1
+  20:	90 91 00 00 	lds	r25, 0x0000	; 0x800000 <.L14+0x7fff46>
+  24:	f8 01       	movw	r30, r16
+  26:	90 83       	st	Z, r25
+  28:	0f 90       	pop	r0
+  2a:	df 91       	pop	r29
+  2c:	cf 91       	pop	r28
+  2e:	1f 91       	pop	r17
+  30:	0f 91       	pop	r16
+  32:	08 95       	ret
 
 Disassembly of section .text._ZN2io3SPI16slaveReceiveByteERh:
 
@@ -1197,9 +1216,9 @@ Disassembly of section .text._ZN2io6USART0D2Ev:
 Disassembly of section .text._ZN2io6USART011setBaudRateEv:
 
 00000000 <_ZN2io6USART011setBaudRateEv>:
-   0:	10 92 c5 00 	sts	0x00C5, r1	; 0x8000c5 <.L79+0x800037>
+   0:	10 92 c5 00 	sts	0x00C5, r1	; 0x8000c5 <.L67+0x800027>
    4:	87 e6       	ldi	r24, 0x67	; 103
-   6:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <.L79+0x800036>
+   6:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <.L67+0x800026>
    a:	08 95       	ret
 
 Disassembly of section .text._ZN2io6USART019setTransmissionModeERKNS_16transmissionModeE:
@@ -1213,26 +1232,26 @@ Disassembly of section .text._ZN2io6USART019setTransmissionModeERKNS_16transmiss
    a:	01 f0       	breq	.+0      	; 0xc <_ZN2io6USART019setTransmissionModeERKNS_16transmissionModeE+0xc>
    c:	81 11       	cpse	r24, r1
    e:	00 c0       	rjmp	.+0      	; 0x10 <_ZN2io6USART019setTransmissionModeERKNS_16transmissionModeE+0x10>
-  10:	80 91 c2 00 	lds	r24, 0x00C2	; 0x8000c2 <.L79+0x800034>
+  10:	80 91 c2 00 	lds	r24, 0x00C2	; 0x8000c2 <.L67+0x800024>
   14:	8f 73       	andi	r24, 0x3F	; 63
 
 00000016 <.L8>:
-  16:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <.L79+0x800034>
+  16:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <.L67+0x800024>
 
 0000001a <.L4>:
   1a:	08 95       	ret
 
 0000001c <.L5>:
-  1c:	80 91 c0 00 	lds	r24, 0x00C0	; 0x8000c0 <.L79+0x800032>
+  1c:	80 91 c0 00 	lds	r24, 0x00C0	; 0x8000c0 <.L67+0x800022>
   20:	8d 7f       	andi	r24, 0xFD	; 253
-  22:	80 93 c0 00 	sts	0x00C0, r24	; 0x8000c0 <.L79+0x800032>
-  26:	80 91 c2 00 	lds	r24, 0x00C2	; 0x8000c2 <.L79+0x800034>
+  22:	80 93 c0 00 	sts	0x00C0, r24	; 0x8000c0 <.L67+0x800022>
+  26:	80 91 c2 00 	lds	r24, 0x00C2	; 0x8000c2 <.L67+0x800024>
   2a:	8f 73       	andi	r24, 0x3F	; 63
   2c:	80 64       	ori	r24, 0x40	; 64
   2e:	00 c0       	rjmp	.+0      	; 0x30 <.L6>
 
 00000030 <.L6>:
-  30:	80 91 c2 00 	lds	r24, 0x00C2	; 0x8000c2 <.L79+0x800034>
+  30:	80 91 c2 00 	lds	r24, 0x00C2	; 0x8000c2 <.L67+0x800024>
   34:	80 6c       	ori	r24, 0xC0	; 192
   36:	00 c0       	rjmp	.+0      	; 0x38 <.L10>
 
@@ -1247,31 +1266,31 @@ Disassembly of section .text._ZN2io6USART020setCommunicationModeERKNS_17communic
    a:	01 f0       	breq	.+0      	; 0xc <_ZN2io6USART020setCommunicationModeERKNS_17communicationModeE+0xc>
    c:	81 11       	cpse	r24, r1
    e:	00 c0       	rjmp	.+0      	; 0x10 <_ZN2io6USART020setCommunicationModeERKNS_17communicationModeE+0x10>
-  10:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L79+0x800033>
+  10:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L67+0x800023>
   14:	88 60       	ori	r24, 0x08	; 8
-  16:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <.L79+0x800033>
-  1a:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L79+0x800033>
+  16:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <.L67+0x800023>
+  1a:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L67+0x800023>
   1e:	80 61       	ori	r24, 0x10	; 16
 
 00000020 <.L13>:
-  20:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <.L79+0x800033>
+  20:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <.L67+0x800023>
 
 00000024 <.L9>:
   24:	08 95       	ret
 
 00000026 <.L11>:
-  26:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L79+0x800033>
+  26:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L67+0x800023>
   2a:	80 61       	ori	r24, 0x10	; 16
-  2c:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <.L79+0x800033>
-  30:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L79+0x800033>
+  2c:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <.L67+0x800023>
+  30:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L67+0x800023>
   34:	87 7f       	andi	r24, 0xF7	; 247
   36:	00 c0       	rjmp	.+0      	; 0x38 <.L10>
 
 00000038 <.L10>:
-  38:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L79+0x800033>
+  38:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L67+0x800023>
   3c:	88 60       	ori	r24, 0x08	; 8
-  3e:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <.L79+0x800033>
-  42:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L79+0x800033>
+  3e:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <.L67+0x800023>
+  42:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L67+0x800023>
   46:	8f 7e       	andi	r24, 0xEF	; 239
   48:	00 c0       	rjmp	.+0      	; 0x4a <.L25>
 
@@ -1286,23 +1305,23 @@ Disassembly of section .text._ZN2io6USART013setParityModeERKNS_10parityModeE:
    a:	01 f0       	breq	.+0      	; 0xc <_ZN2io6USART013setParityModeERKNS_10parityModeE+0xc>
    c:	81 11       	cpse	r24, r1
    e:	00 c0       	rjmp	.+0      	; 0x10 <_ZN2io6USART013setParityModeERKNS_10parityModeE+0x10>
-  10:	80 91 c2 00 	lds	r24, 0x00C2	; 0x8000c2 <.L79+0x800034>
+  10:	80 91 c2 00 	lds	r24, 0x00C2	; 0x8000c2 <.L67+0x800024>
   14:	8f 7c       	andi	r24, 0xCF	; 207
 
 00000016 <.L18>:
-  16:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <.L79+0x800034>
+  16:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <.L67+0x800024>
 
 0000001a <.L14>:
   1a:	08 95       	ret
 
 0000001c <.L15>:
-  1c:	80 91 c2 00 	lds	r24, 0x00C2	; 0x8000c2 <.L79+0x800034>
+  1c:	80 91 c2 00 	lds	r24, 0x00C2	; 0x8000c2 <.L67+0x800024>
   20:	8f 7c       	andi	r24, 0xCF	; 207
   22:	80 62       	ori	r24, 0x20	; 32
   24:	00 c0       	rjmp	.+0      	; 0x26 <.L16>
 
 00000026 <.L16>:
-  26:	80 91 c2 00 	lds	r24, 0x00C2	; 0x8000c2 <.L79+0x800034>
+  26:	80 91 c2 00 	lds	r24, 0x00C2	; 0x8000c2 <.L67+0x800024>
   2a:	80 63       	ori	r24, 0x30	; 48
   2c:	00 c0       	rjmp	.+0      	; 0x2e <.L24>
 
@@ -1316,16 +1335,16 @@ Disassembly of section .text._ZN2io6USART012setFrameSizeERKNS_9frameSizeE:
    8:	00 f4       	brcc	.+0      	; 0xa <_ZN2io6USART012setFrameSizeERKNS_9frameSizeE+0xa>
    a:	81 11       	cpse	r24, r1
    c:	00 c0       	rjmp	.+0      	; 0xe <_ZN2io6USART012setFrameSizeERKNS_9frameSizeE+0xe>
-   e:	80 91 c2 00 	lds	r24, 0x00C2	; 0x8000c2 <.L79+0x800034>
+   e:	80 91 c2 00 	lds	r24, 0x00C2	; 0x8000c2 <.L67+0x800024>
   12:	86 60       	ori	r24, 0x06	; 6
 
 00000014 <.L29>:
-  14:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <.L79+0x800034>
-  18:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L79+0x800033>
+  14:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <.L67+0x800024>
+  18:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L67+0x800023>
   1c:	8b 7f       	andi	r24, 0xFB	; 251
 
 0000001e <.L28>:
-  1e:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <.L79+0x800033>
+  1e:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <.L67+0x800023>
   22:	08 95       	ret
 
 00000024 <.L21>:
@@ -1336,29 +1355,29 @@ Disassembly of section .text._ZN2io6USART012setFrameSizeERKNS_9frameSizeE:
   2c:	08 95       	ret
 
 0000002e <.L24>:
-  2e:	80 91 c2 00 	lds	r24, 0x00C2	; 0x8000c2 <.L79+0x800034>
+  2e:	80 91 c2 00 	lds	r24, 0x00C2	; 0x8000c2 <.L67+0x800024>
   32:	89 7f       	andi	r24, 0xF9	; 249
   34:	84 60       	ori	r24, 0x04	; 4
   36:	00 c0       	rjmp	.+0      	; 0x38 <.L20>
 
 00000038 <.L20>:
-  38:	80 91 c2 00 	lds	r24, 0x00C2	; 0x8000c2 <.L79+0x800034>
+  38:	80 91 c2 00 	lds	r24, 0x00C2	; 0x8000c2 <.L67+0x800024>
   3c:	89 7f       	andi	r24, 0xF9	; 249
   3e:	82 60       	ori	r24, 0x02	; 2
   40:	00 c0       	rjmp	.+0      	; 0x42 <.L27>
 
 00000042 <.L27>:
-  42:	80 91 c2 00 	lds	r24, 0x00C2	; 0x8000c2 <.L79+0x800034>
+  42:	80 91 c2 00 	lds	r24, 0x00C2	; 0x8000c2 <.L67+0x800024>
   46:	89 7f       	andi	r24, 0xF9	; 249
   48:	00 c0       	rjmp	.+0      	; 0x4a <.L25>
 
 0000004a <.L25>:
-  4a:	80 91 c2 00 	lds	r24, 0x00C2	; 0x8000c2 <.L79+0x800034>
+  4a:	80 91 c2 00 	lds	r24, 0x00C2	; 0x8000c2 <.L67+0x800024>
   4e:	86 60       	ori	r24, 0x06	; 6
-  50:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <.L79+0x800034>
-  54:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L79+0x800033>
+  50:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <.L67+0x800024>
+  54:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L67+0x800023>
   58:	84 60       	ori	r24, 0x04	; 4
-  5a:	00 c0       	rjmp	.+0      	; 0x5c <.L25+0x12>
+  5a:	00 c0       	rjmp	.+0      	; 0x5c <.L76+0x8>
 
 Disassembly of section .text._ZN2io6USART010setStopBitERKNS_7stopBitE:
 
@@ -1372,15 +1391,15 @@ Disassembly of section .text._ZN2io6USART010setStopBitERKNS_7stopBitE:
    c:	08 95       	ret
 
 0000000e <.L31>:
-   e:	80 91 c2 00 	lds	r24, 0x00C2	; 0x8000c2 <.L79+0x800034>
+   e:	80 91 c2 00 	lds	r24, 0x00C2	; 0x8000c2 <.L67+0x800024>
   12:	87 7f       	andi	r24, 0xF7	; 247
 
 00000014 <.L34>:
-  14:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <.L79+0x800034>
+  14:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <.L67+0x800024>
   18:	08 95       	ret
 
 0000001a <.L32>:
-  1a:	80 91 c2 00 	lds	r24, 0x00C2	; 0x8000c2 <.L79+0x800034>
+  1a:	80 91 c2 00 	lds	r24, 0x00C2	; 0x8000c2 <.L67+0x800024>
   1e:	88 60       	ori	r24, 0x08	; 8
   20:	00 c0       	rjmp	.+0      	; 0x22 <.L13+0x2>
 
@@ -1406,9 +1425,9 @@ Disassembly of section .text._ZN2io6USART0C2ERKNS_16transmissionModeERKNS_17comm
   20:	69 01       	movw	r12, r18
   22:	81 e0       	ldi	r24, 0x01	; 1
   24:	0e 94 00 00 	call	0	; 0x0 <_ZN2io6USART0C1ERKNS_16transmissionModeERKNS_17communicationModeERKNS_9frameSizeERKNS_7stopBitERKNS_10parityModeE>
-  28:	10 92 c5 00 	sts	0x00C5, r1	; 0x8000c5 <.L79+0x800037>
+  28:	10 92 c5 00 	sts	0x00C5, r1	; 0x8000c5 <.L67+0x800027>
   2c:	87 e6       	ldi	r24, 0x67	; 103
-  2e:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <.L79+0x800036>
+  2e:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <.L67+0x800026>
   32:	b4 01       	movw	r22, r8
   34:	8d 2f       	mov	r24, r29
   36:	9c 2f       	mov	r25, r28
@@ -1456,7 +1475,7 @@ Disassembly of section .text._ZN2io6USART011getInstanceERKNS_16transmissionModeE
    4:	0f 93       	push	r16
    6:	1f 93       	push	r17
    8:	78 01       	movw	r14, r16
-   a:	e0 91 00 00 	lds	r30, 0x0000	; 0x800000 <.L79+0x7fff72>
+   a:	e0 91 00 00 	lds	r30, 0x0000	; 0x800000 <.L67+0x7fff62>
    e:	e1 11       	cpse	r30, r1
   10:	00 c0       	rjmp	.+0      	; 0x12 <_ZN2io6USART011getInstanceERKNS_16transmissionModeERKNS_17communicationModeERKNS_9frameSizeERKNS_7stopBitERKNS_10parityModeE+0x12>
   12:	89 01       	movw	r16, r18
@@ -1467,7 +1486,7 @@ Disassembly of section .text._ZN2io6USART011getInstanceERKNS_16transmissionModeE
   1c:	90 e0       	ldi	r25, 0x00	; 0
   1e:	0e 94 00 00 	call	0	; 0x0 <_ZN2io6USART011getInstanceERKNS_16transmissionModeERKNS_17communicationModeERKNS_9frameSizeERKNS_7stopBitERKNS_10parityModeE>
   22:	81 e0       	ldi	r24, 0x01	; 1
-  24:	80 93 00 00 	sts	0x0000, r24	; 0x800000 <.L79+0x7fff72>
+  24:	80 93 00 00 	sts	0x0000, r24	; 0x800000 <.L67+0x7fff62>
   28:	80 e0       	ldi	r24, 0x00	; 0
   2a:	90 e0       	ldi	r25, 0x00	; 0
   2c:	0e 94 00 00 	call	0	; 0x0 <_ZN2io6USART011getInstanceERKNS_16transmissionModeERKNS_17communicationModeERKNS_9frameSizeERKNS_7stopBitERKNS_10parityModeE>
@@ -1484,41 +1503,47 @@ Disassembly of section .text._ZN2io6USART011getInstanceERKNS_16transmissionModeE
 Disassembly of section .text._ZN2io6USART010frameErrorEv:
 
 00000000 <_ZN2io6USART010frameErrorEv>:
-   0:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L79+0x7fff72>
+   0:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L67+0x7fff62>
    4:	80 71       	andi	r24, 0x10	; 16
    6:	08 95       	ret
 
 Disassembly of section .text._ZN2io6USART011dataOverrunEv:
 
 00000000 <_ZN2io6USART011dataOverrunEv>:
-   0:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L79+0x7fff72>
+   0:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L67+0x7fff62>
    4:	88 70       	andi	r24, 0x08	; 8
    6:	08 95       	ret
 
 Disassembly of section .text._ZN2io6USART011parityErrorEv:
 
 00000000 <_ZN2io6USART011parityErrorEv>:
-   0:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L79+0x7fff72>
+   0:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L67+0x7fff62>
    4:	84 70       	andi	r24, 0x04	; 4
    6:	08 95       	ret
+
+Disassembly of section .text._ZN2io6USART013hasOverflowedEv:
+
+00000000 <_ZN2io6USART013hasOverflowedEv>:
+   0:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L67+0x7fff62>
+   4:	08 95       	ret
 
 Disassembly of section .text._ZN2io6USART09sendFrameEPKhh:
 
 00000000 <_ZN2io6USART09sendFrameEPKhh>:
-   0:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L79+0x7fff72>
+   0:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L67+0x7fff62>
    4:	81 15       	cp	r24, r1
    6:	01 f0       	breq	.+0      	; 0x8 <_ZN2io6USART09sendFrameEPKhh+0x8>
-   8:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L79+0x7fff72>
-   c:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L79+0x7fff72>
+   8:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L67+0x7fff62>
+   c:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L67+0x7fff62>
   10:	50 e0       	ldi	r21, 0x00	; 0
-  12:	50 93 00 00 	sts	0x0000, r21	; 0x800000 <.L79+0x7fff72>
-  16:	40 93 00 00 	sts	0x0000, r20	; 0x800000 <.L79+0x7fff72>
-  1a:	60 93 00 00 	sts	0x0000, r22	; 0x800000 <.L79+0x7fff72>
-  1e:	70 93 00 00 	sts	0x0000, r23	; 0x800000 <.L79+0x7fff72>
-  22:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L79+0x7fff72>
-  26:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L79+0x800033>
+  12:	50 93 00 00 	sts	0x0000, r21	; 0x800000 <.L67+0x7fff62>
+  16:	40 93 00 00 	sts	0x0000, r20	; 0x800000 <.L67+0x7fff62>
+  1a:	60 93 00 00 	sts	0x0000, r22	; 0x800000 <.L67+0x7fff62>
+  1e:	70 93 00 00 	sts	0x0000, r23	; 0x800000 <.L67+0x7fff62>
+  22:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L67+0x7fff62>
+  26:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L67+0x800023>
   2a:	80 62       	ori	r24, 0x20	; 32
-  2c:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <.L79+0x800033>
+  2c:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <.L67+0x800023>
   30:	08 95       	ret
 
 Disassembly of section .text._ZN2io6USART010sendStringEPKc:
@@ -1526,12 +1551,12 @@ Disassembly of section .text._ZN2io6USART010sendStringEPKc:
 00000000 <_ZN2io6USART010sendStringEPKc>:
    0:	fb 01       	movw	r30, r22
 
-00000002 <.L46>:
-   2:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L79+0x7fff72>
+00000002 <.L47>:
+   2:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L67+0x7fff62>
    6:	81 15       	cp	r24, r1
-   8:	01 f0       	breq	.+0      	; 0xa <.L46+0x8>
-   a:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L79+0x7fff72>
-   e:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L79+0x7fff72>
+   8:	01 f0       	breq	.+0      	; 0xa <.L47+0x8>
+   a:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L67+0x7fff62>
+   e:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L67+0x7fff62>
   12:	df 01       	movw	r26, r30
 
 00000014 <.L0^B1>:
@@ -1541,14 +1566,14 @@ Disassembly of section .text._ZN2io6USART010sendStringEPKc:
   1a:	11 97       	sbiw	r26, 0x01	; 1
   1c:	ae 1b       	sub	r26, r30
   1e:	bf 0b       	sbc	r27, r31
-  20:	b0 93 00 00 	sts	0x0000, r27	; 0x800000 <.L79+0x7fff72>
-  24:	a0 93 00 00 	sts	0x0000, r26	; 0x800000 <.L79+0x7fff72>
-  28:	f0 93 00 00 	sts	0x0000, r31	; 0x800000 <.L79+0x7fff72>
-  2c:	e0 93 00 00 	sts	0x0000, r30	; 0x800000 <.L79+0x7fff72>
-  30:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L79+0x7fff72>
-  34:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L79+0x800033>
+  20:	b0 93 00 00 	sts	0x0000, r27	; 0x800000 <.L67+0x7fff62>
+  24:	a0 93 00 00 	sts	0x0000, r26	; 0x800000 <.L67+0x7fff62>
+  28:	f0 93 00 00 	sts	0x0000, r31	; 0x800000 <.L67+0x7fff62>
+  2c:	e0 93 00 00 	sts	0x0000, r30	; 0x800000 <.L67+0x7fff62>
+  30:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L67+0x7fff62>
+  34:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L67+0x800023>
   38:	80 62       	ori	r24, 0x20	; 32
-  3a:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <.L79+0x800033>
+  3a:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <.L67+0x800023>
   3e:	08 95       	ret
 
 Disassembly of section .text._ZN2io6USART08sendByteERKh:
@@ -1849,7 +1874,7 @@ Disassembly of section .text._ZN2io6USART08sendCharERKh:
 00000000 <_ZN2io6USART08sendCharERKh>:
    0:	fb 01       	movw	r30, r22
    2:	20 81       	ld	r18, Z
-   4:	20 93 00 00 	sts	0x0000, r18	; 0x800000 <.L79+0x7fff72>
+   4:	20 93 00 00 	sts	0x0000, r18	; 0x800000 <.L67+0x7fff62>
    8:	41 e0       	ldi	r20, 0x01	; 1
    a:	60 e0       	ldi	r22, 0x00	; 0
    c:	70 e0       	ldi	r23, 0x00	; 0
@@ -1860,14 +1885,15 @@ Disassembly of section .text._ZN2io6USART012receiveFrameEPhh:
 00000000 <_ZN2io6USART012receiveFrameEPhh>:
    0:	8f b7       	in	r24, 0x3f	; 63
    2:	f8 94       	cli
-   4:	60 93 00 00 	sts	0x0000, r22	; 0x800000 <.L79+0x7fff72>
-   8:	70 93 00 00 	sts	0x0000, r23	; 0x800000 <.L79+0x7fff72>
+   4:	60 93 00 00 	sts	0x0000, r22	; 0x800000 <.L67+0x7fff62>
+   8:	70 93 00 00 	sts	0x0000, r23	; 0x800000 <.L67+0x7fff62>
    c:	50 e0       	ldi	r21, 0x00	; 0
-   e:	50 93 00 00 	sts	0x0000, r21	; 0x800000 <.L79+0x7fff72>
-  12:	40 93 00 00 	sts	0x0000, r20	; 0x800000 <.L79+0x7fff72>
-  16:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L79+0x7fff72>
-  1a:	8f bf       	out	0x3f, r24	; 63
-  1c:	08 95       	ret
+   e:	50 93 00 00 	sts	0x0000, r21	; 0x800000 <.L67+0x7fff62>
+  12:	40 93 00 00 	sts	0x0000, r20	; 0x800000 <.L67+0x7fff62>
+  16:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L67+0x7fff62>
+  1a:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L67+0x7fff62>
+  1e:	8f bf       	out	0x3f, r24	; 63
+  20:	08 95       	ret
 
 Disassembly of section .text._ZN2io6USART011receiveCharERh:
 
@@ -1875,21 +1901,34 @@ Disassembly of section .text._ZN2io6USART011receiveCharERh:
    0:	41 e0       	ldi	r20, 0x01	; 1
    2:	0c 94 00 00 	jmp	0	; 0x0 <_ZN2io6USART011receiveCharERh>
 
+Disassembly of section .text._ZN2io6USART013receiveStringEPch:
+
+00000000 <_ZN2io6USART013receiveStringEPch>:
+   0:	cb 01       	movw	r24, r22
+   2:	89 2b       	or	r24, r25
+   4:	01 f0       	breq	.+0      	; 0x6 <_ZN2io6USART013receiveStringEPch+0x6>
+   6:	41 15       	cp	r20, r1
+   8:	01 f0       	breq	.+0      	; 0xa <_ZN2io6USART013receiveStringEPch+0xa>
+   a:	2f b7       	in	r18, 0x3f	; 63
+   c:	f8 94       	cli
+   e:	70 93 00 00 	sts	0x0000, r23	; 0x800000 <.L67+0x7fff62>
+  12:	60 93 00 00 	sts	0x0000, r22	; 0x800000 <.L67+0x7fff62>
+  16:	50 e0       	ldi	r21, 0x00	; 0
+  18:	50 93 00 00 	sts	0x0000, r21	; 0x800000 <.L67+0x7fff62>
+  1c:	40 93 00 00 	sts	0x0000, r20	; 0x800000 <.L67+0x7fff62>
+  20:	81 e0       	ldi	r24, 0x01	; 1
+  22:	80 93 00 00 	sts	0x0000, r24	; 0x800000 <.L67+0x7fff62>
+  26:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L67+0x7fff62>
+  2a:	2f bf       	out	0x3f, r18	; 63
+
+0000002c <.L56>:
+  2c:	08 95       	ret
+
 Disassembly of section .text._ZN2io6USART013receiveStringEPKc:
 
 00000000 <_ZN2io6USART013receiveStringEPKc>:
-   0:	8f b7       	in	r24, 0x3f	; 63
-   2:	f8 94       	cli
-   4:	60 93 00 00 	sts	0x0000, r22	; 0x800000 <.L79+0x7fff72>
-   8:	70 93 00 00 	sts	0x0000, r23	; 0x800000 <.L79+0x7fff72>
-   c:	2f ef       	ldi	r18, 0xFF	; 255
-   e:	30 e0       	ldi	r19, 0x00	; 0
-  10:	30 93 00 00 	sts	0x0000, r19	; 0x800000 <.L79+0x7fff72>
-  14:	20 93 00 00 	sts	0x0000, r18	; 0x800000 <.L79+0x7fff72>
-  18:	91 e0       	ldi	r25, 0x01	; 1
-  1a:	90 93 00 00 	sts	0x0000, r25	; 0x800000 <.L79+0x7fff72>
-  1e:	8f bf       	out	0x3f, r24	; 63
-  20:	08 95       	ret
+   0:	4f ef       	ldi	r20, 0xFF	; 255
+   2:	0c 94 00 00 	jmp	0	; 0x0 <_ZN2io6USART013receiveStringEPKc>
 
 Disassembly of section .text.__vector_18:
 
@@ -1899,85 +1938,109 @@ Disassembly of section .text.__vector_18:
    4:	1f 92       	push	r1
    6:	11 24       	eor	r1, r1
    8:	2f 93       	push	r18
-   a:	8f 93       	push	r24
-   c:	9f 93       	push	r25
-   e:	ef 93       	push	r30
-  10:	ff 93       	push	r31
-  12:	80 91 c0 00 	lds	r24, 0x00C0	; 0x8000c0 <.L79+0x800032>
-  16:	80 93 00 00 	sts	0x0000, r24	; 0x800000 <.L79+0x7fff72>
-  1a:	20 91 c6 00 	lds	r18, 0x00C6	; 0x8000c6 <.L79+0x800038>
-  1e:	e0 91 00 00 	lds	r30, 0x0000	; 0x800000 <.L79+0x7fff72>
-  22:	f0 91 00 00 	lds	r31, 0x0000	; 0x800000 <.L79+0x7fff72>
-  26:	30 97       	sbiw	r30, 0x00	; 0
-  28:	01 f0       	breq	.+0      	; 0x2a <__vector_18+0x2a>
-  2a:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L79+0x7fff72>
-  2e:	90 91 00 00 	lds	r25, 0x0000	; 0x800000 <.L79+0x7fff72>
-  32:	89 2b       	or	r24, r25
-  34:	01 f0       	breq	.+0      	; 0x36 <__vector_18+0x36>
-  36:	cf 01       	movw	r24, r30
-  38:	01 96       	adiw	r24, 0x01	; 1
-  3a:	90 93 00 00 	sts	0x0000, r25	; 0x800000 <.L79+0x7fff72>
-  3e:	80 93 00 00 	sts	0x0000, r24	; 0x800000 <.L79+0x7fff72>
-  42:	20 83       	st	Z, r18
-  44:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L79+0x7fff72>
-  48:	90 91 00 00 	lds	r25, 0x0000	; 0x800000 <.L79+0x7fff72>
-  4c:	01 97       	sbiw	r24, 0x01	; 1
-  4e:	90 93 00 00 	sts	0x0000, r25	; 0x800000 <.L79+0x7fff72>
-  52:	80 93 00 00 	sts	0x0000, r24	; 0x800000 <.L79+0x7fff72>
-  56:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L79+0x7fff72>
-  5a:	90 91 00 00 	lds	r25, 0x0000	; 0x800000 <.L79+0x7fff72>
-  5e:	01 96       	adiw	r24, 0x01	; 1
-  60:	90 93 00 00 	sts	0x0000, r25	; 0x800000 <.L79+0x7fff72>
-  64:	80 93 00 00 	sts	0x0000, r24	; 0x800000 <.L79+0x7fff72>
-  68:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L79+0x7fff72>
-  6c:	81 15       	cp	r24, r1
-  6e:	01 f0       	breq	.+0      	; 0x70 <__vector_18+0x70>
-  70:	21 11       	cpse	r18, r1
-  72:	00 c0       	rjmp	.+0      	; 0x74 <__vector_18+0x74>
-  74:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L79+0x7fff72>
-  78:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L79+0x7fff72>
-  7c:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L79+0x7fff72>
+   a:	3f 93       	push	r19
+   c:	8f 93       	push	r24
+   e:	9f 93       	push	r25
+  10:	ef 93       	push	r30
+  12:	ff 93       	push	r31
+  14:	80 91 c0 00 	lds	r24, 0x00C0	; 0x8000c0 <.L67+0x800022>
+  18:	80 93 00 00 	sts	0x0000, r24	; 0x800000 <.L67+0x7fff62>
+  1c:	80 91 c6 00 	lds	r24, 0x00C6	; 0x8000c6 <.L67+0x800028>
+  20:	e0 91 00 00 	lds	r30, 0x0000	; 0x800000 <.L67+0x7fff62>
+  24:	f0 91 00 00 	lds	r31, 0x0000	; 0x800000 <.L67+0x7fff62>
+  28:	30 97       	sbiw	r30, 0x00	; 0
+  2a:	01 f0       	breq	.+0      	; 0x2c <__vector_18+0x2c>
+  2c:	20 91 00 00 	lds	r18, 0x0000	; 0x800000 <.L67+0x7fff62>
+  30:	30 91 00 00 	lds	r19, 0x0000	; 0x800000 <.L67+0x7fff62>
+  34:	21 15       	cp	r18, r1
+  36:	31 05       	cpc	r19, r1
+  38:	01 f0       	breq	.+0      	; 0x3a <__vector_18+0x3a>
+  3a:	90 91 00 00 	lds	r25, 0x0000	; 0x800000 <.L67+0x7fff62>
+  3e:	91 15       	cp	r25, r1
+  40:	01 f0       	breq	.+0      	; 0x42 <__vector_18+0x42>
+  42:	81 11       	cpse	r24, r1
+  44:	00 c0       	rjmp	.+0      	; 0x46 <__vector_18+0x46>
+  46:	10 82       	st	Z, r1
+  48:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L67+0x7fff62>
+  4c:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L67+0x7fff62>
+  50:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L67+0x7fff62>
 
-00000080 <.L56>:
-  80:	ff 91       	pop	r31
-  82:	ef 91       	pop	r30
-  84:	9f 91       	pop	r25
-  86:	8f 91       	pop	r24
-  88:	2f 91       	pop	r18
-  8a:	1f 90       	pop	r1
-  8c:	1f be       	out	0x3f, r1	; 63
-  8e:	1f 90       	pop	r1
-  90:	18 95       	reti
+00000054 <.L76>:
+  54:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L67+0x7fff62>
+  58:	90 91 00 00 	lds	r25, 0x0000	; 0x800000 <.L67+0x7fff62>
+  5c:	01 96       	adiw	r24, 0x01	; 1
+  5e:	90 93 00 00 	sts	0x0000, r25	; 0x800000 <.L67+0x7fff62>
+  62:	80 93 00 00 	sts	0x0000, r24	; 0x800000 <.L67+0x7fff62>
+
+00000066 <.L65>:
+  66:	ff 91       	pop	r31
+  68:	ef 91       	pop	r30
+  6a:	9f 91       	pop	r25
+  6c:	8f 91       	pop	r24
+  6e:	3f 91       	pop	r19
+  70:	2f 91       	pop	r18
+  72:	1f 90       	pop	r1
+  74:	1f be       	out	0x3f, r1	; 63
+  76:	1f 90       	pop	r1
+  78:	18 95       	reti
+
+0000007a <.L68>:
+  7a:	20 91 00 00 	lds	r18, 0x0000	; 0x800000 <.L67+0x7fff62>
+  7e:	30 91 00 00 	lds	r19, 0x0000	; 0x800000 <.L67+0x7fff62>
+  82:	21 30       	cpi	r18, 0x01	; 1
+  84:	31 05       	cpc	r19, r1
+  86:	01 f4       	brne	.+0      	; 0x88 <.L68+0xe>
+  88:	10 82       	st	Z, r1
+  8a:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L67+0x7fff62>
+  8e:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L67+0x7fff62>
+  92:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L67+0x7fff62>
+  96:	81 e0       	ldi	r24, 0x01	; 1
+  98:	80 93 00 00 	sts	0x0000, r24	; 0x800000 <.L67+0x7fff62>
+  9c:	00 c0       	rjmp	.+0      	; 0x9e <.L67>
+
+0000009e <.L67>:
+  9e:	9f 01       	movw	r18, r30
+  a0:	2f 5f       	subi	r18, 0xFF	; 255
+  a2:	3f 4f       	sbci	r19, 0xFF	; 255
+  a4:	30 93 00 00 	sts	0x0000, r19	; 0x800000 <.L67+0x7fff62>
+  a8:	20 93 00 00 	sts	0x0000, r18	; 0x800000 <.L67+0x7fff62>
+  ac:	80 83       	st	Z, r24
+  ae:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L67+0x7fff62>
+  b2:	90 91 00 00 	lds	r25, 0x0000	; 0x800000 <.L67+0x7fff62>
+  b6:	01 97       	sbiw	r24, 0x01	; 1
+  b8:	90 93 00 00 	sts	0x0000, r25	; 0x800000 <.L67+0x7fff62>
+  bc:	80 93 00 00 	sts	0x0000, r24	; 0x800000 <.L67+0x7fff62>
+  c0:	00 c0       	rjmp	.+0      	; 0xc2 <.L67+0x24>
 
 Disassembly of section .text._ZN2io6USART031enableTransmitCompleteInterruptEh:
 
 00000000 <_ZN2io6USART031enableTransmitCompleteInterruptEh>:
-   0:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L79+0x800033>
+   0:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L67+0x800023>
    4:	61 15       	cp	r22, r1
    6:	01 f0       	breq	.+0      	; 0x8 <_ZN2io6USART031enableTransmitCompleteInterruptEh+0x8>
    8:	80 64       	ori	r24, 0x40	; 64
 
-0000000a <.L69>:
-   a:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <.L79+0x800033>
+0000000a <.L80>:
+   a:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <.L67+0x800023>
    e:	08 95       	ret
 
-00000010 <.L67>:
+00000010 <.L78>:
   10:	8f 7b       	andi	r24, 0xBF	; 191
   12:	00 c0       	rjmp	.+0      	; 0x14 <.L0^B1>
 
 Disassembly of section .text._ZN2io6USART030enableReceiveCompleteInterruptEh:
 
 00000000 <_ZN2io6USART030enableReceiveCompleteInterruptEh>:
-   0:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L79+0x800033>
+   0:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L67+0x800023>
    4:	61 15       	cp	r22, r1
    6:	01 f0       	breq	.+0      	; 0x8 <_ZN2io6USART030enableReceiveCompleteInterruptEh+0x8>
    8:	80 68       	ori	r24, 0x80	; 128
 
-0000000a <.L73>:
-   a:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <.L79+0x800033>
+0000000a <.L84>:
+   a:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <.L67+0x800023>
    e:	08 95       	ret
 
-00000010 <.L71>:
+00000010 <.L82>:
   10:	8f 77       	andi	r24, 0x7F	; 127
   12:	00 c0       	rjmp	.+0      	; 0x14 <.L0^B1>
 
@@ -1986,15 +2049,15 @@ Disassembly of section .text._ZN2io6USART032enableDataRegisterEmptyInterruptEh:
 00000000 <_ZN2io6USART032enableDataRegisterEmptyInterruptEh>:
    0:	81 15       	cp	r24, r1
    2:	01 f0       	breq	.+0      	; 0x4 <_ZN2io6USART032enableDataRegisterEmptyInterruptEh+0x4>
-   4:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L79+0x800033>
+   4:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L67+0x800023>
    8:	80 62       	ori	r24, 0x20	; 32
 
-0000000a <.L77>:
-   a:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <.L79+0x800033>
+0000000a <.L88>:
+   a:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <.L67+0x800023>
    e:	08 95       	ret
 
-00000010 <.L75>:
-  10:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L79+0x800033>
+00000010 <.L86>:
+  10:	80 91 c1 00 	lds	r24, 0x00C1	; 0x8000c1 <.L67+0x800023>
   14:	8f 7d       	andi	r24, 0xDF	; 223
   16:	00 c0       	rjmp	.+0      	; 0x18 <.L18+0x2>
 
@@ -2018,30 +2081,30 @@ Disassembly of section .text.__vector_19:
   1c:	bf 93       	push	r27
   1e:	ef 93       	push	r30
   20:	ff 93       	push	r31
-  22:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L79+0x7fff72>
-  26:	90 91 00 00 	lds	r25, 0x0000	; 0x800000 <.L79+0x7fff72>
+  22:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L67+0x7fff62>
+  26:	90 91 00 00 	lds	r25, 0x0000	; 0x800000 <.L67+0x7fff62>
   2a:	89 2b       	or	r24, r25
   2c:	01 f0       	breq	.+0      	; 0x2e <__vector_19+0x2e>
-  2e:	e0 91 00 00 	lds	r30, 0x0000	; 0x800000 <.L79+0x7fff72>
-  32:	f0 91 00 00 	lds	r31, 0x0000	; 0x800000 <.L79+0x7fff72>
+  2e:	e0 91 00 00 	lds	r30, 0x0000	; 0x800000 <.L67+0x7fff62>
+  32:	f0 91 00 00 	lds	r31, 0x0000	; 0x800000 <.L67+0x7fff62>
   36:	cf 01       	movw	r24, r30
   38:	01 96       	adiw	r24, 0x01	; 1
-  3a:	90 93 00 00 	sts	0x0000, r25	; 0x800000 <.L79+0x7fff72>
-  3e:	80 93 00 00 	sts	0x0000, r24	; 0x800000 <.L79+0x7fff72>
+  3a:	90 93 00 00 	sts	0x0000, r25	; 0x800000 <.L67+0x7fff62>
+  3e:	80 93 00 00 	sts	0x0000, r24	; 0x800000 <.L67+0x7fff62>
   42:	80 81       	ld	r24, Z
-  44:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <.L79+0x800038>
-  48:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L79+0x7fff72>
-  4c:	90 91 00 00 	lds	r25, 0x0000	; 0x800000 <.L79+0x7fff72>
+  44:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <.L67+0x800028>
+  48:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L67+0x7fff62>
+  4c:	90 91 00 00 	lds	r25, 0x0000	; 0x800000 <.L67+0x7fff62>
   50:	01 97       	sbiw	r24, 0x01	; 1
-  52:	90 93 00 00 	sts	0x0000, r25	; 0x800000 <.L79+0x7fff72>
-  56:	80 93 00 00 	sts	0x0000, r24	; 0x800000 <.L79+0x7fff72>
-  5a:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L79+0x7fff72>
-  5e:	90 91 00 00 	lds	r25, 0x0000	; 0x800000 <.L79+0x7fff72>
+  52:	90 93 00 00 	sts	0x0000, r25	; 0x800000 <.L67+0x7fff62>
+  56:	80 93 00 00 	sts	0x0000, r24	; 0x800000 <.L67+0x7fff62>
+  5a:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L67+0x7fff62>
+  5e:	90 91 00 00 	lds	r25, 0x0000	; 0x800000 <.L67+0x7fff62>
   62:	01 96       	adiw	r24, 0x01	; 1
-  64:	90 93 00 00 	sts	0x0000, r25	; 0x800000 <.L79+0x7fff72>
-  68:	80 93 00 00 	sts	0x0000, r24	; 0x800000 <.L79+0x7fff72>
+  64:	90 93 00 00 	sts	0x0000, r25	; 0x800000 <.L67+0x7fff62>
+  68:	80 93 00 00 	sts	0x0000, r24	; 0x800000 <.L67+0x7fff62>
 
-0000006c <.L78>:
+0000006c <.L89>:
   6c:	ff 91       	pop	r31
   6e:	ef 91       	pop	r30
   70:	bf 91       	pop	r27
@@ -2060,12 +2123,12 @@ Disassembly of section .text.__vector_19:
   8a:	1f 90       	pop	r1
   8c:	18 95       	reti
 
-0000008e <.L79>:
+0000008e <.L90>:
   8e:	80 e0       	ldi	r24, 0x00	; 0
   90:	0e 94 00 00 	call	0	; 0x0 <__vector_19>
   94:	81 e0       	ldi	r24, 0x01	; 1
-  96:	80 93 00 00 	sts	0x0000, r24	; 0x800000 <.L79+0x7fff72>
-  9a:	00 c0       	rjmp	.+0      	; 0x9c <.L79+0xe>
+  96:	80 93 00 00 	sts	0x0000, r24	; 0x800000 <.L67+0x7fff62>
+  9a:	00 c0       	rjmp	.+0      	; 0x9c <.L90+0xe>
 
 Disassembly of section .text.__vector_20:
 
@@ -2075,15 +2138,15 @@ Disassembly of section .text.__vector_20:
 Disassembly of section .text._ZN2io6USART018getNumberBytesSentEv:
 
 00000000 <_ZN2io6USART018getNumberBytesSentEv>:
-   0:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L79+0x7fff72>
-   4:	90 91 00 00 	lds	r25, 0x0000	; 0x800000 <.L79+0x7fff72>
+   0:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L67+0x7fff62>
+   4:	90 91 00 00 	lds	r25, 0x0000	; 0x800000 <.L67+0x7fff62>
    8:	08 95       	ret
 
 Disassembly of section .text._ZN2io6USART022getNumberBytesReceivedEv:
 
 00000000 <_ZN2io6USART022getNumberBytesReceivedEv>:
-   0:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L79+0x7fff72>
-   4:	90 91 00 00 	lds	r25, 0x0000	; 0x800000 <.L79+0x7fff72>
+   0:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L67+0x7fff62>
+   4:	90 91 00 00 	lds	r25, 0x0000	; 0x800000 <.L67+0x7fff62>
    8:	08 95       	ret
 
 Disassembly of section .text._ZN2io6USART024resetNumberBytesReceivedEv:
@@ -2091,15 +2154,15 @@ Disassembly of section .text._ZN2io6USART024resetNumberBytesReceivedEv:
 00000000 <_ZN2io6USART024resetNumberBytesReceivedEv>:
    0:	8f b7       	in	r24, 0x3f	; 63
    2:	f8 94       	cli
-   4:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L79+0x7fff72>
-   8:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L79+0x7fff72>
+   4:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L67+0x7fff62>
+   8:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L67+0x7fff62>
    c:	8f bf       	out	0x3f, r24	; 63
    e:	08 95       	ret
 
 Disassembly of section .text._ZN2io6USART010ready2SendEv:
 
 00000000 <_ZN2io6USART010ready2SendEv>:
-   0:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L79+0x7fff72>
+   0:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L67+0x7fff62>
    4:	08 95       	ret
 ********** scripts/.build/lib/core/ADC.o **********
 
@@ -4717,7 +4780,25 @@ Disassembly of section .text._ZN4core3TWI4stopEv:
 00000000 <_ZN4core3TWI4stopEv>:
    0:	84 e9       	ldi	r24, 0x94	; 148
    2:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <.L7+0x80004e>
-   6:	08 95       	ret
+   6:	20 e1       	ldi	r18, 0x10	; 16
+   8:	37 e2       	ldi	r19, 0x27	; 39
+
+0000000a <.L26>:
+   a:	80 91 bc 00 	lds	r24, 0x00BC	; 0x8000bc <.L7+0x80004e>
+   e:	84 ff       	sbrs	r24, 4
+  10:	00 c0       	rjmp	.+0      	; 0x12 <.L26+0x8>
+  12:	21 50       	subi	r18, 0x01	; 1
+  14:	30 40       	sbci	r19, 0x00	; 0
+  16:	01 f4       	brne	.+0      	; 0x18 <.L25>
+
+00000018 <.L25>:
+  18:	81 e0       	ldi	r24, 0x01	; 1
+  1a:	23 2b       	or	r18, r19
+  1c:	01 f4       	brne	.+0      	; 0x1e <.L25+0x6>
+  1e:	80 e0       	ldi	r24, 0x00	; 0
+
+00000020 <.L27>:
+  20:	08 95       	ret
 
 Disassembly of section .text._ZN4core3TWI5writeEh:
 
@@ -4728,77 +4809,153 @@ Disassembly of section .text._ZN4core3TWI5writeEh:
    a:	80 e1       	ldi	r24, 0x10	; 16
    c:	97 e2       	ldi	r25, 0x27	; 39
 
-0000000e <.L27>:
+0000000e <.L34>:
    e:	20 91 bc 00 	lds	r18, 0x00BC	; 0x8000bc <.L7+0x80004e>
   12:	27 fd       	sbrc	r18, 7
-  14:	00 c0       	rjmp	.+0      	; 0x16 <.L27+0x8>
+  14:	00 c0       	rjmp	.+0      	; 0x16 <.L34+0x8>
   16:	01 97       	sbiw	r24, 0x01	; 1
-  18:	01 f4       	brne	.+0      	; 0x1a <.L38>
+  18:	01 f4       	brne	.+0      	; 0x1a <.L45>
 
-0000001a <.L38>:
+0000001a <.L45>:
   1a:	80 e0       	ldi	r24, 0x00	; 0
   1c:	08 95       	ret
 
-0000001e <.L37>:
+0000001e <.L44>:
   1e:	81 e0       	ldi	r24, 0x01	; 1
   20:	98 32       	cpi	r25, 0x28	; 40
-  22:	01 f0       	breq	.+0      	; 0x24 <.L37+0x6>
+  22:	01 f0       	breq	.+0      	; 0x24 <.L44+0x6>
   24:	90 34       	cpi	r25, 0x40	; 64
-  26:	01 f4       	brne	.+0      	; 0x28 <.L37+0xa>
+  26:	01 f4       	brne	.+0      	; 0x28 <.L44+0xa>
   28:	08 95       	ret
 
-0000002a <.L31>:
+0000002a <.L38>:
   2a:	08 95       	ret
 
-0000002c <.L26>:
+0000002c <.L33>:
   2c:	90 91 b9 00 	lds	r25, 0x00B9	; 0x8000b9 <.L7+0x80004b>
   30:	98 7f       	andi	r25, 0xF8	; 248
   32:	98 31       	cpi	r25, 0x18	; 24
-  34:	01 f4       	brne	.+0      	; 0x36 <.L26+0xa>
+  34:	01 f4       	brne	.+0      	; 0x36 <.L33+0xa>
   36:	81 e0       	ldi	r24, 0x01	; 1
   38:	08 95       	ret
+
+Disassembly of section .text._ZN4core3TWI7readAckERh:
+
+00000000 <_ZN4core3TWI7readAckERh>:
+   0:	fb 01       	movw	r30, r22
+   2:	84 ec       	ldi	r24, 0xC4	; 196
+   4:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <.L7+0x80004e>
+   8:	80 e1       	ldi	r24, 0x10	; 16
+   a:	97 e2       	ldi	r25, 0x27	; 39
+
+0000000c <.L48>:
+   c:	20 91 bc 00 	lds	r18, 0x00BC	; 0x8000bc <.L7+0x80004e>
+  10:	27 fd       	sbrc	r18, 7
+  12:	00 c0       	rjmp	.+0      	; 0x14 <.L48+0x8>
+  14:	01 97       	sbiw	r24, 0x01	; 1
+  16:	01 f4       	brne	.+0      	; 0x18 <.L51>
+
+00000018 <.L51>:
+  18:	90 e0       	ldi	r25, 0x00	; 0
+  1a:	80 e0       	ldi	r24, 0x00	; 0
+  1c:	00 c0       	rjmp	.+0      	; 0x1e <.L47>
+
+0000001e <.L47>:
+  1e:	80 91 b9 00 	lds	r24, 0x00B9	; 0x8000b9 <.L7+0x80004b>
+  22:	80 7f       	andi	r24, 0xF0	; 240
+  24:	80 35       	cpi	r24, 0x50	; 80
+  26:	01 f4       	brne	.+0      	; 0x28 <.L47+0xa>
+  28:	90 91 bb 00 	lds	r25, 0x00BB	; 0x8000bb <.L7+0x80004d>
+  2c:	81 e0       	ldi	r24, 0x01	; 1
+
+0000002e <.L49>:
+  2e:	90 83       	st	Z, r25
+  30:	08 95       	ret
+
+Disassembly of section .text._ZN4core3TWI8readNackERh:
+
+00000000 <_ZN4core3TWI8readNackERh>:
+   0:	fb 01       	movw	r30, r22
+   2:	84 e8       	ldi	r24, 0x84	; 132
+   4:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <.L7+0x80004e>
+   8:	80 e1       	ldi	r24, 0x10	; 16
+   a:	97 e2       	ldi	r25, 0x27	; 39
+
+0000000c <.L57>:
+   c:	20 91 bc 00 	lds	r18, 0x00BC	; 0x8000bc <.L7+0x80004e>
+  10:	27 fd       	sbrc	r18, 7
+  12:	00 c0       	rjmp	.+0      	; 0x14 <.L57+0x8>
+  14:	01 97       	sbiw	r24, 0x01	; 1
+  16:	01 f4       	brne	.+0      	; 0x18 <.L60>
+
+00000018 <.L60>:
+  18:	90 e0       	ldi	r25, 0x00	; 0
+  1a:	80 e0       	ldi	r24, 0x00	; 0
+  1c:	00 c0       	rjmp	.+0      	; 0x1e <.L56>
+
+0000001e <.L56>:
+  1e:	80 91 b9 00 	lds	r24, 0x00B9	; 0x8000b9 <.L7+0x80004b>
+  22:	88 7f       	andi	r24, 0xF8	; 248
+  24:	88 35       	cpi	r24, 0x58	; 88
+  26:	01 f4       	brne	.+0      	; 0x28 <.L56+0xa>
+  28:	90 91 bb 00 	lds	r25, 0x00BB	; 0x8000bb <.L7+0x80004d>
+  2c:	81 e0       	ldi	r24, 0x01	; 1
+
+0000002e <.L58>:
+  2e:	90 83       	st	Z, r25
+  30:	08 95       	ret
 
 Disassembly of section .text._ZN4core3TWI7readAckEv:
 
 00000000 <_ZN4core3TWI7readAckEv>:
-   0:	84 ec       	ldi	r24, 0xC4	; 196
-   2:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <.L7+0x80004e>
-   6:	80 e1       	ldi	r24, 0x10	; 16
-   8:	97 e2       	ldi	r25, 0x27	; 39
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	0f 92       	push	r0
+   6:	cd b7       	in	r28, 0x3d	; 61
+   8:	de b7       	in	r29, 0x3e	; 62
+   a:	be 01       	movw	r22, r28
+   c:	6f 5f       	subi	r22, 0xFF	; 255
+   e:	7f 4f       	sbci	r23, 0xFF	; 255
+  10:	0e 94 00 00 	call	0	; 0x0 <_ZN4core3TWI7readAckEv>
+  14:	81 15       	cp	r24, r1
+  16:	01 f0       	breq	.+0      	; 0x18 <_ZN4core3TWI7readAckEv+0x18>
+  18:	89 81       	ldd	r24, Y+1	; 0x01
 
-0000000a <.L41>:
-   a:	20 91 bc 00 	lds	r18, 0x00BC	; 0x8000bc <.L7+0x80004e>
-   e:	27 fd       	sbrc	r18, 7
-  10:	00 c0       	rjmp	.+0      	; 0x12 <.L41+0x8>
-  12:	01 97       	sbiw	r24, 0x01	; 1
-  14:	01 f4       	brne	.+0      	; 0x16 <.L41+0xc>
-  16:	8f ef       	ldi	r24, 0xFF	; 255
-  18:	08 95       	ret
+0000001a <.L64>:
+  1a:	0f 90       	pop	r0
+  1c:	df 91       	pop	r29
+  1e:	cf 91       	pop	r28
+  20:	08 95       	ret
 
-0000001a <.L40>:
-  1a:	80 91 bb 00 	lds	r24, 0x00BB	; 0x8000bb <.L7+0x80004d>
-  1e:	08 95       	ret
+00000022 <.L66>:
+  22:	8f ef       	ldi	r24, 0xFF	; 255
+  24:	00 c0       	rjmp	.+0      	; 0x26 <.L66+0x4>
 
 Disassembly of section .text._ZN4core3TWI8readNackEv:
 
 00000000 <_ZN4core3TWI8readNackEv>:
-   0:	84 e8       	ldi	r24, 0x84	; 132
-   2:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <.L7+0x80004e>
-   6:	80 e1       	ldi	r24, 0x10	; 16
-   8:	97 e2       	ldi	r25, 0x27	; 39
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	0f 92       	push	r0
+   6:	cd b7       	in	r28, 0x3d	; 61
+   8:	de b7       	in	r29, 0x3e	; 62
+   a:	be 01       	movw	r22, r28
+   c:	6f 5f       	subi	r22, 0xFF	; 255
+   e:	7f 4f       	sbci	r23, 0xFF	; 255
+  10:	0e 94 00 00 	call	0	; 0x0 <_ZN4core3TWI8readNackEv>
+  14:	81 15       	cp	r24, r1
+  16:	01 f0       	breq	.+0      	; 0x18 <_ZN4core3TWI8readNackEv+0x18>
+  18:	89 81       	ldd	r24, Y+1	; 0x01
 
-0000000a <.L46>:
-   a:	20 91 bc 00 	lds	r18, 0x00BC	; 0x8000bc <.L7+0x80004e>
-   e:	27 fd       	sbrc	r18, 7
-  10:	00 c0       	rjmp	.+0      	; 0x12 <.L46+0x8>
-  12:	01 97       	sbiw	r24, 0x01	; 1
-  14:	01 f4       	brne	.+0      	; 0x16 <.L46+0xc>
-  16:	8f ef       	ldi	r24, 0xFF	; 255
-  18:	08 95       	ret
+0000001a <.L67>:
+  1a:	0f 90       	pop	r0
+  1c:	df 91       	pop	r29
+  1e:	cf 91       	pop	r28
+  20:	08 95       	ret
 
-0000001a <.L45>:
-  1a:	80 91 bb 00 	lds	r24, 0x00BB	; 0x8000bb <.L7+0x80004d>
-  1e:	08 95       	ret
+00000022 <.L69>:
+  22:	8f ef       	ldi	r24, 0xFF	; 255
+  24:	00 c0       	rjmp	.+0      	; 0x26 <.L69+0x4>
 ********** scripts/.build/lib/core/WatchdogTimer.o **********
 
 scripts/.build/lib/core/WatchdogTimer.o:     file format elf32-avr
@@ -5407,56 +5564,86 @@ Disassembly of section .text._ZN9component11PCF8574_LCDC2Ehhh:
 Disassembly of section .text._ZN9component11PCF8574_LCD10sendNibbleEhh:
 
 00000000 <_ZN9component11PCF8574_LCD10sendNibbleEhh>:
-   0:	1f 93       	push	r17
-   2:	cf 93       	push	r28
-   4:	df 93       	push	r29
-   6:	ec 01       	movw	r28, r24
-   8:	8b 81       	ldd	r24, Y+3	; 0x03
-   a:	14 2f       	mov	r17, r20
-   c:	18 2b       	or	r17, r24
-   e:	62 95       	swap	r22
-  10:	60 7f       	andi	r22, 0xF0	; 240
-  12:	16 2b       	or	r17, r22
-  14:	8c 81       	ldd	r24, Y+4	; 0x04
-  16:	9d 81       	ldd	r25, Y+5	; 0x05
-  18:	0e 94 00 00 	call	0	; 0x0 <_ZN9component11PCF8574_LCD10sendNibbleEhh>
-  1c:	68 81       	ld	r22, Y
-  1e:	66 0f       	add	r22, r22
-  20:	8c 81       	ldd	r24, Y+4	; 0x04
-  22:	9d 81       	ldd	r25, Y+5	; 0x05
-  24:	0e 94 00 00 	call	0	; 0x0 <_ZN9component11PCF8574_LCD10sendNibbleEhh>
-  28:	61 2f       	mov	r22, r17
-  2a:	64 60       	ori	r22, 0x04	; 4
+   0:	ff 92       	push	r15
+   2:	0f 93       	push	r16
+   4:	1f 93       	push	r17
+   6:	cf 93       	push	r28
+   8:	df 93       	push	r29
+   a:	ec 01       	movw	r28, r24
+   c:	16 2f       	mov	r17, r22
+   e:	f4 2e       	mov	r15, r20
+  10:	0b 81       	ldd	r16, Y+3	; 0x03
+  12:	8c 81       	ldd	r24, Y+4	; 0x04
+  14:	9d 81       	ldd	r25, Y+5	; 0x05
+  16:	0e 94 00 00 	call	0	; 0x0 <_ZN9component11PCF8574_LCD10sendNibbleEhh>
+  1a:	81 15       	cp	r24, r1
+  1c:	01 f0       	breq	.+0      	; 0x1e <_ZN9component11PCF8574_LCD10sendNibbleEhh+0x1e>
+  1e:	68 81       	ld	r22, Y
+  20:	66 0f       	add	r22, r22
+  22:	8c 81       	ldd	r24, Y+4	; 0x04
+  24:	9d 81       	ldd	r25, Y+5	; 0x05
+  26:	0e 94 00 00 	call	0	; 0x0 <_ZN9component11PCF8574_LCD10sendNibbleEhh>
+  2a:	28 2f       	mov	r18, r24
   2c:	8c 81       	ldd	r24, Y+4	; 0x04
   2e:	9d 81       	ldd	r25, Y+5	; 0x05
-  30:	0e 94 00 00 	call	0	; 0x0 <_ZN9component11PCF8574_LCD10sendNibbleEhh>
-  34:	85 e0       	ldi	r24, 0x05	; 5
+  30:	21 11       	cpse	r18, r1
+  32:	00 c0       	rjmp	.+0      	; 0x34 <.L6>
 
-00000036 <.L1^B1>:
-  36:	8a 95       	dec	r24
-  38:	01 f4       	brne	.+0      	; 0x3a <.L1^B1+0x4>
-  3a:	00 00       	nop
-  3c:	61 2f       	mov	r22, r17
-  3e:	6b 7f       	andi	r22, 0xFB	; 251
-  40:	8c 81       	ldd	r24, Y+4	; 0x04
-  42:	9d 81       	ldd	r25, Y+5	; 0x05
-  44:	0e 94 00 00 	call	0	; 0x0 <_ZN9component11PCF8574_LCD10sendNibbleEhh>
-  48:	87 ec       	ldi	r24, 0xC7	; 199
-  4a:	90 e0       	ldi	r25, 0x00	; 0
+00000034 <.L6>:
+  34:	df 91       	pop	r29
+  36:	cf 91       	pop	r28
+  38:	1f 91       	pop	r17
+  3a:	0f 91       	pop	r16
+  3c:	ff 90       	pop	r15
+  3e:	0c 94 00 00 	jmp	0	; 0x0 <_ZN9component11PCF8574_LCD10sendNibbleEhh>
 
-0000004c <.L1^B2>:
-  4c:	01 97       	sbiw	r24, 0x01	; 1
-  4e:	01 f4       	brne	.+0      	; 0x50 <.L1^B2+0x4>
-  50:	00 c0       	rjmp	.+0      	; 0x52 <L0^A>
+00000042 <.L4>:
+  42:	12 95       	swap	r17
+  44:	10 7f       	andi	r17, 0xF0	; 240
+  46:	0f 29       	or	r16, r15
+  48:	10 2b       	or	r17, r16
+  4a:	61 2f       	mov	r22, r17
+  4c:	64 60       	ori	r22, 0x04	; 4
+  4e:	0e 94 00 00 	call	0	; 0x0 <_ZN9component11PCF8574_LCD10sendNibbleEhh>
+  52:	81 11       	cpse	r24, r1
+  54:	00 c0       	rjmp	.+0      	; 0x56 <.L7>
 
-00000052 <L0^A>:
-  52:	00 00       	nop
-  54:	8c 81       	ldd	r24, Y+4	; 0x04
-  56:	9d 81       	ldd	r25, Y+5	; 0x05
-  58:	df 91       	pop	r29
-  5a:	cf 91       	pop	r28
-  5c:	1f 91       	pop	r17
-  5e:	0c 94 00 00 	jmp	0	; 0x0 <_ZN9component11PCF8574_LCD10sendNibbleEhh>
+00000056 <.L7>:
+  56:	8c 81       	ldd	r24, Y+4	; 0x04
+  58:	9d 81       	ldd	r25, Y+5	; 0x05
+  5a:	00 c0       	rjmp	.+0      	; 0x5c <.L5>
+
+0000005c <.L5>:
+  5c:	85 e0       	ldi	r24, 0x05	; 5
+
+0000005e <.L1^B1>:
+  5e:	8a 95       	dec	r24
+  60:	01 f4       	brne	.+0      	; 0x62 <.L1^B1+0x4>
+  62:	00 00       	nop
+  64:	61 2f       	mov	r22, r17
+  66:	6b 7f       	andi	r22, 0xFB	; 251
+  68:	8c 81       	ldd	r24, Y+4	; 0x04
+  6a:	9d 81       	ldd	r25, Y+5	; 0x05
+  6c:	0e 94 00 00 	call	0	; 0x0 <_ZN9component11PCF8574_LCD10sendNibbleEhh>
+  70:	87 ec       	ldi	r24, 0xC7	; 199
+  72:	90 e0       	ldi	r25, 0x00	; 0
+
+00000074 <.L1^B2>:
+  74:	01 97       	sbiw	r24, 0x01	; 1
+  76:	01 f4       	brne	.+0      	; 0x78 <.L1^B2+0x4>
+  78:	00 c0       	rjmp	.+0      	; 0x7a <L0^A>
+
+0000007a <L0^A>:
+  7a:	00 00       	nop
+  7c:	00 c0       	rjmp	.+0      	; 0x7e <.L2>
+
+0000007e <.L2>:
+  7e:	df 91       	pop	r29
+  80:	cf 91       	pop	r28
+  82:	1f 91       	pop	r17
+  84:	0f 91       	pop	r16
+  86:	ff 90       	pop	r15
+  88:	08 95       	ret
 
 Disassembly of section .text._ZN9component11PCF8574_LCD12setBacklightEh:
 
@@ -5467,7 +5654,7 @@ Disassembly of section .text._ZN9component11PCF8574_LCD12setBacklightEh:
    6:	00 c0       	rjmp	.+0      	; 0x8 <_ZN9component11PCF8574_LCD12setBacklightEh+0x8>
    8:	80 e0       	ldi	r24, 0x00	; 0
 
-0000000a <.L4>:
+0000000a <.L9>:
    a:	88 0f       	add	r24, r24
    c:	88 0f       	add	r24, r24
    e:	88 0f       	add	r24, r24
@@ -5613,7 +5800,7 @@ Disassembly of section .text._ZN9component11PCF8574_LCD9setCursorEhh:
    c:	4f ef       	ldi	r20, 0xFF	; 255
    e:	48 0f       	add	r20, r24
 
-00000010 <.L9>:
+00000010 <.L14>:
   10:	e4 2f       	mov	r30, r20
   12:	f0 e0       	ldi	r31, 0x00	; 0
   14:	e0 50       	subi	r30, 0x00	; 0
@@ -5636,21 +5823,21 @@ Disassembly of section .text._ZN9component11PCF8574_LCD5printEPKc:
    a:	09 2f       	mov	r16, r25
    c:	eb 01       	movw	r28, r22
    e:	20 97       	sbiw	r28, 0x00	; 0
-  10:	01 f0       	breq	.+0      	; 0x12 <.L12>
+  10:	01 f0       	breq	.+0      	; 0x12 <.L17>
 
-00000012 <.L12>:
+00000012 <.L17>:
   12:	69 91       	ld	r22, Y+
   14:	61 11       	cpse	r22, r1
-  16:	00 c0       	rjmp	.+0      	; 0x18 <.L10>
+  16:	00 c0       	rjmp	.+0      	; 0x18 <.L15>
 
-00000018 <.L10>:
+00000018 <.L15>:
   18:	df 91       	pop	r29
   1a:	cf 91       	pop	r28
   1c:	1f 91       	pop	r17
   1e:	0f 91       	pop	r16
   20:	08 95       	ret
 
-00000022 <.L13>:
+00000022 <.L18>:
   22:	41 e0       	ldi	r20, 0x01	; 1
   24:	81 2f       	mov	r24, r17
   26:	90 2f       	mov	r25, r16
@@ -6717,61 +6904,84 @@ Disassembly of section .text._ZN9component12SSD1306_OLED5printEPKc:
   2c:	08 95       	ret
 
 0000002e <.L7>:
-  2e:	c0 52       	subi	r28, 0x20	; 32
-  30:	ca 31       	cpi	r28, 0x1A	; 26
-  32:	00 f0       	brcs	.+0      	; 0x34 <.L7+0x6>
-  34:	c0 e0       	ldi	r28, 0x00	; 0
+  2e:	60 e4       	ldi	r22, 0x40	; 64
+  30:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED5printEPKc>
+  34:	81 11       	cpse	r24, r1
+  36:	00 c0       	rjmp	.+0      	; 0x38 <.L7+0xa>
+  38:	f8 01       	movw	r30, r16
+  3a:	83 81       	ldd	r24, Z+3	; 0x03
+  3c:	94 81       	ldd	r25, Z+4	; 0x04
+  3e:	00 c0       	rjmp	.+0      	; 0x40 <.L8>
 
-00000036 <.L5>:
-  36:	f8 01       	movw	r30, r16
-  38:	83 81       	ldd	r24, Z+3	; 0x03
-  3a:	94 81       	ldd	r25, Z+4	; 0x04
-  3c:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED5printEPKc>
-  40:	f8 01       	movw	r30, r16
-  42:	60 81       	ld	r22, Z
-  44:	66 0f       	add	r22, r22
-  46:	83 81       	ldd	r24, Z+3	; 0x03
-  48:	94 81       	ldd	r25, Z+4	; 0x04
-  4a:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED5printEPKc>
-  4e:	60 e4       	ldi	r22, 0x40	; 64
-  50:	f8 01       	movw	r30, r16
-  52:	83 81       	ldd	r24, Z+3	; 0x03
-  54:	94 81       	ldd	r25, Z+4	; 0x04
-  56:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED5printEPKc>
-  5a:	cc 9e       	mul	r12, r28
-  5c:	e0 01       	movw	r28, r0
-  5e:	11 24       	eor	r1, r1
-  60:	c0 50       	subi	r28, 0x00	; 0
-  62:	d0 40       	sbci	r29, 0x00	; 0
-  64:	d1 2c       	mov	r13, r1
+00000040 <.L8>:
+  40:	cc 9e       	mul	r12, r28
+  42:	e0 01       	movw	r28, r0
+  44:	11 24       	eor	r1, r1
+  46:	c0 50       	subi	r28, 0x00	; 0
+  48:	d0 40       	sbci	r29, 0x00	; 0
+  4a:	d1 2c       	mov	r13, r1
 
-00000066 <.L6>:
-  66:	69 91       	ld	r22, Y+
-  68:	f8 01       	movw	r30, r16
-  6a:	83 81       	ldd	r24, Z+3	; 0x03
-  6c:	94 81       	ldd	r25, Z+4	; 0x04
-  6e:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED5printEPKc>
-  72:	d3 94       	inc	r13
-  74:	f5 e0       	ldi	r31, 0x05	; 5
-  76:	df 12       	cpse	r13, r31
-  78:	00 c0       	rjmp	.+0      	; 0x7a <.L6+0x14>
-  7a:	60 e0       	ldi	r22, 0x00	; 0
-  7c:	f8 01       	movw	r30, r16
-  7e:	83 81       	ldd	r24, Z+3	; 0x03
-  80:	94 81       	ldd	r25, Z+4	; 0x04
-  82:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED5printEPKc>
-  86:	f8 01       	movw	r30, r16
-  88:	83 81       	ldd	r24, Z+3	; 0x03
-  8a:	94 81       	ldd	r25, Z+4	; 0x04
-  8c:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED5printEPKc>
+0000004c <.L9>:
+  4c:	69 91       	ld	r22, Y+
+  4e:	f8 01       	movw	r30, r16
+  50:	83 81       	ldd	r24, Z+3	; 0x03
+  52:	94 81       	ldd	r25, Z+4	; 0x04
+  54:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED5printEPKc>
+  58:	d3 94       	inc	r13
+  5a:	f5 e0       	ldi	r31, 0x05	; 5
+  5c:	df 12       	cpse	r13, r31
+  5e:	00 c0       	rjmp	.+0      	; 0x60 <.L9+0x14>
+  60:	60 e0       	ldi	r22, 0x00	; 0
+  62:	f8 01       	movw	r30, r16
+  64:	83 81       	ldd	r24, Z+3	; 0x03
+  66:	94 81       	ldd	r25, Z+4	; 0x04
+  68:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED5printEPKc>
+  6c:	f8 01       	movw	r30, r16
+  6e:	83 81       	ldd	r24, Z+3	; 0x03
+  70:	94 81       	ldd	r25, Z+4	; 0x04
+  72:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED5printEPKc>
 
-00000090 <.L4>:
-  90:	f7 01       	movw	r30, r14
-  92:	c1 91       	ld	r28, Z+
-  94:	7f 01       	movw	r14, r30
-  96:	c1 11       	cpse	r28, r1
-  98:	00 c0       	rjmp	.+0      	; 0x9a <.L4+0xa>
-  9a:	00 c0       	rjmp	.+0      	; 0x9c <.L20+0x6>
+00000076 <.L4>:
+  76:	f7 01       	movw	r30, r14
+  78:	c1 91       	ld	r28, Z+
+  7a:	7f 01       	movw	r14, r30
+  7c:	c1 15       	cp	r28, r1
+  7e:	01 f0       	breq	.+0      	; 0x80 <.L4+0xa>
+  80:	c0 52       	subi	r28, 0x20	; 32
+  82:	ca 31       	cpi	r28, 0x1A	; 26
+  84:	00 f0       	brcs	.+0      	; 0x86 <.L4+0x10>
+  86:	c0 e0       	ldi	r28, 0x00	; 0
+
+00000088 <.L6>:
+  88:	f8 01       	movw	r30, r16
+  8a:	83 81       	ldd	r24, Z+3	; 0x03
+  8c:	94 81       	ldd	r25, Z+4	; 0x04
+  8e:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED5printEPKc>
+  92:	81 15       	cp	r24, r1
+  94:	01 f0       	breq	.+0      	; 0x96 <.L6+0xe>
+  96:	f8 01       	movw	r30, r16
+  98:	60 81       	ld	r22, Z
+  9a:	66 0f       	add	r22, r22
+  9c:	83 81       	ldd	r24, Z+3	; 0x03
+  9e:	94 81       	ldd	r25, Z+4	; 0x04
+  a0:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED5printEPKc>
+  a4:	28 2f       	mov	r18, r24
+  a6:	f8 01       	movw	r30, r16
+  a8:	83 81       	ldd	r24, Z+3	; 0x03
+  aa:	94 81       	ldd	r25, Z+4	; 0x04
+  ac:	21 11       	cpse	r18, r1
+  ae:	00 c0       	rjmp	.+0      	; 0xb0 <.L18>
+
+000000b0 <.L18>:
+  b0:	df 91       	pop	r29
+  b2:	cf 91       	pop	r28
+  b4:	1f 91       	pop	r17
+  b6:	0f 91       	pop	r16
+  b8:	ff 90       	pop	r15
+  ba:	ef 90       	pop	r14
+  bc:	df 90       	pop	r13
+  be:	cf 90       	pop	r12
+  c0:	0c 94 00 00 	jmp	0	; 0x0 <_ZN9component12SSD1306_OLED5printEPKc>
 
 Disassembly of section .text._ZN9component12SSD1306_OLED11sendCommandEh:
 
@@ -6784,25 +6994,44 @@ Disassembly of section .text._ZN9component12SSD1306_OLED11sendCommandEh:
    a:	8b 81       	ldd	r24, Y+3	; 0x03
    c:	9c 81       	ldd	r25, Y+4	; 0x04
    e:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED11sendCommandEh>
-  12:	68 81       	ld	r22, Y
-  14:	66 0f       	add	r22, r22
-  16:	8b 81       	ldd	r24, Y+3	; 0x03
-  18:	9c 81       	ldd	r25, Y+4	; 0x04
-  1a:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED11sendCommandEh>
-  1e:	60 e0       	ldi	r22, 0x00	; 0
-  20:	8b 81       	ldd	r24, Y+3	; 0x03
-  22:	9c 81       	ldd	r25, Y+4	; 0x04
-  24:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED11sendCommandEh>
-  28:	61 2f       	mov	r22, r17
-  2a:	8b 81       	ldd	r24, Y+3	; 0x03
-  2c:	9c 81       	ldd	r25, Y+4	; 0x04
-  2e:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED11sendCommandEh>
-  32:	8b 81       	ldd	r24, Y+3	; 0x03
-  34:	9c 81       	ldd	r25, Y+4	; 0x04
-  36:	df 91       	pop	r29
-  38:	cf 91       	pop	r28
-  3a:	1f 91       	pop	r17
-  3c:	0c 94 00 00 	jmp	0	; 0x0 <_ZN9component12SSD1306_OLED11sendCommandEh>
+  12:	81 15       	cp	r24, r1
+  14:	01 f0       	breq	.+0      	; 0x16 <_ZN9component12SSD1306_OLED11sendCommandEh+0x16>
+  16:	68 81       	ld	r22, Y
+  18:	66 0f       	add	r22, r22
+  1a:	8b 81       	ldd	r24, Y+3	; 0x03
+  1c:	9c 81       	ldd	r25, Y+4	; 0x04
+  1e:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED11sendCommandEh>
+  22:	28 2f       	mov	r18, r24
+  24:	8b 81       	ldd	r24, Y+3	; 0x03
+  26:	9c 81       	ldd	r25, Y+4	; 0x04
+  28:	21 11       	cpse	r18, r1
+  2a:	00 c0       	rjmp	.+0      	; 0x2c <.L23>
+
+0000002c <.L23>:
+  2c:	df 91       	pop	r29
+  2e:	cf 91       	pop	r28
+  30:	1f 91       	pop	r17
+  32:	0c 94 00 00 	jmp	0	; 0x0 <_ZN9component12SSD1306_OLED11sendCommandEh>
+
+00000036 <.L21>:
+  36:	60 e0       	ldi	r22, 0x00	; 0
+  38:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED11sendCommandEh>
+  3c:	28 2f       	mov	r18, r24
+  3e:	8b 81       	ldd	r24, Y+3	; 0x03
+  40:	9c 81       	ldd	r25, Y+4	; 0x04
+  42:	21 15       	cp	r18, r1
+  44:	01 f0       	breq	.+0      	; 0x46 <.L21+0x10>
+  46:	61 2f       	mov	r22, r17
+  48:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED11sendCommandEh>
+  4c:	8b 81       	ldd	r24, Y+3	; 0x03
+  4e:	9c 81       	ldd	r25, Y+4	; 0x04
+  50:	00 c0       	rjmp	.+0      	; 0x52 <.L19>
+
+00000052 <.L19>:
+  52:	df 91       	pop	r29
+  54:	cf 91       	pop	r28
+  56:	1f 91       	pop	r17
+  58:	08 95       	ret
 
 Disassembly of section .text._ZN9component12SSD1306_OLED9setCursorEhh:
 
@@ -6843,13 +7072,13 @@ Disassembly of section .text._ZN9component12SSD1306_OLED5clearEv:
    8:	ec 01       	movw	r28, r24
    a:	10 e0       	ldi	r17, 0x00	; 0
 
-0000000c <.L15>:
+0000000c <.L26>:
    c:	8a 81       	ldd	r24, Y+2	; 0x02
    e:	86 95       	lsr	r24
   10:	86 95       	lsr	r24
   12:	86 95       	lsr	r24
   14:	18 17       	cp	r17, r24
-  16:	00 f0       	brcs	.+0      	; 0x18 <.L15+0xc>
+  16:	00 f0       	brcs	.+0      	; 0x18 <.L26+0xc>
   18:	40 e0       	ldi	r20, 0x00	; 0
   1a:	60 e0       	ldi	r22, 0x00	; 0
   1c:	ce 01       	movw	r24, r28
@@ -6859,7 +7088,7 @@ Disassembly of section .text._ZN9component12SSD1306_OLED5clearEv:
   24:	0f 91       	pop	r16
   26:	0c 94 00 00 	jmp	0	; 0x0 <_ZN9component12SSD1306_OLED5clearEv>
 
-0000002a <.L18>:
+0000002a <.L31>:
   2a:	41 2f       	mov	r20, r17
   2c:	60 e0       	ldi	r22, 0x00	; 0
   2e:	ce 01       	movw	r24, r28
@@ -6867,32 +7096,60 @@ Disassembly of section .text._ZN9component12SSD1306_OLED5clearEv:
   34:	8b 81       	ldd	r24, Y+3	; 0x03
   36:	9c 81       	ldd	r25, Y+4	; 0x04
   38:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED5clearEv>
-  3c:	68 81       	ld	r22, Y
-  3e:	66 0f       	add	r22, r22
-  40:	8b 81       	ldd	r24, Y+3	; 0x03
-  42:	9c 81       	ldd	r25, Y+4	; 0x04
-  44:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED5clearEv>
-  48:	60 e4       	ldi	r22, 0x40	; 64
-  4a:	8b 81       	ldd	r24, Y+3	; 0x03
-  4c:	9c 81       	ldd	r25, Y+4	; 0x04
-  4e:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED5clearEv>
-  52:	00 e0       	ldi	r16, 0x00	; 0
+  3c:	81 15       	cp	r24, r1
+  3e:	01 f0       	breq	.+0      	; 0x40 <.L31+0x16>
+  40:	68 81       	ld	r22, Y
+  42:	66 0f       	add	r22, r22
+  44:	8b 81       	ldd	r24, Y+3	; 0x03
+  46:	9c 81       	ldd	r25, Y+4	; 0x04
+  48:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED5clearEv>
+  4c:	28 2f       	mov	r18, r24
+  4e:	8b 81       	ldd	r24, Y+3	; 0x03
+  50:	9c 81       	ldd	r25, Y+4	; 0x04
+  52:	21 11       	cpse	r18, r1
+  54:	00 c0       	rjmp	.+0      	; 0x56 <.L33>
 
-00000054 <.L16>:
-  54:	8b 81       	ldd	r24, Y+3	; 0x03
-  56:	9c 81       	ldd	r25, Y+4	; 0x04
-  58:	29 81       	ldd	r18, Y+1	; 0x01
-  5a:	02 17       	cp	r16, r18
-  5c:	00 f0       	brcs	.+0      	; 0x5e <.L16+0xa>
-  5e:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED5clearEv>
-  62:	1f 5f       	subi	r17, 0xFF	; 255
-  64:	00 c0       	rjmp	.+0      	; 0x66 <.L17>
+00000056 <.L33>:
+  56:	df 91       	pop	r29
+  58:	cf 91       	pop	r28
+  5a:	1f 91       	pop	r17
+  5c:	0f 91       	pop	r16
+  5e:	0c 94 00 00 	jmp	0	; 0x0 <_ZN9component12SSD1306_OLED5clearEv>
 
-00000066 <.L17>:
-  66:	60 e0       	ldi	r22, 0x00	; 0
-  68:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED5clearEv>
-  6c:	0f 5f       	subi	r16, 0xFF	; 255
-  6e:	00 c0       	rjmp	.+0      	; 0x70 <.L17+0xa>
+00000062 <.L28>:
+  62:	60 e4       	ldi	r22, 0x40	; 64
+  64:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED5clearEv>
+  68:	81 11       	cpse	r24, r1
+  6a:	00 c0       	rjmp	.+0      	; 0x6c <.L28+0xa>
+  6c:	8b 81       	ldd	r24, Y+3	; 0x03
+  6e:	9c 81       	ldd	r25, Y+4	; 0x04
+  70:	00 c0       	rjmp	.+0      	; 0x72 <.L30>
+
+00000072 <.L30>:
+  72:	60 e0       	ldi	r22, 0x00	; 0
+  74:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED5clearEv>
+  78:	0f 5f       	subi	r16, 0xFF	; 255
+
+0000007a <.L29>:
+  7a:	8b 81       	ldd	r24, Y+3	; 0x03
+  7c:	9c 81       	ldd	r25, Y+4	; 0x04
+  7e:	29 81       	ldd	r18, Y+1	; 0x01
+  80:	02 17       	cp	r16, r18
+  82:	00 f0       	brcs	.+0      	; 0x84 <.L29+0xa>
+  84:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED5clearEv>
+  88:	1f 5f       	subi	r17, 0xFF	; 255
+  8a:	00 c0       	rjmp	.+0      	; 0x8c <.L32>
+
+0000008c <.L32>:
+  8c:	00 e0       	ldi	r16, 0x00	; 0
+  8e:	00 c0       	rjmp	.+0      	; 0x90 <.L25>
+
+00000090 <.L25>:
+  90:	df 91       	pop	r29
+  92:	cf 91       	pop	r28
+  94:	1f 91       	pop	r17
+  96:	0f 91       	pop	r16
+  98:	08 95       	ret
 
 Disassembly of section .text._ZN9component12SSD1306_OLED4initEv:
 
@@ -6962,7 +7219,7 @@ Disassembly of section .text._ZN9component12SSD1306_OLED4initEv:
   92:	01 f0       	breq	.+0      	; 0x94 <L0^A+0x84>
   94:	62 e0       	ldi	r22, 0x02	; 2
 
-00000096 <.L20>:
+00000096 <.L35>:
   96:	ce 01       	movw	r24, r28
   98:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED4initEv>
   9c:	61 e8       	ldi	r22, 0x81	; 129
@@ -7008,25 +7265,44 @@ Disassembly of section .text._ZN9component12SSD1306_OLED8sendDataEh:
    a:	8b 81       	ldd	r24, Y+3	; 0x03
    c:	9c 81       	ldd	r25, Y+4	; 0x04
    e:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED8sendDataEh>
-  12:	68 81       	ld	r22, Y
-  14:	66 0f       	add	r22, r22
-  16:	8b 81       	ldd	r24, Y+3	; 0x03
-  18:	9c 81       	ldd	r25, Y+4	; 0x04
-  1a:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED8sendDataEh>
-  1e:	60 e4       	ldi	r22, 0x40	; 64
-  20:	8b 81       	ldd	r24, Y+3	; 0x03
-  22:	9c 81       	ldd	r25, Y+4	; 0x04
-  24:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED8sendDataEh>
-  28:	61 2f       	mov	r22, r17
-  2a:	8b 81       	ldd	r24, Y+3	; 0x03
-  2c:	9c 81       	ldd	r25, Y+4	; 0x04
-  2e:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED8sendDataEh>
-  32:	8b 81       	ldd	r24, Y+3	; 0x03
-  34:	9c 81       	ldd	r25, Y+4	; 0x04
-  36:	df 91       	pop	r29
-  38:	cf 91       	pop	r28
-  3a:	1f 91       	pop	r17
-  3c:	0c 94 00 00 	jmp	0	; 0x0 <_ZN9component12SSD1306_OLED8sendDataEh>
+  12:	81 15       	cp	r24, r1
+  14:	01 f0       	breq	.+0      	; 0x16 <_ZN9component12SSD1306_OLED8sendDataEh+0x16>
+  16:	68 81       	ld	r22, Y
+  18:	66 0f       	add	r22, r22
+  1a:	8b 81       	ldd	r24, Y+3	; 0x03
+  1c:	9c 81       	ldd	r25, Y+4	; 0x04
+  1e:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED8sendDataEh>
+  22:	28 2f       	mov	r18, r24
+  24:	8b 81       	ldd	r24, Y+3	; 0x03
+  26:	9c 81       	ldd	r25, Y+4	; 0x04
+  28:	21 11       	cpse	r18, r1
+  2a:	00 c0       	rjmp	.+0      	; 0x2c <.L41>
+
+0000002c <.L41>:
+  2c:	df 91       	pop	r29
+  2e:	cf 91       	pop	r28
+  30:	1f 91       	pop	r17
+  32:	0c 94 00 00 	jmp	0	; 0x0 <_ZN9component12SSD1306_OLED8sendDataEh>
+
+00000036 <.L39>:
+  36:	60 e4       	ldi	r22, 0x40	; 64
+  38:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED8sendDataEh>
+  3c:	28 2f       	mov	r18, r24
+  3e:	8b 81       	ldd	r24, Y+3	; 0x03
+  40:	9c 81       	ldd	r25, Y+4	; 0x04
+  42:	21 15       	cp	r18, r1
+  44:	01 f0       	breq	.+0      	; 0x46 <.L39+0x10>
+  46:	61 2f       	mov	r22, r17
+  48:	0e 94 00 00 	call	0	; 0x0 <_ZN9component12SSD1306_OLED8sendDataEh>
+  4c:	8b 81       	ldd	r24, Y+3	; 0x03
+  4e:	9c 81       	ldd	r25, Y+4	; 0x04
+  50:	00 c0       	rjmp	.+0      	; 0x52 <.L37>
+
+00000052 <.L37>:
+  52:	df 91       	pop	r29
+  54:	cf 91       	pop	r28
+  56:	1f 91       	pop	r17
+  58:	08 95       	ret
 ********** scripts/.build/lib/component/StepperMotor.o **********
 
 scripts/.build/lib/component/StepperMotor.o:     file format elf32-avr
