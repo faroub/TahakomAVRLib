@@ -29,16 +29,21 @@ for app in ${APPS}; do
 
     echo "--- Simulating ${app} with simavr ---"
     set +e
-    sim_output=$(simavr -m atmega328p -f 16000000 "${elf}" 2>&1)
+    # Run simavr bounded by a 5-second timeout so mainloop execution does not hang CI
+    sim_output=$(timeout 5s simavr -m atmega328p -f 16000000 "${elf}" 2>&1)
     sim_rc=$?
     set -e
 
     if echo "${sim_output}" | grep -iqE "crashed|trap|fatal|illegal instruction|unable to load"; then
-        echo "FAILED: ${app} simulation crashed or failed in simavr:"
+        echo "FAILED: ${app} simulation crashed or trapped in simavr:"
         echo "${sim_output}"
         FAILED=1
+    elif [ "${sim_rc}" -eq 0 ] || [ "${sim_rc}" -eq 124 ]; then
+        echo "PASSED: ${app} executed cleanly in simavr (5s mainloop test passed)"
     else
-        echo "PASSED: ${app} executed cleanly in simavr"
+        echo "FAILED: ${app} simulation exited with error code ${sim_rc}:"
+        echo "${sim_output}"
+        FAILED=1
     fi
 done
 
