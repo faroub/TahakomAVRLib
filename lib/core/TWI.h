@@ -11,6 +11,10 @@
 
 #include "ha_base.h"
 
+#if defined(TAHAKOM_HAS_TWI) && (TAHAKOM_HAS_TWI == 0)
+    #error "Hardware TWI/I2C is not supported on the target MCU (e.g. ATtiny85)."
+#endif
+
 namespace core
 {
 

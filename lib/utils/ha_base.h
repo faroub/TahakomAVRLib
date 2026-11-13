@@ -32,26 +32,41 @@
  */
 #if defined(__AVR_ATmega328P__)
 
+    #define TAHAKOM_HAS_USART0 1
+    #define TAHAKOM_HAS_TWI 1
+    #define TAHAKOM_HAS_SPI 1
     #include "ha_m328p.h"
     #include "utils_m328p.h"
 
 #elif defined(__AVR_ATmega2560__)
 
+    #define TAHAKOM_HAS_USART0 1
+    #define TAHAKOM_HAS_TWI 1
+    #define TAHAKOM_HAS_SPI 1
     #include "ha_m2560.h"
     #include "utils_m328p.h"
 
 #elif defined(__AVR_ATmega168P__) || defined(__AVR_ATmega88P__) || defined(__AVR_ATmega48P__)
 
+    #define TAHAKOM_HAS_USART0 1
+    #define TAHAKOM_HAS_TWI 1
+    #define TAHAKOM_HAS_SPI 1
     #include "ha_m168p.h"
     #include "utils_m328p.h"
 
 #elif defined(__AVR_ATtiny85__)
 
+    #define TAHAKOM_HAS_USART0 0
+    #define TAHAKOM_HAS_TWI 0
+    #define TAHAKOM_HAS_SPI 0
     #include "ha_attiny85.h"
     #include "utils_m328p.h"
 
 #elif defined(ESP32) || defined(ESP_PLATFORM)
 
+    #define TAHAKOM_HAS_USART0 1
+    #define TAHAKOM_HAS_TWI 1
+    #define TAHAKOM_HAS_SPI 1
     #include "ha_esp32.h"
     #include "utils_m328p.h"
 

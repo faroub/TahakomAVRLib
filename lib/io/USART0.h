@@ -2,6 +2,10 @@
 #define USART_H
 #include "ha_base.h"
 
+#if defined(TAHAKOM_HAS_USART0) && (TAHAKOM_HAS_USART0 == 0)
+    #error "Hardware USART0 is not supported on the target MCU (e.g. ATtiny85)."
+#endif
+
 /**
  *
  * @brief AVR chip internal i/o components

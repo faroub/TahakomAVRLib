@@ -13,12 +13,8 @@
 # Usage:
 #   scripts/check_build.sh             # check the tree against the baselines
 #   scripts/check_build.sh --baseline  # (re)generate both baselines
-#
-# The disassembly baseline (scripts/objdump.baseline) is saved by
-# --baseline as the avr-objdump -d output of every lib object, in a
-# deterministic order, so changes in code generation can be diffed.
 
-set -u
+set -euo pipefail
 
 cd "$(dirname "$0")/.." || exit 1
 
@@ -27,9 +23,15 @@ CXX=avr-g++
 OBJDUMP=avr-objdump
 SIZE=avr-size
 
-GLOBAL_FLAGS="-mmcu=${MCU} -DF_CPU=16000000UL -DBAUD=9600 -D__AVR_ATmega328P__ -Os -std=c++11 -funsigned-char -funsigned-bitfields -fshort-enums -ffunction-sections -fdata-sections -fno-threadsafe-statics -Wall -Wextra"
+# Tool availability check
+for tool in "${CXX}" "${OBJDUMP}" "${SIZE}"; do
+    if ! command -v "${tool}" &> /dev/null; then
+        echo "ERROR: Required tool '${tool}' is not installed or not in PATH."
+        exit 1
+    fi
+done
 
-# the library and applications include all headers by flat file name
+GLOBAL_FLAGS="-mmcu=${MCU} -DF_CPU=16000000UL -DBAUD=9600 -D__AVR_ATmega328P__ -Os -std=c++11 -funsigned-char -funsigned-bitfields -fshort-enums -ffunction-sections -fdata-sections -fno-threadsafe-statics -Wall -Wextra"
 INCLUDE_FLAGS="-Ilib/io -Ilib/core -Ilib/component -Ilib/utils"
 
 LIB_GROUPS="io core component utils"
@@ -43,6 +45,12 @@ BASELINE_MODE=0
 if [ "${1:-}" = "--baseline" ]; then
     BASELINE_MODE=1
 fi
+
+# Reliable temporary directory cleanup
+cleanup() {
+    rm -rf "${BUILD_DIR}"
+}
+trap cleanup EXIT
 
 rm -rf "${BUILD_DIR}"
 mkdir -p "${BUILD_DIR}"
@@ -58,7 +66,6 @@ for group in ${LIB_GROUPS}; do
     mkdir -p "${BUILD_DIR}/lib/${group}"
     for src in "lib/${group}"/*.cpp; do
         [ -e "${src}" ] || continue
-        # skip empty files: they carry no code
         if [ ! -s "${src}" ]; then
             echo "SKIP (empty): ${src}"
             continue
@@ -122,25 +129,20 @@ for app in ${APPS}; do
     elf="${BUILD_DIR}/${app_name}/${app_name}.elf"
     link_log="${BUILD_DIR}/${app_name}/link.log"
     LIB_OBJECTS=$(find "${BUILD_DIR}/lib" -name '*.o' | LC_ALL=C sort | tr '\n' ' ')
-# The libraries must be linked before the CRT startup object: the startup
-# code defines every vector weakly (aliased to __bad_interrupt), and the
-# first weak definition wins, so the library's weak default handlers only
-# take effect if the CRT comes after them.  -nostartfiles suppresses the
-# driver's automatic (first) placement; the CRT is passed explicitly here.
-CRT="$("${CXX}" -mmcu=${MCU} -print-file-name=crt${MCU}.o)"
-if [ ! -e "${CRT}" ]; then
-    echo "ERROR: startup object ${CRT} not found"
-    FAILED=1
-    continue
-fi
-if ! "${CXX}" -mmcu=${MCU} -nostartfiles -o "${elf}" "${main_obj}" ${LIB_OBJECTS} "${CRT}" -lm 2> "${link_log}"; then
+
+    CRT="$("${CXX}" -mmcu=${MCU} -print-file-name=crt${MCU}.o)"
+    if [ ! -e "${CRT}" ]; then
+        echo "ERROR: startup object ${CRT} not found"
+        FAILED=1
+        continue
+    fi
+    if ! "${CXX}" -mmcu=${MCU} -nostartfiles -o "${elf}" "${main_obj}" ${LIB_OBJECTS} "${CRT}" -lm 2> "${link_log}"; then
         echo "ERROR: linking ${app_name} failed:"
         cat "${link_log}"
         FAILED=1
         continue
     fi
 
-    # (c) avr-size totals per app
     echo "--- avr-size ${app_name} ---"
     "${SIZE}" "${elf}" | tail -1
 done
@@ -153,6 +155,12 @@ if [ -n "${WARNING_REPORT}" ]; then
     printf '%s' "${WARNING_REPORT}" | LC_ALL=C sort
 fi
 echo "total warnings: ${TOTAL_WARNINGS}"
+
+# Fail closed if any build or link operations failed
+if [ "${FAILED}" -ne 0 ]; then
+    echo "FAILED: compilation or linking errors occurred during build"
+    exit 1
+fi
 
 # ---------------------------------------------------------------------------
 # (d) compare to baseline / write baselines
@@ -180,10 +188,6 @@ else
     done < "${WARNINGS_BASELINE}"
     if [ "${INCREASE}" -eq 1 ]; then
         echo "FAILED: warning counts increased over ${WARNINGS_BASELINE}"
-        exit 1
-    fi
-    if [ "${FAILED}" -eq 1 ]; then
-        echo "FAILED: compile/link errors"
         exit 1
     fi
     echo "OK: no errors, no warning increases"
