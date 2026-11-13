@@ -16,3 +16,10 @@ docs/latex/
 
 # host test build artifacts
 tests/host/obj/
+
+# Python cache and runtime audit logs
+__pycache__/
+*.pyc
+**/__pycache__/
+server/audit.log*
+

@@ -175,7 +175,7 @@ the library weak defaults take effect.  Keep that order when building the
 library into your own project.
 
 
-## Local Development Server & Telemetry Web IDE
+## Local Development Server & Security Architecture
 
 The project includes an integrated local development platform:
 
@@ -186,9 +186,16 @@ python3 server/app.py
 
 Then open `http://localhost:8000` in your web browser to access:
 * **Web C++ Editor**: Write sketches with auto-linking against TahakomAVRLib.
-* **1-Click Build & Flash**: Automated `avr-g++` cross-compiler and `avrdude` flasher.
+* **1-Click Build & Flash**: Automated toolchain cross-compiler and flasher with user confirmation.
 * **Real-Time Oscilloscope & Logic Analyzer**: Visual canvas plots streaming hardware telemetry frames (`io::Telemetry`).
-* **Pre-Flash Host Simulator**: Run simulation binaries natively on host x86.
+* **Pre-Flash Host Simulator**: Isolated containerized simulation environment (`bwrap`).
+
+### Platform Security Architecture
+
+- **Authenticated Gateway**: Local loopback binding (`127.0.0.1`), exact `Origin` URL matching, and session token authorization (`X-Auth-Token`).
+- **Fail-Closed Container Sandbox**: Native simulation binaries run inside unprivileged OS-level container isolation (`bwrap --unshare-all`) with CPU, memory, file, and 16KB stdout/stderr limits.
+- **Hardware Flashing Protection**: Strict Intel HEX record parsing, line checksum validation, MCU flash capacity bounds checking, explicit port selection, and user confirmation.
+- **Rate Limiting & Audit Logging**: Bounded sliding-window rate limiter (15 req/10s per IP) and structured JSON audit logger (`server/audit.log`) with automatic log rotation and secret redaction.
 
 
 ## Projects

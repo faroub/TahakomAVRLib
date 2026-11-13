@@ -26,7 +26,6 @@ def validate_origin(origin_str: str, server_port: int = 8000) -> bool:
     except Exception:
         return False
 
-    # Reject userinfo (e.g., http://user:pass@localhost)
     if parsed.username or parsed.password:
         return False
 
@@ -39,8 +38,7 @@ def validate_origin(origin_str: str, server_port: int = 8000) -> bool:
 
     port = parsed.port
     if port is not None:
-        # Allow loopback ports
-        if port not in (8000, 8199, 8299, server_port):
+        if port not in (8000, 8199, 8299, 8399, server_port):
             return False
 
     return True
@@ -66,6 +64,15 @@ class TahakomGatewayHandler(SimpleHTTPRequestHandler):
         else:
             self._send_json({"error": "Forbidden origin"}, status=403)
 
+    def do_PUT(self):
+        self._send_json({"error": "Method Not Allowed"}, status=405)
+
+    def do_DELETE(self):
+        self._send_json({"error": "Method Not Allowed"}, status=405)
+
+    def do_PATCH(self):
+        self._send_json({"error": "Method Not Allowed"}, status=405)
+
     def do_GET(self):
         parsed = urlparse(self.path)
         client_ip = self.client_address[0]
@@ -85,6 +92,10 @@ class TahakomGatewayHandler(SimpleHTTPRequestHandler):
                 return
             ports = list_serial_ports()
             self._send_json({"ports": ports})
+
+        elif parsed.path.startswith("/api/"):
+            self._send_json({"error": "Endpoint not found"}, status=404)
+
         else:
             super().do_GET()
 
@@ -92,26 +103,22 @@ class TahakomGatewayHandler(SimpleHTTPRequestHandler):
         parsed = urlparse(self.path)
         client_ip = self.client_address[0]
 
-        # Stage 1: Unsupported Transfer-Encoding Check
         if self.headers.get("Transfer-Encoding"):
             self._send_json({"error": "Unsupported Transfer-Encoding"}, status=400)
             return
 
-        # Stage 2: Rate Limiter Check
         allowed, retry_after = rate_limiter.is_allowed(client_ip)
         if not allowed:
             audit_logger.log_event(client_ip, parsed.path, "RATE_LIMIT", "REJECTED", {"retry_after": retry_after})
             self._send_json({"error": "Too Many Requests", "retry_after": retry_after}, status=429)
             return
 
-        # Stage 3: Authorization Verification
         if parsed.path in ("/api/compile", "/api/flash", "/api/simulate"):
             if not self._verify_auth():
                 audit_logger.log_event(client_ip, parsed.path, "AUTH", "UNAUTHORIZED")
                 self._send_json({"error": "Unauthorized request"}, status=401)
                 return
 
-        # Stage 4: Payload Size & Non-negative Content-Length Validation
         content_length_str = self.headers.get("Content-Length")
         if not content_length_str:
             self._send_json({"error": "Missing Content-Length header"}, status=411)
@@ -132,7 +139,6 @@ class TahakomGatewayHandler(SimpleHTTPRequestHandler):
             self._send_json({"error": "Payload Too Large"}, status=413)
             return
 
-        # Content-Type Validation
         content_type = self.headers.get("Content-Type", "")
         if "application/json" not in content_type.lower():
             self._send_json({"error": "Content-Type must be application/json"}, status=415)
@@ -146,20 +152,26 @@ class TahakomGatewayHandler(SimpleHTTPRequestHandler):
             self._send_json({"error": "Malformed JSON payload"}, status=400)
             return
 
-        # Top-level JSON must be a JSON object (dict)
         if not isinstance(data, dict):
             self._send_json({"error": "Top-level JSON payload must be a JSON object"}, status=400)
             return
 
-        # Stage 5: Microservice Routing
         try:
             if parsed.path == "/api/compile":
                 code = data.get("code", "")
                 mcu = data.get("mcu", "atmega328p")
+                f_cpu = data.get("f_cpu", 16000000)
+                baud = data.get("baud", 9600)
+
                 if not isinstance(code, str) or not isinstance(mcu, str):
                     self._send_json({"error": "Invalid payload field types"}, status=400)
                     return
-                res = compile_sketch(code, mcu=mcu)
+
+                if isinstance(f_cpu, bool) or not isinstance(f_cpu, int) or isinstance(baud, bool) or not isinstance(baud, int):
+                    self._send_json({"error": "f_cpu and baud must be non-boolean integers"}, status=400)
+                    return
+
+                res = compile_sketch(code, mcu=mcu, f_cpu=f_cpu, baud=baud)
                 audit_logger.log_event(client_ip, parsed.path, "BUILD_SERVICE", "SUCCESS" if res.get("success") else "FAILED", {"mcu": mcu})
                 self._send_json(res)
 
@@ -169,10 +181,17 @@ class TahakomGatewayHandler(SimpleHTTPRequestHandler):
                 programmer = data.get("programmer", "arduino")
                 port = data.get("port", None)
                 confirmed = data.get("confirmed", False)
+                baud = data.get("baud", 115200)
+
                 if not isinstance(hex_content, str) or not isinstance(mcu, str) or not isinstance(programmer, str) or (port is not None and not isinstance(port, str)):
                     self._send_json({"error": "Invalid payload field types"}, status=400)
                     return
-                res = flash_hex(hex_content, mcu=mcu, programmer=programmer, port=port, confirmed=confirmed)
+
+                if isinstance(baud, bool) or not isinstance(baud, int) or isinstance(confirmed, str):
+                    self._send_json({"error": "baud must be integer and confirmed must be boolean"}, status=400)
+                    return
+
+                res = flash_hex(hex_content, mcu=mcu, programmer=programmer, port=port, baud=baud, confirmed=bool(confirmed))
                 audit_logger.log_event(client_ip, parsed.path, "HARDWARE_SERVICE", "SUCCESS" if res.get("success") else "FAILED", {"mcu": mcu, "port": port})
                 self._send_json(res)
 
