@@ -157,3 +157,19 @@
 {"timestamp": "2026-11-13T22:38:43Z", "client_ip": "127.0.0.1", "endpoint": "/api/ports", "action": "AUTH", "status": "UNAUTHORIZED", "details": {}}
 {"timestamp": "2026-11-13T22:38:43Z", "client_ip": "127.0.0.1", "endpoint": "/api/token", "action": "GET_TOKEN", "status": "SUCCESS", "details": {}}
 {"timestamp": "2026-11-13T22:38:43Z", "client_ip": "127.0.0.1", "endpoint": "/api/token", "action": "GET_TOKEN", "status": "SUCCESS", "details": {}}
+{"timestamp": "2026-11-13T22:45:17Z", "client_ip": "127.0.0.1", "endpoint": "/api/token", "action": "GET_TOKEN", "status": "SUCCESS", "details": {}}
+{"timestamp": "2026-11-13T22:45:17Z", "client_ip": "127.0.0.1", "endpoint": "/api/token", "action": "GET_TOKEN", "status": "SUCCESS", "details": {}}
+{"timestamp": "2026-11-13T22:45:17Z", "client_ip": "127.0.0.1", "endpoint": "/api/token", "action": "GET_TOKEN", "status": "SUCCESS", "details": {}}
+{"timestamp": "2026-11-13T22:45:17Z", "client_ip": "127.0.0.1", "endpoint": "/api/token", "action": "GET_TOKEN", "status": "SUCCESS", "details": {}}
+{"timestamp": "2026-11-13T22:45:17Z", "client_ip": "127.0.0.1", "endpoint": "/api/token", "action": "GET_TOKEN", "status": "SUCCESS", "details": {}}
+{"timestamp": "2026-11-13T22:45:17Z", "client_ip": "127.0.0.1", "endpoint": "/api/token", "action": "GET_TOKEN", "status": "SUCCESS", "details": {}}
+{"timestamp": "2026-11-13T22:45:17Z", "client_ip": "127.0.0.1", "endpoint": "/api/token", "action": "GET_TOKEN", "status": "SUCCESS", "details": {}}
+{"timestamp": "2026-11-13T22:45:17Z", "client_ip": "127.0.0.1", "endpoint": "/api/ports", "action": "AUTH", "status": "UNAUTHORIZED", "details": {}}
+{"timestamp": "2026-11-13T22:45:17Z", "client_ip": "127.0.0.1", "endpoint": "/api/token", "action": "GET_TOKEN", "status": "SUCCESS", "details": {}}
+{"timestamp": "2026-11-13T22:45:17Z", "client_ip": "127.0.0.1", "endpoint": "/api/token", "action": "GET_TOKEN", "status": "SUCCESS", "details": {}}
+{"timestamp": "2026-11-13T22:45:24Z", "client_ip": "127.0.0.1", "endpoint": "/api/token", "action": "GET_TOKEN", "status": "SUCCESS", "details": {}}
+{"timestamp": "2026-11-13T22:45:24Z", "client_ip": "127.0.0.1", "endpoint": "/api/compile", "action": "AUTH", "status": "UNAUTHORIZED", "details": {}}
+{"timestamp": "2026-11-13T22:45:25Z", "client_ip": "127.0.0.1", "endpoint": "/api/compile", "action": "BUILD_SERVICE", "status": "SUCCESS", "details": {"mcu": "atmega328p"}}
+{"timestamp": "2026-11-13T22:45:25Z", "client_ip": "127.0.0.1", "endpoint": "/api/compile", "action": "VALIDATION", "status": "PAYLOAD_TOO_LARGE", "details": {"size": 2097185}}
+{"timestamp": "2026-11-13T22:45:25Z", "client_ip": "127.0.0.1", "endpoint": "/api/compile", "action": "BUILD_SERVICE", "status": "FAILED", "details": {"mcu": "invalid_mcu_999"}}
+{"timestamp": "2026-11-13T22:45:25Z", "client_ip": "127.0.0.1", "endpoint": "/api/simulate", "action": "SANDBOX_SERVICE", "status": "SUCCESS", "details": {}}

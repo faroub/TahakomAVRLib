@@ -172,7 +172,10 @@ def flash_hex(hex_content: str, mcu: str = "atmega328p", programmer: str = "ardu
         else:
             cmd = ["avrdude", "-p", mcu, "-c", programmer, "-P", port, "-b", str(baud), "-U", f"flash:w:{hex_path}:i"]
 
-        proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, preexec_fn=os.setpgrp)
+        try:
+            proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, preexec_fn=os.setpgrp)
+        except FileNotFoundError:
+            return {"success": False, "error": f"Flashing tool executable '{cmd[0]}' is not installed on host system PATH."}
         kill_event = threading.Event()
         stdout_buf, stderr_buf = [], []
 
