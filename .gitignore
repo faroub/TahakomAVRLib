@@ -1,11 +1,15 @@
 # CMake build directories
 **/build/
 
-# AVR build outputs
+# AVR & ESP32 build outputs
 *.elf
 *.hex
 *.eeprom
 *.lst
+*.bin
+*.o
+*.a
+*.so
 
 # build check harness scratch directory
 scripts/.build/
@@ -17,9 +21,20 @@ docs/latex/
 # host test build artifacts
 tests/host/obj/
 
-# Python cache and runtime audit logs
+# Python cache & bytecode
 __pycache__/
-*.pyc
 **/__pycache__/
-server/audit.log*
+*.py[cod]
+*$py.class
 
+# Server runtime audit logs & temp files
+server/audit.log*
+*.log
+
+# OS & Editor generated files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/

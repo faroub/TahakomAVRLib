@@ -46,12 +46,6 @@ if [ "${1:-}" = "--baseline" ]; then
     BASELINE_MODE=1
 fi
 
-# Reliable temporary directory cleanup
-cleanup() {
-    rm -rf "${BUILD_DIR}"
-}
-trap cleanup EXIT
-
 rm -rf "${BUILD_DIR}"
 mkdir -p "${BUILD_DIR}"
 
@@ -159,6 +153,7 @@ echo "total warnings: ${TOTAL_WARNINGS}"
 # Fail closed if any build or link operations failed
 if [ "${FAILED}" -ne 0 ]; then
     echo "FAILED: compilation or linking errors occurred during build"
+    rm -rf "${BUILD_DIR}"
     exit 1
 fi
 
