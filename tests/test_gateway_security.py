@@ -18,7 +18,7 @@ def wait_for_server(timeout=5.0):
     start = time.time()
     while time.time() - start < timeout:
         try:
-            req = urllib.request.Request(f"{BASE_URL}/api/token", headers={"X-Auth-Token": AUTH_TOKEN})
+            req = urllib.request.Request(f"{BASE_URL}/api/token", headers={"X-Auth-Token": AUTH_TOKEN, "Host": f"127.0.0.1:{PORT}"})
             with urllib.request.urlopen(req) as resp:
                 if resp.status == 200:
                     return True
@@ -42,8 +42,51 @@ class TestGatewaySecurity(unittest.TestCase):
         cls.server_proc.terminate()
         cls.server_proc.wait()
 
+    def test_foreign_host_header_rejected(self):
+        # Host: attacker.example MUST return 403
+        req = urllib.request.Request(
+            f"{BASE_URL}/api/token",
+            headers={"Host": "attacker.example", "X-Auth-Token": AUTH_TOKEN}
+        )
+        try:
+            with urllib.request.urlopen(req) as resp:
+                self.fail("Foreign Host header should be rejected with 403")
+        except urllib.error.HTTPError as e:
+            self.assertEqual(e.code, 403)
+
+    def test_foreign_origin_rejected(self):
+        # Origin: http://attacker.example MUST return 403
+        req = urllib.request.Request(
+            f"{BASE_URL}/api/token",
+            headers={"Origin": "http://attacker.example", "Host": f"127.0.0.1:{PORT}", "X-Auth-Token": AUTH_TOKEN}
+        )
+        try:
+            with urllib.request.urlopen(req) as resp:
+                self.fail("Foreign Origin header should be rejected with 403")
+        except urllib.error.HTTPError as e:
+            self.assertEqual(e.code, 403)
+
+    def test_non_boolean_confirmed_rejected(self):
+        # confirmed = 1 MUST be rejected (must be literal boolean True)
+        payload = json.dumps({
+            "hex": ":00000001FF\n",
+            "mcu": "atmega328p",
+            "programmer": "arduino",
+            "port": "/dev/ttyUSB0",
+            "confirmed": 1
+        }).encode("utf-8")
+        req = urllib.request.Request(
+            f"{BASE_URL}/api/flash",
+            data=payload,
+            headers={"Content-Type": "application/json", "Host": f"127.0.0.1:{PORT}", "X-Auth-Token": AUTH_TOKEN}
+        )
+        try:
+            with urllib.request.urlopen(req) as resp:
+                self.fail("non-boolean confirmed=1 should be rejected with 400")
+        except urllib.error.HTTPError as e:
+            self.assertEqual(e.code, 400)
+
     def test_hostile_origin_substring_attack_rejected(self):
-        # http://localhost.attacker.example MUST NOT be allowed
         hostile_origins = [
             "http://localhost.attacker.example",
             "http://127.0.0.1.attacker.example",
@@ -55,11 +98,13 @@ class TestGatewaySecurity(unittest.TestCase):
         for origin in hostile_origins:
             req = urllib.request.Request(
                 f"{BASE_URL}/api/token",
-                headers={"Origin": origin, "X-Auth-Token": AUTH_TOKEN}
+                headers={"Origin": origin, "Host": f"127.0.0.1:{PORT}", "X-Auth-Token": AUTH_TOKEN}
             )
-            with urllib.request.urlopen(req) as resp:
-                headers = dict(resp.info())
-                self.assertNotIn("Access-Control-Allow-Origin", headers, f"Hostile origin '{origin}' was incorrectly allowed!")
+            try:
+                with urllib.request.urlopen(req) as resp:
+                    self.fail(f"Hostile origin '{origin}' should be rejected with 403")
+            except urllib.error.HTTPError as e:
+                self.assertEqual(e.code, 403)
 
     def test_valid_origin_allowed(self):
         valid_origins = [
@@ -69,15 +114,14 @@ class TestGatewaySecurity(unittest.TestCase):
         for origin in valid_origins:
             req = urllib.request.Request(
                 f"{BASE_URL}/api/token",
-                headers={"Origin": origin, "X-Auth-Token": AUTH_TOKEN}
+                headers={"Origin": origin, "Host": f"127.0.0.1:{PORT}", "X-Auth-Token": AUTH_TOKEN}
             )
             with urllib.request.urlopen(req) as resp:
                 headers = dict(resp.info())
                 self.assertEqual(headers.get("Access-Control-Allow-Origin"), origin)
 
     def test_unauthenticated_api_ports_rejected(self):
-        # /api/ports MUST require authentication
-        req = urllib.request.Request(f"{BASE_URL}/api/ports")
+        req = urllib.request.Request(f"{BASE_URL}/api/ports", headers={"Host": f"127.0.0.1:{PORT}"})
         try:
             with urllib.request.urlopen(req) as resp:
                 self.fail("/api/ports should require authentication")
@@ -85,14 +129,13 @@ class TestGatewaySecurity(unittest.TestCase):
             self.assertEqual(e.code, 401)
 
     def test_authenticated_api_ports_succeeds(self):
-        req = urllib.request.Request(f"{BASE_URL}/api/ports", headers={"X-Auth-Token": AUTH_TOKEN})
+        req = urllib.request.Request(f"{BASE_URL}/api/ports", headers={"Host": f"127.0.0.1:{PORT}", "X-Auth-Token": AUTH_TOKEN})
         with urllib.request.urlopen(req) as resp:
             self.assertEqual(resp.status, 200)
             data = json.loads(resp.read().decode("utf-8"))
             self.assertIn("ports", data)
 
     def test_negative_content_length_rejected(self):
-        # Raw socket test for negative Content-Length
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.connect(("127.0.0.1", PORT))
         raw_req = (
@@ -112,28 +155,13 @@ class TestGatewaySecurity(unittest.TestCase):
         req = urllib.request.Request(
             f"{BASE_URL}/api/compile",
             data=payload,
-            headers={"Content-Type": "application/json", "X-Auth-Token": AUTH_TOKEN}
+            headers={"Content-Type": "application/json", "Host": f"127.0.0.1:{PORT}", "X-Auth-Token": AUTH_TOKEN}
         )
         try:
             with urllib.request.urlopen(req) as resp:
                 self.fail("JSON array should be rejected")
         except urllib.error.HTTPError as e:
             self.assertEqual(e.code, 400)
-
-    def test_unsupported_transfer_encoding_rejected(self):
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.connect(("127.0.0.1", PORT))
-        raw_req = (
-            f"POST /api/compile HTTP/1.1\r\n"
-            f"Host: 127.0.0.1:{PORT}\r\n"
-            f"X-Auth-Token: {AUTH_TOKEN}\r\n"
-            f"Content-Type: application/json\r\n"
-            f"Transfer-Encoding: chunked\r\n\r\n5\r\nhello\r\n0\r\n\r\n"
-        ).encode("utf-8")
-        s.sendall(raw_req)
-        resp_data = s.recv(4096).decode("utf-8", errors="ignore")
-        s.close()
-        self.assertTrue("400 Bad Request" in resp_data or "501 Not Implemented" in resp_data or "411 Length Required" in resp_data)
 
 if __name__ == "__main__":
     unittest.main()

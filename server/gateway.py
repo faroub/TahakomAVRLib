@@ -1,5 +1,6 @@
 import os
 import json
+import hmac
 import secrets
 import logging
 from http.server import SimpleHTTPRequestHandler
@@ -17,6 +18,35 @@ MAX_PAYLOAD_SIZE = 1024 * 1024  # 1MB max request size
 logger = logging.getLogger("TahakomGateway")
 AUTH_TOKEN = os.environ.get("TAHAKOM_AUTH_TOKEN") or secrets.token_hex(16)
 
+def validate_host_header(host_str: str, server_port: int = 8000) -> bool:
+    """Strictly validate Host header hostname and port."""
+    if not host_str or not isinstance(host_str, str):
+        return False
+
+    host_str = host_str.strip().lower()
+
+    if host_str.startswith("["):
+        parts = host_str.split("]")
+        hostname = parts[0] + "]"
+        port_part = parts[1].lstrip(":") if len(parts) > 1 else ""
+    else:
+        parts = host_str.split(":")
+        hostname = parts[0]
+        port_part = parts[1] if len(parts) > 1 else ""
+
+    if hostname not in ("127.0.0.1", "localhost", "::1", "[::1]"):
+        return False
+
+    if port_part:
+        try:
+            port_num = int(port_part)
+            if port_num != server_port:
+                return False
+        except ValueError:
+            return False
+
+    return True
+
 def validate_origin(origin_str: str, server_port: int = 8000) -> bool:
     """Strictly parse and validate Origin scheme, hostname, and port."""
     if not origin_str or not isinstance(origin_str, str):
@@ -33,7 +63,7 @@ def validate_origin(origin_str: str, server_port: int = 8000) -> bool:
         return False
 
     hostname = (parsed.hostname or "").lower()
-    if hostname not in ("127.0.0.1", "localhost"):
+    if hostname not in ("127.0.0.1", "localhost", "::1", "[::1]"):
         return False
 
     port = parsed.port
@@ -45,35 +75,61 @@ def validate_origin(origin_str: str, server_port: int = 8000) -> bool:
 
 class TahakomGatewayHandler(SimpleHTTPRequestHandler):
     server_port = 8000
+    timeout = 5.0  # Per-connection socket read timeout
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=STATIC_DIR, **kwargs)
 
     def _verify_auth(self):
         token = self.headers.get("X-Auth-Token") or self.headers.get("x-auth-token")
-        return token == AUTH_TOKEN
+        if not token or not isinstance(token, str):
+            return False
+        return hmac.compare_digest(token, AUTH_TOKEN)
+
+    def _validate_request_headers(self) -> bool:
+        """Validate Host and Origin headers for all HTTP methods."""
+        host_header = self.headers.get("Host")
+        if not validate_host_header(host_header, self.server_port):
+            self._send_json({"error": "Forbidden Host header"}, status=403)
+            return False
+
+        origin_header = self.headers.get("Origin")
+        if origin_header and not validate_origin(origin_header, self.server_port):
+            self._send_json({"error": "Forbidden Origin header"}, status=403)
+            return False
+
+        return True
 
     def do_OPTIONS(self):
+        if not self._validate_request_headers():
+            return
         origin = self.headers.get("Origin")
+        self.send_response(204)
         if origin and validate_origin(origin, self.server_port):
-            self.send_response(204)
             self.send_header("Access-Control-Allow-Origin", origin)
             self.send_header("Access-Control-Allow-Headers", "Content-Type, X-Auth-Token")
             self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
-            self.end_headers()
-        else:
-            self._send_json({"error": "Forbidden origin"}, status=403)
+        self.end_headers()
 
     def do_PUT(self):
+        if not self._validate_request_headers():
+            return
         self._send_json({"error": "Method Not Allowed"}, status=405)
 
     def do_DELETE(self):
+        if not self._validate_request_headers():
+            return
         self._send_json({"error": "Method Not Allowed"}, status=405)
 
     def do_PATCH(self):
+        if not self._validate_request_headers():
+            return
         self._send_json({"error": "Method Not Allowed"}, status=405)
 
     def do_GET(self):
+        if not self._validate_request_headers():
+            return
+
         parsed = urlparse(self.path)
         client_ip = self.client_address[0]
 
@@ -100,6 +156,9 @@ class TahakomGatewayHandler(SimpleHTTPRequestHandler):
             super().do_GET()
 
     def do_POST(self):
+        if not self._validate_request_headers():
+            return
+
         parsed = urlparse(self.path)
         client_ip = self.client_address[0]
 
@@ -180,18 +239,23 @@ class TahakomGatewayHandler(SimpleHTTPRequestHandler):
                 mcu = data.get("mcu", "atmega328p")
                 programmer = data.get("programmer", "arduino")
                 port = data.get("port", None)
-                confirmed = data.get("confirmed", False)
+                confirmed = data.get("confirmed")
                 baud = data.get("baud", 115200)
 
                 if not isinstance(hex_content, str) or not isinstance(mcu, str) or not isinstance(programmer, str) or (port is not None and not isinstance(port, str)):
                     self._send_json({"error": "Invalid payload field types"}, status=400)
                     return
 
-                if isinstance(baud, bool) or not isinstance(baud, int) or isinstance(confirmed, str):
-                    self._send_json({"error": "baud must be integer and confirmed must be boolean"}, status=400)
+                if isinstance(baud, bool) or not isinstance(baud, int):
+                    self._send_json({"error": "baud must be integer"}, status=400)
                     return
 
-                res = flash_hex(hex_content, mcu=mcu, programmer=programmer, port=port, baud=baud, confirmed=bool(confirmed))
+                # Strict literal boolean True requirement (S5)
+                if confirmed is not True:
+                    self._send_json({"error": "Explicit user confirmation (confirmed: true) is required"}, status=400)
+                    return
+
+                res = flash_hex(hex_content, mcu=mcu, programmer=programmer, port=port, baud=baud, confirmed=True)
                 audit_logger.log_event(client_ip, parsed.path, "HARDWARE_SERVICE", "SUCCESS" if res.get("success") else "FAILED", {"mcu": mcu, "port": port})
                 self._send_json(res)
 
