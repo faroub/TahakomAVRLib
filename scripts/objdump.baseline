@@ -660,43 +660,57 @@ Disassembly of section .text.__vector_17:
 Disassembly of section .text._ZN2io3SPI14masterSendByteERKh:
 
 00000000 <_ZN2io3SPI14masterSendByteERKh>:
-   0:	0f 93       	push	r16
-   2:	1f 93       	push	r17
-   4:	cf 93       	push	r28
-   6:	df 93       	push	r29
-   8:	eb 01       	movw	r28, r22
-   a:	8c 01       	movw	r16, r24
-   c:	07 5f       	subi	r16, 0xF7	; 247
-   e:	1f 4f       	sbci	r17, 0xFF	; 255
-  10:	c8 01       	movw	r24, r16
-  12:	0e 94 00 00 	call	0	; 0x0 <_ZN2io3SPI14masterSendByteERKh>
-  16:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L14+0x7fff46>
-  1a:	88 81       	ld	r24, Y
-  1c:	8e bd       	out	0x2e, r24	; 46
-  1e:	c0 e1       	ldi	r28, 0x10	; 16
-  20:	d7 e2       	ldi	r29, 0x27	; 39
+   0:	cf 92       	push	r12
+   2:	df 92       	push	r13
+   4:	ef 92       	push	r14
+   6:	ff 92       	push	r15
+   8:	cf 93       	push	r28
+   a:	df 93       	push	r29
+   c:	7b 01       	movw	r14, r22
+   e:	ec 01       	movw	r28, r24
+  10:	29 96       	adiw	r28, 0x09	; 9
+  12:	ce 01       	movw	r24, r28
+  14:	0e 94 00 00 	call	0	; 0x0 <_ZN2io3SPI14masterSendByteERKh>
+  18:	10 92 00 00 	sts	0x0000, r1	; 0x800000 <.L14+0x7fff46>
+  1c:	f7 01       	movw	r30, r14
+  1e:	80 81       	ld	r24, Z
+  20:	8e bd       	out	0x2e, r24	; 46
+  22:	80 e1       	ldi	r24, 0x10	; 16
+  24:	c8 2e       	mov	r12, r24
+  26:	87 e2       	ldi	r24, 0x27	; 39
+  28:	d8 2e       	mov	r13, r24
+  2a:	e1 2c       	mov	r14, r1
+  2c:	f1 2c       	mov	r15, r1
 
-00000022 <.L31>:
-  22:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L14+0x7fff46>
-  26:	81 11       	cpse	r24, r1
-  28:	00 c0       	rjmp	.+0      	; 0x2a <.L31+0x8>
-  2a:	21 97       	sbiw	r28, 0x01	; 1
-  2c:	01 f4       	brne	.+0      	; 0x2e <.L30>
+0000002e <.L31>:
+  2e:	80 91 00 00 	lds	r24, 0x0000	; 0x800000 <.L14+0x7fff46>
+  32:	81 11       	cpse	r24, r1
+  34:	00 c0       	rjmp	.+0      	; 0x36 <.L31+0x8>
+  36:	f1 e0       	ldi	r31, 0x01	; 1
+  38:	cf 1a       	sub	r12, r31
+  3a:	d1 08       	sbc	r13, r1
+  3c:	e1 08       	sbc	r14, r1
+  3e:	f1 08       	sbc	r15, r1
+  40:	01 f4       	brne	.+0      	; 0x42 <.L30>
 
-0000002e <.L30>:
-  2e:	c8 01       	movw	r24, r16
-  30:	0e 94 00 00 	call	0	; 0x0 <_ZN2io3SPI14masterSendByteERKh>
-  34:	81 e0       	ldi	r24, 0x01	; 1
-  36:	cd 2b       	or	r28, r29
-  38:	01 f4       	brne	.+0      	; 0x3a <.L30+0xc>
-  3a:	80 e0       	ldi	r24, 0x00	; 0
+00000042 <.L30>:
+  42:	ce 01       	movw	r24, r28
+  44:	0e 94 00 00 	call	0	; 0x0 <_ZN2io3SPI14masterSendByteERKh>
+  48:	81 e0       	ldi	r24, 0x01	; 1
+  4a:	cd 28       	or	r12, r13
+  4c:	ce 28       	or	r12, r14
+  4e:	cf 28       	or	r12, r15
+  50:	01 f4       	brne	.+0      	; 0x52 <.L30+0x10>
+  52:	80 e0       	ldi	r24, 0x00	; 0
 
-0000003c <.L32>:
-  3c:	df 91       	pop	r29
-  3e:	cf 91       	pop	r28
-  40:	1f 91       	pop	r17
-  42:	0f 91       	pop	r16
-  44:	08 95       	ret
+00000054 <.L32>:
+  54:	df 91       	pop	r29
+  56:	cf 91       	pop	r28
+  58:	ff 90       	pop	r15
+  5a:	ef 90       	pop	r14
+  5c:	df 90       	pop	r13
+  5e:	cf 90       	pop	r12
+  60:	08 95       	ret
 
 Disassembly of section .text._ZN2io3SPI17masterReceiveByteERh:
 

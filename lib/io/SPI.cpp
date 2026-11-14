@@ -12,7 +12,9 @@
 volatile uint8_t io::SPI::m_data = 0;
 volatile uint8_t io::SPI::m_transferComplete = 0;
 
+#ifndef SPI_TIMEOUT_CYCLES
 #define SPI_TIMEOUT_CYCLES 10000U
+#endif
 
 io::SPI& io::SPI::getInstance(const Pin &ar_pinSCK,
                               const Pin &ar_pinMISO,
@@ -130,7 +132,7 @@ uint8_t io::SPI::masterSendByte(const uint8_t &ar_byte)
     m_transferComplete = 0;
     SPI_DATA_REGISTER = ar_byte;
 
-    uint16_t timeout = SPI_TIMEOUT_CYCLES;
+    uint32_t timeout = SPI_TIMEOUT_CYCLES;
     while (m_transferComplete == 0 && --timeout) {}
 
     // ALWAYS deassert SS on exit path

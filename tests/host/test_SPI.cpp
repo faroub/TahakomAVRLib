@@ -18,6 +18,10 @@
 
 #include "host_registers.h"
 
+#ifndef SPI_TIMEOUT_CYCLES
+#define SPI_TIMEOUT_CYCLES 200000000U
+#endif
+
 #include "SPI.h"
 
 static uint8_t failures = 0;

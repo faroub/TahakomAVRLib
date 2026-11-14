@@ -9,7 +9,7 @@
 #   make clean  remove build artifacts
 
 CXX      ?= g++
-CXXFLAGS ?= -std=c++11 -Wall -Wextra -Wno-attributes -D__AVR_ATmega328P__ -DF_CPU=16000000UL -DBAUD=9600
+CXXFLAGS ?= -std=c++11 -Wall -Wextra -Wno-attributes -D__AVR_ATmega328P__ -DF_CPU=16000000UL -DBAUD=9600 -DSPI_TIMEOUT_CYCLES=200000000U
 
 STUBS    := -Istubs
 LIB_INC  := -I../../lib/core -I../../lib/io -I../../lib/component -I../../lib/utils
@@ -24,7 +24,17 @@ TESTS := $(OBJ_DIR)/test_WatchdogTimer $(OBJ_DIR)/test_ExternInterrupt $(OBJ_DIR
 all: $(TESTS)
 
 test: all
-	@set -e; for t in $(TESTS); do echo "=== $$t ==="; ./$$t; done
+	@failed=""; \
+	for t in $(TESTS); do \
+		echo "=== $$t ==="; \
+		if ! ./$$t; then \
+			failed="$$failed $$t"; \
+		fi; \
+	done; \
+	if [ -n "$$failed" ]; then \
+		echo "FAILED TEST BINARIES:$$failed"; \
+		exit 1; \
+	fi
 
 test_WatchdogTimer_OBJS := $(OBJ_DIR)/WatchdogTimer.o
 test_ExternInterrupt_OBJS := $(OBJ_DIR)/ExternInterrupt.o
