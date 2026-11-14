@@ -1,4 +1,5 @@
 import os
+import re
 import glob
 import signal
 import threading
@@ -139,6 +140,9 @@ def flash_hex(hex_content: str, mcu: str = "atmega328p", programmer: str = "ardu
     if programmer not in ALLOWED_PROGRAMMERS:
         return {"success": False, "error": f"Unsupported programmer type: '{programmer}'"}
 
+    if isinstance(baud, bool) or not isinstance(baud, int) or not (1200 <= baud <= 921600):
+        return {"success": False, "error": f"Baud rate must be an integer in 1200..921600, got '{baud}'"}
+
     # Validate MCU / Programmer compatibility matrix
     permitted_programmers = MCU_PROGRAMMER_MATRIX.get(mcu, set())
     if programmer not in permitted_programmers:
@@ -152,13 +156,16 @@ def flash_hex(hex_content: str, mcu: str = "atmega328p", programmer: str = "ardu
     if not is_valid:
         return {"success": False, "error": f"Invalid Intel HEX: {msg}"}
 
-    # Strict Port Requirement (Prompt 05)
+    # Strict Port Validation (S3)
     if not port or not isinstance(port, str):
         return {"success": False, "error": "Explicit serial port selection required. Auto-selection disabled for hardware safety."}
 
+    if not re.fullmatch(r"/dev/tty(ACM|USB)\d{1,3}", port):
+        return {"success": False, "error": f"Invalid serial port name pattern: '{port}'"}
+
     available_ports = list_serial_ports()
-    if port not in available_ports and not (port.startswith("/dev/ttyACM") or port.startswith("/dev/ttyUSB")):
-        return {"success": False, "error": f"Invalid or non-permitted serial port: '{port}'"}
+    if port not in available_ports:
+        return {"success": False, "error": f"Serial port '{port}' is non-existent or not currently detected"}
 
     hex_path = None
     try:
@@ -176,6 +183,7 @@ def flash_hex(hex_content: str, mcu: str = "atmega328p", programmer: str = "ardu
             proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, preexec_fn=os.setpgrp)
         except FileNotFoundError:
             return {"success": False, "error": f"Flashing tool executable '{cmd[0]}' is not installed on host system PATH."}
+
         kill_event = threading.Event()
         stdout_buf, stderr_buf = [], []
 
